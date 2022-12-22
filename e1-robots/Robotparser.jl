@@ -1,7 +1,3 @@
-module RobotParser
-
-using Data
-
 export parseline_robots
 
 """
@@ -20,5 +16,3 @@ function parseline_robots(line::AbstractString)::IOExample
     output = parseintlist(split_line[2])
     return IOExample(input, output)
 end
-
-end # module

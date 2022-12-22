@@ -1,7 +1,3 @@
-module StringParser
-
-using Data
-
 export parseline_strings
 
 """
@@ -20,5 +16,3 @@ function parseline_strings(line::AbstractString)::IOExample
     output = parsecharlist(matches[2])
     return IOExample(input, output)
 end
-
-end # Module

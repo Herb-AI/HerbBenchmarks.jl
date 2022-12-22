@@ -1,7 +1,3 @@
-module PixelParser
-
-using Data
-
 export parseline_pixels
 
 """
@@ -24,5 +20,3 @@ function parseline_pixels(line::AbstractString)::IOExample
     output = reshape(parseboollist(matches[6]), (output_width, output_height))
     return IOExample(input, output)
 end
-
-end # module
