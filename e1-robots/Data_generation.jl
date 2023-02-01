@@ -13,18 +13,13 @@ function rand_coord(size::Integer)::String
 end
 
 
-function rand_flag()
-    return rand(0:1)
-end
-
-
 """
 Generates a random `robots` state
 """
 function rand_state(size::Integer)::String
     robo_pos = rand_coord(size)
     ball_pos = rand_coord(size)
-    holding = if (robo_pos == ball_pos) rand_flag() else 0 end
+    holding = if (robo_pos == ball_pos) rand(0:1) else 0 end
     return "w($robo_pos,$ball_pos,$holding,$size)"
 end
 
