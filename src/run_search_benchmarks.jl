@@ -49,9 +49,9 @@ function time_search(grammar, examples, root_type, enumerator=enumerator)
     return permutedims(results)
 end
 
-println("Running tests with heuristic_smallest_domain")
+println("Running search tests with heuristic_smallest_domain")
 
-for (grammar, example, root_type) ∈ tests
+for (grammar, grammar_description, example, root_type) ∈ tests
     get_enumerator(grammar, max_depth, max_size, start_symbol) = get_bfs_enumerator(grammar, max_depth, max_size, start_symbol, heuristic_smallest_domain)
     results = time_search(grammar, example, root_type, get_enumerator)
 
@@ -59,9 +59,9 @@ for (grammar, example, root_type) ∈ tests
     pretty_table(results; header=header, formatters=formatter)
 end
 
-println("Running tests without heuristic_smallest_domain")
+println("Running search tests without heuristic_smallest_domain")
 
-for (grammar, example, root_type) ∈ tests
+for (grammar, grammar_description, example, root_type) ∈ tests
     get_enumerator(grammar, max_depth, max_size, start_symbol) = get_bfs_enumerator(grammar, max_depth, max_size, start_symbol)
     results = time_search(grammar, example, root_type, get_enumerator)
     # Print the results using PrettyTables
