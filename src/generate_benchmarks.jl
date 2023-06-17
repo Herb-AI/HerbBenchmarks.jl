@@ -75,6 +75,7 @@ g₁ = Herb.HerbGrammar.@csgrammar begin
     Real = y
     Real = z
 end
+description_g₁ = "Grammar with arithmetic operations"
 
 examples₁ = io_examples_all(g₁, 
     :Real, 
@@ -114,7 +115,7 @@ examples₁ = io_examples_all(g₁,
 # examples₃ = io_examples_all(g₃, :List, 12, 40, [:x, :y, :z], Vector{Any}[[-1, 0, 1, 2], [-1, 0, 1, 2], [-1, 0, 1, 2]], 10, 0)
 
 tests = [
-    (g₁, examples₁, :Real),
+    (g₁, description_g₁, examples₁, :Real),
     # (g₂, examples₂, :Bool),
     # (g₃, examples₃, :List)
 ]

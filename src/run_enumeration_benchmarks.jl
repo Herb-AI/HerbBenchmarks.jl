@@ -61,9 +61,9 @@ function run_enumeration(get_enumerator)
     pretty_table(results; header=header, formatters=formatter)    
 end
 
-println("Running enumeration tests with heuristic_smallest_domain")
-get_enumerator_with_heuristic_smallest_domain(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type, heuristic_smallest_domain)
-run_enumeration(get_enumerator_with_heuristic_smallest_domain)
+# println("Running enumeration tests with heuristic_smallest_domain")
+# get_enumerator_with_heuristic_smallest_domain(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type, heuristic_smallest_domain)
+# run_enumeration(get_enumerator_with_heuristic_smallest_domain)
 
 println("Running enumeration tests without heuristic_smallest_domain")
 get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type)
