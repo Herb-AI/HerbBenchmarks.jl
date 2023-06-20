@@ -77,8 +77,6 @@ g₁ = Herb.HerbGrammar.@csgrammar begin
     Real = z           # 6
 end
 
-description_g₁ = "Grammar with arithmetic operations"
-
 examples₁ = io_examples_all(g₁, 
     :Real, 
     [:x, :y, :z], 
@@ -126,8 +124,8 @@ constraints_non_local₁ = [
 # examples₃ = io_examples_all(g₃, :List, 12, 40, [:x, :y, :z], Vector{Any}[[-1, 0, 1, 2], [-1, 0, 1, 2], [-1, 0, 1, 2]], 10, 0)
 
 tests = [
-    # (g₁, description_g₁, examples₁, constraints_forbidden₁, :Real),
-    (g₁, description_g₁, examples₁, constraints_non_local₁, :Real),
+    (g₁, "Grammar 1, forbidden constraints", examples₁, constraints_forbidden₁, :Real),
+    (g₁, "Grammar 1, non local constraints", examples₁, constraints_non_local₁, :Real),
     # (g₂, examples₂, :Bool),
     # (g₃, examples₃, :List)
 ]

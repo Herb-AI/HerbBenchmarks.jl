@@ -21,7 +21,7 @@ catch e
     println("generate the tests first (tests.bin)")
 end
 
-header = ["Grammar", "max program size", "Elapsed Time (s)", "Memory Allocated (MB)", "GC Time (s)", "GC Time (%)"]
+header = ["Grammar", "count", "max program size", "Elapsed Time (s)", "Memory Allocated (MB)", "GC Time (s)", "GC Time (%)"]
 formatter = (v, i, j) -> 
     if j == 1
         return @sprintf("%s", v)
@@ -57,7 +57,7 @@ function run_enumeration(get_enumerator, add_constraints=false)
         for max_size ∈ max_sizes 
             enumerator = get_enumerator(grammar, typemax(Int), max_size, root_type) 
             timing = time_enumerate(enumerator)
-            results[:,i] = [description, max_size, timing.time, timing.bytes/1e6, timing.gctime, timing.gctime/timing.time*100.0]
+            results[:,i] = [description, timing.value, max_size, timing.time, timing.bytes/1e6, timing.gctime, timing.gctime/timing.time*100.0]
             i += 1
         end
     end
@@ -74,11 +74,11 @@ println("Running enumeration tests - DFS, no constraints")
 get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type)
 run_enumeration(get_enumerator)
 
-println("Running enumeration tests - smallest domain, forbidden constraint")
+println("Running enumeration tests - smallest domain, with constraints")
 get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type, heuristic_smallest_domain)
 run_enumeration(get_enumerator, true)
 
-println("Running enumeration tests - DFS, forbidden constraint")
+println("Running enumeration tests - DFS, with constraints")
 get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type)
 run_enumeration(get_enumerator, true)
 
