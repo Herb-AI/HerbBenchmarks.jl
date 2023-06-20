@@ -71,9 +71,9 @@ g₁ = Herb.HerbGrammar.@csgrammar begin
     Real = Real + Real # 1
     Real = Real - Real # 2
     Real = Real * Real # 3
-    Real = x           
-    Real = y
-    Real = z
+    Real = x           # 4
+    Real = y           # 5 
+    Real = z           # 6
 end
 description_g₁ = "Grammar with arithmetic operations"
 
