@@ -67,6 +67,7 @@ function io_examples(grammar:: Grammar, program:: RuleNode, variables:: Vector{S
     return ret
 end
 
+# Test 1
 g₁ = Herb.HerbGrammar.@csgrammar begin
     Real = Real + Real # 1
     Real = Real - Real # 2
@@ -75,6 +76,7 @@ g₁ = Herb.HerbGrammar.@csgrammar begin
     Real = y           # 5 
     Real = z           # 6
 end
+
 description_g₁ = "Grammar with arithmetic operations"
 
 examples₁ = io_examples_all(g₁, 
@@ -84,15 +86,17 @@ examples₁ = io_examples_all(g₁,
         [-1, 2], 
         [-2, 1], 
         [-3, 3]
-    ]; min_size=6, max_size=8, max_count=10, skip=10)
-# for (program, e) in examples₁
-#     println(rulenode2expr(program, g₁))
-#     for ex in e
-#         println(ex)
-#     end
-# end
-# println("")
+    ],
+    min_size=6, max_size=8, max_count=10, skip=10
+)
 
+constraints₁ = [
+    Forbidden(MatchNode(1, [MatchNode(4), MatchNode(5)])),
+    Forbidden(MatchNode(2, [MatchNode(5), MatchNode(6)])),
+    Forbidden(MatchNode(3, [MatchNode(4), MatchNode(6)])),
+]
+
+# Test 2
 # g₂ = Herb.HerbGrammar.@csgrammar begin
 #     Bool = Bool & Bool
 #     Bool = Bool | Bool
@@ -104,6 +108,7 @@ examples₁ = io_examples_all(g₁,
 
 # examples₂ = io_examples_all(g₂, :Bool, 3, 5, [:x, :y, :z], Vector{Any}[[true, false], [true, false], [true, false]], 10, 10)
 
+# Test 3
 # g₃ = Herb.HerbGrammar.@csgrammar begin
 #     List = (Item, List)
 #     List = :Nil
@@ -115,7 +120,7 @@ examples₁ = io_examples_all(g₁,
 # examples₃ = io_examples_all(g₃, :List, 12, 40, [:x, :y, :z], Vector{Any}[[-1, 0, 1, 2], [-1, 0, 1, 2], [-1, 0, 1, 2]], 10, 0)
 
 tests = [
-    (g₁, description_g₁, examples₁, :Real),
+    (g₁, description_g₁, examples₁, constraints₁, :Real),
     # (g₂, examples₂, :Bool),
     # (g₃, examples₃, :List)
 ]
@@ -128,5 +133,4 @@ end
 
 println("Generated tests and written them to $fout")
 
-end # module  
-
+end

@@ -44,13 +44,16 @@ function time_enumerate(enumerator)
 end
 
 
-function run_enumeration(get_enumerator, add_constraints=nothing)
+function run_enumeration(get_enumerator, add_constraints=false)
     max_sizes = [1, 3, 5, 7]
     results = Array{Any}(undef, length(header), length(tests) * length(max_sizes))
     i = 1
-    for (index, (g, description, _, root_type)) ∈ enumerate(tests)
+    for (test_index, (g, description, _, constraints, root_type)) ∈ enumerate(tests)
         grammar = deepcopy(g)
-        if !isnothing(add_constraints) add_constraints(grammar, index) end
+        if add_constraints 
+            for c ∈ constraints addconstraint!(grammar, c) end        
+        end
+
         for max_size ∈ max_sizes 
             enumerator = get_enumerator(grammar, typemax(Int), max_size, root_type) 
             timing = time_enumerate(enumerator)
@@ -63,24 +66,16 @@ function run_enumeration(get_enumerator, add_constraints=nothing)
     pretty_table(results; header=header, formatters=formatter)    
 end
 
-function add_constraints(grammar, index) 
-    if index == 1 
-        addconstraint!(grammar, Forbidden(MatchNode(1, [MatchVar(:x), MatchVar(:y)]))) # forbid x + y
-        addconstraint!(grammar, Forbidden(MatchNode(2, [MatchVar(:y), MatchVar(:z)]))) # forbid y - z
-        addconstraint!(grammar, Forbidden(MatchNode(3, [MatchVar(:x), MatchVar(:z)]))) # forbid x * z
-    end
-end
-
 # println("Running enumeration tests with heuristic_smallest_domain")
 # get_enumerator_with_heuristic_smallest_domain(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type, heuristic_smallest_domain)
 # run_enumeration(get_enumerator_with_heuristic_smallest_domain)
 
-println("Running enumeration tests without heuristic_smallest_domain")
-get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type)
-run_enumeration(get_enumerator)
-
-# println("Running enumeration tests with forbidden constraints")
+# println("Running enumeration tests without heuristic_smallest_domain")
 # get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type)
-# run_enumeration(get_enumerator, add_contraints)
+# run_enumeration(get_enumerator)
+
+println("Running enumeration tests with forbidden constraints")
+get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type)
+run_enumeration(get_enumerator, true)
 
 end
