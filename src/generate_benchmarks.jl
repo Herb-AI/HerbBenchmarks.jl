@@ -90,10 +90,16 @@ examples₁ = io_examples_all(g₁,
     min_size=6, max_size=8, max_count=10, skip=10
 )
 
-constraints₁ = [
+constraints_forbidden₁ = [
     Forbidden(MatchNode(1, [MatchNode(4), MatchNode(5)])),
     Forbidden(MatchNode(2, [MatchNode(5), MatchNode(6)])),
     Forbidden(MatchNode(3, [MatchNode(4), MatchNode(6)])),
+]
+
+constraints_non_local₁ = [
+    ForbiddenPath([1, 1, 4]),
+    ForbiddenPath([1, 2, 4]),
+    ComesAfter(5, [1]),
 ]
 
 # Test 2
@@ -120,7 +126,8 @@ constraints₁ = [
 # examples₃ = io_examples_all(g₃, :List, 12, 40, [:x, :y, :z], Vector{Any}[[-1, 0, 1, 2], [-1, 0, 1, 2], [-1, 0, 1, 2]], 10, 0)
 
 tests = [
-    (g₁, description_g₁, examples₁, constraints₁, :Real),
+    # (g₁, description_g₁, examples₁, constraints_forbidden₁, :Real),
+    (g₁, description_g₁, examples₁, constraints_non_local₁, :Real),
     # (g₂, examples₂, :Bool),
     # (g₃, examples₃, :List)
 ]
