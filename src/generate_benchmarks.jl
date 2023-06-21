@@ -183,7 +183,7 @@ constraints_non_local₂ = [
 tests = [
     (g₁, "Grammar 1, no constraints", examples₁, [], :Real),
     (g₁, "Grammar 1, forbidden constraints", examples₁_forbidden_constraints, constraints_forbidden₁, :Real),
-    (g₁, "Grammar 1, non local constraints", examples₁, examples₁_non_local_constraints, :Real),
+    (g₁, "Grammar 1, non local constraints", examples₁_non_local_constraints, constraints_non_local₁, :Real),
 
     (g₂, "Grammar 2, no constraints", examples₂, [], :Real),
     (g₂, "Grammar 2, forbidden constraints", examples₂, constraints_forbidden₂, :Real),
