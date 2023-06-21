@@ -68,6 +68,8 @@ function io_examples(grammar:: Grammar, program:: RuleNode, variables:: Vector{S
 end
 
 # Test 1
+println("Grammar 1")
+
 g₁ = Herb.HerbGrammar.@csgrammar begin
     Real = Real + Real # 1
     Real = Real - Real # 2
@@ -101,6 +103,34 @@ constraints_non_local₁ = [
 ]
 
 # Test 2
+println("Grammar 2")
+
+g₂ = Herb.HerbGrammar.@csgrammar begin
+    Real = Real + Real # 1
+    Real = Real - Real # 2
+    Real = Real * Real # 3
+    Real = x           # 4
+end
+
+examples₂ = io_examples_all(g₂, 
+    :Real, 
+    [:x], 
+    Vector{Any}[
+        [-5, -3, -2, -1, 2, 3, 4, 5], 
+    ],
+    min_size=6, max_size=8, max_count=10, skip=10
+)
+
+constraints_forbidden₂ = [
+    Forbidden(MatchNode(1, [MatchNode(4), MatchNode(4)])), # x + x
+    Forbidden(MatchNode(2, [MatchNode(1), MatchNode(3)])), # (? + ?) - (? * ?)
+]
+
+constraints_non_local₂ = [
+    ComesAfter(4, [1]),
+]
+
+# Test 2
 # g₂ = Herb.HerbGrammar.@csgrammar begin
 #     Bool = Bool & Bool
 #     Bool = Bool | Bool
@@ -124,10 +154,13 @@ constraints_non_local₁ = [
 # examples₃ = io_examples_all(g₃, :List, 12, 40, [:x, :y, :z], Vector{Any}[[-1, 0, 1, 2], [-1, 0, 1, 2], [-1, 0, 1, 2]], 10, 0)
 
 tests = [
+    (g₁, "Grammar 1, no constraints", examples₁, [], :Real),
     (g₁, "Grammar 1, forbidden constraints", examples₁, constraints_forbidden₁, :Real),
     (g₁, "Grammar 1, non local constraints", examples₁, constraints_non_local₁, :Real),
-    # (g₂, examples₂, :Bool),
-    # (g₃, examples₃, :List)
+
+    (g₂, "Grammar 2, no constraints", examples₂, [], :Real),
+    (g₂, "Grammar 2, forbidden constraints", examples₂, constraints_forbidden₂, :Real),
+    (g₂, "Grammar 2, non local constraints", examples₂, constraints_non_local₂, :Real),
 ]
 
 fout = "tests.bin"
