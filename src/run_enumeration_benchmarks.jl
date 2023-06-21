@@ -26,11 +26,11 @@ println("Do you want to print in latex format? y/n")
 s = readline()
 print_latext_format = lowercase(s) == "y" || lowercase(s) == "yes"
 
-header = ["Grammar", "count", "max program size", "Elapsed Time (s)", "Memory Allocated (MB)", "GC Time (s)", "GC Time (%)"]
+header = ["Grammar", "count", "max program size", "Elapsed Time (s)", "Memory Allocated (MB)", "GC Time (s)", "GC Time (%)", "Constraint Propagations", "Local Constraint Propagations"]
 formatter = (v, i, j) -> 
     if j == 1
         return @sprintf("%s", v)
-    elseif j == 2
+    elseif j == 2 || j == 8 || j == 9
         return @sprintf("%d", v)
     else
         return @sprintf("%.3f", v)
@@ -53,7 +53,7 @@ function run_enumeration(get_enumerator, add_constraints=false)
     max_sizes = [1, 3, 5, 7]
     results = Array{Any}(undef, length(header), length(tests) * length(max_sizes))
     i = 1
-    for (test_index, (g, description, _, constraints, root_type)) ∈ enumerate(tests)
+    for (g, description, _, constraints, root_type) ∈ tests
         grammar = deepcopy(g)
         if add_constraints 
             for c ∈ constraints addconstraint!(grammar, c) end        
@@ -62,7 +62,11 @@ function run_enumeration(get_enumerator, add_constraints=false)
         for max_size ∈ max_sizes 
             enumerator = get_enumerator(grammar, typemax(Int), max_size, root_type) 
             timing = time_enumerate(enumerator)
-            results[:,i] = [description, timing.value, max_size, timing.time, timing.bytes/1e6, timing.gctime, timing.gctime/timing.time*100.0]
+
+            benchmarking_propagations_counter, benchmarking_propagations_counter_local = get_benchmarking_counters()
+            results[:,i] = [description, timing.value, max_size, timing.time, timing.bytes/1e6, timing.gctime, timing.gctime/timing.time*100.0, benchmarking_propagations_counter, benchmarking_propagations_counter_local]
+            benchmarking_propagations_counter = 0
+            benchmarking_propagations_counter_local = 0
             i += 1
         end
     end

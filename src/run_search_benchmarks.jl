@@ -26,10 +26,12 @@ println("Do you want to print in latex format? y/n")
 s = readline()
 print_latext_format = lowercase(s) == "y" || lowercase(s) == "yes"
 
-header = ["Origial Program", "Resulting Program", "Elapsed Time (s)", "Memory Allocated (MB)", "GC Time (s)", "GC Time (%)"]
+header = ["Origial Program", "Resulting Program", "Elapsed Time (s)", "Memory Allocated (MB)", "GC Time (s)", "GC Time (%)", "Constraint Propagations", "Local Constraint Propagations"]
 formatter = (v, i, j) -> 
     if j <= 2
         return @sprintf("%s", v)
+    elseif j == 7 || j == 8
+        return @sprintf("%d", v)
     else
         return @sprintf("%.3f", v)
     end
@@ -47,7 +49,10 @@ function time_search(grammar, examples, root_type, enumerator=enumerator)
 
         # println("Original program: $original_expr\t| Number of IOExamples: $(length(ioexamples))\t| Resulting program: $result")
 
-        results[:,i] = [string(original_expr), string(result), timing.time, timing.bytes/1e6, timing.gctime, timing.gctime/timing.time*100.0]
+        benchmarking_propagations_counter, benchmarking_propagations_counter_local = get_benchmarking_counters()
+        results[:,i] = [string(original_expr), string(result), timing.time, timing.bytes/1e6, timing.gctime, timing.gctime/timing.time*100.0, benchmarking_propagations_counter, benchmarking_propagations_counter_local]
+        benchmarking_propagations_counter = 0
+        benchmarking_propagations_counter_local = 0
         i += 1
     end
 
