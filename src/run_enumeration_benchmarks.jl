@@ -99,7 +99,4 @@ run_enumeration(get_enumerator, true)
 end
 
 # TODO:
-# - latex table OK
-# - average OK
-# - one more grammar
 # - count propagations

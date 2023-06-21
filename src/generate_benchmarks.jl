@@ -96,11 +96,38 @@ constraints_forbidden₁ = [
     Forbidden(MatchNode(3, [MatchNode(4), MatchNode(6)])),
 ]
 
+g₁_clone = deepcopy(g₁)
+for c in constraints_forbidden₁
+    addconstraint!(g₁_clone, c)
+end
+examples₁_forbidden_constraints = io_examples_all(g₁_clone, 
+    :Real, 
+    [:x, :y, :z], 
+    Vector{Any}[
+        [-1, 2], 
+        [-2, 1], 
+        [-3, 3]
+    ],
+    min_size=6, max_size=8, max_count=10, skip=10)
+
 constraints_non_local₁ = [
     ForbiddenPath([1, 1, 4]),
     ForbiddenPath([1, 2, 4]),
     ComesAfter(5, [1]),
 ]
+g₁_clone = deepcopy(g₁)
+for c in constraints_non_local₁
+    addconstraint!(g₁_clone, c)
+end
+examples₁_non_local_constraints = io_examples_all(g₁_clone, 
+    :Real, 
+    [:x, :y, :z], 
+    Vector{Any}[
+        [-1, 2], 
+        [-2, 1], 
+        [-3, 3]
+    ],
+    min_size=6, max_size=8, max_count=10, skip=10)
 
 # Test 2
 println("Grammar 2")
@@ -155,8 +182,8 @@ constraints_non_local₂ = [
 
 tests = [
     (g₁, "Grammar 1, no constraints", examples₁, [], :Real),
-    (g₁, "Grammar 1, forbidden constraints", examples₁, constraints_forbidden₁, :Real),
-    (g₁, "Grammar 1, non local constraints", examples₁, constraints_non_local₁, :Real),
+    (g₁, "Grammar 1, forbidden constraints", examples₁_forbidden_constraints, constraints_forbidden₁, :Real),
+    (g₁, "Grammar 1, non local constraints", examples₁, examples₁_non_local_constraints, :Real),
 
     (g₂, "Grammar 2, no constraints", examples₂, [], :Real),
     (g₂, "Grammar 2, forbidden constraints", examples₂, constraints_forbidden₂, :Real),
