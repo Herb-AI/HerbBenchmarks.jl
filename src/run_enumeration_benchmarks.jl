@@ -21,6 +21,11 @@ catch e
     println("generate the tests first (tests.bin)")
 end
 
+print_latext_format = false
+println("Do you want to print in latex format? y/n")
+s = readline()
+print_latext_format = lowercase(s) == "y" || lowercase(s) == "yes"
+
 header = ["Grammar", "count", "max program size", "Elapsed Time (s)", "Memory Allocated (MB)", "GC Time (s)", "GC Time (%)"]
 formatter = (v, i, j) -> 
     if j == 1
@@ -63,18 +68,27 @@ function run_enumeration(get_enumerator, add_constraints=false)
     end
     
     results = permutedims(results)
-    pretty_table(results; header=header, formatters=formatter)    
+    if print_latext_format
+        pretty_table(results; backend = Val(:latex), header=header, formatters=formatter)    
+    else
+        pretty_table(results; header=header, formatters=formatter)
+    end
+
+    avg_time = sum(results[:,4]) / length(results[:,4])
+    println("average elapsed time (s): $(round(avg_time, digits=3))")
+    avg_mem = sum(results[:,5]) / length(results[:,5])
+    println("average memory allocated (MB): $(round(avg_mem, digits=3))")
 end
 
-println("Running enumeration tests - smallest domain, no constraints")
+println("\nRunning enumeration tests - smallest domain, no constraints")
 get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type, heuristic_smallest_domain)
 run_enumeration(get_enumerator)
 
-println("Running enumeration tests - DFS, no constraints")
+println("\nRunning enumeration tests - DFS, no constraints")
 get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type)
 run_enumeration(get_enumerator)
 
-println("Running enumeration tests - smallest domain, with constraints")
+println("\nRunning enumeration tests - smallest domain, with constraints")
 get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(grammar, max_depth, max_size, root_type, heuristic_smallest_domain)
 run_enumeration(get_enumerator, true)
 
@@ -83,3 +97,9 @@ get_enumerator(grammar, max_depth, max_size, root_type) = get_bfs_enumerator(gra
 run_enumeration(get_enumerator, true)
 
 end
+
+# TODO:
+# - latex table OK
+# - average OK
+# - one more grammar
+# - count propagations
