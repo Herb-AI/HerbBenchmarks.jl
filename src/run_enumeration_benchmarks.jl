@@ -2,14 +2,7 @@ module dev
 
 include("Herb.jl")
 
-using .Herb
 using Revise
-
-using .Herb.HerbConstraints
-using .Herb.HerbGrammar
-using .Herb.HerbSearch
-using .Herb.HerbData
-using .Herb.HerbEvaluation
 
 using Serialization
 using PrettyTables

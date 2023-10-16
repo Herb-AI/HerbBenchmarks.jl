@@ -1,15 +1,13 @@
 module dev
 
-include("Herb.jl")
-
-using .Herb
 using Revise
 
-using .Herb.HerbConstraints
-using .Herb.HerbGrammar
-using .Herb.HerbSearch
-using .Herb.HerbData
-using .Herb.HerbEvaluation
+using HerbCore
+using HerbConstraints
+using HerbGrammar
+using HerbSearch
+using HerbData
+using HerbEvaluation
 
 using Serialization
 
@@ -70,7 +68,7 @@ end
 # Test 1
 println("Grammar 1")
 
-g₁ = Herb.HerbGrammar.@csgrammar begin
+g₁ = HerbGrammar.@csgrammar begin
     Real = Real + Real # 1
     Real = Real - Real # 2
     Real = Real * Real # 3
@@ -132,7 +130,7 @@ examples₁_non_local_constraints = io_examples_all(g₁_clone,
 # Test 2
 println("Grammar 2")
 
-g₂ = Herb.HerbGrammar.@csgrammar begin
+g₂ = HerbGrammar.@csgrammar begin
     Real = Real + Real # 1
     Real = Real - Real # 2
     Real = Real * Real # 3
