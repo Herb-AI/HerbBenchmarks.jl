@@ -2,18 +2,12 @@ module String_transformations_2020
 
 using HerbData
 
-include("train_data.jl")
-include("test_data.jl")
+# include("train_data.jl")
+# include("test_data.jl")
 
 export 
     parseline_string_transformations,
-    problem,
-    partitions
-
-
-
-
-
+    problem
 
 
 """
