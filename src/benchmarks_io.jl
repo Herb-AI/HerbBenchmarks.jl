@@ -21,9 +21,10 @@ end
 """
 
 """
-function write_problem(filepath::String, problem::Problem, name::String="")
-    file = open(filepath, "w")
-    write(file, "problem_$(name) = $(problem)")
+function write_problem(filepath::String, problem::Problem, name::String="", mode::String="a")
+    file = open(filepath, mode)
+    name = replace(name, "-" => "_")
+    write(file, "problem_$(name) = $(problem)\n")
     close(file)
 end
 

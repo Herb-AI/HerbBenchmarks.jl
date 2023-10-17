@@ -3,27 +3,33 @@ using HerbData
 using HerbCore
 
 include("src/benchmarks_io.jl")
-include("data/String_transformations_2020/String_transformations_2020.jl")
+# include("src/data/String_transformations_2020/String_transformations_2020.jl")
+include("src/data/Robots_2020/Robots_2020.jl")
 
-using .String_transformations_2020
+using .Robots_2020
 
-function enumerate_files(path::String)::Vector{String}
-    if !isdir(path)
-        throw(ArgumentError("'$path' is not a directory."))
+function enumerate_files(input_path::String, output_path::String, line_parser::Function)
+    if !isdir(input_path)
+        throw(ArgumentError("'$input_path' is not a directory."))
+    end
+    if !isdir(output_path)
+        throw(ArgumentError("'$output_path' is not a directory."))
     end
     
     # List all files in the directory
-    file_list = [string(file) for file in readdir(path)]
+    file_list = [string(file) for file in readdir(input_path)]
     
     for file in file_list
         println(file)
-        parsed_file = parse_file(path*file, parseline_string_transformations)
+        file_problem = parse_file(input_path*file, line_parser)
         name = string(split(file, '.')[1])
-        write_problem(path*name*"data.jl", parsed_file, name) 
+        write_problem(output_path*"data.jl", file_problem, name, "a") 
     end
 end
 
 # Test
-directory_path = "data/String_transformations_2020/data/"  # current directory for testing
-enumerate_files(directory_path)
+input_path = "e1-robots/data/"  # current directory for testing
+output_path = "src/data/Robots_2020/"  
+line_parser = parseline_robots
+enumerate_files(input_path, output_path, line_parser)
 
