@@ -1,14 +1,11 @@
 module String_transformations_2020
 
 using HerbData
-# using HerbInterpret
 
 include("data.jl")
 
 export 
     parseline_string_transformations
-
-# interpret = HerbInterpret.interpret
 
 """
     parseline_strings(line::AbstractString)::IOExample

@@ -3,17 +3,18 @@ module HerbBenchmarks
 using HerbCore
 using HerbData
 
-include("../e1-robots/Robotparser.jl")
-# include("../e2-strings/Stringparser.jl")
-include("../e3-pixels/Pixelparser.jl")
-
 include("utils.jl")
 
 # data
-include("data/String_transformations_2020/String_transformations_2020.jl")
-@make_public String_transformations_2020
-# using Glob
-# foreach(include, glob("*.jl", "data/")) #Wildcard-based solution
+for (root, dirs, files) in walkdir(dirname(@__FILE__))
+    for f in files
+        # Check if module name starts with capital letter and <year>.jl
+        if occursin(r"^[A-Z].*\d{4}\.jl$", f)
+            include(joinpath(root, f))
+            @eval @make_public $(Symbol(f[1:(findfirst('.', f)-1)]))
+        end
+    end
+end
 
 # utils
 include("benchmarks_io.jl")
