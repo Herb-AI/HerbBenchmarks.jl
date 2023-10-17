@@ -21,9 +21,9 @@ end
 """
 
 """
-function write_problem(filepath::String, problem::Problem, prefix::String="")
+function write_problem(filepath::String, problem::Problem, name::String="")
     file = open(filepath, "w")
-    write(file, "$(prefix)problem = $(problem)")
+    write(file, "problem_$(name) = $(problem)")
     close(file)
 end
 

@@ -4,6 +4,7 @@ authors = ["jaapjong <J.deJong-18@student.tudelft.nl>", "Tilman Hinnerichs <t.r.
 version = "0.1.0"
 
 [deps]
+FilePathsBase = "48062228-2e41-5def-b9a4-89aafe57970f"
 HerbCore = "2b23ba43-8213-43cb-b5ea-38c12b45bd45"
 HerbData = "495a3ad3-8034-41b3-a087-aacf2fd71098"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
