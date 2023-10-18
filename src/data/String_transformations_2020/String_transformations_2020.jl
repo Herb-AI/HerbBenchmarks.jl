@@ -2,7 +2,7 @@ module String_transformations_2020
 
 using HerbData
 
-# include("data.jl")
+include("data.jl")
 
 export 
     parseline_string_transformations
