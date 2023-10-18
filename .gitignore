@@ -25,3 +25,5 @@ Manifest.toml
 
 # Ignore large data files
 *_large.jl
+# Directory to add julia files for the complete PSB2 benchmark set, which are too big to push.
+src/data/PSB2_2021/datasets/

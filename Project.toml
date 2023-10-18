@@ -4,6 +4,7 @@ authors = ["jaapjong <J.deJong-18@student.tudelft.nl>", "Tilman Hinnerichs <t.r.
 version = "0.2.0"
 
 [deps]
+Conda = "8f4d0f93-b110-5947-807f-2305c1781a2d"
 FilePathsBase = "48062228-2e41-5def-b9a4-89aafe57970f"
 HerbCore = "2b23ba43-8213-43cb-b5ea-38c12b45bd45"
 HerbGrammar = "4ef9e186-2fe5-4b24-8de7-9f7291f24af7"
@@ -11,6 +12,7 @@ HerbSpecification = "6d54aada-062f-46d8-85cf-a1ceaf058a06"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 SExpressions = "eaa8e424-c5f6-11e8-1b3d-d576ba0eee97"
 
