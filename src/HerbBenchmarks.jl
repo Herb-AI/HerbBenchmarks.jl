@@ -2,6 +2,7 @@ module HerbBenchmarks
 
 using HerbCore
 using HerbData
+using HerbGrammar
 
 include("utils.jl")
 
@@ -23,6 +24,7 @@ export
     # utils
     parse_file,
     write_problem,
-    parse_to_julia
+    parse_to_julia,
+    append_cfgrammar
 
 end # module HerbBenchmarks

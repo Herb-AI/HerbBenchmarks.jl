@@ -24,8 +24,29 @@ end
 function write_problem(filepath::String, problem::Problem, name::String="", mode::String="a")
     file = open(filepath, mode)
     name = replace(name, "-" => "_")
-    write(file, "problem_$(name) = $(problem)\n")
+    write(file, replace("problem_$(name) = $(problem)\n", "IOExample" => "\n\tIOExample", "IOPExample" => "\n\tIOPExample"))
     close(file)
+end
+
+
+"""
+
+"""
+function append_cfgrammar(filepath::String, name::String, grammar::Grammar)
+     open(filepath, "a") do file
+        if !isprobabilistic(grammar)
+            println(file, "grammar_$name = @cfgrammar begin")
+            for (type, rule) ∈ zip(grammar.types, grammar.rules)
+                println(file, "\t$type = $rule")
+            end
+        else
+            println(file, "grammar_$name = @pcfgrammar begin")
+            for (type, rule, prob) ∈ zip(grammar.types, grammar.rules, grammar.log_probabilities)
+                println(file, "\t$(ℯ^prob) : $type = $rule")
+            end
+        end
+        println(file, "end")
+    end 
 end
 
 
