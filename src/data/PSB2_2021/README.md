@@ -1,4 +1,5 @@
-# Strings
+# PSB2
+
 
 This dataset includes the different tasks in the PSB2 benchmark set.
 
