@@ -4,7 +4,6 @@
 function parse_file(filepath::String, line_parser::Function)::Problem
     file = open(filepath)
     examples::Vector{Example} = Vector{Example}()
-    
     for line in eachline(file)
         line = strip(line)  # Remove leading/trailing whitespace
         if !isempty(line)
@@ -12,7 +11,6 @@ function parse_file(filepath::String, line_parser::Function)::Problem
             push!(examples, parsed_example)
         end
     end
-    
     close(file)
     return Problem(examples)  
 end
