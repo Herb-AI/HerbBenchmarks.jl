@@ -23,7 +23,10 @@ end
 """
 function write_problem(filepath::String, problem::Problem, name::String="", mode::String="a")
     file = open(filepath, mode)
-    name = replace(name, "-" => "_")
+    name = replace(name, 
+                   "-" => "_",
+                   "." => "_"
+                  )
     write(file, replace("problem_$(name) = $(problem)\n", "IOExample" => "\n\tIOExample", "IOPExample" => "\n\tIOPExample"))
     close(file)
 end
