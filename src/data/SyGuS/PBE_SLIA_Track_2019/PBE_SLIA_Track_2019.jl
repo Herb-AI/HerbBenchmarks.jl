@@ -1,81 +1,77 @@
 module PBE_SLIA_Track_2019
 
-using HerbData
 using HerbCore
+using HerbData
 using HerbGrammar
 
-using SExpressions
+include("data.jl")
+include("grammars.jl")
 
-# include("data.jl")
+include("string_functions.jl")
 
-export
-    parse_sygus_grammar,
-    parse_sygus_problem,
-    parse_synth_fun,
-    parse_example_constraint
+export 
+    format_string_grammars
 
 
-function parse_sygus_grammar(filename::AbstractString)::Grammar
-    symbol_list = SExpressions.Parser.parsefile(filename)
-    grammar = Nothing
+function format_string_grammars(filename::AbstractString)
+    lines::Vector{String} = []
+    file = open(filename, "r")
 
-    for expr in symbol_list
-        if expr[1] == Symbol("synth-fun")
-            return parse_synth_fun(expr)
+    for line in eachline(file)
+        if !isempty(line) && occursin(" = ", line)
+            split_line = split(line, " = ")
+            
+            # Check for grammar definition
+            if occursin("@cfgrammar", split_line[2])
+                line = replace(line, "-" => "_") 
+            elseif length(split_line) == 1 # check for empty right side
+                line *= "\"\""
+            else
+                if (occursin("ntString", split_line[1]) 
+                    && !startswith(split_line[2], '(') 
+                    && !occursin('"', split_line[2])
+                    && !occursin("_arg", split_line[2]))
+                    line = "$(split_line[1]) = \"$(split_line[2])\""
+                end
+                if startswith(split_line[2], '(') 
+                    symbol_list = split(split_line[2][2:end-1], ' ')
+                    func = replace(symbol_list[1],
+                         "str.++" => "concat_cvc",
+                         "str.replace" => "replace_cvc",
+                         "str.at" => "at_cvc",
+                         "int.to.str" => "int_to_str_cvc",
+                         "str.substr" => "substr_cvc",
+                         "str.len" => "len_cvc",
+                         "str.to.int" => "str_to_int_cvc",
+                         "str.indexof" => "indexof_cvc",
+                         "str.prefixof" => "prefixof_cvc",
+                         "str.suffixof" => "suffixof_cvc",
+                         "str.contains" => "contains_cvc",
+                         "str.<" => "lt_cvc",
+                         "str.<=" => "leq_cvc",
+                         "str.isdigit" => "isdigit_cvc",
+                         )
+                    if func ∈ ["=", "+", "-"]
+                        func = func == "=" ? "==" : func
+                        expr = symbol_list[2] * " $(func) " * symbol_list[3]  
+                    elseif func == "ite"
+                        expr = "$(symbol_list[2]) ? $(symbol_list[3]) : $(symbol_list[4])"
+                    else
+                        expr = func * "(" * join(symbol_list[2:end], ", ") * ")" 
+                    end
+                    line = "$(split_line[1]) = $(expr)"
+                end
+           end
         end
+        push!(lines, line)
     end
+    close(file)
 
-    throw(ArgumentError("No grammar found in '$filename'"))
-end
-
-function parse_sygus_problem(filename::AbstractString)::Problem
-    symbol_list = SExpressions.Parser.parsefile(filename)
-    examples::Vector{Example} = Vector{Example}()
-
-    for expr in symbol_list
-        if expr[1] == Symbol("constraint") && expr[2][1] == :(=)
-            push!(examples, parse_example_constraint(expr))
-        end
+    file = open(filename, "w")
+    for line in lines
+        println(file, line)
     end
-    return Problem(examples)
-end
-
-function parse_synth_fun(sexpr::SExpressions.Lists.Cons)::Grammar
-    return_grammar = @cfgrammar begin end
-
-    if sexpr[1] !== Symbol("synth-fun")
-        throw(ArgumentError("'$(sexpr[1])' is not a 'synth-fun'"))
-    end
-
-    for rule in sexpr[5]
-        for val in rule[3]
-            add_rule!(return_grammar, :($(rule[1]) = $(val)))
-        end
-    end
-
-    return return_grammar
-end
-
-
-"""
-    
-Parses SyGuS example of the form (constraint (= (f arg1 arg2 ...) output)).
-Returns IOExample with inputs named arg1, arg2, ...
-"""
-function parse_example_constraint(sexpr::SExpressions.Lists.Cons)
-   # take the X of (constraint X)
-   sexpr = sexpr[2]
-   # take Function call and Output of (= FunctionCall Output)
-   functionCall = sexpr[2]
-   output = sexpr[3]
-
-   inputs = Dict{Symbol,Any}()
-
-   for arg_index in 2:length(functionCall)
-        inputs[Symbol("arg$(arg_index-1)")] = functionCall[arg_index]
-   end
-
-   return IOExample(inputs, output)
+    close(file)
 end
 
 end # module PBE_SLIA_Track_2019

@@ -3,7 +3,7 @@ module Robots_2020
 using HerbData
 
 include("data.jl")
-include("Data_generation.jl")
+include("data_generation.jl")
 
 generated_data_path = "generated_data.jl"
 if isfile(generated_data_path)
