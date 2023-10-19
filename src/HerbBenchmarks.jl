@@ -18,7 +18,6 @@ for (root, dirs, files) in walkdir(dirname(@__FILE__)*"/data/")
     end
 end
 
-
 # utils
 include("benchmarks_io.jl")
 
