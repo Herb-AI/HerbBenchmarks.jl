@@ -1,3 +1,5 @@
+include("grammar_util.jl")
+
 function adder(type)
     return function (state)
         if length(type(state)) >= 2
