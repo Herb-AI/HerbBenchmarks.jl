@@ -1,6 +1,13 @@
 using Random
 
-using PushGP_Globals
+function push_item(item, item_type, state)
+    if haskey(state, item_type)
+        state[item_type] = [item; state[item_type]]
+    else
+        state[item_type] = [item]
+    end
+    return state
+end
 
 function boolean_rand(state)
     push_item(rand([true,false]), :boolean, state)
@@ -37,10 +44,9 @@ function code_rand_atom(state)
     return state
 end
 
-function string_rand(state)    
-    str_length = rand(min_random_string_length:max_random_string_length)
-    
-    rand_string = join(rand(["\n", "\t", [Char(32):Char(126)]], str_length), "")
+function string_rand(state)   
+    str_length = rand(min_random_string_length:max_random_string_length) 
+    rand_string = join(rand(['\n', '\t', [Char(id) for id in 32:126]...], str_length), "")
     
     push_item(rand_string, :string, state)
     return state
