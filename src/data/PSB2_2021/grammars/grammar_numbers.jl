@@ -1,4 +1,4 @@
-include("grammar_util.jl")
+include("util.jl")
 
 function adder(type)
     return function (state)
