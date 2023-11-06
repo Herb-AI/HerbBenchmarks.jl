@@ -9,8 +9,11 @@ using JSON
 include("training_data.jl")
 include("evaluation_data.jl")
 
+include("grid_functions.jl")
+
 export 
-    parse_ARC_data_file
+    parse_ARC_data_file, 
+    Grid
 
 """
     parseline_strings(line::AbstractString)::IOExample
