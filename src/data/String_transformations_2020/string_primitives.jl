@@ -1,88 +1,56 @@
-# Transformation primitives
-function moveRight(state::Dict{Symbol, Any})
-    state[:pos] = min(state[:pos] + 1, length(state[:_arg_1]))
+mutable struct State
+    str::String
+    pointer::Int
+    State(s::String) = new(s, 1)  # Initialize the pointer to 1 (not 0, since Julia is 1-indexed)
 end
 
-function moveLeft(state::Dict{Symbol, Any})
-    state[:pos] = max(state[:pos] - 1, 1)
+function getString(state::State) 
+    return state.str
 end
 
-function makeUppercase(state::Dict{Symbol, Any})
-    if state[:pos] <= length(state[:_arg_1])
-        str = state[:_arg_1]
-        state[:_arg_1] = str[1:state[:pos]-1] * uppercase(str[state[:pos]]) * str[state[:pos]+1:end]
+function initState(s::String) 
+    return State(s)
+end
+
+# Define the transformation functions
+function moveRight(state::State)
+    state.pointer = min(state.pointer + 1, length(state.str))
+end
+
+function moveLeft(state::State)
+    state.pointer = max(state.pointer - 1, 1)
+end
+
+function makeUppercase(state::State)
+    if state.pointer <= length(state.str)
+        state.str = state.str[1:state.pointer-1] * uppercase(state.str[state.pointer]) * state.str[state.pointer+1:end]
     end
 end
 
-function makeLowercase(state::Dict{Symbol, Any})
-    if state[:pos] <= length(state[:_arg_1])
-        str = state[:_arg_1]
-        state[:_arg_1] = str[1:state[:pos]-1] * lowercase(str[state[:pos]]) * str[state[:pos]+1:end]
+function makeLowercase(state::State)
+    if state.pointer <= length(state.str)
+        state.str = state.str[1:state.pointer-1] * lowercase(state.str[state.pointer]) * state.str[state.pointer+1:end]
     end
 end
 
-function drop(state::Dict{Symbol, Any})
-    if state[:pos] <= length(state[:_arg_1])
-        str = state[:_arg_1]
-        state[:_arg_1] = str[1:state[:pos]-1] * str[state[:pos]+1:end]
+function drop(state::State)
+    if state.pointer <= length(state.str)
+        state.str = state.str[1:state.pointer-1] * state.str[state.pointer+1:end]
     end
 end
 
-# Boolean primitives
-function atEnd(state::Dict{Symbol, Any})
-    return state[:pos] == length(state[:_arg_1])
-       
-end
-
-function notAtEnd(state::Dict{Symbol, Any})
-    return state[:pos] != length(state[:_arg_1])
-end
-
-function atStart(state::Dict{Symbol, Any})
-    return state[:pos] == 1
-end
-
-function notAtStart(state::Dict{Symbol, Any})
-    return state[:pos] != 1
-end
-
-function isLetter(state::Dict{Symbol, Any})
-    return state[:pos] <= length(state[:_arg_1]) && isletter(state[:_arg_1][state[:pos]])
-end
-
-function isNotLetter(state::Dict{Symbol, Any})
-    return state[:pos] > length(state[:_arg_1]) || !isletter(state[:_arg_1][state[:pos]])
-end
-
-function isUppercase(state::Dict{Symbol, Any})
-    return state[:pos] <= length(state[:_arg_1]) && isuppercase(state[:_arg_1][state[:pos]])
-end
-
-function isNotUppercase(state::Dict{Symbol, Any})
-    return state[:pos] > length(state[:_arg_1]) || !isuppercase(state[:_arg_1][state[:pos]])
-end
-
-function isLowercase(state::Dict{Symbol, Any})
-    return state[:pos] <= length(state[:_arg_1]) && islowercase(state[:_arg_1][state[:pos]])
-end
-
-function isNotLowercase(state::Dict{Symbol, Any})
-    return state[:pos] > length(state[:_arg_1]) || !islowercase(state[:_arg_1][state[:pos]])
-end
-
-function isNumber(state::Dict{Symbol, Any})
-    return state[:pos] <= length(state[:_arg_1]) && isdigit(state[:_arg_1][state[:pos]])
-end
-
-function isNotNumber(state::Dict{Symbol, Any})
-    return state[:pos] > length(state[:_arg_1]) || !isdigit(state[:_arg_1][state[:pos]])
-end
-
-function isSpace(state::Dict{Symbol, Any})
-    return state[:pos] <= length(state[:_arg_1]) && isspace(state[:_arg_1][state[:pos]])
-end
-
-function isNotSpace(state::Dict{Symbol, Any})
-    return state[:pos] > length(state[:_arg_1]) || !isspace(state[:_arg_1][state[:pos]])
-end
-       
+# Define the boolean conditions
+atEnd(state::State) = state.pointer == length(state.str)
+notAtEnd(state::State) = state.pointer != length(state.str)
+atStart(state::State) = state.pointer == 1
+notAtStart(state::State) = state.pointer != 1
+isLetter(state::State) = state.pointer <= length(state.str) && isletter(state.str[state.pointer])
+isNotLetter(state::State) = state.pointer > length(state.str) || !isletter(state.str[state.pointer])
+isUppercase(state::State) = state.pointer <= length(state.str) && isuppercase(state.str[state.pointer])
+isNotUppercase(state::State) = state.pointer > length(state.str) || !isuppercase(state.str[state.pointer])
+isLowercase(state::State) = state.pointer <= length(state.str) && islowercase(state.str[state.pointer])
+isNotLowercase(state::State) = state.pointer > length(state.str) || !islowercase(state.str[state.pointer])
+isNumber(state::State) = state.pointer <= length(state.str) && isdigit(state.str[state.pointer])
+isNotNumber(state::State) = state.pointer > length(state.str) || !isdigit(state.str[state.pointer])
+isSpace(state::State) = state.pointer <= length(state.str) && isspace(state.str[state.pointer])
+isNotSpace(state::State) = state.pointer > length(state.str) || !isspace(state.str[state.pointer])
