@@ -2,13 +2,15 @@ module Robots_2020
 
 using HerbData
 
-# include("data.jl")
+include("data.jl")
 include("data_generation.jl")
 
 generated_data_path = "generated_data.jl"
 if isfile(generated_data_path)
     include(generated_data_path)
 end
+
+include("robots_primitives.jl")
 
 export 
     parseline_robots
