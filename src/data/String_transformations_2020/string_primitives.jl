@@ -12,7 +12,7 @@ function initState(s::String)
     return State(s)
 end
 
-# Define the transformation functions
+# Transformation functions
 function moveRight(state::State)
     state.pointer = min(state.pointer + 1, length(state.str))
 end
@@ -39,7 +39,7 @@ function drop(state::State)
     end
 end
 
-# Define the boolean conditions
+# Boolean conditions
 atEnd(state::State) = state.pointer == length(state.str)
 notAtEnd(state::State) = state.pointer != length(state.str)
 atStart(state::State) = state.pointer == 1

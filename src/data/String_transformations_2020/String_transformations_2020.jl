@@ -25,7 +25,7 @@ function parseline_string_transformations(line::AbstractString)::IOExample
     # Extract input and output lists using the RegEx
     matches = match(r"^[^\[\]]+(\[[^\[\]]*\])[^\[\]]+(\[[^\[\]]*\])", line)
 
-    input = Dict(:x => parsecharlist(matches[1]))
+    input = Dict(:_arg_1 => parsecharlist(matches[1]))
     output = parsecharlist(matches[2])
     return IOExample(input, output)
 end
