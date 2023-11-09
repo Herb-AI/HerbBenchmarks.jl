@@ -1,5 +1,4 @@
 grammar_string = @cfgrammar begin
-    # Start = ((input) -> (state = initState(input); Sequence; return state.str))(_arg_1)
     Start = (state = Init; Sequence; Return)
     Init = initState(_arg_1)
     Return = getString(state)
