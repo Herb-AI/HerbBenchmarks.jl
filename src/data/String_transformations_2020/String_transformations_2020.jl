@@ -5,9 +5,14 @@ using HerbData
 using HerbGrammar
 
 include("data.jl")
+include("grammar.jl")
+include("string_primitives.jl")
 
 export 
-    parseline_string_transformations
+    parseline_string_transformations,
+    all_problems
+
+all_problems = [String_transformations_2020.eval(var) for var in filter(v -> startswith(string(v), "problem_"), names(String_transformations_2020; all=true))]
 
 """
     parseline_strings(line::AbstractString)::IOExample
@@ -23,7 +28,7 @@ function parseline_string_transformations(line::AbstractString)::IOExample
     # Extract input and output lists using the RegEx
     matches = match(r"^[^\[\]]+(\[[^\[\]]*\])[^\[\]]+(\[[^\[\]]*\])", line)
 
-    input = Dict(:x => parsecharlist(matches[1]))
+    input = Dict(:_arg_1 => parsecharlist(matches[1]))
     output = parsecharlist(matches[2])
     return IOExample(input, output)
 end

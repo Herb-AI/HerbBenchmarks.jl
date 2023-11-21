@@ -14,6 +14,11 @@ export
     parse_example_constraint
 
 
+"""
+    parse_sygus_grammar(filename::AbstractString)::Grammar
+
+Parses a SyGuS file for its grammar, by looking for the keyword 'synth-fun' within the S-Expressions. Returns the grammar if found.
+"""
 function parse_sygus_grammar(filename::AbstractString)::Grammar
     symbol_list = SExpressions.Parser.parsefile(filename)
     grammar = Nothing
@@ -27,6 +32,11 @@ function parse_sygus_grammar(filename::AbstractString)::Grammar
     throw(ArgumentError("No grammar found in '$filename'"))
 end
 
+"""
+    parse_sygus_problem(filename::AbstractString)::Problem
+
+Parses a SyGuS file for all examples and returns them, wrapped in a [`HebrData.Problem`](@ref)
+"""
 function parse_sygus_problem(filename::AbstractString)::Problem
     symbol_list = SExpressions.Parser.parsefile(filename)
     examples::Vector{Example} = Vector{Example}()
@@ -39,6 +49,11 @@ function parse_sygus_problem(filename::AbstractString)::Problem
     return Problem(examples)
 end
 
+"""
+    parse_synth_fun(sexpr::SExpressions.Lists.Cons)::Grammar
+
+Parses a SyGuS grammar that are named `synth_fun` within SyGuS. Takes the S-Expression of the grammar and returns a [`@cfgrammar`](@ref).
+"""
 function parse_synth_fun(sexpr::SExpressions.Lists.Cons)::Grammar
     return_grammar = @cfgrammar begin end
 
@@ -57,6 +72,7 @@ end
 
 
 """
+    function parse_example_constraint(sexpr::SExpressions.Lists.Cons)
     
 Parses SyGuS example of the form (constraint (= (f arg1 arg2 ...) output)).
 Returns IOExample with inputs named arg1, arg2, ...
