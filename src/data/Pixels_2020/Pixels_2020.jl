@@ -8,7 +8,11 @@ include("data.jl")
 include("grammar.jl")
 include("pixels_primitives.jl")
 
-export parseline_pixels
+export 
+    parseline_pixels,
+    all_problems
+
+all_problems = [Pixels_2020.eval(var) for var in filter(v -> startswith(string(v), "problem_"), names(Pixels_2020; all=true))]
 
 """
 Parses a line from a file in the `pixels` dataset

@@ -10,8 +10,10 @@ include("grammars.jl")
 include("bit_functions.jl")
 
 export 
-    format_bit_operations_grammars
+    format_bit_operations_grammars,
+    all_problems
 
+all_problems = [PBE_BV_Track_2018.eval(var) for var in filter(v -> startswith(string(v), "problem_"), names(PBE_BV_Track_2018; all=true))]
 
 function format_bit_operations_grammars(filename::AbstractString)
     lines::Vector{String} = []

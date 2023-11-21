@@ -9,8 +9,7 @@ grammar_robots = @cfgrammar begin
     Operation = ControlStatement
 
     Transformation = moveRight(state) | moveDown(state) | moveLeft(state) | moveUp(state) | drop(state) | grab(state)
-    ControlStatement = Condition ? Sequence : Sequence 
-    ControlStatement = while Condition; Sequence; end
+    ControlStatement = (Condition ? Sequence : Sequence) |(while Condition; Sequence; end)
 
     Condition = atTop(state) | atBottom(state) | atLeft(state) | atRight(state) | notAtTop(state) | notAtBottom(state) | notAtLeft(state) | notAtRight(state)
 end

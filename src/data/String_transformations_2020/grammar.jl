@@ -9,9 +9,7 @@ grammar_string = @cfgrammar begin
     Operation = ControlStatement
 
     Transformation = moveRight(state) | moveLeft(state) | makeUppercase(state) | makeLowercase(state) | drop(state)
-    ControlStatement = Condition ? Sequence : Sequence 
-    ControlStatement = while Condition; Sequence; end
+    ControlStatement = (Condition ? Sequence : Sequence) | (while Condition; Sequence; end)
 
     Condition = atEnd(state) | notAtEnd(state) | atStart(state) | notAtStart(state) | isLetter(state) | isNotLetter(state) | isUppercase(state) | isNotUppercase(state) | isLowercase(state) | isNotLowercase(state) | isNumber(state) | isNotNumber(state) | isSpace(state) | isNotSpace(state)
-
 end
