@@ -4,9 +4,10 @@ using HerbCore
 
 include("src/benchmarks_io.jl")
 # include("src/data/String_transformations_2020/String_transformations_2020.jl")
-include("src/data/Robots_2020/Robots_2020.jl")
+# include("src/data/Robots_2020/Robots_2020.jl")
+include("src/data/Pixels_2020/Pixels_2020.jl")
 
-using .Robots_2020
+using .Pixels_2020
 
 function enumerate_files(input_path::String, output_path::String, line_parser::Function)
     if !isdir(input_path)
@@ -28,8 +29,8 @@ function enumerate_files(input_path::String, output_path::String, line_parser::F
 end
 
 # Test
-input_path = "e1-robots/data/"  # current directory for testing
-output_path = "src/data/Robots_2020/"  
-line_parser = parseline_robots
+input_path = "e3-pixels/data/"  # current directory for testing
+output_path = "src/data/Pixels_2020/"  
+line_parser = parseline_pixels
 enumerate_files(input_path, output_path, line_parser)
 

@@ -28,6 +28,8 @@ function write_problem(filepath::String, problem::Problem, name::String="", mode
                    "." => "_",
                    "=" => "_",
                    " " => "_",
+                   "(" => "",
+                   ")" => "",
                   )
     write(file, replace("problem_$(name) = $(problem)\n", "IOExample" => "\n\tIOExample", "IOPExample" => "\n\tIOPExample"))
     close(file)
