@@ -27,6 +27,7 @@ export
     write_problem,
     parse_to_julia,
     append_cfgrammar,
+    extract_variable_names
 
     make_public,
     make_public_rec

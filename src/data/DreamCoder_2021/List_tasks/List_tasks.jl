@@ -7,7 +7,9 @@ using HerbGrammar
 using JSON
 
 export 
-    parse_list_problem
+    parse_list_problem,
+    all_problems,
+    all_problems_large
 
 include("data.jl")
 # include("grammar.jl")

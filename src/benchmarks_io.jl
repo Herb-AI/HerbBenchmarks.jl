@@ -65,3 +65,20 @@ function parse_to_julia(path::String, filename::String, line_parser::Function, p
     problem = parse_file(path*filename, line_parser)
     write_problem(path*"$(prefix)data.jl", problem, prefix) 
 end
+
+"""
+
+"""
+function extract_variable_names(file_path::String, prefix::String)
+    # Read the file
+    lines = readlines(file_path)
+
+    # Pattern to match variable names with the specified prefix
+    pattern = Regex("^$(prefix)\\w+")
+
+    # Extract variable names
+    variable_names = [match(pattern, line).match for line in lines if occursin(pattern, line)]
+
+    # Return the list of variable names
+    return variable_names
+end
