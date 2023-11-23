@@ -1,3 +1,9 @@
+list_start_rules = [
+    :(Start = TList),
+    :(Start = TBoolean),
+    :(Start = TInt)
+]
+
 list_base_primitives = [
     primitive_0,
     primitive_1,
