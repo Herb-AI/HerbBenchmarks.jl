@@ -31,8 +31,10 @@ macro make_public(module_name::Symbol)
 
     for name in names(as_module; all = true)
         if (string(name)[1] != '#')
-            #println("export " * string(name))
-            as_module.eval(Meta.parse("export " * string(name)))
+            # println("export " * string(name))
+            if !(string(name) == "eval" || string(name) == "include")
+                as_module.eval(Meta.parse("export " * string(name)))
+            end
         end
     end
 
@@ -71,7 +73,9 @@ macro make_public_rec(module_name::Symbol)
 
         if (string(child_name)[1] != '#')
             #println("export " * string(child_name))
-            super.eval(Meta.parse("export " * string(child_name)))
+            if !(name == "eval" || name == "include")
+                super.eval(Meta.parse("export " * string(child_name)))
+            end
         end
 
         child = super.eval(child_name)

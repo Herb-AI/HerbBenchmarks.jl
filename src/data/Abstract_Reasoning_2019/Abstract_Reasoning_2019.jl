@@ -8,8 +8,9 @@ using JSON
 
 include("training_data.jl")
 include("evaluation_data.jl")
+include("grammar.jl")
 
-include("grid_functions.jl")
+include("arc_primitives.jl")
 
 export 
     parse_ARC_data_file, 

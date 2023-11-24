@@ -3,12 +3,56 @@ struct Grid
     width::Int
     height::Int
     data::Matrix{Int}
+    
+    function Grid(mat::Matrix{Any})
+        height, width = size(mat)
+        new(width, height, mat)
+    end
+end
+
+function initState(raw_grid::Vector{Any})
+    return Grid(array_to_matrix(raw_grid)) 
+end
+
+"""
+Helper function to transform the input vector to a matrix of square form. If length is not a squared integer, then iteratively adjust the factors a,b such that a<b and `a*b = length(input_array)`
+"""
+function array_to_matrix(arr::Vector{T}) where T
+    n = length(arr)
+    a = isqrt(n)  # Start with the integer square root of n
+    b = a
+
+    # Adjust a and b to meet the requirements
+    while a * b < n || b < a
+        if a * b < n
+            b += 1
+        elseif b < a
+            a -= 1
+        end
+    end
+
+    # Create the matrix and fill it
+    mat = Matrix{T}(undef, a, b)
+    fill!(mat, 0) 
+
+    for i in 1:n
+        row = div(i-1, b) + 1
+        col = rem(i-1, b) + 1
+        mat[row, col] = arr[i]
+    end
+
+    return mat
+end
+
+function returnState(grid::Grid)
+    return (grid.mat')[:] # transform and flatten matrix
 end
 
 # Initialize a grid with zeros
 function init_grid(width::Int, height::Int)
     return Grid(width, height, zeros(Int, height, width))
 end
+
 
 # Clone a grid
 function clone_grid(grid::Grid)
