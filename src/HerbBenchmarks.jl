@@ -27,8 +27,8 @@ export
     write_problem,
     parse_to_julia,
     append_cfgrammar,
+    enumerate_problem_files,
 
     make_public,
     make_public_rec
-
 end # module HerbBenchmarks
