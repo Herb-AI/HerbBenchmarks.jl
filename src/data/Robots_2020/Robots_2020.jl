@@ -16,10 +16,8 @@ end
 include("robots_primitives.jl")
 
 export 
-    parseline_robots,
-    all_problems
+    parseline_robots
 
-all_problems = [Robots_2020.eval(var) for var in filter(v -> startswith(string(v), "problem_"), names(Robots_2020; all=true))]
 
 """
     parseline_robots(line::AbstractString)::IOExample

@@ -9,10 +9,7 @@ include("grammar.jl")
 include("string_primitives.jl")
 
 export 
-    parseline_string_transformations,
-    all_problems
-
-all_problems = [String_transformations_2020.eval(var) for var in filter(v -> startswith(string(v), "problem_"), names(String_transformations_2020; all=true))]
+    parseline_string_transformations
 
 """
     parseline_strings(line::AbstractString)::IOExample

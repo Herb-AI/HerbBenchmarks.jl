@@ -28,6 +28,11 @@ export
     parse_to_julia,
     append_cfgrammar,
     enumerate_problem_files,
+    
+    all_problems,
+    all_grammars,
+    find_corresponding_grammar,
+    all_problem_grammar_pairs,
 
     make_public,
     make_public_rec

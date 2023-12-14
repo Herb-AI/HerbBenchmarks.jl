@@ -10,10 +10,7 @@ include("grammars.jl")
 include("string_functions.jl")
 
 export 
-    format_string_grammars,
-    all_problems
-
-all_problems = [PBE_SLIA_Track_2019.eval(var) for var in filter(v -> startswith(string(v), "problem_"), names(PBE_SLIA_Track_2019; all=true))]
+    format_string_grammars
 
 function format_string_grammars(filename::AbstractString)
     lines::Vector{String} = []
