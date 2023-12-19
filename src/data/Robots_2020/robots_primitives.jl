@@ -1,4 +1,4 @@
-struct RobotState
+mutable struct RobotState
     holds_ball::Int
     robot_x::Int
     robot_y::Int
