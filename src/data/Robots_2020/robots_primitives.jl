@@ -1,4 +1,4 @@
-struct RobotState
+mutable struct RobotState
     holds_ball::Int
     robot_x::Int
     robot_y::Int
@@ -87,5 +87,21 @@ end
 function grab(state::RobotState)
     if state.holds_ball == 0 && state.robot_x == state.ball_x && state.robot_y == state.ball_y
         state.holds_ball = 1
+    end
+end
+ 
+function Base.show(io::IO, state::RobotState)
+    for y in 1:state.size
+        row = "";
+        for x in 1:state.size
+            if (x == state.robot_x && y == state.robot_y)
+                row *= state.holds_ball == 1 ? "#" : "R"
+            elseif (x == state.ball_x && y == state.ball_y)
+                row *= "B"
+            else
+                row *= "."
+            end
+        end
+        println(io, row)
     end
 end
