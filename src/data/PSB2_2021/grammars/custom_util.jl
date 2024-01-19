@@ -1,11 +1,11 @@
-function make_stacks(state::Dict)
-    return merge(state, Dict{Symbol,Any}(
+function make_stacks()
+    return Dict{Symbol,Any}(
         :char => [],
         :float => [],
         :integer => [],
         :string => [],
         :boolean => [],
-    ))
+    )
 end
 
 function get_output_from_stack(output_id::Symbol, type_of_output::Type, state::Dict)

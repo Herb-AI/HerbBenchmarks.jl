@@ -1,4 +1,4 @@
-include("util.jl")
+# include("util.jl")
 
 function gtm_left(state)
     if haskey(state[:gtm], :position)
