@@ -5,15 +5,20 @@ using Markdown
 using InteractiveUtils
 
 # ╔═╡ 55301ad1-79fa-4aa5-be52-0a370676a04a
+# ╠═╡ show_logs = false
 begin
-	using HerbGrammar, HerbData, HerbInterpret, Pkg #, HerbBenchmarks
+	using Pkg
+	Pkg.activate(temp=true)
+	Pkg.add(["HerbGrammar", "HerbData", "HerbInterpret"])
+	using HerbGrammar, HerbData, HerbInterpret, Pkg
 	Pkg.add(PackageSpec(name="HerbSearch", rev="dev"))
 	using HerbSearch
+	import HerbInterpret.interpret
 end
 
 # ╔═╡ d27779de-b6ca-11ee-23ba-d7e0f026b436
 g_char = @csgrammar begin
-    Start = State
+    # Start = State
     State = make_stacks()
     State = char_allfromstring(State)
     State = char_fromfloat(State)
@@ -27,7 +32,6 @@ end
 
 # ╔═╡ 48cb4300-b021-49e1-a132-b1b0c9e69bac
 g_gtm = @csgrammar begin
-    Start = State
     State = make_stacks()
     State = init_gtm(State)
     State = ensure_instruction_map(State)
@@ -89,7 +93,6 @@ function make_input_output_grammar(e::IOExample, mod::Module)
 	for input in e.in
 		name = Symbol(input[1])
 		@eval mod ($(name)) = x -> write_input_to_stack($(input[1]), $(input[2]), x)
-		@eval mod (:(name(make_stacks())))
 		add_rule!(grammar_input_output, :(State = $name($(input[1]), $(input[2]), State)))
 	end
 	for output in e.out
@@ -119,33 +122,60 @@ begin
 	Base.include(mod, "grammars/custom_util.jl")
 	Base.include(mod, "grammars/grammar_char.jl")
 	Base.include(mod, "grammars/grammar_gtm.jl")
+	Base.include(mod, "grammars/custom_util.jl")
 	Base.include(mod, "grammars/util.jl")
 	g = make_input_output_grammar(e, mod)
 end
 
-# ╔═╡ 593ed2bd-373a-4111-b28b-6c358f4976b0
-isdefined(mod, :input)
+# ╔═╡ 48642898-da20-40a0-8f21-964d443a4dff
+
 
 # ╔═╡ d74a4f27-da1c-4968-9ff6-b91cfe0188fe
-grammar_example = merge_grammar([g_char, g_gtm, g])
+grammar_example = merge_grammar([g_char, g])
 
 # ╔═╡ 75cd93ae-cbab-4126-94aa-be3d07b67117
 tab = SymbolTable(grammar_example, mod)
 
-# ╔═╡ 5508b188-fc70-4baa-91da-3bcefe63f76e
-:(make_stacks()) in keys(tab)
+# ╔═╡ 0ba60850-7311-4fa8-856f-f285cb536f5c
+function my_evaluator(tab::SymbolTable, expr::Any, input::Dict)
+	println("Evaluating: ", expr)
+	res = interpret(merge(tab, input), expr)
+	println(res)
+	return res
+end
+
+# ╔═╡ 39953068-eb5a-4030-ad40-1a2d11727d04
+rulenode2expr(RuleNode(1, [RuleNode(2)]), grammar_example)
+
+# ╔═╡ b0e841e3-b392-4f1e-8d5a-f44ce3099f73
+grammar_example.rules
+
+# ╔═╡ e2dce1f6-d116-42b7-939a-9592a3b07632
+[rulenode2expr(ex, grammar_example) for ex in get_bfs_enumerator(grammar_example, 2, 10, :State)]
+
+# ╔═╡ 5cdde027-15a1-4f4f-bab1-c06cb186f667
+@eval mod input(make_stacks())
+
+# ╔═╡ fb717be5-0b4c-4899-bb6f-5b54eec290bc
+sol = HerbSearch.search(grammar_example, Problem([e]), :State, max_depth=3,
+	evaluator = my_evaluator,
+	allow_evaluation_errors = false,
+	mod = mod,
+)
 
 # ╔═╡ bc0dc1fd-89f6-4a65-882f-98185cbbc244
-function interpret(tab::SymbolTable, ex::Expr, mod::Module)
-	println(tab)
+# ╠═╡ disabled = true
+# ╠═╡ skip_as_script = true
+#=╠═╡
+function interpret(tab::SymbolTable, ex::Expr)
     if ex.head == :call
 		println(ex.args[1])
 		println(keys(tab))
         if ex.args[1] in keys(tab)
             if length(ex.args) > 1
-                return @eval mod tab[ex.args[1]](interpret(tab, ex.args[2]))
+                return @eval tab[ex.args[1]](interpret(tab, ex.args[2]))
             else
-                return @eval mod tab[ex.args[1]](tab)
+                return @eval tab[ex.args[1]](tab)
             end
         else
             throw(ArgumentError("Argument $(ex.args[1]) not present in symbol table."))
@@ -154,35 +184,25 @@ function interpret(tab::SymbolTable, ex::Expr, mod::Module)
         throw(Error("Expression type not supported: $(ex.head)"))
     end
 end
-
-# ╔═╡ 0ba60850-7311-4fa8-856f-f285cb536f5c
-function my_evaluator(tab::SymbolTable, expr::Any, input::Dict, mod::Module)
-	println("Evaluating: ", expr)
-	res = interpret(merge(tab, input), expr, mod)
-	println(res)
-	return res
-end
-
-# ╔═╡ fb717be5-0b4c-4899-bb6f-5b54eec290bc
-sol = HerbSearch.search(grammar_example, Problem([e]), :Start, max_depth=1000,
-	evaluator = (tab, expr, input) -> my_evaluator(tab, expr, input, mod),
-	allow_evaluation_errors = false,
-)
+  ╠═╡ =#
 
 # ╔═╡ Cell order:
 # ╠═55301ad1-79fa-4aa5-be52-0a370676a04a
-# ╟─d27779de-b6ca-11ee-23ba-d7e0f026b436
-# ╟─48cb4300-b021-49e1-a132-b1b0c9e69bac
-# ╠═2cd0fa21-625a-4be1-8130-af914781e414
+# ╠═d27779de-b6ca-11ee-23ba-d7e0f026b436
+# ╠═48cb4300-b021-49e1-a132-b1b0c9e69bac
+# ╟─2cd0fa21-625a-4be1-8130-af914781e414
 # ╠═cdd6289c-3e31-4374-9a5a-31761a47bc4a
 # ╠═0596f1db-7bea-469a-87f6-4eabf368c523
 # ╠═29f882d3-3a7c-412f-a332-e0b9210dfe98
 # ╠═cd45a607-88c8-42a0-bdaf-1c60fa54f8de
 # ╠═5b015667-e498-483f-b71d-9e34812091b6
-# ╠═593ed2bd-373a-4111-b28b-6c358f4976b0
+# ╠═48642898-da20-40a0-8f21-964d443a4dff
 # ╠═d74a4f27-da1c-4968-9ff6-b91cfe0188fe
 # ╠═75cd93ae-cbab-4126-94aa-be3d07b67117
-# ╠═5508b188-fc70-4baa-91da-3bcefe63f76e
 # ╠═0ba60850-7311-4fa8-856f-f285cb536f5c
+# ╠═39953068-eb5a-4030-ad40-1a2d11727d04
+# ╠═b0e841e3-b392-4f1e-8d5a-f44ce3099f73
+# ╠═e2dce1f6-d116-42b7-939a-9592a3b07632
+# ╠═5cdde027-15a1-4f4f-bab1-c06cb186f667
 # ╠═fb717be5-0b4c-4899-bb6f-5b54eec290bc
 # ╠═bc0dc1fd-89f6-4a65-882f-98185cbbc244

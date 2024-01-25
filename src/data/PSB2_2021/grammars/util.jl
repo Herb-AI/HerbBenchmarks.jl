@@ -1,13 +1,13 @@
 ######### From gtm.clj #########
-function init_gtm(push_state)
-    return merge(push_state, Dict(
+function init_gtm()
+    return Dict(
         :gtm => Dict(
             :position => 1,
             :delay => 0,
             :tracks => [Dict(), Dict(), Dict()],
             :trace => []
         )
-    ))
+    )
 end
 
 function ensure_instruction_map(instr_map)
