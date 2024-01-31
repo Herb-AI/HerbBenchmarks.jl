@@ -14,11 +14,25 @@ begin
 	Pkg.add(PackageSpec(name="HerbSearch", rev="dev"))
 	using HerbSearch
 	import HerbInterpret.interpret
-end
+end;
+
+# ╔═╡ 792e974b-4f40-42b5-8003-497a8aebb2a3
+md"""
+# Dynamic Grammars
+
+The following is a small example of creating a dynamic grammar from an example we get from PSB2. An example might look like the following:
+"""
+
+# ╔═╡ c5da9f66-8796-445f-abd3-b2bd0f3cfbf9
+e = IOExample(Dict(:input => 'a'), Dict(:output => true))
+
+# ╔═╡ 90706d07-8d3f-4506-a251-d4fc7a09ed1d
+md"""
+We then define a grammar for the problem.
+"""
 
 # ╔═╡ d27779de-b6ca-11ee-23ba-d7e0f026b436
 g_char = @csgrammar begin
-    # Start = State
     State = make_stacks()
     State = char_allfromstring(State)
     State = char_fromfloat(State)
@@ -30,44 +44,12 @@ g_char = @csgrammar begin
     State = char_uppercase(State)
 end
 
-# ╔═╡ 48cb4300-b021-49e1-a132-b1b0c9e69bac
-g_gtm = @csgrammar begin
-    State = make_stacks()
-    State = init_gtm(State)
-    State = ensure_instruction_map(State)
-    State = load_track(State)
-    State = dump_track(State)
-    State = trace(State)
-    State = gtm_left(State)
-    State = gtm_right(State)
-    State = gtm_inc_delay(State)
-    State = gtm_dec_delay(State)
-    State = gtm_dub1(State)
-end
+# ╔═╡ 45b5e0db-0beb-4908-af60-7f13c492201d
+md"""
+Now, due to the nature of the `Push` language that the benchmark makes use of, we need to supplement this grammar with functions that push the input from the examples to the correct stack (just a vector that corresponds to the input's type) and pop from the correct stack to retrieve an output. We probably did not need to follow this pattern of `Push`, but we wanted to for the sake of ease of comparison with the orignal benchmark code.
 
-# ╔═╡ 2cd0fa21-625a-4be1-8130-af914781e414
-function get_output_from_stack(output_id::Symbol, type_of_output::Symbol, state::Dict)
-    """
-    Adds the first value in the stack of the type_of_output to the output.
-
-    For example, if the :char stack is ['a', 'b', 'c'], then the following
-    call will add 'a' to the output with id `:output1`.
-
-    `get_output_from_stack(:output1, char, state)`
-
-    Args:
-        output_id (Symbol): The output id to add the value to
-        type_of_output (Symbol): The type of the output value
-        state (Dict): The state of the program
-    
-    Returns:
-        Dict: The state of the program
-    """
-    if length(state[type_of_output]) > 0
-        state[output_id] = state[type_of_output][1]
-    end
-    return state
-end
+To create the additional `input` and `output` functions for the grammar, we define `make_input_output_grammar(...)`.
+"""
 
 # ╔═╡ 0596f1db-7bea-469a-87f6-4eabf368c523
 function make_input_output_grammar(e::IOExample, mod::Module) 
@@ -76,17 +58,64 @@ function make_input_output_grammar(e::IOExample, mod::Module)
 	for input in e.in
 		name = Symbol(input[1])
 		@eval mod ($(name)) = x -> write_input_to_stack(Symbol($input[1]), $(input[2]), x)
-		add_rule!(grammar_input_output, :(State = $name($(input[1]), $(input[2]), State)))
+		add_rule!(grammar_input_output, :(State = $name(State)))
 	end
 	for output in e.out
 		name = Symbol(output[1])
 		@eval mod ($(name)) = x -> get_output_from_stack(Symbol($output[1]), $(typeof(output[2])), x)
-		add_rule!(grammar_input_output, :(State = $name($(output[1]), $(typeof(output[2])), State)))
+		add_rule!(grammar_input_output, :(State = $name(State)))
 	end
 	return grammar_input_output
 end
 
-# ╔═╡ 29f882d3-3a7c-412f-a332-e0b9210dfe98
+# ╔═╡ 05839053-e82f-4db9-9776-db410b50c5ea
+md"""
+Now we can populate a custom module, `mod`, with the implementations for the character functions, and we can use our function defined above to add `input`/`output` functions.
+"""
+
+# ╔═╡ d83be944-e311-40dc-b822-67b623bc1ee5
+md"""
+Just as a sanity check, we can check that `output(char_isletter(input(make_stacks())))` evaluates successfully using the definitions for the functions supplied in mod.
+"""
+
+# ╔═╡ 3bca1c83-2d75-4707-a06e-838f29e176a6
+md"""
+Great! `:output => true`, so we're happy.
+"""
+
+# ╔═╡ c3919952-7bc8-4e93-9f35-50f151ff625f
+md"""
+One last thing before we can search. After a program is evaluated, we only want to compare against the `:output`s, not the `:string`, `:char`, etc., so we filter away all keys in the `res` `Dict` that do not contain output,
+"""
+
+# ╔═╡ 0ba60850-7311-4fa8-856f-f285cb536f5c
+function my_evaluator(tab::SymbolTable, expr::Any, input::Dict)
+	res = interpret(tab, expr)
+    res = Dict(k => v for (k, v) in res if occursin("output", string(k)))
+	return res
+end
+
+# ╔═╡ 955c1633-5a71-4307-bcbf-fa3d4e841764
+md"""
+and then a final check that `search(...)` actually finds what we want.
+"""
+
+# ╔═╡ d3784531-4877-425e-8a70-569681e4ffc3
+md"""
+It works!
+"""
+
+# ╔═╡ 1dd8de38-73b9-4d9b-bcdf-a799060f780b
+md"""
+### Extra Stuff
+"""
+
+# ╔═╡ 2d2457f1-3f59-4f93-bb03-1ceab9765bbe
+md"""
+The only reason we need to use this temp package environment is to get access to the `mod` keyword for `search(...)` which isn't in the released version of `HerbSearch`.
+"""
+
+# ╔═╡ b1071747-1713-4f1e-9eb9-4c562ba221ae
 function merge_grammar(gs::Vector{ContextSensitiveGrammar})
     new_grammar = @csgrammar begin end
     for g in gs
@@ -98,82 +127,43 @@ function merge_grammar(gs::Vector{ContextSensitiveGrammar})
     return new_grammar
 end
 
-# ╔═╡ cd45a607-88c8-42a0-bdaf-1c60fa54f8de
-e = IOExample(Dict(:input => 'a'), Dict(:output => true))
-
-# ╔═╡ 5b015667-e498-483f-b71d-9e34812091b6
+# ╔═╡ b3275558-1559-4753-a9d1-5e846b93a747
 begin
 	mod = Module(:GrammarImplementation)
 	Base.include(mod, "grammars/custom_util.jl")
 	Base.include(mod, "grammars/grammar_char.jl")
-	Base.include(mod, "grammars/grammar_gtm.jl")
-	# Base.include(mod, "grammars/util.jl")
 	g = make_input_output_grammar(e, mod)
+	g = merge_grammar([g_char, g])
 end
 
 # ╔═╡ 5cdde027-15a1-4f4f-bab1-c06cb186f667
 @eval mod output(char_isletter(input(make_stacks())))
 
-# ╔═╡ d74a4f27-da1c-4968-9ff6-b91cfe0188fe
-grammar_example = merge_grammar([g_char, g])
-
-# ╔═╡ 75cd93ae-cbab-4126-94aa-be3d07b67117
-tab = SymbolTable(grammar_example, mod)
-
-# ╔═╡ 0ba60850-7311-4fa8-856f-f285cb536f5c
-function my_evaluator(tab::SymbolTable, expr::Any, input::Dict)
-	println("Evaluating: ", expr)
-	res = interpret(merge(tab, input), expr)
-	println("Evaluated to: ", res)
-	return res
-end
-
-# ╔═╡ e2dce1f6-d116-42b7-939a-9592a3b07632
-[rulenode2expr(ex, grammar_example) for ex in get_bfs_enumerator(grammar_example, 2, 10, :State)]
-
 # ╔═╡ fb717be5-0b4c-4899-bb6f-5b54eec290bc
-sol = HerbSearch.search(grammar_example, Problem([e]), :State, max_depth=5,
+sol = HerbSearch.search(g, Problem([e]), :State, max_depth=5,
 	evaluator = my_evaluator,
 	allow_evaluation_errors = true,
 	mod = mod,
 )
 
-# ╔═╡ bc0dc1fd-89f6-4a65-882f-98185cbbc244
-# ╠═╡ disabled = true
-# ╠═╡ skip_as_script = true
-#=╠═╡
-function interpret(tab::SymbolTable, ex::Expr)
-    if ex.head == :call
-		println(ex.args[1])
-		println(keys(tab))
-        if ex.args[1] in keys(tab)
-            if length(ex.args) > 1
-                return @eval tab[ex.args[1]](interpret(tab, ex.args[2]))
-            else
-                return @eval tab[ex.args[1]](tab)
-            end
-        else
-            throw(ArgumentError("Argument $(ex.args[1]) not present in symbol table."))
-        end
-    else
-        throw(Error("Expression type not supported: $(ex.head)"))
-    end
-end
-  ╠═╡ =#
-
 # ╔═╡ Cell order:
-# ╠═55301ad1-79fa-4aa5-be52-0a370676a04a
-# ╠═d27779de-b6ca-11ee-23ba-d7e0f026b436
-# ╠═48cb4300-b021-49e1-a132-b1b0c9e69bac
-# ╟─2cd0fa21-625a-4be1-8130-af914781e414
+# ╟─792e974b-4f40-42b5-8003-497a8aebb2a3
+# ╟─c5da9f66-8796-445f-abd3-b2bd0f3cfbf9
+# ╠═90706d07-8d3f-4506-a251-d4fc7a09ed1d
+# ╟─d27779de-b6ca-11ee-23ba-d7e0f026b436
+# ╟─45b5e0db-0beb-4908-af60-7f13c492201d
 # ╠═0596f1db-7bea-469a-87f6-4eabf368c523
+# ╟─05839053-e82f-4db9-9776-db410b50c5ea
+# ╠═b3275558-1559-4753-a9d1-5e846b93a747
+# ╟─d83be944-e311-40dc-b822-67b623bc1ee5
 # ╠═5cdde027-15a1-4f4f-bab1-c06cb186f667
-# ╠═29f882d3-3a7c-412f-a332-e0b9210dfe98
-# ╠═cd45a607-88c8-42a0-bdaf-1c60fa54f8de
-# ╠═5b015667-e498-483f-b71d-9e34812091b6
-# ╠═d74a4f27-da1c-4968-9ff6-b91cfe0188fe
-# ╠═75cd93ae-cbab-4126-94aa-be3d07b67117
+# ╠═3bca1c83-2d75-4707-a06e-838f29e176a6
+# ╠═c3919952-7bc8-4e93-9f35-50f151ff625f
 # ╠═0ba60850-7311-4fa8-856f-f285cb536f5c
-# ╠═e2dce1f6-d116-42b7-939a-9592a3b07632
+# ╠═955c1633-5a71-4307-bcbf-fa3d4e841764
 # ╠═fb717be5-0b4c-4899-bb6f-5b54eec290bc
-# ╠═bc0dc1fd-89f6-4a65-882f-98185cbbc244
+# ╟─d3784531-4877-425e-8a70-569681e4ffc3
+# ╟─1dd8de38-73b9-4d9b-bcdf-a799060f780b
+# ╟─2d2457f1-3f59-4f93-bb03-1ceab9765bbe
+# ╠═55301ad1-79fa-4aa5-be52-0a370676a04a
+# ╠═b1071747-1713-4f1e-9eb9-4c562ba221ae

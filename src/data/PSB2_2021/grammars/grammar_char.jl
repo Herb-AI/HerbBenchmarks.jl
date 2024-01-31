@@ -35,7 +35,6 @@ function char_isdigit(state)
 end
 
 function char_isletter(state)
-    println(state)
     if !isempty(state[:char])
         item = state[:char][1]
         state[:char] = state[:char][2:end]
