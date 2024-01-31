@@ -102,6 +102,8 @@ and then a final check that `search(...)` actually finds what we want.
 
 # ╔═╡ d3784531-4877-425e-8a70-569681e4ffc3
 md"""
+As we expected, `sol == ` $(:(output(char_isletter(input(make_stacks()))))).
+
 It works!
 """
 
@@ -149,7 +151,7 @@ sol = HerbSearch.search(g, Problem([e]), :State, max_depth=5,
 # ╔═╡ Cell order:
 # ╟─792e974b-4f40-42b5-8003-497a8aebb2a3
 # ╟─c5da9f66-8796-445f-abd3-b2bd0f3cfbf9
-# ╠═90706d07-8d3f-4506-a251-d4fc7a09ed1d
+# ╟─90706d07-8d3f-4506-a251-d4fc7a09ed1d
 # ╟─d27779de-b6ca-11ee-23ba-d7e0f026b436
 # ╟─45b5e0db-0beb-4908-af60-7f13c492201d
 # ╠═0596f1db-7bea-469a-87f6-4eabf368c523
