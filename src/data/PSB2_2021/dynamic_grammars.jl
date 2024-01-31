@@ -69,34 +69,19 @@ function get_output_from_stack(output_id::Symbol, type_of_output::Symbol, state:
     return state
 end
 
-# ╔═╡ cdd6289c-3e31-4374-9a5a-31761a47bc4a
-function write_input_to_stack(input_id::Symbol, input_value::Any, state::Dict)
-    """
-    Adds the input symbol to the state, mapped to the input value.
-
-    Args:
-        input_id (Symbol): The input id to which the value belongs
-        input_valae (Any): The input value
-        state (Dict): The state of the program
-    
-    Returns:
-        Dict: The state of the program
-    """
-    state[input_id] = input_value
-    return state
-end
-
 # ╔═╡ 0596f1db-7bea-469a-87f6-4eabf368c523
 function make_input_output_grammar(e::IOExample, mod::Module) 
 	grammar_input_output = @csgrammar begin end
 	
 	for input in e.in
 		name = Symbol(input[1])
-		@eval mod ($(name)) = x -> write_input_to_stack($(input[1]), $(input[2]), x)
+		@eval mod ($(name)) = x -> write_input_to_stack(Symbol($input[1]), $(input[2]), x)
 		add_rule!(grammar_input_output, :(State = $name($(input[1]), $(input[2]), State)))
 	end
 	for output in e.out
-		add_rule!(grammar_input_output, :(State = State -> get_output_from_stack($(output[1]), $(typeof(output[2])), State)))
+		name = Symbol(output[1])
+		@eval mod ($(name)) = x -> get_output_from_stack(Symbol($output[1]), $(typeof(output[2])), x)
+		add_rule!(grammar_input_output, :(State = $name($(output[1]), $(typeof(output[2])), State)))
 	end
 	return grammar_input_output
 end
@@ -114,7 +99,7 @@ function merge_grammar(gs::Vector{ContextSensitiveGrammar})
 end
 
 # ╔═╡ cd45a607-88c8-42a0-bdaf-1c60fa54f8de
-e = IOExample(Dict(:input => "a"), Dict(:output => true))
+e = IOExample(Dict(:input => 'a'), Dict(:output => true))
 
 # ╔═╡ 5b015667-e498-483f-b71d-9e34812091b6
 begin
@@ -122,13 +107,12 @@ begin
 	Base.include(mod, "grammars/custom_util.jl")
 	Base.include(mod, "grammars/grammar_char.jl")
 	Base.include(mod, "grammars/grammar_gtm.jl")
-	Base.include(mod, "grammars/custom_util.jl")
-	Base.include(mod, "grammars/util.jl")
+	# Base.include(mod, "grammars/util.jl")
 	g = make_input_output_grammar(e, mod)
 end
 
-# ╔═╡ 48642898-da20-40a0-8f21-964d443a4dff
-
+# ╔═╡ 5cdde027-15a1-4f4f-bab1-c06cb186f667
+@eval mod output(char_isletter(input(make_stacks())))
 
 # ╔═╡ d74a4f27-da1c-4968-9ff6-b91cfe0188fe
 grammar_example = merge_grammar([g_char, g])
@@ -140,26 +124,17 @@ tab = SymbolTable(grammar_example, mod)
 function my_evaluator(tab::SymbolTable, expr::Any, input::Dict)
 	println("Evaluating: ", expr)
 	res = interpret(merge(tab, input), expr)
-	println(res)
+	println("Evaluated to: ", res)
 	return res
 end
-
-# ╔═╡ 39953068-eb5a-4030-ad40-1a2d11727d04
-rulenode2expr(RuleNode(1, [RuleNode(2)]), grammar_example)
-
-# ╔═╡ b0e841e3-b392-4f1e-8d5a-f44ce3099f73
-grammar_example.rules
 
 # ╔═╡ e2dce1f6-d116-42b7-939a-9592a3b07632
 [rulenode2expr(ex, grammar_example) for ex in get_bfs_enumerator(grammar_example, 2, 10, :State)]
 
-# ╔═╡ 5cdde027-15a1-4f4f-bab1-c06cb186f667
-@eval mod input(make_stacks())
-
 # ╔═╡ fb717be5-0b4c-4899-bb6f-5b54eec290bc
-sol = HerbSearch.search(grammar_example, Problem([e]), :State, max_depth=3,
+sol = HerbSearch.search(grammar_example, Problem([e]), :State, max_depth=5,
 	evaluator = my_evaluator,
-	allow_evaluation_errors = false,
+	allow_evaluation_errors = true,
 	mod = mod,
 )
 
@@ -191,18 +166,14 @@ end
 # ╠═d27779de-b6ca-11ee-23ba-d7e0f026b436
 # ╠═48cb4300-b021-49e1-a132-b1b0c9e69bac
 # ╟─2cd0fa21-625a-4be1-8130-af914781e414
-# ╠═cdd6289c-3e31-4374-9a5a-31761a47bc4a
 # ╠═0596f1db-7bea-469a-87f6-4eabf368c523
+# ╠═5cdde027-15a1-4f4f-bab1-c06cb186f667
 # ╠═29f882d3-3a7c-412f-a332-e0b9210dfe98
 # ╠═cd45a607-88c8-42a0-bdaf-1c60fa54f8de
 # ╠═5b015667-e498-483f-b71d-9e34812091b6
-# ╠═48642898-da20-40a0-8f21-964d443a4dff
 # ╠═d74a4f27-da1c-4968-9ff6-b91cfe0188fe
 # ╠═75cd93ae-cbab-4126-94aa-be3d07b67117
 # ╠═0ba60850-7311-4fa8-856f-f285cb536f5c
-# ╠═39953068-eb5a-4030-ad40-1a2d11727d04
-# ╠═b0e841e3-b392-4f1e-8d5a-f44ce3099f73
 # ╠═e2dce1f6-d116-42b7-939a-9592a3b07632
-# ╠═5cdde027-15a1-4f4f-bab1-c06cb186f667
 # ╠═fb717be5-0b4c-4899-bb6f-5b54eec290bc
 # ╠═bc0dc1fd-89f6-4a65-882f-98185cbbc244

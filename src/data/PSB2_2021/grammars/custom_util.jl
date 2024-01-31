@@ -26,26 +26,15 @@ function get_output_from_stack(output_id::Symbol, type_of_output::Type, state::D
         Dict: The state of the program
     """
     if type_of_output <: Char
-        if length(state[:char]) > 0 
-            println(state[:char][1])
-            state[output_id] = state[:char][1]
-        end
+        state[output_id] = pop!(state[:char])
     elseif type_of_output <: String
-        if length(state[:string]) > 0
-            state[output_id] = state[:string][1]
-        end
+            state[output_id] = pop!(state[:string])
     elseif type_of_output <: Bool
-        if length(state[:boolean]) > 0
-            state[output_id] = state[:boolean][1]
-        end
+            state[output_id] = pop!(state[:boolean])
     elseif type_of_output <: AbstractFloat
-        if length(state[:float]) > 0
-            state[output_id] = state[:float][1]
-        end
+            state[output_id] = pop!(state[:float])
     elseif type_of_output <: Integer
-        if length(state[:integer]) > 0
-            state[output_id] = state[:integer][1]
-        end
+            state[output_id] = pop!(state[:integer])
     else
         println("Could not match type_of_output: ", type_of_output)
     end
@@ -65,6 +54,20 @@ function write_input_to_stack(input_id::Symbol, input_value::Any, state::Dict)
         Dict: The state of the program
     """
     state[input_id] = input_value
+	stack_to_push_to = missing
+	if typeof(input_value) <: Char
+		stack_to_push_to = :char
+	elseif input_value isa AbstractString
+		stack_to_push_to = :string
+	elseif input_value isa Bool
+		stack_to_push_to = :boolean
+	elseif input_value isa Integer
+		stack_to_push_to = :integer
+	else
+		error("No stack for $typeof(input_value)")
+	end
+	
+	push!(state[stack_to_push_to], input_value)
     return state
 end
 
