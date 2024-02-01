@@ -14,8 +14,8 @@ problem_17212077 = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "03/07/2011"), "03/2011"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "05/09/2009"), "05/2009")])
 problem_19274448 = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "dhfjd9999999dfda"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "ddsss999dfdfsfd"), Symbol("false"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "dhfjd9999999dfda"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "ddsss999dfdfsfd"), false)])
 problem_19558979 = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "spreadsheet", :_arg_2 => 1), "s"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "spreadsheet", :_arg_2 => 2), "p"), 
@@ -69,8 +69,8 @@ problem_36462127 = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "ABCDE/FGHI/JKL/MNOPQR"), "MNOPQR"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "A/ABCDE/FGHI/JKL"), "JKL")])
 problem_37281007 = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "ABC", :_arg_2 => "D"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "ABC", :_arg_2 => "BC"), Symbol("true"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "ABC", :_arg_2 => "D"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "ABC", :_arg_2 => "BC"), true)])
 problem_37534494 = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "I love apples", :_arg_3 => "banana", :_arg_2 => "I hate bananas"), "I hate bananas"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "I love apples", :_arg_3 => "apple", :_arg_2 => "I hate bananas"), "I love apples")])
@@ -89,11 +89,11 @@ problem_39060015 = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "This is a line. /delete words in the area /keep this part"), "This is a line. keep this part"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "/delete words in the area /"), "")])
 problem_40498040 = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "some project,other project"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "some project"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "overhead"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "some project, overhead"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "some project, other, boo"), Symbol("true"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "some project,other project"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "some project"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "overhead"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "some project, overhead"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "some project, other, boo"), true)])
 problem_41503046 = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "Polygonum amphibium"), "Polygonum"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "Hippuris vulgaris"), "Hippuris"), 
@@ -121,43 +121,43 @@ problem_add_a_line_break_with_a_formula = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "Mary Hannan", :_arg_3 => "Lansing, MI 48933", :_arg_2 => "1195 Amethyst Drive"), "Mary Hannan/n1195 Amethyst Drive/nLansing, MI 48933"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "Linda Thomas", :_arg_3 => "Allen, KY 41601", :_arg_2 => "2479 North Bend Road"), "Linda Thomas/n2479 North Bend Road/nAllen, KY 41601")])
 problem_cell_contains_all_of_many_things = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow dog on green grass", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "Lone dog with a green frisbie on yellow sand", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "A yellow sun in a green field", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow neon sign with a green background", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), Symbol("false"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow dog on green grass", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "Lone dog with a green frisbie on yellow sand", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "A yellow sun in a green field", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow neon sign with a green background", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), false)])
 problem_cell_contains_number = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "A bird in the hand is worth 2 in the bush."), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "A bird in the hand is worth two in the bush."), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "The 15 shortcuts you simply must know"), Symbol("true"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "A bird in the hand is worth 2 in the bush."), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "A bird in the hand is worth two in the bush."), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "The 15 shortcuts you simply must know"), true)])
 problem_cell_contains_one_of_many_things = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow dog on green grass", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "warm gray sweater", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "A yellow sun in a green field", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow neon sign with a green background", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), Symbol("true"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow dog on green grass", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "warm gray sweater", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "A yellow sun in a green field", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow neon sign with a green background", :_arg_3 => "green", :_arg_4 => "dog", :_arg_2 => "yellow"), true)])
 problem_cell_contains_one_of_many_with_exclusions = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow dog on green grass", :_arg_3 => "green", :_arg_4 => "cat", :_arg_2 => "yellow"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "warm gray sweater", :_arg_3 => "green", :_arg_4 => "cat", :_arg_2 => "yellow"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "blue neon signs", :_arg_3 => "green", :_arg_4 => "neon", :_arg_2 => "blue"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "hot pink socks", :_arg_3 => "pink", :_arg_4 => "neon", :_arg_2 => "blue"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "deep black eyes", :_arg_3 => "green", :_arg_4 => "neon", :_arg_2 => "yellow"), Symbol("false"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow dog on green grass", :_arg_3 => "green", :_arg_4 => "cat", :_arg_2 => "yellow"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "warm gray sweater", :_arg_3 => "green", :_arg_4 => "cat", :_arg_2 => "yellow"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "blue neon signs", :_arg_3 => "green", :_arg_4 => "neon", :_arg_2 => "blue"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "hot pink socks", :_arg_3 => "pink", :_arg_4 => "neon", :_arg_2 => "blue"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "deep black eyes", :_arg_3 => "green", :_arg_4 => "neon", :_arg_2 => "yellow"), false)])
 problem_cell_contains_some_words_but_not_others = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "red ball, green sweater", :_arg_3 => "green", :_arg_4 => "pink", :_arg_2 => "red"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "pink ball, green sweater", :_arg_3 => "green", :_arg_4 => "pink", :_arg_2 => "red"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "blue sea, pink ribbon", :_arg_3 => "blue", :_arg_4 => "pink", :_arg_2 => "red"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "black sea, white ribbon", :_arg_3 => "blue", :_arg_4 => "pink", :_arg_2 => "red"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "red green blue", :_arg_3 => "blue", :_arg_4 => "pink", :_arg_2 => "red"), Symbol("true"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "red ball, green sweater", :_arg_3 => "green", :_arg_4 => "pink", :_arg_2 => "red"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "pink ball, green sweater", :_arg_3 => "green", :_arg_4 => "pink", :_arg_2 => "red"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "blue sea, pink ribbon", :_arg_3 => "blue", :_arg_4 => "pink", :_arg_2 => "red"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "black sea, white ribbon", :_arg_3 => "blue", :_arg_4 => "pink", :_arg_2 => "red"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "red green blue", :_arg_3 => "blue", :_arg_4 => "pink", :_arg_2 => "red"), true)])
 problem_cell_contains_specific_text = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "An apple a day keeps the doctor away", :_arg_2 => "apple"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "An apple a day keeps the doctor away", :_arg_2 => "orange"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "Better the devil you know", :_arg_2 => "you know"), Symbol("true"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "An apple a day keeps the doctor away", :_arg_2 => "apple"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "An apple a day keeps the doctor away", :_arg_2 => "orange"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "Better the devil you know", :_arg_2 => "you know"), true)])
 problem_cell_equals_one_of_many_things = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "gray"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "black"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "blue"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "pink"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "orange"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "turkey"), Symbol("false"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "yellow"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "gray"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "black"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "blue"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "pink"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "orange"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "turkey"), false)])
 problem_change_negative_numbers_to_positive = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "-%134"), "%134"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "500"), "500"), 
@@ -168,10 +168,10 @@ problem_clean_and_reformat_telephone_numbers = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "<978> 654-0299"), "9786540299"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "978.654.0299"), "9786540299")])
 problem_compare_two_strings = Problem(Example[
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "apple", :_arg_2 => "apple"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "orange", :_arg_2 => "Orange"), Symbol("false")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "peach", :_arg_2 => "peach"), Symbol("true")), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "cherry", :_arg_2 => "cherrY"), Symbol("false"))])
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "apple", :_arg_2 => "apple"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "orange", :_arg_2 => "Orange"), false), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "peach", :_arg_2 => "peach"), true), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => "cherry", :_arg_2 => "cherrY"), false)])
 problem_convert_numbers_to_text = Problem(Example[
 	IOExample(Dict{Symbol, Any}(:_arg_1 => 101), "101"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => 1002), "1002"), 
