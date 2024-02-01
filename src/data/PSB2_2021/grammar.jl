@@ -4,32 +4,92 @@ function get_grammar(names::Vector{String}, p::Problem, mod::Module)
     TODO initialize grammars based on benchmark.
     """
     g = make_input_output_grammar(p.examples, mod)
-    if "integer" in names
-        Base.include(mod, "grammars/grammar_numbers.jl")
-        g = merge_grammar([g, g_integer])
-    end
-    if "float" in names
-        Base.include(mod, "grammars/grammar_numbers.jl")
-        g = merge_grammar([g, g_float])
-    end
-    if "string" in names
-        Base.include(mod, "grammars/grammar_string.jl")
-        g = merge_grammar([g, g_string])
-    end
-    if "char" in names
-        Base.include(mod, "grammars/grammar_char.jl")
-        g = merge_grammar([g, g_char])
-    end
-    if "bool" in names
-        Base.include(mod, "grammars/grammar_bool.jl")
-        g = merge_grammar([g, g_bool])
-    end
-    if "random" in names
-        Base.include(mod, "grammars/grammar_random.jl")
-        g = merge_grammar([g, g_random])
+    for n in names
+        if n == "integer"
+            Base.include(mod, "grammars/grammar_numbers.jl")
+            g = merge_grammar([g, g_integer])
+        elseif n == "float"
+            Base.include(mod, "grammars/grammar_numbers.jl")
+            g = merge_grammar([g, g_float])
+        elseif n == "string"
+            Base.include(mod, "grammars/grammar_string.jl")
+            g = merge_grammar([g, g_string])
+        elseif n == "char"
+            Base.include(mod, "grammars/grammar_char.jl")
+            g = merge_grammar([g, g_char])
+        elseif n ==  "bool" || n == "boolean"
+            Base.include(mod, "grammars/grammar_bool.jl")
+            g = merge_grammar([g, g_bool])
+        elseif n == "random" 
+            Base.include(mod, "grammars/grammar_random.jl")
+            g = merge_grammar([g, g_random])
+        else
+            @warn n * " grammar is not implemented (yet)."
+        end
     end
     return g
 end
+
+function get_grammar(problem_name::String, p::Problem, mod::Module)
+    """
+    Function to create grammar for this problem. `names` specifies the subgrammars to use.
+    TODO initialize grammars based on benchmark.
+    """
+    names = benchmark_to_grammar[replace(problem_name, "problem_" => "")]
+    g = make_input_output_grammar(p.examples, mod)
+    for n in names
+        if n == "integer"
+            Base.include(mod, "grammars/grammar_numbers.jl")
+            g = merge_grammar([g, g_integer])
+        elseif n == "float"
+            Base.include(mod, "grammars/grammar_numbers.jl")
+            g = merge_grammar([g, g_float])
+        elseif n == "string"
+            Base.include(mod, "grammars/grammar_string.jl")
+            g = merge_grammar([g, g_string])
+        elseif n == "char"
+            Base.include(mod, "grammars/grammar_char.jl")
+            g = merge_grammar([g, g_char])
+        elseif n ==  "bool" || n == "boolean"
+            Base.include(mod, "grammars/grammar_bool.jl")
+            g = merge_grammar([g, g_bool])
+        elseif n == "random" 
+            Base.include(mod, "grammars/grammar_random.jl")
+            g = merge_grammar([g, g_random])
+        else
+            @warn n * " grammar is not implemented (yet)."
+        end
+    end
+    return g
+end
+
+benchmark_to_grammar = Dict{String, Vector{String}}(
+    "basement" => ["integer", "boolean", "vector_of_integer"],
+    "bouncing_balls" => ["integer", "float", "boolean"],
+    "bowling" => ["integer", "float", "boolean", "string", "char"],
+    "camel_case" => ["integer", "boolean", "char", "string"],
+    "coin_sums" => ["integer", "boolean"],
+    "cut_vector" => ["integer", "boolean"],
+    "dice_game" => ["integer", "boolean", "float"],
+    "find_pair" => ["integer", "boolean", "vector_of_integer"],
+    "fizz_buzz" => ["integer", "boolean", "string"],
+    "fuel_cost" => ["integer", "boolean", "vector_of_integer"],
+    "gcd" => ["integer", "boolean"],
+    "indices_of_substring" => ["integer", "booelan", "string", "char", "vector_of_integer"],
+    "leaders" => ["integer", "boolean", "vector_of_integer"],
+    "luhn" => ["integer", "boolean", "vector_of_integer"],
+    "mastermind" => ["integer", "boolean", "string", "char"],
+    "middle_character" => ["integer", "boolean", "string", "char"],
+    "paired_digits" => ["integer", "boolean", "string", "char"],
+    "shopping_list" => ["integer", "float", "boolean", "vector_of_float"],
+    "snow_day" => ["integer", "float", "boolean"],
+    "solve_boolean" => ["integer", "char", "string", "boolean"],
+    "spin_words" => ["integer", "boolean", "string", "char"],
+    "square_digits" => ["integer", "boolean", "string", "char"],
+    "substitution_cipher" => ["integer", "boolean", "string", "char"],
+    "twitter" => ["integer", "boolean", "string", "char"],
+    "vector_distance" => ["integer", "float", "boolean", "vector_of_float"]
+)
 
 function make_input_output_grammar(ex::Vector{Example}, mod::Module)
     """Creates the grammar for the input and output values, using functions to write the input type to the stack and retrieve it for the output."""

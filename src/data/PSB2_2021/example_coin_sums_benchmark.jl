@@ -9,6 +9,8 @@ import HerbInterpret.interpret
 Pkg.add(["Conda", "PyCall", "JSON"])
 
 include("data.jl") # includes `problem_coin_sums` test data
+# TODO example of importing the files using the PSB2_2021 module
+
 include("grammar.jl")
 mod = Module(:GrammarImplementation)
 g = get_grammar(["integer", "bool"], problem_coin_sums, mod)
