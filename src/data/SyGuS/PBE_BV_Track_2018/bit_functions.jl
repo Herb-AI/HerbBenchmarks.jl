@@ -20,3 +20,4 @@ arba_cvc(n::UInt) = bvlshr_cvc(n, 4)
 shesh_cvc(n::UInt) = bvlshr_cvc(n, 16)
 smol_cvc(n::UInt) = bvshl_cvc(n, 1)
 im_cvc(x::UInt, y::UInt, z::UInt) = x == UInt(1) ? y : z
+if0_cvc(x::UInt, y::UInt, z::UInt) = x == UInt(0) ? y : z
