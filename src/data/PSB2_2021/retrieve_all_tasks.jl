@@ -1,5 +1,5 @@
 using Conda, PyCall
-using HerbData, HerbBenchmarks
+using HerbData
 
 Conda.pip_interop(true)
 Conda.pip("install", "psb2")
