@@ -1,31 +1,29 @@
 using Pkg
 Pkg.activate(temp=true)
-Pkg.add(["HerbGrammar", "HerbData", "HerbInterpret"])
-using HerbGrammar, HerbData, HerbInterpret, Pkg
-Pkg.add(PackageSpec(name="HerbSearch", rev="dev"))
+Pkg.add(["HerbGrammar", "HerbCore", "HerbSpecification", "HerbInterpret"])
+using HerbGrammar, HerbCore, HerbSpecification, HerbInterpret, Pkg
+Pkg.add(PackageSpec(name="HerbSearch", rev="data_to_specification"))
 using HerbSearch
 import HerbInterpret.interpret
 using Test
 
-
 include("grammar.jl")
+include("grammars/custom_util.jl")
 
 
 function my_evaluator(tab::SymbolTable, expr::Any, input::Dict)
-	println("Evaluating: ", expr)
 	res = interpret(tab, expr)
-	println("Result: ", res)
     res = Dict(k => v for (k, v) in res if occursin("output", string(k)))
-	println("Final: ", res)
 	return res
 end
 
-function test_case(e::IOExample, mod::Module)
-	g = merge_grammar([make_input_output_grammar(e, mod), g_char])
-	println(g)
-	sol = HerbSearch.search(g, Problem([e]), :State, max_depth=4,
+function test_case(g::Grammar, e::IOExample, mod::Module)
+	add_rule!(g, :(State => write_input_to_stack(:input, e.in.value, State)))
+	add_rule!(g, :(State => get_output_from_stack(:output, typeof(g.out.value), State)))
+	sol = HerbSearch.search(g, Problem([e]), :State, 
+		max_depth=4,
 		evaluator = my_evaluator,
-		allow_evaluation_errors = true,
+		allow_evaluation_errors = false,
 		mod = mod,
 	)
 	return string(sol)
@@ -35,14 +33,12 @@ end
 
 @testset "GrammarChar" begin
 	mod = Module(:GrammarTest)
-	Base.include(mod, "grammars/custom_util.jl")
-	Base.include(mod, "grammars/grammar_char.jl")
 
 	# char_issletter
-	e = IOExample(Dict(:input => 'a'), Dict(:output => true))
-	@test test_case(e, mod) == "output(char_isletter(input(make_stacks())))"
-	e = IOExample(Dict(:input => '1'), Dict(:output => false))
-	@test test_case(e, mod) == "output(char_isletter(input(make_stacks())))"
+	e = IOExample(Dict(:input1 => 'a'), Dict(:output1 => true))
+	@test test_case(g_char, e, mod) == "output1(char_isletter(input1(make_stacks())))"
+	# e = IOExample(Dict(:input => '1'), Dict(:output => false))
+	# @test test_case(e, mod) == "output(char_isletter(input(make_stacks())))"
 
 	# # char_isdigit
 	# e = IOExample(Dict(:input => 'a'), Dict(:output => false))

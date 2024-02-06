@@ -1,7 +1,7 @@
 module PSB2_2021
 
 using JSON
-using HerbData
+using HerbSpecification
 # using HerbInterpret
 
 include("data.jl")

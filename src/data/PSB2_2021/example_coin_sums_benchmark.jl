@@ -1,9 +1,9 @@
 # Set the imports
 using Pkg
 Pkg.activate(temp=true)
-Pkg.add(["HerbGrammar", "HerbData", "HerbInterpret"])
-using HerbGrammar, HerbData, HerbInterpret, Pkg
-Pkg.add(PackageSpec(name="HerbSearch", rev="dev"))
+Pkg.add(["HerbGrammar", "HerbSpecification", "HerbInterpret"])
+using HerbGrammar, HerbSpecification, HerbInterpret, Pkg
+Pkg.add(PackageSpec(name="HerbSearch", rev="data_to_specification"))
 using HerbSearch
 import HerbInterpret.interpret
 Pkg.add(["Conda", "PyCall", "JSON"])

@@ -1,8 +1,11 @@
+include("data.jl")
+
 function get_grammar(names::Vector{String}, p::Problem, mod::Module)
     """
     Function to create grammar for this problem. `names` specifies the subgrammars to use.
     TODO initialize grammars based on benchmark.
     """
+    Base.include(mod, "grammars/custom_util.jl")
     g = make_input_output_grammar(p.examples, mod)
     for n in names
         if n == "integer"
@@ -35,8 +38,9 @@ function get_grammar(problem_name::String, p::Problem, mod::Module)
     Function to create grammar for this problem. `names` specifies the subgrammars to use.
     TODO initialize grammars based on benchmark.
     """
+    Base.include(mod, "grammars/custom_util.jl")
     names = benchmark_to_grammar[replace(problem_name, "problem_" => "")]
-    g = make_input_output_grammar(p.examples, mod)
+    g = make_input_output_grammar(p.spec, mod)
     for n in names
         if n == "integer"
             Base.include(mod, "grammars/grammar_numbers.jl")
@@ -91,7 +95,48 @@ benchmark_to_grammar = Dict{String, Vector{String}}(
     "vector_distance" => ["integer", "float", "boolean", "vector_of_float"]
 )
 
-function make_input_output_grammar(ex::Vector{Example}, mod::Module)
+all_problems = Dict(
+    "basement" => problem_basement,
+    "bouncing_balls" => problem_bouncing_balls,
+    "bowling" => problem_bowling,
+    "camel_case" => problem_camel_case,
+    "coin_sums" => problem_coin_sums,
+    "cut_vector" => problem_cut_vector,
+    "dice_game" => problem_dice_game,
+    "find_pair" => problem_find_pair,
+    "fizz_buzz" => problem_fizz_buzz,
+    "fuel_cost" => problem_fuel_cost,
+    "gcd" => problem_gcd,
+    "indices_of_substring" => problem_indices_of_substring,
+    "leaders" => problem_leaders,
+    "luhn" => problem_luhn,
+    "mastermind" => problem_mastermind,
+    "middle_character" => problem_middle_character,
+    "paired_digits" => problem_paired_digits,
+    "shopping_list" => problem_shopping_list,
+    "snow_day" => problem_snow_day,
+    "solve_boolean" => problem_solve_boolean,
+    "spin_words" => problem_spin_words,
+    "square_digits" => problem_square_digits,
+    "substitution_cipher" => problem_substitution_cipher,
+    "twitter" => problem_twitter,
+    "vector_distance" => problem_vector_distance
+)
+
+function write_grammars_to_file()
+    mod = Module(:Grammar)
+    f = open("data_grammars.jl", "w")
+    for (name, p) in all_problems
+        g = get_grammar(name, p, mod)
+        println(f, "grammar_" * name * " = @csgrammar begin")
+        for rule in g.rules
+            println(f, "    State = " * string(rule))
+        end
+        println(f, "end")
+    end
+end
+
+function make_input_output_grammar(ex::AbstractSpecification, mod::Module)
     """Creates the grammar for the input and output values, using functions to write the input type to the stack and retrieve it for the output."""
 	grammar_input_output = @csgrammar begin end
 	for e in ex
