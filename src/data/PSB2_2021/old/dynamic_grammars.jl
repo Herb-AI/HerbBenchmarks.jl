@@ -147,6 +147,7 @@ sol = HerbSearch.search(g, Problem([e]), :State, max_depth=5,
 	allow_evaluation_errors = true,
 	mod = mod,
 )
+println(sol)
 
 # ╔═╡ Cell order:
 # ╟─792e974b-4f40-42b5-8003-497a8aebb2a3

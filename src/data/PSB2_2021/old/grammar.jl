@@ -1,3 +1,7 @@
+using HerbCore
+using HerbSpecification
+using HerbGrammar
+
 include("data.jl")
 
 function get_grammar(names::Vector{String}, p::Problem, mod::Module)
@@ -36,10 +40,10 @@ end
 function get_grammar(problem_name::String, p::Problem, mod::Module)
     """
     Function to create grammar for this problem. `names` specifies the subgrammars to use.
-    TODO initialize grammars based on benchmark.
     """
     Base.include(mod, "grammars/custom_util.jl")
     names = benchmark_to_grammar[replace(problem_name, "problem_" => "")]
+    println("Problem: ", problem_name, " with sets ", names)
     g = make_input_output_grammar(p.spec, mod)
     for n in names
         if n == "integer"
@@ -125,14 +129,27 @@ all_problems = Dict(
 
 function write_grammars_to_file()
     mod = Module(:Grammar)
-    f = open("data_grammars.jl", "w")
-    for (name, p) in all_problems
-        g = get_grammar(name, p, mod)
-        println(f, "grammar_" * name * " = @csgrammar begin")
-        for rule in g.rules
-            println(f, "    State = " * string(rule))
+    open("data_grammars.jl", "w") do f
+        for (name, p) in all_problems
+            g = get_grammar(name, p, mod)
+            println(f, "module " * name)
+            println(f, "grammar_" * name * " = @csgrammar begin")
+            for rule in g.rules
+                println(f, "    State = " * string(rule))
+            end         
+            println(f, "end")
+            for e in p.spec
+                for input in e.in
+                    name = Symbol(input[1])
+                    println(f, "    $(name) = x -> write_input_to_stack(Symbol($input[1]), $(input[2]), x)")
+                end
+                for output in e.out
+                    name = Symbol(output[1])
+                    println(f, "    $(name) = x -> get_output_from_stack(Symbol($output[1]), $(typeof(output[2])), x)")
+                end
+            end
+            println(f, "end")      
         end
-        println(f, "end")
     end
 end
 
