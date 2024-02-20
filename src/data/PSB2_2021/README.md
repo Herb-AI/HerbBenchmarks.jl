@@ -14,3 +14,15 @@ The table below shows the different input sets used for each problem in the benc
 
 For more information, see:
 > T. Helmuth and P. Kelly, “PSB2: The Second Program Synthesis Benchmark Suite”. Zenodo, Apr. 10, 2021. doi: 10.5281/zenodo.5084812.
+
+
+## Structure of benchmark folder
+
+- `grammars.jl` This files holds the grammars for each of the benchmark problems, it constructs the specific grammars defining the constants, inputs, and outputs, and it merges all necessary grammars into one for each problem.
+- `base_grammars.jl` This file includes the base grammars with general functions for integers, strings, characters, booleans, lists, and execution statements.
+- `grammar_util.jl` This file includes extra grammar functions, like functions used in the base grammars and `merge_grammar`.
+- `data.jl` This file holds some example problems with a small set of of IOExamples for each problem in the benchmark.
+- `example_using_the_benchmark.jl` This file shows an example how to use the benchmarks: where to find the grammar and the data.
+- `program_examples.jl` This file shows some example programs for each problem: possible outputs of the synthesis task.
+- `retrieve_all_tasks.jl` This file shows the functionality for retrieving larger problems from the benchmark, which can be downloaded and written to a json file.
+- `working_example.jl` This file is used for creating all the necessary grammar and testing the different problems in the benchmark. 
