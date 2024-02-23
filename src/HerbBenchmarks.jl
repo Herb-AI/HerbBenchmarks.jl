@@ -1,7 +1,7 @@
 module HerbBenchmarks
 
 using HerbCore
-using HerbData
+using HerbSpecification
 using HerbGrammar
 
 include("utils.jl")
