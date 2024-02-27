@@ -37,7 +37,7 @@ end
 """
 
 """
-function append_cfgrammar(filepath::String, name::String, grammar::Grammar)
+function append_cfgrammar(filepath::String, name::String, grammar::AbstractGrammar)
      open(filepath, "a") do file
         if !isprobabilistic(grammar)
             println(file, "grammar_$name = @cfgrammar begin")

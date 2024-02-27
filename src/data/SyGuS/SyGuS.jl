@@ -15,11 +15,11 @@ export
 
 
 """
-    parse_sygus_grammar(filename::AbstractString)::Grammar
+    parse_sygus_grammar(filename::AbstractString)::AbstractGrammar
 
 Parses a SyGuS file for its grammar, by looking for the keyword 'synth-fun' within the S-Expressions. Returns the grammar if found.
 """
-function parse_sygus_grammar(filename::AbstractString)::Grammar
+function parse_sygus_grammar(filename::AbstractString)::AbstractGrammar
     symbol_list = SExpressions.Parser.parsefile(filename)
     grammar = Nothing
 
@@ -50,11 +50,11 @@ function parse_sygus_problem(filename::AbstractString)::Problem
 end
 
 """
-    parse_synth_fun(sexpr::SExpressions.Lists.Cons)::Grammar
+    parse_synth_fun(sexpr::SExpressions.Lists.Cons)::AbstractGrammar
 
 Parses a SyGuS grammar that are named `synth_fun` within SyGuS. Takes the S-Expression of the grammar and returns a [`@cfgrammar`](@ref).
 """
-function parse_synth_fun(sexpr::SExpressions.Lists.Cons)::Grammar
+function parse_synth_fun(sexpr::SExpressions.Lists.Cons)::AbstractGrammar
     return_grammar = @cfgrammar begin end
 
     if sexpr[1] !== Symbol("synth-fun")
