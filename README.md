@@ -20,7 +20,7 @@ HerbBenchmarks is still not yet complete and is lacking crucial benchmarking fun
 
 Select your favourite benchmark, we use the string transformation benchmark from the SyGuS challenge:
 ```Julia
-using HerbData, HerbGrammar
+using HerbSpecification, HerbGrammar
 
 using HerbBenchmarks.PBE_SLIA_Track_2019
 

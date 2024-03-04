@@ -1,7 +1,7 @@
 module PBE_BV_Track_2018
 
 using HerbCore
-using HerbData
+using HerbSpecification
 using HerbGrammar
 
 include("data.jl")

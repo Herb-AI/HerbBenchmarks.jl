@@ -1,7 +1,7 @@
 module Abstract_Reasoning_2019
 
 using HerbCore
-using HerbData
+using HerbSpecification
 using HerbGrammar
 
 using JSON

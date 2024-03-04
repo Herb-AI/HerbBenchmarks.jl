@@ -71,7 +71,7 @@ Parses a directory for all files, parses each data file using `data_file_parser`
 
 Example usage for parsing SyGuS problems.
 ```julia
-using HerbData, HerbGrammar
+using HerbSpecification, HerbGrammar
 
 using HerbBenchmarks
 

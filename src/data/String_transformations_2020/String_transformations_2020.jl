@@ -1,7 +1,7 @@
 module String_transformations_2020
 
 using HerbCore
-using HerbData
+using HerbSpecification
 using HerbGrammar
 
 include("data.jl")

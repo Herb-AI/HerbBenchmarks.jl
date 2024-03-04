@@ -1,7 +1,7 @@
 module PBE_SLIA_Track_2019
 
 using HerbCore
-using HerbData
+using HerbSpecification
 using HerbGrammar
 
 include("data.jl")

@@ -1,6 +1,6 @@
 module SyGuS
 
-using HerbData
+using HerbSpecification
 using HerbCore
 using HerbGrammar
 
@@ -35,7 +35,7 @@ end
 """
     parse_sygus_problem(filename::AbstractString)::Problem
 
-Parses a SyGuS file for all examples and returns them, wrapped in a [`HerbData.Problem`](@ref)
+Parses a SyGuS file for all examples and returns them, wrapped in a [`HerbSpecification.Problem`](@ref)
 """
 function parse_sygus_problem(filename::AbstractString)::Problem
     symbol_list = SExpressions.Parser.parsefile(filename)
