@@ -37,7 +37,7 @@ end
 """
 
 """
-function append_cfgrammar(filepath::String, name::String, grammar::Grammar)
+function append_cfgrammar(filepath::String, name::String, grammar::AbstractGrammar)
      open(filepath, "a") do file
         if !isprobabilistic(grammar)
             println(file, "grammar_$name = @cfgrammar begin")
@@ -71,7 +71,7 @@ Parses a directory for all files, parses each data file using `data_file_parser`
 
 Example usage for parsing SyGuS problems.
 ```julia
-using HerbData, HerbGrammar
+using HerbSpecification, HerbGrammar
 
 using HerbBenchmarks
 

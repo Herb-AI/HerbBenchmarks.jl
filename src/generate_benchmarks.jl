@@ -6,7 +6,7 @@ using HerbCore
 using HerbConstraints
 using HerbGrammar
 using HerbSearch
-using HerbData
+using HerbSpecification
 using HerbEvaluation
 
 using Serialization
@@ -23,7 +23,7 @@ domains is a list of domains for the variables
 max_count is the maximum number of programs to return
 skip is the number of programs to skip before appending one to the result
 """
-function io_examples_all(grammar:: Grammar, eval_type:: Symbol, variables:: Vector{Symbol}, domains:: Vector{Vector{Any}}; min_size::Int, max_size::Int, max_count:: Int=10, skip:: Int=0) :: Vector{Tuple{RuleNode, Vector{IOExample}}}
+function io_examples_all(grammar::AbstractGrammar, eval_type::Symbol, variables::Vector{Symbol}, domains::Vector{Vector{Any}}; min_size::Int, max_size::Int, max_count::Int=10, skip::Int=0)::Vector{Tuple{RuleNode, Vector{IOExample}}}
     skip_rem = skip + 1
     es = []
     iterations = 0
@@ -45,7 +45,7 @@ function io_examples_all(grammar:: Grammar, eval_type:: Symbol, variables:: Vect
     return es
 end
 
-function io_examples(grammar:: Grammar, program:: RuleNode, variables:: Vector{Symbol}, domains:: Vector{Vector{Any}}) :: Vector{IOExample}
+function io_examples(grammar::AbstractGrammar, program::RuleNode, variables::Vector{Symbol}, domains::Vector{Vector{Any}})::Vector{IOExample}
     symbol_table = SymbolTable(grammar)
 
     # TODO: only use variables that are actually in the program

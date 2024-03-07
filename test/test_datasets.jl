@@ -1,12 +1,12 @@
 using HerbCore
-using HerbData
+using HerbSpecification
 using Test
 
 using HerbBenchmarks
 
 @testset verbose=true "String transformations 2020" begin
-    problem = String_transformations_2020.all_problems
-    @test typeof(problem[1]) == HerbData.Problem
-    @test typeof(problem[1].examples[1]) == HerbData.IOExample
+    problems = all_problems(String_transformations_2020)
+    @test typeof(problems[1]) <: HerbSpecification.Problem
+    @test typeof(problems[1].spec[1]) == HerbSpecification.IOExample
 end
 
