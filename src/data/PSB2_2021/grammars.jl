@@ -36,6 +36,8 @@ input_gcd = @csgrammar begin
     Bool = Int == 0
     Bool = Int > Int
     Bool = Bool && Bool
-    Int = rand(1:1000000)
+    Int = while Bool; Int end; Int
+    Int = Bool ? Int : Int
     output1 = Int
+    Int = rand(1:1000000) # this should add one random number to the grammar
 end

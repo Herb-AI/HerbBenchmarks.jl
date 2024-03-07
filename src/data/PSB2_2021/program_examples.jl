@@ -13,3 +13,7 @@ function program_fizzbuzz(x)
         end
     end
 end
+
+function program_gcd(x, y)
+    while y > 0; x, y = y, x % y end; x
+end

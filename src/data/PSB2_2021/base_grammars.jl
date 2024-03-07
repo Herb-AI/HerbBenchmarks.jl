@@ -31,6 +31,7 @@ end
 grammar_execution = @csgrammar begin
     Variable = String | Int | Boolean | Character
     Variable = Bool ? Variable : Variable
+    Variable = while Boolean; Variable end; Variable
 end
 
 grammar_list = @csgrammar begin
@@ -38,8 +39,6 @@ grammar_list = @csgrammar begin
     List = [Variable]
     Variable = pop!(List)
     Bool = isempty(List)
-
-
 end
 
 grammar_float = @csgrammar begin

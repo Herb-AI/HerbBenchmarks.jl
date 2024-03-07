@@ -19,7 +19,7 @@ For more information, see:
 ## Structure of benchmark folder
 
 - `grammars.jl` This files holds the grammars for each of the benchmark problems, it constructs the specific grammars defining the constants, inputs, and outputs, and it merges all necessary grammars into one for each problem.
-- `base_grammars.jl` This file includes the base grammars with general functions for integers, strings, characters, booleans, lists, and execution statements.
+- `base_grammars.jl` This file includes the base grammars with general functions for integers, strings, characters, booleans, lists, and execution statements. When a ephemeral random constant (ERC) is used, we interpret this as adding one character noise to the grammar.
 - `grammar_util.jl` This file includes extra grammar functions, like functions used in the base grammars and `merge_grammar`.
 - `data.jl` This file holds some example problems with a small set of of IOExamples for each problem in the benchmark.
 - `example_using_the_benchmark.jl` This file shows an example how to use the benchmarks: where to find the grammar and the data.
