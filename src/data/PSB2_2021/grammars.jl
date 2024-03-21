@@ -31,10 +31,18 @@ input_fuel_cost = @csgrammar begin
     output1 = Int
 end
 
+struct StateObj
+    x::Int
+    y::Int
+end
+
 input_gcd = @csgrammar begin
     Int = input1
     Int = input2
+    State = Dict(:x => Int, :y => Int)
+    Int = State[:x] | State[:y]
     Int = Int % Int
+    Int = let state = State; Int end
     # Bool = Int == 0
     Bool = Int > Int
     # Bool = Bool && Bool

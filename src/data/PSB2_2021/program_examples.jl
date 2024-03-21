@@ -21,6 +21,15 @@ function program_gcd(x, y)
     x
 end
 
+function program_gcd(input1, input2)
+    let state = Dict(:x => input1, :y => input2)
+        while state[:y] > 0
+            state = Dict(:x => state[:y], :y => state[:x] % state[:y])
+        end
+        state[:x]
+    end
+end
+
 function program_gcd(x, y)
     while y > 0
         t = y
