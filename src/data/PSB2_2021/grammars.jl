@@ -26,6 +26,8 @@ input_fuel_cost = @csgrammar begin
     Int = sum(List)
     Func = Div | floor | Sub 
     List = map(Func, List)
+    Func = x -> Int
+    Int = x
     output1 = Int
 end
 
@@ -33,11 +35,11 @@ input_gcd = @csgrammar begin
     Int = input1
     Int = input2
     Int = Int % Int
-    Bool = Int == 0
+    # Bool = Int == 0
     Bool = Int > Int
-    Bool = Bool && Bool
+    # Bool = Bool && Bool
     Int = while Bool; Int end; Int
-    Int = Bool ? Int : Int
+    # Int = Bool ? Int : Int
     output1 = Int
     Int = rand(1:1000000) # this should add one random number to the grammar
 end
