@@ -17,6 +17,10 @@ input_fuel_cost = @csgrammar begin
     output1 = Int
 end
 
+
+#:(sum(map((x->begin
+#                  floor(x / 3) - 2
+#              end), input1)))
 rulenode_version_fuel_cost = begin
     rulenode2expr(
         RuleNode(10, [
@@ -39,4 +43,4 @@ input1 = [32, 32]
 println("Builtin eval: ", eval(rulenode_version_fuel_cost))
 
 # Should be 16
-interpret(SymbolTable(input_fuel_cost), rulenode_version_fuel_cost)
+# interpret(SymbolTable(input_fuel_cost), rulenode_version_fuel_cost)

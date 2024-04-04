@@ -38,10 +38,9 @@ struct StateObj
 end
 
 input_gcd = @csgrammar begin
-    Int = input1
-    Int = input2
+    Int = input1 | input2
     State = Dict(:x => Int, :y => Int)
-    Int = State[:x] | State[:y]
+    Int = state[:x] | state[:y]
     Int = Int % Int
     Int = let state = State; Int end
     # Bool = Int == 0
@@ -50,5 +49,6 @@ input_gcd = @csgrammar begin
     Int = while Bool; Int end; Int
     # Int = Bool ? Int : Int
     output1 = Int
-    Int = rand(1:1000000) # this should add one random number to the grammar
+    Int = 0
+    # Int = rand(1:1000000) # this should add one random number to the grammar
 end
