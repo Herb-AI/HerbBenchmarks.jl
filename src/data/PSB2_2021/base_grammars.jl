@@ -18,27 +18,33 @@ grammar_integer = @csgrammar begin
     Int = Integer(String)
     Int = Integer(Float)
     Int = Integer(Character)
-    Int = ceil(Float)
-    Int = floor(Float)
+    Int = ceil(Int)
+    Int = floor(Int)
     Boolean = Int > Int
     Boolean = Int >= Int 
     Boolean = Int < Int 
     Boolean = Int <= Int 
     Boolean = Int == Int 
-    Boolean = Int != Int    
+    Boolean = Int != Int
+    Int = Boolean ? Int : Int
+    Expression = Int
+    Expression = begin Expression; Expression end
+    Int = Int -> while Bool; Expression end
 end
 
-grammar_execution = @csgrammar begin
-    Variable = String | Int | Boolean | Character
-    Variable = Bool ? Variable : Variable
-    Variable = while Boolean; Variable end; Variable
+grammar_state = @csgrammar begin
+    State = Dict(Sym => Variable)
+    Var = merge!(Var, State)
+    Variable = get(Var, Sym, "Key not found")
+    Expression = let Var = State; Expression end
 end
 
-grammar_list = @csgrammar begin
+grammar_list_integer = @csgrammar begin
     List = []
-    List = [Variable]
-    Variable = pop!(List)
-    Bool = isempty(List)
+    Int = pop!(List)
+    Boolean = isempty(List)
+    Func = (x -> Int)
+    List = map(Func, List)
 end
 
 grammar_float = @csgrammar begin
@@ -71,6 +77,10 @@ grammar_float = @csgrammar begin
     Float = float(Int)
     Float = float(String)
     Float = float(Boolean)
+    Expression = Float
+    Expression = begin Expression; Expression end
+    Float = Boolean ? Expression : Expression
+    Float = Float -> while Bool; Expression end
 end
 
 grammar_boolean = @csgrammar begin
@@ -80,6 +90,7 @@ grammar_boolean = @csgrammar begin
     Boolean = Boolean ⊻ Boolean
     Boolean = Bool(Int)
     Boolean = Bool(Float)
+    Boolean = Boolean ? Boolean : Boolean
 end
 
 grammar_character = @csgrammar begin
@@ -87,11 +98,12 @@ grammar_character = @csgrammar begin
     Character = Char(Float)
     Character = Char(Boolean)
     Character = Char(String)
-    Bool = islowercase(Character)
-    Bool = isuppercase(Character)
-    Bool = isletter(Character)
-    Bool = isdigit(Character)
-    Bool = iswhitespace(Character)
+    Boolean = islowercase(Character)
+    Boolean = isuppercase(Character)
+    Boolean = isletter(Character)
+    Boolean = isdigit(Character)
+    Boolean = iswhitespace(Character)
+    Character = Boolean ? Character : Character
 end
 
 grammar_string = @csgrammar begin
@@ -121,4 +133,8 @@ grammar_string = @csgrammar begin
     Int = count(String, String)
     Boolean = contains(Character, String)
     Boolean = contains(String, String)
+    String = Boolean ? String : String
+    Expression = String
+    Expression = begin Expression; Expression end
+    String = String -> while Boolean; Expression end
 end

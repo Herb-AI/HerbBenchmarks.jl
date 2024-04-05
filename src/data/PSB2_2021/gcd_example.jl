@@ -9,7 +9,7 @@ input_gcd = @csgrammar begin
     Int = Int % Int
     Var = merge!(Var, State)
     Int = get(Var, :x, "key not found")
-    Int = let Var = State; Int; Int  end
+    Int = let Var = State; Int; Int end
     Bool = Int > Int
     Int = Var -> while Bool; Var end
     output1 = Int
@@ -55,15 +55,17 @@ end
 
 # TODO do we want the symbols to be flexible?
 # TODO move dict/state rules to a separate base grammar
+# TODO let should have flexible number of arguments
 input_symbol_gcd = @csgrammar begin
     Int = input1
     Int = input2
     State = Dict(:x => Int, :y => Int)
     Int = Var[:x] | Var[:y]
     Int = Int % Int
-    Var = merge!(Var, State)
+    Var = merge(Var, State)
     Int = get(Var, :x, "key not found")
-    Int = let Var = State; Int; Int  end
+    Expr = begin Int; Expr end | Int
+    Int = let Var = State; Expr end
     Bool = Int > Int
     Int = Var -> while Bool; Var end
     output1 = Int
@@ -72,7 +74,8 @@ input_symbol_gcd = @csgrammar begin
 end
 
 
-input1 = [32, 16]
+input1 = 32
+input2 = 16
 
 println("Builtin eval: ", eval(rulenode_gcd))
 

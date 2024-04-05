@@ -1,43 +1,75 @@
 include("base_grammars.jl")
 
+## Basement problem
 input_basement = @csgrammar begin
     Int = -1 | 0 | 1
     List = []
     Integer = rand(-100:100)
+    Return = Dict(:output1 => Int)
 end
 
+## Coin Sums problem
+input_coin_sums = @csgrammar begin
+    Int = 0 | 1 | 5 | 10 | 25
+    Int = input1
+    Return = Dict(:output1 => Int, :output2 => Int, :output3 => Int, :output4 => Int)
+end
+
+## FizzBuzz problem
 input_fizz_buzz = @csgrammar begin
     Int = input1
     Int = 0 | 3 | 5
     String = "Fizz" | "Buzz" | "FizzBuzz"
-    output1 = String
+    Return = Dict(:output1 => String)
 end
 
-grammar_fizz_buzz = merge_grammar([input_fizz_buzz, grammar_integer, grammar_string, grammar_boolean, grammar_execution])
+grammar_fizz_buzz = merge_grammar([input_fizz_buzz, grammar_integer, grammar_string, grammar_boolean])
 
-# Given a vector of positive integers, divide each by 3, round the result down to the nearest integer, and subtract 2. Return the sum of all of the new integers in the vector
+minimal_grammar_fizz_buzz = @csgrammar begin
+    Int = input1
+    Int = 0 | 3 | 5
+    String = "Fizz" | "Buzz" | "FizzBuzz"
+    String = string(Int)
+    Return = Dict(:output1 => String)
+    Int = Int % Int
+    Bool = Int == Int
+    Int = Bool ? Int : Int
+    Bool = Bool && Bool
+end
+
+## Fuel cost problem
 input_fuel_cost = @csgrammar begin
+    Int = 0 | 1 | 2 | 3
+    List = input1
+    # Int = rand(6:100000)
+    Return = Dict(:output1 => Int)
+end
+
+grammar_fuel_cost = merge_grammar([input_fuel_cost, grammar_boolean, grammar_integer])
+
+minimal_grammar_fuel_cost = @csgrammar begin
     List = input1
     Int = 0 | 1 | 2 | 3
-    # Int = rand(6:100000)
-    Int = 4
-    Float = Int / 3
+    Float = Int / Int
     Int = floor(Float)
-    Int = Int - 2
+    Int = Int - Int
     Int = sum(List)
-    Func = Div | floor | Sub 
     List = map(Func, List)
     Func = x -> Int
     Int = x
     output1 = Int
 end
 
-struct StateObj
-    x::Int
-    y::Int
+## GCD problem
+input_gcd = @csgrammar begin
+    Int = input1 | input2
+    Int = 0
+    Return = Dict(:output1 => Int)
 end
 
-input_gcd = @csgrammar begin
+grammar_gcd = merge_grammar([input_gcd, grammar_integer, grammar_boolean, grammar_state])
+
+minimal_grammar_gcd = @csgrammar begin
     Int = input1 | input2
     State = Dict(:x => Int, :y => Int)
     Int = state[:x] | state[:y]
