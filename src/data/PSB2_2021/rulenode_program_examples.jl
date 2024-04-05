@@ -1,5 +1,63 @@
 include("grammars.jl")
 
+program_basement_rulenodes = begin # depth 11
+    rulenode2expr(
+        RuleNode(1, [
+            RuleNode(18, [
+                RuleNode(12, [
+                    RuleNode(11),
+                    RuleNode(4)
+                ]),
+                RuleNode(17, [
+                    RuleNode(16, [
+                        RuleNode(19, [
+                            RuleNode(7, [
+                                RuleNode(6, [
+                                    RuleNode(13, [
+                                        RuleNode(11)
+                                    ])
+                                    RuleNode(8, [
+                                        RuleNode(2)
+                                    ])
+                                ]),
+                                RuleNode(6, [
+                                    RuleNode(9, [
+                                        RuleNode(10, [
+                                            RuleNode(2),
+                                            RuleNode(4),
+                                            RuleNode(5, [
+                                                RuleNode(13, [
+                                                    RuleNode(11)
+                                                ]),
+                                                RuleNode(4)
+                                            ])
+                                        ])
+                                    ]),
+                                    RuleNode(3)
+                                ])
+                            ]),
+                            RuleNode(14, [
+                                RuleNode(11),
+                                RuleNode(5, [
+                                    RuleNode(13, [
+                                        RuleNode(11)
+                                    ]),
+                                    RuleNode(4)
+                                ])
+                            ])
+                        ])
+                    ]),
+                    RuleNode(15, [
+                        RuleNode(13, [
+                            RuleNode(11)
+                        ])
+                    ])
+                ])
+            ])
+        ]), minimal_grammar_basement
+    )
+end
+
 program_coinsums_rulenodes = begin # depth 6
     rulenode2expr(
         RuleNode(7, [

@@ -10,6 +10,26 @@ end
 
 grammar_basement = merge_grammar([input_basement, grammar_integer, grammar_list_integer, grammar_state_integer, grammar_boolean])
 
+minimal_grammar_basement = @csgrammar begin
+    Return = Dict(:output1 => Int)
+    List = input1
+    Int = 0 | 1
+    Int = Int + Int
+    Bool = Int < Int
+    Bool = Bool && Bool
+    Int = length(List)
+    Int = sum(List)
+    List = getindex(List, Int:Int)
+    Sym = :i
+    State = Dict(Sym => Int)
+    Int = get(state, Sym, "Key not found")
+    State = push!(state, Sym => Int)
+    Expr = Int | State
+    Expr = begin Expr; Expr end
+    Int = let state = State; Expr end
+    State = while Bool; State end    
+end
+
 ## Coin Sums problem
 input_coin_sums = @csgrammar begin
     Int = 0 | 1 | 5 | 10 | 25
