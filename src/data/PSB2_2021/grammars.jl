@@ -8,11 +8,28 @@ input_basement = @csgrammar begin
     Return = Dict(:output1 => Int)
 end
 
+grammar_basement = merge_grammar([input_basement, grammar_integer, grammar_list_integer, grammar_state_integer, grammar_boolean])
+
 ## Coin Sums problem
 input_coin_sums = @csgrammar begin
     Int = 0 | 1 | 5 | 10 | 25
     Int = input1
     Return = Dict(:output1 => Int, :output2 => Int, :output3 => Int, :output4 => Int)
+end
+
+grammar_coin_sums = merge_grammar([
+    input_coin_sums,
+    grammar_integer,
+    grammar_boolean
+])
+
+minimal_grammar_coin_sums = @csgrammar begin
+    Int = 0 | 1 | 5 | 10 | 25
+    Int = input1
+    Return = Dict(:output1 => Int, :output2 => Int, :output3 => Int, :output4 => Int)
+    Int = floor(Int)
+    Int = Int / Int
+    Int = Int % Int
 end
 
 ## FizzBuzz problem
@@ -45,7 +62,11 @@ input_fuel_cost = @csgrammar begin
     Return = Dict(:output1 => Int)
 end
 
-grammar_fuel_cost = merge_grammar([input_fuel_cost, grammar_boolean, grammar_integer])
+grammar_fuel_cost = merge_grammar([
+    input_fuel_cost, 
+    grammar_integer,
+    # grammar_boolean
+])
 
 minimal_grammar_fuel_cost = @csgrammar begin
     List = input1
@@ -57,7 +78,7 @@ minimal_grammar_fuel_cost = @csgrammar begin
     List = map(Func, List)
     Func = x -> Int
     Int = x
-    output1 = Int
+    Return = Dict(:output1 => Int)
 end
 
 ## GCD problem
@@ -67,20 +88,34 @@ input_gcd = @csgrammar begin
     Return = Dict(:output1 => Int)
 end
 
-grammar_gcd = merge_grammar([input_gcd, grammar_integer, grammar_boolean, grammar_state])
+grammar_gcd = merge_grammar([input_gcd, grammar_integer, grammar_boolean, grammar_state_integer])
 
-minimal_grammar_gcd = @csgrammar begin
+minimal_grammar_gcd_old = @csgrammar begin
     Int = input1 | input2
+    Return = Dict(:output1 => Int)
+    Int = 0
     State = Dict(:x => Int, :y => Int)
     Int = state[:x] | state[:y]
     Int = Int % Int
     Int = let state = State; Int end
-    # Bool = Int == 0
     Bool = Int > Int
-    # Bool = Bool && Bool
     Int = while Bool; Int end; Int
-    # Int = Bool ? Int : Int
     output1 = Int
+end
+
+minimal_grammar_gcd = @csgrammar begin
+    # TODO should :state be a Var?
+    Int = input1 | input2
+    Return = Dict(:output1 => Int)
     Int = 0
-    # Int = rand(1:1000000) # this should add one random number to the grammar
+    Int = Int % Int
+    Bool = Int > Int
+    Sym = :x | :y
+    State = Dict(Sym => Int, Sym => Int)
+    Int = get(state, Sym, "Key not found")
+    State = merge!(state, State)
+    Expr = Int | State
+    Expr = begin Expr; Expr end
+    Int = let state = State; Expr end
+    State = while Bool; State end
 end

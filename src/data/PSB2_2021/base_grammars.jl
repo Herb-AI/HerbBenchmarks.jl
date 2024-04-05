@@ -32,19 +32,23 @@ grammar_integer = @csgrammar begin
     Int = Int -> while Bool; Expression end
 end
 
-grammar_state = @csgrammar begin
-    State = Dict(Sym => Variable)
+grammar_state_integer = @csgrammar begin
+    State = Dict(Sym => Int)
     Var = merge!(Var, State)
-    Variable = get(Var, Sym, "Key not found")
+    Var = push(State, Sym => Int)
+    Int = get(Var, Sym, "Key not found")
+    Var = state
     Expression = let Var = State; Expression end
 end
 
 grammar_list_integer = @csgrammar begin
-    List = []
-    Int = pop!(List)
-    Boolean = isempty(List)
-    Func = (x -> Int)
     List = map(Func, List)
+    Func = (x -> Int)
+    Int = x
+    Int = length(List)
+    Int = sum(List)
+    Int = indexin(Int, List)
+    List = getindex(List, Int:Int)
 end
 
 grammar_float = @csgrammar begin
