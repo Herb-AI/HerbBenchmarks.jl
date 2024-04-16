@@ -1,8 +1,8 @@
 module Test_benchmark_default_grammar
     using HerbGrammar, HerbSpecification
 
-    problem_1 = Problem([IOExample(Dict(:x => x), 2x+1) for x in 1:5])
-    problem_2 = Problem([IOExample(Dict(:x => x), 2x-1) for x in 1:5])
+    problem_1 = Problem([IOExample(Dict(:x => x), x) for x in 1:2])
+    problem_2 = Problem([IOExample(Dict(:x => x), -x) for x in 1:5])
 
     grammar_default = @cfgrammar begin
         Real = Real + Real
@@ -101,6 +101,22 @@ end
 
         result2 = get_all_problem_grammar_pairs(Test_benchmark_default_grammar)
         @test result2 == [
+            (Test_benchmark_default_grammar.problem_1, Test_benchmark_default_grammar.grammar_default),
+            (Test_benchmark_default_grammar.problem_2, Test_benchmark_default_grammar.grammar_default)
+        ]
+    end
+
+    @testset "Get benchmark" begin
+        result1 = get_benchmark(Test_benchmark_different_grammars)
+        @test result1.module_name == Test_benchmark_different_grammars
+        @test result1.problems == [
+            (Test_benchmark_different_grammars.problem_1, Test_benchmark_different_grammars.grammar_1),
+            (Test_benchmark_different_grammars.problem_2, Test_benchmark_different_grammars.grammar_2),
+        ]
+
+        result2 = get_benchmark(Test_benchmark_default_grammar)
+        @test result2.module_name == Test_benchmark_default_grammar
+        @test result2.problems == [
             (Test_benchmark_default_grammar.problem_1, Test_benchmark_default_grammar.grammar_default),
             (Test_benchmark_default_grammar.problem_2, Test_benchmark_default_grammar.grammar_default)
         ]

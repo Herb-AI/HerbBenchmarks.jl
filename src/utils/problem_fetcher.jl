@@ -1,35 +1,49 @@
 """
-    get_all_problem_grammar_pairs(module_name::Module) -> AbstractVector{Tuple{AbstractGrammar, Problem}}
+    get_all_problem_grammar_pairs(module_name::Module) -> Benchmark
+
+Get all problems and their grammars of a benchmark 'Module'.
+Returns a 'Benchmark' object containing the problems and their grammars.
+"""
+function get_benchmark(module_name::Module)::Benchmark
+
+    # Fetch all problem grammar pairs
+    problem_grammar_pairs = [get_problem_grammar_pair(module_name, identifier) for identifier in get_all_identifiers(module_name)]
+
+    return Benchmark(module_name, problem_grammar_pairs)
+end
+
+"""
+    get_all_problem_grammar_pairs(module_name::Module) -> Vector{Tuple{Problem, AbstractGrammar}}
 
 Get all problems and their grammars of a benchmark 'Module'. 
 If any problem has no corresponding or default grammar, a 'KeyError' is thrown.
 """
-function get_all_problem_grammar_pairs(module_name::Module)
+function get_all_problem_grammar_pairs(module_name::Module)::Vector{Tuple{Problem, AbstractGrammar}}
 
     # Fetch all problem grammar pairs
     return [get_problem_grammar_pair(module_name, identifier) for identifier in get_all_identifiers(module_name)]
 end
 
 """
-    get_all_identifiers(module_name::Module) -> AbstractVector{AbstractString}
+    get_all_identifiers(module_name::Module) -> Vector{String}
 
 Get all problem identifiers of a benchmark 'Module'.
 Identifierss are the suffix of problem names. For example, the identifier of 'problem_100' is '101'.
 """
-function get_all_identifiers(module_name::Module)
+function get_all_identifiers(module_name::Module)::Vector{String}
 
     # Fetch all identifiers
     return [String(var)[9:end] for var in filter(v -> startswith(string(v), "problem_"), names(module_name; all=true))]
 end
 
 """
-    get_problem_grammar_pair(module_name::Module, identifier::AbstractString) -> Tuple{AbstractGrammar, Problem}
+    get_problem_grammar_pair(module_name::Module, identifier::AbstractString) -> Tuple{Problem, AbstractGrammar}
 
 Get a problem and its grammar identified with a 'identifier' of a benchmark 'Module'. 
 If no problem or grammar with the 'identifier' exists, a 'KeyError' is thrown.
 'identifier's are the suffix of problem names. For example, the 'identifier' of 'problem_100' is '101'.
 """
-function get_problem_grammar_pair(module_name::Module, identifier::AbstractString)
+function get_problem_grammar_pair(module_name::Module, identifier::AbstractString)::Tuple{Problem, AbstractGrammar}
 
     # Fetch problem grammar pair
     return (get_problem(module_name, identifier), get_grammar(module_name, identifier))
@@ -42,7 +56,7 @@ Get the problem identified with a 'identifier' of a benchmark 'Module'.
 If no problem with the 'identifier' exists, a 'KeyError' is thrown.
 'identifier's are the suffix of problem names. For example, the 'identifier' of 'problem_100' is '101'.
 """
-function get_problem(module_name::Module, identifier::AbstractString)
+function get_problem(module_name::Module, identifier::AbstractString)::Problem
 
     # Define problem identifier
     problem_identifier = Symbol("problem_" * identifier)
@@ -64,7 +78,7 @@ Otherwise, the default grammar of the benchmark 'Module' is returned.
 If no corresponding or default grammar exists, a 'KeyError' is thrown.
 'identifier's are the suffix of problem names. For example, the 'identifier' of 'problem_100' is '101'.
 """
-function get_grammar(module_name::Module, identifier::AbstractString)
+function get_grammar(module_name::Module, identifier::AbstractString)::AbstractGrammar
 
     # Define grammar identifier
     grammar_identifier = Symbol("grammar_" * identifier)
@@ -91,7 +105,7 @@ Get the default grammar of a benchmark 'Module'.
 It finds a name starting with '_grammar' within the benchmark 'Module'. 
 If no such name exists, a 'KeyError' is thrown.
 """
-function get_default_grammar(module_name::Module)
+function get_default_grammar(module_name::Module)::AbstractGrammar
     
     # Fetch all names in the module
     all_names = names(module_name; all=true)
