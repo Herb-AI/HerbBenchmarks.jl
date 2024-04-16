@@ -4,6 +4,8 @@ grammar_11604909 = @cfgrammar begin
 	ntString = ""
 	ntString = " "
 	ntString = "."
+	ntString = "="
+	ntString = "-"
 	ntString = concat_cvc(ntString, ntString)
 	ntString = replace_cvc(ntString, ntString, ntString)
 	ntString = at_cvc(ntString, ntInt)

@@ -134,7 +134,7 @@ function find_corresponding_grammar(problem_name::AbstractString, module_name::M
         return grammar_id
     else
         # Find the default grammar that starts with "grammar_"
-        for (name, value) in names(module_name; all=true)
+        for name in names(module_name; all=true)
             if startswith(string(name), "grammar_")
                 return name
             end
