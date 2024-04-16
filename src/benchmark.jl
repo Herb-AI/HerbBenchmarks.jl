@@ -1,6 +1,4 @@
-abstract type AbstractBenchmark end
-
-struct Benchmark <: AbstractBenchmark
-    name::String
-    problems::AbstractVector{Tuple{AbstractGrammar, Problem}}
+struct Benchmark
+    module_name::Module
+    problems::Vector{Tuple{Problem, AbstractGrammar}}
 end
