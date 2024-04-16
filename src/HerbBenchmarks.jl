@@ -4,7 +4,7 @@ using HerbCore
 using HerbSpecification
 using HerbGrammar
 
-include("utils.jl")
+include("export_module.jl")
 
 # Iterate over directories in `/data/` and include all available files
 for (root, dirs, files) in walkdir(dirname(@__FILE__)*"/data/")
@@ -18,10 +18,18 @@ for (root, dirs, files) in walkdir(dirname(@__FILE__)*"/data/")
     end
 end
 
-# utils
-include("benchmarks_io.jl")
+# Include utils
+#include("utils/benchmark_generator.jl")
+include("utils/benchmarks_io.jl")
+include("utils/problem_fetcher.jl")
+
+# Include data types
+include("benchmark.jl")
 
 export 
+    # Data types
+    Benchmark,
+
     # utils
     parse_file,
     write_problem,
@@ -29,10 +37,14 @@ export
     append_cfgrammar,
     enumerate_problem_files,
     
-    all_problems,
-    all_grammars,
-    find_corresponding_grammar,
-    all_problem_grammar_pairs,
+    # Problem fetcher
+    get_benchmark,
+    get_all_problem_grammar_pairs,
+    get_all_identifiers,
+    get_problem_grammar_pair,
+    get_problem,
+    get_grammar,
+    get_default_grammar,
 
     make_public,
     make_public_rec
