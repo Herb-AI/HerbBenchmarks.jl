@@ -10,6 +10,44 @@ function program_basement(input1)
     )
 end
 
+function program_bowling(input1)
+    # Takes a string and returns an integer
+    Dict(:output1 => 
+        let state = Dict(:i => 1, :frame => 1, :score => 0, :multiply1 => 1, :multiply2 => 1)
+            while get(state, :frame, "key not found") < 10
+                if get(input1, get(state, :i, "key not found"), "out of bounds") == "X"
+                    push!(state, :score => get(state, :score, "key not found") + 10)
+                    push!(state, :multiply1 => 2)
+                    push!(state, :multiply2 => 2)
+                    push!(state, :frame, get(state, :frame, "key not found") + 1)
+                elseif get(input1, get(state, :i, "key not found") + 1, "out of bounds") == "/"
+                    push!(state, :score => get(state, :score, "key not found") + 10)
+                    push!(state, :multiply1 => 2)
+                    push!(state, :multiply2 => 1)
+                    push!(state, :frame, get(state, :frame, "key not found") + 1)
+                else
+                    if get(state, :i, "key not found") != "-"
+                       push!(state, :score => get(state, :score, "key not found") + parse(Int, get(input1, get(state, :i, "key not found"), "out of bounds")) * get(state, :multiply1, "key not found"))
+                    end
+                    if get(input1, get(state, :i, "key not found") + 1, "out of bounds") != "-"
+                        push!(state, :s => get(state, :score, "key not found") + parse(Int, get(input1, get(state, :i, "key not found"), "out of bounds")) * get(state, :multiply2, "key not found"))
+                    end
+                    push!(state, :multiply1 => 1)
+                    push!(state, :multiply2 => 1)
+                    push!(state, :frame, get(state, :frame, "key not found") + 1)
+                end
+            end
+            # TODO Final roll
+            while get(state, :i, "key not found") <= length(input1)
+                if get(input1, get(state, :i, "key not found"), "out of bounds") == "X"
+
+                end
+            end
+            get(state, :score, "key not found")
+        end
+    )
+end
+
 function program_coin_sums(input1)
     # Takes one integer and returns 4 integers
     Dict(
