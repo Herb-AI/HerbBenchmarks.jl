@@ -1,5 +1,6 @@
 include("grammar_util.jl")
 
+# TODO parsing of integers, rename Int
 grammar_integer = @csgrammar begin
     Int = Int + Int
     Int = Int - Int
@@ -33,12 +34,15 @@ grammar_integer = @csgrammar begin
 end
 
 grammar_state_integer = @csgrammar begin
+    # TODO need string/float/int/bool?
     State = Dict(Sym => Int)
-    Var = merge!(Var, State)
-    Var = push(State, Sym => Int)
-    Int = get(Var, Sym, "Key not found")
-    Var = state
-    Expression = let Var = State; Expression end
+    State = Dict(Sym => Int, Sym => Int)
+    State = Dict(Sym => Int, Sym => Int, Sym => Int)
+    State = merge!(state, State)
+    State = push(State, Sym => Int)
+    Int = get(state, Sym, "Key not found")
+    Expression = State | Int
+    Expression = let state = State; Expression end
 end
 
 grammar_list_integer = @csgrammar begin

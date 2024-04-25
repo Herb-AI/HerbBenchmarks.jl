@@ -16,7 +16,6 @@ function HerbSearch.execute_on_input(tab::SymbolTable, expr::Expr, input::Dict{S
 	tab = merge(tab, input)
 	res = interpret(tab, expr)
 	# println("Result: ", res, " of type ", typeof(res))
-    # res = Dict(:output1 => res)
 	return res
 end
 
@@ -48,7 +47,24 @@ problem_coin_sums = Problem([
 ])
 
 
-iterator = BFSIterator(minimal_grammar_coin_sums, :Return, max_depth=4)
-program = synth(problem_coin_sums, iterator, allow_evaluation_errors = true)
+# TODO current way of adding the random value to the grammar, waiting on compatibility with _() in HerbGrammar
+randX = rand(1:10)
+grammar_test_square_with_random = @csgrammar begin
+    Int = input1
+    Int = Int + Int
+    Int = Int * Int
+    Int = 1
+    Int = randX
+    Return = Dict(Symbol("output1") => Int)
+end
+problem_test_square_with_random = Problem([
+    IOExample(Dict{Symbol, Any}(:input1 => 5), Dict{Symbol, Any}(:output1 => 25)),
+    IOExample(Dict{Symbol, Any}(:input1 => 4), Dict{Symbol, Any}(:output1 => 16)),
+    IOExample(Dict{Symbol, Any}(:input1 => 9), Dict{Symbol, Any}(:output1 => 81)),
+])
+
+
+iterator = BFSIterator(grammar_test_square_with_random, :Return, max_depth=3)
+program = synth(problem_test_square_with_random, iterator, allow_evaluation_errors=false)
 
 println("program: ", program)

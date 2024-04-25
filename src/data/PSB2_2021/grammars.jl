@@ -4,8 +4,9 @@ include("base_grammars.jl")
 input_basement = @csgrammar begin
     Int = -1 | 0 | 1
     List = []
-    Integer = rand(-100:100)
+    Sym = :i
     Return = Dict(:output1 => Int)
+    # Integer = _(rand(-100:100))
 end
 
 grammar_basement = merge_grammar([input_basement, grammar_integer, grammar_list_integer, grammar_state_integer, grammar_boolean])
@@ -27,7 +28,7 @@ minimal_grammar_basement = @csgrammar begin
     Expr = Int | State
     Expr = begin Expr; Expr end
     Int = let state = State; Expr end
-    State = while Bool; State end    
+    State = while Bool; State end  
 end
 
 ## Coin Sums problem
@@ -78,14 +79,14 @@ end
 input_fuel_cost = @csgrammar begin
     Int = 0 | 1 | 2 | 3
     List = input1
-    # Int = rand(6:100000)
     Return = Dict(:output1 => Int)
+    # Int = rand(6:100000)
 end
 
 grammar_fuel_cost = merge_grammar([
     input_fuel_cost, 
     grammar_integer,
-    # grammar_boolean
+    grammar_boolean
 ])
 
 minimal_grammar_fuel_cost = @csgrammar begin
@@ -105,26 +106,14 @@ end
 input_gcd = @csgrammar begin
     Int = input1 | input2
     Int = 0
+    Sym = :x | :y
     Return = Dict(:output1 => Int)
+    # Int = _(rand(1,1000000))
 end
 
 grammar_gcd = merge_grammar([input_gcd, grammar_integer, grammar_boolean, grammar_state_integer])
 
-minimal_grammar_gcd_old = @csgrammar begin
-    Int = input1 | input2
-    Return = Dict(:output1 => Int)
-    Int = 0
-    State = Dict(:x => Int, :y => Int)
-    Int = state[:x] | state[:y]
-    Int = Int % Int
-    Int = let state = State; Int end
-    Bool = Int > Int
-    Int = while Bool; Int end; Int
-    output1 = Int
-end
-
 minimal_grammar_gcd = @csgrammar begin
-    # TODO should :state be a Var?
     Int = input1 | input2
     Return = Dict(:output1 => Int)
     Int = 0
