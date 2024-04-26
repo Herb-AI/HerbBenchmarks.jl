@@ -55,7 +55,7 @@ end
 Parses a SyGuS grammar that are named `synth_fun` within SyGuS. Takes the S-Expression of the grammar and returns a [`@cfgrammar`](@ref).
 """
 function parse_synth_fun(sexpr::SExpressions.Lists.Cons)::AbstractGrammar
-    return_grammar = @cfgrammar begin end
+    return_grammar = deepcopy(@cfgrammar begin end)
 
     if sexpr[1] !== Symbol("synth-fun")
         throw(ArgumentError("'$(sexpr[1])' is not a 'synth-fun'"))
@@ -63,11 +63,27 @@ function parse_synth_fun(sexpr::SExpressions.Lists.Cons)::AbstractGrammar
 
     for rule in sexpr[5]
         for val in rule[3]
-            add_rule!(return_grammar, :($(rule[1]) = $(val)))
+            if typeof(val) == SExpressions.Lists.Cons
+                add_rule!(return_grammar, Meta.parse("$(rule[1]) = $(polish_function_calls(val))"))
+            else
+                add_rule!(return_grammar, :($(rule[1]) = $(val)))
+            end
         end
     end
 
     return return_grammar
+end
+
+
+function polish_function_calls(in::SExpressions.Lists.Cons)
+    s = "$(in)"
+    s = strip(s, ['(', ')'])
+    s = replace(s, "." => "")
+    parts = split(s)
+    function_name = parts[1]
+    arguments = join(parts[2:end], ", ")
+    new_function_call = "$(function_name)($arguments)"
+    return new_function_call
 end
 
 

@@ -22,7 +22,7 @@ function format_bit_operations_grammars(filename::AbstractString)
             
             # Check for grammar definition
             if occursin("@cfgrammar", split_line[2])
-                line = replace(line, "-", "_") 
+                line = replace(line, "-" => "_") 
             else
                 if startswith(split_line[2], 'x') 
                     line = "$(split_line[1]) = _arg_1"
