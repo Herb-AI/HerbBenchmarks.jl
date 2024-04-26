@@ -16,7 +16,7 @@ len_cvc(str::String) = length(str)
 
 str_to_int_cvc(str::String) = parse(Int64, str)
 
-indexof_cvc(str::String, substring::String, index::Int) = (n = findfirst(str, substring); n == nothing ? -1 : (n[1] >= index ? -1 : n[1]))
+indexof_cvc(str::String, substring::String, index::Int) = (n = findfirst(substring, str); n == nothing ? -1 : (n[1] >= index ? n[1] : -1))
 
 # Bool typed
 prefixof_cvc(prefix::String, str::String) = startswith(str, prefix)
