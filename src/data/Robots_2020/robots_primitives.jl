@@ -9,28 +9,31 @@ struct RobotState
     size::Int
 end
 
+function interpret(prog::RuleNode, example::IOExample)
+    interpret(prog, example.in[:in])
+end
 
 function interpret(prog::RuleNode, state::RobotState)
     rule_node = get_rule(prog)
 
     @match rule_node begin
         3 => interpret(prog.children[2], interpret(prog.children[1], state)) # (Operation ; Sequence)
-        6 => notAtRight(state) ? RobotState(state.holds_ball, state.robot_x+1, state.robot_y, state.ball_x, state.ball_y, state.size) : state
-        7 => notAtBottom(state) ? RobotState(state.holds_ball, state.robot_x, state.robot_y+1, state.ball_x, state.ball_y, state.size) : state
-        8 => notAtLeft(state) ? RobotState(state.holds_ball, state.robot_x-1, state.robot_y, state.ball_x, state.ball_y, state.size) : state
-        9 => notAtTop(state) ? RobotState(state.holds_ball, state.robot_x, state.robot_y-1, state.ball_x, state.ball_y, state.size) : state
-        10 => state.holds_ball == 1 ? RobotState(0, state.robot_x, state.robot_y, state.robot_x, state.robot_y, state.size) : state
-        11 => can_pickup(state) ? RobotState(1, state.robot_x-1, state.robot_y, state.ball_x, state.ball_y, state.size) : state
-        12 => interpret(condition, state) ? interpret(tbranch, state) : interpret(fbranch, state) 
-        13 => command_while(prog.children[1], prog.children[2], state)
-        14 => state.robot_y == 1
-        15 => state.robot_y == state.size
-        16 => state.robot_x == 1
-        17 => state.robot_x == state.size
-        18 => !(state.robot_y == 1) 
-        19 => !(state.robot_y == state.size)
-        20 => !(state.robot_x == 1)
-        21 => !(state.robot_x == state.size)
+        6 => notAtRight(state) ? RobotState(state.holds_ball, state.robot_x+1, state.robot_y, state.ball_x, state.ball_y, state.size) : state       #moveright
+        7 => notAtBottom(state) ? RobotState(state.holds_ball, state.robot_x, state.robot_y+1, state.ball_x, state.ball_y, state.size) : state      #moveDown
+        8 => notAtLeft(state) ? RobotState(state.holds_ball, state.robot_x-1, state.robot_y, state.ball_x, state.ball_y, state.size) : state        #moveLeft
+        9 => notAtTop(state) ? RobotState(state.holds_ball, state.robot_x, state.robot_y-1, state.ball_x, state.ball_y, state.size) : state         #moveUp
+        10 => state.holds_ball == 1 ? RobotState(0, state.robot_x, state.robot_y, state.robot_x, state.robot_y, state.size) : state                 #drop
+        11 => can_pickup(state) ? RobotState(1, state.robot_x-1, state.robot_y, state.ball_x, state.ball_y, state.size) : state                     # grab
+        12 => interpret(prog.children[1], state) ? interpret(prog.children[2], state) : interpret(prog.children[3], state)                      #If statement 
+        13 => command_while(prog.children[1], prog.children[2], state)              # while loop
+        14 => state.robot_y == 1            #atTop 
+        15 => state.robot_y == state.size   #atBottom 
+        16 => state.robot_x == 1            #atLeft 
+        17 => state.robot_x == state.size   #atRight
+        18 => !(state.robot_y == 1)         #notAtTop
+        19 => !(state.robot_y == state.size)    # notAtBottom
+        20 => !(state.robot_x == 1)             #notAtLeft
+        21 => !(state.robot_x == state.size)    # notAtRight
         _ => interpret(prog.children[1], state) # Start operation Transformation ControlStatement
     end
 end
