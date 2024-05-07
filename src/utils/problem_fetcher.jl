@@ -18,7 +18,7 @@ end
 Get all problems and their grammars of a benchmark 'Module'. 
 If any problem has no corresponding or default grammar, a 'KeyError' is thrown.
 """
-function get_all_problem_grammar_pairs(module_name::Module)::Vector{Tuple{Problem, AbstractGrammar}}
+function get_all_problem_grammar_pairs(module_name::Module)::Vector{ProblemGrammarPair}
 
     # Fetch all problem grammar pairs
     return [get_problem_grammar_pair(module_name, identifier) for identifier in get_all_identifiers(module_name)]
@@ -43,10 +43,10 @@ Get a problem and its grammar identified with a 'identifier' of a benchmark 'Mod
 If no problem or grammar with the 'identifier' exists, a 'KeyError' is thrown.
 'identifier's are the suffix of problem names. For example, the 'identifier' of 'problem_100' is '101'.
 """
-function get_problem_grammar_pair(module_name::Module, identifier::AbstractString)::Tuple{Problem, AbstractGrammar}
+function get_problem_grammar_pair(module_name::Module, identifier::AbstractString)::ProblemGrammarPair
 
     # Fetch problem grammar pair
-    return (get_problem(module_name, identifier), get_grammar(module_name, identifier))
+    return ProblemGrammarPair(module_name, identifier, get_problem(module_name, identifier), get_grammar(module_name, identifier))
 end
 
 """

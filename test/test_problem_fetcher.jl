@@ -72,16 +72,28 @@ end
 
     @testset "Get problem grammar pair" begin
         result1 = get_problem_grammar_pair(Test_benchmark_different_grammars, "1")
-        @test result1 == (Test_benchmark_different_grammars.problem_1, Test_benchmark_different_grammars.grammar_1)
+        @test result1.problem == Test_benchmark_different_grammars.problem_1
+        @test result1.grammar == Test_benchmark_different_grammars.grammar_1
+        @test result1.benchmark_name == Test_benchmark_different_grammars
+        @test result1.identifier == "1"
 
         result2 = get_problem_grammar_pair(Test_benchmark_different_grammars, "2")
-        @test result2 == (Test_benchmark_different_grammars.problem_2, Test_benchmark_different_grammars.grammar_2)
+        @test result2.problem == Test_benchmark_different_grammars.problem_2
+        @test result2.grammar == Test_benchmark_different_grammars.grammar_2
+        @test result2.benchmark_name == Test_benchmark_different_grammars
+        @test result2.identifier == "2"
     
         result3 = get_problem_grammar_pair(Test_benchmark_default_grammar, "1")
-        @test result3 == (Test_benchmark_default_grammar.problem_1, Test_benchmark_default_grammar.grammar_default)
+        @test result3.problem == Test_benchmark_default_grammar.problem_1
+        @test result3.grammar == Test_benchmark_default_grammar.grammar_default
+        @test result3.benchmark_name == Test_benchmark_default_grammar
+        @test result3.identifier == "1"
 
         result4 = get_problem_grammar_pair(Test_benchmark_default_grammar, "2")
-        @test result4 == (Test_benchmark_default_grammar.problem_2, Test_benchmark_default_grammar.grammar_default)
+        @test result4.problem == Test_benchmark_default_grammar.problem_2
+        @test result4.grammar == Test_benchmark_default_grammar.grammar_default
+        @test result4.benchmark_name == Test_benchmark_default_grammar
+        @test result4.identifier == "2"
     end
 
     @testset "Get all identifiers" begin
@@ -94,32 +106,33 @@ end
 
     @testset "Get problem grammar pair" begin
         result1 = get_all_problem_grammar_pairs(Test_benchmark_different_grammars)
-        @test result1 == [
-            (Test_benchmark_different_grammars.problem_1, Test_benchmark_different_grammars.grammar_1),
-            (Test_benchmark_different_grammars.problem_2, Test_benchmark_different_grammars.grammar_2)
-        ]
+        @test result1[1].problem == Test_benchmark_different_grammars.problem_1
+        @test result1[1].grammar == Test_benchmark_different_grammars.grammar_1
+        @test result1[2].problem == Test_benchmark_different_grammars.problem_2
+        @test result1[2].grammar == Test_benchmark_different_grammars.grammar_2
 
         result2 = get_all_problem_grammar_pairs(Test_benchmark_default_grammar)
-        @test result2 == [
-            (Test_benchmark_default_grammar.problem_1, Test_benchmark_default_grammar.grammar_default),
-            (Test_benchmark_default_grammar.problem_2, Test_benchmark_default_grammar.grammar_default)
-        ]
+
+        @test result2[1].problem == Test_benchmark_default_grammar.problem_1
+        @test result2[1].grammar == Test_benchmark_default_grammar.grammar_default
+        @test result2[2].problem == Test_benchmark_default_grammar.problem_2
+        @test result2[2].grammar == Test_benchmark_default_grammar.grammar_default
     end
 
     @testset "Get benchmark" begin
         result1 = get_benchmark(Test_benchmark_different_grammars)
         @test result1.module_name == Test_benchmark_different_grammars
-        @test result1.problems == [
-            (Test_benchmark_different_grammars.problem_1, Test_benchmark_different_grammars.grammar_1),
-            (Test_benchmark_different_grammars.problem_2, Test_benchmark_different_grammars.grammar_2),
-        ]
+        @test result1.problem_grammar_pairs[1].problem == Test_benchmark_different_grammars.problem_1
+        @test result1.problem_grammar_pairs[1].grammar == Test_benchmark_different_grammars.grammar_1
+        @test result1.problem_grammar_pairs[2].problem == Test_benchmark_different_grammars.problem_2
+        @test result1.problem_grammar_pairs[2].grammar == Test_benchmark_different_grammars.grammar_2
 
         result2 = get_benchmark(Test_benchmark_default_grammar)
         @test result2.module_name == Test_benchmark_default_grammar
-        @test result2.problems == [
-            (Test_benchmark_default_grammar.problem_1, Test_benchmark_default_grammar.grammar_default),
-            (Test_benchmark_default_grammar.problem_2, Test_benchmark_default_grammar.grammar_default)
-        ]
+        @test result2.problem_grammar_pairs[1].problem == Test_benchmark_default_grammar.problem_1
+        @test result2.problem_grammar_pairs[1].grammar == Test_benchmark_default_grammar.grammar_default
+        @test result2.problem_grammar_pairs[2].problem == Test_benchmark_default_grammar.problem_2
+        @test result2.problem_grammar_pairs[2].grammar == Test_benchmark_default_grammar.grammar_default
     end
 
 end
