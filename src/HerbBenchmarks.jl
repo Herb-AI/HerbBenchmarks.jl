@@ -24,10 +24,12 @@ include("utils/benchmarks_io.jl")
 include("utils/problem_fetcher.jl")
 
 # Include data types
-include("benchmark.jl")
+include("datatypes/problem_grammar_pair.jl")
+include("datatypes/benchmark.jl")
 
 export 
     # Data types
+    ProblemGrammarPair,
     Benchmark,
 
     # utils
