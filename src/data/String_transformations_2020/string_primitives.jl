@@ -2,7 +2,7 @@ using MLStyle
 
 struct StringState
     str::String
-    pointer::Union{Int,nothing}
+    pointer::Union{Int,Nothing}
 end
 
  # Initialize the pointer to 1 (not 0, since Julia is 1-indexed)
