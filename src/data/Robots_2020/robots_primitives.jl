@@ -9,19 +9,19 @@ struct RobotState
     size::Int
 end
 
-function interpret(prog::RuleNode, example::IOExample)
+function interpret(prog::AbstractRuleNode, example::IOExample)
     interpret(prog, example.in[:in])
 end
 
-function interpret(prog::RuleNode, state::RobotState)
+function interpret(prog::AbstractRuleNode, state::RobotState)
     rule_node = get_rule(prog)
 
     @match rule_node begin
         3 => interpret(prog.children[2], interpret(prog.children[1], state)) # (Operation ; Sequence)
-        6 => notAtRight(state) ? RobotState(state.holds_ball, state.robot_x+1, state.robot_y, state.ball_x, state.ball_y, state.size) : state       #moveright
-        7 => notAtBottom(state) ? RobotState(state.holds_ball, state.robot_x, state.robot_y+1, state.ball_x, state.ball_y, state.size) : state      #moveDown
-        8 => notAtLeft(state) ? RobotState(state.holds_ball, state.robot_x-1, state.robot_y, state.ball_x, state.ball_y, state.size) : state        #moveLeft
-        9 => notAtTop(state) ? RobotState(state.holds_ball, state.robot_x, state.robot_y-1, state.ball_x, state.ball_y, state.size) : state         #moveUp
+        6 => !(state.robot_x == state.size) ? RobotState(state.holds_ball, state.robot_x+1, state.robot_y, state.ball_x, state.ball_y, state.size) : state       #moveright
+        7 => !(state.robot_y == state.size) ? RobotState(state.holds_ball, state.robot_x, state.robot_y+1, state.ball_x, state.ball_y, state.size) : state      #moveDown
+        8 => !(state.robot_x == 1) ? RobotState(state.holds_ball, state.robot_x-1, state.robot_y, state.ball_x, state.ball_y, state.size) : state        #moveLeft
+        9 => !(state.robot_y == 1) ? RobotState(state.holds_ball, state.robot_x, state.robot_y-1, state.ball_x, state.ball_y, state.size) : state         #moveUp
         10 => state.holds_ball == 1 ? RobotState(0, state.robot_x, state.robot_y, state.robot_x, state.robot_y, state.size) : state                 #drop
         11 => can_pickup(state) ? RobotState(1, state.robot_x-1, state.robot_y, state.ball_x, state.ball_y, state.size) : state                     # grab
         12 => interpret(prog.children[1], state) ? interpret(prog.children[2], state) : interpret(prog.children[3], state)                      #If statement 

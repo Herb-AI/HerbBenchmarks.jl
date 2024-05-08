@@ -2,17 +2,17 @@ using MLStyle
 
 struct StringState
     str::String
-    pointer::Int
+    pointer::Union{Int,nothing}
 end
 
  # Initialize the pointer to 1 (not 0, since Julia is 1-indexed)
 StringState(s::String) = StringState(s, 1)
 
-function interpret(prog::RuleNode, example::IOExample)
+function interpret(prog::AbstractRuleNode, example::IOExample)
     interpret(prog, example.in[:in]) 
 end
 
-function interpret(prog::RuleNode, state::StringState)
+function interpret(prog::AbstractRuleNode, state::StringState)
     rule_node = get_rule(prog)
 
     @match rule_node begin
