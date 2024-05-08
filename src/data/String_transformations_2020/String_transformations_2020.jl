@@ -4,9 +4,9 @@ using HerbCore
 using HerbSpecification
 using HerbGrammar
 
+include("string_primitives.jl")
 include("data.jl")
 include("grammar.jl")
-include("string_primitives.jl")
 
 export 
     parseline_string_transformations
