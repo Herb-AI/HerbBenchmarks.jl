@@ -2,7 +2,7 @@ grammar_string = @cfgrammar begin
     Start = Sequence        #1
 
     Sequence = Operation        #2
-    Sequence = Operation; Sequence  #3
+    Sequence = (Operation; Sequence)  #3
     Operation = Transformation      #4
     Operation = ControlStatement    #5
 

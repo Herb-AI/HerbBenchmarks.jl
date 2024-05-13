@@ -43,9 +43,11 @@ function interpret(prog::AbstractRuleNode, state::StringState)
 
 end
 
-function command_while(condition::RuleNode, body::RuleNode, state::StringState) 
-    while interpret(condition, state)
+function command_while(condition::RuleNode, body::RuleNode, state::StringState, max_steps::Int=1000)
+    counter = max_steps 
+    while interpret(condition, state) && counter > 0
         state = interpret(body, state)
+        counter -= 1
     end
     state
 end

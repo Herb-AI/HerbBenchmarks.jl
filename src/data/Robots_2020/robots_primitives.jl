@@ -40,9 +40,11 @@ end
 
 can_pickup(state::RobotState) = state.holds_ball == 0 && state.robot_x == state.ball_x && state.robot_y == state.ball_y
 
-function command_while(condition::RuleNode, body::RuleNode, state::RobotState) 
-    while interpret(condition, state)
+function command_while(condition::RuleNode, body::RuleNode, state::RobotState, max_steps::Int=1000) 
+    counter = max_steps
+    while interpret(condition, state) && counter > 0
         state = interpret(body, state)
+        counter -= 1
     end
     state
 end
