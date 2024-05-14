@@ -2,7 +2,7 @@ using HerbCore
 using HerbSpecification
 using Test
 
-using HerbBenchmarks
+using HerbBenchmarks.String_transformations_2020
 
 @testset verbose=true "String transformations 2020" begin
     problems = all_problems(String_transformations_2020)
@@ -14,12 +14,12 @@ using HerbBenchmarks
     prim_makeUpperCase = RuleNode(8, [])
     prim_makeLowerCase = RuleNode(9, [])
 
-    prim_atEnd = RuleNode()
+    prim_atEnd = RuleNode(13)
 
     test_state_1 = StringState("abc", 1)
 
     @test interpret(prim_moveRight, test_state_1) == StringState("abc", 2)
-    @test interpret(prim_arEnd, test_state_1) == false
+    @test interpret(prim_atEnd, test_state_1) == false
 
 end
 
