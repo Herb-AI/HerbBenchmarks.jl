@@ -21,7 +21,7 @@ function interpret(prog::AbstractRuleNode, state::StringState)
         7 => StringState(state.str, max(state.pointer - 1, 1))   # moveLeft
         8 => StringState(state.str[1:state.pointer-1] * uppercase(state.str[state.pointer]) * state.str[state.pointer+1:end], state.pointer) #MakeUppercase
         9 => StringState(state.str[1:state.pointer-1] * lowercase(state.str[state.pointer]) * state.str[state.pointer+1:end], state.pointer) #makeLowercase
-        10 => state.pointer < length(state.string) ? StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer) : StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer-1) #drop
+        10 => state.pointer < length(state.str) ? StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer) : StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer-1) #drop
         11 => interpret(prog.children[1], state) ? interpret(prog.children[2], state) : interpret(prog.children[3], state) # if statement
         12 => command_while(prog.children[1], prog.children[2], state) # while statement
         13 => state.pointer == length(state.str) # atEnd
