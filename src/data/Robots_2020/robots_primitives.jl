@@ -82,10 +82,3 @@ function Base.show(io::IO, state::RobotState)
         println(io, row)
     end
 end
-
-"""
-mygrammartags = get_relevant_tags(grammar_robots)
-mystate = RobotState(0,1,1,2,1,5)
-moveRight = RuleNode(6, [])
-interpret(moveRight, mygrammartags, mystate)
-"""
