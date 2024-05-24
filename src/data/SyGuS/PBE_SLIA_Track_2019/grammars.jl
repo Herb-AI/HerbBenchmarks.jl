@@ -2019,7 +2019,7 @@ grammar_most_frequently_occurring_text = @cfgrammar begin
 end
 grammar_phone_5_short = @cfgrammar begin
 	Start = ntString
-	ntString = "name"
+	ntString = _arg_1
 	ntString = " "
 	ntString = "+"
 	ntString = "-"
@@ -2050,7 +2050,7 @@ grammar_phone_5_short = @cfgrammar begin
 end
 grammar_phone_6_short = @cfgrammar begin
 	Start = ntString
-	ntString = "name"
+	ntString = _arg_1
 	ntString = " "
 	ntString = "+"
 	ntString = "-"
@@ -2081,7 +2081,7 @@ grammar_phone_6_short = @cfgrammar begin
 end
 grammar_phone_7_short = @cfgrammar begin
 	Start = ntString
-	ntString = "name"
+	ntString = _arg_1
 	ntString = " "
 	ntString = "+"
 	ntString = "-"
@@ -2112,7 +2112,7 @@ grammar_phone_7_short = @cfgrammar begin
 end
 grammar_phone_9_short = @cfgrammar begin
 	Start = ntString
-	ntString = "name"
+	ntString = _arg_1
 	ntString = " "
 	ntString = "+"
 	ntString = "-"
