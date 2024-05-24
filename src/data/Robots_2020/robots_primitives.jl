@@ -19,7 +19,7 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
     @match grammartags[rule_node] begin
         :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammar, state)) # (Operation ; Sequence)
         :moveRight => moveright(state)
-        :moveDown => moveleft(state)
+        :moveDown => movedown(state)
         :moveLeft => moveleft(state)
         :moveUp => moveup(state)
         :drop => state.holds_ball == 1 ? RobotState(0, state.robot_x, state.robot_y, state.robot_x, state.robot_y, state.size) : state
@@ -85,7 +85,7 @@ end
 
 function moveright(state::RobotState)
     if !(state.robot_x == state.size)
-        if state.holds_ball
+        if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x + 1, state.robot_y, state.ball_x + 1, state.ball_y, state.size)
         else
             return RobotState(state.holds_ball, state.robot_x + 1, state.robot_y, state.robot_x, state.robot_y, state.size)
@@ -97,7 +97,7 @@ end
 
 function moveleft(state::RobotState)
     if !(state.robot_x == 1)
-        if state.holds_ball
+        if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x - 1, state.robot_y, state.ball_x - 1, state.ball_y, state.size)
         else
             return RobotState(state.holds_ball, state.robot_x - 1, state.robot_y, state.robot_x, state.robot_y, state.size)
@@ -109,7 +109,7 @@ end
 
 function movedown(state::RobotState)
     if !(state.robot_y == state.size)
-        if state.holds_ball
+        if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x, state.robot_y + 1, state.ball_x, state.ball_y + 1, state.size)
         else
             return RobotState(state.holds_ball, state.robot_x, state.robot_y + 1, state.robot_x, state.robot_y, state.size)
@@ -121,7 +121,7 @@ end
 
 function moveup(state::RobotState)
     if !(state.robot_y == 1)
-        if state.holds_ball
+        if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x, state.robot_y - 1, state.ball_x, state.ball_y - 1, state.size)
         else
             return RobotState(state.holds_ball, state.robot_x, state.robot_y - 1, state.robot_x, state.robot_y, state.size)
