@@ -14,26 +14,26 @@ function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, exa
 end
 
 function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::RobotState)
-    rule_node =  get_rule(prog)
+    rule_node = get_rule(prog)
 
     @match grammartags[rule_node] begin
         :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammar, state)) # (Operation ; Sequence)
-        :moveRight => !(state.robot_x == state.size) ? RobotState(state.holds_ball, state.robot_x+1, state.robot_y, state.ball_x, state.ball_y, state.size) : state       #moveright
-        :moveDown => !(state.robot_y == state.size) ? RobotState(state.holds_ball, state.robot_x, state.robot_y+1, state.ball_x, state.ball_y, state.size) : state      #moveDown
-        :moveLeft => !(state.robot_x == 1) ? RobotState(state.holds_ball, state.robot_x-1, state.robot_y, state.ball_x, state.ball_y, state.size) : state        #moveLeft
-        :moveUp => !(state.robot_y == 1) ? RobotState(state.holds_ball, state.robot_x, state.robot_y-1, state.ball_x, state.ball_y, state.size) : state         #moveUp
-        :drop => state.holds_ball == 1 ? RobotState(0, state.robot_x, state.robot_y, state.robot_x, state.robot_y, state.size) : state                 #drop
-        :grab => can_pickup(state) ? RobotState(1, state.robot_x, state.robot_y, state.ball_x, state.ball_y, state.size) : state                     # grab
-        :IF => interpret(prog.children[1], grammartags, state) ? interpret(prog.children[2], grammartags, state) : interpret(prog.children[3], grammartags, state)                      #If statement 
+        :moveRight => moveright(state)
+        :moveDown => moveleft(state)
+        :moveLeft => moveleft(state)
+        :moveUp => moveup(state)
+        :drop => state.holds_ball == 1 ? RobotState(0, state.robot_x, state.robot_y, state.robot_x, state.robot_y, state.size) : state
+        :grab => can_pickup(state) ? RobotState(1, state.robot_x, state.robot_y, state.ball_x, state.ball_y, state.size) : state
+        :IF => interpret(prog.children[1], grammartags, state) ? interpret(prog.children[2], grammartags, state) : interpret(prog.children[3], grammartags, state)
         :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state)              # while loop
-        :atTop => state.robot_y == 1            #atTop 
-        :atBottom => state.robot_y == state.size   #atBottom 
-        :atLeft => state.robot_x == 1            #atLeft 
-        :atRight => state.robot_x == state.size   #atRight
-        :notAtTop => !(state.robot_y == 1)         #notAtTop
-        :notAtBottom => !(state.robot_y == state.size)    # notAtBottom
-        :notAtLeft => !(state.robot_x == 1)             #notAtLeft
-        :notAtRight => !(state.robot_x == state.size)    # notAtRight
+        :atTop => state.robot_y == 1
+        :atBottom => state.robot_y == state.size
+        :atLeft => state.robot_x == 1
+        :atRight => state.robot_x == state.size
+        :notAtTop => !(state.robot_y == 1)
+        :notAtBottom => !(state.robot_y == state.size)
+        :notAtLeft => !(state.robot_x == 1)
+        :notAtRight => !(state.robot_x == state.size)
         _ => interpret(prog.children[1], grammartags, state) # Start operation Transformation ControlStatement
     end
 end
@@ -45,20 +45,20 @@ function get_relevant_tags(grammar::ContextSensitiveGrammar)
     tags = Dict{Int,Symbol}()
     for (ind, r) in pairs(grammar.rules)
         tags[ind] = if typeof(r) == Symbol
-                        r
-                    else
-                        @match r.head begin
-                            :block =>  :OpSeq
-                            :call =>  r.args[1]             
-                            end
-                        end
-                    end
+            r
+        else
+            @match r.head begin
+                :block => :OpSeq
+                :call => r.args[1]
+            end
+        end
+    end
     return tags
 end
 
 can_pickup(state::RobotState) = state.holds_ball == 0 && state.robot_x == state.ball_x && state.robot_y == state.ball_y
 
-function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol}, state::RobotState, max_steps::Int=1000) 
+function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol}, state::RobotState, max_steps::Int=1000)
     counter = max_steps
     while interpret(condition, grammartags, state) && counter > 0
         state = interpret(body, grammartags, state)
@@ -69,7 +69,7 @@ end
 
 function Base.show(io::IO, state::RobotState)
     for y in 1:state.size
-        row = "";
+        row = ""
         for x in 1:state.size
             if (x == state.robot_x && y == state.robot_y)
                 row *= state.holds_ball == 1 ? "#" : "R"
@@ -80,5 +80,53 @@ function Base.show(io::IO, state::RobotState)
             end
         end
         println(io, row)
+    end
+end
+
+function moveright(state::RobotState)
+    if !(state.robot_x == state.size)
+        if state.holds_ball
+            return RobotState(state.holds_ball, state.robot_x + 1, state.robot_y, state.ball_x + 1, state.ball_y, state.size)
+        else
+            return RobotState(state.holds_ball, state.robot_x + 1, state.robot_y, state.robot_x, state.robot_y, state.size)
+        end
+    else
+        return state
+    end
+end
+
+function moveleft(state::RobotState)
+    if !(state.robot_x == 1)
+        if state.holds_ball
+            return RobotState(state.holds_ball, state.robot_x - 1, state.robot_y, state.ball_x - 1, state.ball_y, state.size)
+        else
+            return RobotState(state.holds_ball, state.robot_x - 1, state.robot_y, state.robot_x, state.robot_y, state.size)
+        end
+    else
+        return state
+    end
+end
+
+function movedown(state::RobotState)
+    if !(state.robot_y == state.size)
+        if state.holds_ball
+            return RobotState(state.holds_ball, state.robot_x, state.robot_y + 1, state.ball_x, state.ball_y + 1, state.size)
+        else
+            return RobotState(state.holds_ball, state.robot_x, state.robot_y + 1, state.robot_x, state.robot_y, state.size)
+        end
+    else
+        return state
+    end
+end
+
+function moveup(state::RobotState)
+    if !(state.robot_y == 1)
+        if state.holds_ball
+            return RobotState(state.holds_ball, state.robot_x, state.robot_y - 1, state.ball_x, state.ball_y - 1, state.size)
+        else
+            return RobotState(state.holds_ball, state.robot_x, state.robot_y - 1, state.robot_x, state.robot_y, state.size)
+        end
+    else
+        return state
     end
 end
