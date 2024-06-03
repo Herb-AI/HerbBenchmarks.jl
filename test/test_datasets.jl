@@ -5,6 +5,8 @@ using Test
 using HerbBenchmarks
 using HerbBenchmarks.String_transformations_2020
 using HerbBenchmarks.Robots_2020
+using HerbBenchmarks.Pixels_2020
+
 
 @testset verbose = true "String transformations 2020" begin
     problems = all_problems(String_transformations_2020)
@@ -161,4 +163,118 @@ end
     @test Robots_2020.interpret(prim_notAtRight, tags, test_state_2) == false
 
     @test Robots_2020.interpret(prim_if, tags, test_state_2) == RobotState(1, 5, 4, 5, 4, 5)
+end
+
+@testset verbose = true "Pixels_2020.interpret conditions" begin
+    problems = all_problems(Pixels_2020)
+    @test typeof(problems[1]) <: HerbSpecification.Problem
+    @test typeof(problems[1].spec[1]) == HerbSpecification.IOExample
+
+
+    prim_atTop = RuleNode(14, [])
+    prim_atBottom = RuleNode(15, [])
+    prim_atLeft = RuleNode(16, [])
+    prim_atRight = RuleNode(17, [])
+    prim_notAtTop = RuleNode(18, [])
+    prim_notAtBottom = RuleNode(19, [])
+    prim_notAtLeft = RuleNode(20, [])
+    prim_notAtRight = RuleNode(21, [])
+
+
+    # get tags for grammar
+    tags = Pixels_2020.get_relevant_tags(grammar_pixels)
+
+    # Test case: empty canvas, pointer at top left corner
+    test_state_1 = PixelState(Bool[0 0 0; 0 0 0; 0 0 0])
+    @test Pixels_2020.interpret(prim_atTop, tags, test_state_1) == true
+    @test Pixels_2020.interpret(prim_atLeft, tags, test_state_1) == true
+    @test Pixels_2020.interpret(prim_notAtBottom, tags, test_state_1) == true
+    @test Pixels_2020.interpret(prim_notAtRight, tags, test_state_1) == true
+    @test Pixels_2020.interpret(prim_atBottom, tags, test_state_1) == false
+    @test Pixels_2020.interpret(prim_atRight, tags, test_state_1) == false
+    @test Pixels_2020.interpret(prim_notAtTop, tags, test_state_1) == false
+    @test Pixels_2020.interpret(prim_notAtLeft, tags, test_state_1) == false
+
+
+    # Test case: empty canvas, pointer at bottom right corner
+    test_state_2 = PixelState(Bool[0 0 0; 0 0 0; 0 0 0])
+    test_state_2.position = (3, 3)
+    @test Pixels_2020.interpret(prim_atBottom, tags, test_state_2) == true
+    @test Pixels_2020.interpret(prim_atRight, tags, test_state_2) == true
+    @test Pixels_2020.interpret(prim_notAtTop, tags, test_state_2) == true
+    @test Pixels_2020.interpret(prim_notAtLeft, tags, test_state_2) == true
+    @test Pixels_2020.interpret(prim_atTop, tags, test_state_2) == false
+    @test Pixels_2020.interpret(prim_atLeft, tags, test_state_2) == false
+    @test Pixels_2020.interpret(prim_notAtBottom, tags, test_state_2) == false
+    @test Pixels_2020.interpret(prim_notAtRight, tags, test_state_2) == false
+end
+
+@testset verbose = true "Pixels_2020.interpret transformations" begin
+    prim_moveRight = RuleNode(6, [])
+    prim_moveLeft = RuleNode(7, [])
+    prim_moveUp = RuleNode(8, [])
+    prim_moveDown = RuleNode(9, [])
+    prim_draw0 = RuleNode(10, [])
+    prim_draw1 = RuleNode(11, [])
+
+    # get tags for grammar
+    tags = Pixels_2020.get_relevant_tags(grammar_pixels)
+
+    test_state_1 = PixelState(Bool[0 0 0; 0 0 0; 0 0 0])
+
+    Pixels_2020.interpret(prim_moveRight, tags, test_state_1)
+    @test test_state_1.position == (2, 1)
+    Pixels_2020.interpret(prim_moveLeft, tags, test_state_1)
+    @test test_state_1.position == (1, 1)
+    Pixels_2020.interpret(prim_moveDown, tags, test_state_1)
+    @test test_state_1.position == (1, 2)
+    Pixels_2020.interpret(prim_moveUp, tags, test_state_1)
+    @test test_state_1.position == (1, 1)
+    Pixels_2020.interpret(prim_moveLeft, tags, test_state_1)
+    @test test_state_1.position == (1, 1)
+    Pixels_2020.interpret(prim_moveUp, tags, test_state_1)
+    @test test_state_1.position == (1, 1)
+    # move pointer to bottom right element of matrix
+    Pixels_2020.interpret(prim_moveDown, tags, test_state_1)
+    Pixels_2020.interpret(prim_moveDown, tags, test_state_1)
+    Pixels_2020.interpret(prim_moveDown, tags, test_state_1)
+    Pixels_2020.interpret(prim_moveRight, tags, test_state_1)
+    Pixels_2020.interpret(prim_moveRight, tags, test_state_1)
+    @test test_state_1.position == (3, 3)
+    # Tests on this edge case ...
+    Pixels_2020.interpret(prim_moveDown, tags, test_state_1)
+    Pixels_2020.interpret(prim_moveRight, tags, test_state_1)
+    @test test_state_1.position == (3, 3)
+    # Draw 
+    test_state_2 = PixelState(Bool[1 0 0; 0 0 0; 0 0 0])
+    Pixels_2020.interpret(prim_draw1, tags, test_state_2)
+    @test test_state_2.matrix == Bool[1 0 0; 0 0 0; 0 0 0]
+    Pixels_2020.interpret(prim_draw0, tags, test_state_1)
+    @test test_state_1.matrix == Bool[0 0 0; 0 0 0; 0 0 0]
+    Pixels_2020.interpret(prim_draw0, tags, test_state_1)
+    @test test_state_1.matrix == Bool[0 0 0; 0 0 0; 0 0 0]
+    Pixels_2020.interpret(prim_draw1, tags, test_state_2)
+    @test test_state_2.matrix == Bool[1 0 0; 0 0 0; 0 0 0]
+    # Test if 
+    test_state_3 = PixelState(Bool[1 1 1; 0 0 0; 0 0 0])
+    prim_if = RuleNode(12, [RuleNode(18), RuleNode(11), RuleNode(10)]) # IF(notAtTop, draw1, draw0)
+    Pixels_2020.interpret(prim_if, tags, test_state_3)
+    @test test_state_3.matrix == Bool[0 1 1; 0 0 0; 0 0 0]
+    Pixels_2020.interpret(prim_moveDown, tags, test_state_3)
+    Pixels_2020.interpret(prim_if, tags, test_state_3)
+    @test test_state_3.matrix == Bool[0 1 1; 1 0 0; 0 0 0]
+    # Test while
+    test_state_4 = PixelState(Bool[0 0 0; 0 0 0; 0 0 0])
+    prim_while_1 = RuleNode(13, [RuleNode(14), RuleNode(11)]) # WHILE(atTop, draw1)
+    Pixels_2020.interpret(prim_while_1, tags, test_state_4)
+    @test test_state_4.matrix == Bool[1 0 0; 0 0 0; 0 0 0]
+    prim_while_2 = RuleNode(13, [RuleNode(19), RuleNode(9)]) # WHILE(notAtBottom, moveDown)
+    Pixels_2020.interpret(prim_while_2, tags, test_state_4)
+    @test test_state_4.position == (1, 3)
+    # Test nested program: turn matrix of all zeros into identity matrix 
+    test_state = PixelState(Bool[0 0 0; 0 0 0; 0 0 0])
+    prog = RuleNode(3, [RuleNode(11), RuleNode(3, [RuleNode(9), RuleNode(3, [RuleNode(6), RuleNode(3, [RuleNode(11), RuleNode(3, [RuleNode(9), RuleNode(3, [RuleNode(6), RuleNode(11)])])])])])])
+    Pixels_2020.interpret(prog, tags, test_state)
+    @test test_state.matrix == Bool[1 0 0; 0 1 0; 0 0 1]
+    @test test_state.position == (3, 3)
 end

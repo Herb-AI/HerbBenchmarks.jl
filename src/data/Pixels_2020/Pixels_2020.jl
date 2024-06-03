@@ -4,11 +4,11 @@ using HerbCore
 using HerbSpecification
 using HerbGrammar
 
+include("pixels_primitives.jl")
 include("data.jl")
 include("grammar.jl")
-include("pixels_primitives.jl")
 
-export 
+export
     parseline_pixels
 
 """
