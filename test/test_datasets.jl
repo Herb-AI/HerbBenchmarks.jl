@@ -118,6 +118,8 @@ end
     prim_notAtLeft = RuleNode(20, [])
     prim_notAtRight = RuleNode(21, [])
     prim_if = RuleNode(12, [RuleNode(18), RuleNode(9), RuleNode(7)]) # IF(notAtTop, moveUp, moveDown)
+    # TODO: primitive while -> test on a case where condition is always true to test if loop stops
+    prim_while = RuleNode(13, [RuleNode(14), RuleNode(6)]) # WHILE(atTop, moveRight)
 
     # get tags for grammar
     tags = Robots_2020.get_relevant_tags(grammar_robots)
@@ -142,6 +144,10 @@ end
     @test Robots_2020.interpret(prim_notAtLeft, tags, test_state_1) == false
 
     @test Robots_2020.interpret(prim_if, tags, test_state_1) == RobotState(0, 1, 2, 1, 1, 5)
+    # WHILE loop
+    @test Robots_2020.interpret(prim_while.children[1], tags, test_state_1) == true # test that condition is true
+    @test Robots_2020.interpret(prim_while, tags, test_state_1) == RobotState(0, 5, 1, 1, 1, 5)
+
 
     # Test case: robot is at the bottom right corner of the grid, holding ball (ball position should change)
     test_state_2 = RobotState(1, 5, 5, 5, 5, 5)
@@ -163,6 +169,7 @@ end
     @test Robots_2020.interpret(prim_notAtRight, tags, test_state_2) == false
 
     @test Robots_2020.interpret(prim_if, tags, test_state_2) == RobotState(1, 5, 4, 5, 4, 5)
+
 end
 
 @testset verbose = true "Pixels_2020.interpret conditions" begin
