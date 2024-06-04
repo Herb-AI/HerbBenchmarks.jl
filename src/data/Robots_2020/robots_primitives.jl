@@ -61,6 +61,7 @@ can_pickup(state::RobotState) = state.holds_ball == 0 && state.robot_x == state.
 function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol}, state::RobotState, max_steps::Int=1000)
     counter = max_steps
     while interpret(condition, grammartags, state) && counter > 0
+        tag = grammartags[get_rule(body)]
         state = interpret(body, grammartags, state)
         counter -= 1
     end
@@ -88,7 +89,7 @@ function moveright(state::RobotState)
         if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x + 1, state.robot_y, state.ball_x + 1, state.ball_y, state.size)
         else
-            return RobotState(state.holds_ball, state.robot_x + 1, state.robot_y, state.robot_x, state.robot_y, state.size)
+            return RobotState(state.holds_ball, state.robot_x + 1, state.robot_y, state.ball_x, state.ball_y, state.size)
         end
     else
         return state
@@ -100,7 +101,7 @@ function moveleft(state::RobotState)
         if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x - 1, state.robot_y, state.ball_x - 1, state.ball_y, state.size)
         else
-            return RobotState(state.holds_ball, state.robot_x - 1, state.robot_y, state.robot_x, state.robot_y, state.size)
+            return RobotState(state.holds_ball, state.robot_x - 1, state.robot_y, state.ball_x, state.ball_y, state.size)
         end
     else
         return state
@@ -112,7 +113,7 @@ function movedown(state::RobotState)
         if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x, state.robot_y + 1, state.ball_x, state.ball_y + 1, state.size)
         else
-            return RobotState(state.holds_ball, state.robot_x, state.robot_y + 1, state.robot_x, state.robot_y, state.size)
+            return RobotState(state.holds_ball, state.robot_x, state.robot_y + 1, state.ball_x, state.ball_y, state.size)
         end
     else
         return state
@@ -124,7 +125,7 @@ function moveup(state::RobotState)
         if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x, state.robot_y - 1, state.ball_x, state.ball_y - 1, state.size)
         else
-            return RobotState(state.holds_ball, state.robot_x, state.robot_y - 1, state.robot_x, state.robot_y, state.size)
+            return RobotState(state.holds_ball, state.robot_x, state.robot_y - 1, state.ball_x, state.ball_y, state.size)
         end
     else
         return state
