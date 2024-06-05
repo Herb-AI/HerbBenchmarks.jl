@@ -17,7 +17,7 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
     rule_node = get_rule(prog)
 
     @match grammartags[rule_node] begin
-        :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammar, state)) # (Operation ; Sequence)
+        :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammartags, state)) # (Operation ; Sequence)
         :moveRight => moveright(state)
         :moveDown => movedown(state)
         :moveLeft => moveleft(state)
