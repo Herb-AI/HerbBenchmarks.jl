@@ -38,16 +38,24 @@ end
 
 """
 function append_cfgrammar(filepath::String, name::String, grammar::AbstractGrammar)
-     open(filepath, "a") do file
+    name = replace(name,
+                   "-" => "_",
+                   "." => "_"
+                  )
+    open(filepath, "a") do file
         if !isprobabilistic(grammar)
             println(file, "grammar_$name = @cfgrammar begin")
             for (type, rule) ∈ zip(grammar.types, grammar.rules)
-                println(file, "\t$type = $rule")
+                if typeof(rule) == String
+                    println(file, "    $type = \"$rule\"")
+                else
+                    println(file, "    $type = $rule")
+                end
             end
         else
             println(file, "grammar_$name = @pcfgrammar begin")
             for (type, rule, prob) ∈ zip(grammar.types, grammar.rules, grammar.log_probabilities)
-                println(file, "\t$(ℯ^prob) : $type = $rule")
+                println(file, "    $(ℯ^prob) : $type = $rule")
             end
         end
         println(file, "end")

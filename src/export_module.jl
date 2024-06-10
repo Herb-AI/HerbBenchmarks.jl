@@ -102,3 +102,57 @@ macro make_public_rec(module_name::Symbol)
     return nothing
 end
 export make_public_rec
+
+"""
+
+"""
+function all_problems(module_name::Module)
+    all_problems = [module_name.eval(var) for var in filter(v -> startswith(string(v), "problem_"), names(module_name; all=true))]
+    return all_problems
+end
+
+"""
+
+"""
+function all_grammars(module_name::Module)
+    all_grammars = [module_name.eval(var) for var in filter(v -> startswith(string(v), "grammar_"), names(module_name; all=true))]
+    return all_grammars
+end
+
+"""
+
+"""
+function find_corresponding_grammar(problem_name::AbstractString, module_name::Module)
+    # Extract the problem number from the problem identifier
+    problem_number = match(r"_.*$", string(problem_name)).match
+
+    # Construct the grammar identifier
+    grammar_id = Symbol("grammar" * problem_number)
+
+    # Check if this specific grammar exists in the module
+    if isdefined(module_name, grammar_id)
+        return grammar_id
+    else
+        # Find the default grammar that starts with "grammar_"
+        for name in names(module_name; all=true)
+            if startswith(string(name), "grammar_")
+                return name
+            end
+        end
+    end
+
+    # Return nothing or throw an error if no grammar is found
+    throw(KeyError("No corresponding grammar found for problem $problem"))
+end
+
+"""
+    all_problem_grammar_pairs(module_name::Module)
+
+Takes a module and returns a dict mapping from the problem name to a tuple of problem and grammar. If there is no grammar with a matching name it searches for the default grammar.
+"""
+function all_problem_grammar_pairs(module_name::Module)
+    # Find the corresponding grammar for each problem
+    problem_grammar_dict = Dict(string(var) => (module_name.eval(var), module_name.eval(find_corresponding_grammar(string(var), module_name))) for var in filter(v -> startswith(string(v), "problem_"), names(module_name; all=true)))
+
+    return problem_grammar_dict
+end
