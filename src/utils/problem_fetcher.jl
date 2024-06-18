@@ -1,3 +1,8 @@
+"""
+    function get_all_benchmarks()::Vector{Benchmark}
+
+Gets all Benchmarks currently in the package. 
+"""
 function get_all_benchmarks()::Vector{Benchmark}
     
     # Map all benchmark modules to the benchmark datastructure and return
