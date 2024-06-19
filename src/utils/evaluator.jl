@@ -136,7 +136,7 @@ function evaluate_benchmark(
     
     # Return the result
     return BenchmarkResult(
-        benchmark.module_name,
+        benchmark,
         problem_results
     )
 end

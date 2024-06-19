@@ -7,7 +7,8 @@ A struct containg the results of a Benchmark evaluation. It contains the benchma
 The statistics include at least the average amount of programs evaluated (also only for optimally solved instances), the average execution time (s) (also only for optimally solved instances), the average memory usage (bytes) (also only for optimally solved instances) and a Dict mapping a TerminationCause to the amount of problems that were terminated due to that cause.
 """
 struct BenchmarkResult
-    benchmark_name::Module
+    benchmark_name::String
+    problem_ids::Union{Vector{String}, String}
     problem_results::Vector{ProblemResult}
     statistics::Dict{String,Any}
 end
@@ -17,8 +18,9 @@ end
 
 A constructor for BenchmarkResult that automatically computes the statistics.
 """
-BenchmarkResult(benchmark_name::Module, problem_results::Vector{ProblemResult}) = BenchmarkResult(
-    benchmark_name,
+BenchmarkResult(benchmark::Benchmark, problem_results::Vector{ProblemResult}) = BenchmarkResult(
+    benchmark.module_name,
+    benchmark.problem_ids,
     problem_results,
     compute_statistics(problem_results),
 )
