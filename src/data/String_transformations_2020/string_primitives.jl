@@ -61,7 +61,7 @@ function get_relevant_tags(grammar::ContextSensitiveGrammar)
     return tags
 end
 
-function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol}, state::StringState, max_steps::Int=1000)
+function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState, max_steps::Int=1000)
     counter = max_steps
     while interpret(condition, grammartags, state) && counter > 0
         state = interpret(body, grammartags, state)
