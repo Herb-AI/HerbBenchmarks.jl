@@ -18,6 +18,24 @@ Note environment variables are not implemented yet.
 EvaluationResult(benchmark_results::Vector{BenchmarkResult}) = EvaluationResult(
     benchmark_results,
     Dict(
+        "..." => "..."
+        # TODO: someway to include all iterator settings
+        # TODO: random random_seed
+        # TODO: environment
+    )
+)
+
+
+"""
+    EvaluationResult()
+    
+A constructor for an empty EvaluationResult struct that creates the environment variables automatically.
+Note environment variables are not implemented yet.
+"""
+EvaluationResult() = EvaluationResult(
+    Array{BenchmarkResult,1}(undef, 0),
+    Dict(
+        "..." => "..."
         # TODO: someway to include all iterator settings
         # TODO: random random_seed
         # TODO: environment
