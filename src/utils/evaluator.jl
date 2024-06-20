@@ -8,6 +8,7 @@ Evaluates an ProgramIterator on a given Vector of Benchmarks.
         - allow_evaluation_errors - Whether the search should crash if an exception is thrown in the evaluation
         - max_time                - The maximum time before termination of a single program search 
         - max_enumerations        - The maximum amount of enumerations before termination of a single program search
+        - path                    - The location at which the result folder should be created. Throws an ArgumentError if that folder already exists.
 Returns an EvaluationResult containg the results of every Benchmark, their problem results and environment variables to reproduce the evaluation.
 """
 function evaluate(
@@ -16,20 +17,35 @@ function evaluate(
     shortcircuit::Bool=true, 
     allow_evaluation_errors::Bool=false,
     max_time::Int64 = typemax(Int),
-    max_enumerations::Int64 = typemax(Int)
+    max_enumerations::Int64 = typemax(Int),
+    path::Union{Nothing, String} = nothing,
 )::EvaluationResult
 
-    # Evauate each benchmark and store results in a vector.
-    benchmark_results = [evaluate_benchmark(
-        iterator_constructor, 
-        benchmark, 
-        shortcircuit=shortcircuit, 
-        allow_evaluation_errors=allow_evaluation_errors, 
-        max_time=max_time, 
-        max_enumerations=max_enumerations) for benchmark in benchmarks]
+    # Create empty EvaluationResult
+    result = EvaluationResult()
+
+    # If a path is specified, initalise storage and store the environment variables
+    if !isnothing(path)
+        setup_storage(path)
+        store_environment(path, result)
+    end
+
+    # Evauate each benchmark and append the results.
+    for benchmark in benchmarks
+        benchmark_result = evaluate_benchmark(
+            iterator_constructor, 
+            benchmark, 
+            shortcircuit=shortcircuit, 
+            allow_evaluation_errors=allow_evaluation_errors, 
+            max_time=max_time, 
+            max_enumerations=max_enumerations,
+            path=path)
+
+        push!(result.benchmark_results, benchmark_result)
+    end
 
     # Return the result, wrapped in the corresponding structure.
-    return EvaluationResult(benchmark_results)
+    return result
 end
 
 """
@@ -42,6 +58,7 @@ Evaluates an ProgramIterator on a given Benchmark.
         - allow_evaluation_errors - Whether the search should crash if an exception is thrown in the evaluation
         - max_time                - The maximum time before termination of a single program search 
         - max_enumerations        - The maximum amount of enumerations before termination of a single program search
+        - path                    - The location at which the result folder should be created. Throws an ArgumentError if that folder already exists.
 Returns an EvaluationResult containg the results of the Benchmark, their problem results and environment variables to reproduce the evaluation.
 """
 function evaluate(
@@ -50,21 +67,20 @@ function evaluate(
     shortcircuit::Bool=true, 
     allow_evaluation_errors::Bool=false,
     max_time::Int64 = typemax(Int),
-    max_enumerations::Int64 = typemax(Int)
+    max_enumerations::Int64 = typemax(Int),
+    path::Union{Nothing, String} = nothing,
 )::EvaluationResult
 
-    # Evauate the benchmark and store result in a vector.
-    benchmark_result = evaluate_benchmark(
+    # Call the evaluate for a vector of Benchmarks.
+    return evaluate(
         iterator_constructor, 
-        benchmark, 
+        [benchmark], 
         shortcircuit=shortcircuit, 
         allow_evaluation_errors=allow_evaluation_errors, 
         max_time=max_time, 
-        max_enumerations=max_enumerations
+        max_enumerations=max_enumerations,
+        path=path
     )
-
-    # Return the result, wrapped in the corresponding structure.
-    return EvaluationResult([benchmark_result])
 end
 
 """
@@ -77,6 +93,7 @@ A helper function that evaluates an ProgramIterator on a given ProblemGrammarPai
         - allow_evaluation_errors - Whether the search should crash if an exception is thrown in the evaluation
         - max_time                - The maximum time before termination of a single program search 
         - max_enumerations        - The maximum amount of enumerations before termination of a single program search
+        - path                    - The location at which the result folder is located.
 Returns a ProblemResult containg the results of the evaluation.
 """
 function evaluate_problem(
@@ -85,22 +102,30 @@ function evaluate_problem(
     shortcircuit::Bool=true, 
     allow_evaluation_errors::Bool=false,
     max_time::Int64 = typemax(Int),
-    max_enumerations::Int64 = typemax(Int)
+    max_enumerations::Int64 = typemax(Int),
+    path::Union{Nothing, String} = nothing,
 )::ProblemResult
    
     # Construct program iterator
     iterator = iterator_constructor(problem_grammar_pair.grammar, :Start)
 
-    # Run synth function and return
-    return HerbBenchmarks.synth(
+    # Run synth function
+    result = HerbBenchmarks.synth(
         problem_grammar_pair,
         iterator, 
-        benchmark=problem_grammar_pair.benchmark_name,
+        benchmark_module=problem_grammar_pair.benchmark_module,
         shortcircuit=shortcircuit, 
         allow_evaluation_errors=allow_evaluation_errors, 
         max_time=max_time, 
         max_enumerations=max_enumerations
     )
+
+    # Store result if a path was specified
+    if !isnothing(path)
+        store_problem_result(path, problem_grammar_pair.benchmark_module, result)
+    end
+
+    return result
 end
 
 
@@ -114,6 +139,7 @@ A helper function that evaluates an ProgramIterator on a given Benchmark.
         - allow_evaluation_errors - Whether the search should crash if an exception is thrown in the evaluation
         - max_time                - The maximum time before termination of a single program search 
         - max_enumerations        - The maximum amount of enumerations before termination of a single program search
+        - path                    - The location at which the result folder is located.
 Returns a BenchmarkResult containg the results of the evaluation.
 """
 function evaluate_benchmark(
@@ -122,7 +148,8 @@ function evaluate_benchmark(
     shortcircuit::Bool=true, 
     allow_evaluation_errors::Bool=false,
     max_time::Int64 = typemax(Int),
-    max_enumerations::Int64 = typemax(Int)
+    max_enumerations::Int64 = typemax(Int),
+    path::Union{Nothing, String} = nothing,
 )::BenchmarkResult
 
     # Evaluate each problem
@@ -132,11 +159,17 @@ function evaluate_benchmark(
         shortcircuit=shortcircuit, 
         allow_evaluation_errors=allow_evaluation_errors, 
         max_time=max_time, 
-        max_enumerations=max_enumerations) for pg in benchmark.problem_grammar_pairs]
+        max_enumerations=max_enumerations,
+        path=path) for pg in benchmark.problem_grammar_pairs]
     
-    # Return the result
-    return BenchmarkResult(
+    result = BenchmarkResult(
         benchmark,
         problem_results
     )
+
+    # If a path was specified, store the benchmark statistics
+    store_benchmark_statistics(path, result)
+
+    # Return the result
+    return result
 end

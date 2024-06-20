@@ -19,7 +19,7 @@ function synth(
     allow_evaluation_errors::Bool=false,
     max_time = typemax(Int),
     max_enumerations = typemax(Int),
-    benchmark::Module
+    benchmark_module::Module
 )::ProblemResult
     # Start meassure the time and the memory usage. 
     start_time = time()
@@ -28,7 +28,7 @@ function synth(
 
     # Extract the grammar and create a SymbolTable.
     grammar = HerbConstraints.get_grammar(iterator.solver)
-    symboltable :: SymbolTable = SymbolTable(grammar, benchmark)
+    symboltable :: SymbolTable = SymbolTable(grammar, benchmark_module)
 
     # Initialise variables keeping track of the best program found so far.
     best_score = 0

@@ -35,6 +35,7 @@ include("datatypes/evaluation_result.jl")
 include("utils/benchmarks_io.jl")
 include("utils/problem_fetcher.jl")
 include("utils/synth.jl")
+include("utils/evaluator_io.jl")
 include("utils/evaluator.jl")
 
 
