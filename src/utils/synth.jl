@@ -84,16 +84,19 @@ function synth(
     end_bytes = Ref{Int64}(0)
     Base.gc_bytes(end_bytes)
 
+    # Create metrics dictionary. If a solver already has SolverStatistics, start from there
+    metrics = isnothing(iterator.solver.statistics) ? Dict{String, Any}() : iterator.solver.statistics
+    metrics["programs_evaluated"] = programs_evaluated
+    metrics["execution_time_s"] = time() - start_time
+    metrics["memory_usage_bytes"] = end_bytes[] - start_bytes[]
+    metrics["termination_cause"] = termination_cause
+
+
     # Return result in a ProblemResult.
     return ProblemResult(
         problem.identifier,
         program,
         termination_cause == optimal_program_found ? optimal_program : suboptimal_program, 
-        Dict(
-            "programs_evaluated" => programs_evaluated, 
-            "execution_time_s" => time() - start_time, 
-            "memory_usage_bytes" => end_bytes[] - start_bytes[], 
-            "termination_cause" => termination_cause
-        )
+        metrics
     )
 end
