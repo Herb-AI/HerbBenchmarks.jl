@@ -1,5 +1,5 @@
 """
-    function evaluate(iterator_constructor::Function, benchmarks::Vector{Benchmark}; shortcircuit::Bool=true, allow_evaluation_errors::Bool=false, max_time::Int64 = typemax(Int), max_enumerations::Int64 = typemax(Int))::EvaluationResult
+    function evaluate_iterator(iterator_constructor::Function, benchmarks::Vector{Benchmark}; shortcircuit::Bool=true, allow_evaluation_errors::Bool=false, max_time::Int64 = typemax(Int), max_enumerations::Int64 = typemax(Int))::EvaluationResult
 
 Evaluates an ProgramIterator on a given Vector of Benchmarks.
         - iterator_constructor    - A function constructing a iterator::ProgramIterator from an grammar::AbstractGrammar and a starting_symbol::Symbol
@@ -11,7 +11,7 @@ Evaluates an ProgramIterator on a given Vector of Benchmarks.
         - path                    - The location at which the result folder should be created. Throws an ArgumentError if that folder already exists.
 Returns an EvaluationResult containg the results of every Benchmark, their problem results and environment variables to reproduce the evaluation.
 """
-function evaluate(
+function evaluate_iterator(
     iterator_constructor::Function, 
     benchmarks::Vector{Benchmark};
     shortcircuit::Bool=true, 
@@ -49,7 +49,7 @@ function evaluate(
 end
 
 """
-    function evaluate(iterator_constructor::Function, benchmark::Benchmark; shortcircuit::Bool=true, allow_evaluation_errors::Bool=false, max_time::Int64 = typemax(Int), max_enumerations::Int64 = typemax(Int))::EvaluationResult
+    function evaluate_iterator(iterator_constructor::Function, benchmark::Benchmark; shortcircuit::Bool=true, allow_evaluation_errors::Bool=false, max_time::Int64 = typemax(Int), max_enumerations::Int64 = typemax(Int))::EvaluationResult
 
 Evaluates an ProgramIterator on a given Benchmark.
         - iterator_constructor    - A function constructing a iterator::ProgramIterator from an grammar::AbstractGrammar and a starting_symbol::Symbol
@@ -61,7 +61,7 @@ Evaluates an ProgramIterator on a given Benchmark.
         - path                    - The location at which the result folder should be created. Throws an ArgumentError if that folder already exists.
 Returns an EvaluationResult containg the results of the Benchmark, their problem results and environment variables to reproduce the evaluation.
 """
-function evaluate(
+function evaluate_iterator(
     iterator_constructor::Function, 
     benchmark::Benchmark;
     shortcircuit::Bool=true, 
