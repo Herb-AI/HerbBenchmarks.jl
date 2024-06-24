@@ -58,8 +58,7 @@ export
     parse_to_julia,
     append_cfgrammar,
     enumerate_problem_files,
-    synth,
-    evaluate,
+    evaluate_iterator,
     
     # Problem fetcher
     get_all_benchmarks,

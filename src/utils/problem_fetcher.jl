@@ -12,27 +12,32 @@ end
 
 
 """
-    get_all_problem_grammar_pairs(mod::Module) -> Vector{Tuple{Problem, AbstractGrammar}}
+    get_problem_grammar_pairs(mod::Module; problem_id_filter::Regex) -> Vector{Tuple{Problem, AbstractGrammar}}
 
-Get all problems and their grammars of a benchmark 'Module'. 
+Gets problems and their grammars of a benchmark 'Module'. 
+A problem_id_filter can be specified to only include a selection of problems.
 If any problem has no corresponding or default grammar, a 'KeyError' is thrown.
 """
-function get_all_problem_grammar_pairs(mod::Module)::Vector{ProblemGrammarPair}
+function get_problem_grammar_pairs(mod::Module; problem_id_filter::Regex=r".*")::Vector{ProblemGrammarPair}
 
-    # Fetch all problem grammar pairs
-    return [get_problem_grammar_pair(mod, identifier) for identifier in get_all_identifiers(mod)]
+    # Fetch problem grammar pairs given the filter
+    return [get_problem_grammar_pair(mod, identifier) for identifier in get_identifiers(mod, problem_id_filter=problem_id_filter)]
 end
 
 """
-    get_all_identifiers(mod::Module) -> Vector{String}
+    get_identifiers(mod::Module; problem_id_filter::Regex=r".*")
 
-Get all problem identifiers of a benchmark 'Module'.
+Gets problem identifiers of a benchmark 'Module'.
+A problem_id_filter can be specified to only include a selection of problem ids.
 Identifierss are the suffix of problem names. For example, the identifier of 'problem_100' is '101'.
 """
-function get_all_identifiers(mod::Module)::Vector{String}
+function get_identifiers(mod::Module; problem_id_filter::Regex=r".*")::Vector{String}
 
-    # Fetch all identifiers
-    return [String(var)[9:end] for var in filter(v -> startswith(string(v), "problem_"), names(mod; all=true))]
+    # Fetch all problem identifiers
+    ids = [String(name)[9:end] for name in filter(v -> startswith(string(v), "problem_"), names(mod; all=true))]
+
+    # Return the identifiers that adhere to the filter
+    return [id for id in ids if !isnothing(match(problem_id_filter, id))]
 end
 
 """

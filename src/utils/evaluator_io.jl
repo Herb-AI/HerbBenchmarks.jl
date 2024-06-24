@@ -73,7 +73,7 @@ function store_benchmark_statistics(path::String, benchmark_result::BenchmarkRes
     final_path = path * STATISTICS_PATH
     lines = join([
         benchmark_result.benchmark_name * ": ", 
-        "\t Problem ids: " * string(benchmark_result.problem_ids),
+        "\t Problem id filter: " * string(benchmark_result.problem_id_filter),
         "\t Statistics:  " * string(benchmark_result.statistics),
     ], "\n") * "\n"
 

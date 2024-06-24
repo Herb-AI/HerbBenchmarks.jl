@@ -8,7 +8,7 @@ The statistics include at least the average amount of programs evaluated (also o
 """
 struct BenchmarkResult
     benchmark_name::String
-    problem_ids::Union{Vector{String}, String}
+    problem_id_filter::Regex
     problem_results::Vector{ProblemResult}
     statistics::Dict{String,Any}
 end
@@ -20,7 +20,7 @@ A constructor for BenchmarkResult that automatically computes the statistics.
 """
 BenchmarkResult(benchmark::Benchmark, problem_results::Vector{ProblemResult}) = BenchmarkResult(
     benchmark.module_name,
-    benchmark.problem_ids,
+    benchmark.problem_id_filter,
     problem_results,
     compute_statistics(problem_results),
 )
