@@ -109,16 +109,19 @@ function evaluate_problem(
     # Construct program iterator
     iterator = iterator_constructor(problem_grammar_pair.grammar, :Start)
 
-    # Run synth function
-    result = HerbBenchmarks.synth(
+    # Create Synth object
+    synth = HerbBenchmarks.Synth(
         problem_grammar_pair,
         iterator, 
-        benchmark_module=problem_grammar_pair.benchmark_module,
+        problem_grammar_pair.benchmark_module,
         shortcircuit=shortcircuit, 
         allow_evaluation_errors=allow_evaluation_errors, 
         max_time=max_time, 
         max_enumerations=max_enumerations
     )
+
+    # Run synthesis
+    result = synthesize(synth)
 
     # Store result if a path was specified
     if !isnothing(path)
