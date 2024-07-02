@@ -72,7 +72,7 @@ function evaluate_iterator(
 )::EvaluationResult
 
     # Call the evaluate for a vector of Benchmarks.
-    return evaluate(
+    return evaluate_iterator(
         iterator_constructor, 
         [benchmark], 
         shortcircuit=shortcircuit, 
