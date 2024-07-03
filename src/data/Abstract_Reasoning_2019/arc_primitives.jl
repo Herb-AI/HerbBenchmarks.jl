@@ -7,13 +7,17 @@ end
 
 Grid(mat::Matrix{Int}) = Grid(size(mat)..., mat)
 
-
+"""
+Returns a new `Grid` initialized from a one-dimensional vector of integers (`raw_grid`).
+"""
 function initState(raw_grid::Vector{Int})
     return Grid(array_to_matrix(raw_grid))
 end
 
 """
-Helper function to transform the input vector to a matrix of square form. If length is not a squared integer, then iteratively adjust the factors a,b such that a<b and `a*b = length(input_array)`
+Helper function to transform the input vector to a matrix of square form. 
+    
+If length is not a squared integer, then iteratively adjust the factors a,b such that a<b and `a*b = length(input_array)`
 """
 function array_to_matrix(arr::Vector{T}) where {T}
     n = length(arr)
@@ -42,22 +46,35 @@ function array_to_matrix(arr::Vector{T}) where {T}
     return mat
 end
 
+"""
+Returns the `Grid` data as a one-dimensional vector.
+"""
 function returnState(grid::Grid)
-    return (grid.mat')[:] # transform and flatten matrix
+    return (grid.mat')[:] # transform and flatten matrix @TODO: grid struct has no field `mat`
 end
 
-# Initialize a grid with zeros
+"""
+Initializes a `Grid` of given width and height with zeros.
+"""
 function init_grid(width::Int, height::Int)
     return Grid(width, height, zeros(Int, height, width))
 end
 
 
-# Clone a grid
+"""
+Returns a new `Grid` cloned from the input `grid`.
+
+"""
 function clone_grid(grid::Grid)
     return Grid(grid.width, grid.height, copy(grid.data))
 end
 
-# Resize the grid
+"""Return a new `Grid` based on the input `grid`, resized to the new width and height.
+
+Data is copied to the new `Grid` from the top-left corner of the grid. 
+If the new dimensions are smaller than the current dimensions, the grid is cropped.  
+If the new dimensions are larger, the grid is padded with zeros.
+"""
 function resize_grid(grid::Grid, new_width::Int, new_height::Int)
     new_grid = clone_grid(grid)
     new_data = zeros(Int, new_height, new_width)
@@ -67,12 +84,18 @@ function resize_grid(grid::Grid, new_width::Int, new_height::Int)
     return Grid(new_data)
 end
 
-# Copy grid content
+"""
+Wrapper around `clone_grid`. 
+"""
+# @TODO: Why clone and copy_from_input?
 function copy_from_input(source::Grid)
     return clone_grid(source)
 end
 
-# Reset the grid to zeros
+"""
+Creates a new `Grid` instance with the same dimensions as the input `grid`, 
+but sets all values within `Grid.data` to zero. 
+"""
 function reset_grid(grid::Grid)
     new_grid = clone_grid(grid)
     fill!(new_grid.data, 0)
@@ -125,7 +148,9 @@ function select_and_paste(input_grid::Grid, start_row::Int, start_col::Int, end_
 end
 
 """
-Applies the floodfill algorithm to a Grid. The algorithm starts with the cell at the given row and column and changes the color of all connected cells to the given color.
+Applies the floodfill algorithm to a Grid. 
+
+The algorithm starts with the cell at the given row and column and changes the color of all connected cells to the given color.
 """
 function floodfill(grid::Grid, row::Int, col::Int, color::Int)
     old_value = grid.data[row, col]

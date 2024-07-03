@@ -60,6 +60,7 @@ end
     new_grid = Abstract_Reasoning_2019.reset_grid(grid)
     @test (new_grid.width, new_grid.height) == (3, 3)
     @test all(new_grid.data .== 0)
+    println(grid.data)
 end
 
 @testset "Abstract_Reasoning_2019: Manipulate cells" begin
@@ -126,8 +127,8 @@ end
         # [0 2 9 0]
         # [2 2 1 3]
         # [2 0 7 2]
-        # [2 2 2 5]
-        # 
+        [2 2 2 5]
+
         grid = Grid(mat)
         row, col = 2, 2
         color = 4
