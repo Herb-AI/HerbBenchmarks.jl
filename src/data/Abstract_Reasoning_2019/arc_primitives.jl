@@ -86,10 +86,13 @@ function set_cell(grid::Grid, row::Int, col::Int, color::Int)
     return new_grid
 end
 
-# Select function to return a list of coordinates within a rectangle
+# Select function to return a list of coordinates within a rectangle (defined by top-left and bottom-right corners). 
 function select(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int)
     selected_cells = []
-    #@TODO add check such that start_* < end_*
+    if start_row > end_row || start_col > end_col
+        return selected_cells
+    end
+
     for i in start_row:min(end_row, grid.height), j in start_col:min(end_col, grid.width)
         push!(selected_cells, (i, j))
     end
@@ -97,22 +100,28 @@ function select(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_co
 end
 
 # Distinguish between two cases, as you cannot paste from arbitrary previous grids, but just the current one
+# Select and paste from the input grid to the same grid
 function select_and_paste(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, paste_row::Int, paste_col::Int)
     new_grid = clone_grid(grid)
-    selected_cells = select(grid, start_row, start_col, end_row, end_col)
-    for (i, j) in selected_cells
-        new_grid[paste_row+i-1, paste_col+j-1] = grid[i, j]
+    # selected_cells = select(grid, start_row, start_col, end_row, end_col)
+    for (i, row) in enumerate(start_row:end_row)
+        for (j, col) in enumerate(start_col:end_col)
+            new_grid.data[paste_row+i-1, paste_col+j-1] = grid.data[row, col] # TODO: better indices
+        end
     end
     return new_grid
 end
 
+# Select and paste from an input grid to a target grid
 function select_and_paste(input_grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, target_grid::Grid, paste_row::Int, paste_col::Int)
     new_grid = clone_grid(target_grid)
     selected_cells = select(input_grid, start_row, start_col, end_row, end_col)
     for (i, j) in selected_cells
         new_grid[paste_row+i-1, paste_col+j-1] = input_grid[i, j]
     end
+
     return new_grid
+
 end
 
 # Floodfill function to fill all connected cells with a new value
