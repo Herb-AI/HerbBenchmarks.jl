@@ -103,10 +103,9 @@ end
 # Select and paste from the input grid to the same grid
 function select_and_paste(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, paste_row::Int, paste_col::Int)
     new_grid = clone_grid(grid)
-    # selected_cells = select(grid, start_row, start_col, end_row, end_col)
-    for (i, row) in enumerate(start_row:end_row)
+    for (i, row) in enumerate(start_row:end_row) # TODO: can this be done better?
         for (j, col) in enumerate(start_col:end_col)
-            new_grid.data[paste_row+i-1, paste_col+j-1] = grid.data[row, col] # TODO: better indices
+            new_grid.data[paste_row+i-1, paste_col+j-1] = grid.data[row, col]
         end
     end
     return new_grid
@@ -115,19 +114,22 @@ end
 # Select and paste from an input grid to a target grid
 function select_and_paste(input_grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, target_grid::Grid, paste_row::Int, paste_col::Int)
     new_grid = clone_grid(target_grid)
-    selected_cells = select(input_grid, start_row, start_col, end_row, end_col)
-    for (i, j) in selected_cells
-        new_grid[paste_row+i-1, paste_col+j-1] = input_grid[i, j]
+    for (i, row) in enumerate(start_row:end_row)
+        for (j, col) in enumerate(start_col:end_col)
+            new_grid.data[paste_row+i-1, paste_col+j-1] = input_grid.data[row, col]
+        end
     end
 
     return new_grid
 
 end
 
-# Floodfill function to fill all connected cells with a new value
+"""
+Applies the floodfill algorithm to a Grid. The algorithm starts with the cell at the given row and column and changes the color of all connected cells to the given color.
+"""
 function floodfill(grid::Grid, row::Int, col::Int, color::Int)
     old_value = grid.data[row, col]
-    if old_value == color
+    if old_value == color # No need to floodfill if the color is the same
         return grid
     end
 

@@ -89,26 +89,56 @@ end
     @testset "Select and paste cells" begin
         # Test case: same input and target grid
         mat = [1 2 3; 4 5 6; 7 8 9]
-        grid = Grid(mat)
+        grid_1 = Grid(mat)
         start_row, start_col, end_row, end_col = 3, 1, 3, 3
         paste_row, paste_col = 1, 1
-        new_grid = Abstract_Reasoning_2019.select_and_paste(grid, start_row, start_col, end_row, end_col, paste_row, paste_col)
+        new_grid = Abstract_Reasoning_2019.select_and_paste(grid_1, start_row, start_col, end_row, end_col, paste_row, paste_col)
         @test new_grid.data == [7 8 9; 4 5 6; 7 8 9]
         # ... on a bigger grid
         mat = Matrix{Int}(transpose(reshape(Int.(1:100), 10, 10)))
-        grid = Grid(mat)
+        grid_2 = Grid(mat)
         expected_data = copy(mat)
         expected_data[10, 8:10] = (12:14)
         start_row, start_col, end_row, end_col = 2, 2, 2, 4
         paste_row, paste_col = 10, 8
-        new_grid = Abstract_Reasoning_2019.select_and_paste(grid, start_row, start_col, end_row, end_col, paste_row, paste_col)
+        new_grid = Abstract_Reasoning_2019.select_and_paste(grid_2, start_row, start_col, end_row, end_col, paste_row, paste_col)
         @test new_grid.data == expected_data
         # ... errors when paste indices out of bounds 
         start_row, start_col, end_row, end_col = 2, 2, 2, 4
         paste_row, paste_col = 10, 9
-        @test_throws BoundsError Abstract_Reasoning_2019.select_and_paste(grid, start_row, start_col, end_row, end_col, paste_row, paste_col)
+        @test_throws BoundsError Abstract_Reasoning_2019.select_and_paste(grid_2, start_row, start_col, end_row, end_col, paste_row, paste_col)
 
         # Test case: different input and target grid
-        # TODO: reuse grids from above
+        grid_3 = Grid(zeros(Int, 3, 3))
+        expected_data = copy(mat)
+        expected_data[4:6, 3:5] .= 0
+        start_row, start_col, end_row, end_col = 1, 1, 3, 3
+        paste_row, paste_col = 4, 3
+        new_grid = Abstract_Reasoning_2019.select_and_paste(grid_3, start_row, start_col, end_row, end_col, grid_2, paste_row, paste_col)
+        @test new_grid.data == expected_data
+        # ... errors when paste indices out of bounds
+        start_row, start_col, end_row, end_col = 1, 1, 3, 3
+        paste_row, paste_col = 10, 8
+        @test_throws BoundsError Abstract_Reasoning_2019.select_and_paste(grid_3, start_row, start_col, end_row, end_col, grid_2, paste_row, paste_col)
+    end
+    @testset "flood fill cells" begin
+        mat = [0 2 9 0; 2 2 1 3; 2 0 7 2; 2 2 2 5]
+        # [0 2 9 0]
+        # [2 2 1 3]
+        # [2 0 7 2]
+        # [2 2 2 5]
+        # 
+        grid = Grid(mat)
+        row, col = 2, 2
+        color = 4
+        expected_data = [0 4 9 0; 4 4 1 3; 4 0 7 2; 4 4 4 5]
+        new_grid = floodfill(grid, row, col, color)
+        @test new_grid.data == expected_data
+        # no connected cells
+        row, col = 1, 1
+        color = 4
+        expected_data = [4 2 9 0; 2 2 1 3; 2 0 7 2; 2 2 2 5]
+        new_grid = floodfill(grid, row, col, color)
+        @test new_grid.data == expected_data
     end
 end
