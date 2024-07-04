@@ -43,6 +43,7 @@ export
     get_all_benchmarks,
     get_benchmark,
     get_all_problem_grammar_pairs,
+    get_all_problems,
     get_all_identifiers,
     get_problem_grammar_pair,
     get_problem,

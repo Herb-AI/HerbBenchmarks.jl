@@ -38,7 +38,7 @@ end
 
 
 @testset verbose = true "Pixels_2020: General tests" begin
-    problems = all_problems(Pixels_2020)
+    problems = get_all_problems(Pixels_2020)
     @test typeof(problems[1]) <: HerbSpecification.Problem
     @test typeof(problems[1].spec[1]) == HerbSpecification.IOExample
 end
@@ -115,7 +115,6 @@ end
 @testset verbose = true "Pixels_2020: Testing IF, WHILE and nested programs" begin
     # Test IF
     test_state = matrix_filledtop()
-    println(test_state)
     prog = RuleNode(12, [RuleNode(18), RuleNode(11), RuleNode(10)]) # IF(notAtTop, draw1, draw0)
     Pixels_2020.interpret(prog, tags, test_state)
     @test test_state.matrix == Bool[0 1 1; 0 0 0; 0 0 0]

@@ -35,7 +35,7 @@ prim_isNotSpace = RuleNode(26, [])
 tags = String_transformations_2020.get_relevant_tags(grammar_string)
 
 @testset verbose = true "String_transformations_2020: General tests" begin
-    problems = all_problems(String_transformations_2020)
+    problems = get_all_problems(String_transformations_2020)
     @test typeof(problems[1]) <: HerbSpecification.Problem
     @test typeof(problems[1].spec[1]) == HerbSpecification.IOExample
 end

@@ -1,5 +1,4 @@
 function get_all_benchmarks()::Vector{Benchmark}
-    
     # Map all benchmark modules to the benchmark datastructure and return
     modules = [Abstract_Reasoning_2019, Pixels_2020, Robots_2020, String_transformations_2020, PBE_BV_Track_2018, PBE_SLIA_Track_2019]
     return [get_benchmark(m) for m in modules]
@@ -30,6 +29,16 @@ function get_all_problem_grammar_pairs(module_name::Module)::Vector{ProblemGramm
 
     # Fetch all problem grammar pairs
     return [get_problem_grammar_pair(module_name, identifier) for identifier in get_all_identifiers(module_name)]
+end
+
+
+"""
+    get_all_problems(module_name::Module)::Vector{Problem}
+
+Get all problems of a benchmark 'Module'.
+"""
+function get_all_problems(module_name::Module)::Vector{Problem}
+    return [get_problem(module_name, identifier) for identifier in get_all_identifiers(module_name)]
 end
 
 """
