@@ -1,5 +1,8 @@
 using MLStyle
 
+"""
+Represents the state of a string, including a pointer to a specific position within the string.
+"""
 struct StringState
     str::String
     pointer::Union{Int,Nothing}
@@ -8,6 +11,19 @@ end
 # Initialize the pointer to 1 (not 0, since Julia is 1-indexed)
 StringState(s::String) = StringState(s, 1)
 
+"""
+    interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
+
+Interprets a program (in form of an AbstractRuleNode) on a given grammar and `IOExample`. 
+Serves as an entry point that prepares the necessary grammar tags and initial state before 
+calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState)`.
+
+---
+    interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState)
+
+Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
+The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
+"""
 function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
     interpret(prog, get_relevant_tags(grammar), example.in[:in])
 end
@@ -44,7 +60,7 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
 end
 
 """
-Gets relevant symbol to easily match the rules
+Gets relevant symbol to easily match grammar rules to operations in `interpret` function
 """
 function get_relevant_tags(grammar::ContextSensitiveGrammar)
     tags = Dict{Int,Symbol}()
@@ -61,6 +77,11 @@ function get_relevant_tags(grammar::ContextSensitiveGrammar)
     return tags
 end
 
+"""
+Custom implementation of a while loop with a condition and a body. 
+
+Loop is terminated either when condition is false or when `max_steps` is reached.
+"""
 function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState, max_steps::Int=1000)
     counter = max_steps
     while interpret(condition, grammartags, state) && counter > 0
@@ -69,3 +90,6 @@ function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, gram
     end
     state
 end
+
+# Two instances of StringState are equal if their strings are equal and at least one of the pointers is nothing
+Base .== (a::StringState, b::StringState) = a.str == b.str && (a.pointer === nothing || b.pointer === nothing)
