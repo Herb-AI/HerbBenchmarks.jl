@@ -3,7 +3,7 @@
 [![Dev-Docs](https://img.shields.io/badge/docs-latest-blue.svg)](https://Herb-AI.github.io/Herb.jl/dev)
 
 
-# Benchmarks.jl
+# HerbBenchmarks.jl
 
 A collection of useful program synthesis benchmarks. Each folder contains a different benchmark and a README.
 
