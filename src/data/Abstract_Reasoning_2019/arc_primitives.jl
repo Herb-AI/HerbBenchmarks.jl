@@ -102,15 +102,19 @@ function reset_grid(grid::Grid)
     return new_grid
 end
 
-# Set a cell's color (value)
+"""
+Returns a copy of the input `grid` with the value at the cel at position `row` and `col` set to `color`.
+"""
 function set_cell(grid::Grid, row::Int, col::Int, color::Int)
     new_grid = clone_grid(grid)
     new_grid.data[row, col] = color
     return new_grid
 end
 
-# Select function to return a list of coordinates within a rectangle (defined by top-left and bottom-right corners). 
-function select(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int)
+"""
+Returns a list of coordinates within a rectangle defined by the top-left and bottom-right corners. 
+"""
+function select(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int) # redundant function
     selected_cells = []
     if start_row > end_row || start_col > end_col
         return selected_cells
@@ -122,27 +126,20 @@ function select(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_co
     return selected_cells
 end
 
-# Distinguish between two cases, as you cannot paste from arbitrary previous grids, but just the current one
-# Select and paste from the input grid to the same grid
+"""
+Selects a rectangular region from the input `grid` and pastes it at the specified position into the copy of a grid. 
+
+The function is overloaded to work either on a single grid or between two grids.
+"""
 function select_and_paste(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, paste_row::Int, paste_col::Int)
-    new_grid = clone_grid(grid)
-    for (i, row) in enumerate(start_row:end_row) # TODO: can this be done better?
-        for (j, col) in enumerate(start_col:end_col)
-            new_grid.data[paste_row+i-1, paste_col+j-1] = grid.data[row, col]
-        end
-    end
+    new_grid = clone_grid(grid) # Copy of the input grid to paste into.
+    new_grid.data[paste_row:paste_row+end_row-start_row, paste_col:paste_col+end_col-start_col] = grid.data[start_row:end_row, start_col:end_col]
     return new_grid
 end
 
-# Select and paste from an input grid to a target grid
 function select_and_paste(input_grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, target_grid::Grid, paste_row::Int, paste_col::Int)
-    new_grid = clone_grid(target_grid)
-    for (i, row) in enumerate(start_row:end_row)
-        for (j, col) in enumerate(start_col:end_col)
-            new_grid.data[paste_row+i-1, paste_col+j-1] = input_grid.data[row, col]
-        end
-    end
-
+    new_grid = clone_grid(target_grid) # Copy of the target grid to paste into.
+    new_grid.data[paste_row:paste_row+end_row-start_row, paste_col:paste_col+end_col-start_col] = input_grid.data[start_row:end_row, start_col:end_col]
     return new_grid
 
 end
