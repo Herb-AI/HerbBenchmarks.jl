@@ -20,6 +20,7 @@ export
 Parses a SyGuS file for its grammar, by looking for the keyword 'synth-fun' within the S-Expressions. Returns the grammar if found.
 """
 function parse_sygus_grammar(filename::AbstractString)::AbstractGrammar
+    #@TODO this parser requires the input to be named `_arg_x`. This might not be the case for all problems
     symbol_list = SExpressions.Parser.parsefile(filename)
     grammar = Nothing
 
