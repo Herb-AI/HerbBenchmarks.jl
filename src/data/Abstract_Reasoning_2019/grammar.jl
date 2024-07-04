@@ -1,4 +1,4 @@
-grammar = @cfgrammar begin
+grammar_arc = @cfgrammar begin
     Start = (state = Grid; returnState(state))
     InputGrid = initState(_arg_1)
     Return = returnState(state)

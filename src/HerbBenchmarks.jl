@@ -51,5 +51,6 @@ export
     get_default_grammar,
 
     make_public,
-    make_public_rec
+    make_public_rec,
+    get_submodules
 end # module HerbBenchmarks
