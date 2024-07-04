@@ -1,3 +1,8 @@
+[![codecov](https://codecov.io/gh/Herb-AI/HerbBenchmarks.jl/graph/badge.svg?token=VUK6MXLCU4)](https://codecov.io/gh/Herb-AI/HerbBenchmarks.jl)
+[![Build Status](https://github.com/Herb-AI/HerbBenchmarks.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Herb-AI/HerbBenchmarks.jl/actions/workflows/CI.yml?query=branch%3Amaster)
+[![Dev-Docs](https://img.shields.io/badge/docs-latest-blue.svg)](https://Herb-AI.github.io/Herb.jl/dev)
+
+
 # Benchmarks.jl
 
 A collection of useful program synthesis benchmarks. Each folder contains a different benchmark and a README.
