@@ -1,15 +1,14 @@
 grammar_robots = @csgrammar begin
-    Start = (state = Init; Sequence; Return)
-    Init = initState(holds_ball, robot_x, robot_y, ball_x, ball_y, size)
-    Return = returnState(state)
+    Start = Sequence                   #1
 
-    Sequence = Operation 
-    Sequence = (Operation; Sequence)
-    Operation = Transformation 
-    Operation = ControlStatement
+    Sequence = Operation                #2
+    Sequence = (Operation; Sequence)    #3
+    Operation = Transformation          #4
+    Operation = ControlStatement        #5
 
-    Transformation = moveRight(state) | moveDown(state) | moveLeft(state) | moveUp(state) | drop(state) | grab(state)
-    ControlStatement = (Condition ? Sequence : Sequence) #|(while Condition; Sequence; end)
+    Transformation = moveRight() | moveDown() | moveLeft() | moveUp() | drop() | grab()     #6
+    ControlStatement = IF(Condition, Sequence, Sequence)        #12
+    ControlStatement = WHILE(Condition, Sequence)               #13
 
-    Condition = atTop(state) | atBottom(state) | atLeft(state) | atRight(state) | notAtTop(state) | notAtBottom(state) | notAtLeft(state) | notAtRight(state)
+    Condition = atTop() | atBottom() | atLeft() | atRight() | notAtTop() | notAtBottom() | notAtLeft() | notAtRight()      #14
 end
