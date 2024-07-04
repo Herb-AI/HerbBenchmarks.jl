@@ -40,7 +40,7 @@ export
     enumerate_problem_files,
     
     # Problem fetcher
-    get_all_benchmarks
+    get_all_benchmarks,
     get_benchmark,
     get_all_problem_grammar_pairs,
     get_all_identifiers,

@@ -92,4 +92,4 @@ function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, gram
 end
 
 # Two instances of StringState are equal if their strings are equal and at least one of the pointers is nothing
-Base .== (a::StringState, b::StringState) = a.str == b.str && (a.pointer === nothing || b.pointer === nothing)
+Base.:(==)(a::StringState, b::StringState) = a.str == b.str && (a.pointer == b.pointer || a.pointer === nothing || b.pointer === nothing)
