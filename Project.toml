@@ -18,6 +18,7 @@ SExpressions = "eaa8e424-c5f6-11e8-1b3d-d576ba0eee97"
 HerbCore = "^0.3.0"
 HerbGrammar = "^0.3.0"
 HerbSpecification = "^0.1.0"
+JSON = "0.21"
 julia = "^1.8"
 
 [extras]
