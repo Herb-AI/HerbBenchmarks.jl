@@ -5,24 +5,23 @@
 
 # HerbBenchmarks.jl
 
-A collection of useful program synthesis benchmarks. Each folder contains a different benchmark.
+A collection of useful program synthesis benchmarks. 
 
-A benchmark includes:
-- A README with relevant resources for the benchmark (papers, code repos, etc.) and a brief description of the data.
+## Benchmark structure
+
+Each benchmark has its own folder, including:
+- A README with relevant resources for the benchmark (papers, code repos, etc.) and a brief description of the data structure.
 - `data.jl`: One or more data set(s) of input-output examples. For more details on how the data sets should look like, see [Benchmark data](#benchmark-data). 
 - `citation.bib`: Reference to cite the benchmark.
 - `grammar.jl`: One or more program grammar(s).
-- `<benchmark>_primitivesl.jl`: Implementation of all primitives and the custom interpret function (if exists).
+- `<benchmark_name>_primitives.jl`: Implementation of all primitives and the custom interpret function (if exists).
 
 ## Benchmark data
-
 
 In `data.jl`, problems are defined following a specific structure:
 - Each data set is represented by a `Problem` object with.
 - A problem has a unique **identifier**, e.g., `"problem_100"`.
-- A problem contains a list of `IOExample`s. 
-    - The input `in` is of type `Dict{Symbol, Any}`, with `Symbol`s following the naming convention `_arg_1_`, `_arg_2_`, etc. 
-    - The expected output `out` can be anything. 
+- A problem contains a list of `IOExample`s. The input `in` is of type `Dict{Symbol, Any}`, with `Symbol`s following the naming convention `_arg_1_`, `_arg_2_`, etc.
 
 ```julia
 # Example 
