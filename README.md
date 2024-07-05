@@ -10,16 +10,16 @@ A collection of useful program synthesis benchmarks.
 ## Benchmark structure
 
 Each benchmark has its own folder, including:
-- A README with relevant resources for the benchmark (papers, code repos, etc.) and a brief description of the data structure.
-- `data.jl`: One or more data set(s) of input-output examples. For more details on how the data sets should look like, see [Benchmark data](#benchmark-data). 
+- A README with relevant resources for the benchmark (papers, code repos, etc.) and a brief description of the data structure used in the data set.
+- `data.jl`: Contains the benchmark data set. A data set consists of one or more problems (or tasks). Each problem is made up of one or more input-output examples. For more details on how a data set should look like, see [Benchmark data](#benchmark-data). 
 - `citation.bib`: Reference to cite the benchmark.
 - `grammar.jl`: One or more program grammar(s).
 - `<benchmark_name>_primitives.jl`: Implementation of all primitives and the custom interpret function (if exists).
 
 ## Benchmark data
 
-In `data.jl`, problems are defined following a specific structure:
-- Each data set is represented by a `Problem` object with.
+In `data.jl`, a data set follows a specific structure:
+- Each data set is represented by  `Problem`s.
 - A problem has a unique **identifier**, e.g., `"problem_100"`.
 - A problem contains a list of `IOExample`s. The input `in` is of type `Dict{Symbol, Any}`, with `Symbol`s following the naming convention `_arg_1_`, `_arg_2_`, etc.
 
@@ -40,11 +40,11 @@ Select your favourite benchmark, we use the string transformation benchmark from
 ```Julia
 using HerbSpecification, HerbGrammar
 
-using HerbBenchmarks.PBE_SLIA_Track_2019
+using HerbBenchmarks.String_transformations_2020
 
 # The id has to be matching
-grammar = PBE_SLIA_Track_2019.grammar_11604909
-problem = PBE_SLIA_Track_2019.problem_11604909
+grammar = String_transformations_2020.grammar_string
+problem = String_transformations_2020.problem_100
 
 # Print out the grammar and problem in readable format
 println("grammar:", grammar)
