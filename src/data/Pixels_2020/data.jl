@@ -1,7 +1,7 @@
 problem_0_0_1 = Problem("problem_0_0_1", [
     IOExample(Dict{Symbol,Any}(:_arg_1 => PixelState(Bool[0 0; 0 0], (1, 1))), PixelState(Bool[0 0; 0 1], (1, 1)))])
 problem_1_0_1 = Problem("problem_1_0_1", [
-    IOExample(Dict{Symbol,Any}(:_arg_1 => PixelState(PixelState(Bool[0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0], (1, 1)), (1, 1))), PixelState(PixelState(Bool[0 1 0 0 0 1; 0 1 1 1 1 1; 0 1 0 0 0 1; 0 0 0 0 0 0], (1, 1)), (1, 1)))])
+    IOExample(Dict{Symbol,Any}(:_arg_1 => PixelState(Bool[0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0], (1, 1))), PixelState(Bool[0 1 0 0 0 1; 0 1 1 1 1 1; 0 1 0 0 0 1; 0 0 0 0 0 0], (1, 1)))])
 problem_1_0_10 = Problem("problem_1_0_10", [
     IOExample(Dict{Symbol,Any}(:_arg_1 => PixelState(Bool[0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0], (1, 1))), PixelState(Bool[0 1 1 1 1 1; 0 1 0 1 0 1; 0 1 0 0 0 1; 0 0 0 0 0 0], (1, 1)))])
 problem_1_0_2 = Problem("problem_1_0_2", [

@@ -7,6 +7,7 @@ mutable struct PixelState
     matrix::Matrix{Bool}
     position::Tuple{Int,Int} # (x, y)
     PixelState(matrix::Matrix{Bool}) = new(matrix, (1, 1))
+    PixelState(matrix::Matrix{Bool}, position::Tuple{Int64,Int64}) = new(matrix, position)
 end
 
 """
