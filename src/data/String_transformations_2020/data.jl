@@ -2520,7 +2520,7 @@ problem_290 = Problem("problem_290", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("gNlSafY", 1)), StringState("glaf", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("AYUVnnKoVwyzf", 1)), StringState("nnowyzf", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("qcpmZjmgLyPQq", 1)), StringState("qcpmjmgyq", nothing)), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "CARAH"), ""), 
+  IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("CARAH", 1)), StringState("", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("iGgKQRk", 1)), StringState("igk", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("QoGwt", 1)), StringState("owt", nothing))
 ])
@@ -2533,7 +2533,7 @@ problem_291 = Problem("problem_291", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("FcEQEhcFCq", 1)), StringState("FEQEFC", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("cOojjHFMgC", 1)), StringState("OHFMC", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("TrgyTP", 1)), StringState("TTP", nothing)), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "fsgtu"), ""), 
+  IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("fsgtu", 1)), StringState("", nothing)) 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("NzafvxJoz", 1)), StringState("NJ", nothing))
 ])
 problem_292 = Problem("problem_292", [
@@ -6265,7 +6265,7 @@ problem_b290 = Problem("problem_b290", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("gNlSafY", 1)), StringState("glaf", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("AYUVnnKoVwyzf", 1)), StringState("nnowyzf", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("qcpmZjmgLyPQq", 1)), StringState("qcpmjmgyq", nothing)), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "CARAH"), ""), 
+  IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("CARAH", 1)), StringState("", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("iGgKQRk", 1)), StringState("igk", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("QoGwt", 1)), StringState("owt", nothing))
 ])
@@ -6277,7 +6277,7 @@ problem_b291 = Problem("problem_b291", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("cUs", 1)), StringState("U", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("FcEQEhcFCq", 1)), StringState("FEQEFC", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("TrgyTP", 1)), StringState("TTP", nothing)), 
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "fsgtu"), ""), 
+  IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("fsgtu", 1)), StringState("", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("zVXkFVpe", 1)), StringState("VXFV", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("cOojjHFMgC", 1)), StringState("OHFMC", nothing))
 ])

@@ -11,6 +11,8 @@ end
 # Initialize the pointer to 1 (not 0, since Julia is 1-indexed)
 StringState(s::String) = StringState(s, 1)
 
+Base.length(st::StringState) = length(st.str)
+
 """
     interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
 
@@ -90,6 +92,7 @@ function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, gram
     end
     state
 end
+
 
 # Two instances of StringState are equal if their strings are equal and at least one of the pointers is nothing
 Base.:(==)(a::StringState, b::StringState) = a.str == b.str && (a.pointer == b.pointer || a.pointer === nothing || b.pointer === nothing)
