@@ -25,7 +25,7 @@ Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and
 The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
 """
 function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-    interpret(prog, get_relevant_tags(grammar), example.in[:in])
+    interpret(prog, get_relevant_tags(grammar), example.in[:_arg_1])
 end
 
 function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState)
