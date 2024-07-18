@@ -2533,7 +2533,7 @@ problem_291 = Problem("problem_291", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("FcEQEhcFCq", 1)), StringState("FEQEFC", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("cOojjHFMgC", 1)), StringState("OHFMC", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("TrgyTP", 1)), StringState("TTP", nothing)), 
-  IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("fsgtu", 1)), StringState("", nothing)) 
+  IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("fsgtu", 1)), StringState("", nothing)),
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("NzafvxJoz", 1)), StringState("NJ", nothing))
 ])
 problem_292 = Problem("problem_292", [
@@ -2657,7 +2657,7 @@ problem_2 = Problem("problem_2", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("My name is John", 1)), StringState("John", nothing))
 ])
 problem_300 = Problem("problem_300", [
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "6XfjSRJnbXTkqTMTeyLxrs8gojHDx"), ""), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("6XfjSRJnbXTkqTMTeyLxrs8gojHDx", 1)), StringState("", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("ySYH7XjIgqkm", 1)), StringState("ySYH", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("NC2x8CZPvyU15Ysa", 1)), StringState("NC", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("QUqkHN2oNWkwGlYrKahoB", 1)), StringState("QUqkHN", nothing)), 
@@ -6402,7 +6402,7 @@ problem_b2 = Problem("problem_b2", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("My name is John", 1)), StringState("John", nothing))
 ])
 problem_b300 = Problem("problem_b300", [
-	IOExample(Dict{Symbol, Any}(:_arg_1 => "6XfjSRJnbXTkqTMTeyLxrs8gojHDx"), ""), 
+	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("6XfjSRJnbXTkqTMTeyLxrs8gojHDx", 1)), StringState("", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("ySYH7XjIgqkm", 1)), StringState("ySYH", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("NC2x8CZPvyU15Ysa", 1)), StringState("NC", nothing)), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => StringState("QUqkHN2oNWkwGlYrKahoB", 1)), StringState("QUqkHN", nothing)), 
