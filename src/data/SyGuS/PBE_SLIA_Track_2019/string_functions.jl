@@ -5,7 +5,7 @@ concat_cvc(str1::String, str2::String) = str1 * str2
 
 replace_cvc(mainstr::String, to_replace::String, replace_with::String) = replace(mainstr, to_replace => replace_with)
 
-at_cvc(str::String, index::Int) = str[index]
+at_cvc(str::String, index::Int) = string(str[index])
 
 int_to_str_cvc(n::Int) = "$n"
 
