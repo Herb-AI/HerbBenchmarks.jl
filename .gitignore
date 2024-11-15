@@ -25,3 +25,9 @@ Manifest.toml
 
 # Ignore large data files
 *_large.jl
+
+# Ignore the CondaPkg files used by PSB2 for retrieving the problem files
+.CondaPkg/
+
+# Don't commit the datasets file when extracted from the PSB2 online benchmark
+**/PSB2_2021/datasets/

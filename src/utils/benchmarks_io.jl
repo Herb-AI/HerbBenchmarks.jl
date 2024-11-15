@@ -3,7 +3,7 @@
 """
 function parse_file(filepath::String, line_parser::Function)::Problem
     file = open(filepath)
-    examples::Vector{Example} = Vector{Example}()
+    examples::AbstractVector{IOExample} = []
     
     for line in eachline(file)
         line = strip(line)  # Remove leading/trailing whitespace
@@ -13,7 +13,6 @@ function parse_file(filepath::String, line_parser::Function)::Problem
         end
     end
     
-    close(file)
     return Problem(examples)  
 end
 
@@ -67,9 +66,9 @@ end
 
 Parses a single problem file given a line parser and writes the Herb'ed problem to the output_path.
 """
-function parse_to_julia(path::String, filename::String, line_parser::Function, prefix::String="")::Problem
-    problem = parse_file(path*filename, line_parser)
-    write_problem(path*"$(prefix)data.jl", problem, prefix) 
+function parse_to_julia(path::String, filename::String, line_parser::Function, prefix::String="")
+    problem = parse_file(joinpath(path, filename), line_parser)
+    write_problem(joinpath(path, "$(prefix)data.jl"), problem, prefix) 
 end
 
 """
