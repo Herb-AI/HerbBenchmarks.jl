@@ -22,6 +22,6 @@ println("Found program rulenode: ", program)
 println("Found program: ", HerbGrammar.rulenode2expr(program, grammar))
 
 # Now, we can evaluate a program
-input1 = [5,2,3,92]
+input1 = [5,-2,-4,92]
 println("Found program outputs: ", eval(HerbGrammar.rulenode2expr(program, grammar)))
 println("Provided example program outputs: ", program_basement(input1))

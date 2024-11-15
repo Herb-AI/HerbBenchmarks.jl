@@ -10,4 +10,5 @@ using Test
     include("test_pixels_2020.jl")
     include("test_abstract_reasoning_2019.jl")
     include("test_problem_fetcher.jl")
+    include("test_psb2_2021.jl")
 end

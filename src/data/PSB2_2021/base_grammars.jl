@@ -37,7 +37,7 @@ grammar_state_integer = @csgrammar begin
     State = Dict(Sym => IntRule, Sym => IntRule)
     State = Dict(Sym => IntRule, Sym => IntRule, Sym => IntRule)
     State = merge!(state, State)
-    State = push(State, Sym => IntRule)
+    State = push!(State, Sym => IntRule)
     IntRule = get(state, Sym, "Key not found")
     Expression = State | IntRule
     Expression = let state = State; Expression end

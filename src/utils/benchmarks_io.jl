@@ -66,7 +66,7 @@ end
 
 Parses a single problem file given a line parser and writes the Herb'ed problem to the output_path.
 """
-function parse_to_julia(path::String, filename::String, line_parser::Function, prefix::String="")::Problem
+function parse_to_julia(path::String, filename::String, line_parser::Function, prefix::String="")
     problem = parse_file(joinpath(path, filename), line_parser)
     write_problem(joinpath(path, "$(prefix)data.jl"), problem, prefix) 
 end

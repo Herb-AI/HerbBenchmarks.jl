@@ -27,6 +27,21 @@ function get_grammar_basement(;minimal=true, seed=nothing)
     return g
 end
 
+function get_grammar_bouncing_balls(;minimal=true)
+    @warn  "Not yet implemented grammar bouncing balls"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_bowling(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar bowling"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_camel_case(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar camel case"
+    return ContextSensitiveGrammar()
+end
+
 function get_grammar_coinsums(;minimal=true)
     # Coin sums does not have a random integer
     grammar_coin_sums = merge_grammar([
@@ -36,6 +51,21 @@ function get_grammar_coinsums(;minimal=true)
     ])
     g = minimal ? minimal_grammar_coin_sums : grammar_coin_sums
     return g
+end
+
+function get_grammar_cut_vector(;minimal=true)
+    @warn  "Not yet implemented grammar cut vector"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_dice_game(;minimal=true)
+    @warn  "Not yet implemented grammar dice game"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_find_pair(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar find pair"
+    return ContextSensitiveGrammar()
 end
 
 function get_grammar_fizz_buzz(;minimal=true)
@@ -94,8 +124,98 @@ function get_grammar_gcd(;minimal=true, seed=nothing)
     return g
 end
 
+function get_grammar_indices_of_substring(;minimal=true)
+    @warn  "Not yet implemented grammar indices of substring"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_leaders(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar leaders"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_luhn(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar luhn"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_mastermind(;minimal=true)
+    @warn  "Not yet implemented grammar mastermind"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_middle_character(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar middle character"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_paired_digits(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar paired digits"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_shopping_list(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar shopping list"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_snow_day(;minimal=true)
+    @warn  "Not yet implemented grammar snow day"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_solve_boolean(;minimal=true)
+    @warn  "Not yet implemented grammar solve boolean"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_spin_words(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar spin words"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_square_digits(;minimal=true, seed=nothing)
+    @warn  "Not yet implemented grammar square digits"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_substitution_cipher(;minimal=true)
+    @warn  "Not yet implemented grammar substitution cipher"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_twitter(;minimal=true)
+    @warn  "Not yet implemented grammar twitter"
+    return ContextSensitiveGrammar()
+end
+
+function get_grammar_vector_distance(;minimal=true)
+    @warn  "Not yet implemented grammar vector distance"
+    return ContextSensitiveGrammar()
+end
+
 grammar_basement = get_grammar_basement(seed=42)
+grammar_bouncing_balls = get_grammar_bouncing_balls()
+grammar_bowling = get_grammar_bowling(seed=42)
+grammar_camel_case = get_grammar_camel_case(seed=42)
 grammar_coin_sums = get_grammar_coinsums()
+grammar_cut_vector = get_grammar_cut_vector()
+grammar_dice_game = get_grammar_dice_game()
+grammar_find_pair = get_grammar_find_pair(seed=42)
 grammar_fizz_buzz = get_grammar_fizz_buzz()
 grammar_fuel_cost = get_grammar_fuelcost(seed=42)
 grammar_gcd = get_grammar_gcd()
+grammar_indices_of_substring = get_grammar_indices_of_substring()
+grammar_leaders = get_grammar_leaders(seed=42)
+grammar_luhn = get_grammar_luhn(seed=42)
+grammar_mastermind = get_grammar_mastermind()
+grammar_middle_character = get_grammar_middle_character(seed=42)
+grammar_paired_digits = get_grammar_paired_digits(seed=42)
+grammar_shopping_list = get_grammar_shopping_list(seed=42)
+grammar_snow_day = get_grammar_snow_day()
+grammar_solve_boolean = get_grammar_solve_boolean()
+grammar_spin_words = get_grammar_spin_words(seed=42)
+grammar_square_digits = get_grammar_square_digits(seed=42)
+grammar_substitution_cipher = get_grammar_substitution_cipher()
+grammar_twitter = get_grammar_twitter()
+grammar_vector_distance = get_grammar_vector_distance()

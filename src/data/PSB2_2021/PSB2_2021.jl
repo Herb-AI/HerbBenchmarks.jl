@@ -5,6 +5,9 @@ using HerbSpecification
 
 include("data.jl")
 include("retrieve_all_tasks.jl")
+include("grammar.jl")
+include("program_examples.jl")
+
 
 export 
     parse_line_json

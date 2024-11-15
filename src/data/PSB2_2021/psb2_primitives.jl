@@ -1,5 +1,5 @@
 """
-Function for replacing a character in a string.
+Function for replacing the character at index 'int' with new character 'char'.
 """
 function replace_in_string(str, int, char) 
     arr = collect(str)
@@ -12,14 +12,14 @@ end
 Function to merge different grammars.
 """
 function merge_grammar(gs::Vector{ContextSensitiveGrammar})
-    new_grammar = @csgrammar begin end
+    grammar_to_construct = ContextSensitiveGrammar()
     for g in gs
         for i in eachindex(g.rules)
             ex = :($(g.types[i]) = $(g.rules[i]))
-            add_rule!(new_grammar, ex)
+            add_rule!(grammar_to_construct, ex)
         end
     end
-    return new_grammar
+    return grammar_to_construct
 end
 
 
@@ -32,7 +32,7 @@ function command_while(condition::Any, body::Any, max_steps::Int=1000)
     counter = max_steps;
     res = nothing
     
-    while condition && counter > 0
+    while eval(condition) && counter > 0
         res = eval(body)
         counter -= 1
     end

@@ -1,11 +1,15 @@
 function program_basement(input1) 
     # Takes list of integers and returns 1 integer
     Dict(:output1 => 
-        let state = Dict(:i => 1)
-            while get(state, :i, "key not found") < length(input1) && sum(getindex(input1, 1:get(state, :i, "key not found")+1)) < 0
-                push!(state, :i => get!(state, :i, "key not found") + 1)
+        if getindex(input1, 1) < 0
+            0
+        else
+            let state = Dict(:i => 0)
+                while get(state, :i, "key not found") < length(input1) && sum(getindex(input1, 1:get(state, :i, "key not found"))) < 0
+                    push!(state, :i => get(state, :i, "key not found"))
+                end
+                get(state, :i, "key not found")
             end
-            get(state, :i, "key not found")
         end
     )
 end
@@ -50,7 +54,7 @@ function program_gcd(input1, input2)
             while state[:y] > 0
                 merge!(state, Dict(:x => state[:y], :y => state[:x] % state[:y]))
             end
-            get!(state, :x, "key not found")
+            get(state, :x, "key not found")
         end
     )
 end

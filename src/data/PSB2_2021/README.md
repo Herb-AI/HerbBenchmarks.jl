@@ -59,6 +59,7 @@ We do not keep all data in this repository. The `retrieve_all_tasks.jl` function
 To add another problem you have to define the following:
 - The data format is already specified in `data.jl` which you can use to structure the rest.
 - The program example should be added in the `program_examples.jl`, where you can check that the program is possible to make using the grammar you defined for the problem. Use the naming convention `program_{problem_name}`.
+  - Also write a test for this program
 - The grammar needs to be defined in the `grammar.jl`, which should be a function. The function takes in a minimal boolean to allow the inclusion of an ERC in the minimal grammar as well as the full one. The full grammar is a merge between functions of the `base_grammars.jl` and an `input_{problem_name}` defined in `problem_grammars.jl` defining the constants as defined in the Instruction Set table.
   - If it specifies an ephemeral random constant (ERC) is used, we interpret this as adding one character of noise to the grammar. This is done by adding a specific rule with the random character.
   - Use the naming convention `grammar_{problem_name}` for the output of the `merge_grammar` of the sub-grammars from `grammars.jl` with the new input grammar. 
