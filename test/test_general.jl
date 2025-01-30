@@ -10,8 +10,8 @@ input_rules(grammar::AbstractGrammar) =
 				continue
 			end
 			@testset verbose = true "Inputs are well-typed" begin
-				@test typeof(problems[1]) <: HerbSpecification.Problem
-				@test typeof(problems[1].spec[1]) <: HerbSpecification.IOExample
+				@test problems[1] isa HerbSpecification.Problem
+				@test problems[1].spec[1] isa HerbSpecification.IOExample
 			end
 
 			if mod ∉ [HerbBenchmarks.String_transformations_2020,

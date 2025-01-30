@@ -24,12 +24,6 @@ prim_while = RuleNode(13, [RuleNode(14), RuleNode(6)]) # WHILE(atTop, moveRight)
 tags = Robots_2020.get_relevant_tags(grammar_robots)
 
 @testset verbose = true "Robots_2020" begin
-	@testset verbose = true "General tests" begin
-		problems = get_all_problems(Robots_2020)
-		@test typeof(problems[1]) <: HerbSpecification.Problem
-		@test typeof(problems[1].spec[1]) <: HerbSpecification.IOExample
-	end
-
 	@testset verbose = true "Testing robot transformations" begin
 		@testset "Robot in top left corner" begin
 			@test Robots_2020.interpret(prim_moveRight, tags, test_state_1) ==

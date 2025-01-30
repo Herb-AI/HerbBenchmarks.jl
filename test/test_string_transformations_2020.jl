@@ -37,8 +37,6 @@ tags = String_transformations_2020.get_relevant_tags(grammar_string)
 @testset verbose = true "String_transformations_2020" begin
 	@testset verbose = true "General tests" begin
 		problems = get_all_problems(String_transformations_2020)
-		@test typeof(problems[1]) <: HerbSpecification.Problem
-		@test typeof(problems[1].spec[1]) <: HerbSpecification.IOExample
 		@testset verbose = true "Inputs/Outputs are StringStates" begin
 			for problem in problems
 				@test all(

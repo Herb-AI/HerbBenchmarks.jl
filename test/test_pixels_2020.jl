@@ -37,12 +37,6 @@ function matrix_filledtop()
 end
 
 @testset verbose = true "Pixels_2020" begin
-	@testset verbose = true "General tests" begin
-		problems = get_all_problems(Pixels_2020)
-		@test typeof(problems[1]) <: HerbSpecification.Problem
-		@test typeof(problems[1].spec[1]) <: HerbSpecification.IOExample
-	end
-
 	@testset verbose = true "Testing pixels conditions" begin
 		@testset "empty matrix, pointer top left" begin
 			# Test conditions => shouldn't mutate pixel state
