@@ -11,6 +11,8 @@ end
 # Initialize the pointer to 1 (not 0, since Julia is 1-indexed)
 StringState(s::String) = StringState(s, 1)
 
+Base.length(st::StringState) = length(st.str)
+
 """
     interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
 
@@ -25,7 +27,7 @@ Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and
 The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
 """
 function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-    interpret(prog, get_relevant_tags(grammar), example.in[:in])
+    interpret(prog, get_relevant_tags(grammar), example.in[:_arg_1])
 end
 
 function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState)
@@ -90,6 +92,7 @@ function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, gram
     end
     state
 end
+
 
 # Two instances of StringState are equal if their strings are equal and at least one of the pointers is nothing
 Base.:(==)(a::StringState, b::StringState) = a.str == b.str && (a.pointer == b.pointer || a.pointer === nothing || b.pointer === nothing)
