@@ -3,6 +3,8 @@ module HerbBenchmarks
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using HerbSearch
+using HerbConstraints
 
 include("export_module.jl")
 
@@ -18,19 +20,38 @@ for (root, dirs, files) in walkdir(dirname(@__FILE__)*"/data/")
     end
 end
 
-# Include utils
-#include("utils/benchmark_generator.jl")
-include("utils/benchmarks_io.jl")
-include("utils/problem_fetcher.jl")
 
 # Include data types
 include("datatypes/problem_grammar_pair.jl")
 include("datatypes/benchmark.jl")
+include("datatypes/termination_cause.jl")
+include("datatypes/problem_result.jl")
+include("datatypes/benchmark_result.jl")
+include("datatypes/evaluation_result.jl")
+
+
+# Include utils
+#include("utils/benchmark_generator.jl")
+include("utils/benchmarks_io.jl")
+include("utils/problem_fetcher.jl")
+include("utils/decomposed_synth.jl")
+#include("utils/synth.jl")
+include("utils/evaluator_io.jl")
+include("utils/evaluator.jl")
+
 
 export 
     # Data types
     ProblemGrammarPair,
     Benchmark,
+    TerminationCause,
+    optimal_program_found,
+    max_enumerations_reached,
+    max_time_reached,
+    enumeration_exhausted,
+    ProblemResult,
+    BenchmarkResult,
+    EvaluationResult,
 
     # utils
     parse_file,
@@ -38,6 +59,7 @@ export
     parse_to_julia,
     append_cfgrammar,
     enumerate_problem_files,
+    evaluate_iterator,
     
     # Problem fetcher
     get_all_benchmarks,

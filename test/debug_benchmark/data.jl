@@ -1,0 +1,5 @@
+problem_1 = Problem([IOExample(Dict(:x => x), 2x+1) for x ∈ 1:5])
+problem_2 = Problem([IOExample(Dict(:x => x), 1-x) for x ∈ 1:5])
+problem_3 = Problem([IOExample(Dict(:x => x), 3x) for x ∈ 1:5])
+problem_4 = Problem([IOExample(Dict(:x => x), 0) for x ∈ 1:5])
+problem_5 = Problem([IOExample(Dict(:x => x), 3x-5) for x ∈ 1:5])
