@@ -11,4 +11,5 @@ using Test
     # include("test_abstract_reasoning_2019.jl")
     # include("test_problem_fetcher.jl")
     include("test_arc_dsl.jl")
+    include("test_arc_dsl_utils.jl")
 end

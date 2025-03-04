@@ -2,7 +2,7 @@ grammar_arc = @csgrammar begin
     
     # Operator = identity()
     # Integer = all integer values we want to allow
-    Operator = add() 
+    Operator = identityfun() | add() 
 end
 
 

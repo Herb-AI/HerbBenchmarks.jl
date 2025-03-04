@@ -4,7 +4,8 @@ using HerbCore
 using HerbSpecification
 using HerbGrammar
 
-include("arc_primitives.jl")
+include("arc_basic_primitives.jl")
+include("arc_utils_primitives.jl")
 include("arc_types.jl")
 # include("data.jl")
 include("grammar.jl")
