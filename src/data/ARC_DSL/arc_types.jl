@@ -13,8 +13,9 @@ abstract type AbstractImmutableSet{T} end # FrozenSet
 struct IntegerSet <: AbstractImmutableSet{Int8}
 	set::Set{Int8}
 
-	IntegerSet(items::AbstractVector{Int8}) = new(Set{Int8}(items))
-	IntegerSet(items::Set{Int8}) = new(Set{Int8}(items))
+	IntegerSet(items::AbstractVector{<:Integer}) = new(Set{Int8}(items))
+	IntegerSet(items::Set{<:Integer}) = new(Set{Int8}(items))
+	# TODO: constructor for Integer
 end
 
 function Base.intersect(a::AbstractImmutableSet{T}, b::AbstractImmutableSet{T}) where T
