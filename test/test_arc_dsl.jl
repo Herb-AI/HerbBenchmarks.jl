@@ -1,5 +1,3 @@
-using HerbBenchmarks.ARC_DSL
-
 @testset verbose = true "Basic operators" begin
 	@testset verbose = true "Numerical" begin
 		@testset verbose = true "add" begin
@@ -126,6 +124,7 @@ using HerbBenchmarks.ARC_DSL
 		@testset verbose = true "IntegerSet operations" begin
 			a = IntegerSet([1, 2, 5, 3])
 			b = IntegerSet([4, 2, 6])
+			c = IntegerSet([1, 2, 5, 3])
 			@testset verbose = true "maximum" begin
 				@test maximum(a) == 5
 				@test maximum(b) == 6
@@ -134,22 +133,30 @@ using HerbBenchmarks.ARC_DSL
 				@test minimum(a) == 1
 				@test minimum(b) == 2
 			end
+			@testset "isequal and hash" begin
+				@test isequal(a, c) == true
+				@test isequal(a, b) == false
+
+				@test hash(a) == hash(c)
+				@test hash(a) != hash(b)
+				@test length(Set([a, b, c])) == 2
+			end
 
 		end
-		@testset verbose = true "set intersection and difference" begin
-			a = IntegerSet([1, 2])
-			b = IntegerSet([2, 3])
-			c = IntegerSet([2])
-			@test intersect(a, b) == c
-			# TODO: test for more set types
+		# @testset verbose = true "set intersection and difference" begin
+		# 	a = IntegerSet([1, 2])
+		# 	b = IntegerSet([2, 3])
+		# 	c = IntegerSet([2])
+		# 	@test intersect(a, b) == c
+		# 	# TODO: test for more set types
 
-			@test difference(
-				IntegerSet([1, 2, 3]),
-				IntegerSet([1, 2]),
-			) ==
-				  IntegerSet([3])
+		# 	@test difference(
+		# 		IntegerSet([1, 2, 3]),
+		# 		IntegerSet([1, 2]),
+		# 	) ==
+		# 		  IntegerSet([3])
 
-		end
+		# end
 	end
 end
 

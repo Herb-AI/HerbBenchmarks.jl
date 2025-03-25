@@ -1,7 +1,9 @@
 using HerbCore
 using HerbBenchmarks
+using HerbBenchmarks.ARC_DSL
 using HerbSpecification
 using Test
+
 
 @testset "HerbBenchmarks.jl" verbose = true begin
 	# include("test_general.jl")
@@ -11,5 +13,5 @@ using Test
 	# include("test_abstract_reasoning_2019.jl")
 	# include("test_problem_fetcher.jl")
 	include("test_arc_dsl.jl")
-	# include("test_arc_dsl_utils.jl")
+	include("test_arc_grid_operations.jl")
 end
