@@ -17,6 +17,7 @@ struct Grid{M, N}
 		Grid(SMatrix{M, N, UInt8}(mat))
 	end
 end
+Base.length(grid::Grid{M, N}) where {M, N} = length(grid.mat)
 
 abstract type AbstractImmutableSet{T} end # FrozenSet
 # hashable => implement `hash()` and `isequal()`
@@ -49,6 +50,12 @@ struct Indices <: AbstractImmutableSet{Index}
 
 	Indices(items::AbstractVector{<:Index}) = new(Set{Index}(items))
 	Indices(items::Set{<:Index}) = new(Set{Index}(items))
+	# function Indices(items::AbstractVector{<:Tuple{Integer, Integer}})
+	# 	# Convert each tuple to an Index (SVector{2, Int8})
+	# 	indices = Set{Index}(Index(Tuple(convert(NTuple{2, Int8}, item))) for item in items)
+	# 	new(indices)
+	# end
+	# Indices(items::AbstractVector{<:Tuple{Integer, Integer}}) = new(Set{Index}(Index.(items)))
 end
 
 
