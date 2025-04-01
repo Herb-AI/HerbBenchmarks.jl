@@ -1,0 +1,10 @@
+[bv_grammars]
+git-tree-sha1 = "f773ba88e7397028628aaa34477c34b6af5cb8bf"
+
+[sygus]
+git-tree-sha1 = "9b557c112a42810cb81a28802f505eda542a5dd5"
+lazy = true
+
+    [[sygus.download]]
+    sha256 = "0f9fc711bc6e019f59d5938532e61b9d505772811e2fd53b4d9c767611f0a08f"
+    url = "https://github.com/SyGuS-Org/benchmarks/archive/13c8deb68a873635879c9a69bc78caebd340f646.tar.gz"

@@ -1,5 +1,9 @@
 module SyGuS
 
+using Artifacts
+using LazyArtifacts
+using Serialization
+using Pkg
 using HerbSpecification
 using HerbCore
 using HerbGrammar
@@ -100,6 +104,45 @@ function parse_example_constraint(sexpr::SExpressionParser.Cons)
    end
 
    return IOExample(inputs, output)
+end
+
+function get_sygus_path()
+    root_path = artifact"sygus"
+    # within the root_path there should be some directory that is itself the root
+    # of the git project, we want to return _that_ path
+    sygus_path = only(filter(isdir, readdir(root_path; join=true)))
+
+    return sygus_path
+end
+
+function get_bv_paths(year)
+    sygus_path = get_sygus_path()
+    yeardir = joinpath(sygus_path, "comp", "$year")
+    
+    @assert isdir(yeardir) "$yeardir doesn't exist"
+
+    bv_path = joinpath(yeardir, "PBE_BV_Track")
+
+    return filter(x -> splitext(x)[2] == ".sl", readdir(bv_path; join=true))
+end
+
+function get_bv_grammars(year)
+    artifact_toml = find_artifacts_toml(@__FILE__)
+    bv_grammars_hash = artifact_hash("bv_grammars", artifact_toml)
+
+    if isnothing(bv_grammars_hash) || !artifact_exists(bv_grammars_hash)
+        bv_grammars_hash = Pkg.Artifacts.create_artifact() do artifact_dir
+            bv_paths = get_bv_paths(year)
+            grammars = parse_sygus_grammar.(bv_paths[1:10])
+            serialize(joinpath(artifact_dir, "bv_grammars.jls"), grammars)
+        end
+
+        Pkg.Artifacts.bind_artifact!(artifact_toml, "bv_grammars", bv_grammars_hash)
+    end
+
+    bv_grammars_path = artifact_path(bv_grammars_hash)
+
+    return bv_grammars_path
 end
 
 end # module SyGuS
