@@ -1,10 +1,9 @@
 using StaticArrays
 
-export Grid, Index, IntegerSet, Indices
+export Grid, IntegerSet, Indices
 
-const Index = SVector{2, Int8} # IntegerTuple TODO: why negative numbers? look at original implementation
 struct Grid{M, N}
-	mat::SMatrix{M, N, UInt8}
+	mat::SMatrix{M, N, UInt8} # each element represents a cell and value the cell's colour 
 
 	# constructor
 	function Grid(mat::SMatrix{M, N, UInt8}) where {M, N}
@@ -45,11 +44,11 @@ struct IntegerSet <: AbstractImmutableSet{Int8}
 
 end
 
-struct Indices <: AbstractImmutableSet{Index}
-	set::Set{Index}
+struct Indices <: AbstractImmutableSet{CartesianIndex{2}}
+	set::Set{CartesianIndex{2}}
 
-	Indices(items::AbstractVector{<:Index}) = new(Set{Index}(items))
-	Indices(items::Set{<:Index}) = new(Set{Index}(items))
+	Indices(items::AbstractVector{<:CartesianIndex{2}}) = new(Set{CartesianIndex{2}}(items))
+	Indices(items::Set{<:CartesianIndex{2}}) = new(Set{CartesianIndex{2}}(items))
 	# function Indices(items::AbstractVector{<:Tuple{Integer, Integer}})
 	# 	# Convert each tuple to an Index (SVector{2, Int8})
 	# 	indices = Set{Index}(Index(Tuple(convert(NTuple{2, Int8}, item))) for item in items)

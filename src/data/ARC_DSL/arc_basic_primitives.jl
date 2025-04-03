@@ -3,43 +3,45 @@ using MLStyle
 # Numerical 
 
 """
-	Returns the sum of `a` and `b`, where each `a` and `b` can either be `Integer` or `Index`.
+	Returns the sum of `a` and `b`, where each `a` and `b` can either be `Integer` or `CartesianIndex`.
 """
 add(a::Integer, b::Integer) = a + b
-add(a::Index, b::Integer) = a .+ b
-add(a::Integer, b::Index) = a .+ b
-add(a::Index, b::Index) = a + b
+add(a::CartesianIndex{N}, b::Integer) where N = a + CartesianIndex(ntuple(_ -> b, N))
+add(a::Integer, b::CartesianIndex{N}) where N = CartesianIndex(ntuple(_ -> a, N)) + b
+add(a::CartesianIndex{N}, b::CartesianIndex{N}) where N = a + b
 
 
 """
-	Subtracts `b` from `a`, where each `a` and `b` can either be `Integer` or `Index`.
+	Subtracts `b` from `a`, where each `a` and `b` can either be `Integer` or `CartesianIndex`.
 """
 subtract(a::Integer, b::Integer) = a - b
-subtract(a::Index, b::Integer) = a .- b
-subtract(a::Integer, b::Index) = a .- b
-subtract(a::Index, b::Index) = a - b
+subtract(a::CartesianIndex{N}, b::Integer) where N = a - CartesianIndex(ntuple(_ -> b, N))
+subtract(a::Integer, b::CartesianIndex{N}) where N = CartesianIndex(ntuple(_ -> a, N)) - b
+subtract(a::CartesianIndex{N}, b::CartesianIndex{N}) where N = a - b
 
 """
-	Returns the product of  `a` and `b`, where each `a` and `b` can either be `Integer` or `Index`.
+	Returns the product of  `a` and `b`, where each `a` and `b` can either be `Integer` or `CartesianIndex`.
 """
 multiply(a::Integer, b::Integer) = a * b
-multiply(a::Index, b::Integer) = a * b
-multiply(a::Integer, b::Index) = a * b
-multiply(a::Index, b::Index) = a .* b
+multiply(a::CartesianIndex, b::Integer) = a * b
+multiply(a::Integer, b::CartesianIndex) = a * b
+multiply(a::CartesianIndex{N}, b::CartesianIndex{N}) where N =
+	CartesianIndex(ntuple(i -> a[i] * b[i], N))
 
 """
-   Returns the result of integer division of  `a` and `b`, where each `a` and `b` can either be `Integer` or `Index`.
+   Returns the result of integer division of  `a` and `b`, where each `a` and `b` can either be `Integer` or `CartesianIndex`.
 """
 divide(a::Integer, b::Integer) = a ÷ b
-divide(a::Index, b::Integer) = a .÷ b
-divide(a::Integer, b::Index) = a .÷ b
-divide(a::Index, b::Index) = a .÷ b
+divide(a::CartesianIndex{N}, b::Integer) where N = CartesianIndex(ntuple(i -> a[i] ÷ b, N))
+divide(a::Integer, b::CartesianIndex{N}) where N = CartesianIndex(ntuple(i -> a ÷ b[i], N))
+divide(a::CartesianIndex{N}, b::CartesianIndex{N}) where N =
+	CartesianIndex(ntuple(i -> a[i] ÷ b[i], N))
 
 """
 	Inverts the sign of `a`. 
 """
 invert(a::Integer) = -1 * a
-invert(a::Index) = -1 * a
+invert(a::CartesianIndex) = -1 * a
 
 
 """
@@ -47,37 +49,37 @@ invert(a::Index) = -1 * a
 """
 
 double(a::Integer) = a * 2
-double(a::Index) = a * 2
+double(a::CartesianIndex) = a * 2
 
 """
 	Floor division of `a` by two.
 """
 halve(a::Integer) = a ÷ 2
-halve(a::Index) = a .÷ 2
+halve(a::CartesianIndex) = divide(a, 2)
 
 """
 	Increment by one.
 """
 increment(a::Integer) = a + 1
-increment(a::Index) = a .+ 1
+increment(a::CartesianIndex) = add(a, 1)
 
 """
 	Decrement by one.
 """
 decrement(a::Integer) = a - 1
-decrement(a::Index) = a .- 1
+decrement(a::CartesianIndex) = subtract(a, 1)
 
 """
 	Increments positive values, decrements negative. Zero unchanged.
 """
 crement(a::Integer) = a + (a > 0) - (a < 0)
-crement(a::Index) = Index(crement(a[1]), crement(a[2])) # TODO: does behaviour for zero make sense?
+crement(a::CartesianIndex{N}) where N = CartesianIndex(ntuple(i -> crement(a[i]), N))
 
 """
 	Returns sign of (each element of) `a`, preserving the type of `a`.
 """
 get_sign(a::Integer) = sign(a)
-get_sign(a::Index) = Index(sign(a[1]), sign(a[2]))
+get_sign(a::CartesianIndex{N}) where N = CartesianIndex(ntuple(i -> sign(a[i]), N))
 
 ## Integer
 
@@ -99,17 +101,17 @@ positive(a::Integer) = a > 0
 """
 	Returns vertically pointing vector.
 """
-toivec(i::Integer) = Index(Int8(i), Int8(0))
+toivec(i::Integer) = CartesianIndex(i, 0)
 
 """
 	Returns horizontally pointing vector.
 """
-tojvec(j::Integer) = Index(Int8(0), Int8(j))
+tojvec(j::Integer) = CartesianIndex(0, j)
 
 """
-	Constructs `Index` from `a` and `b`.
+	Constructs `CartesianIndex` from `a` and `b`.
 """
-astuple(a::Integer, b::Integer) = Index(a, b)
+astuple(a::Integer, b::Integer) = CartesianIndex(a, b)
 
 ## Boolean
 
