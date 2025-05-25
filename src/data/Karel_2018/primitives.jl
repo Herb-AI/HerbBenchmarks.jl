@@ -1,5 +1,3 @@
-using LinearAlgebra
-
 """
 Represents the hero/agent in the Karel world with position and facing direction.
 """

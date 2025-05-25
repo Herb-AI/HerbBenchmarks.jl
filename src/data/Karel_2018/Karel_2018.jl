@@ -1,4 +1,4 @@
-module Karel
+module Karel_2018
 
 using HerbCore
 using HerbSpecification
@@ -19,4 +19,4 @@ function parseline_karel(line::AbstractString)::IOExample
     return IOExample(input, output)
 end
 
-end # module Karel 
+end # module Karel_2018

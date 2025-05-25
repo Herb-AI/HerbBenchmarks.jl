@@ -1,3 +1,5 @@
+using MLStyle
+
 """
 The Karel grammar defines the Domain Specific Language (DSL) for Karel programs.
 It includes control structures (if, while, repeat), conditions, and actions.

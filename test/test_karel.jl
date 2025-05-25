@@ -1,5 +1,5 @@
 using Test
-using HerbBenchmarks.Karel
+using HerbBenchmarks.Karel_2018
 
 @testset "Karel Tests" begin
     @testset "Basic World Creation" begin
