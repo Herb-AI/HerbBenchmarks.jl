@@ -31,10 +31,7 @@ function interpret(prog::AbstractRuleNode, tags::Dict{Int,Symbol}, state::KarelS
             end
         end
         :move => begin
-            new_hero = move(state.hero, state.world)
-            if !isnothing(new_hero)
-                state.hero = new_hero
-            end
+            move(state.hero, state.world)
             state
         end
         :turnLeft => begin
@@ -132,18 +129,19 @@ function pretty_print_dict(d::Dict)
 end
 
 """
-    move(hero::Hero, world::Matrix{Char})::Union{Hero,Nothing}
+    move(hero::Hero, world::Matrix{Char})::Bool
 
 Move the hero one step in the direction it's facing if possible.
-Returns new hero state if move successful, nothing if blocked.
+Returns true if move successful, false if blocked.
 """
-function move(hero::Hero, world::Matrix{Char})::Union{Hero,Nothing}
+function move(hero::Hero, world::Matrix{Char})::Bool
     next_x = hero.position[1] + hero.facing[1]
     next_y = hero.position[2] + hero.facing[2]
     if world[next_y, next_x] == WALL_CHAR
-        return nothing
+        return false
     end
-    return Hero((next_x, next_y), hero.facing, hero.marker_bag)
+    hero.position = (next_x, next_y)
+    return true
 end
 
 """

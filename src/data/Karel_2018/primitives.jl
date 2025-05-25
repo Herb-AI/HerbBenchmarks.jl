@@ -1,7 +1,7 @@
 """
 Represents the hero/agent in the Karel world with position and facing direction.
 """
-struct Hero
+mutable struct Hero
     position::Tuple{Int,Int}
     facing::Tuple{Int,Int}
     marker_bag::Union{Nothing,Int}
@@ -24,6 +24,38 @@ const HERO_CHARS = ['<', '^', '>', 'v']
 const MARKER_CHAR = 'o'
 const WALL_CHAR = '#'
 const EMPTY_CHAR = '.'
+
+@enum Direction begin
+    NORTH = 1  # (0, -1)
+    SOUTH = 2  # (0, 1)
+    WEST = 3   # (-1, 0)
+    EAST = 4   # (1, 0)
+end
+
+# Direction mapping dictionaries
+const DIRECTION_TO_VECTOR = Dict(
+    NORTH => (0, -1),
+    SOUTH => (0, 1),
+    WEST => (-1, 0),
+    EAST => (1, 0)
+)
+
+const VECTOR_TO_DIRECTION = Dict(
+    (0, -1) => NORTH,
+    (0, 1) => SOUTH,
+    (-1, 0) => WEST,
+    (1, 0) => EAST
+)
+
+# Convert Direction to facing vector
+function direction_to_vector(dir::Direction)::Tuple{Int,Int}
+    return DIRECTION_TO_VECTOR[dir]
+end
+
+# Convert facing vector to Direction
+function vector_to_direction(facing::Tuple{Int,Int})::Direction
+    return VECTOR_TO_DIRECTION[facing]
+end
 
 function Base.show(io::IO, state::KarelState)
     # Get dimensions
@@ -103,26 +135,29 @@ end
 
 Convert a KarelState to a 3D array representation for the neural network.
 Array dimensions are: [height, width, channels] where channels are:
-1-4: Hero direction (one-hot)
-5: Walls
-6-16: Marker counts (0-10)
+0-3: Hero direction one-hot (North, South, West, East)
+4: Walls
+5-15: Number of markers (0-10 markers at position)
 """
 function state_to_array(state::KarelState)::Array{Float64,3}
     height, width = size(state.world)
     array = zeros(Float64, height, width, 16)
-    # Set hero direction
+    # Set hero direction - convert facing vector to direction enum then to channel index
     hero_x, hero_y = state.hero.position
-    dir_idx = findfirst(d -> d == state.hero.facing, [(0, 1), (1, 0), (0, -1), (-1, 0)])
+    dir = vector_to_direction(state.hero.facing)
+    dir_idx = Int(dir)  # Use enum value directly as channel index
     array[hero_y, hero_x, dir_idx] = 1.0
     # Set walls
     array[:, :, 5] = state.world .== WALL_CHAR
-    # Set markers
+    # Set markers - count markers at each position
     marker_counts = Dict{Tuple{Int,Int},Int}()
     for marker in state.markers
         marker_counts[marker] = get(marker_counts, marker, 0) + 1
     end
+    # Set marker channels (channel 6 for 1 marker, channel 7 for 2 markers, etc.)
     for ((x, y), count) in marker_counts
-        array[y, x, 6+min(count, 10)] = 1.0
+        channel = min(count + 5, 15)  # channel 6-15 for 1-10 markers
+        array[y, x, channel] = 1.0
     end
     return array
 end
@@ -130,7 +165,11 @@ end
 """
     array_to_state(array::Array{Float64,3})::KarelState
 
-Convert a 3D array representation back to a KarelState.
+Convert a 3D array representation to a KarelState.
+Array dimensions are: [height, width, channels] where channels are:
+0-3: Hero direction one-hot (North, South, West, East)
+4: Walls
+5-15: Number of markers (0-10 markers at position)
 """
 function array_to_state(array::Array{Float64,3})::KarelState
     height, width, _ = size(array)
@@ -138,17 +177,25 @@ function array_to_state(array::Array{Float64,3})::KarelState
     world = fill(EMPTY_CHAR, height, width)
     world[array[:, :, 5].>0.5] .= WALL_CHAR
     # Find hero position and direction
-    hero_y, hero_x = findfirst(view(array, :, :, 1:4) .> 0.5).I[1:2]
+    hero_pos = findfirst(sum(view(array, :, :, 1:4), dims=3)[:, :, 1] .> 0.5)
+    if isnothing(hero_pos)
+        # Default to position (1,1) if no hero found
+        hero_pos = CartesianIndex(1, 1)
+    end
+    hero_y, hero_x = hero_pos.I
+    # Find direction from one-hot encoding
     dir_idx = findfirst(view(array, hero_y, hero_x, 1:4) .> 0.5)
-    facing = [(0, 1), (1, 0), (0, -1), (-1, 0)][dir_idx]
+    dir = Direction(dir_idx)  # Convert channel index directly to Direction enum
+    facing = direction_to_vector(dir)
     hero = Hero((hero_x, hero_y), facing)
-    # Find markers
+    # Find markers - channels 6-15 represent 1-10 markers
     markers = Tuple{Int,Int}[]
-    for y in 1:height
-        for x in 1:width
-            marker_count = findfirst(view(array, y, x, 6:16) .> 0.5)
-            if !isnothing(marker_count)
-                append!(markers, fill((x, y), marker_count - 1))  # -1 because indices 6:16 represent 0-10 markers
+    for y in 1:height, x in 1:width
+        # Check each marker channel (6-15)
+        for i in 6:15
+            if array[y, x, i] > 0.5
+                # Channel i represents (i-5) markers
+                append!(markers, fill((x, y), i - 5))
             end
         end
     end

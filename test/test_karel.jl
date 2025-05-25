@@ -14,27 +14,39 @@ using HerbBenchmarks.Karel_2018
 
     @testset "Hero Movement" begin
         world = create_world(5, 5)
-        hero = Hero((2, 2), (1, 0))  # Facing east
-        # Test moving forward
-        new_hero = move(hero, world)
-        @test new_hero.position == (3, 2)
-        @test new_hero.facing == (1, 0)
-        # Test turning left
-        left_hero = turn_left(hero)
-        @test left_hero.position == (2, 2)
-        @test left_hero.facing == (0, -1)
-        # Test turning right
-        right_hero = turn_right(hero)
-        @test right_hero.position == (2, 2)
-        @test right_hero.facing == (0, 1)
+        # Test each direction
+        hero_east = Hero((3, 3), direction_to_vector(EAST))
+        hero_west = Hero((3, 3), direction_to_vector(WEST))
+        hero_north = Hero((3, 3), direction_to_vector(NORTH))
+        hero_south = Hero((3, 3), direction_to_vector(SOUTH))
+        # Test moving in each direction
+        @test move(hero_east, world) == true
+        @test hero_east.position == (4, 3)
+        @test move(hero_west, world) == true
+        @test hero_west.position == (2, 3)
+        @test move(hero_north, world) == true
+        @test hero_north.position == (3, 2)
+        @test move(hero_south, world) == true
+        @test hero_south.position == (3, 4)
+        # Test turning left from each direction
+        @test vector_to_direction(turn_left(hero_east).facing) == NORTH
+        @test vector_to_direction(turn_left(hero_north).facing) == WEST
+        @test vector_to_direction(turn_left(hero_west).facing) == SOUTH
+        @test vector_to_direction(turn_left(hero_south).facing) == EAST
+        # Test turning right from each direction
+        @test vector_to_direction(turn_right(hero_east).facing) == SOUTH
+        @test vector_to_direction(turn_right(hero_south).facing) == WEST
+        @test vector_to_direction(turn_right(hero_west).facing) == NORTH
+        @test vector_to_direction(turn_right(hero_north).facing) == EAST
         # Test moving into wall
-        wall_hero = Hero((2, 2), (0, -1))  # Facing wall
-        @test isnothing(move(wall_hero, world))
+        wall_hero = Hero((2, 2), direction_to_vector(WEST))  # Facing wall
+        @test move(wall_hero, world) == false
+        @test wall_hero.position == (2, 2)  # Position unchanged
     end
 
     @testset "Marker Operations" begin
         world = create_world(5, 5)
-        hero = Hero((2, 2), (1, 0))
+        hero = Hero((2, 2), direction_to_vector(EAST))
         state = KarelState(world, Tuple{Int,Int}[], hero, false)
         # Test putting marker
         @test put_marker!(state)
@@ -49,7 +61,7 @@ using HerbBenchmarks.Karel_2018
 
     @testset "State Conversion" begin
         world = create_world(5, 5)
-        hero = Hero((2, 2), (1, 0))  # Facing east
+        hero = Hero((2, 2), direction_to_vector(EAST))  # Facing east
         markers = [(2, 2), (3, 3)]
         state = KarelState(world, markers, hero, false)
         # Conversion
@@ -69,7 +81,7 @@ using HerbBenchmarks.Karel_2018
             ])
         ])
         world = create_world(5, 5)
-        hero = Hero((2, 2), (1, 0))  # Facing east
+        hero = Hero((2, 2), direction_to_vector(EAST))  # Facing east
         initial_state = KarelState(world, Tuple{Int,Int}[], hero, false)
 
         example = IOExample(
@@ -83,16 +95,17 @@ using HerbBenchmarks.Karel_2018
         final_state = array_to_state(result)
         # Should have moved one step east
         @test final_state.hero.position == (3, 2)
+        @test final_state.hero.facing == direction_to_vector(EAST)
     end
 
     @testset "Data Loading" begin
         # Only run data format tests if file exists
         problems = Karel_2018.get_all_problems()
-        print(problems)
+        # print(problems)
         # Basic structure tests
         # @test !isempty(problems) "No problems loaded from dataset"
         # @test all(p -> !isempty(p.examples), problems) "Found problem with no examples"
-        
+
         # Verify data format
         # for problem in problems
         #     for example in problem.examples
@@ -100,10 +113,10 @@ using HerbBenchmarks.Karel_2018
         #         @test haskey(example.in, :_arg_1)
         #         @test length(size(example.in[:_arg_1])) == 3  # Should be 3D array
         #         @test size(example.in[:_arg_1], 3) == 16  # 16 channels
-                
+
         #         # Check output format
         #         @test size(example.out) == size(example.in[:_arg_1])
-                
+
         #         # Convert and check basic state structure
         #         input_state = array_to_state(example.in[:_arg_1])
         #         @test input_state.world isa Matrix{Char}
