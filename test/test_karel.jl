@@ -85,11 +85,32 @@ using HerbBenchmarks.Karel_2018
         @test final_state.hero.position == (3, 2)
     end
 
-    # @testset "Data Loading" begin
-    #     examples = load_karel_data(joinpath(@__DIR__, "..", "src", "data", "Karel_2018", "data.npz"))
-    #     @test length(examples) > 0
-    #     @test all(ex -> haskey(ex.in, :_arg_1), examples)
-    #     @test all(ex -> isa(ex.in[:_arg_1], Array), examples)
-    #     @test all(ex -> isa(ex.out, Array), examples)
-    # end
+    @testset "Data Loading" begin
+        # Only run data format tests if file exists
+        problems = Karel_2018.get_all_problems()
+        print(problems)
+        # Basic structure tests
+        # @test !isempty(problems) "No problems loaded from dataset"
+        # @test all(p -> !isempty(p.examples), problems) "Found problem with no examples"
+        
+        # Verify data format
+        # for problem in problems
+        #     for example in problem.examples
+        #         # Check input format
+        #         @test haskey(example.in, :_arg_1)
+        #         @test length(size(example.in[:_arg_1])) == 3  # Should be 3D array
+        #         @test size(example.in[:_arg_1], 3) == 16  # 16 channels
+                
+        #         # Check output format
+        #         @test size(example.out) == size(example.in[:_arg_1])
+                
+        #         # Convert and check basic state structure
+        #         input_state = array_to_state(example.in[:_arg_1])
+        #         @test input_state.world isa Matrix{Char}
+        #         @test input_state.hero.position isa Tuple{Int,Int}
+        #         @test input_state.hero.facing isa Tuple{Int,Int}
+        #         @test input_state.markers isa Vector{Tuple{Int,Int}}
+        #     end
+        # end
+    end
 end
