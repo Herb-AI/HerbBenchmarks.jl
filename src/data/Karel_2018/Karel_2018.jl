@@ -8,6 +8,7 @@ using NPZ
 include("primitives.jl")
 include("data.jl")
 include("grammar.jl")
+include("grammar_utils.jl")
 
 export
     parseline_karel

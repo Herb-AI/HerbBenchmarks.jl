@@ -25,119 +25,46 @@ const MARKER_CHAR = 'o'
 const WALL_CHAR = '#'
 const EMPTY_CHAR = '.'
 
-"""
-    move(hero::Hero, world::Matrix{Char})::Union{Hero,Nothing}
-
-Move the hero one step in the direction it's facing if possible.
-Returns new hero state if move successful, nothing if blocked.
-"""
-function move(hero::Hero, world::Matrix{Char})::Union{Hero,Nothing}
-    next_x = hero.position[1] + hero.facing[1]
-    next_y = hero.position[2] + hero.facing[2]
-    if world[next_y, next_x] == WALL_CHAR
-        return nothing
+function Base.show(io::IO, state::KarelState)
+    # Get dimensions
+    height, width = size(state.world)
+    display = copy(state.world)
+    # Add markers
+    for marker in state.markers
+        display[marker[2], marker[1]] = MARKER_CHAR
     end
-    return Hero((next_x, next_y), hero.facing, hero.marker_bag)
-end
-
-"""
-    turn_left(hero::Hero)::Hero
-
-Turn the hero 90 degrees counter-clockwise.
-"""
-function turn_left(hero::Hero)::Hero
-    new_facing = (hero.facing[2], -hero.facing[1])
-    return Hero(hero.position, new_facing, hero.marker_bag)
-end
-
-"""
-    turn_right(hero::Hero)::Hero
-
-Turn the hero 90 degrees clockwise.
-"""
-function turn_right(hero::Hero)::Hero
-    new_facing = (-hero.facing[2], hero.facing[1])
-    return Hero(hero.position, new_facing, hero.marker_bag)
-end
-
-"""
-    pick_marker!(state::KarelState)::Bool
-
-Pick up a marker at the hero's current position if one exists.
-Returns true if successful, false otherwise.
-"""
-function pick_marker!(state::KarelState)::Bool
-    pos = state.hero.position
-    idx = findfirst(m -> m == pos, state.markers)
-    if isnothing(idx)
-        return false
+    # Add hero with direction
+    hero_x, hero_y = state.hero.position
+    facing = state.hero.facing
+    hero_char = if facing == (-1, 0)  # Left
+        HERO_CHARS[1]
+    elseif facing == (0, -1)          # Up
+        HERO_CHARS[2]
+    elseif facing == (1, 0)           # Right
+        HERO_CHARS[3]
+    else                              # Down
+        HERO_CHARS[4]
     end
-    deleteat!(state.markers, idx)
-    return true
-end
-
-"""
-    put_marker!(state::KarelState)::Bool
-
-Put down a marker at the hero's current position.
-Returns true if successful.
-"""
-function put_marker!(state::KarelState)::Bool
-    push!(state.markers, state.hero.position)
-    return true
-end
-
-"""
-    front_is_clear(state::KarelState)::Bool
-
-Check if the space in front of the hero is clear.
-"""
-function front_is_clear(state::KarelState)::Bool
-    next_x = state.hero.position[1] + state.hero.facing[1]
-    next_y = state.hero.position[2] + state.hero.facing[2]
-    return state.world[next_y, next_x] != WALL_CHAR
-end
-
-"""
-    left_is_clear(state::KarelState)::Bool
-
-Check if the space to the left of the hero is clear.
-"""
-function left_is_clear(state::KarelState)::Bool
-    left_hero = turn_left(state.hero)
-    next_x = left_hero.position[1] + left_hero.facing[1]
-    next_y = left_hero.position[2] + left_hero.facing[2]
-    return state.world[next_y, next_x] != WALL_CHAR
-end
-
-"""
-    right_is_clear(state::KarelState)::Bool
-
-Check if the space to the right of the hero is clear.
-"""
-function right_is_clear(state::KarelState)::Bool
-    right_hero = turn_right(state.hero)
-    next_x = right_hero.position[1] + right_hero.facing[1]
-    next_y = right_hero.position[2] + right_hero.facing[2]
-    return state.world[next_y, next_x] != WALL_CHAR
-end
-
-"""
-    markers_present(state::KarelState)::Bool
-
-Check if there are markers at the hero's current position.
-"""
-function markers_present(state::KarelState)::Bool
-    return state.hero.position in state.markers
-end
-
-"""
-    no_markers_present(state::KarelState)::Bool
-
-Check if there are no markers at the hero's current position.
-"""
-function no_markers_present(state::KarelState)::Bool
-    return !markers_present(state)
+    display[hero_y, hero_x] = hero_char
+    # Print the grid with border
+    println(io, "┌" * "─"^width * "┐")
+    for row in 1:height
+        print(io, "│")
+        for col in 1:width
+            print(io, display[row, col])
+        end
+        println(io, "│")
+    end
+    println(io, "└" * "─"^width * "┘")
+    # Print debug info if enabled
+    if state.debug
+        println(io, "Hero position: ", state.hero.position)
+        println(io, "Hero facing: ", state.hero.facing)
+        println(io, "Marker count: ", length(state.markers))
+        if !isnothing(state.hero.marker_bag)
+            println(io, "Hero marker bag: ", state.hero.marker_bag)
+        end
+    end
 end
 
 """
