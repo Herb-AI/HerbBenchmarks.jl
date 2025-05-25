@@ -15,10 +15,10 @@ using HerbBenchmarks.Karel_2018
     @testset "Hero Movement" begin
         world = create_world(5, 5)
         # Test each direction
-        hero_east = Hero((3, 3), direction_to_vector(EAST))
-        hero_west = Hero((3, 3), direction_to_vector(WEST))
-        hero_north = Hero((3, 3), direction_to_vector(NORTH))
-        hero_south = Hero((3, 3), direction_to_vector(SOUTH))
+        hero_east = Hero((3, 3), EAST)
+        hero_west = Hero((3, 3), WEST)
+        hero_north = Hero((3, 3), NORTH)
+        hero_south = Hero((3, 3), SOUTH)
         # Test moving in each direction
         @test move(hero_east, world) == true
         @test hero_east.position == (4, 3)
@@ -29,25 +29,25 @@ using HerbBenchmarks.Karel_2018
         @test move(hero_south, world) == true
         @test hero_south.position == (3, 4)
         # Test turning left from each direction
-        @test vector_to_direction(turn_left(hero_east).facing) == NORTH
-        @test vector_to_direction(turn_left(hero_north).facing) == WEST
-        @test vector_to_direction(turn_left(hero_west).facing) == SOUTH
-        @test vector_to_direction(turn_left(hero_south).facing) == EAST
+        @test turn_left(hero_east).direction == NORTH
+        @test turn_left(hero_north).direction == WEST
+        @test turn_left(hero_west).direction == SOUTH
+        @test turn_left(hero_south).direction == EAST
         # Test turning right from each direction
-        @test vector_to_direction(turn_right(hero_east).facing) == SOUTH
-        @test vector_to_direction(turn_right(hero_south).facing) == WEST
-        @test vector_to_direction(turn_right(hero_west).facing) == NORTH
-        @test vector_to_direction(turn_right(hero_north).facing) == EAST
+        @test turn_right(hero_east).direction == SOUTH
+        @test turn_right(hero_south).direction == WEST
+        @test turn_right(hero_west).direction == NORTH
+        @test turn_right(hero_north).direction == EAST
         # Test moving into wall
-        wall_hero = Hero((2, 2), direction_to_vector(WEST))  # Facing wall
+        wall_hero = Hero((2, 2), WEST)  # Facing wall
         @test move(wall_hero, world) == false
         @test wall_hero.position == (2, 2)  # Position unchanged
     end
 
     @testset "Marker Operations" begin
         world = create_world(5, 5)
-        hero = Hero((2, 2), direction_to_vector(EAST))
-        state = KarelState(world, Tuple{Int,Int}[], hero, false)
+        hero = Hero((2, 2), EAST)
+        state = KarelState(world, Tuple{Int,Int}[], hero)
         # Test putting marker
         @test put_marker!(state)
         @test length(state.markers) == 1
@@ -61,15 +61,15 @@ using HerbBenchmarks.Karel_2018
 
     @testset "State Conversion" begin
         world = create_world(5, 5)
-        hero = Hero((2, 2), direction_to_vector(EAST))  # Facing east
+        hero = Hero((2, 2), EAST)  # Facing east
         markers = [(2, 2), (3, 3)]
-        state = KarelState(world, markers, hero, false)
+        state = KarelState(world, markers, hero)
         # Conversion
         array = state_to_array(state)
         new_state = array_to_state(array)
         # Check conversion preserved state
         @test new_state.hero.position == state.hero.position
-        @test new_state.hero.facing == state.hero.facing
+        @test new_state.hero.direction == state.hero.direction
         @test sort(new_state.markers) == sort(state.markers)
         @test new_state.world == state.world
     end
@@ -81,8 +81,8 @@ using HerbBenchmarks.Karel_2018
             ])
         ])
         world = create_world(5, 5)
-        hero = Hero((2, 2), direction_to_vector(EAST))  # Facing east
-        initial_state = KarelState(world, Tuple{Int,Int}[], hero, false)
+        hero = Hero((2, 2), EAST)  # Facing east
+        initial_state = KarelState(world, Tuple{Int,Int}[], hero)
 
         example = IOExample(
             Dict(:_arg_1 => state_to_array(initial_state)),
@@ -95,7 +95,7 @@ using HerbBenchmarks.Karel_2018
         final_state = array_to_state(result)
         # Should have moved one step east
         @test final_state.hero.position == (3, 2)
-        @test final_state.hero.facing == direction_to_vector(EAST)
+        @test final_state.hero.direction == EAST
     end
 
     @testset "Data Loading" begin

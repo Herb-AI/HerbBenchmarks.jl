@@ -135,8 +135,9 @@ Move the hero one step in the direction it's facing if possible.
 Returns true if move successful, false if blocked.
 """
 function move(hero::Hero, world::Matrix{Char})::Bool
-    next_x = hero.position[1] + hero.facing[1]
-    next_y = hero.position[2] + hero.facing[2]
+    facing = direction_to_vector(hero.direction)
+    next_x = hero.position[1] + facing[1]
+    next_y = hero.position[2] + facing[2]
     if world[next_y, next_x] == WALL_CHAR
         return false
     end
@@ -150,8 +151,8 @@ end
 Turn the hero 90 degrees counter-clockwise.
 """
 function turn_left(hero::Hero)::Hero
-    new_facing = (hero.facing[2], -hero.facing[1])
-    return Hero(hero.position, new_facing, hero.marker_bag)
+    new_direction = Direction(mod1(Int(hero.direction) - 1, 4))
+    return Hero(hero.position, new_direction, hero.marker_bag)
 end
 
 """
@@ -160,8 +161,8 @@ end
 Turn the hero 90 degrees clockwise.
 """
 function turn_right(hero::Hero)::Hero
-    new_facing = (-hero.facing[2], hero.facing[1])
-    return Hero(hero.position, new_facing, hero.marker_bag)
+    new_direction = Direction(mod1(Int(hero.direction) + 1, 4))
+    return Hero(hero.position, new_direction, hero.marker_bag)
 end
 
 """
@@ -197,8 +198,9 @@ end
 Check if the space in front of the hero is clear.
 """
 function front_is_clear(state::KarelState)::Bool
-    next_x = state.hero.position[1] + state.hero.facing[1]
-    next_y = state.hero.position[2] + state.hero.facing[2]
+    facing = direction_to_vector(state.hero.direction)
+    next_x = state.hero.position[1] + facing[1]
+    next_y = state.hero.position[2] + facing[2]
     return state.world[next_y, next_x] != WALL_CHAR
 end
 
@@ -209,8 +211,9 @@ Check if the space to the left of the hero is clear.
 """
 function left_is_clear(state::KarelState)::Bool
     left_hero = turn_left(state.hero)
-    next_x = left_hero.position[1] + left_hero.facing[1]
-    next_y = left_hero.position[2] + left_hero.facing[2]
+    facing = direction_to_vector(left_hero.direction)
+    next_x = left_hero.position[1] + facing[1]
+    next_y = left_hero.position[2] + facing[2]
     return state.world[next_y, next_x] != WALL_CHAR
 end
 
@@ -221,8 +224,9 @@ Check if the space to the right of the hero is clear.
 """
 function right_is_clear(state::KarelState)::Bool
     right_hero = turn_right(state.hero)
-    next_x = right_hero.position[1] + right_hero.facing[1]
-    next_y = right_hero.position[2] + right_hero.facing[2]
+    facing = direction_to_vector(right_hero.direction)
+    next_x = right_hero.position[1] + facing[1]
+    next_y = right_hero.position[2] + facing[2]
     return state.world[next_y, next_x] != WALL_CHAR
 end
 

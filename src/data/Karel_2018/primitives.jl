@@ -1,13 +1,20 @@
+@enum Direction begin
+    NORTH = 1  # (0, -1)
+    EAST = 2   # (1, 0)
+    SOUTH = 3  # (0, 1)
+    WEST = 4   # (-1, 0)
+end
+
 """
 Represents the hero/agent in the Karel world with position and facing direction.
 """
 mutable struct Hero
     position::Tuple{Int,Int}
-    facing::Tuple{Int,Int}
+    direction::Direction
     marker_bag::Union{Nothing,Int}
 end
 
-Hero(position::Tuple{Int,Int}, facing::Tuple{Int,Int}) = Hero(position, facing, nothing)
+Hero(position::Tuple{Int,Int}, direction::Direction) = Hero(position, direction, nothing)
 
 """
 Represents the state of the Karel world including walls, markers, and hero position.
@@ -16,7 +23,6 @@ mutable struct KarelState
     world::Matrix{Char}
     markers::Vector{Tuple{Int,Int}}
     hero::Hero
-    debug::Bool
 end
 
 # Constants for Karel world
@@ -25,26 +31,19 @@ const MARKER_CHAR = 'o'
 const WALL_CHAR = '#'
 const EMPTY_CHAR = '.'
 
-@enum Direction begin
-    NORTH = 1  # (0, -1)
-    SOUTH = 2  # (0, 1)
-    WEST = 3   # (-1, 0)
-    EAST = 4   # (1, 0)
-end
-
 # Direction mapping dictionaries
 const DIRECTION_TO_VECTOR = Dict(
     NORTH => (0, -1),
+    EAST => (1, 0),
     SOUTH => (0, 1),
     WEST => (-1, 0),
-    EAST => (1, 0)
 )
 
 const VECTOR_TO_DIRECTION = Dict(
     (0, -1) => NORTH,
+    (1, 0) => EAST,
     (0, 1) => SOUTH,
     (-1, 0) => WEST,
-    (1, 0) => EAST
 )
 
 # Convert Direction to facing vector
@@ -67,7 +66,7 @@ function Base.show(io::IO, state::KarelState)
     end
     # Add hero with direction
     hero_x, hero_y = state.hero.position
-    facing = state.hero.facing
+    facing = state.hero.direction
     hero_char = if facing == (-1, 0)  # Left
         HERO_CHARS[1]
     elseif facing == (0, -1)          # Up
@@ -91,7 +90,7 @@ function Base.show(io::IO, state::KarelState)
     # Print debug info if enabled
     if state.debug
         println(io, "Hero position: ", state.hero.position)
-        println(io, "Hero facing: ", state.hero.facing)
+        println(io, "Hero direction: ", state.hero.direction)
         println(io, "Marker count: ", length(state.markers))
         if !isnothing(state.hero.marker_bag)
             println(io, "Hero marker bag: ", state.hero.marker_bag)
@@ -144,7 +143,7 @@ function state_to_array(state::KarelState)::Array{Float64,3}
     array = zeros(Float64, height, width, 16)
     # Set hero direction - convert facing vector to direction enum then to channel index
     hero_x, hero_y = state.hero.position
-    dir = vector_to_direction(state.hero.facing)
+    dir = state.hero.direction
     dir_idx = Int(dir)  # Use enum value directly as channel index
     array[hero_y, hero_x, dir_idx] = 1.0
     # Set walls
@@ -186,8 +185,7 @@ function array_to_state(array::Array{Float64,3})::KarelState
     # Find direction from one-hot encoding
     dir_idx = findfirst(view(array, hero_y, hero_x, 1:4) .> 0.5)
     dir = Direction(dir_idx)  # Convert channel index directly to Direction enum
-    facing = direction_to_vector(dir)
-    hero = Hero((hero_x, hero_y), facing)
+    hero = Hero((hero_x, hero_y), dir)
     # Find markers - channels 6-15 represent 1-10 markers
     markers = Tuple{Int,Int}[]
     for y in 1:height, x in 1:width
@@ -199,5 +197,5 @@ function array_to_state(array::Array{Float64,3})::KarelState
             end
         end
     end
-    return KarelState(world, markers, hero, false)
+    return KarelState(world, markers, hero)
 end
