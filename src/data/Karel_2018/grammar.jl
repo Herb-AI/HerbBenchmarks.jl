@@ -5,31 +5,30 @@ The Karel grammar defines the Domain Specific Language (DSL) for Karel programs.
 It includes control structures (if, while, repeat), conditions, and actions.
 """
 grammar_karel = @cfgrammar begin
-    Start = Program
-    Program = (:DEF; :RUN; Block)
+    Start = (:DEF; :RUN; Block)                     #1
 
-    Block = Action
-    Block = (Action; Block)
-    Block = ControlFlow
+    Block = Action                                  #2
+    Block = (Action; Block)                         #3
+    Block = ControlFlow                             #4
 
-    Action = move
-    Action = turnLeft
-    Action = turnRight
-    Action = pickMarker
-    Action = putMarker
+    Action = move                                   #5
+    Action = turnLeft                               #6
+    Action = turnRight                              #7
+    Action = pickMarker                             #8
+    Action = putMarker                              #9
 
-    ControlFlow = IF(Condition, Block)
-    ControlFlow = IFELSE(Condition, Block, Block)
-    ControlFlow = WHILE(Condition, Block)
-    ControlFlow = REPEAT(R=INT, Block)
-    INT = |(1:5)
+    ControlFlow = IF(Condition, Block)              #10
+    ControlFlow = IFELSE(Condition, Block, Block)   #11
+    ControlFlow = WHILE(Condition, Block)           #12
+    ControlFlow = REPEAT(R=INT, Block)              #13
+    INT = |(1:5)                                    #14-18
 
-    Condition = frontIsClear
-    Condition = leftIsClear
-    Condition = rightIsClear
-    Condition = markersPresent
-    Condition = noMarkersPresent
-    Condition = NOT(Condition)
+    Condition = frontIsClear                        #19
+    Condition = leftIsClear                         #20
+    Condition = rightIsClear                        #21
+    Condition = markersPresent                      #22
+    Condition = noMarkersPresent                    #23
+    Condition = NOT(Condition)                      #24
 end
 
 """
@@ -52,12 +51,11 @@ Internal interpreter function that executes Karel programs.
 function interpret(prog::AbstractRuleNode, tags::Dict{Int,Symbol}, state::KarelState)
     rule = get_rule(prog)
     @match tags[rule] begin
-        :Program => begin
-            interpret(prog.children[3], tags, state)
-        end
         :Block => begin
+            # Single action
             if length(prog.children) == 1
                 interpret(prog.children[1], tags, state)
+                # Sequential
             else
                 state = interpret(prog.children[1], tags, state)
                 interpret(prog.children[2], tags, state)
@@ -124,7 +122,13 @@ function interpret(prog::AbstractRuleNode, tags::Dict{Int,Symbol}, state::KarelS
         :markersPresent => markers_present(state)
         :noMarkersPresent => no_markers_present(state)
         :NOT => !interpret(prog.children[1], tags, state)
-        _ => interpret(prog.children[1], tags, state)
+        _ => begin
+            if !isempty(prog.children)
+                interpret(prog.children[1], tags, state)
+            else
+                state
+            end
+        end
     end
 end
 
@@ -134,14 +138,26 @@ Gets relevant symbol to easily match grammar rules to operations in `interpret` 
 function get_relevant_tags(grammar::AbstractGrammar)
     tags = Dict{Int,Symbol}()
     for (ind, r) in pairs(grammar.rules)
-        tags[ind] = if typeof(r) == Symbol
+        tags[ind] = if r isa Symbol
             r
+        elseif r isa Int
+            Symbol(string(r))
         else
             @match r.head begin
                 :block => :Block
                 :call => r.args[1]
+                _ => Symbol(string(r))
             end
         end
     end
+    # pretty_print_dict(tags)
     return tags
+end
+
+function pretty_print_dict(d::Dict)
+    println("Dict(")
+    for (k, v) in sort(collect(d); by=first)
+        println("  $k => $v")
+    end
+    println(")")
 end

@@ -219,11 +219,9 @@ function array_to_state(array::Array{Float64,3})::KarelState
     markers = Tuple{Int,Int}[]
     for y in 1:height
         for x in 1:width
-            count = findfirst(view(array, y, x, 6:16) .> 0.5)
-            if !isnothing(count)
-                for _ in 1:count
-                    push!(markers, (x, y))
-                end
+            marker_count = findfirst(view(array, y, x, 6:16) .> 0.5)
+            if !isnothing(marker_count)
+                append!(markers, fill((x, y), marker_count - 1))  # -1 because indices 6:16 represent 0-10 markers
             end
         end
     end

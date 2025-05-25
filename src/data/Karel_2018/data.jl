@@ -11,15 +11,24 @@ function load_karel_data(file_path::String)::Vector{IOExample}
     data = npzread(file_path)
     input_states = data["x"]  # 4D array [num_examples, height, width, channels]
     output_states = data["y"]  # 4D array [num_examples, height, width, channels]
+
     # Convert to IOExamples
     examples = Vector{IOExample}()
-    for i in eachindex(input_states)
-        input_state = input_states[i, :, :, :]
-        output_state = output_states[i, :, :, :]
-        # Create IOExample with states
+    if ndims(input_states) == 4
+        for i in axes(input_states, 1)
+            input_state = dropdims(input_states[i:i, :, :, :], dims=1)
+            output_state = dropdims(output_states[i:i, :, :, :], dims=1)
+            example = IOExample(
+                Dict(:_arg_1 => input_state),
+                output_state
+            )
+            push!(examples, example)
+        end
+    else
+        # Handle single example case
         example = IOExample(
-            Dict(:_arg_1 => input_state),
-            output_state
+            Dict(:_arg_1 => input_states),
+            output_states
         )
         push!(examples, example)
     end
