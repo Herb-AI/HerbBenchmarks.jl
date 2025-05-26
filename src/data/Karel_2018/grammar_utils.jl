@@ -151,8 +151,8 @@ end
 Turn the hero 90 degrees counter-clockwise.
 """
 function turn_left(hero::Hero)::Hero
-    new_direction = Direction(mod1(Int(hero.direction) - 1, 4))
-    return Hero(hero.position, new_direction, hero.marker_bag)
+    hero.direction = Direction(mod1(Int(hero.direction) - 1, 4))
+    return hero
 end
 
 """
@@ -161,8 +161,8 @@ end
 Turn the hero 90 degrees clockwise.
 """
 function turn_right(hero::Hero)::Hero
-    new_direction = Direction(mod1(Int(hero.direction) + 1, 4))
-    return Hero(hero.position, new_direction, hero.marker_bag)
+    hero.direction = Direction(mod1(Int(hero.direction) + 1, 4))
+    return hero
 end
 
 """
@@ -172,12 +172,12 @@ Pick up a marker at the hero's current position if one exists.
 Returns true if successful, false otherwise.
 """
 function pick_marker!(state::KarelState)::Bool
-    pos = state.hero.position
-    idx = findfirst(m -> m == pos, state.markers)
+    idx = findfirst(m -> m == state.hero.position, state.markers)
     if isnothing(idx)
         return false
     end
     deleteat!(state.markers, idx)
+    state.hero.marker_count += 1
     return true
 end
 
@@ -188,7 +188,11 @@ Put down a marker at the hero's current position.
 Returns true if successful.
 """
 function put_marker!(state::KarelState)::Bool
+    if state.hero.marker_count == 0
+        return false
+    end
     push!(state.markers, state.hero.position)
+    state.hero.marker_count -= 1
     return true
 end
 

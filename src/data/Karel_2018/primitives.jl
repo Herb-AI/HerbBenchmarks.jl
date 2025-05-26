@@ -11,10 +11,10 @@ Represents the hero/agent in the Karel world with position and facing direction.
 mutable struct Hero
     position::Tuple{Int,Int}
     direction::Direction
-    marker_bag::Union{Nothing,Int}
+    marker_count::Int
 end
 
-Hero(position::Tuple{Int,Int}, direction::Direction) = Hero(position, direction, nothing)
+Hero(position::Tuple{Int,Int}, direction::Direction) = Hero(position, direction, 0)
 
 """
 Represents the state of the Karel world including walls, markers, and hero position.
@@ -92,9 +92,7 @@ function Base.show(io::IO, state::KarelState)
         println(io, "Hero position: ", state.hero.position)
         println(io, "Hero direction: ", state.hero.direction)
         println(io, "Marker count: ", length(state.markers))
-        if !isnothing(state.hero.marker_bag)
-            println(io, "Hero marker bag: ", state.hero.marker_bag)
-        end
+        println(io, "Marker count on hero: ", state.hero.marker_count)
     end
 end
 

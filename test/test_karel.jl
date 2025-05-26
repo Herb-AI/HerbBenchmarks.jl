@@ -28,35 +28,61 @@ using HerbBenchmarks.Karel_2018
         @test hero_north.position == (3, 2)
         @test move(hero_south, world) == true
         @test hero_south.position == (3, 4)
+        # Test moving into wall
+        wall_hero = Hero((2, 2), WEST)
+        @test move(wall_hero, world) == false
+        # Position unchanged
+        @test wall_hero.position == (2, 2)
+    end
+
+    @testset "Hero Turning Left" begin
+        # Test each direction
+        hero_east = Hero((3, 3), EAST)
+        hero_west = Hero((3, 3), WEST)
+        hero_north = Hero((3, 3), NORTH)
+        hero_south = Hero((3, 3), SOUTH)
         # Test turning left from each direction
         @test turn_left(hero_east).direction == NORTH
         @test turn_left(hero_north).direction == WEST
         @test turn_left(hero_west).direction == SOUTH
         @test turn_left(hero_south).direction == EAST
+    end
+
+    @testset "Hero Turning Right" begin
+        # Test each direction
+        hero_east = Hero((3, 3), EAST)
+        hero_west = Hero((3, 3), WEST)
+        hero_north = Hero((3, 3), NORTH)
+        hero_south = Hero((3, 3), SOUTH)
         # Test turning right from each direction
         @test turn_right(hero_east).direction == SOUTH
         @test turn_right(hero_south).direction == WEST
         @test turn_right(hero_west).direction == NORTH
         @test turn_right(hero_north).direction == EAST
-        # Test moving into wall
-        wall_hero = Hero((2, 2), WEST)  # Facing wall
-        @test move(wall_hero, world) == false
-        @test wall_hero.position == (2, 2)  # Position unchanged
+
     end
 
     @testset "Marker Operations" begin
         world = create_world(5, 5)
         hero = Hero((2, 2), EAST)
-        state = KarelState(world, Tuple{Int,Int}[], hero)
-        # Test putting marker
-        @test put_marker!(state)
+        state = KarelState(world, Tuple{Int,Int}[(3, 2)], hero)
+        # No markers in bag - should not be able to put
+        @test !put_marker!(state)
+        @test state.hero.marker_count == 0
         @test length(state.markers) == 1
-        @test state.markers[1] == (2, 2)
-        # Test picking marker
-        @test pick_marker!(state)
-        @test isempty(state.markers)
-        # Test picking from empty space
+        # No marker to pickup at (2, 2)
         @test !pick_marker!(state)
+        @test state.hero.marker_count == 0
+        @test length(state.markers) == 1
+        # Move and pickup marker
+        @test move(hero, world) == true
+        @test pick_marker!(state)
+        @test state.hero.marker_count == 1
+        @test length(state.markers) == 0
+        # Put marker down
+        @test put_marker!(state)
+        @test state.hero.marker_count == 0
+        @test length(state.markers) == 1
     end
 
     @testset "State Conversion" begin
