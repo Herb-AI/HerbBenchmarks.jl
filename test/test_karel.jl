@@ -127,29 +127,24 @@ using HerbBenchmarks.Karel_2018
     @testset "Data Loading" begin
         # Only run data format tests if file exists
         problems = Karel_2018.get_all_problems()
-        # print(problems)
         # Basic structure tests
-        # @test !isempty(problems) "No problems loaded from dataset"
-        # @test all(p -> !isempty(p.examples), problems) "Found problem with no examples"
-
+        @test !isempty(problems)
+        @test all(p -> !isempty(p.spec) && length(p.spec) == 10, problems)
         # Verify data format
-        # for problem in problems
-        #     for example in problem.examples
-        #         # Check input format
-        #         @test haskey(example.in, :_arg_1)
-        #         @test length(size(example.in[:_arg_1])) == 3  # Should be 3D array
-        #         @test size(example.in[:_arg_1], 3) == 16  # 16 channels
-
-        #         # Check output format
-        #         @test size(example.out) == size(example.in[:_arg_1])
-
-        #         # Convert and check basic state structure
-        #         input_state = array_to_state(example.in[:_arg_1])
-        #         @test input_state.world isa Matrix{Char}
-        #         @test input_state.hero.position isa Tuple{Int,Int}
-        #         @test input_state.hero.facing isa Tuple{Int,Int}
-        #         @test input_state.markers isa Vector{Tuple{Int,Int}}
-        #     end
-        # end
+        for problem in problems
+            for example in problem.spec
+                input_state = array_to_state(example.in[:_arg_1])
+                # Check input format
+                @test length(size(example.in[:_arg_1])) == 3 &&         # Should be 3D array
+                      size(example.in[:_arg_1]) == (8, 8, 16) &&        # 8 x 8 x 16 array
+                      size(example.out) == size(example.in[:_arg_1]) && # Output matches input size
+                      # Convert and check basic state structure
+                      input_state.world isa Matrix{Char} &&             # World is character matrix
+                      size(input_state.world) == (8, 8) &&              # Same shape as first two dimensions
+                      all(0 .< input_state.hero.position .< 8) &&       # Hero position not on edges/walls
+                      input_state.hero.direction isa Direction &&       # initialized
+                      input_state.markers isa Vector{Tuple{Int,Int}}    # initialized
+            end
+        end
     end
 end

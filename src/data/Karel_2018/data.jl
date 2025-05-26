@@ -44,17 +44,21 @@ function get_all_problems()::Vector{Problem}
     data = npzread(joinpath(@__DIR__, "data.npz"))
     inputs = data["inputs"]
     outputs = data["outputs"]
-    num_examples = size(inputs, 1)
-    # Create one problem per example
+    num_examples_per_code = data["num_examples_per_code"]
+
     problems = Vector{Problem}()
-    for i in 1:num_examples
-        input_array = inputs[i, :, :, :]  # Get 3D slice for this example
-        output_array = outputs[i, :, :, :]
-        example = IOExample(
-            Dict(:_arg_1 => input_array),
-            output_array
-        )
-        push!(problems, Problem([example]))
+    for pidx in 0:(size(inputs, 1)÷num_examples_per_code-1)
+        examples = Vector{IOExample}()
+        for eidx in 0:(num_examples_per_code-1)
+            # Get 3D slice for this example
+            input_array = inputs[pidx*num_examples_per_code+eidx+1, :, :, :]
+            output_array = outputs[pidx*num_examples_per_code+eidx+1, :, :, :]
+            push!(examples, IOExample(
+                Dict(:_arg_1 => input_array),
+                output_array
+            ))
+        end
+        push!(problems, Problem(examples))
     end
     return problems
 end

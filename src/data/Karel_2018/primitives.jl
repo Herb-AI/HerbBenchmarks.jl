@@ -128,7 +128,7 @@ function create_random_world(height::Int, width::Int, wall_ratio::Float64=0.1)::
 end
 
 """
-    state_to_array(state::KarelState)::Array{Float64,3}
+    state_to_array(state::KarelState)::Array{Int8,3}
 
 Convert a KarelState to a 3D array representation for the neural network.
 Array dimensions are: [height, width, channels] where channels are:
@@ -136,9 +136,9 @@ Array dimensions are: [height, width, channels] where channels are:
 4: Walls
 5-15: Number of markers (0-10 markers at position)
 """
-function state_to_array(state::KarelState)::Array{Float64,3}
+function state_to_array(state::KarelState)::Array{Int8,3}
     height, width = size(state.world)
-    array = zeros(Float64, height, width, 16)
+    array = zeros(Int8, height, width, 16)
     # Set hero direction - convert facing vector to direction enum then to channel index
     hero_x, hero_y = state.hero.position
     dir = state.hero.direction
@@ -160,7 +160,7 @@ function state_to_array(state::KarelState)::Array{Float64,3}
 end
 
 """
-    array_to_state(array::Array{Float64,3})::KarelState
+    array_to_state(array::Array{Int8,3})::KarelState
 
 Convert a 3D array representation to a KarelState.
 Array dimensions are: [height, width, channels] where channels are:
@@ -168,7 +168,7 @@ Array dimensions are: [height, width, channels] where channels are:
 4: Walls
 5-15: Number of markers (0-10 markers at position)
 """
-function array_to_state(array::Array{Float64,3})::KarelState
+function array_to_state(array::Array{Int8,3})::KarelState
     height, width, _ = size(array)
     # Create world with walls
     world = fill(EMPTY_CHAR, height, width)
