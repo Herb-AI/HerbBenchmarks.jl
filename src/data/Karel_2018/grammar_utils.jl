@@ -6,10 +6,9 @@ using MLStyle
 Interprets a Karel program on a given input state.
 """
 function interpret(prog::AbstractRuleNode, grammar::AbstractGrammar, example::IOExample)
-    input_state = array_to_state(example.in[:_arg_1])
+    input_state = deepcopy(example.in[:_arg_1])
     tags = get_relevant_tags(grammar)
-    final_state = interpret(prog, tags, input_state)
-    return state_to_array(final_state)
+    return interpret(prog, tags, input_state)
 end
 
 """

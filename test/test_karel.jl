@@ -110,19 +110,15 @@ using HerbBenchmarks.Karel_2018
         world = create_world(5, 5)
         hero = Hero((2, 2), EAST)  # Facing east
         initial_state = KarelState(world, hero)
-
-        example = IOExample(
-            Dict(:_arg_1 => state_to_array(initial_state)),
-            zeros(5, 5, 16)  # Dummy output state
-        )
+        example = IOExample(Dict(:_arg_1 => initial_state), 0)
         result = interpret(prog, grammar_karel, example)
-
         # Check results
-        @test size(result) == (5, 5, 16)
-        final_state = array_to_state(result)
+        @test size(result.world) == (5, 5)
         # Should have moved one step east
-        @test final_state.hero.position == (3, 2)
-        @test final_state.hero.direction == EAST
+        @test result.hero.position == (3, 2)
+        @test result.hero.direction == EAST
+        # Original hero unchanged
+        @test hero.position == (2, 2)
     end
 
     @testset "Data Loading" begin
@@ -134,15 +130,15 @@ using HerbBenchmarks.Karel_2018
         # Verify data format
         for problem in problems
             for example in problem.spec
-                input_state = array_to_state(example.in[:_arg_1])
+                input_state = example.in[:_arg_1]
                 # println(input_state)
                 # Check input format
-                @test length(size(example.in[:_arg_1])) == 3 &&         # Should be 3D array
-                      size(example.in[:_arg_1]) == (8, 8, 16) &&        # 8 x 8 x 16 array
-                      size(example.out) == size(example.in[:_arg_1]) && # Output matches input size
-                      # Convert and check basic state structure
-                      input_state.world isa Matrix{Bool} &&             # World is character matrix
-                      size(input_state.world) == (8, 8) &&              # Same shape as first two dimensions
+                @test input_state.world isa Matrix{Bool} &&             # World is character matrix
+                      size(input_state.world) == (8, 8) &&              # Same shape
+                      all(input_state.world[1, :]) &&                   # Top wall
+                      all(input_state.world[end, :]) &&                 # Bottom wall
+                      all(input_state.world[:, 1]) &&                   # Left wall
+                      all(input_state.world[:, end]) &&                 # Right wall
                       all(0 .< input_state.hero.position .< 8) &&       # Hero position not on edges/walls
                       input_state.hero.direction isa Direction &&       # initialized
                       input_state.markers isa Dict                      # initialized

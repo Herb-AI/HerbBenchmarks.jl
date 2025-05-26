@@ -18,9 +18,12 @@ function get_all_problems()::Vector{Problem}
             # Get 3D slice for this example
             input_array = inputs[pidx*num_examples_per_code+eidx+1, :, :, :]
             output_array = outputs[pidx*num_examples_per_code+eidx+1, :, :, :]
+            # Convert arrays to states
+            input_state = array_to_state(input_array)
+            output_state = array_to_state(output_array)
             push!(examples, IOExample(
-                Dict(:_arg_1 => input_array),
-                output_array
+                Dict(:_arg_1 => input_state),
+                output_state
             ))
         end
         push!(problems, Problem(examples))

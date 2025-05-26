@@ -16,6 +16,8 @@ end
 
 Hero(position::Tuple{Int,Int}, direction::Direction) = Hero(position, direction, 0)
 
+Base.deepcopy(hero::Hero) = Hero(hero.position, hero.direction, hero.marker_count)
+
 """
 Represents the state of the Karel world including walls, markers, and hero position.
 """
@@ -26,6 +28,12 @@ mutable struct KarelState
 end
 
 KarelState(world::Matrix{Bool}, hero::Hero) = KarelState(world, Dict{Tuple{Int,Int},Int}(), hero)
+
+Base.deepcopy(state::KarelState) = KarelState(
+    deepcopy(state.world),
+    Dict(deepcopy(k) => deepcopy(v) for (k, v) in state.markers),
+    deepcopy(state.hero)
+)
 
 # Constants for Karel world printing
 const HERO_CHARS = ['<', '^', '>', 'v']
