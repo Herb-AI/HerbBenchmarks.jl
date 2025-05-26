@@ -37,13 +37,12 @@ end
 KarelState(world::Matrix{Bool}, hero::Hero) = KarelState(world, Dict{Tuple{Int,Int},Int}(), hero)
 
 Base.deepcopy(state::KarelState) = KarelState(
-    deepcopy(state.world),
+    state.world,
     Dict(deepcopy(k) => deepcopy(v) for (k, v) in state.markers),
     deepcopy(state.hero)
 )
 
-Base.:(==)(s1::KarelState, s2::KarelState) = s1.world == s2.world &&
-                                             s1.markers == s2.markers &&
+Base.:(==)(s1::KarelState, s2::KarelState) = s1.markers == s2.markers &&
                                              s1.hero == s2.hero
 
 Base.hash(s::KarelState, h0::UInt) = hash(s.world, h0) ⊻ hash(s.markers, h0) ⊻ hash(s.hero, h0)
