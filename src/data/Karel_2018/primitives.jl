@@ -27,13 +27,12 @@ end
 
 KarelState(world::Matrix{Char}, hero::Hero) = KarelState(world, Dict{Tuple{Int,Int},Int}(), hero)
 
-# Constants for Karel world
+# Constants for Karel world printing
 const HERO_CHARS = ['<', '^', '>', 'v']
 const MARKER_CHAR = 'o'
 const WALL_CHAR = '#'
 const EMPTY_CHAR = '.'
 
-# Direction mapping dictionaries
 const DIRECTION_TO_VECTOR = Dict(
     NORTH => (0, -1),
     EAST => (1, 0),
@@ -41,41 +40,39 @@ const DIRECTION_TO_VECTOR = Dict(
     WEST => (-1, 0),
 )
 
-const VECTOR_TO_DIRECTION = Dict(
-    (0, -1) => NORTH,
-    (1, 0) => EAST,
-    (0, 1) => SOUTH,
-    (-1, 0) => WEST,
+const DIRECTION_TO_ARR_IDX = Dict(
+    NORTH => 0,
+    SOUTH => 1,
+    WEST => 2,
+    EAST => 3
 )
 
-# Convert Direction to facing vector
-function direction_to_vector(dir::Direction)::Tuple{Int,Int}
-    return DIRECTION_TO_VECTOR[dir]
-end
-
-# Convert facing vector to Direction
-function vector_to_direction(facing::Tuple{Int,Int})::Direction
-    return VECTOR_TO_DIRECTION[facing]
-end
+const ARR_IDX_TO_DIRECTION = Dict(
+    0 => NORTH,
+    1 => SOUTH,
+    2 => WEST,
+    3 => EAST
+)
 
 function Base.show(io::IO, state::KarelState)
     # Get dimensions
     height, width = size(state.world)
     display = copy(state.world)
     # Add markers
-    for marker in state.markers
-        display[marker[2], marker[1]] = MARKER_CHAR
+    for (pos, _) in state.markers
+        x, y = pos
+        display[y, x] = MARKER_CHAR
     end
     # Add hero with direction
     hero_x, hero_y = state.hero.position
-    facing = state.hero.direction
-    hero_char = if facing == (-1, 0)  # Left
+    dir = state.hero.direction
+    hero_char = if dir == WEST      # Left
         HERO_CHARS[1]
-    elseif facing == (0, -1)          # Up
+    elseif dir == NORTH             # Up
         HERO_CHARS[2]
-    elseif facing == (1, 0)           # Right
+    elseif dir == EAST              # Right
         HERO_CHARS[3]
-    else                              # Down
+    else                            # Down
         HERO_CHARS[4]
     end
     display[hero_y, hero_x] = hero_char
@@ -89,13 +86,6 @@ function Base.show(io::IO, state::KarelState)
         println(io, "│")
     end
     println(io, "└" * "─"^width * "┘")
-    # Print debug info if enabled
-    if state.debug
-        println(io, "Hero position: ", state.hero.position)
-        println(io, "Hero direction: ", state.hero.direction)
-        println(io, "Marker count: ", length(state.markers))
-        println(io, "Marker count on hero: ", state.hero.marker_count)
-    end
 end
 
 """

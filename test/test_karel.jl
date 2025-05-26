@@ -135,6 +135,7 @@ using HerbBenchmarks.Karel_2018
         for problem in problems
             for example in problem.spec
                 input_state = array_to_state(example.in[:_arg_1])
+                println(input_state)
                 # Check input format
                 @test length(size(example.in[:_arg_1])) == 3 &&         # Should be 3D array
                       size(example.in[:_arg_1]) == (8, 8, 16) &&        # 8 x 8 x 16 array

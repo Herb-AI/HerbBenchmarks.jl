@@ -45,17 +45,15 @@ Convert a KarelState to a 3D array representation for the neural network.
 Array dimensions are: [height, width, channels] where channels are:
 0-3: Hero direction one-hot (North, South, West, East)
 4: Walls
-5-15: Number of markers (0-9 markers at position, one-hot encoded)
+5-15: Number of markers (0-10 markers at position, one-hot encoded)
 """
 function state_to_array(state::KarelState)::Array{Int8,3}
     height, width = size(state.world)
     array = zeros(Int8, height, width, 16)
     # Set hero direction - one-hot encoding
     hero_x, hero_y = state.hero.position
-    dir = state.hero.direction
-    dir_idx = Int(dir)
-    array[hero_y, hero_x, dir_idx] = 1
-    # Set walls
+    dir_idx = DIRECTION_TO_ARR_IDX[state.hero.direction]
+    array[hero_y, hero_x, dir_idx+1] = 1
     array[:, :, 5] = state.world .== WALL_CHAR
     # Set markers - one hot encoding for number of markers (0-10)
     for y in 1:height, x in 1:width
@@ -72,25 +70,20 @@ end
 
 Convert a 3D array representation to a KarelState.
 Array dimensions are: [height, width, channels] where channels are:
-0-3: Hero direction one-hot (North, South, West, East)
+0-3: Hero direction one-hot (0=North, 1=South, 2=West, 3=East)
 4: Walls
-5-15: Number of markers (0-9 markers at position, one-hot encoded)
+5-15: Number of markers (0-10 markers at position, one-hot encoded)
 """
 function array_to_state(array::Array{Int8,3})::KarelState
     height, width, _ = size(array)
-    # Create world with walls
+    # Create world with walls - array accessed as [y,x]
     world = fill(EMPTY_CHAR, height, width)
-    world[array[:, :, 5].>0.5] .= WALL_CHAR # 5th dimension marks whether it's a wall
-    # Find hero position and direction
-    hero_pos = findfirst(sum(view(array, :, :, 1:4), dims=3)[:, :, 1] .> 0.5)
-    if isnothing(hero_pos)
-        # Default to position (2,2) if no hero found
-        hero_pos = CartesianIndex(2, 2)
-    end
-    hero_y, hero_x = hero_pos.I
+    world[array[:, :, 5].>0.5] .= WALL_CHAR
+    # Find hero position and direction from one-hot encoding
+    hero_y, hero_x = Tuple(findfirst(sum(view(array, :, :, 1:4), dims=3)[:, :, 1] .> 0.5))
     # Find direction from one-hot encoding
-    dir_idx = findfirst(view(array, hero_y, hero_x, 1:4) .> 0.5)
-    dir = Direction(dir_idx)
+    array_idx = findfirst(view(array, hero_y, hero_x, 1:4) .> 0.5) - 1
+    dir = ARR_IDX_TO_DIRECTION[array_idx]
     hero = Hero((hero_x, hero_y), dir)
     # Find markers from one-hot encoding
     markers = Dict{Tuple{Int,Int},Int}()
