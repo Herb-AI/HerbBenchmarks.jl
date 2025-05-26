@@ -65,7 +65,8 @@ using HerbBenchmarks.Karel_2018
     @testset "Marker Operations" begin
         world = create_world(5, 5)
         hero = Hero((2, 2), EAST)
-        state = KarelState(world, Tuple{Int,Int}[(3, 2)], hero)
+        state = KarelState(world, hero)
+        state.markers[(3, 2)] = 1
         # No markers in bag - should not be able to put
         @test !put_marker!(state)
         @test state.hero.marker_count == 0
@@ -88,8 +89,8 @@ using HerbBenchmarks.Karel_2018
     @testset "State Conversion" begin
         world = create_world(5, 5)
         hero = Hero((2, 2), EAST)  # Facing east
-        markers = [(2, 2), (3, 3)]
-        state = KarelState(world, markers, hero)
+        state = KarelState(world, hero)
+        state.markers = Dict([(2, 2), (3, 3)] .=> 1)
         # Conversion
         array = state_to_array(state)
         new_state = array_to_state(array)
@@ -108,7 +109,7 @@ using HerbBenchmarks.Karel_2018
         ])
         world = create_world(5, 5)
         hero = Hero((2, 2), EAST)  # Facing east
-        initial_state = KarelState(world, Tuple{Int,Int}[], hero)
+        initial_state = KarelState(world, hero)
 
         example = IOExample(
             Dict(:_arg_1 => state_to_array(initial_state)),
@@ -143,7 +144,7 @@ using HerbBenchmarks.Karel_2018
                       size(input_state.world) == (8, 8) &&              # Same shape as first two dimensions
                       all(0 .< input_state.hero.position .< 8) &&       # Hero position not on edges/walls
                       input_state.hero.direction isa Direction &&       # initialized
-                      input_state.markers isa Vector{Tuple{Int,Int}}    # initialized
+                      input_state.markers isa Dict                      # initialized
             end
         end
     end

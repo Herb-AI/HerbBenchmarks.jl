@@ -172,11 +172,16 @@ Pick up a marker at the hero's current position if one exists.
 Returns true if successful, false otherwise.
 """
 function pick_marker!(state::KarelState)::Bool
-    idx = findfirst(m -> m == state.hero.position, state.markers)
-    if isnothing(idx)
+    pos = state.hero.position
+    num_markers = get(state.markers, pos, 0)
+    if num_markers == 0
         return false
     end
-    deleteat!(state.markers, idx)
+    if num_markers == 1
+        delete!(state.markers, pos)
+    else
+        state.markers[pos] = num_markers - 1
+    end
     state.hero.marker_count += 1
     return true
 end
@@ -191,7 +196,8 @@ function put_marker!(state::KarelState)::Bool
     if state.hero.marker_count == 0
         return false
     end
-    push!(state.markers, state.hero.position)
+    pos = state.hero.position
+    state.markers[pos] = get(state.markers, pos, 0) + 1
     state.hero.marker_count -= 1
     return true
 end
@@ -240,7 +246,7 @@ end
 Check if there are markers at the hero's current position.
 """
 function markers_present(state::KarelState)::Bool
-    return state.hero.position in state.markers
+    return haskey(state.markers, state.hero.position)
 end
 
 """
