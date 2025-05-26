@@ -95,10 +95,7 @@ using HerbBenchmarks.Karel_2018
         array = state_to_array(state)
         new_state = array_to_state(array)
         # Check conversion preserved state
-        @test new_state.hero.position == state.hero.position
-        @test new_state.hero.direction == state.hero.direction
-        @test sort(new_state.markers) == sort(state.markers)
-        @test new_state.world == state.world
+        @test new_state == state
     end
 
     @testset "Program Interpretation" begin

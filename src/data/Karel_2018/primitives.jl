@@ -18,6 +18,13 @@ Hero(position::Tuple{Int,Int}, direction::Direction) = Hero(position, direction,
 
 Base.deepcopy(hero::Hero) = Hero(hero.position, hero.direction, hero.marker_count)
 
+Base.:(==)(h1::Hero, h2::Hero) = h1.position == h2.position &&
+                                 h1.direction == h2.direction &&
+                                 h1.marker_count == h2.marker_count
+
+
+Base.hash(h::Hero, h0::UInt) = hash(h.position, h0) ⊻ hash(h.direction, h0) ⊻ hash(h.marker_count, h0)
+
 """
 Represents the state of the Karel world including walls, markers, and hero position.
 """
@@ -35,28 +42,11 @@ Base.deepcopy(state::KarelState) = KarelState(
     deepcopy(state.hero)
 )
 
-import Base: ==
-import Base: hash
+Base.:(==)(s1::KarelState, s2::KarelState) = s1.world == s2.world &&
+                                             s1.markers == s2.markers &&
+                                             s1.hero == s2.hero
 
-function ==(h1::Hero, h2::Hero)
-    return h1.position == h2.position &&
-           h1.direction == h2.direction &&
-           h1.marker_count == h2.marker_count
-end
-
-function hash(h::Hero, h0::UInt)
-    return hash(h.position, h0) ⊻ hash(h.direction, h0) ⊻ hash(h.marker_count, h0)
-end
-
-function ==(s1::KarelState, s2::KarelState)
-    return s1.world == s2.world &&
-           s1.markers == s2.markers &&
-           s1.hero == s2.hero
-end
-
-function hash(s::KarelState, h0::UInt)
-    return hash(s.world, h0) ⊻ hash(s.markers, h0) ⊻ hash(s.hero, h0)
-end
+Base.hash(s::KarelState, h0::UInt) = hash(s.world, h0) ⊻ hash(s.markers, h0) ⊻ hash(s.hero, h0)
 
 # Constants for Karel world printing
 const HERO_CHARS = ['<', '^', '>', 'v']
