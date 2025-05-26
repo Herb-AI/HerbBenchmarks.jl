@@ -129,16 +129,16 @@ function pretty_print_dict(d::Dict)
 end
 
 """
-    move(hero::Hero, world::Matrix{Char})::Bool
+    move(hero::Hero, world::Matrix{Bool})::Bool
 
 Move the hero one step in the direction it's facing if possible.
-Returns true if move successful, false if blocked.
+Returns true if move successful, false if blocked by wall.
 """
-function move(hero::Hero, world::Matrix{Char})::Bool
+function move(hero::Hero, world::Matrix{Bool})::Bool
     facing = DIRECTION_TO_VECTOR[hero.direction]
     next_x = hero.position[1] + facing[1]
     next_y = hero.position[2] + facing[2]
-    if world[next_y, next_x] == WALL_CHAR
+    if world[next_y, next_x]
         return false
     end
     hero.position = (next_x, next_y)
@@ -211,7 +211,7 @@ function front_is_clear(state::KarelState)::Bool
     facing = DIRECTION_TO_VECTOR[state.hero.direction]
     next_x = state.hero.position[1] + facing[1]
     next_y = state.hero.position[2] + facing[2]
-    return state.world[next_y, next_x] != WALL_CHAR
+    return !state.world[next_y, next_x]
 end
 
 """
@@ -224,7 +224,7 @@ function left_is_clear(state::KarelState)::Bool
     facing = DIRECTION_TO_VECTOR[left_hero.direction]
     next_x = left_hero.position[1] + facing[1]
     next_y = left_hero.position[2] + facing[2]
-    return state.world[next_y, next_x] != WALL_CHAR
+    return !state.world[next_y, next_x]
 end
 
 """
@@ -237,7 +237,7 @@ function right_is_clear(state::KarelState)::Bool
     facing = DIRECTION_TO_VECTOR[right_hero.direction]
     next_x = right_hero.position[1] + facing[1]
     next_y = right_hero.position[2] + facing[2]
-    return state.world[next_y, next_x] != WALL_CHAR
+    return !state.world[next_y, next_x]
 end
 
 """

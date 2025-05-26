@@ -5,11 +5,11 @@ using HerbBenchmarks.Karel_2018
     @testset "Basic World Creation" begin
         world = create_world(5, 5)
         @test size(world) == (5, 5)
-        @test all(world[1, :] .== WALL_CHAR)  # Top wall
-        @test all(world[end, :] .== WALL_CHAR)  # Bottom wall
-        @test all(world[:, 1] .== WALL_CHAR)  # Left wall
-        @test all(world[:, end] .== WALL_CHAR)  # Right wall
-        @test all(world[2:4, 2:4] .== EMPTY_CHAR)  # Inner space
+        @test all(world[1, :])  # Top wall
+        @test all(world[end, :])  # Bottom wall
+        @test all(world[:, 1])  # Left wall
+        @test all(world[:, end])  # Right wall
+        @test !any(world[2:4, 2:4])  # Inner space
     end
 
     @testset "Hero Movement" begin
@@ -135,13 +135,13 @@ using HerbBenchmarks.Karel_2018
         for problem in problems
             for example in problem.spec
                 input_state = array_to_state(example.in[:_arg_1])
-                println(input_state)
+                # println(input_state)
                 # Check input format
                 @test length(size(example.in[:_arg_1])) == 3 &&         # Should be 3D array
                       size(example.in[:_arg_1]) == (8, 8, 16) &&        # 8 x 8 x 16 array
                       size(example.out) == size(example.in[:_arg_1]) && # Output matches input size
                       # Convert and check basic state structure
-                      input_state.world isa Matrix{Char} &&             # World is character matrix
+                      input_state.world isa Matrix{Bool} &&             # World is character matrix
                       size(input_state.world) == (8, 8) &&              # Same shape as first two dimensions
                       all(0 .< input_state.hero.position .< 8) &&       # Hero position not on edges/walls
                       input_state.hero.direction isa Direction &&       # initialized

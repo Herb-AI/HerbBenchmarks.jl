@@ -54,7 +54,7 @@ function state_to_array(state::KarelState)::Array{Int8,3}
     hero_x, hero_y = state.hero.position
     dir_idx = DIRECTION_TO_ARR_IDX[state.hero.direction]
     array[hero_y, hero_x, dir_idx+1] = 1
-    array[:, :, 5] = state.world .== WALL_CHAR
+    array[:, :, 5] = state.world
     # Set markers - one hot encoding for number of markers (0-10)
     for y in 1:height, x in 1:width
         pos = (x, y)
@@ -70,15 +70,14 @@ end
 
 Convert a 3D array representation to a KarelState.
 Array dimensions are: [height, width, channels] where channels are:
-0-3: Hero direction one-hot (0=North, 1=South, 2=West, 3=East)
+0-3: Hero direction one-hot (North, South, West, East)
 4: Walls
 5-15: Number of markers (0-10 markers at position, one-hot encoded)
 """
 function array_to_state(array::Array{Int8,3})::KarelState
     height, width, _ = size(array)
     # Create world with walls - array accessed as [y,x]
-    world = fill(EMPTY_CHAR, height, width)
-    world[array[:, :, 5].>0.5] .= WALL_CHAR
+    world = Bool.(array[:, :, 5] .> 0.5)
     # Find hero position and direction from one-hot encoding
     hero_y, hero_x = Tuple(findfirst(sum(view(array, :, :, 1:4), dims=3)[:, :, 1] .> 0.5))
     # Find direction from one-hot encoding

@@ -20,12 +20,12 @@ Hero(position::Tuple{Int,Int}, direction::Direction) = Hero(position, direction,
 Represents the state of the Karel world including walls, markers, and hero position.
 """
 mutable struct KarelState
-    world::Matrix{Char}
+    world::Matrix{Bool}
     markers::Dict{Tuple{Int,Int},Int}  # Maps position to number of markers
     hero::Hero
 end
 
-KarelState(world::Matrix{Char}, hero::Hero) = KarelState(world, Dict{Tuple{Int,Int},Int}(), hero)
+KarelState(world::Matrix{Bool}, hero::Hero) = KarelState(world, Dict{Tuple{Int,Int},Int}(), hero)
 
 # Constants for Karel world printing
 const HERO_CHARS = ['<', '^', '>', 'v']
@@ -57,7 +57,13 @@ const ARR_IDX_TO_DIRECTION = Dict(
 function Base.show(io::IO, state::KarelState)
     # Get dimensions
     height, width = size(state.world)
-    display = copy(state.world)
+    display = fill(EMPTY_CHAR, height, width)
+    # Add walls
+    for y in 1:height, x in 1:width
+        if state.world[y, x]
+            display[y, x] = WALL_CHAR
+        end
+    end
     # Add markers
     for (pos, _) in state.markers
         x, y = pos
@@ -89,30 +95,30 @@ function Base.show(io::IO, state::KarelState)
 end
 
 """
-    create_world(height::Int, width::Int)::Matrix{Char}
+    create_world(height::Int, width::Int)::Matrix{Bool}
 
 Create a new Karel world of given dimensions with walls around the border.
 """
-function create_world(height::Int, width::Int)::Matrix{Char}
-    world = fill(EMPTY_CHAR, height, width)
-    world[1, :] .= WALL_CHAR  # Top wall
-    world[end, :] .= WALL_CHAR  # Bottom wall
-    world[:, 1] .= WALL_CHAR  # Left wall
-    world[:, end] .= WALL_CHAR  # Right wall
+function create_world(height::Int, width::Int)::Matrix{Bool}
+    world = fill(false, height, width)
+    world[1, :] .= true  # Top wall
+    world[end, :] .= true  # Bottom wall
+    world[:, 1] .= true  # Left wall
+    world[:, end] .= true  # Right wall
     return world
 end
 
 """
-    create_random_world(height::Int, width::Int, wall_ratio::Float64=0.1)::Matrix{Char}
+    create_random_world(height::Int, width::Int, wall_ratio::Float64=0.1)::Matrix{Bool}
 
 Create a random Karel world with given dimensions and wall ratio.
 """
-function create_random_world(height::Int, width::Int, wall_ratio::Float64=0.1)::Matrix{Char}
+function create_random_world(height::Int, width::Int, wall_ratio::Float64=0.1)::Matrix{Bool}
     world = create_world(height, width)
     for i in 2:height-1
         for j in 2:width-1
             if rand() < wall_ratio
-                world[i, j] = WALL_CHAR
+                world[i, j] = true
             end
         end
     end
