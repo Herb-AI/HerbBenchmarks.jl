@@ -51,13 +51,13 @@ Array dimensions are: [height, width, channels] where channels are:
 5-15: Number of markers (0-10 markers at position, one-hot encoded)
 """
 function state_to_array(state::KarelState)::Array{Int8,3}
-    height, width = size(state.world)
+    height, width = size(state.walls)
     array = zeros(Int8, height, width, 16)
     # Set hero direction - one-hot encoding
     hero_x, hero_y = state.hero.position
     dir_idx = DIRECTION_TO_ARR_IDX[state.hero.direction]
     array[hero_y, hero_x, dir_idx+1] = 1
-    array[:, :, 5] = state.world
+    array[:, :, 5] = state.walls
     # Set markers - one hot encoding for number of markers (0-10)
     for y in 1:height, x in 1:width
         pos = (x, y)

@@ -19,8 +19,7 @@ Hero(position::Tuple{Int,Int}, direction::Direction) = Hero(position, direction,
 Base.deepcopy(hero::Hero) = Hero(hero.position, hero.direction, hero.marker_count)
 
 Base.:(==)(h1::Hero, h2::Hero) = h1.position == h2.position &&
-                                 h1.direction == h2.direction &&
-                                 h1.marker_count == h2.marker_count
+                                 h1.direction == h2.direction
 
 
 Base.hash(h::Hero, h0::UInt) = hash(h.position, h0) ⊻ hash(h.direction, h0) ⊻ hash(h.marker_count, h0)
@@ -29,7 +28,7 @@ Base.hash(h::Hero, h0::UInt) = hash(h.position, h0) ⊻ hash(h.direction, h0) �
 Represents the state of the Karel world including walls, markers, and hero position.
 """
 mutable struct KarelState
-    world::Matrix{Bool}
+    walls::Matrix{Bool}
     markers::Dict{Tuple{Int,Int},Int}  # Maps position to number of markers
     hero::Hero
 end
@@ -37,7 +36,7 @@ end
 KarelState(world::Matrix{Bool}, hero::Hero) = KarelState(world, Dict{Tuple{Int,Int},Int}(), hero)
 
 Base.deepcopy(state::KarelState) = KarelState(
-    state.world,
+    state.walls,
     Dict(deepcopy(k) => deepcopy(v) for (k, v) in state.markers),
     deepcopy(state.hero)
 )
@@ -45,7 +44,7 @@ Base.deepcopy(state::KarelState) = KarelState(
 Base.:(==)(s1::KarelState, s2::KarelState) = s1.markers == s2.markers &&
                                              s1.hero == s2.hero
 
-Base.hash(s::KarelState, h0::UInt) = hash(s.world, h0) ⊻ hash(s.markers, h0) ⊻ hash(s.hero, h0)
+Base.hash(s::KarelState, h0::UInt) = hash(s.walls, h0) ⊻ hash(s.markers, h0) ⊻ hash(s.hero, h0)
 
 # Constants for Karel world printing
 const HERO_CHARS = ['<', '^', '>', 'v']
@@ -76,11 +75,11 @@ const ARR_IDX_TO_DIRECTION = Dict(
 
 function Base.show(io::IO, state::KarelState)
     # Get dimensions
-    height, width = size(state.world)
+    height, width = size(state.walls)
     display = fill(EMPTY_CHAR, height, width)
     # Add walls
     for y in 1:height, x in 1:width
-        if state.world[y, x]
+        if state.walls[y, x]
             display[y, x] = WALL_CHAR
         end
     end

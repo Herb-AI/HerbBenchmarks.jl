@@ -1,7 +1,7 @@
 using MLStyle
 
 grammar_karel = @cfgrammar begin
-    Start = (:DEF; :RUN; Block)                     #1
+    Start = Block                                   #1
 
     Block = Action                                  #2
     Block = (Action; Block)                         #3

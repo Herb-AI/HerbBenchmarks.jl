@@ -210,7 +210,7 @@ function front_is_clear(state::KarelState)::Bool
     facing = DIRECTION_TO_VECTOR[state.hero.direction]
     next_x = state.hero.position[1] + facing[1]
     next_y = state.hero.position[2] + facing[2]
-    return !state.world[next_y, next_x]
+    return !state.walls[next_y, next_x]
 end
 
 """
@@ -223,7 +223,7 @@ function left_is_clear(state::KarelState)::Bool
     facing = DIRECTION_TO_VECTOR[left_hero.direction]
     next_x = left_hero.position[1] + facing[1]
     next_y = left_hero.position[2] + facing[2]
-    return !state.world[next_y, next_x]
+    return !state.walls[next_y, next_x]
 end
 
 """
@@ -236,7 +236,7 @@ function right_is_clear(state::KarelState)::Bool
     facing = DIRECTION_TO_VECTOR[right_hero.direction]
     next_x = right_hero.position[1] + facing[1]
     next_y = right_hero.position[2] + facing[2]
-    return !state.world[next_y, next_x]
+    return !state.walls[next_y, next_x]
 end
 
 """
