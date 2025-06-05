@@ -1,3 +1,4 @@
+using MLStyle
 # CVC5 functions
 
 ## String typed
@@ -31,3 +32,31 @@ leq_cvc(str1::String, str2::String) = cmp(str1, str2) <= 0
 
 isdigit_cvc(str::String) = tryparse(Int, str) !== nothing
 
+"""
+Gets relevant symbol to easily match grammar rules to operations in `interpret` function
+"""
+function get_relevant_tags(grammar::ContextSensitiveGrammar)
+        tags = Dict{Int,Any}()
+        for (ind, r) in pairs(grammar.rules)
+                tags[ind] = if typeof(r) != Expr
+                        r
+                else
+                        @match r.head begin
+                                :block => :OpSeq
+                                :call => r.args[1]
+                                :if => :IF
+                        end
+                end
+        end
+        return tags
+end
+
+function interpret_sygus(prog::AbstractRuleNode, grammar_tags::Dict{Int,Any})
+        r = get_rule(prog)
+        c = get_children(prog)
+        @match grammar_tags[r] begin
+                :concat_cvc => concat_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
+                # ...
+                _ => grammar_tags[r]
+        end
+end
