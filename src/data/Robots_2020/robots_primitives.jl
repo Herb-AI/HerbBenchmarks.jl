@@ -25,23 +25,32 @@ calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
 Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
 The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
 """
-function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-    interpret(prog, get_relevant_tags(grammar), only(values(example.in)))
+function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample, 
+        new_rules_decoding::Dict{Int, AbstractRuleNode})
+    interpret(prog, get_relevant_tags(grammar), only(values(example.in)), new_rules_decoding)
 end
 
-function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::RobotState)
+function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::RobotState, 
+        new_rules_decoding::Dict{Int, AbstractRuleNode})
     rule_node = get_rule(prog)
+    if rule_node in keys(new_rules_decoding)
+        return interpret(new_rules_decoding[rule_node], grammartags, state, new_rules_decoding)
+    end
 
     @match grammartags[rule_node] begin
-        :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammartags, state)) # (Operation ; Sequence)
+        :OpSeq => interpret(prog.children[2], grammartags, 
+            interpret(prog.children[1], grammartags, state, new_rules_decoding), 
+            new_rules_decoding) # (Operation ; Sequence)
         :moveRight => moveright(state)
         :moveDown => movedown(state)
         :moveLeft => moveleft(state)
         :moveUp => moveup(state)
         :drop => state.holds_ball == 1 ? RobotState(0, state.robot_x, state.robot_y, state.robot_x, state.robot_y, state.size) : state
         :grab => can_pickup(state) ? RobotState(1, state.robot_x, state.robot_y, state.ball_x, state.ball_y, state.size) : state
-        :IF => interpret(prog.children[1], grammartags, state) ? interpret(prog.children[2], grammartags, state) : interpret(prog.children[3], grammartags, state)
-        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state)              # while loop
+        :IF => interpret(prog.children[1], grammartags, state, new_rules_decoding) ? 
+            interpret(prog.children[2], grammartags, state, new_rules_decoding) : 
+            interpret(prog.children[3], grammartags, state, new_rules_decoding)
+        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state, new_rules_decoding)              # while loop
         :atTop => state.robot_y == 1
         :atBottom => state.robot_y == state.size
         :atLeft => state.robot_x == 1
@@ -50,7 +59,7 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
         :notAtBottom => !(state.robot_y == state.size)
         :notAtLeft => !(state.robot_x == 1)
         :notAtRight => !(state.robot_x == state.size)
-        _ => interpret(prog.children[1], grammartags, state) # Start operation Transformation ControlStatement
+        _ => interpret(prog.children[1], grammartags, state, new_rules_decoding) # Start operation Transformation ControlStatement
     end
 end
 
@@ -79,11 +88,12 @@ Custom implementation of a while loop with a condition and a body.
 
 Loop is terminated either when condition is false or when `max_steps` is reached.
 """
-function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol}, state::RobotState, max_steps::Int=1000)
+function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, grammartags::Dict{Int,Symbol}, 
+        state::RobotState, new_rules_decoding, max_steps::Int=1000)
     counter = max_steps
-    while interpret(condition, grammartags, state) && counter > 0
+    while interpret(condition, grammartags, state, new_rules_decoding) && counter > 0
         tag = grammartags[get_rule(body)]
-        state = interpret(body, grammartags, state)
+        state = interpret(body, grammartags, state, new_rules_decoding)
         counter -= 1
     end
     state
