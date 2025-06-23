@@ -88,7 +88,7 @@ Custom implementation of a while loop with a condition and a body.
 
 Loop is terminated either when condition is false or when `max_steps` is reached.
 """
-function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol},
+function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, grammartags::Dict{Int,Symbol},
     state::PixelState, new_rules_decoding::Dict{Int,AbstractRuleNode}, max_steps::Int=1000)
     counter = max_steps
     while interpret(condition, grammartags, state, new_rules_decoding) && counter > 0

@@ -77,7 +77,18 @@ function interpret(prog::AbstractRuleNode, tags::Dict{Int,Symbol}, state::KarelS
         end
         :WHILE => command_while(prog.children[1], prog.children[2], tags, state, new_rules_decoding, 2 * max(size(state.world)...)) # while loop 
         :REPEAT => begin
-            count = prog.children[1].ind - 13 # Hardcoded (#idx of INT=1 - 1)
+            count = begin
+                first_int_rule_idx = 13  # Hardcoded (#idx of INT=1 - 1)
+                try
+                    first(prog.children[1].domain) - first_int_rule_idx
+                catch
+                    try
+                        prog.children[1].ind - first_int_rule_idx
+                    catch
+                        1
+                    end
+                end
+            end
             for _ in 1:count
                 state = interpret(prog.children[2], tags, state, new_rules_decoding)
             end
