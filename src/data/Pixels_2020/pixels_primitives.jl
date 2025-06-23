@@ -24,22 +24,35 @@ Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and
 The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
 """
 function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-    interpret(prog, get_relevant_tags(grammar), only(values(example.in)))
+    interpret(prog, get_relevant_tags(grammar), only(values(example.in)), Dict())
 end
 
-function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::PixelState)
+function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample,
+    new_rules_decoding::Dict{Int,AbstractRuleNode})
+    interpret(prog, get_relevant_tags(grammar), only(values(example.in)), new_rules_decoding)
+end
+
+function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::PixelState,
+    new_rules_decoding::Dict{Int,AbstractRuleNode})
     rule_node = get_rule(prog)
+    if rule_node in keys(new_rules_decoding)
+        return interpret(new_rules_decoding[rule_node], grammartags, state, new_rules_decoding)
+    end
 
     @match grammartags[rule_node] begin
-        :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammartags, state)) # (Operation ; Sequence)
+        :OpSeq => interpret(prog.children[2], grammartags,
+            interpret(prog.children[1], grammartags, state, new_rules_decoding),
+            new_rules_decoding) # (Operation ; Sequence)
         :moveRight => moveright(state)
         :moveDown => movedown(state)
         :moveLeft => moveleft(state)
         :moveUp => moveup(state)
         :draw0 => draw_0(state)
         :draw1 => draw_1(state)
-        :IF => interpret(prog.children[1], grammartags, state) ? interpret(prog.children[2], grammartags, state) : interpret(prog.children[3], grammartags, state)
-        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state)
+        :IF => interpret(prog.children[1], grammartags, state, new_rules_decoding) ?
+               interpret(prog.children[2], grammartags, state, new_rules_decoding) :
+               interpret(prog.children[3], grammartags, state, new_rules_decoding)
+        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state, new_rules_decoding, 2 * max(size(state.matrix)...))
         :atTop => state.position[2] == 1
         :atBottom => state.position[2] == size(state.matrix, 1)
         :atRight => state.position[1] == size(state.matrix, 2)
@@ -48,7 +61,7 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
         :notAtBottom => !(state.position[2] == size(state.matrix, 1))
         :notAtRight => !(state.position[1] == size(state.matrix, 2))
         :notAtLeft => !(state.position[1] == 1)
-        _ => interpret(prog.children[1], grammartags, state) # Start operation Transformation ControlStatement
+        _ => interpret(prog.children[1], grammartags, state, new_rules_decoding) # Start operation Transformation ControlStatement
     end
 end
 
@@ -75,10 +88,11 @@ Custom implementation of a while loop with a condition and a body.
 
 Loop is terminated either when condition is false or when `max_steps` is reached.
 """
-function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol}, state::PixelState, max_steps::Int=1000)
+function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol},
+    state::PixelState, new_rules_decoding::Dict{Int,AbstractRuleNode}, max_steps::Int=1000)
     counter = max_steps
-    while interpret(condition, grammartags, state) && counter > 0
-        state = interpret(body, grammartags, state)
+    while interpret(condition, grammartags, state, new_rules_decoding) && counter > 0
+        state = interpret(body, grammartags, state, new_rules_decoding)
         counter -= 1
     end
     state

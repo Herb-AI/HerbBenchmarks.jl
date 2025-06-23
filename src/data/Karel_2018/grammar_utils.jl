@@ -6,9 +6,14 @@ using MLStyle
 Interprets a Karel program on a given input state.
 """
 function interpret(prog::AbstractRuleNode, grammar::AbstractGrammar, example::IOExample)
+    return interpret(prog, grammar, example, Dict())
+end
+
+function interpret(prog::AbstractRuleNode, grammar::AbstractGrammar, example::IOExample,
+    new_rules_decoding::Dict{Int,AbstractRuleNode})
     input_state = deepcopy(example.in[:_arg_1])
     tags = get_relevant_tags(grammar)
-    return interpret(prog, tags, input_state)
+    return interpret(prog, tags, input_state, new_rules_decoding)
 end
 
 """
@@ -16,17 +21,22 @@ end
 
 Internal interpreter function that executes Karel programs.
 """
-function interpret(prog::AbstractRuleNode, tags::Dict{Int,Symbol}, state::KarelState)
-    rule = get_rule(prog)
-    @match tags[rule] begin
+function interpret(prog::AbstractRuleNode, tags::Dict{Int,Symbol}, state::KarelState,
+    new_rules_decoding::Dict{Int,AbstractRuleNode})
+    rule_node = get_rule(prog)
+    if rule_node in keys(new_rules_decoding)
+        return interpret(new_rules_decoding[rule_node], tags, state, new_rules_decoding)
+    end
+
+    @match tags[rule_node] begin
         :Block => begin
             # Single action
             if length(prog.children) == 1
-                interpret(prog.children[1], tags, state)
+                interpret(prog.children[1], tags, state, new_rules_decoding)
                 # Sequential
             else
-                state = interpret(prog.children[1], tags, state)
-                interpret(prog.children[2], tags, state)
+                state = interpret(prog.children[1], tags, state, new_rules_decoding)
+                interpret(prog.children[2], tags, state, new_rules_decoding)
             end
         end
         :move => begin
@@ -50,34 +60,26 @@ function interpret(prog::AbstractRuleNode, tags::Dict{Int,Symbol}, state::KarelS
             state
         end
         :IF => begin
-            condition = interpret(prog.children[1], tags, state)
+            condition = interpret(prog.children[1], tags, state, new_rules_decoding)
             if condition
-                interpret(prog.children[2], tags, state)
+                interpret(prog.children[2], tags, state, new_rules_decoding)
             else
                 state
             end
         end
         :IFELSE => begin
-            condition = interpret(prog.children[1], tags, state)
+            condition = interpret(prog.children[1], tags, state, new_rules_decoding)
             if condition
-                interpret(prog.children[2], tags, state)
+                interpret(prog.children[2], tags, state, new_rules_decoding)
             else
-                interpret(prog.children[3], tags, state)
+                interpret(prog.children[3], tags, state, new_rules_decoding)
             end
         end
-        :WHILE => begin
-            condition = interpret(prog.children[1], tags, state)
-            if condition
-                state = interpret(prog.children[2], tags, state)
-                interpret(prog, tags, state)
-            else
-                state
-            end
-        end
+        :WHILE => command_while(prog.children[1], prog.children[2], tags, state, new_rules_decoding, 2 * max(size(state.world)...)) # while loop 
         :REPEAT => begin
             count = prog.children[1].ind - 13 # Hardcoded (#idx of INT=1 - 1)
             for _ in 1:count
-                state = interpret(prog.children[2], tags, state)
+                state = interpret(prog.children[2], tags, state, new_rules_decoding)
             end
             state
         end
@@ -86,10 +88,10 @@ function interpret(prog::AbstractRuleNode, tags::Dict{Int,Symbol}, state::KarelS
         :rightIsClear => right_is_clear(state)
         :markersPresent => markers_present(state)
         :noMarkersPresent => no_markers_present(state)
-        :NOT => !interpret(prog.children[1], tags, state)
+        :NOT => !interpret(prog.children[1], tags, state, new_rules_decoding)
         _ => begin
             if !isempty(prog.children)
-                interpret(prog.children[1], tags, state)
+                interpret(prog.children[1], tags, state, new_rules_decoding)
             else
                 state
             end
@@ -117,6 +119,22 @@ function get_relevant_tags(grammar::AbstractGrammar)
     end
     # pretty_print_dict(tags)
     return tags
+end
+
+"""
+Custom implementation of a while loop with a condition and a body. 
+
+Loop is terminated either when condition is false or when `max_steps` is reached.
+"""
+function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, tags::Dict{Int,Symbol},
+    state::KarelState, new_rules_decoding::Dict{Int,AbstractRuleNode}, max_steps::Int=1000)
+    counter = max_steps
+    while interpret(condition, tags, state, new_rules_decoding) && counter > 0
+        tag = tags[get_rule(body)]
+        state = interpret(body, tags, state, new_rules_decoding)
+        counter -= 1
+    end
+    state
 end
 
 function pretty_print_dict(d::Dict)

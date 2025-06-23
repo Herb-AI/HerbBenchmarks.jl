@@ -30,18 +30,31 @@ function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, exa
     interpret(prog, get_relevant_tags(grammar), example.in[:_arg_1])
 end
 
-function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState)
+function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample,
+    new_rules_decoding::Dict{Int,AbstractRuleNode})
+    interpret(prog, get_relevant_tags(grammar), example.in[:_arg_1], new_rules_decoding)
+end
+
+function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState,
+    new_rules_decoding::Dict{Int,AbstractRuleNode})
     rule_node = get_rule(prog)
+    if rule_node in keys(new_rules_decoding)
+        return interpret(new_rules_decoding[rule_node], grammartags, state, new_rules_decoding)
+    end
 
     @match grammartags[rule_node] begin
-        :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammartags, state)) # (Operation ; Sequence)
+        :OpSeq => interpret(prog.children[2], grammartags,
+            interpret(prog.children[1], grammartags, state, new_rules_decoding),
+            new_rules_decoding) # (Operation ; Sequence)
         :moveRight => StringState(state.str, min(state.pointer + 1, length(state.str))) # moveRight
         :moveLeft => StringState(state.str, max(state.pointer - 1, 1))   # moveLeft
         :makeUppercase => StringState(state.str[1:state.pointer-1] * uppercase(state.str[state.pointer]) * state.str[state.pointer+1:end], state.pointer) #MakeUppercase
         :makeLowercase => StringState(state.str[1:state.pointer-1] * lowercase(state.str[state.pointer]) * state.str[state.pointer+1:end], state.pointer) #makeLowercase
         :drop => state.pointer < length(state.str) ? StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer) : StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer - 1) #drop
-        :IF => interpret(prog.children[1], grammartags, state) ? interpret(prog.children[2], grammartags, state) : interpret(prog.children[3], grammartags, state) # if statement
-        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state) # while statement
+        :IF => interpret(prog.children[1], grammartags, state, new_rules_decoding) ?
+               interpret(prog.children[2], grammartags, state, new_rules_decoding) :
+               interpret(prog.children[3], grammartags, state, new_rules_decoding) # if statement
+        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state, new_rules_decoding, length(state.str) * 2) # while statement
         :atEnd => state.pointer == length(state.str) # atEnd
         :notAtEnd => state.pointer != length(state.str) # notAtEnd
         :atStart => state.pointer == 1 # atStart
@@ -56,7 +69,7 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
         :isNotNumber => state.pointer > length(state.str) || !isdigit(state.str[state.pointer]) # isNotNumber
         :isSpace => state.pointer <= length(state.str) && isspace(state.str[state.pointer]) # isSpace
         :isNotSpace => state.pointer > length(state.str) || !isspace(state.str[state.pointer]) # isNotSpace
-        _ => interpret(prog.children[1], grammartags, state)
+        _ => interpret(prog.children[1], grammartags, state, new_rules_decoding)
     end
 
 end
@@ -84,10 +97,11 @@ Custom implementation of a while loop with a condition and a body.
 
 Loop is terminated either when condition is false or when `max_steps` is reached.
 """
-function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState, max_steps::Int=1000)
+function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, grammartags::Dict{Int,Symbol},
+    state::StringState, new_rules_decoding::Dict{Int,AbstractRuleNode}, max_steps::Int=1000)
     counter = max_steps
-    while interpret(condition, grammartags, state) && counter > 0
-        state = interpret(body, grammartags, state)
+    while interpret(condition, grammartags, state, new_rules_decoding) && counter > 0
+        state = interpret(body, grammartags, state, new_rules_decoding)
         counter -= 1
     end
     state

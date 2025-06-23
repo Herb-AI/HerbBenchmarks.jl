@@ -54,7 +54,7 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
         :IF => interpret(prog.children[1], grammartags, state, new_rules_decoding) ?
                interpret(prog.children[2], grammartags, state, new_rules_decoding) :
                interpret(prog.children[3], grammartags, state, new_rules_decoding)
-        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state, new_rules_decoding)              # while loop
+        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state, new_rules_decoding, state.size * 2) # while loop
         :atTop => state.robot_y == 1
         :atBottom => state.robot_y == state.size
         :atLeft => state.robot_x == 1
