@@ -10,6 +10,7 @@ export Index, IntegerSet, Grid, Indices
 
 include("arc_basic_primitives.jl")
 include("arc_grid_operations.jl")
+include("arc_index_operations.jl")
 # include("data.jl")
 include("grammar.jl")
 
