@@ -1,159 +1,198 @@
 """
 	Returns all indices of a `Grid`.
 """
-function asindices(grid::Grid)
-    items = SVector{length(grid)}(
-        CartesianIndex(row, col) for row in axes(grid.mat, 1), col in axes(grid.mat, 2)
-    )
-    return Indices(items)
+function asindices(grid)
+    return CartesianIndices(grid) # TODO: only collect if necessary. iterable might be enough
 end
 
 """
 	Returns indices of all grid cells of given `value` (color)
 """
-function ofcolor(grid::Grid, value::Integer)
-    Indices(findall(x -> x == value, grid.mat))
+function ofcolor(grid, value)
+    return findall(x -> x == value, grid)
 end
 
 """
     Rotates grid by 90 degrees clockwise
 """
-function rot90(grid::Grid)
-    Grid(rotr90(grid.mat, 1))
+function rot90(grid)
+    return rotr90(grid, 1)
 end
 
 """
     Rotates grid by 180 degrees
 """
-function rot180(grid::Grid)
-    Grid(Base.rot180(grid.mat))
+function rot180(grid)
+    return Base.rot180(grid)
 end
 
 """
     Rotates grid by 270 degrees (left-rotate by 90 degrees)
 """
-function rot270(grid::Grid)
-    Grid(Base.rotl90(grid.mat))
+function rot270(grid)
+    return Base.rotl90(grid)
 end
 
 """
     Downscale grid by given factor.
 """
-function downscale(grid::Grid, factor::Integer)
-    Grid(grid.mat[1:factor:end, 1:factor:end])
+function downscale(grid, factor)
+    grid[1:factor:end, 1:factor:end]
 end
 
 """
     Concatenate grid a and grid b horizontally.
 """
-function hconcat(a::Grid, b::Grid)
-    Grid(hcat(a.mat, b.mat))
+function hconcat(a, b)
+    hcat(a, b)
 end
 
 """
     Concatenate grid a and grid b horizontally.
 """
-function vconcat(a::Grid, b::Grid)
-    Grid(vcat(a.mat, b.mat))
+function vconcat(a, b)
+    vcat(a, b)
 end
 
 """
     Upscale grid horizontally.
 """
-function hupscale(grid::Grid, factor::Integer)
-    mat = reduce(vcat, [repeat(row, inner=(factor,))' for row in eachrow(grid.mat)])
-    return Grid(mat)
+function hupscale(grid, factor)
+    return reduce(vcat, [repeat(row, inner=(factor,))' for row in eachrow(grid)])
+
 end
 
 """
     Upscale grid vertically.
 """
-function vupscale(grid::Grid, factor::Integer)
-    mat = reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid.mat)])
-    return Grid(mat)
+function vupscale(grid, factor)
+    return reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])
 end
 
 
 """
     Split grid horizontally in
 """
-function hsplit(grid::Grid, factor::Integer)
-    # TODO
+# function hsplit(grid::Grid, factor::Integer)
+#     # TODO
+# end
+
+"""
+    Cellwise matching of grids `a` and `b`. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`.
+"""
+function cellwise(a, b, fallback)
+    nrows, ncols = size(a)
+    # TODO: return Matrix of type a ?
+    return [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)]
 end
 
 """
-    Cellwise matching. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`.
+    Substituion of color value `replacee` with new color `replacer`.
 """
-function cellwise(a::Grid, b::Grid, fallback::Integer)
-    nrows, ncols = size(a.mat)
-    mat = SMatrix{nrows,ncols,UInt8}(a.mat[i, j] == b.mat[i, j] ? a.mat[i, j] : fallback for i in axes(a.mat, 1), j in axes(a.mat, 2))
-    return Grid(mat)
-end
-
-"""
-    Substituion of color `replacee` with new color `replacer`.
-"""
-function replace(grid::Grid, replacee::Integer, replacer::Integer)
-    nrows, ncols = size(grid.mat)
-    mat = SMatrix{nrows,ncols,UInt8}(grid.mat[i, j] == replacee ? replacer : grid.mat[i, j] for i in axes(grid.mat, 1), j in axes(grid.mat, 2))
-    return Grid(mat)
+function replace(grid, replacee, replacer)
+    nrows, ncols = size(grid)
+    # TODO: Does it have to be SMatrix?
+    mat = SMatrix{nrows,ncols,UInt8}(grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2))
+    return mat
 end
 
 """
     Switches color for cells with value `a` and `b`. Other cells remain unchanged.
 """
-function switch(grid::Grid, a::Integer, b::Integer)
-    nrows, ncols = size(grid.mat)
-    mat = SMatrix{nrows,ncols,UInt8}(grid.mat[i, j] == a ? b : grid.mat[i, j] == b ? a : grid.mat[i, j] for i in axes(grid.mat, 1), j in axes(grid.mat, 2))
-    return Grid(mat)
+function switch(grid, a, b)
+    nrows, ncols = size(grid)
+    mat = SMatrix{nrows,ncols,UInt8}(grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2))
+    return mat
 end
 
 """
     Trims the borders of the grid, i.e., removes outermost rows and columns.
 """
-function trim(grid::Grid)
-    mat = grid.mat[2:end-1, 2:end-1]
-    return Grid(mat)
+function trim(grid)
+    return grid[2:end-1, 2:end-1]
 end
 
 """
     Returns upper half of the grid. For odd number of rows, this excludes the middle row.
 """
-function tophalf(grid::Grid)
-    nrows = size(grid.mat, 1)
-    return Grid(grid.mat[1:nrows÷2, :])
+function tophalf(grid)
+    nrows = size(grid, 1)
+    return grid[1:nrows÷2, :]
 end
 
 """
     Returns lower half of the grid. For odd number of rows, this excludes the middle row. 
 """
-function bottomhalf(grid::Grid)
-    nrows = size(grid.mat, 1)
-    return Grid(grid.mat[nrows-nrows÷2+1:end, :])
+function bottomhalf(grid)
+    nrows = size(grid, 1)
+    return grid[nrows-nrows÷2+1:end, :]
 end
 
 """
     Returns the left half of the grid. For odd number of colums, this excludes the middle column.
 """
-function lefthalf(grid::Grid)
-    ncols = size(grid.mat, 2)
-    return Grid(grid.mat[:, 1:ncols÷2])
+function lefthalf(grid)
+    ncols = size(grid, 2)
+    return grid[:, 1:ncols÷2]
 end
 
 """
     Returns the right half of the grid. For odd number of colums, this excludes the middle column.
 """
-function righthalf(grid::Grid)
-    ncols = size(grid.mat, 2)
-    return Grid(grid.mat[:, ncols-ncols÷2+1:end])
+function righthalf(grid)
+    ncols = size(grid, 2)
+    return grid[:, ncols-ncols÷2+1:end]
 end
 
 """
     Removes frontiers from the grid, i.e., rows and columns where all cells have the same value
 """
-function compress(grid::Grid)
-    keep_rows = .![all(x -> x == r[1], r) for r in eachrow(grid.mat)]
-    keep_cols = .![all(x -> x == c[1], c) for c in eachcol(grid.mat)]
+function compress(grid)
+    keep_rows = .![all(x -> x == r[1], r) for r in eachrow(grid)]
+    keep_cols = .![all(x -> x == c[1], c) for c in eachcol(grid)]
 
-    return Grid(grid.mat[keep_rows, keep_cols])
+    return grid[keep_rows, keep_cols]
 end
+
+"""
+    Constructs a grid of given `dimensions` and fills it with `value`.
+"""
+function canvas(value, dimensions) # TODO: CartesianIndex a good choice? Wait for `as_tuple`
+    mat = fill(value, SMatrix{dimensions[1],dimensions[2]})
+    return mat
+end
+
+"""
+    Get color of `grid` at given location `loc`. 
+"""
+function index(grid, loc)
+    return get(grid, loc, nothing)
+end
+
+"""
+    Crop grid from `start` point to given `dims`.
+"""
+function crop(grid, start, dims)
+    return grid[start[1]:start[1]+dims[1]-1, start[2]:start[2]+dims[2]-1]
+end
+# Cell = Tuple(color, (x, y))
+# Object = Set(cells)
+# Patch = Union(Object, Indices)
+# Piece = Union(Grid, Patch) => Grid, Object, Indices
+"""
+    Mirrors along vertical.
+# """
+# function vmirror(cell:Tuple{Integer,CartesianIndex})
+#     return Tuple(cell[1], CartesianIndex(cell[])) # only x value of index changes
+# end
+
+# def vmirror(
+#     piece: Piece
+# ) -> Piece:
+#     """ mirroring along vertical """
+#     if isinstance(piece, tuple):
+#         return tuple(row[::-1] for row in piece)
+#     d = ulcorner(piece)[1] + lrcorner(piece)[1]
+#     if isinstance(next(iter(piece))[1], tuple):
+#         return frozenset((v, (i, d - j)) for v, (i, j) in piece)
+#     return frozenset((i, d - j) for i, j in piece)

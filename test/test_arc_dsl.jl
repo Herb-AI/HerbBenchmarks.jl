@@ -1,155 +1,155 @@
 @testset verbose = true "Basic operators" begin
-	@testset "Numerical" begin
-		@testset "add" begin
-			@test add(1, 2) == 3
-			@test add(4, 6) == 10
-			@test add(CartesianIndex(1, 2), CartesianIndex(3, 4)) == CartesianIndex(4, 6)
-			@test add(9, CartesianIndex(1, 1)) == CartesianIndex(10, 10)
-			@test add(CartesianIndex(1, 1), 9) == CartesianIndex(10, 10)
-		end
-		@testset "subtract" begin
-			@test subtract(1, 2) == -1
-			@test subtract(4, 6) == -2
-			@test subtract(10, 1) == 9
+    @testset "Numerical" begin
+        @testset "add" begin
+            @test add(1, 2) == 3
+            @test add(4, 6) == 10
+            @test add(CartesianIndex(1, 2), CartesianIndex(3, 4)) == CartesianIndex(4, 6)
+            @test add(9, CartesianIndex(1, 1)) == CartesianIndex(10, 10)
+            @test add(CartesianIndex(1, 1), 9) == CartesianIndex(10, 10)
+        end
+        @testset "subtract" begin
+            @test subtract(1, 2) == -1
+            @test subtract(4, 6) == -2
+            @test subtract(10, 1) == 9
 
-			@test subtract(CartesianIndex(8, 9), CartesianIndex(3, 4)) == CartesianIndex(5, 5)
+            @test subtract(CartesianIndex(8, 9), CartesianIndex(3, 4)) == CartesianIndex(5, 5)
 
-			@test subtract(5, CartesianIndex(10, 6)) == CartesianIndex(-5, -1)
-			@test subtract(5, CartesianIndex(1, 2)) == CartesianIndex(4, 3)
+            @test subtract(5, CartesianIndex(10, 6)) == CartesianIndex(-5, -1)
+            @test subtract(5, CartesianIndex(1, 2)) == CartesianIndex(4, 3)
 
-			@test subtract(CartesianIndex(5, 5), 4) == CartesianIndex(1, 1)
-		end
-		@testset "multiply" begin
-			@test multiply(2, 3) == 6
-			@test multiply(4, 3) == 12
-			@test multiply(2, CartesianIndex(3, 4)) == CartesianIndex(6, 8)
-			@test multiply(CartesianIndex(3, 4), 2) == CartesianIndex(6, 8)
-			@test multiply(CartesianIndex(2, 3), CartesianIndex(4, 3)) == CartesianIndex(8, 9)
-		end
-		@testset "divide" begin
-			@test divide(4, 2) == 2
-			@test divide(3, 2) == 1
-			@test divide(CartesianIndex(10, 6), CartesianIndex(5, 2)) == CartesianIndex(2, 3)
-			@test divide(CartesianIndex(10, 10), 3) == CartesianIndex(3, 3)
-			@test divide(10, CartesianIndex(2, 4)) == CartesianIndex(5, 2)
-			@test divide(3, CartesianIndex(10, 10)) == CartesianIndex(0, 0)
-			@test_throws DivideError divide(4, CartesianIndex(0, 9))
-			@test_throws DivideError divide(CartesianIndex(3, 4), 0)
-			@test_throws DivideError divide(CartesianIndex(3, 4), CartesianIndex(0, 0))
-			@test_throws DivideError divide(0, 0)
-		end
-		@testset "invert" begin
-			@test invert(1) == -1
-			@test invert(-4) == 4
-			@test invert(CartesianIndex(5, 6)) == CartesianIndex(-5, -6)
-			@test invert(CartesianIndex(-1, 9)) == CartesianIndex(1, -9)
-		end
-		@testset "double and halve" begin
-			# double
-			@test double(1) == 2
-			@test double(CartesianIndex(2, 3)) == CartesianIndex(4, 6)
+            @test subtract(CartesianIndex(5, 5), 4) == CartesianIndex(1, 1)
+        end
+        @testset "multiply" begin
+            @test multiply(2, 3) == 6
+            @test multiply(4, 3) == 12
+            @test multiply(2, CartesianIndex(3, 4)) == CartesianIndex(6, 8)
+            @test multiply(CartesianIndex(3, 4), 2) == CartesianIndex(6, 8)
+            @test multiply(CartesianIndex(2, 3), CartesianIndex(4, 3)) == CartesianIndex(8, 9)
+        end
+        @testset "divide" begin
+            @test divide(4, 2) == 2
+            @test divide(3, 2) == 1
+            @test divide(CartesianIndex(10, 6), CartesianIndex(5, 2)) == CartesianIndex(2, 3)
+            @test divide(CartesianIndex(10, 10), 3) == CartesianIndex(3, 3)
+            @test divide(10, CartesianIndex(2, 4)) == CartesianIndex(5, 2)
+            @test divide(3, CartesianIndex(10, 10)) == CartesianIndex(0, 0)
+            @test_throws DivideError divide(4, CartesianIndex(0, 9))
+            @test_throws DivideError divide(CartesianIndex(3, 4), 0)
+            @test_throws DivideError divide(CartesianIndex(3, 4), CartesianIndex(0, 0))
+            @test_throws DivideError divide(0, 0)
+        end
+        @testset "invert" begin
+            @test invert(1) == -1
+            @test invert(-4) == 4
+            @test invert(CartesianIndex(5, 6)) == CartesianIndex(-5, -6)
+            @test invert(CartesianIndex(-1, 9)) == CartesianIndex(1, -9)
+        end
+        @testset "double and halve" begin
+            # double
+            @test double(1) == 2
+            @test double(CartesianIndex(2, 3)) == CartesianIndex(4, 6)
 
-			# halve
-			@test halve(2) == 1
-			@test halve(5) == 2
-			@test halve(CartesianIndex(10, 9)) == CartesianIndex(5, 4)
-		end
-		@testset "Increment, decrement, crement, sign" begin
-			@test increment(1) == 2
-			@test increment(CartesianIndex(7, 9)) == CartesianIndex(8, 10)
+            # halve
+            @test halve(2) == 1
+            @test halve(5) == 2
+            @test halve(CartesianIndex(10, 9)) == CartesianIndex(5, 4)
+        end
+        @testset "Increment, decrement, crement, sign" begin
+            @test increment(1) == 2
+            @test increment(CartesianIndex(7, 9)) == CartesianIndex(8, 10)
 
-			@test decrement(1) == 0
-			@test decrement(CartesianIndex(7, 9)) == CartesianIndex(6, 8)
+            @test decrement(1) == 0
+            @test decrement(CartesianIndex(7, 9)) == CartesianIndex(6, 8)
 
-			@test crement(1) == 2
-			@test crement(-2) == -3
-			@test crement(CartesianIndex(-2, 1)) == CartesianIndex(-3, 2)
-			@test crement(CartesianIndex(0, -1)) == CartesianIndex(0, -2)
+            @test crement(1) == 2
+            @test crement(-2) == -3
+            @test crement(CartesianIndex(-2, 1)) == CartesianIndex(-3, 2)
+            @test crement(CartesianIndex(0, -1)) == CartesianIndex(0, -2)
 
-			@test get_sign(2) == 1
-			@test get_sign(0) == 0
-			@test get_sign(-1) == -1
-			@test get_sign(CartesianIndex(0, -3)) == CartesianIndex(0, -1)
-		end
-	end
+            @test get_sign(2) == 1
+            @test get_sign(0) == 0
+            @test get_sign(-1) == -1
+            @test get_sign(CartesianIndex(0, -3)) == CartesianIndex(0, -1)
+        end
+    end
 
-	@testset "Integer" begin
-		@testset "even, greater, positive" begin
-			# even
-			@test even(1) == false
-			@test even(2) == true
-			# greater
-			@test greater(2, 1) == true
-			@test greater(4, 10) == false
+    @testset "Integer" begin
+        @testset "even, greater, positive" begin
+            # even
+            @test even(1) == false
+            @test even(2) == true
+            # greater
+            @test greater(2, 1) == true
+            @test greater(4, 10) == false
 
-			# positive
-			@test positive(1) == true
-			@test positive(0) == false
-			@test positive(-2) == false
-		end
-		@testset verbose = true "toivec, tojvec, astuple" begin
-			@test toivec(2) == CartesianIndex(2, 0)
-			@test tojvec(3) == CartesianIndex(0, 3)
-			@test astuple(3, 4) == CartesianIndex(3, 4)
-		end
+            # positive
+            @test positive(1) == true
+            @test positive(0) == false
+            @test positive(-2) == false
+        end
+        @testset verbose = true "toivec, tojvec, astuple" begin
+            @test toivec(2) == CartesianIndex(2, 0)
+            @test tojvec(3) == CartesianIndex(0, 3)
+            @test astuple(3, 4) == CartesianIndex(3, 4)
+        end
 
-	end
+    end
 
-	@testset "Boolean" begin
-		@testset verbose = true "flip" begin
-			@test flip(false) == true
-			@test flip(true) == false
-		end
-		@testset "Boolean operations" begin
-			@test both(true, false) == false
-			@test both(false, true) == false
-			@test both(false, false) == false
-			@test both(true, true) == true
+    @testset "Boolean" begin
+        @testset verbose = true "flip" begin
+            @test flip(false) == true
+            @test flip(true) == false
+        end
+        @testset "Boolean operations" begin
+            @test both(true, false) == false
+            @test both(false, true) == false
+            @test both(false, false) == false
+            @test both(true, true) == true
 
-			@test either(true, false) == true
-			@test either(true, true) == true
-			@test either(false, false) == false
-		end
-	end
+            @test either(true, false) == true
+            @test either(true, true) == true
+            @test either(false, false) == false
+        end
+    end
 
-	@testset "IntegerSet" begin # TODO
-		@testset "IntegerSet operations" begin
-			a = IntegerSet([1, 2, 5, 3])
-			b = IntegerSet([4, 2, 6])
-			c = IntegerSet([1, 2, 5, 3])
-			@testset "maximum" begin
-				@test maximum(a) == 5
-				@test maximum(b) == 6
-			end
-			@testset "minimum" begin
-				@test minimum(a) == 1
-				@test minimum(b) == 2
-			end
-			@testset "isequal and hash" begin
-				@test isequal(a, c) == true
-				@test isequal(a, b) == false
+    # @testset "IntegerSet" begin # TODO
+    # 	@testset "IntegerSet operations" begin
+    # 		a = IntegerSet([1, 2, 5, 3])
+    # 		b = IntegerSet([4, 2, 6])
+    # 		c = IntegerSet([1, 2, 5, 3])
+    # 		@testset "maximum" begin
+    # 			@test maximum(a) == 5
+    # 			@test maximum(b) == 6
+    # 		end
+    # 		@testset "minimum" begin
+    # 			@test minimum(a) == 1
+    # 			@test minimum(b) == 2
+    # 		end
+    # 		@testset "isequal and hash" begin
+    # 			@test isequal(a, c) == true
+    # 			@test isequal(a, b) == false
 
-				@test hash(a) == hash(c)
-				@test hash(a) != hash(b)
-				@test length(Set([a, b, c])) == 2
-			end
+    # 			@test hash(a) == hash(c)
+    # 			@test hash(a) != hash(b)
+    # 			@test length(Set([a, b, c])) == 2
+    # 		end
 
-		end
-		# 		# @testset verbose = true "set intersection and difference" begin
-		# 		# 	a = IntegerSet([1, 2])
-		# 		# 	b = IntegerSet([2, 3])
-		# 		# 	c = IntegerSet([2])
-		# 		# 	@test intersect(a, b) == c
-		# 		# 	# TODO: test for more set types
+    # 	end
+    # 	# 		# @testset verbose = true "set intersection and difference" begin
+    # 	# 		# 	a = IntegerSet([1, 2])
+    # 	# 		# 	b = IntegerSet([2, 3])
+    # 	# 		# 	c = IntegerSet([2])
+    # 	# 		# 	@test intersect(a, b) == c
+    # 	# 		# 	# TODO: test for more set types
 
-		# 		# 	@test difference(
-		# 		# 		IntegerSet([1, 2, 3]),
-		# 		# 		IntegerSet([1, 2]),
-		# 		# 	) ==
-		# 		# 		  IntegerSet([3])
+    # 	# 		# 	@test difference(
+    # 	# 		# 		IntegerSet([1, 2, 3]),
+    # 	# 		# 		IntegerSet([1, 2]),
+    # 	# 		# 	) ==
+    # 	# 		# 		  IntegerSet([3])
 
-		# 		# end
-	end
+    # 	# 		# end
+    # end
 end
 
 

@@ -6,7 +6,7 @@ using HerbGrammar
 
 include("arc_types.jl")
 
-export Index, IntegerSet, Grid, Indices
+# export Index, IntegerSet, Grid, Indices
 
 include("arc_basic_primitives.jl")
 include("arc_grid_operations.jl")
