@@ -157,16 +157,15 @@ end
 """
     Constructs a grid of given `dimensions` and fills it with `value`.
 """
-function canvas(value, dimensions) # TODO: CartesianIndex a good choice? Wait for `as_tuple`
-    mat = fill(value, SMatrix{dimensions[1],dimensions[2]})
-    return mat
+function canvas(value::Integer, dimensions::CartesianIndex)
+    return fill(value, dimensions[1], dimensions[2])
 end
 
 """
     Get color of `grid` at given location `loc`. 
 """
 function index(grid, loc)
-    return get(grid, loc, nothing)
+    return grid[loc]
 end
 
 """
@@ -175,24 +174,107 @@ end
 function crop(grid, start, dims)
     return grid[start[1]:start[1]+dims[1]-1, start[2]:start[2]+dims[2]-1]
 end
-# Cell = Tuple(color, (x, y))
-# Object = Set(cells)
-# Patch = Union(Object, Indices)
-# Piece = Union(Grid, Patch) => Grid, Object, Indices
-"""
-    Mirrors along vertical.
-# """
-# function vmirror(cell:Tuple{Integer,CartesianIndex})
-#     return Tuple(cell[1], CartesianIndex(cell[])) # only x value of index changes
-# end
 
-# def vmirror(
-#     piece: Piece
-# ) -> Piece:
-#     """ mirroring along vertical """
-#     if isinstance(piece, tuple):
-#         return tuple(row[::-1] for row in piece)
-#     d = ulcorner(piece)[1] + lrcorner(piece)[1]
-#     if isinstance(next(iter(piece))[1], tuple):
-#         return frozenset((v, (i, d - j)) for v, (i, j) in piece)
-#     return frozenset((i, d - j) for i, j in piece)
+"""
+    Returns `CartesianIndex` of upper left corner.
+"""
+function ulcorner(indices) # Vector{CartesianIndex}
+    min_row = typemax(Int)
+    min_col = typemax(Int)
+    @inbounds for idx in indices
+        row, col = idx[1], idx[2]
+        min_row = min(min_row, row)
+        min_col = min(min_col, col)
+    end
+    return CartesianIndex(min_row, min_col)
+end
+# Patch = Union{Object, Indices}
+# Object = Vector{Tuple{Integer, CartesianIndex}}
+function ulcorner(cells::Vector{<:Tuple{<:Integer,CartesianIndex}}) # TODO: make type more specific?
+    return ulcorner(toindices(cells))
+end
+
+"""
+    Returns `CartesianIndex` of upper right corner.
+"""
+function urcorner(indices::Vector{CartesianIndex{2}})
+    min_row = typemax(Int)
+    max_col = typemin(Int)
+    @inbounds for idx in indices
+        row, col = idx[1], idx[2]
+        min_row = min(min_row, row)
+        max_col = max(max_col, col)
+    end
+    return CartesianIndex(min_row, max_col)
+end
+
+urcorner(cells::Vector{<:Tuple{<:Integer,CartesianIndex}}) = urcorner(toindices(cells))
+
+"""
+    Returns `CartesianIndex` of lower left corner.
+"""
+function llcorner(indices::Vector{CartesianIndex{2}})
+    max_row = typemin(Int)
+    min_col = typemax(Int)
+    @inbounds for idx in indices
+        row, col = idx[1], idx[2]
+        max_row = max(max_row, row)
+        min_col = min(min_col, col)
+    end
+    return CartesianIndex(max_row, min_col)
+end
+
+llcorner(cells::Vector{<:Tuple{<:Integer,CartesianIndex}}) = llcorner(toindices(cells))
+
+"""
+    Returns `CartesianIndex` of lower right corner.
+"""
+function lrcorner(indices::Vector{CartesianIndex{2}})
+    max_row = typemin(Int)
+    max_col = typemin(Int)
+    @inbounds for idx in indices
+        row, col = idx[1], idx[2]
+        max_row = max(max_row, row)
+        max_col = max(max_col, col)
+    end
+    return CartesianIndex(max_row, max_col)
+end
+
+lrcorner(cells::Vector{<:Tuple{<:Integer,CartesianIndex}}) = lrcorner(toindices(cells))
+
+"""
+    Returns indices
+"""
+function toindices(cells::Vector{<:Tuple{<:Integer,CartesianIndex}})
+    return [i[2] for i in cells]
+end
+
+
+"""
+        Mirrors along vertical.
+"""
+function vmirror(grid)
+    return reverse(grid, dims=2)
+end
+
+function vmirror(indices::AbstractVector)
+    min_col, max_col = extrema(idx[2] for idx in indices)
+    d = min_col + max_col
+    # result = Vector{CartesianIndex{2}}(undef, length(indices))
+    # @inbounds for i in eachindex(indices)
+    #     idx = indices[i]
+    #     result[i] = CartesianIndex(idx[1], d - idx[2])
+    # end
+    # return result
+    return [(CartesianIndex(idx[1], d - idx[2])) for idx in indices]
+end
+
+function vmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
+    min_col, max_col = extrema(idx[2] for (_, idx) in object)
+    d = min_col + max_col
+    return [(val, CartesianIndex(idx[1], d - idx[2])) for (val, idx) in object]
+end
+
+# Piece = Union[Grid, Patch]
+# Patch = Union{Object, Indices}
+# Object = Vector{Tuple{Integer, CartesianIndex}}

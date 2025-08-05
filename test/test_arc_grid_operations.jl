@@ -2,18 +2,6 @@ using StaticArrays
 using .ARC_DSL: rot180, replace
 
 @testset verbose = true "Grid operations" begin
-
-    # K = Grid(
-    #     [0 0 1 0 0 1 0 0;
-    #         0 0 1 0 0 1 0 0;
-    #         1 1 1 1 1 1 1 1;
-    #         0 0 1 0 0 1 0 0;
-    #         0 0 1 0 0 1 0 0;
-    #         1 1 1 1 1 1 1 1;
-    #         0 0 1 0 0 1 0 0;
-    #         0 0 1 0 0 1 0 0]
-    # )
-
     A = [1 0; 0 1; 1 0] # TODO: @SMatrix or not?
     B = [2 1; 0 1; 2 1]
     C = [3 4; 5 5]
@@ -165,8 +153,7 @@ using .ARC_DSL: rot180, replace
     end
     @testset "trim, tophalf, bottomhalf, lefthalf, righthalf" begin
         # trim
-        mat = @SMatrix [UInt8(5)]
-        @test trim(D) == mat
+        @test trim(D) == @SMatrix [UInt8(5)]
         @test trim(G) == [1 1 0; 1 1 2; 0 2 2]
 
         # tophalf and bottomhalf
@@ -212,7 +199,6 @@ using .ARC_DSL: rot180, replace
     @testset "index" begin
         @test index(C, CartesianIndex(1, 1)) == 3
         @test index(D, CartesianIndex(2, 3)) == 6
-        @test isnothing(index(A, CartesianIndex(1, 3)))
     end
 
     @testset "crop" begin
@@ -220,16 +206,43 @@ using .ARC_DSL: rot180, replace
         @test crop(C, CartesianIndex(1, 2), CartesianIndex(1, 1)) == [4;;]
         @test crop(D, CartesianIndex(2, 3), CartesianIndex(2, 1)) == [6; 0;;]
     end
+    @testset "ulcorner, urcorner, llcorner, rrcorner" begin
+        # ulcorner
+        indices_1 = [CartesianIndex(2, 3), CartesianIndex(1, 4), CartesianIndex(5, 1)]
+        indices_2 = [CartesianIndex(2, 3), CartesianIndex(1, 1), CartesianIndex(5, 4)]
+        indices_3 = [CartesianIndex(2, 6), CartesianIndex(1, 1), CartesianIndex(3, 4)]
+        cells = [(4, CartesianIndex(2, 6)), (16, CartesianIndex(9, 2)), (4, CartesianIndex(5, 5))]
 
+        @test ulcorner(indices_1) == CartesianIndex(1, 1)
+
+        @test ulcorner(indices_2) == CartesianIndex(1, 1)
+
+        @test ulcorner(cells) == CartesianIndex(2, 2)
+
+        # urcorner
+        @test urcorner(indices_1) == CartesianIndex(1, 4)
+        @test urcorner(indices_2) == CartesianIndex(1, 4)
+        @test urcorner(cells) == CartesianIndex(2, 6)
+
+        # llcorner
+        @test llcorner(indices_1) == CartesianIndex(5, 1)
+        @test llcorner(indices_2) == CartesianIndex(5, 1)
+        @test llcorner(indices_3) == CartesianIndex(3, 1)
+        @test llcorner(cells) == CartesianIndex(9, 2)
+
+        # lrcorner
+        @test lrcorner(indices_1) == CartesianIndex(5, 4)
+        @test lrcorner(indices_2) == CartesianIndex(5, 4)
+        @test lrcorner(cells) == CartesianIndex(9, 6)
+    end
     @testset "vmirror, hmirror" begin
-        # Cell
-        cell = (3, CartesianIndex(0, 4))
-        # frozenset({(3, (0, 4))}),
-        # Object
-        # Patch
-        # Indices
-        # Grid 
+        # vmirror
+        @test vmirror(B) == [1 2; 1 0; 1 2] # grid
+        @test vmirror(C) == [4 3; 5 5] # grid
+        @test Set(vmirror([CartesianIndex(1, 1), CartesianIndex(2, 2)])) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)]) # indices
+        @test Set(vmirror([CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(2, 2)])) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]) # indices
+        @test Set(vmirror([CartesianIndex(1, 2), CartesianIndex(2, 3)])) == Set([CartesianIndex(1, 3), CartesianIndex(2, 2)]) # indices
+        object = [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(3, 3))]
+        @test Set(vmirror(object)) == Set([(2, CartesianIndex(1, 3)), (2, CartesianIndex(2, 2)), (2, CartesianIndex(3, 2))])
     end
 end
-
-# TODO: use Matrix or SMatrix in tests? 
