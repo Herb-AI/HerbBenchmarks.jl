@@ -236,13 +236,37 @@ using .ARC_DSL: rot180, replace
         @test lrcorner(cells) == CartesianIndex(9, 6)
     end
     @testset "vmirror, hmirror" begin
+        indices_1 = [CartesianIndex(1, 1), CartesianIndex(2, 2)]
+        indices_2 = [CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(2, 2)]
+        indices_3 = [CartesianIndex(1, 2), CartesianIndex(2, 3)]
+        object = [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(3, 3))]
         # vmirror
         @test vmirror(B) == [1 2; 1 0; 1 2] # grid
         @test vmirror(C) == [4 3; 5 5] # grid
-        @test Set(vmirror([CartesianIndex(1, 1), CartesianIndex(2, 2)])) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)]) # indices
-        @test Set(vmirror([CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(2, 2)])) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]) # indices
-        @test Set(vmirror([CartesianIndex(1, 2), CartesianIndex(2, 3)])) == Set([CartesianIndex(1, 3), CartesianIndex(2, 2)]) # indices
-        object = [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(3, 3))]
+        @test Set(vmirror(indices_1)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)]) # indices
+        @test Set(vmirror(indices_2)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]) # indices
+        @test Set(vmirror(indices_3)) == Set([CartesianIndex(1, 3), CartesianIndex(2, 2)]) # indices
         @test Set(vmirror(object)) == Set([(2, CartesianIndex(1, 3)), (2, CartesianIndex(2, 2)), (2, CartesianIndex(3, 2))])
+
+        # hmirror
+        @test hmirror(B) == [2 1; 0 1; 2 1]
+        @test hmirror(C) == [5 5; 3 4]
+        @test Set(hmirror(indices_1)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)])
+        @test Set(hmirror(indices_2)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 1), CartesianIndex(1, 2)])
+        @test Set(hmirror(indices_3)) == Set([CartesianIndex(2, 2), CartesianIndex(1, 3)])
+        @test Set(hmirror(object)) == Set([(2, CartesianIndex(3, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(1, 3))])
+
+        # dmirror
+        @test dmirror(B) == [2 0 2; 1 1 1]
+        @test dmirror(C) == [3 5; 4 5]
+        @test dmirror(indices_1) == [CartesianIndex(1, 1), CartesianIndex(2, 2)]
+        @test dmirror(indices_2) == [CartesianIndex(1, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]
+        @test dmirror(indices_3) == indices_3
+        @test dmirror(object) == [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(2, 4))]
+
+        # cmirror
+
+        #  B = [2 1; 0 1; 2 1]
+        # C = [3 4; 5 5]
     end
 end

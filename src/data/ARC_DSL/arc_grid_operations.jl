@@ -266,13 +266,53 @@ function vmirror(indices::AbstractVector)
     #     result[i] = CartesianIndex(idx[1], d - idx[2])
     # end
     # return result
-    return [(CartesianIndex(idx[1], d - idx[2])) for idx in indices]
+    return [CartesianIndex(idx[1], d - idx[2]) for idx in indices]
 end
 
 function vmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
     min_col, max_col = extrema(idx[2] for (_, idx) in object)
     d = min_col + max_col
     return [(val, CartesianIndex(idx[1], d - idx[2])) for (val, idx) in object]
+end
+
+"""
+        Mirrors along horizontal.
+"""
+function hmirror(grid)
+    return reverse(grid, dims=1)
+end
+
+function hmirror(indices::AbstractVector)
+    min_row, max_row = extrema(idx[1] for idx in indices)
+    d = min_row + max_row
+    return [CartesianIndex(d - idx[1], idx[2]) for idx in indices]
+end
+
+function hmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
+    min_row, max_row = extrema(idx[1] for (_, idx) in object)
+    d = min_row + max_row
+    return [(val, CartesianIndex(d - idx[1], idx[2])) for (val, idx) in object]
+end
+
+"""
+        Mirrors along diagonal.
+"""
+function dmirror(grid)
+    return transpose(grid)
+end
+
+function dmirror(indices::AbstractVector)
+    corner = ulcorner(indices)
+    a = corner[1]
+    b = corner[2]
+    return [CartesianIndex(idx[2] - b + a, idx[1] - a + b) for idx in indices]
+end
+
+function dmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
+    corner = ulcorner(object)
+    a = corner[1]
+    b = corner[2]
+    return [(val, CartesianIndex(idx[2] - b + a, idx[1] - a + b)) for (val, idx) in object]
 end
 
 # Piece = Union[Grid, Patch]
