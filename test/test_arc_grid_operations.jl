@@ -2,7 +2,7 @@ using StaticArrays
 using .ARC_DSL: rot180, replace
 
 @testset verbose = true "Grid operations" begin
-    A = [1 0; 0 1; 1 0] # TODO: @SMatrix or not?
+    A = [1 0; 0 1; 1 0]
     B = [2 1; 0 1; 2 1]
     C = [3 4; 5 5]
     D = [1 2 3; 4 5 6; 7 8 0]
@@ -235,7 +235,7 @@ using .ARC_DSL: rot180, replace
         @test lrcorner(indices_2) == CartesianIndex(5, 4)
         @test lrcorner(cells) == CartesianIndex(9, 6)
     end
-    @testset "vmirror, hmirror" begin
+    @testset "vmirror, hmirror, dmirror, cmirror" begin
         indices_1 = [CartesianIndex(1, 1), CartesianIndex(2, 2)]
         indices_2 = [CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(2, 2)]
         indices_3 = [CartesianIndex(1, 2), CartesianIndex(2, 3)]
@@ -265,8 +265,10 @@ using .ARC_DSL: rot180, replace
         @test dmirror(object) == [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(2, 4))]
 
         # cmirror
-
-        #  B = [2 1; 0 1; 2 1]
-        # C = [3 4; 5 5]
+        @test cmirror(B) == [1 1 1; 2 0 2]
+        @test cmirror(C) == [5 4; 5 3]
+        @test cmirror(indices_1) == [CartesianIndex(2, 2), CartesianIndex(1, 1)]
+        @test cmirror(indices_2) == [CartesianIndex(2, 2), CartesianIndex(2, 1), CartesianIndex(1, 1)]
+        @test cmirror(indices_3) == [CartesianIndex(2, 3), CartesianIndex(1, 2)]
     end
 end

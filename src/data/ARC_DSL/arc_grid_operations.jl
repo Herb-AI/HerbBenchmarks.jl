@@ -295,7 +295,7 @@ function hmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
 end
 
 """
-        Mirrors along diagonal.
+    Mirrors along diagonal.
 """
 function dmirror(grid)
     return transpose(grid)
@@ -314,6 +314,26 @@ function dmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
     b = corner[2]
     return [(val, CartesianIndex(idx[2] - b + a, idx[1] - a + b)) for (val, idx) in object]
 end
+
+"""
+    Mirrors along the counter-diagonal.
+"""
+function cmirror(grid)
+    # n = size(grid, 1)
+    # mirrored = similar(grid)
+    # for i in 1:n, j in 1:n
+    #     mirrored[i, j] = grid[n+1-j, n+1-i]
+    # end
+    # return mirrored
+    # alternative:
+    reverse(transpose(reverse(grid, dims=1)), dims=1)
+end
+
+function cmirror(piece::AbstractVector)
+    # vmirror(dmirror(vmirror(piece)))
+    return vmirror(dmirror(vmirror(piece)))
+end
+
 
 # Piece = Union[Grid, Patch]
 # Patch = Union{Object, Indices}
