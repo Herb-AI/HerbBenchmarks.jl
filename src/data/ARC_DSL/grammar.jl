@@ -1,9 +1,9 @@
-# grammar_arc = @csgrammar begin
-	
-#     # Operator = identity()
-#     # Integer = all integer values we want to allow
-#     # Operator = identityfun() | add() 
-# end
+grammar_arc = @csgrammar begin
+
+    #     # Operator = identity()
+    #     # Integer = all integer values we want to allow
+    #     # Operator = identityfun() | add() 
+end
 
 
 # The DSL [4] can be put into three roughly equally sized categories of primitives:

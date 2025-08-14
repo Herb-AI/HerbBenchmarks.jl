@@ -3,6 +3,7 @@ module ARC_DSL
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using JSON
 
 include("arc_types.jl")
 
@@ -14,5 +15,32 @@ include("arc_index_operations.jl")
 # include("data.jl")
 include("grammar.jl")
 
+export
+    parse_ARC_data_file
+
+"""
+    parseline_strings(line::AbstractString)::IOExample
+
+Parses a line from a file in the `strings` dataset
+"""
+function parse_ARC_data_file(filename::AbstractString, dir::AbstractString=".")
+    filepath = joinpath(dir, filename)
+    j = JSON.Parser.parsefile(filepath)
+    train_examples = Vector{IOExample}()
+    test_examples = Vector{IOExample}()
+
+    # parse input and output to grid
+    for example in j["train"]
+        input = permutedims(hcat(example["input"]...))
+        output = permutedims(hcat(example["output"]...))
+        push!(train_examples, IOExample(Dict(:_arg_1 => input), output))
+    end
+    for example in j["test"]
+        input = permutedims(hcat(example["input"]...))
+        output = permutedims(hcat(example["output"]...))
+        push!(test_examples, IOExample(Dict(:_arg_1 => input), output))
+    end
+    return Problem(train_examples), Problem(test_examples)
+end
 
 end # module ARC_DSL
