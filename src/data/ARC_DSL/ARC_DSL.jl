@@ -14,6 +14,7 @@ include("arc_grid_operations.jl")
 include("arc_index_operations.jl")
 # include("data.jl")
 include("grammar.jl")
+include("arc_interpreter.jl")
 
 export
     parse_ARC_data_file
