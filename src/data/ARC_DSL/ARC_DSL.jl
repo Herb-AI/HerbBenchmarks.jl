@@ -12,19 +12,20 @@ include("arc_types.jl")
 include("arc_basic_primitives.jl")
 include("arc_grid_operations.jl")
 include("arc_index_operations.jl")
-# include("data.jl")
+include("data.jl")
 include("grammar.jl")
 include("arc_interpreter.jl")
 
 export
-    parse_ARC_data_file
+    parse_ARC_example
 
 """
-    parseline_strings(line::AbstractString)::IOExample
+    parse_ARC_example(line::AbstractString)::IOExample
 
-Parses a line from a file in the `strings` dataset
+Parses an example from `ARC` dataset
 """
-function parse_ARC_data_file(filename::AbstractString, dir::AbstractString=".")
+function parse_ARC_example(filename::AbstractString, dir::AbstractString=".")
+    # TODO: Fix to work on a line/example copy + pasted from dataset?
     filepath = joinpath(dir, filename)
     j = JSON.Parser.parsefile(filepath)
     train_examples = Vector{IOExample}()

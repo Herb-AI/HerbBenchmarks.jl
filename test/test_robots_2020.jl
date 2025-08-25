@@ -26,8 +26,8 @@ tags = Robots_2020.get_relevant_tags(grammar_robots)
 @testset verbose = true "Robots_2020" begin
     @testset verbose = true "General tests" begin
         problems = get_all_problems(Robots_2020)
-        @test typeof(problems[1]) <: HerbSpecification.Problem
-        @test typeof(problems[1].spec[1]) == HerbSpecification.IOExample
+        @test problems[1] isa HerbSpecification.Problem
+        @test problems[1].spec[1] isa HerbSpecification.IOExample
     end
 
     @testset verbose = true "Testing robot transformations" begin

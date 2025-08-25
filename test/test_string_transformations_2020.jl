@@ -38,11 +38,11 @@ tags = String_transformations_2020.get_relevant_tags(grammar_string)
     @testset verbose = true "General tests" begin
         problems = get_all_problems(String_transformations_2020)
         @test typeof(problems[1]) <: HerbSpecification.Problem
-        @test typeof(problems[1].spec[1]) == HerbSpecification.IOExample
-        @testset verbose=true "Inputs/Outputs are StringStates" begin
+        @test typeof(problems[1].spec[1]) <: HerbSpecification.IOExample
+        @testset verbose = true "Inputs/Outputs are StringStates" begin
             for problem in problems
-                @test all(typeof(state)==StringState for ex in problem.spec for state in values(ex.in))
-                @test all(typeof(ex.out)==StringState for ex in problem.spec)
+                @test all(typeof(state) == StringState for ex in problem.spec for state in values(ex.in))
+                @test all(typeof(ex.out) == StringState for ex in problem.spec)
             end
         end
     end

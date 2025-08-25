@@ -21,28 +21,16 @@ function interpret(prog, grammartags, state) # state => matrix (can state be mor
     rule_node = get_rule(prog)
 
     @match grammartags[rule_node] begin
+        :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammartags, state)) # (Operation ; Sequence)
         :vMirror => vmirror(state)
         :hMirror => hmirror(state)
         :hConcat => hconcat(interpret(prog.children[1], grammartags, state), state)
         :vConcat => vconcat(state)
-        # :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammartags, state)) # (Operation ; Sequence)
+        _ => interpret(prog.children[1], grammartags, state)
+
         # :moveRight => moveright(state)
-        # :moveDown => movedown(state)
-        # :moveLeft => moveleft(state)
-        # :moveUp => moveup(state)
-        # :draw0 => draw_0(state)
-        # :draw1 => draw_1(state)
         # :IF => interpret(prog.children[1], grammartags, state) ? interpret(prog.children[2], grammartags, state) : interpret(prog.children[3], grammartags, state)
         # :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state)
-        # :atTop => state.position[2] == 1
-        # :atBottom => state.position[2] == size(state.matrix, 1)
-        # :atRight => state.position[1] == size(state.matrix, 2)
-        # :atLeft => state.position[1] == 1
-        # :notAtTop => !(state.position[2] == 1)
-        # :notAtBottom => !(state.position[2] == size(state.matrix, 1))
-        # :notAtRight => !(state.position[1] == size(state.matrix, 2))
-        # :notAtLeft => !(state.position[1] == 1)
-        # _ => interpret(prog.children[1], grammartags, state) # Start operation Transformation ControlStatement
     end
 end
 
