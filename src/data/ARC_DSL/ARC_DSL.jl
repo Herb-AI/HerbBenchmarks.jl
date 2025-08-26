@@ -20,12 +20,12 @@ export
     parse_ARC_example
 
 """
-    parse_ARC_example(line::AbstractString)::IOExample
+        parse_ARC_example(filename::AbstractString, dir::AbstractString = ".")
 
-Parses an example from `ARC` dataset
+    Parses an example from the ARC dataset from a given JSON filename and an optional directory path into a `HerbSpecification.Problem`.
+    Splits the example into training and test problems.
 """
 function parse_ARC_example(filename::AbstractString, dir::AbstractString=".")
-    # TODO: Fix to work on a line/example copy + pasted from dataset?
     filepath = joinpath(dir, filename)
     j = JSON.Parser.parsefile(filepath)
     train_examples = Vector{IOExample}()
