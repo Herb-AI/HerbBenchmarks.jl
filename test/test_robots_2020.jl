@@ -24,29 +24,35 @@ prim_while = RuleNode(13, [RuleNode(14), RuleNode(6)]) # WHILE(atTop, moveRight)
 tags = Robots_2020.get_relevant_tags(grammar_robots)
 
 @testset verbose = true "Robots_2020" begin
-    @testset verbose = true "General tests" begin
-        problems = get_all_problems(Robots_2020)
-        @test problems[1] isa HerbSpecification.Problem
-        @test problems[1].spec[1] isa HerbSpecification.IOExample
-    end
-
     @testset verbose = true "Testing robot transformations" begin
         @testset "Robot in top left corner" begin
-            @test Robots_2020.interpret(prim_moveRight, tags, test_state_1) == RobotState(0, 2, 1, 1, 1, 5)
-            @test Robots_2020.interpret(prim_moveDown, tags, test_state_1) == RobotState(0, 1, 2, 1, 1, 5)
-            @test Robots_2020.interpret(prim_moveLeft, tags, test_state_1) == RobotState(0, 1, 1, 1, 1, 5)
-            @test Robots_2020.interpret(prim_moveUp, tags, test_state_1) == RobotState(0, 1, 1, 1, 1, 5)
-            @test Robots_2020.interpret(prim_drop, tags, test_state_1) == RobotState(0, 1, 1, 1, 1, 5)
-            @test Robots_2020.interpret(prim_grab, tags, test_state_1) == RobotState(1, 1, 1, 1, 1, 5)
+            @test Robots_2020.interpret(prim_moveRight, tags, test_state_1) ==
+                  RobotState(0, 2, 1, 1, 1, 5)
+            @test Robots_2020.interpret(prim_moveDown, tags, test_state_1) ==
+                  RobotState(0, 1, 2, 1, 1, 5)
+            @test Robots_2020.interpret(prim_moveLeft, tags, test_state_1) ==
+                  RobotState(0, 1, 1, 1, 1, 5)
+            @test Robots_2020.interpret(prim_moveUp, tags, test_state_1) ==
+                  RobotState(0, 1, 1, 1, 1, 5)
+            @test Robots_2020.interpret(prim_drop, tags, test_state_1) ==
+                  RobotState(0, 1, 1, 1, 1, 5)
+            @test Robots_2020.interpret(prim_grab, tags, test_state_1) ==
+                  RobotState(1, 1, 1, 1, 1, 5)
         end
         # Test case: robot in bottom right corner
         @testset "Robot in bottom right corner" begin
-            @test Robots_2020.interpret(prim_moveRight, tags, test_state_2) == RobotState(1, 5, 5, 5, 5, 5)
-            @test Robots_2020.interpret(prim_moveDown, tags, test_state_2) == RobotState(1, 5, 5, 5, 5, 5)
-            @test Robots_2020.interpret(prim_moveLeft, tags, test_state_2) == RobotState(1, 4, 5, 4, 5, 5)
-            @test Robots_2020.interpret(prim_moveUp, tags, test_state_2) == RobotState(1, 5, 4, 5, 4, 5)
-            @test Robots_2020.interpret(prim_drop, tags, test_state_2) == RobotState(0, 5, 5, 5, 5, 5)
-            @test Robots_2020.interpret(prim_grab, tags, test_state_2) == RobotState(1, 5, 5, 5, 5, 5)
+            @test Robots_2020.interpret(prim_moveRight, tags, test_state_2) ==
+                  RobotState(1, 5, 5, 5, 5, 5)
+            @test Robots_2020.interpret(prim_moveDown, tags, test_state_2) ==
+                  RobotState(1, 5, 5, 5, 5, 5)
+            @test Robots_2020.interpret(prim_moveLeft, tags, test_state_2) ==
+                  RobotState(1, 4, 5, 4, 5, 5)
+            @test Robots_2020.interpret(prim_moveUp, tags, test_state_2) ==
+                  RobotState(1, 5, 4, 5, 4, 5)
+            @test Robots_2020.interpret(prim_drop, tags, test_state_2) ==
+                  RobotState(0, 5, 5, 5, 5, 5)
+            @test Robots_2020.interpret(prim_grab, tags, test_state_2) ==
+                  RobotState(1, 5, 5, 5, 5, 5)
         end
     end
 

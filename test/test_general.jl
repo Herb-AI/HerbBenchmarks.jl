@@ -1,4 +1,5 @@
-input_rules(grammar::AbstractGrammar) = findall(rule -> occursin("_arg_", string(rule)), grammar.rules)
+input_rules(grammar::AbstractGrammar) =
+    findall(rule -> occursin("_arg_", string(rule)), grammar.rules)
 
 @testset verbose = true "General tests on all submodules" begin
     modules = get_submodules(HerbBenchmarks)

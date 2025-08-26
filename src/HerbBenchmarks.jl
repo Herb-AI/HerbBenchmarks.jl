@@ -5,6 +5,7 @@ using HerbSpecification
 using HerbGrammar
 
 include("export_module.jl")
+include("utils/SExpressionParser.jl")
 
 # Iterate over directories in `/data/` and include all available files
 for (root, dirs, files) in walkdir(dirname(@__FILE__)*"/data/")

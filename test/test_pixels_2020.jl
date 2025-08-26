@@ -37,12 +37,6 @@ function matrix_filledtop()
 end
 
 @testset verbose = true "Pixels_2020" begin
-    @testset verbose = true "General tests" begin
-        problems = get_all_problems(Pixels_2020)
-        @test problems[1] isa HerbSpecification.Problem
-        @test problems[1].spec[1] isa HerbSpecification.IOExample
-    end
-
     @testset verbose = true "Testing pixels conditions" begin
         @testset "empty matrix, pointer top left" begin
             # Test conditions => shouldn't mutate pixel state
@@ -132,7 +126,34 @@ end
         @test test_state.position == (1, 3)
         # Test nested program: turn matrix of all zeros into identity matrix
         test_state = emptymatrix()
-        prog = RuleNode(3, [RuleNode(11), RuleNode(3, [RuleNode(9), RuleNode(3, [RuleNode(6), RuleNode(3, [RuleNode(11), RuleNode(3, [RuleNode(9), RuleNode(3, [RuleNode(6), RuleNode(11)])])])])])])
+        prog = RuleNode(
+            3,
+            [
+                RuleNode(11),
+                RuleNode(
+                    3,
+                    [
+                        RuleNode(9),
+                        RuleNode(
+                            3,
+                            [
+                                RuleNode(6),
+                                RuleNode(
+                                    3,
+                                    [
+                                        RuleNode(11),
+                                        RuleNode(
+                                            3,
+                                            [RuleNode(9), RuleNode(3, [RuleNode(6), RuleNode(11)])],
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        ),
+                    ],
+                ),
+            ],
+        )
         Pixels_2020.interpret(prog, tags, test_state)
         @test test_state.matrix == Bool[1 0 0; 0 1 0; 0 0 1]
         @test test_state.position == (3, 3)

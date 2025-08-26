@@ -3,9 +3,7 @@ module SyGuS
 using HerbSpecification
 using HerbCore
 using HerbGrammar
-
-using SExpressions
-
+using ..HerbBenchmarks.SExpressionParser
 
 export
     parse_sygus_grammar,
@@ -21,11 +19,10 @@ Parses a SyGuS file for its grammar, by looking for the keyword 'synth-fun' with
 """
 function parse_sygus_grammar(filename::AbstractString)::AbstractGrammar
     #@TODO this parser requires the input to be named `_arg_x`. This might not be the case for all problems
-    symbol_list = SExpressions.Parser.parsefile(filename)
-    grammar = Nothing
+    symbol_list = SExpressionParser.parsefile(filename)
 
     for expr in symbol_list
-        if expr[1] == Symbol("synth-fun")
+        if expr.car == Symbol("synth-fun")
             return parse_synth_fun(expr)
         end
     end
@@ -39,8 +36,8 @@ end
 Parses a SyGuS file for all examples and returns them, wrapped in a [`HerbSpecification.Problem`](@ref)
 """
 function parse_sygus_problem(filename::AbstractString)::Problem
-    symbol_list = SExpressions.Parser.parsefile(filename)
-    examples::Vector{Example} = Vector{Example}()
+    symbol_list = SExpressionParser.parsefile(filename)
+    examples::Vector{IOExample} = Vector{IOExample}()
 
     for expr in symbol_list
         if expr[1] == Symbol("constraint") && expr[2][1] == :(=)
@@ -51,20 +48,20 @@ function parse_sygus_problem(filename::AbstractString)::Problem
 end
 
 """
-    parse_synth_fun(sexpr::SExpressions.Lists.Cons)::AbstractGrammar
+    parse_synth_fun(sexpr::SExpressionParser.Cons)::AbstractGrammar
 
-Parses a SyGuS grammar that are named `synth_fun` within SyGuS. Takes the S-Expression of the grammar and returns a [`@cfgrammar`](@ref).
+Parses a SyGuS grammar that are named `synth_fun` within SyGuS. Takes the S-Expression of the grammar and returns a [`@csgrammar`](@ref).
 """
-function parse_synth_fun(sexpr::SExpressions.Lists.Cons)::AbstractGrammar
-    return_grammar = deepcopy(@cfgrammar begin end)
+function parse_synth_fun(sexpr::SExpressionParser.Cons)::AbstractGrammar
+    return_grammar = @csgrammar begin end
 
-    if sexpr[1] !== Symbol("synth-fun")
-        throw(ArgumentError("'$(sexpr[1])' is not a 'synth-fun'"))
+    if sexpr.car !== Symbol("synth-fun")
+        throw(ArgumentError("'$(sexpr.car)' is not a 'synth-fun'"))
     end
 
     for rule in sexpr[5]
         for val in rule[3]
-            if typeof(val) == SExpressions.Lists.Cons
+            if typeof(val) == SExpressionParser.Cons || false
                 add_rule!(return_grammar, Meta.parse("$(rule[1]) = $(polish_function_calls(val))"))
             else
                 add_rule!(return_grammar, :($(rule[1]) = $(val)))
@@ -76,25 +73,20 @@ function parse_synth_fun(sexpr::SExpressions.Lists.Cons)::AbstractGrammar
 end
 
 
-function polish_function_calls(in::SExpressions.Lists.Cons)
-    s = "$(in)"
-    s = strip(s, ['(', ')'])
-    s = replace(s, "." => "")
-    parts = split(s)
-    function_name = parts[1]
-    arguments = join(parts[2:end], ", ")
-    new_function_call = "$(function_name)($arguments)"
+function polish_function_calls(in::SExpressionParser.Cons)
+    arguments = join(in[2:length(in)], ", ")
+    new_function_call = "$(in[1])($arguments)"
     return new_function_call
 end
 
 
 """
-    function parse_example_constraint(sexpr::SExpressions.Lists.Cons)
+    function parse_example_constraint(sexpr::SExpressionParser.Cons)
     
 Parses SyGuS example of the form (constraint (= (f arg1 arg2 ...) output)).
 Returns IOExample with inputs named arg1, arg2, ...
 """
-function parse_example_constraint(sexpr::SExpressions.Lists.Cons)
+function parse_example_constraint(sexpr::SExpressionParser.Cons)
    # take the X of (constraint X)
    sexpr = sexpr[2]
    # take Function call and Output of (= FunctionCall Output)
