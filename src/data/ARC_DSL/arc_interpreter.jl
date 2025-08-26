@@ -13,7 +13,7 @@ calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
 Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
 The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
 """
-function interpret(prog, grammar, example)
+function interpret(prog, grammar, example::IOExample)
     interpret(prog, get_relevant_tags(grammar), example.in[:in])
 end
 
