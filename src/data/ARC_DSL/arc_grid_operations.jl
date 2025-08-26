@@ -90,19 +90,14 @@ end
     Substituion of color value `replacee` with new color `replacer`.
 """
 function replace(grid, replacee, replacer)
-    nrows, ncols = size(grid)
-    # TODO: Does it have to be SMatrix?
-    mat = SMatrix{nrows,ncols,UInt8}(grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2))
-    return mat
+    return [grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
 end
 
 """
     Switches color for cells with value `a` and `b`. Other cells remain unchanged.
 """
 function switch(grid, a, b)
-    nrows, ncols = size(grid)
-    mat = SMatrix{nrows,ncols,UInt8}(grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2))
-    return mat
+    return [grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
 end
 
 """

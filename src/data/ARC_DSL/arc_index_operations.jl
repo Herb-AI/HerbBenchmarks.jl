@@ -3,7 +3,7 @@
 """
 function vfrontier(location)
     # 30 is maximum grid size
-    return @SVector [CartesianIndex(i, location[2]) for i in 1:30]
+    return [CartesianIndex(i, location[2]) for i in 1:30]
 end
 
 """
@@ -11,7 +11,7 @@ end
 """
 function hfrontier(location)
     # 30 is maximum grid size
-    return @SVector [CartesianIndex(location[1], i) for i in 1:30]
+    return [CartesianIndex(location[1], i) for i in 1:30]
 end
 
 """

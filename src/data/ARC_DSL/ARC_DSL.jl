@@ -5,8 +5,6 @@ using HerbSpecification
 using HerbGrammar
 using JSON
 
-include("arc_types.jl")
-
 # export Index, IntegerSet, Grid, Indices
 
 include("arc_basic_primitives.jl")

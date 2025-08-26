@@ -1,4 +1,3 @@
-using StaticArrays
 using .ARC_DSL: rot180, replace
 
 @testset verbose = true "Grid operations" begin
@@ -153,7 +152,7 @@ using .ARC_DSL: rot180, replace
     end
     @testset "trim, tophalf, bottomhalf, lefthalf, righthalf" begin
         # trim
-        @test trim(D) == @SMatrix [UInt8(5)]
+        @test trim(D) == [5;;]
         @test trim(G) == [1 1 0; 1 1 2; 0 2 2]
 
         # tophalf and bottomhalf
@@ -193,7 +192,7 @@ using .ARC_DSL: rot180, replace
     end
     @testset "canvas" begin
         @test canvas(3, CartesianIndex(1, 2)) == [3 3]
-        @test canvas(2, CartesianIndex(3, 1)) == fill(2, SMatrix{3,1})
+        @test canvas(2, CartesianIndex(3, 1)) == fill(2, 3, 1)
         @test canvas(7, CartesianIndex(3, 3)) == [7 7 7; 7 7 7; 7 7 7]
     end
     @testset "index" begin
