@@ -3,6 +3,7 @@ module ARC_DSL
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using Herb.HerbInterpret
 using JSON
 
 # export Index, IntegerSet, Grid, Indices

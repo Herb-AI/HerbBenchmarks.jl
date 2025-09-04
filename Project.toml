@@ -6,6 +6,7 @@ version = "0.2.3"
 [deps]
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 FilePathsBase = "48062228-2e41-5def-b9a4-89aafe57970f"
+Herb = "c09c6b7f-4f63-49de-90d9-97a3563c0f4a"
 HerbCore = "2b23ba43-8213-43cb-b5ea-38c12b45bd45"
 HerbGrammar = "4ef9e186-2fe5-4b24-8de7-9f7291f24af7"
 HerbSpecification = "6d54aada-062f-46d8-85cf-a1ceaf058a06"

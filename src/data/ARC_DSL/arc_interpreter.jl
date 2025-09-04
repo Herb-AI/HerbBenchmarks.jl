@@ -1,7 +1,7 @@
 # interpret function
 
 """
-    interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
+    HerbInterpret.interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
 
 Interprets a program (in form of an AbstractRuleNode) on a given grammar and `IOExample`. 
 Serves as an entry point that prepares the necessary grammar tags and initial state before 
@@ -13,11 +13,11 @@ calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
 Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
 The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
 """
-function interpret(prog, grammar, example::IOExample)
+function HerbInterpret.interpret(prog, grammar, example::IOExample)
     interpret(prog, get_relevant_tags(grammar), example.in[:in])
 end
 
-function interpret(prog, grammartags, state) # state => matrix (can state be more than one thing?)
+function HerbInterpret.interpret(prog, grammartags, state) # state => matrix (can state be more than one thing?)
     rule_node = get_rule(prog)
 
     @match grammartags[rule_node] begin

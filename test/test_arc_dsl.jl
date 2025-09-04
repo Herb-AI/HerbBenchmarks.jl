@@ -5,5 +5,5 @@ using HerbBenchmarks.ARC_DSL
     include("test_arc_basic_primitives.jl")
     include("test_arc_grid_operations.jl")
     include("test_arc_index_operations.jl")
-    include("test_arc_grid_operations_interpret.jl")
+    include("test_arc_interpret.jl")
 end
