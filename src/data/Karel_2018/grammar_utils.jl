@@ -230,44 +230,44 @@ function put_marker!(state::KarelState)::Bool
     return true
 end
 
+# helper: rotate a direction without mutating the hero
+@inline turned(dir::Direction, δ::Int) = Direction(mod1(Int(dir) + δ, 4))
+
+# pure vector lookup
+@inline facevec(dir::Direction) = DIRECTION_TO_VECTOR[dir]
+
 """
     front_is_clear(state::KarelState)::Bool
 
 Check if the space in front of the hero is clear.
 """
 function front_is_clear(state::KarelState)::Bool
-    facing = DIRECTION_TO_VECTOR[state.hero.direction]
-    next_x = state.hero.position[1] + facing[1]
-    next_y = state.hero.position[2] + facing[2]
-    return !state.world[next_y, next_x]
+    dx, dy = facevec(state.hero.direction)
+    x, y = state.hero.position
+    return !state.world[y + dy, x + dx]
 end
-
 """
     left_is_clear(state::KarelState)::Bool
 
 Check if the space to the left of the hero is clear.
 """
 function left_is_clear(state::KarelState)::Bool
-    left_hero = turn_left(state.hero)
-    facing = DIRECTION_TO_VECTOR[left_hero.direction]
-    next_x = left_hero.position[1] + facing[1]
-    next_y = left_hero.position[2] + facing[2]
-    return !state.world[next_y, next_x]
+    dir = turned(state.hero.direction, -1)  # 90° CCW
+    dx, dy = facevec(dir)
+    x, y = state.hero.position
+    return !state.world[y + dy, x + dx]
 end
-
 """
     right_is_clear(state::KarelState)::Bool
 
 Check if the space to the right of the hero is clear.
 """
 function right_is_clear(state::KarelState)::Bool
-    right_hero = turn_right(state.hero)
-    facing = DIRECTION_TO_VECTOR[right_hero.direction]
-    next_x = right_hero.position[1] + facing[1]
-    next_y = right_hero.position[2] + facing[2]
-    return !state.world[next_y, next_x]
+    dir = turned(state.hero.direction, +1)  # 90° CW
+    dx, dy = facevec(dir)
+    x, y = state.hero.position
+    return !state.world[y + dy, x + dx]
 end
-
 """
     markers_present(state::KarelState)::Bool
 
