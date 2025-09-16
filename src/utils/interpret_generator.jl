@@ -31,14 +31,14 @@ function build_match_cases(grammar::ContextSensitiveGrammar)
         if r isa Expr && r.head == :call
             fname = r.args[1]
             nargs = length(r.args) - 1
-            args = [:(interpret_sygus(c[$i], grammar_tags)) for i in 1:nargs]
+            args = [:(interpret(c[$i], grammar_tags)) for i in 1:nargs]
             # push!(cases, :($tag => $fname($(args...))))
             push!(cases, :( $(QuoteNode(tag)) => $fname($(args...)) ))
         elseif r isa Expr && r.head == :if
-            push!(cases, :( :IF => interpret_sygus(c[1], grammar_tags) ? interpret_sygus(c[2], grammar_tags) : interpret_sygus(c[3], grammar_tags) ))
+            push!(cases, :( :IF => interpret(c[1], grammar_tags) ? interpret(c[2], grammar_tags) : interpret(c[3], grammar_tags) ))
         elseif tag isa Symbol && tag in (:+, :-, :(==))
-            lhs = :(interpret_sygus(c[1], grammar_tags))
-            rhs = :(interpret_sygus(c[2], grammar_tags))
+            lhs = :(interpret(c[1], grammar_tags))
+            rhs = :(interpret(c[2], grammar_tags))
             op_expr = Expr(:call, tag, lhs, rhs)
             push!(cases, :($tag => $op_expr))
         end
