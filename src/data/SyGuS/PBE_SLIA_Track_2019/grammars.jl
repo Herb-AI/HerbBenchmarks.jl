@@ -2994,7 +2994,7 @@ grammar_11440431 = @cfgrammar begin
 end
 grammar_bikes_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3020,7 +3020,7 @@ grammar_bikes_long_repeat = @cfgrammar begin
 end
 grammar_bikes_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3046,7 +3046,7 @@ grammar_bikes_long = @cfgrammar begin
 end
 grammar_bikes = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3072,7 +3072,7 @@ grammar_bikes = @cfgrammar begin
 end
 grammar_bikes_small = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3094,7 +3094,7 @@ grammar_bikes_small = @cfgrammar begin
 end
 grammar_dr_name_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "."
     ntString = "Dr."
@@ -3121,7 +3121,7 @@ grammar_dr_name_long_repeat = @cfgrammar begin
 end
 grammar_dr_name_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "."
     ntString = "Dr."
@@ -3148,7 +3148,7 @@ grammar_dr_name_long = @cfgrammar begin
 end
 grammar_dr_name = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "."
     ntString = "Dr."
@@ -3173,7 +3173,7 @@ grammar_dr_name = @cfgrammar begin
 end
 grammar_dr_name_small = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "."
     ntString = "Dr."
@@ -3195,7 +3195,7 @@ grammar_dr_name_small = @cfgrammar begin
 end
 grammar_firstname_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3218,7 +3218,7 @@ grammar_firstname_long_repeat = @cfgrammar begin
 end
 grammar_firstname_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3241,7 +3241,7 @@ grammar_firstname_long = @cfgrammar begin
 end
 grammar_firstname = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3264,7 +3264,7 @@ grammar_firstname = @cfgrammar begin
 end
 grammar_firstname_small = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3284,7 +3284,7 @@ grammar_firstname_small = @cfgrammar begin
 end
 grammar_initials_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3308,7 +3308,7 @@ grammar_initials_long_repeat = @cfgrammar begin
 end
 grammar_initials_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3332,7 +3332,7 @@ grammar_initials_long = @cfgrammar begin
 end
 grammar_initials = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3356,7 +3356,7 @@ grammar_initials = @cfgrammar begin
 end
 grammar_initials_small = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3377,7 +3377,7 @@ grammar_initials_small = @cfgrammar begin
 end
 grammar_lastname_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3399,7 +3399,7 @@ grammar_lastname_long_repeat = @cfgrammar begin
 end
 grammar_lastname_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3421,7 +3421,7 @@ grammar_lastname_long = @cfgrammar begin
 end
 grammar_lastname = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3443,7 +3443,7 @@ grammar_lastname = @cfgrammar begin
 end
 grammar_lastname_small = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3462,8 +3462,8 @@ grammar_lastname_small = @cfgrammar begin
 end
 grammar_name_combine_2_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3487,8 +3487,8 @@ grammar_name_combine_2_long_repeat = @cfgrammar begin
 end
 grammar_name_combine_2_long = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3512,8 +3512,8 @@ grammar_name_combine_2_long = @cfgrammar begin
 end
 grammar_name_combine_2 = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3534,8 +3534,8 @@ grammar_name_combine_2 = @cfgrammar begin
 end
 grammar_name_combine_2_short = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3559,8 +3559,8 @@ grammar_name_combine_2_short = @cfgrammar begin
 end
 grammar_name_combine_3_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3584,8 +3584,8 @@ grammar_name_combine_3_long_repeat = @cfgrammar begin
 end
 grammar_name_combine_3_long = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3609,8 +3609,8 @@ grammar_name_combine_3_long = @cfgrammar begin
 end
 grammar_name_combine_3 = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3634,8 +3634,8 @@ grammar_name_combine_3 = @cfgrammar begin
 end
 grammar_name_combine_3_short = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = "."
     ntString = concat_cvc(ntString, ntString)
@@ -3655,8 +3655,8 @@ grammar_name_combine_3_short = @cfgrammar begin
 end
 grammar_name_combine_4_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = ","
     ntString = " "
     ntString = "."
@@ -3681,8 +3681,8 @@ grammar_name_combine_4_long_repeat = @cfgrammar begin
 end
 grammar_name_combine_4_long = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = ","
     ntString = " "
     ntString = "."
@@ -3707,8 +3707,8 @@ grammar_name_combine_4_long = @cfgrammar begin
 end
 grammar_name_combine_4 = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = ","
     ntString = " "
     ntString = "."
@@ -3733,8 +3733,8 @@ grammar_name_combine_4 = @cfgrammar begin
 end
 grammar_name_combine_4_short = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = ","
     ntString = " "
     ntString = "."
@@ -3756,8 +3756,8 @@ grammar_name_combine_4_short = @cfgrammar begin
 end
 grammar_name_combine_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3780,8 +3780,8 @@ grammar_name_combine_long_repeat = @cfgrammar begin
 end
 grammar_name_combine_long = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3804,8 +3804,8 @@ grammar_name_combine_long = @cfgrammar begin
 end
 grammar_name_combine = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3828,8 +3828,8 @@ grammar_name_combine = @cfgrammar begin
 end
 grammar_name_combine_short = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3849,7 +3849,7 @@ grammar_name_combine_short = @cfgrammar begin
 end
 grammar_phone_1_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3875,7 +3875,7 @@ grammar_phone_1_long_repeat = @cfgrammar begin
 end
 grammar_phone_1_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3901,7 +3901,7 @@ grammar_phone_1_long = @cfgrammar begin
 end
 grammar_phone_1 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -3927,7 +3927,7 @@ grammar_phone_1 = @cfgrammar begin
 end
 grammar_phone_10_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -3958,7 +3958,7 @@ grammar_phone_10_long_repeat = @cfgrammar begin
 end
 grammar_phone_10_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -3989,7 +3989,7 @@ grammar_phone_10_long = @cfgrammar begin
 end
 grammar_phone_10 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4020,7 +4020,7 @@ grammar_phone_10 = @cfgrammar begin
 end
 grammar_phone_10_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4049,7 +4049,7 @@ grammar_phone_10_short = @cfgrammar begin
 end
 grammar_phone_1_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -4073,7 +4073,7 @@ grammar_phone_1_short = @cfgrammar begin
 end
 grammar_phone_2_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -4099,7 +4099,7 @@ grammar_phone_2_long_repeat = @cfgrammar begin
 end
 grammar_phone_2_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -4125,7 +4125,7 @@ grammar_phone_2_long = @cfgrammar begin
 end
 grammar_phone_2 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -4151,7 +4151,7 @@ grammar_phone_2 = @cfgrammar begin
 end
 grammar_phone_2_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -4174,7 +4174,7 @@ grammar_phone_2_short = @cfgrammar begin
 end
 grammar_phone_3_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "("
     ntString = ")"
@@ -4203,7 +4203,7 @@ grammar_phone_3_long_repeat = @cfgrammar begin
 end
 grammar_phone_3_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "("
     ntString = ")"
@@ -4232,7 +4232,7 @@ grammar_phone_3_long = @cfgrammar begin
 end
 grammar_phone_3 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "("
     ntString = ")"
@@ -4261,7 +4261,7 @@ grammar_phone_3 = @cfgrammar begin
 end
 grammar_phone_3_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "("
     ntString = ")"
@@ -4287,7 +4287,7 @@ grammar_phone_3_short = @cfgrammar begin
 end
 grammar_phone_4_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "("
     ntString = ")"
@@ -4317,7 +4317,7 @@ grammar_phone_4_long_repeat = @cfgrammar begin
 end
 grammar_phone_4_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "("
     ntString = ")"
@@ -4347,7 +4347,7 @@ grammar_phone_4_long = @cfgrammar begin
 end
 grammar_phone_4 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "("
     ntString = ")"
@@ -4377,7 +4377,7 @@ grammar_phone_4 = @cfgrammar begin
 end
 grammar_phone_4_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "("
     ntString = ")"
@@ -4405,7 +4405,7 @@ grammar_phone_4_short = @cfgrammar begin
 end
 grammar_phone_5_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4434,7 +4434,7 @@ grammar_phone_5_long_repeat = @cfgrammar begin
 end
 grammar_phone_5_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4463,7 +4463,7 @@ grammar_phone_5_long = @cfgrammar begin
 end
 grammar_phone_5 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4492,7 +4492,7 @@ grammar_phone_5 = @cfgrammar begin
 end
 grammar_phone_5_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4518,7 +4518,7 @@ grammar_phone_5_short = @cfgrammar begin
 end
 grammar_phone_6_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4547,7 +4547,7 @@ grammar_phone_6_long_repeat = @cfgrammar begin
 end
 grammar_phone_6_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4576,7 +4576,7 @@ grammar_phone_6_long = @cfgrammar begin
 end
 grammar_phone_6 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4605,7 +4605,7 @@ grammar_phone_6 = @cfgrammar begin
 end
 grammar_phone_6_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4632,7 +4632,7 @@ grammar_phone_6_short = @cfgrammar begin
 end
 grammar_phone_7_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4661,7 +4661,7 @@ grammar_phone_7_long_repeat = @cfgrammar begin
 end
 grammar_phone_7_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4690,7 +4690,7 @@ grammar_phone_7_long = @cfgrammar begin
 end
 grammar_phone_7 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4719,7 +4719,7 @@ grammar_phone_7 = @cfgrammar begin
 end
 grammar_phone_7_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4746,7 +4746,7 @@ grammar_phone_7_short = @cfgrammar begin
 end
 grammar_phone_8_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4775,7 +4775,7 @@ grammar_phone_8_long_repeat = @cfgrammar begin
 end
 grammar_phone_8_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4804,7 +4804,7 @@ grammar_phone_8_long = @cfgrammar begin
 end
 grammar_phone_8 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4833,7 +4833,7 @@ grammar_phone_8 = @cfgrammar begin
 end
 grammar_phone_8_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4858,7 +4858,7 @@ grammar_phone_8_short = @cfgrammar begin
 end
 grammar_phone_9_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4887,7 +4887,7 @@ grammar_phone_9_long_repeat = @cfgrammar begin
 end
 grammar_phone_9_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4916,7 +4916,7 @@ grammar_phone_9_long = @cfgrammar begin
 end
 grammar_phone_9 = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4945,7 +4945,7 @@ grammar_phone_9 = @cfgrammar begin
 end
 grammar_phone_9_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = "+"
     ntString = "-"
@@ -4972,7 +4972,7 @@ grammar_phone_9_short = @cfgrammar begin
 end
 grammar_phone_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -4998,7 +4998,7 @@ grammar_phone_long_repeat = @cfgrammar begin
 end
 grammar_phone_long = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -5024,7 +5024,7 @@ grammar_phone_long = @cfgrammar begin
 end
 grammar_phone = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -5050,7 +5050,7 @@ grammar_phone = @cfgrammar begin
 end
 grammar_phone_short = @cfgrammar begin
     Start = ntString
-    ntString = name
+    ntString = _arg_1
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -5072,8 +5072,8 @@ grammar_phone_short = @cfgrammar begin
 end
 grammar_reverse_name_long_repeat = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -5096,8 +5096,8 @@ grammar_reverse_name_long_repeat = @cfgrammar begin
 end
 grammar_reverse_name_long = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -5120,8 +5120,8 @@ grammar_reverse_name_long = @cfgrammar begin
 end
 grammar_reverse_name = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
@@ -5144,8 +5144,8 @@ grammar_reverse_name = @cfgrammar begin
 end
 grammar_reverse_name_short = @cfgrammar begin
     Start = ntString
-    ntString = firstname
-    ntString = lastname
+    ntString = _arg_1
+    ntString = _arg_2
     ntString = " "
     ntString = concat_cvc(ntString, ntString)
     ntString = replace_cvc(ntString, ntString, ntString)
