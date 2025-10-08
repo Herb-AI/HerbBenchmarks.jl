@@ -1,4 +1,4 @@
-using .ARC_DSL: rot180, replace
+using .Abstract_Reasoning_2019.ARC_Hodel: rot180, replace
 
 @testset verbose = true "Grid operations" begin
     A = [1 0; 0 1; 1 0]

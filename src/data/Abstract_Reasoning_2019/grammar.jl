@@ -1,4 +1,4 @@
-grammar_arc = @cfgrammar begin
+grammar_tilman = @cfgrammar begin
     Start = (state = Grid; returnState(state))
     InputGrid = initState(_arg_1)
     Return = returnState(state)
@@ -15,4 +15,14 @@ grammar_arc = @cfgrammar begin
     Grid = select_and_paste(Grid, Pos, Pos, Pos, Pos, Pos, Pos)
     Grid = select_and_paste(InputGrid, Pos, Pos, Pos, Pos, Grid, Pos, Pos)
     Grid = floodfill(Grid, Pos, Pos, Color)
+end
+
+grammar_hodel = @csgrammar begin
+    Start = Sequence
+    # Start = Grid # needs to be a grid
+    # Grid = Sequence
+    Sequence = Operation
+    Sequence = (Operation; Sequence)
+    Operation = Transformation # grid -> grid
+    Transformation = vMirror() | hMirror() | hConcat() | vConcat() # concats have two arguments => indicate
 end

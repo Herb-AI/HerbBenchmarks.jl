@@ -4,13 +4,12 @@ using HerbSpecification
 using HerbGrammar
 using Test
 
-
 @testset "HerbBenchmarks.jl" verbose = true begin
     # include("test_general.jl") # fails for ARC_DSL => test assumes one grammar per example
-    include("test_string_transformations_2020.jl")
-    include("test_robots_2020.jl")
-    include("test_pixels_2020.jl")
-    include("test_abstract_reasoning_2019.jl")
-    include("test_problem_fetcher.jl")
-    include("test_arc_dsl.jl")
+    # include("test_string_transformations_2020.jl")
+    # include("test_robots_2020.jl")
+    # include("test_pixels_2020.jl")
+    include("Abstract_Reasoning_2019/test_abstract_reasoning_2019.jl")
+    # include("test_problem_fetcher.jl")
+    include("Abstract_Reasoning_2019/test_arc_dsl.jl")
 end

@@ -1,3 +1,5 @@
+using .Abstract_Reasoning_2019.ARC_Hodel
+
 @testset verbose = true "Basic operators" begin
     @testset "Numerical" begin
         @testset "add" begin
@@ -45,11 +47,9 @@
             @test invert(CartesianIndex(-1, 9)) == CartesianIndex(1, -9)
         end
         @testset "double and halve" begin
-            # double
             @test double(1) == 2
             @test double(CartesianIndex(2, 3)) == CartesianIndex(4, 6)
 
-            # halve
             @test halve(2) == 1
             @test halve(5) == 2
             @test halve(CartesianIndex(10, 9)) == CartesianIndex(5, 4)
@@ -75,14 +75,12 @@
 
     @testset "Integer" begin
         @testset "even, greater, positive" begin
-            # even
             @test even(1) == false
             @test even(2) == true
-            # greater
+
             @test greater(2, 1) == true
             @test greater(4, 10) == false
 
-            # positive
             @test positive(1) == true
             @test positive(0) == false
             @test positive(-2) == false
