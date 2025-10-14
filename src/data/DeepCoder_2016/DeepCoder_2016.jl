@@ -6,36 +6,89 @@ using HerbGrammar
 
 using JSON
 
-include("deepcoder_primitives.jl")
 include("data.jl")
-include("grammar.jl")
+include("base_grammar.jl")
+include("grammars.jl")
+
+include("list_functions.jl")
 
 export 
-    parse_deepcoder_problem
-
+    parse_deepcoder_problem_and_grammar
+    base_grammar_deepcoder
 
 """
-    parse_deepcoder_problem(filename::AbstractString)::Problem
-    Parses a DeepCoder problem from a file.
+    parse_deepcoder_problem(filename::AbstractString, base_grammar::AbstractGrammar)::Problem
+    Parses a DeepCoder problem from a file given a base grammar.
 """
-function parse_deepcoder_problem(filename::AbstractString)::Problem
+function parse_deepcoder_problem_and_grammar(filename::AbstractString,
+                                             base_grammar::AbstractGrammar)
     raw = JSON.Parser.parsefile(filename)
-    examples::Vector{IOExample} = Vector{IOExample}()
 
-    for ex ∈ raw["examples"]
-        input = Dict{Symbol, Any}(:_arg_1 => ex["input"])
-        output = ex["output"]
-        push!(examples, IOExample(input, output))
+    examples = IOExample[]
+    for ex in raw["examples"]
+        args = split_inputs(ex["input"])
+        out  = normalize_value(ex["output"])
+        push!(examples, IOExample(args, out))
     end
 
-    # Extract numeric ID from filename and pad it to 3 digits
     number = match(r"\d+", raw["name"])
-    if number === nothing
-        error("Could not extract problem number from filename: $filename")
-    end
+    number === nothing && error("Could not extract problem number from: $filename")
     problem_name = "problem_" * lpad(number.match, 3, '0')
+    problem = Problem(problem_name, examples)
 
-    return Problem(problem_name, examples)
+    # infer from first example (DeepCoder tasks are consistent)
+    sig = infer_signature(examples[1].input)
+    start_nt = infer_output_nt(examples[1].output)
+
+    # combine base + extras
+    g = deepcopy(base_grammar)
+    add_extras!(g, sig, start_nt)
+
+    return problem, g
 end
+
+
+function split_inputs(raw_in)::Dict{Symbol,Any}
+    @assert raw_in isa Vector "DeepCoder 'input' must be an array"
+    n = length(raw_in)
+    @assert 1 <= n <= 2 "Expected 1 or 2 inputs, got $n"
+    
+    tojl(v) = v isa Vector ? map(Int, v) : Int(v)
+    
+    args = Dict{Symbol,Any}()
+    args[:_arg_1] = tojl(raw_in[1])
+    if n == 2
+        args[:_arg_2] = tojl(raw_in[2])
+    end
+    return args
+end
+
+function infer_signature(args::Dict{Symbol,Any})::Dict{Symbol,Symbol}
+    sig = Dict{Symbol,Symbol}()
+    for (k, v) in args
+        if v isa AbstractVector{<:Integer}
+            sig[k] = :ExprArr
+        elseif v isa Integer
+            sig[k] = :ExprNum
+        else
+            error("Unsupported input type for $(k): $(typeof(v))")
+        end
+    end
+    sig
+end
+
+function add_extras!(g::AbstractGrammar, sig::Dict{Symbol,Symbol}, start_nt::Symbol)
+    addrule!(g, :Start, start_nt)
+    for (arg, nt) in sig
+        addrule!(g, nt, Symbol(arg))
+    end
+    g
+end
+
+infer_output_nt(out)::Symbol =  out isa AbstractVector{<:Integer} ? :ExprArr :
+                                out isa Integer                     ? :ExprNum :
+                                error("Unsupported output type: $(typeof(out))")
+                                
+normalize_value(x) = x isa Vector ? map(v -> Int(v), x) : Int(x)
 
 end # module DeepCoder_2016
