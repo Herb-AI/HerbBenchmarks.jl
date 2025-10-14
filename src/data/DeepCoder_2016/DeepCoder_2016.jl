@@ -37,8 +37,8 @@ function parse_deepcoder_problem_and_grammar(filename::AbstractString,
     problem = Problem(problem_name, examples)
 
     # infer from first example (DeepCoder tasks are consistent)
-    sig = infer_signature(examples[1].input)
-    start_nt = infer_output_nt(examples[1].output)
+    sig = infer_signature(examples[1].in)
+    start_nt = infer_output_nt(examples[1].out)
 
     # combine base + extras
     g = deepcopy(base_grammar)
@@ -46,7 +46,6 @@ function parse_deepcoder_problem_and_grammar(filename::AbstractString,
 
     return problem, g
 end
-
 
 function split_inputs(raw_in)::Dict{Symbol,Any}
     @assert raw_in isa Vector "DeepCoder 'input' must be an array"
@@ -78,17 +77,19 @@ function infer_signature(args::Dict{Symbol,Any})::Dict{Symbol,Symbol}
 end
 
 function add_extras!(g::AbstractGrammar, sig::Dict{Symbol,Symbol}, start_nt::Symbol)
-    addrule!(g, :Start, start_nt)
+    add_rule!(g, make_sym_rule(:Start, start_nt))
     for (arg, nt) in sig
-        addrule!(g, nt, Symbol(arg))
+        add_rule!(g, make_sym_rule(nt, Symbol(arg)))
     end
     g
 end
 
-infer_output_nt(out)::Symbol =  out isa AbstractVector{<:Integer} ? :ExprArr :
+infer_output_nt(out)::Symbol =  out isa AbstractVector{<:Any} ? :ExprArr :
                                 out isa Integer                     ? :ExprNum :
-                                error("Unsupported output type: $(typeof(out))")
+                                error("Unsupported output type: $(typeof(out)): $out")
                                 
 normalize_value(x) = x isa Vector ? map(v -> Int(v), x) : Int(x)
+
+make_sym_rule(lhs::Symbol, rhs::Symbol)::Expr = Expr(:(=), lhs, QuoteNode(rhs))
 
 end # module DeepCoder_2016
