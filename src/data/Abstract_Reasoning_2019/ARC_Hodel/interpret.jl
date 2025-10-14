@@ -27,41 +27,5 @@ function HerbInterpret.interpret(prog, grammartags, state) # state => matrix (ca
         :hConcat => hconcat(interpret(prog.children[1], grammartags, state), state)
         :vConcat => vconcat(state)
         _ => interpret(prog.children[1], grammartags, state)
-
-        # :moveRight => moveright(state)
-        # :IF => interpret(prog.children[1], grammartags, state) ? interpret(prog.children[2], grammartags, state) : interpret(prog.children[3], grammartags, state)
-        # :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state)
     end
 end
-
-
-# TODO: get_grammar_tags
-
-"""
-Gets relevant symbol to easily match grammar rules to operations in `interpret` function
-"""
-function get_relevant_tags(grammar::ContextSensitiveGrammar)
-    tags = Dict{Int,Symbol}()
-    for (ind, r) in pairs(grammar.rules)
-        tags[ind] = if typeof(r) == Symbol
-            r
-        else
-            @match r.head begin
-                :block => :OpSeq
-                :call => r.args[1]
-            end
-        end
-    end
-    return tags
-end
-
-# implementation of primitives 
-
-# function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol}, state::PixelState, max_steps::Int=1000)
-#     counter = max_steps
-#     while interpret(condition, grammartags, state) && counter > 0
-#         state = interpret(body, grammartags, state)
-#         counter -= 1
-#     end
-#     state
-# end

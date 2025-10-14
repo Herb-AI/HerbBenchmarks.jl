@@ -54,24 +54,6 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
     end
 end
 
-"""
-Gets relevant symbol to easily match grammar rules to operations in `interpret` function
-"""
-function get_relevant_tags(grammar::ContextSensitiveGrammar)
-    tags = Dict{Int,Symbol}()
-    for (ind, r) in pairs(grammar.rules)
-        tags[ind] = if typeof(r) == Symbol
-            r
-        else
-            @match r.head begin
-                :block => :OpSeq
-                :call => r.args[1]
-            end
-        end
-    end
-    return tags
-end
-
 can_pickup(state::RobotState) = state.holds_ball == 0 && state.robot_x == state.ball_x && state.robot_y == state.ball_y
 
 """

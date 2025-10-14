@@ -23,6 +23,7 @@ end
 #include("utils/benchmark_generator.jl")
 include("utils/benchmarks_io.jl")
 include("utils/problem_fetcher.jl")
+include("utils/grammar_tags.jl")
 
 # Include data types
 include("datatypes/problem_grammar_pair.jl")
@@ -39,6 +40,7 @@ export
     parse_to_julia,
     append_cfgrammar,
     enumerate_problem_files,
+    get_relevant_tags,
 
     # Problem fetcher
     get_all_benchmarks,

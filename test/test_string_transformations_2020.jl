@@ -32,7 +32,7 @@ prim_isNotNumber = RuleNode(24, [])
 prim_isSpace = RuleNode(25, [])
 prim_isNotSpace = RuleNode(26, [])
 
-tags = String_transformations_2020.get_relevant_tags(grammar_string)
+tags = get_relevant_tags(grammar_string)
 
 @testset verbose = true "String_transformations_2020" begin
     @testset verbose = true "General tests" begin

@@ -53,24 +53,6 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
 end
 
 """
-Gets relevant symbol to easily match grammar rules to operations in `interpret` function
-"""
-function get_relevant_tags(grammar::ContextSensitiveGrammar)
-    tags = Dict{Int,Symbol}()
-    for (ind, r) in pairs(grammar.rules)
-        tags[ind] = if typeof(r) == Symbol
-            r
-        else
-            @match r.head begin
-                :block => :OpSeq
-                :call => r.args[1]
-            end
-        end
-    end
-    return tags
-end
-
-"""
 Custom implementation of a while loop with a condition and a body. 
 
 Loop is terminated either when condition is false or when `max_steps` is reached.

@@ -16,7 +16,7 @@ prim_notAtLeft = RuleNode(20, [])
 prim_notAtRight = RuleNode(21, [])
 
 
-tags = Pixels_2020.get_relevant_tags(grammar_pixels)
+tags = get_relevant_tags(grammar_pixels)
 
 function emptymatrix()
     return PixelState(Bool[0 0 0; 0 0 0; 0 0 0])
