@@ -1,4 +1,4 @@
-using .Abstract_Reasoning_2019.ARC_Hodel
+using HerbBenchmarks.Abstract_Reasoning_2019.ARC_Hodel
 
 @testset verbose = true "index operations" begin
     @testset "vfrontier, hfrontier" begin

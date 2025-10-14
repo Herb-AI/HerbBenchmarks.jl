@@ -1,4 +1,5 @@
-using .Abstract_Reasoning_2019.ARC_Tilman
+using HerbBenchmarks.Abstract_Reasoning_2019.ARC_Tilman
+
 
 @testset "Abstract_Reasoning_2019" begin
     @testset "Initialize and resize grid" begin

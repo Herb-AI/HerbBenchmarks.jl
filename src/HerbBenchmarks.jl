@@ -8,13 +8,13 @@ include("export_module.jl")
 include("utils/SExpressionParser.jl")
 
 # Iterate over directories in `/data/` and include all available files
-for (root, dirs, files) in walkdir(dirname(@__FILE__)*"/data/")
+for (root, dirs, files) in walkdir(dirname(@__FILE__) * "/data/")
     for f in files
         # Check if module name starts with capital letter (formerly also <year>.jl)
         # if occursin(r"^[A-Z].*\d{4}\.jl$", f)
         if occursin(r"^[A-Z].*\.jl$", f)
             include(joinpath(root, f))
-            @eval @make_public $(Symbol(f[1:(findfirst('.', f)-1)]))
+            @eval @make_public_rec $(Symbol(f[1:(findfirst('.', f)-1)]))
         end
     end
 end
@@ -28,7 +28,7 @@ include("utils/problem_fetcher.jl")
 include("datatypes/problem_grammar_pair.jl")
 include("datatypes/benchmark.jl")
 
-export 
+export
     # Data types
     ProblemGrammarPair,
     Benchmark,
@@ -39,7 +39,7 @@ export
     parse_to_julia,
     append_cfgrammar,
     enumerate_problem_files,
-    
+
     # Problem fetcher
     get_all_benchmarks,
     get_benchmark,
@@ -50,7 +50,6 @@ export
     get_problem,
     get_grammar,
     get_default_grammar,
-
     make_public,
     make_public_rec,
     get_submodules

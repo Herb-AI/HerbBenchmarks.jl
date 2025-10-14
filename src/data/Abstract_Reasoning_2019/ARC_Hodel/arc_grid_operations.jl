@@ -15,21 +15,21 @@ end
 """
     Rotates grid by 90 degrees clockwise
 """
-function rot90(grid)
+function rot90deg(grid)
     return rotr90(grid, 1)
 end
 
 """
     Rotates grid by 180 degrees
 """
-function rot180(grid)
+function rot180deg(grid)
     return Base.rot180(grid)
 end
 
 """
     Rotates grid by 270 degrees (left-rotate by 90 degrees)
 """
-function rot270(grid)
+function rot270deg(grid)
     return Base.rotl90(grid)
 end
 

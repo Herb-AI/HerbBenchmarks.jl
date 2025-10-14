@@ -31,7 +31,7 @@ macro make_public(module_name::Symbol)
     as_module = eval(module_name)
     @assert as_module isa Module
 
-    for name in names(as_module; all = true)
+    for name in names(as_module; all=true)
         if (string(name)[1] != '#')
             # println("export " * string(name))
             if !(string(name) == "eval" || string(name) == "include")
@@ -73,18 +73,18 @@ See also: @make_public
 """
 macro make_public_rec(module_name::Symbol)
 
-    function make_public_aux(child_name::Symbol, super::Module) ::Nothing
+    function make_public_aux(child_name::Symbol, super::Module)::Nothing
 
         if (string(child_name)[1] != '#')
             #println("export " * string(child_name))
-            if !(name == "eval" || name == "include")
+            if !(child_name == "eval" || child_name == "include")
                 super.eval(Meta.parse("export " * string(child_name)))
             end
         end
 
         child = super.eval(child_name)
         if (child isa Module && child != super)
-            for name in names(child; all = true)
+            for name in names(child; all=true)
                 make_public_aux(name, child)
             end
         end
@@ -95,7 +95,7 @@ macro make_public_rec(module_name::Symbol)
     origin = eval(module_name)
     @assert origin isa Module
 
-    for name in names(origin; all = true)
+    for name in names(origin; all=true)
         make_public_aux(name, origin)
     end
 
@@ -108,7 +108,7 @@ export make_public_rec
 """
 function get_submodules(mod::Module)
     submodules = []
-    for name in names(mod, all = true)
+    for name in names(mod, all=true)
         try
             item = getfield(mod, name)
             if isa(item, Module) && item !== mod
