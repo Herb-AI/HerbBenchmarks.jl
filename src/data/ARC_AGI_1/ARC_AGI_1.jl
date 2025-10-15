@@ -1,4 +1,4 @@
-module Abstract_Reasoning_2019
+module ARC_AGI_1
 
 using HerbCore
 using HerbSpecification
@@ -36,4 +36,4 @@ function parse_ARC_data_file(filename::AbstractString)::Problem
     return Problem(examples)
 end
 
-end # module Abstract_Reasoning_2019
+end # module ARC_AGI_1

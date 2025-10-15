@@ -1,7 +1,7 @@
-using HerbBenchmarks.Abstract_Reasoning_2019.ARC_Tilman
+using HerbBenchmarks.ARC_AGI_1.ARC_Tilman
 
 
-@testset "Abstract_Reasoning_2019" begin
+@testset "Abstract_Reasoning_2019: AGI-1" begin
     @testset "Initialize and resize grid" begin
         # Test Grid struct
         mat = [1 2 3; 4 5 6; 7 8 9]

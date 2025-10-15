@@ -1,4 +1,4 @@
-import HerbBenchmarks.Abstract_Reasoning_2019.ARC_Hodel as ARC_Hodel
+import HerbBenchmarks.ARC_AGI_1.ARC_Hodel as ARC_Hodel
 
 @testset verbose = true "Grid operations" begin
     A = [1 0; 0 1; 1 0]

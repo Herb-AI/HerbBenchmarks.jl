@@ -1,4 +1,4 @@
-using HerbBenchmarks.Abstract_Reasoning_2019.ARC_Hodel
+using HerbBenchmarks.ARC_AGI_1.ARC_Hodel
 
 @testset verbose = true "Basic operators" begin
     @testset "Numerical" begin
