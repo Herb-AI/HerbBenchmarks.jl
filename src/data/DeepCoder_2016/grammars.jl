@@ -105,9 +105,9 @@ grammar_000 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_001 = @csgrammar begin
@@ -217,8 +217,8 @@ grammar_001 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_002 = @csgrammar begin
@@ -328,8 +328,8 @@ grammar_002 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_003 = @csgrammar begin
@@ -439,9 +439,9 @@ grammar_003 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_004 = @csgrammar begin
@@ -551,9 +551,9 @@ grammar_004 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_005 = @csgrammar begin
@@ -663,8 +663,8 @@ grammar_005 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_006 = @csgrammar begin
@@ -774,9 +774,9 @@ grammar_006 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_007 = @csgrammar begin
@@ -886,8 +886,8 @@ grammar_007 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_008 = @csgrammar begin
@@ -997,9 +997,9 @@ grammar_008 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprNum
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_009 = @csgrammar begin
@@ -1109,8 +1109,8 @@ grammar_009 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_010 = @csgrammar begin
@@ -1220,9 +1220,9 @@ grammar_010 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_011 = @csgrammar begin
@@ -1332,8 +1332,8 @@ grammar_011 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_012 = @csgrammar begin
@@ -1443,8 +1443,8 @@ grammar_012 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_013 = @csgrammar begin
@@ -1554,8 +1554,8 @@ grammar_013 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_014 = @csgrammar begin
@@ -1665,8 +1665,8 @@ grammar_014 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_015 = @csgrammar begin
@@ -1776,9 +1776,9 @@ grammar_015 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_016 = @csgrammar begin
@@ -1888,9 +1888,9 @@ grammar_016 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_017 = @csgrammar begin
@@ -2000,9 +2000,9 @@ grammar_017 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_018 = @csgrammar begin
@@ -2112,9 +2112,9 @@ grammar_018 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_019 = @csgrammar begin
@@ -2224,9 +2224,9 @@ grammar_019 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_020 = @csgrammar begin
@@ -2336,9 +2336,9 @@ grammar_020 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprNum = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprNum
+    ExprNum = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_021 = @csgrammar begin
@@ -2448,8 +2448,8 @@ grammar_021 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_022 = @csgrammar begin
@@ -2559,8 +2559,8 @@ grammar_022 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_023 = @csgrammar begin
@@ -2670,9 +2670,9 @@ grammar_023 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_024 = @csgrammar begin
@@ -2782,8 +2782,8 @@ grammar_024 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_025 = @csgrammar begin
@@ -2893,8 +2893,8 @@ grammar_025 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_026 = @csgrammar begin
@@ -3004,8 +3004,8 @@ grammar_026 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_027 = @csgrammar begin
@@ -3115,8 +3115,8 @@ grammar_027 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_028 = @csgrammar begin
@@ -3226,9 +3226,9 @@ grammar_028 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprNum
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_029 = @csgrammar begin
@@ -3338,8 +3338,8 @@ grammar_029 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_030 = @csgrammar begin
@@ -3449,8 +3449,8 @@ grammar_030 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_031 = @csgrammar begin
@@ -3560,9 +3560,9 @@ grammar_031 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_032 = @csgrammar begin
@@ -3672,8 +3672,8 @@ grammar_032 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_033 = @csgrammar begin
@@ -3783,9 +3783,9 @@ grammar_033 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_034 = @csgrammar begin
@@ -3895,9 +3895,9 @@ grammar_034 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_035 = @csgrammar begin
@@ -4007,9 +4007,9 @@ grammar_035 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_036 = @csgrammar begin
@@ -4119,9 +4119,9 @@ grammar_036 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_037 = @csgrammar begin
@@ -4231,9 +4231,9 @@ grammar_037 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_038 = @csgrammar begin
@@ -4343,8 +4343,8 @@ grammar_038 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_039 = @csgrammar begin
@@ -4454,9 +4454,9 @@ grammar_039 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_040 = @csgrammar begin
@@ -4566,9 +4566,9 @@ grammar_040 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_041 = @csgrammar begin
@@ -4678,9 +4678,9 @@ grammar_041 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_042 = @csgrammar begin
@@ -4790,8 +4790,8 @@ grammar_042 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_043 = @csgrammar begin
@@ -4901,8 +4901,8 @@ grammar_043 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_044 = @csgrammar begin
@@ -5012,8 +5012,8 @@ grammar_044 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_045 = @csgrammar begin
@@ -5123,9 +5123,9 @@ grammar_045 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_046 = @csgrammar begin
@@ -5235,8 +5235,8 @@ grammar_046 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_047 = @csgrammar begin
@@ -5346,8 +5346,8 @@ grammar_047 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_048 = @csgrammar begin
@@ -5457,9 +5457,9 @@ grammar_048 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_049 = @csgrammar begin
@@ -5569,8 +5569,8 @@ grammar_049 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_050 = @csgrammar begin
@@ -5680,8 +5680,8 @@ grammar_050 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_051 = @csgrammar begin
@@ -5791,9 +5791,9 @@ grammar_051 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprNum = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprNum = _arg_2
 end
 
 grammar_052 = @csgrammar begin
@@ -5903,9 +5903,9 @@ grammar_052 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_053 = @csgrammar begin
@@ -6015,8 +6015,8 @@ grammar_053 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_054 = @csgrammar begin
@@ -6126,9 +6126,9 @@ grammar_054 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_055 = @csgrammar begin
@@ -6238,9 +6238,9 @@ grammar_055 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_056 = @csgrammar begin
@@ -6350,9 +6350,9 @@ grammar_056 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_057 = @csgrammar begin
@@ -6462,9 +6462,9 @@ grammar_057 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprNum
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_058 = @csgrammar begin
@@ -6574,8 +6574,8 @@ grammar_058 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_059 = @csgrammar begin
@@ -6685,8 +6685,8 @@ grammar_059 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_060 = @csgrammar begin
@@ -6796,9 +6796,9 @@ grammar_060 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprNum = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprNum = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_061 = @csgrammar begin
@@ -6908,8 +6908,8 @@ grammar_061 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_062 = @csgrammar begin
@@ -7019,9 +7019,9 @@ grammar_062 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
-    ExprNum = :_arg_2
+    Start = ExprNum
+    ExprArr = _arg_1
+    ExprNum = _arg_2
 end
 
 grammar_063 = @csgrammar begin
@@ -7131,8 +7131,8 @@ grammar_063 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_064 = @csgrammar begin
@@ -7242,9 +7242,9 @@ grammar_064 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_065 = @csgrammar begin
@@ -7354,9 +7354,9 @@ grammar_065 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_066 = @csgrammar begin
@@ -7466,8 +7466,8 @@ grammar_066 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_067 = @csgrammar begin
@@ -7577,8 +7577,8 @@ grammar_067 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_068 = @csgrammar begin
@@ -7688,9 +7688,9 @@ grammar_068 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_069 = @csgrammar begin
@@ -7800,8 +7800,8 @@ grammar_069 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_070 = @csgrammar begin
@@ -7911,9 +7911,9 @@ grammar_070 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_071 = @csgrammar begin
@@ -8023,9 +8023,9 @@ grammar_071 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_072 = @csgrammar begin
@@ -8135,9 +8135,9 @@ grammar_072 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_073 = @csgrammar begin
@@ -8247,9 +8247,9 @@ grammar_073 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_074 = @csgrammar begin
@@ -8359,8 +8359,8 @@ grammar_074 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_075 = @csgrammar begin
@@ -8470,8 +8470,8 @@ grammar_075 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_076 = @csgrammar begin
@@ -8581,8 +8581,8 @@ grammar_076 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_077 = @csgrammar begin
@@ -8692,8 +8692,8 @@ grammar_077 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_078 = @csgrammar begin
@@ -8803,9 +8803,9 @@ grammar_078 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_079 = @csgrammar begin
@@ -8915,8 +8915,8 @@ grammar_079 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_080 = @csgrammar begin
@@ -9026,8 +9026,8 @@ grammar_080 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_081 = @csgrammar begin
@@ -9137,8 +9137,8 @@ grammar_081 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_082 = @csgrammar begin
@@ -9248,8 +9248,8 @@ grammar_082 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_083 = @csgrammar begin
@@ -9359,8 +9359,8 @@ grammar_083 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_084 = @csgrammar begin
@@ -9470,9 +9470,9 @@ grammar_084 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_085 = @csgrammar begin
@@ -9582,8 +9582,8 @@ grammar_085 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_086 = @csgrammar begin
@@ -9693,9 +9693,9 @@ grammar_086 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprNum = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprNum = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_087 = @csgrammar begin
@@ -9805,9 +9805,9 @@ grammar_087 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_088 = @csgrammar begin
@@ -9917,9 +9917,9 @@ grammar_088 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprNum
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_089 = @csgrammar begin
@@ -10029,9 +10029,9 @@ grammar_089 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
-    ExprNum = :_arg_2
+    Start = ExprNum
+    ExprArr = _arg_1
+    ExprNum = _arg_2
 end
 
 grammar_090 = @csgrammar begin
@@ -10141,8 +10141,8 @@ grammar_090 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_091 = @csgrammar begin
@@ -10252,8 +10252,8 @@ grammar_091 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_092 = @csgrammar begin
@@ -10363,9 +10363,9 @@ grammar_092 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprNum = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprNum = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_093 = @csgrammar begin
@@ -10475,8 +10475,8 @@ grammar_093 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
+    Start = ExprNum
+    ExprArr = _arg_1
 end
 
 grammar_094 = @csgrammar begin
@@ -10586,8 +10586,8 @@ grammar_094 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
+    Start = ExprArr
+    ExprArr = _arg_1
 end
 
 grammar_095 = @csgrammar begin
@@ -10697,9 +10697,9 @@ grammar_095 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_096 = @csgrammar begin
@@ -10809,9 +10809,9 @@ grammar_096 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprNum
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_097 = @csgrammar begin
@@ -10921,9 +10921,9 @@ grammar_097 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_098 = @csgrammar begin
@@ -11033,9 +11033,9 @@ grammar_098 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprArr
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprArr
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end
 
 grammar_099 = @csgrammar begin
@@ -11145,7 +11145,7 @@ grammar_099 = @csgrammar begin
     ExprArr = scanl1(BinopMult, ExprArr)
     ExprArr = scanl1(BinopMax, ExprArr)
     ExprArr = scanl1(BinopMin, ExprArr)
-    Start = :ExprNum
-    ExprArr = :_arg_1
-    ExprArr = :_arg_2
+    Start = ExprNum
+    ExprArr = _arg_1
+    ExprArr = _arg_2
 end

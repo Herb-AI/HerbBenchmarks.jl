@@ -16,7 +16,7 @@ function zipwith(f::Function, xs::AbstractArray, ys::AbstractArray)
 end
 
 function scanl1(f::Function, xs::AbstractArray)
-    isempty(xs) && return Any[]  # edge case: return empty if input is empty
+    isempty(xs) && return Any[]
     ys = Array{Any}(undef, length(xs))
     ys[1] = xs[1]
     for i ∈ Iterators.drop(eachindex(xs), 1)

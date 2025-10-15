@@ -76,20 +76,20 @@ function infer_signature(args::Dict{Symbol,Any})::Dict{Symbol,Symbol}
     sig
 end
 
-function add_extras!(g::AbstractGrammar, sig::Dict{Symbol,Symbol}, start_nt::Symbol)
+function add_extras!(g::AbstractGrammar, sig::Dict{Symbol,Symbol}, start_nt::String)
     add_rule!(g, make_sym_rule(:Start, start_nt))
     for (arg, nt) in sig
-        add_rule!(g, make_sym_rule(nt, Symbol(arg)))
+        add_rule!(g, make_sym_rule(nt, String(arg)))
     end
     g
 end
 
-infer_output_nt(out)::Symbol =  out isa AbstractVector{<:Any} ? :ExprArr :
-                                out isa Integer                     ? :ExprNum :
+infer_output_nt(out)::String =  out isa AbstractVector{<:Any} ? "ExprArr" :
+                                out isa Integer                     ? "ExprNum" :
                                 error("Unsupported output type: $(typeof(out)): $out")
                                 
 normalize_value(x) = x isa Vector ? map(v -> Int(v), x) : Int(x)
 
-make_sym_rule(lhs::Symbol, rhs::Symbol)::Expr = Expr(:(=), lhs, QuoteNode(rhs))
+make_sym_rule(lhs::Symbol, rhs::String)::Expr = Expr(:(=), lhs, rhs)
 
 end # module DeepCoder_2016
