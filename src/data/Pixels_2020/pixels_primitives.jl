@@ -15,10 +15,10 @@ end
 
 Interprets a program (in form of an AbstractRuleNode) on a given grammar and `IOExample`. 
 Serves as an entry point that prepares the necessary grammar tags and initial state before 
-calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState)`.
+calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)`.
 
 ---
-    interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState)
+    interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)
 
 Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
 The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
@@ -27,7 +27,7 @@ function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, exa
     interpret(prog, get_relevant_tags(grammar), example.in[:in])
 end
 
-function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::PixelState)
+function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::PixelState)
     rule_node = get_rule(prog)
 
     @match grammartags[rule_node] begin
@@ -52,30 +52,13 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
     end
 end
 
-"""
-Gets relevant symbol to easily match grammar rules to operations in `interpret` function
-"""
-function get_relevant_tags(grammar::ContextSensitiveGrammar)
-    tags = Dict{Int,Symbol}()
-    for (ind, r) in pairs(grammar.rules)
-        tags[ind] = if typeof(r) == Symbol
-            r
-        else
-            @match r.head begin
-                :block => :OpSeq
-                :call => r.args[1]
-            end
-        end
-    end
-    return tags
-end
 
 """
 Custom implementation of a while loop with a condition and a body. 
 
 Loop is terminated either when condition is false or when `max_steps` is reached.
 """
-function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Symbol}, state::PixelState, max_steps::Int=1000)
+function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Any}, state::PixelState, max_steps::Int=1000)
     counter = max_steps
     while interpret(condition, grammartags, state) && counter > 0
         state = interpret(body, grammartags, state)
