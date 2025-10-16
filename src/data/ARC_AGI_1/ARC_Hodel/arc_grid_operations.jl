@@ -183,10 +183,9 @@ function ulcorner(indices) # Vector{CartesianIndex}
     end
     return CartesianIndex(min_row, min_col)
 end
-# Patch = Union{Object, Indices}
-# Object = Vector{Tuple{Integer, CartesianIndex}}
-function ulcorner(cells::Vector{<:Tuple{<:Integer,CartesianIndex}}) # TODO: make type more specific?
-    return ulcorner(toindices(cells))
+
+function ulcorner(object::Vector{<:Tuple})
+    return ulcorner(toindices(object))
 end
 
 """
@@ -203,12 +202,12 @@ function urcorner(indices::Vector{CartesianIndex{2}})
     return CartesianIndex(min_row, max_col)
 end
 
-urcorner(cells::Vector{<:Tuple{<:Integer,CartesianIndex}}) = urcorner(toindices(cells))
+urcorner(object::Vector{<:Tuple}) = urcorner(toindices(object))
 
 """
     Returns `CartesianIndex` of lower left corner.
 """
-function llcorner(indices::Vector{CartesianIndex{2}})
+function llcorner(indices)
     max_row = typemin(Int)
     min_col = typemax(Int)
     @inbounds for idx in indices
@@ -219,12 +218,12 @@ function llcorner(indices::Vector{CartesianIndex{2}})
     return CartesianIndex(max_row, min_col)
 end
 
-llcorner(cells::Vector{<:Tuple{<:Integer,CartesianIndex}}) = llcorner(toindices(cells))
+llcorner(object::Vector{<:Tuple}) = llcorner(toindices(object))
 
 """
     Returns `CartesianIndex` of lower right corner.
 """
-function lrcorner(indices::Vector{CartesianIndex{2}})
+function lrcorner(indices)
     max_row = typemin(Int)
     max_col = typemin(Int)
     @inbounds for idx in indices
@@ -235,13 +234,13 @@ function lrcorner(indices::Vector{CartesianIndex{2}})
     return CartesianIndex(max_row, max_col)
 end
 
-lrcorner(cells::Vector{<:Tuple{<:Integer,CartesianIndex}}) = lrcorner(toindices(cells))
+lrcorner(object::Vector{<:Tuple}) = lrcorner(toindices(object))
 
 """
     Returns indices
 """
-function toindices(cells::Vector{<:Tuple{<:Integer,CartesianIndex}})
-    return [i[2] for i in cells]
+function toindices(object::Vector{<:Tuple})
+    return [i[2] for i in object]
 end
 
 
