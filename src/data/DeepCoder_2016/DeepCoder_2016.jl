@@ -22,7 +22,7 @@ export
 """
 function parse_deepcoder_problem_and_grammar(filename::AbstractString,
                                              base_grammar::AbstractGrammar)
-    raw = JSON.Parser.parsefile(filename)
+    raw = JSON.parsefile(filename)
 
     examples = IOExample[]
     for ex in raw["examples"]
