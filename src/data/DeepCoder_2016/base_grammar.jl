@@ -1,34 +1,48 @@
 base_grammar_deepcoder = @csgrammar begin
     Int = |(-3:3)
 
-    UnopInt = UnopPlus1 | UnopPlus2 | UnopMult1 | UnopMult2 | UnopMult3 | UnopMult4 | UnopDiv1 | UnopDiv2 | UnopDiv3 | UnopPow
-    UnopBool = UnopBool1 | UnopBool2 | UnopBool3 | UnopBool4 | UnopBool5 | UnopBool6 | UnopBool7 | UnopBool8 | UnopBool9
-    Binop = BinopPlus | BinopMinus | BinopMult | BinopMax | BinopMin
-
     ExprNum = Int
 
-    ExprNum = maximum(ExprArr)
-    ExprNum = minimum(ExprArr)
-    ExprNum = sum(ExprArr)
-    ExprNum = first(ExprArr)
-    ExprNum = last(ExprArr)
-    ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = maximum(ExprArr)              := (length(y) == 1, length(x1) >= 1, maximum(y) == maximum(x1), minimum(y) >= minimum(x1))
+    ExprNum = minimum(ExprArr)              := (length(y) == 1, length(x1) >= 1, maximum(y) <= maximum(x1), minimum(y) == minimum(x1))
+    ExprNum = sum(ExprArr)                  := (length(y) == 1, length(x1) > 1)
+    ExprNum = first(ExprArr)                := (length(y) == 1, length(x1) >= 1, maximum(y) <= maximum(x1), minimum(y) >= minimum(x1), first(y) == first(x1), last(y) == first(x1))
+    ExprNum = last(ExprArr)                 := (length(y) == 1, length(x1) >= 1, maximum(y) <= maximum(x1), minimum(y) >= minimum(x1), first(y) == last(x1), last(y) == last(x1))
+    ExprNum = getindex(ExprArr, ExprNum)    := (length(y) == 1, length(x1) > 1, maximum(y) <= maximum(x1), minimum(y) >= minimum(x1))
 
-    ExprArr = drop(ExprArr, ExprNum)
-    ExprArr = take(ExprArr, ExprNum)
-    ExprArr = sort(ExprArr)
-    ExprArr = reverse(ExprArr)
+    ExprNum = countSt(ExprArr, Int)         := (length(y) == 1, length(x1) > 1, length(y) <= length(x1))
+    ExprNum = countGt(ExprArr, Int)         := (length(y) == 1, length(x1) > 1, length(y) <= length(x1))
+    ExprNum = countEq(ExprArr, Int)         := (length(y) == 1, length(x1) > 1, length(y) <= length(x1))
+    ExprNum = countNeq(ExprArr, Int)        := (length(y) == 1, length(x1) > 1, length(y) <= length(x1))
+    ExprNum = countMod(ExprArr, Int)        := (length(y) == 1, length(x1) > 1, length(y) <= length(x1))
+    ExprNum = countNmod(ExprArr, Int)       := (length(y) == 1, length(x1) > 1, length(y) <= length(x1))
 
-    ExprArr = filter(UnopBool, ExprArr)
+    ExprArr = drop(ExprArr, ExprNum)        := (length(x1) > 1, maximum(y) <= maximum(x1), minimum(y) >= minimum(x1), last(y) == last(x1))
+    ExprArr = take(ExprArr, ExprNum)        := (length(x1) > 1, maximum(y) <= maximum(x1), minimum(y) >= minimum(x1), first(y) == first(x1))
+    ExprArr = sort(ExprArr)                 := (length(y) == length(x1), maximum(y) == maximum(x1), minimum(y) == minimum(x1), first(y) == minimum(x1), last(y) == maximum(x1))
+    ExprArr = reverse(ExprArr)              := (length(y) == length(x1), maximum(y) == maximum(x1), minimum(y) == minimum(x1), first(y) == last(x1), last(y) == first(x1))
 
-    ExprArr = map(UnopInt, ExprArr)
+    ExprArr = filterSt(ExprArr, Int)        := (length(y) <= length(x1), maximum(y) <= maximum(x1), minimum(y) >= minimum(x1))
+    ExprArr = filterGt(ExprArr, Int)        := (length(y) <= length(x1), maximum(y) <= maximum(x1), minimum(y) >= minimum(x1))
+    ExprArr = filterEq(ExprArr, Int)        := (length(y) <= length(x1), maximum(y) <= maximum(x1), minimum(y) >= minimum(x1))
+    ExprArr = filterNeq(ExprArr, Int)       := (length(y) <= length(x1), maximum(y) <= maximum(x1), minimum(y) >= minimum(x1))
+    ExprArr = filterMod(ExprArr, Int)       := (length(y) <= length(x1), maximum(y) <= maximum(x1), minimum(y) >= minimum(x1))
+    ExprArr = filterNmod(ExprArr, Int)      := (length(y) <= length(x1), maximum(y) <= maximum(x1), minimum(y) >= minimum(x1))
 
-    ExprArr = zipwith(Binop, ExprArr, ExprArr)
+    ExprArr = mapPlus(ExprArr, Int)         := (length(y) == length(x1))
+    ExprArr = mapMult(ExprArr, Int)         := (length(y) == length(x1))
+    ExprArr = mapDiv(ExprArr, Int)          := (length(y) == length(x1))
+    ExprArr = mapPow(ExprArr, Int)          := (length(y) == length(x1))
 
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprArr = zipwithMax(ExprArr, ExprArr)      := (length(y) == length(x1), length(y) == length(x2))
+    ExprArr = zipwithMin(ExprArr, ExprArr)      := (length(y) == length(x1), length(y) == length(x2))
+    ExprArr = zipwithPlus(ExprArr, ExprArr)     := (length(y) == length(x1), length(y) == length(x2))
+    ExprArr = zipwithMinus(ExprArr, ExprArr)    := (length(y) == length(x1), length(y) == length(x2))
+    ExprArr = zipwithMult(ExprArr, ExprArr)     := (length(y) == length(x1), length(y) == length(x2))
+
+    ExprArr = scanl1Plus(ExprArr)           := (length(y) == length(x1), first(y) == first(x1))
+    ExprArr = scanl1Minus(ExprArr)          := (length(y) == length(x1), first(y) == first(x1))
+    ExprArr = scanl1Mult(ExprArr)           := (length(y) == length(x1), first(y) == first(x1))
+    ExprArr = scanl1Max(ExprArr)            := (length(y) == length(x1), first(y) == first(x1), maximum(y) == maximum(x1), minimum(y) >= minimum(x1), last(y) == maximum(x1))
+    ExprArr = scanl1Min(ExprArr)            := (length(y) == length(x1), first(y) == first(x1), maximum(y) <= maximum(x1), minimum(y) == minimum(x1), last(y) == minimum(x1))
 end

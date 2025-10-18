@@ -6,78 +6,6 @@ grammar_000 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -85,26 +13,36 @@ grammar_000 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -118,78 +56,6 @@ grammar_001 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -197,26 +63,36 @@ grammar_001 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -229,78 +105,6 @@ grammar_002 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -308,26 +112,36 @@ grammar_002 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -340,78 +154,6 @@ grammar_003 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -419,26 +161,36 @@ grammar_003 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -452,78 +204,6 @@ grammar_004 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -531,26 +211,36 @@ grammar_004 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -564,78 +254,6 @@ grammar_005 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -643,26 +261,36 @@ grammar_005 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -675,78 +303,6 @@ grammar_006 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -754,26 +310,36 @@ grammar_006 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -787,78 +353,6 @@ grammar_007 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -866,26 +360,36 @@ grammar_007 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -898,78 +402,6 @@ grammar_008 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -977,26 +409,36 @@ grammar_008 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -1010,78 +452,6 @@ grammar_009 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -1089,26 +459,36 @@ grammar_009 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -1121,78 +501,6 @@ grammar_010 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -1200,26 +508,36 @@ grammar_010 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -1233,78 +551,6 @@ grammar_011 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -1312,26 +558,36 @@ grammar_011 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -1344,78 +600,6 @@ grammar_012 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -1423,26 +607,36 @@ grammar_012 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -1455,78 +649,6 @@ grammar_013 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -1534,26 +656,36 @@ grammar_013 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -1566,78 +698,6 @@ grammar_014 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -1645,26 +705,36 @@ grammar_014 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -1677,78 +747,6 @@ grammar_015 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -1756,26 +754,36 @@ grammar_015 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -1789,78 +797,6 @@ grammar_016 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -1868,26 +804,36 @@ grammar_016 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -1901,78 +847,6 @@ grammar_017 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -1980,26 +854,36 @@ grammar_017 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -2013,78 +897,6 @@ grammar_018 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -2092,26 +904,36 @@ grammar_018 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -2125,78 +947,6 @@ grammar_019 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -2204,26 +954,36 @@ grammar_019 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -2237,78 +997,6 @@ grammar_020 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -2316,26 +1004,36 @@ grammar_020 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprNum = _arg_1
     ExprArr = _arg_2
@@ -2349,78 +1047,6 @@ grammar_021 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -2428,26 +1054,36 @@ grammar_021 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -2460,78 +1096,6 @@ grammar_022 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -2539,26 +1103,36 @@ grammar_022 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -2571,78 +1145,6 @@ grammar_023 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -2650,26 +1152,36 @@ grammar_023 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -2683,78 +1195,6 @@ grammar_024 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -2762,26 +1202,36 @@ grammar_024 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -2794,78 +1244,6 @@ grammar_025 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -2873,26 +1251,36 @@ grammar_025 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -2905,78 +1293,6 @@ grammar_026 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -2984,26 +1300,36 @@ grammar_026 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -3016,78 +1342,6 @@ grammar_027 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -3095,26 +1349,36 @@ grammar_027 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -3127,78 +1391,6 @@ grammar_028 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -3206,26 +1398,36 @@ grammar_028 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -3239,78 +1441,6 @@ grammar_029 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -3318,26 +1448,36 @@ grammar_029 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -3350,78 +1490,6 @@ grammar_030 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -3429,26 +1497,36 @@ grammar_030 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -3461,78 +1539,6 @@ grammar_031 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -3540,26 +1546,36 @@ grammar_031 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -3573,78 +1589,6 @@ grammar_032 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -3652,26 +1596,36 @@ grammar_032 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -3684,78 +1638,6 @@ grammar_033 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -3763,26 +1645,36 @@ grammar_033 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -3796,78 +1688,6 @@ grammar_034 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -3875,26 +1695,36 @@ grammar_034 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -3908,78 +1738,6 @@ grammar_035 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -3987,26 +1745,36 @@ grammar_035 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -4020,78 +1788,6 @@ grammar_036 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -4099,26 +1795,36 @@ grammar_036 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -4132,78 +1838,6 @@ grammar_037 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -4211,26 +1845,36 @@ grammar_037 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -4244,78 +1888,6 @@ grammar_038 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -4323,26 +1895,36 @@ grammar_038 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -4355,78 +1937,6 @@ grammar_039 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -4434,26 +1944,36 @@ grammar_039 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -4467,78 +1987,6 @@ grammar_040 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -4546,26 +1994,36 @@ grammar_040 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -4579,78 +2037,6 @@ grammar_041 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -4658,26 +2044,36 @@ grammar_041 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -4691,78 +2087,6 @@ grammar_042 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -4770,26 +2094,36 @@ grammar_042 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -4802,78 +2136,6 @@ grammar_043 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -4881,26 +2143,36 @@ grammar_043 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -4913,78 +2185,6 @@ grammar_044 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -4992,26 +2192,36 @@ grammar_044 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -5024,78 +2234,6 @@ grammar_045 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -5103,26 +2241,36 @@ grammar_045 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -5136,78 +2284,6 @@ grammar_046 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -5215,26 +2291,36 @@ grammar_046 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -5247,78 +2333,6 @@ grammar_047 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -5326,26 +2340,36 @@ grammar_047 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -5358,78 +2382,6 @@ grammar_048 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -5437,26 +2389,36 @@ grammar_048 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -5470,78 +2432,6 @@ grammar_049 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -5549,26 +2439,36 @@ grammar_049 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -5581,78 +2481,6 @@ grammar_050 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -5660,26 +2488,36 @@ grammar_050 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -5692,78 +2530,6 @@ grammar_051 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -5771,26 +2537,36 @@ grammar_051 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprNum = _arg_2
@@ -5804,78 +2580,6 @@ grammar_052 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -5883,26 +2587,36 @@ grammar_052 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -5916,78 +2630,6 @@ grammar_053 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -5995,26 +2637,36 @@ grammar_053 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -6027,78 +2679,6 @@ grammar_054 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -6106,26 +2686,36 @@ grammar_054 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -6139,78 +2729,6 @@ grammar_055 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -6218,26 +2736,36 @@ grammar_055 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -6251,78 +2779,6 @@ grammar_056 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -6330,26 +2786,36 @@ grammar_056 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -6363,78 +2829,6 @@ grammar_057 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -6442,26 +2836,36 @@ grammar_057 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -6475,78 +2879,6 @@ grammar_058 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -6554,26 +2886,36 @@ grammar_058 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -6586,78 +2928,6 @@ grammar_059 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -6665,26 +2935,36 @@ grammar_059 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -6697,78 +2977,6 @@ grammar_060 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -6776,26 +2984,36 @@ grammar_060 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprNum = _arg_1
     ExprArr = _arg_2
@@ -6809,78 +3027,6 @@ grammar_061 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -6888,26 +3034,36 @@ grammar_061 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -6920,78 +3076,6 @@ grammar_062 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -6999,26 +3083,36 @@ grammar_062 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
     ExprNum = _arg_2
@@ -7032,78 +3126,6 @@ grammar_063 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -7111,26 +3133,36 @@ grammar_063 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -7143,78 +3175,6 @@ grammar_064 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -7222,26 +3182,36 @@ grammar_064 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -7255,78 +3225,6 @@ grammar_065 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -7334,26 +3232,36 @@ grammar_065 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -7367,78 +3275,6 @@ grammar_066 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -7446,26 +3282,36 @@ grammar_066 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -7478,78 +3324,6 @@ grammar_067 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -7557,26 +3331,36 @@ grammar_067 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -7589,78 +3373,6 @@ grammar_068 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -7668,26 +3380,36 @@ grammar_068 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -7701,78 +3423,6 @@ grammar_069 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -7780,26 +3430,36 @@ grammar_069 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -7812,78 +3472,6 @@ grammar_070 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -7891,26 +3479,36 @@ grammar_070 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -7924,78 +3522,6 @@ grammar_071 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -8003,26 +3529,36 @@ grammar_071 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -8036,78 +3572,6 @@ grammar_072 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -8115,26 +3579,36 @@ grammar_072 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -8148,78 +3622,6 @@ grammar_073 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -8227,26 +3629,36 @@ grammar_073 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -8260,78 +3672,6 @@ grammar_074 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -8339,26 +3679,36 @@ grammar_074 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -8371,78 +3721,6 @@ grammar_075 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -8450,26 +3728,36 @@ grammar_075 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -8482,78 +3770,6 @@ grammar_076 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -8561,26 +3777,36 @@ grammar_076 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -8593,78 +3819,6 @@ grammar_077 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -8672,26 +3826,36 @@ grammar_077 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -8704,78 +3868,6 @@ grammar_078 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -8783,26 +3875,36 @@ grammar_078 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -8816,78 +3918,6 @@ grammar_079 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -8895,26 +3925,36 @@ grammar_079 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -8927,78 +3967,6 @@ grammar_080 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -9006,26 +3974,36 @@ grammar_080 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -9038,78 +4016,6 @@ grammar_081 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -9117,26 +4023,36 @@ grammar_081 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -9149,78 +4065,6 @@ grammar_082 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -9228,26 +4072,36 @@ grammar_082 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -9260,78 +4114,6 @@ grammar_083 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -9339,26 +4121,36 @@ grammar_083 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -9371,78 +4163,6 @@ grammar_084 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -9450,26 +4170,36 @@ grammar_084 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -9483,78 +4213,6 @@ grammar_085 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -9562,26 +4220,36 @@ grammar_085 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -9594,78 +4262,6 @@ grammar_086 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -9673,26 +4269,36 @@ grammar_086 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprNum = _arg_1
     ExprArr = _arg_2
@@ -9706,78 +4312,6 @@ grammar_087 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -9785,26 +4319,36 @@ grammar_087 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -9818,78 +4362,6 @@ grammar_088 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -9897,26 +4369,36 @@ grammar_088 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -9930,78 +4412,6 @@ grammar_089 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -10009,26 +4419,36 @@ grammar_089 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
     ExprNum = _arg_2
@@ -10042,78 +4462,6 @@ grammar_090 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -10121,26 +4469,36 @@ grammar_090 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -10153,78 +4511,6 @@ grammar_091 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -10232,26 +4518,36 @@ grammar_091 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -10264,78 +4560,6 @@ grammar_092 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -10343,26 +4567,36 @@ grammar_092 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprNum = _arg_1
     ExprArr = _arg_2
@@ -10376,78 +4610,6 @@ grammar_093 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -10455,26 +4617,36 @@ grammar_093 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
 end
@@ -10487,78 +4659,6 @@ grammar_094 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -10566,26 +4666,36 @@ grammar_094 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
 end
@@ -10598,78 +4708,6 @@ grammar_095 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -10677,26 +4715,36 @@ grammar_095 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -10710,78 +4758,6 @@ grammar_096 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -10789,26 +4765,36 @@ grammar_096 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -10822,78 +4808,6 @@ grammar_097 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -10901,26 +4815,36 @@ grammar_097 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -10934,78 +4858,6 @@ grammar_098 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -11013,26 +4865,36 @@ grammar_098 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprArr
     ExprArr = _arg_1
     ExprArr = _arg_2
@@ -11046,78 +4908,6 @@ grammar_099 = @csgrammar begin
     Int = 1
     Int = 2
     Int = 3
-    UnopPlus = x -> begin
-        x + 1
-    end
-    UnopPlus = x -> begin
-        x - 1
-    end
-    UnopMult = x -> begin
-        x * 2
-    end
-    UnopMult = x -> begin
-        x * -1
-    end
-    UnopMult = x -> begin
-        x * 3
-    end
-    UnopMult = x -> begin
-        x * 4
-    end
-    UnopDiv = x -> begin
-        x / 2
-    end
-    UnopDiv = x -> begin
-        x / 3
-    end
-    UnopDiv = x -> begin
-        x / 4
-    end
-    UnopPow = x -> begin
-        x^2
-    end
-    UnopBool = x -> begin
-        x > 0
-    end
-    UnopBool = x -> begin
-        x < 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 0
-    end
-    UnopBool = x -> begin
-        x % 2 == 1
-    end
-    UnopBool = x -> begin
-        x < Int
-    end
-    UnopBool = x -> begin
-        x > Int
-    end
-    UnopBool = x -> begin
-        x == Int
-    end
-    UnopBool = x -> begin
-        x != Int
-    end
-    UnopBool = x -> begin
-        x %= Int
-    end
-    BinopPlus = (x, y) -> begin
-        x + y
-    end
-    BinopMinus = (x, y) -> begin
-        x - y
-    end
-    BinopMult = (x, y) -> begin
-        x * y
-    end
-    BinopMax = (x, y) -> begin
-        max(x, y)
-    end
-    BinopMin = (x, y) -> begin
-        min(x, y)
-    end
     ExprNum = Int
     ExprNum = maximum(ExprArr)
     ExprNum = minimum(ExprArr)
@@ -11125,27 +4915,38 @@ grammar_099 = @csgrammar begin
     ExprNum = first(ExprArr)
     ExprNum = last(ExprArr)
     ExprNum = getindex(ExprArr, ExprNum)
-    ExprNum = count(UnopBool, ExprArr)
+    ExprNum = countSt(ExprArr, Int)
+    ExprNum = countGt(ExprArr, Int)
+    ExprNum = countEq(ExprArr, Int)
+    ExprNum = countNeq(ExprArr, Int)
+    ExprNum = countMod(ExprArr, Int)
+    ExprNum = countNmod(ExprArr, Int)
     ExprArr = drop(ExprArr, ExprNum)
     ExprArr = take(ExprArr, ExprNum)
     ExprArr = sort(ExprArr)
     ExprArr = reverse(ExprArr)
-    ExprArr = filter(UnopBool, ExprArr)
-    ExprArr = map(UnopPlus, ExprArr)
-    ExprArr = map(UnopMult, ExprArr)
-    ExprArr = map(UnopDiv, ExprArr)
-    ExprArr = map(UnopPow, ExprArr)
-    ExprArr = zipwith(BinopPlus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMinus, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMult, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMax, ExprArr, ExprArr)
-    ExprArr = zipwith(BinopMin, ExprArr, ExprArr)
-    ExprArr = scanl1(BinopPlus, ExprArr)
-    ExprArr = scanl1(BinopMinus, ExprArr)
-    ExprArr = scanl1(BinopMult, ExprArr)
-    ExprArr = scanl1(BinopMax, ExprArr)
-    ExprArr = scanl1(BinopMin, ExprArr)
+    ExprNum = filterSt(ExprArr, Int)
+    ExprNum = filterGt(ExprArr, Int)
+    ExprNum = filterEq(ExprArr, Int)
+    ExprNum = filterNeq(ExprArr, Int)
+    ExprNum = filterMod(ExprArr, Int)
+    ExprNum = filterNmod(ExprArr, Int)
+    ExprArr = mapPlus(ExprArr, Int)
+    ExprArr = mapMult(ExprArr, Int)
+    ExprArr = mapDiv(ExprArr, Int)
+    ExprArr = mapPow(ExprArr, Int)
+    ExprArr = zipwithMax(ExprArr, ExprArr)
+    ExprArr = zipwithMin(ExprArr, ExprArr)
+    ExprArr = zipwithPlus(ExprArr, ExprArr)
+    ExprArr = zipwithMinus(ExprArr, ExprArr)
+    ExprArr = zipwithMult(ExprArr, ExprArr)
+    ExprArr = scanl1Max(ExprArr)
+    ExprArr = scanl1Min(ExprArr)
+    ExprArr = scanl1Plus(ExprArr)
+    ExprArr = scanl1Minus(ExprArr)
+    ExprArr = scanl1Mult(ExprArr)
     Start = ExprNum
     ExprArr = _arg_1
     ExprArr = _arg_2
 end
+
