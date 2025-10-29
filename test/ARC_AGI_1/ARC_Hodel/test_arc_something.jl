@@ -260,10 +260,82 @@ G = [1 0 0 0 3;
         ])
         expected = Set([obj1])
         @test objects(G, false, false, false) == expected
-
-
     end
 
+    @testset "partition, fgpartition" begin
+        actual = partition(B)
+        expected = [
+            [(0, CartesianIndex(2, 1))],
+            [(1, CartesianIndex(1, 2)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(3, 2))],
+            [(2, CartesianIndex(1, 1)), (2, CartesianIndex(3, 1))]
+        ]
+        @test Set(sort(obj) for obj in actual) == Set(sort(obj) for obj in expected) # order doesn't matter, we only care about cells
+
+        actual = partition(G)
+        expected = [
+            [
+                (1, CartesianIndex(1, 1)),
+                (1, CartesianIndex(2, 2)),
+                (1, CartesianIndex(2, 3)),
+                (1, CartesianIndex(3, 2)),
+                (1, CartesianIndex(3, 3))
+            ],
+            [
+                (2, CartesianIndex(3, 4)),
+                (2, CartesianIndex(4, 3)),
+                (2, CartesianIndex(4, 4)),
+                (2, CartesianIndex(5, 2))
+            ],
+            [
+                (3, CartesianIndex(1, 5))
+            ],
+            [
+                (0, CartesianIndex(1, 2)),
+                (0, CartesianIndex(1, 3)),
+                (0, CartesianIndex(1, 4)),
+                (0, CartesianIndex(2, 1)),
+                (0, CartesianIndex(2, 4)),
+                (0, CartesianIndex(2, 5)),
+                (0, CartesianIndex(3, 1)),
+                (0, CartesianIndex(3, 5)),
+                (0, CartesianIndex(4, 1)),
+                (0, CartesianIndex(4, 2)),
+                (0, CartesianIndex(4, 5)),
+                (0, CartesianIndex(5, 1)),
+                (0, CartesianIndex(5, 3)),
+                (0, CartesianIndex(5, 4)),
+                (0, CartesianIndex(5, 5))
+            ]
+        ]
+        @test Set(sort(obj) for obj in actual) == Set(sort(obj) for obj in expected) # order doesn't matter, we only care about cells
+
+        actual = fgpartition(B)
+        expected = [
+            [(0, CartesianIndex(2, 1))],
+            [(2, CartesianIndex(1, 1)), (2, CartesianIndex(3, 1))]
+        ]
+        @test Set(sort(obj) for obj in actual) == Set(sort(obj) for obj in expected) # order doesn't matter, we only care about cells
+
+        actual = fgpartition(G)
+        expected = [
+            [
+                (1, CartesianIndex(1, 1)),
+                (1, CartesianIndex(2, 2)),
+                (1, CartesianIndex(2, 3)),
+                (1, CartesianIndex(3, 2)),
+                (1, CartesianIndex(3, 3))
+            ],
+            [
+                (2, CartesianIndex(3, 4)),
+                (2, CartesianIndex(4, 3)),
+                (2, CartesianIndex(4, 4)),
+                (2, CartesianIndex(5, 2))
+            ],
+            [
+                (3, CartesianIndex(1, 5))
+            ],
+        ]
+    end
     @testset "palette" begin
         pal = palette(G)
         @test length(pal) == 4

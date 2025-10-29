@@ -296,4 +296,27 @@ end
 function palette(object)
     return unique([v[1] for v in object])
 end
-# element: object or grid => object (vector of cells)
+
+"""
+    Splits the grid into objects where each object contains all cells of one color/value
+"""
+function partition(grid)
+    vals = palette(grid)
+    return [
+        [(v, idx) for idx in findall(==(v), grid)]
+        for v in vals
+    ]
+end
+
+"""
+    Splits the grid into objects where each object contains all cells of one color/value excluding background.
+"""
+function fgpartition(grid)
+    pal = palette(grid)
+    bg = mostcolor(grid) # background color
+    vals = setdiff(pal, bg)
+    return [
+        [(v, idx) for idx in findall(==(v), grid)]
+        for v in vals
+    ]
+end
