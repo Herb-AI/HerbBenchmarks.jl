@@ -200,11 +200,6 @@ import HerbBenchmarks.ARC_AGI_1.ARC_Hodel as ARC_Hodel
         @test ARC_Hodel.index(D, CartesianIndex(2, 3)) == 6
     end
 
-    @testset "crop" begin
-        @test ARC_Hodel.crop(A, CartesianIndex(1, 1), CartesianIndex(2, 2)) == [1 0; 0 1]
-        @test ARC_Hodel.crop(C, CartesianIndex(1, 2), CartesianIndex(1, 1)) == [4;;]
-        @test ARC_Hodel.crop(D, CartesianIndex(2, 3), CartesianIndex(2, 1)) == [6; 0;;]
-    end
     @testset "ulcorner, urcorner, llcorner, rrcorner" begin
         # ulcorner
         indices_1 = [CartesianIndex(2, 3), CartesianIndex(1, 4), CartesianIndex(5, 1)]

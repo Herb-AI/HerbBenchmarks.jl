@@ -164,13 +164,6 @@ function index(grid, loc)
 end
 
 """
-    Crop grid from `start` point to given `dims`.
-"""
-function crop(grid, start, dims)
-    return grid[start[1]:start[1]+dims[1]-1, start[2]:start[2]+dims[2]-1]
-end
-
-"""
     Returns `CartesianIndex` of upper left corner.
 """
 function ulcorner(indices) # Vector{CartesianIndex}
