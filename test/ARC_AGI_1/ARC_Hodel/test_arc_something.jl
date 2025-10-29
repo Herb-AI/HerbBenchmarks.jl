@@ -1,0 +1,279 @@
+using HerbBenchmarks.ARC_AGI_1.ARC_Hodel
+
+A = [1 0; 0 1; 1 0]
+B = [2 1; 0 1; 2 1]
+C = [3 4; 5 5]
+D = [1 2 3; 4 5 6; 7 8 0]
+G = [1 0 0 0 3;
+    0 1 1 0 0;
+    0 1 1 2 0;
+    0 0 2 2 0;
+    0 2 0 0 0]
+@testset verbose = true "arc something" begin
+    indices = [CartesianIndex(1, 5)]
+    object_1 = [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))]
+    object_2 = [(1, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (2, CartesianIndex(1, 2))]
+
+    @testset "upper-, lower-, left- and rightmost" begin
+        @test uppermost(indices) == 1
+        @test uppermost(object_1) == 1
+
+        @test lowermost(indices) == 1
+        @test lowermost(object_1) == 3
+
+        @test leftmost(indices) == 5
+        @test leftmost(object_1) == 1
+
+        @test rightmost(indices) == 5
+        @test rightmost(object_1) == 3
+    end
+
+
+    @testset "height, width, shape, portrait" begin
+        @test height(A) == 3
+        @test height(indices) == 1
+        @test height(object_1) == 3
+
+        @test width(A) == 2
+        @test width(C) == 2
+        @test width(indices) == 1
+        @test width(object_1) == 3
+
+        @test shape(A) == (3, 2)
+        @test shape(C) == (2, 2)
+        @test shape(indices) == (1, 1)
+        @test shape(object_1) == (3, 3)
+
+        @test portrait(A) == true
+        @test portrait(C) == false
+    end
+
+    @testset "square, vline, hline" begin
+        @test square(A) == false
+        @test square(B) == false
+        @test square(C) == true
+        @test square(D) == true
+        @test square([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == false
+        @test square([CartesianIndex(2, 2), CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(1, 2)]) == true
+        @test square([CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(1, 2)]) == false
+        @test square([(1, CartesianIndex(2, 2)), (2, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (3, CartesianIndex(1, 2))]) == true
+
+        @test vline([(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]) == true
+        @test vline([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == false
+
+        @test hline([(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]) == false
+        @test hline([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == true
+    end
+
+    @testset "mostcolor, leastcolor, colorcount, colorfilter, sizefilter" begin
+        @test mostcolor(B) == 1
+        @test mostcolor(C) == 5
+        @test mostcolor(object_1) == 1
+
+        @test leastcolor(B) == 0
+        @test leastcolor(object_1) == 1
+
+        @test colorcount(A, 1) == 3
+        @test colorcount(C, 5) == 2
+        @test colorcount(object_1, 1) == 4
+        @test colorcount(object_1, 4) == 0
+        @test colorcount(object_2, 2) == 2
+
+        objects = [
+            [(3, CartesianIndex(1, 5))],
+            [(1, CartesianIndex(1, 1))],
+            [(2, CartesianIndex(5, 1))],
+            [(1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 2)), (1, CartesianIndex(3, 3))],
+            [(2, CartesianIndex(4, 3)), (2, CartesianIndex(3, 4)), (2, CartesianIndex(4, 4))]
+        ]
+        @test colorfilter(objects, 2) == [[(2, CartesianIndex(5, 1))], [(2, CartesianIndex(4, 3)), (2, CartesianIndex(3, 4)), (2, CartesianIndex(4, 4))]]
+
+        @test sizefilter(objects, 1) == [
+            [(3, CartesianIndex(1, 5))],
+            [(1, CartesianIndex(1, 1))],
+            [(2, CartesianIndex(5, 1))]]
+        @test isempty(sizefilter(objects, 7)) == true
+    end
+
+    @testset "crop, recolor, shift, normalize" begin
+        @test crop(A, CartesianIndex(1, 1), (2, 2)) == [1 0; 0 1]
+        @test crop(C, CartesianIndex(1, 2), (1, 1)) == [4;;]
+        @test crop(D, CartesianIndex(2, 3), (2, 1)) == [6; 0;;]
+
+        @test recolor(3, [(2, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2)), (5, CartesianIndex(2, 1))]) == [(3, CartesianIndex(1, 1)), (3, CartesianIndex(1, 2)), (3, CartesianIndex(2, 1))]
+        @test recolor(2, [(2, CartesianIndex(3, 6)), (2, CartesianIndex(2, 2))]) == [(2, CartesianIndex(3, 6)), (2, CartesianIndex(2, 2))]
+        @test recolor(3, [CartesianIndex(1, 1), CartesianIndex(1, 2), CartesianIndex(2, 1)]) == [(3, CartesianIndex(1, 1)), (3, CartesianIndex(1, 2)), (3, CartesianIndex(2, 1))]
+
+        @test shift([(2, CartesianIndex(2, 2)), (4, CartesianIndex(2, 3)), (1, CartesianIndex(3, 4))], (1, 2)) == [(2, CartesianIndex(3, 4)), (4, CartesianIndex(3, 5)), (1, CartesianIndex(4, 6))]
+        @test shift([CartesianIndex(2, 4), CartesianIndex(1, 3), CartesianIndex(4, 5)], (0, -1)) == [CartesianIndex(2, 3), CartesianIndex(1, 2), CartesianIndex(4, 4)]
+
+        @testset normalize([(2, CartesianIndex(2, 2)), (4, CartesianIndex(2, 3)), (1, CartesianIndex(3, 4))]) == [(2, CartesianIndex(1, 1)), (4, CartesianIndex(1, 2)), (1, CartesianIndex(2, 3))]
+        @testset normalize([CartesianIndex(2, 1), CartesianIndex(1, 3), CartesianIndex(4, 5)]) == [CartesianIndex(2, 1), CartesianIndex(1, 3), CartesianIndex(4, 5)]
+        @testset normalize([]) == []
+    end
+
+    @testset "dneighbors, ineighbors, neighbors" begin
+        @test dneighbors(CartesianIndex(1, 1)) == [CartesianIndex(0, 1), CartesianIndex(2, 1), CartesianIndex(1, 0), CartesianIndex(1, 2)]
+        @test dneighbors(CartesianIndex(2, 2)) == [CartesianIndex(1, 2), CartesianIndex(3, 2), CartesianIndex(2, 1), CartesianIndex(2, 3)]
+        @test dneighbors(CartesianIndex(1, 2)) == [CartesianIndex(0, 2), CartesianIndex(2, 2), CartesianIndex(1, 1), CartesianIndex(1, 3)]
+        @test dneighbors(CartesianIndex(2, 1)) == [CartesianIndex(1, 1), CartesianIndex(3, 1), CartesianIndex(2, 0), CartesianIndex(2, 2)]
+
+        @test ineighbors(CartesianIndex(1, 1)) == [CartesianIndex(0, 0), CartesianIndex(0, 2), CartesianIndex(2, 0), CartesianIndex(2, 2)]
+        @test ineighbors(CartesianIndex(2, 2)) == [CartesianIndex(1, 1), CartesianIndex(1, 3), CartesianIndex(3, 1), CartesianIndex(3, 3)]
+        @test ineighbors(CartesianIndex(1, 2)) == [CartesianIndex(0, 1), CartesianIndex(0, 3), CartesianIndex(2, 1), CartesianIndex(2, 3)]
+        @test ineighbors(CartesianIndex(2, 1)) == [CartesianIndex(1, 0), CartesianIndex(1, 2), CartesianIndex(3, 0), CartesianIndex(3, 2)]
+
+        @test neighbors(CartesianIndex(1, 1)) == [CartesianIndex(0, 1), CartesianIndex(2, 1), CartesianIndex(1, 0), CartesianIndex(1, 2), CartesianIndex(0, 0), CartesianIndex(0, 2), CartesianIndex(2, 0), CartesianIndex(2, 2)]
+        @test neighbors(CartesianIndex(2, 2)) == [CartesianIndex(1, 2), CartesianIndex(3, 2), CartesianIndex(2, 1), CartesianIndex(2, 3), CartesianIndex(1, 1), CartesianIndex(1, 3), CartesianIndex(3, 1), CartesianIndex(3, 3)]
+    end
+
+    @testset "objects" begin
+        # without diagonal neighbours
+        obj1 = Set([(1, CartesianIndex(1, 1))])
+        obj2 = Set([(3, CartesianIndex(1, 5))])
+        obj3 = Set([(1, CartesianIndex(2, 2)), (1, CartesianIndex(3, 2)),
+            (1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))])
+        obj4 = Set([(2, CartesianIndex(3, 4)), (2, CartesianIndex(4, 3)),
+            (2, CartesianIndex(4, 4))])
+        obj5 = Set([(2, CartesianIndex(5, 2))])
+        expected = Set([obj1, obj2, obj3, obj4, obj5])
+        actual = objects(G, true, false, true)
+        @test actual == expected
+
+        # with diagonal neighbours 
+        obj1 = Set([(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(3, 2)),
+            (1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))])
+        obj2 = Set([(3, CartesianIndex(1, 5))])
+        obj3 = Set([(2, CartesianIndex(3, 4)), (2, CartesianIndex(4, 3)),
+            (2, CartesianIndex(4, 4)), (2, CartesianIndex(5, 2))])
+        expected = Set([obj1, obj2, obj3])
+        actual = objects(G, true, true, true)
+        @test actual == expected
+
+        # TODO: finish tests
+        # objects(G, False, True, True) # univalued false, background ignored
+        obj1 = Set([(3, CartesianIndex(1, 5))])
+        obj2 = Set([
+            (1, CartesianIndex(1, 1)),
+            (1, CartesianIndex(2, 2)),
+            (1, CartesianIndex(3, 2)),
+            (1, CartesianIndex(2, 3)),
+            (1, CartesianIndex(3, 3)),
+            (2, CartesianIndex(3, 4)),
+            (2, CartesianIndex(4, 3)),
+            (2, CartesianIndex(4, 4)),
+            (2, CartesianIndex(5, 2))
+        ])
+        expected = Set([obj1, obj2])
+        @test objects(G, false, true, true) == expected
+
+        obj1 = Set([(1, CartesianIndex(1, 1))])
+        obj2 = Set([(3, CartesianIndex(1, 5))])
+        obj3 = Set([
+            (1, CartesianIndex(2, 2)),
+            (1, CartesianIndex(3, 2)),
+            (1, CartesianIndex(2, 3)),
+            (1, CartesianIndex(3, 3)),
+            (2, CartesianIndex(3, 4)),
+            (2, CartesianIndex(4, 3)),
+            (2, CartesianIndex(4, 4))
+        ])
+        obj4 = Set([(2, CartesianIndex(5, 2))])
+        expected = Set([obj1, obj2, obj3, obj4])
+        @test objects(G, false, false, true) == expected
+
+        # TODO: @test objects(G, true, true, false) == expected
+        obj1 = Set([
+            (1, CartesianIndex(1, 1)),
+            (1, CartesianIndex(2, 2)),
+            (1, CartesianIndex(3, 2)),
+            (1, CartesianIndex(2, 3)),
+            (1, CartesianIndex(3, 3)),])
+        obj2 = Set([(3, CartesianIndex(1, 5))])
+        obj3 = Set([
+            (2, CartesianIndex(3, 4)),
+            (2, CartesianIndex(4, 3)),
+            (2, CartesianIndex(4, 4)),
+            (2, CartesianIndex(5, 2))
+        ])
+        obj4 = Set([
+            (0, CartesianIndex(1, 2)),
+            (0, CartesianIndex(1, 3)),
+            (0, CartesianIndex(1, 4)),
+            (0, CartesianIndex(2, 1)),
+            (0, CartesianIndex(2, 4)),
+            (0, CartesianIndex(2, 5)),
+            (0, CartesianIndex(3, 1)),
+            (0, CartesianIndex(3, 5)),
+            (0, CartesianIndex(4, 1)),
+            (0, CartesianIndex(4, 2)),
+            (0, CartesianIndex(4, 5)),
+            (0, CartesianIndex(5, 1)),
+            (0, CartesianIndex(5, 3)),
+            (0, CartesianIndex(5, 4)),
+            (0, CartesianIndex(5, 5)),
+        ])
+        expected = Set([obj1, obj2, obj3, obj4])
+        @test objects(G, true, true, false) == expected
+
+        obj1 = Set([
+            (1, CartesianIndex(2, 2)),
+            (1, CartesianIndex(3, 2)),
+            (1, CartesianIndex(2, 3)),
+            (1, CartesianIndex(3, 3)),])
+        obj2 = Set([(3, CartesianIndex(1, 5))])
+        obj3 = Set([
+            (2, CartesianIndex(3, 4)),
+            (2, CartesianIndex(4, 3)),
+            (2, CartesianIndex(4, 4))
+        ])
+        obj4 = Set([(2, CartesianIndex(5, 2))])
+        obj5 = Set([(1, CartesianIndex(1, 1))])
+        expected = Set([obj1, obj2, obj3, obj4, obj5])
+        @test objects(G, true, false, true) == expected
+
+        obj1 = Set([(1, CartesianIndex(1, 1)),
+            (3, CartesianIndex(1, 5)),
+            (1, CartesianIndex(2, 2)),
+            (1, CartesianIndex(3, 2)),
+            (1, CartesianIndex(2, 3)),
+            (1, CartesianIndex(3, 3)),
+            (2, CartesianIndex(3, 4)),
+            (2, CartesianIndex(4, 3)),
+            (2, CartesianIndex(4, 4)),
+            (2, CartesianIndex(5, 2)),
+            (0, CartesianIndex(1, 2)),
+            (0, CartesianIndex(1, 3)),
+            (0, CartesianIndex(1, 4)),
+            (0, CartesianIndex(2, 1)),
+            (0, CartesianIndex(2, 4)),
+            (0, CartesianIndex(2, 5)),
+            (0, CartesianIndex(3, 1)),
+            (0, CartesianIndex(3, 5)),
+            (0, CartesianIndex(4, 1)),
+            (0, CartesianIndex(4, 2)),
+            (0, CartesianIndex(4, 5)),
+            (0, CartesianIndex(5, 1)),
+            (0, CartesianIndex(5, 3)),
+            (0, CartesianIndex(5, 4)),
+            (0, CartesianIndex(5, 5)),
+        ])
+        expected = Set([obj1])
+        @test objects(G, false, false, false) == expected
+
+
+    end
+
+    @testset "palette" begin
+        pal = palette(G)
+        @test length(pal) == 4
+        @test Set(pal) == Set([0, 1, 2, 3])
+
+        pal = palette([(1, CartesianIndex(2, 2)), (2, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (3, CartesianIndex(1, 2))])
+        @test length(pal) == 3
+        @test Set(pal) == Set([1, 2, 3])
+
+        @test palette([(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2))]) == [1]
+    end
+
+end
