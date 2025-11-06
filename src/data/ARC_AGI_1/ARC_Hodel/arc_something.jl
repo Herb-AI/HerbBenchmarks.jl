@@ -83,7 +83,7 @@ function portrait(piece)
 end
 
 """
-    Whether the piece forms a squaer
+    Whether the piece forms a square
 """
 function square(grid::Matrix)
     return height(grid) == width(grid)
@@ -319,4 +319,70 @@ function fgpartition(grid)
         [(v, idx) for idx in findall(==(v), grid)]
         for v in vals
     ]
+end
+
+"""
+    Returns true if patches `a` and `b` share any row index. 
+"""
+function hmatching(a, b)
+    indices_a = Set(i[1] for i in toindices(a))
+    return any(i[1] in indices_a for i in toindices(b))
+end
+
+"""
+    Returns true if patches `a` and `b` share any column index. 
+"""
+function vmatching(a, b)
+    indices_a = Set(i[2] for i in toindices(a))
+    return any(i[2] in indices_a for i in toindices(b))
+end
+
+"""
+    Min. manhattan distance between two patches `a` and `b`.
+"""
+function manhattan(a, b)
+    return minimum(abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]) for ai in toindices(a), bi in toindices(b))
+end
+
+"""
+    Whether two patches `a` and `b` are adjacent
+"""
+function adjacent(a, b)
+    return manhattan(a, b) == 1
+end
+
+"""
+    Whether a patch is adjacent to a grid border
+"""
+function bordering(patch, grid)
+    return uppermost(patch) == 1 || leftmost(patch) == 0 || lowermost(patch) == height(grid) || rightmost(patch) == width(grid)
+end
+
+"""
+    Returns the center of mass for a patch
+"""
+function centerofmass(patch)
+    n = length(patch)
+    sum_rows = 0
+    sum_cols = 0
+    for idx in toindices(patch)
+        sum_rows += idx[1]
+        sum_cols += idx[2]
+    end
+    return CartesianIndex(sum_rows ÷ n, sum_cols ÷ n)
+end
+
+"""
+    Number of different colors in the element (object or grid).
+"""
+function numcolors(element)
+    return length(palette(element))
+end
+
+"""
+    Returns color of an object.
+"""
+# Assumes object is uniform in color. 
+function color(object)
+    return first(object)[1]
 end

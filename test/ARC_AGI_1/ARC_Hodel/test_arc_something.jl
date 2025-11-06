@@ -150,8 +150,6 @@ G = [1 0 0 0 3;
         actual = objects(G, true, true, true)
         @test actual == expected
 
-        # TODO: finish tests
-        # objects(G, False, True, True) # univalued false, background ignored
         obj1 = Set([(3, CartesianIndex(1, 5))])
         obj2 = Set([
             (1, CartesianIndex(1, 1)),
@@ -336,16 +334,70 @@ G = [1 0 0 0 3;
             ],
         ]
     end
-    @testset "palette" begin
+    @testset "palette, numcolors, color" begin
         pal = palette(G)
         @test length(pal) == 4
         @test Set(pal) == Set([0, 1, 2, 3])
 
-        pal = palette([(1, CartesianIndex(2, 2)), (2, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (3, CartesianIndex(1, 2))])
+        obj1 = [(1, CartesianIndex(2, 2)), (2, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (3, CartesianIndex(1, 2))]
+        obj2 = [(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2))]
+        obj3 = [(1, CartesianIndex(2, 2)), (2, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (3, CartesianIndex(1, 2))]
+        pal = palette(obj1)
         @test length(pal) == 3
         @test Set(pal) == Set([1, 2, 3])
 
-        @test palette([(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2))]) == [1]
+        @test palette(obj2) == [1]
+
+        @test numcolors(G) == 4
+        @test numcolors(obj2) == 1
+        @test numcolors(obj3) == 3
+
+        @test color(obj2) == 1
+        @test color((2, CartesianIndex(4, 2))) == 2
+    end
+
+    @testset "hmatching, vmatching" begin
+        obj1 = [
+            (1, CartesianIndex(2, 2)),
+            (2, CartesianIndex(1, 1)),
+            (2, CartesianIndex(2, 1)),
+            (3, CartesianIndex(1, 2)),]
+        obj2 = [(3, CartesianIndex(1, 5))]
+        obj3 = [(1, CartesianIndex(3, 4)), (2, CartesianIndex(3, 5))]
+        @test hmatching(obj1, obj2) == true
+        @test hmatching(obj1, obj3) == false
+
+        obj4 = [(1, CartesianIndex(4, 2)), (2, CartesianIndex(5, 2))]
+        obj5 = [(1, CartesianIndex(4, 3)), (2, CartesianIndex(5, 3))]
+        @test vmatching(obj1, obj4) == true
+        @test vmatching(obj1, obj5) == false
+    end
+
+    @testset "manhattan, adjacent, bordering, centerofmass" begin
+        @test manhattan([CartesianIndex(1, 1), CartesianIndex(2, 2)], [CartesianIndex(2, 3), CartesianIndex(3, 4)]) == 1
+        @test manhattan([CartesianIndex(2, 2)], [CartesianIndex(3, 4)]) == 3
+        @test manhattan([(5, CartesianIndex(2, 2))], [(3, CartesianIndex(3, 4))]) == 3
+
+        @test adjacent([CartesianIndex(1, 1)], [CartesianIndex(1, 2), CartesianIndex(2, 1)]) == true
+        @test adjacent([CartesianIndex(1, 1)], [CartesianIndex(2, 2)]) == false
+
+        @test bordering([CartesianIndex(1, 1)], D) == true
+        @test bordering([CartesianIndex(1, 3)], D) == true
+        @test bordering([CartesianIndex(3, 1)], D) == true
+        @test bordering([CartesianIndex(3, 3)], D) == true
+        @test bordering([CartesianIndex(2, 2)], D) == false
+
+        @test centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(2, 3)]) == CartesianIndex(1, 2)
+        @test centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(3, 3)]) == CartesianIndex(2, 2)
+        @test centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(1, 2)]) == CartesianIndex(1, 1)
     end
 
 end
+
+
+# def test_bordering():
+#     assert bordering(frozenset({(0, 0)}), D)
+#     assert bordering(frozenset({(0, 2)}), D)
+#     assert bordering(frozenset({(2, 0)}), D)
+#     assert bordering(frozenset({(2, 2)}), D)
+#     assert not bordering(frozenset({(1, 1)}), D)

@@ -236,6 +236,10 @@ function toindices(object::Vector{<:Tuple})
     return [i[2] for i in object]
 end
 
+function toindices(indices)
+    return indices
+end
+
 
 """
         Mirrors along vertical.
