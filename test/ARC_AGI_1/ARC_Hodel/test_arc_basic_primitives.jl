@@ -1,5 +1,8 @@
 using HerbBenchmarks.ARC_AGI_1.ARC_Hodel
 
+A = [1 0; 0 1; 1 0]
+B = [2 1; 0 1; 2 1]
+
 @testset verbose = true "Basic operators" begin
     @testset "Numerical" begin
         @testset "add" begin
@@ -108,6 +111,37 @@ using HerbBenchmarks.ARC_AGI_1.ARC_Hodel
             @test either(true, true) == true
             @test either(false, false) == false
         end
+    end
+
+    @testset "equality" begin
+        @test equality(A, A) == true
+        @test equality(A, B) == false
+    end
+
+    @testset "contained, combine, intersection, difference" begin
+        @test contained(0, A) == true
+        @test contained(666, A) == false
+        @test contained(CartesianIndex(1, 1), [CartesianIndex(1, 1), CartesianIndex(3, 4)]) == true
+        @test contained((4, CartesianIndex(3, 3)), [(2, CartesianIndex(3, 4)), (4, CartesianIndex(3, 3))]) == true
+
+        @test combine([CartesianIndex(1, 2)], [CartesianIndex(3, 4)]) == [CartesianIndex(1, 2), CartesianIndex(3, 4)]
+        @test combine([(5, CartesianIndex(1, 2))], [(3, CartesianIndex(3, 4)), (5, CartesianIndex(3, 3))]) == [(5, CartesianIndex(1, 2)), (3, CartesianIndex(3, 4)), (5, CartesianIndex(3, 3))]
+
+        obj1 = [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))]
+        obj2 = [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2))]
+        objects = [obj1, obj2]
+        ind1 = [CartesianIndex(1, 1), CartesianIndex(2, 2)]
+        ind2 = [CartesianIndex(1, 1), CartesianIndex(4, 4)]
+        @test intersection(obj1, obj2) == [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2))]
+        @test intersection(ind1, ind2) == [CartesianIndex(1, 1)]
+        @test intersection(objects, [obj1]) == [obj1]
+
+        @test difference(obj1, obj2) == [(1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))]
+        @test difference([1, 2, 3], [1, 2]) == [3]
+    end
+    @testset "dedupe" begin
+        @test dedupe(B) == [2 1; 0 1]
+        @test dedupe([1, 2, 3, 3, 2, 4, 1]) == [1, 2, 3, 4]
     end
 end
 

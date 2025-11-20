@@ -392,12 +392,92 @@ G = [1 0 0 0 3;
         @test centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(1, 2)]) == CartesianIndex(1, 1)
     end
 
+    @testset "toobject, asobject" begin
+        indices_1 = [CartesianIndex(1, 1), CartesianIndex(1, 3)]
+        indices_2 = [CartesianIndex(1, 5)]
+        object = [(4, CartesianIndex(1, 1)), (9, CartesianIndex(1, 3))]
+        @test toobject(indices_1, G) == [(1, CartesianIndex(1, 1)), (0, CartesianIndex(1, 3))]
+        @test toobject(indices_2, G) == [(3, CartesianIndex(1, 5))]
+        @test toobject(object, G) == [(1, CartesianIndex(1, 1)), (0, CartesianIndex(1, 3))]
+
+        @test Set(asobject(A)) == Set([
+            (1, CartesianIndex(1, 1)),
+            (0, CartesianIndex(1, 2)),
+            (0, CartesianIndex(2, 1)),
+            (1, CartesianIndex(2, 2)),
+            (1, CartesianIndex(3, 1)),
+            (0, CartesianIndex(3, 2)),
+        ])
+
+        @test fill_loc(B, 3, [CartesianIndex(1, 1), CartesianIndex(2, 2)]) == [3 1; 0 3; 2 1]
+        @test fill_loc(C, 1, [CartesianIndex(2, 1)]) == [3 4; 1 5]
+
+    end
+
+    @testset "paint, underfill, underpaint" begin
+        obj1 = [(1, CartesianIndex(1, 1)), (4, CartesianIndex(2, 2))]
+        obj2 = [(6, CartesianIndex(2, 1))]
+        obj3 = [(6, CartesianIndex(3, 1))]
+        @test paint(B, obj1) == [1 1; 0 4; 2 1]
+        @test paint(C, obj2) == [3 4; 6 5]
+        @test paint(C, obj3) == C # out-of-bounds index is ignored
+
+        @test underfill(C, 1, [CartesianIndex(1, 1), CartesianIndex(2, 1)]) == [3 4; 1 5]
+        @test underfill(C, 1, [CartesianIndex(1, 1), CartesianIndex(4, 1)]) == C
+
+        obj4 = [(3, CartesianIndex(1, 1)), (3, CartesianIndex(2, 2)), (3, CartesianIndex(4, 3))]
+        @test underpaint(B, obj4) == [2 1; 0 3; 2 1]
+    end
+    @testset "backdrop, delta" begin
+        @test backdrop([CartesianIndex(2, 3), CartesianIndex(3, 2), CartesianIndex(3, 3), CartesianIndex(4, 1)]) == [
+            CartesianIndex(2, 1),
+            CartesianIndex(2, 2),
+            CartesianIndex(2, 3),
+            CartesianIndex(3, 1),
+            CartesianIndex(3, 2),
+            CartesianIndex(3, 3),
+            CartesianIndex(4, 1),
+            CartesianIndex(4, 2),
+            CartesianIndex(4, 3),
+        ]
+        @test isempty(backdrop([])) == true
+
+        @test delta([CartesianIndex(2, 3), CartesianIndex(3, 2), CartesianIndex(3, 3), CartesianIndex(4, 1)]) == [
+            CartesianIndex(2, 1),
+            CartesianIndex(2, 2),
+            CartesianIndex(3, 1),
+            CartesianIndex(4, 2),
+            CartesianIndex(4, 3),
+        ]
+    end
+    @testset "gravitate, inbox, outbox" begin
+        @test gravitate([CartesianIndex(1, 1)], [CartesianIndex(1, 2)]) == CartesianIndex(0, 0)
+        @test gravitate([CartesianIndex(1, 1)], [CartesianIndex(1, 5)]) == CartesianIndex(0, 3)
+
+        @test inbox([CartesianIndex(1, 1), CartesianIndex(3, 3)]) == [CartesianIndex(2, 2)]
+
+        @test Set(outbox([CartesianIndex(2, 2)])) == Set([
+            CartesianIndex(1, 1),
+            CartesianIndex(1, 2),
+            CartesianIndex(1, 3),
+            CartesianIndex(2, 1),
+            CartesianIndex(2, 3),
+            CartesianIndex(3, 1),
+            CartesianIndex(3, 2),
+            CartesianIndex(3, 3),
+        ])
+
+        @test Set(box([CartesianIndex(1, 1), CartesianIndex(2, 2)])) == Set([
+            CartesianIndex(1, 1),
+            CartesianIndex(1, 2),
+            CartesianIndex(2, 1),
+            CartesianIndex(2, 2)
+        ])
+    end
+
+    @testset "occurences" begin
+        @test occurrences(G, [(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2))]) == [CartesianIndex(2, 2), CartesianIndex(3, 2)]
+    end
+
+
 end
-
-
-# def test_bordering():
-#     assert bordering(frozenset({(0, 0)}), D)
-#     assert bordering(frozenset({(0, 2)}), D)
-#     assert bordering(frozenset({(2, 0)}), D)
-#     assert bordering(frozenset({(2, 2)}), D)
-#     assert not bordering(frozenset({(1, 1)}), D)

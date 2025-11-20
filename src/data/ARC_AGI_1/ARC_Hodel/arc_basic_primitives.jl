@@ -121,3 +121,26 @@ both(a, b) = a && b
 	Boolean `OR` (short-circuiting). 
 """
 either(a, b) = a || b
+
+"""Wrapper around `==`"""
+equality(a, b) = a == b
+
+"""Whether value is an element of container. """
+contained(value, container) = value in container
+
+"""Combine two vectors"""
+combine(a, b) = vcat(a, b)
+
+"""Intersection of two containers (vectors) a and b"""
+intersection(a, b) = intersect(a, b)
+# intersection (object, indices, indices sets, set of objects)
+
+"""difference between elements in two containers (vectors) a and b"""
+difference(a, b) = setdiff(a, b)
+
+"""Removes duplicate rows/elements from matrix/vector"""
+dedupe(grid::Matrix) = stack(unique(eachrow(grid)))'
+dedupe(a) = unique(a)
+
+# - [ ]  difference
+# - [ ]  dedupe

@@ -71,11 +71,24 @@ end
 
 
 """
-    Split grid horizontally in
+    Split `grid` along horizontal into `n` parts.
 """
-# function hsplit(grid::Grid, factor::Integer)
-#     # TODO
-# end
+function hsplit(grid::Matrix, n::Integer)
+    _, w_total = size(grid)
+    w = w_total ÷ n
+    offset = w_total % n != 0 ? 1 : 0
+    return [grid[:, (w*i+i*offset+1):(w*(i+1)+i*offset)] for i in 0:n-1]
+end
+
+"""
+    Split `grid` along vertica into `n` parts 
+"""
+function vsplit(grid::Matrix, n::Integer)
+    h_total, _ = size(grid)
+    h = h_total ÷ n
+    offset = h_total % n != 0 ? 1 : 0
+    return [grid[(h*i+i*offset+1):(h*(i+1)+i*offset), :] for i in 0:n-1]
+end
 
 """
     Cellwise matching of grids `a` and `b`. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`.
@@ -89,7 +102,8 @@ end
 """
     Substituion of color value `replacee` with new color `replacer`.
 """
-function replace(grid, replacee, replacer)
+function replace_color(grid, replacee, replacer)
+    # replace in original Python implementation => renamed due to name clash
     return [grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
 end
 
@@ -251,12 +265,6 @@ end
 function vmirror(indices::AbstractVector)
     min_col, max_col = extrema(idx[2] for idx in indices)
     d = min_col + max_col
-    # result = Vector{CartesianIndex{2}}(undef, length(indices))
-    # @inbounds for i in eachindex(indices)
-    #     idx = indices[i]
-    #     result[i] = CartesianIndex(idx[1], d - idx[2])
-    # end
-    # return result
     return [CartesianIndex(idx[1], d - idx[2]) for idx in indices]
 end
 
@@ -325,7 +333,149 @@ function cmirror(piece::AbstractVector)
     return vmirror(dmirror(vmirror(piece)))
 end
 
+""" 
+    Upscales `grid` or `object` by given `factor`. 
+"""
+function upscale(grid::AbstractMatrix, factor)
+    rows, cols = size(grid)
+    upscaled = Matrix{eltype(grid)}(undef, rows * factor, cols * factor)
+    for i in 1:rows
+        for j in 1:cols
+            value = grid[i, j]
+            for irep in 0:factor-1
+                for jrep in 0:factor-1
+                    upscaled[(i-1)*factor+irep+1, (j-1)*factor+jrep+1] = value
+                end
+            end
+        end
+    end
+    return upscaled
+end
 
-# Piece = Union[Grid, Patch]
-# Patch = Union{Object, Indices}
-# Object = Vector{Tuple{Integer, CartesianIndex}}
+function upscale(object, factor)
+    isempty(object) && return []
+
+    corner = ulcorner(object)
+    di_inv, dj_inv = Tuple(corner)
+    normed_obj = shift(object, CartesianIndex(-di_inv, -dj_inv))
+
+    o = [(value, CartesianIndex(i * factor + io, j * factor + jo))
+         for (value, idx) in normed_obj
+         for (i, j) in (Tuple(idx),)
+         for io in 0:(factor-1)
+         for jo in 0:(factor-1)]
+
+    return shift(o, CartesianIndex(di_inv, dj_inv))
+end
+
+"""
+    Returns smalles subgrid that contains the patch
+"""
+function subgrid(patch, grid)
+    return crop(grid, ulcorner(patch), shape(patch))
+end
+
+"""
+    Returns the index of the center of the patch
+"""
+function center(patch)
+    height, width = shape(patch)
+    return CartesianIndex(uppermost(patch) + (height ÷ 2), leftmost(patch) + (width ÷ 2))
+end
+
+"""
+    Relative position between two patches `a` and `b`.
+"""
+function rel_position(a, b)
+    # `position()` in Python implementation => renamed due to name clash
+    ia, ja = center(a).I
+    ib, jb = center(b).I
+    return CartesianIndex(sign(ib - ia), sign(jb - ja))
+end
+
+"""
+    Indices of corners of given `patch`.
+"""
+function corners(patch)
+    return [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
+end
+
+"""
+    Remove an object from grid by filling with locations with background color.
+"""
+function cover(grid, patch)
+    return fill_loc(grid, mostcolor(grid), patch)
+end
+
+"""
+    Moves `object` on `grid` by given `offset`
+"""
+function move(grid, object, offset)
+    return paint(cover(grid, object), shift(object, offset))
+end
+
+
+"""
+    Vector of frontiers, i.e., horizontal and vertical rows/columns where all values are the same
+"""
+function frontiers(grid)
+    h, w = shape(grid)
+
+    # Find rows and cols where all elements are the same
+    row_indices = [i for i in 1:h if length(unique(grid[i, :])) == 1]
+    column_indices = [j for j in 1:w if length(unique(grid[:, j])) == 1]
+
+    # horizontal frontiers
+    hfrontiers = [
+        [(grid[i, j], CartesianIndex(i, j)) for j in 1:w] # TODO: why Set()
+        for i in row_indices
+    ]
+
+    # vertical frontiers
+    vfrontiers = [
+        [(grid[i, j], CartesianIndex(i, j)) for i in 1:h]
+        for j in column_indices
+    ]
+    return vcat(hfrontiers, vfrontiers)
+end
+
+"""
+    Horizontal periodicity, i.e. smallest horizontal distance at which pattern repeats. Returns full width if not pattern found.
+"""
+function hperiod(object)
+    normalized = normalize(object)
+    w = width(normalized)
+
+    for p in 1:(w-1)
+        offsetted = shift(normalized, (0, -p))
+        # Keep only cells with non-negative column indices
+        pruned = Set((c, CartesianIndex(ind)) for (c, ind) in offsetted if ind[2] >= 0)
+
+        if issubset(pruned, normalized)
+            return p
+        end
+    end
+
+    return w
+end
+
+"""
+    Vertical periodicity, i.e. smallest vertical distance at which pattern repeats. Returns full width if not pattern found.
+# """
+function vperiod(object)
+    normalized = normalize(object)
+    h = height(normalized)
+
+
+    for p in 1:(h-1)
+        offsetted = shift(normalized, (-p, 0))
+        # Keep only cells with non-negative row indices
+        pruned = Set((c, CartesianIndex(ind)) for (c, ind) in offsetted if ind[1] >= 0)
+
+        if issubset(pruned, normalized)
+            return p
+        end
+    end
+
+    return h
+end

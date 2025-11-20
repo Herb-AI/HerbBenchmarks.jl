@@ -386,3 +386,208 @@ end
 function color(object)
     return first(object)[1]
 end
+
+"""
+    Returns an object made from indices provided by `patch` and corresponding values in `grid`
+"""
+function toobject(patch, grid)
+    return [(grid[ind], ind) for ind in toindices(patch)]
+end
+
+"""
+    Converts `grid` into an `object``
+"""
+function asobject(grid)
+    return [(grid[idx], idx) for idx in asindices(grid)]
+end
+
+"""
+    Fill `value` in `grid` at locations given by `patch` indices.
+"""
+function fill_loc(grid, value, patch) # fill() in original. Renamed due to name clash.
+    grid_filled = copy(grid)
+    indices = toindices(patch)
+    grid_filled[indices] .= value
+    return grid_filled
+end
+
+"""
+    Paint `object` to `grid``.
+"""
+function paint(grid, object)
+    grid_painted = copy(grid)
+    for (val, ind) in object
+        if checkbounds(Bool, grid_painted, ind)
+            grid_painted[ind] = val
+        end
+    end
+    return grid_painted
+end
+
+"""
+    Fills given `value` at `patch` indices to the grid if they are background.
+"""
+function underfill(grid, value, patch)
+    bg = mostcolor(grid)
+    grid_painted = copy(grid)
+    indices = toindices(patch)
+    for ind in indices
+        if checkbounds(Bool, grid_painted, ind) && grid_painted[ind] == bg
+            grid_painted[ind] = value
+        end
+    end
+    return grid_painted
+end
+
+"""
+    Paints `object` to the `grid` where grid is background 
+"""
+function underpaint(grid, object)
+    bg = mostcolor(grid)
+    grid_painted = copy(grid)
+    for (val, ind) in object
+        if checkbounds(Bool, grid_painted, ind) && grid_painted[ind] == bg
+            grid_painted[ind] = val
+        end
+    end
+    return grid_painted
+end
+
+"""
+    Indices of bounding box of patch.
+"""
+function backdrop(patch)
+    isempty(patch) && return []
+    indices = toindices(patch)
+    si, sj = ulcorner(indices).I
+    ei, ej = lrcorner(indices).I
+    return [CartesianIndex(i, j) for i in range(si, ei) for j in range(sj, ej)]
+end
+
+"""
+    Indices inside the patch's bounding box without the patch itself.
+"""
+function delta(patch)
+    isempty(patch) && return []
+    return setdiff(backdrop(patch), toindices(patch))
+end
+
+"""
+    Direction in which to move until source patch is adjacent to destination.
+"""
+function gravitate(source, destination)
+    si, sj = center(source).I
+    di, dj = center(destination).I
+
+    # Initial direction
+    i, j = if vmatching(source, destination)
+        (si < di ? 1 : -1, 0)
+    else
+        (0, sj < dj ? 1 : -1)
+    end
+
+    direction = CartesianIndex(i, j)
+    total_movement = direction
+    c = 0
+
+    while !adjacent(source, destination) && c < 42
+        c += 1
+        total_movement += direction
+        source = shift(source, direction)
+    end
+
+    return total_movement - direction
+end
+
+"""
+    Inbox for patch, i.e., inner rectangular border around patch.
+"""
+function inbox(patch)
+    ai, aj = uppermost(patch) + 1, leftmost(patch) + 1
+    bi, bj = lowermost(patch) - 1, rightmost(patch) - 1
+    si, sj = min(ai, bi), min(aj, bj)
+    ei, ej = max(ai, bi), max(aj, bj)
+
+    vlines = vcat([CartesianIndex(i, sj) for i in si:ei],
+        [CartesianIndex(i, ej) for i in si:ei])
+
+    hlines = vcat([CartesianIndex(si, j) for j in sj:ej],
+        [CartesianIndex(ei, j) for j in sj:ej])
+
+    return unique(vcat(vlines, hlines))
+end
+
+
+"""
+    Outbox for patch, i.e., outer rectangular border around patch.
+"""
+function outbox(patch)
+    ai, aj = uppermost(patch) - 1, leftmost(patch) - 1
+    bi, bj = lowermost(patch) + 1, rightmost(patch) + 1
+    si, sj = min(ai, bi), min(aj, bj)
+    ei, ej = max(ai, bi), max(aj, bj)
+
+    vlines = vcat([CartesianIndex(i, sj) for i in si:ei],
+        [CartesianIndex(i, ej) for i in si:ei])
+
+    hlines = vcat([CartesianIndex(si, j) for j in sj:ej],
+        [CartesianIndex(ei, j) for j in sj:ej])
+
+    return unique(vcat(vlines, hlines))
+end
+
+"""
+    Outline of patch.
+"""
+function box(patch)
+    isempty(patch) && return [] # not sure why inbox and outbox don't check for this
+    ai, aj = ulcorner(patch).I
+    bi, bj = lrcorner(patch).I
+    si, sj = min(ai, bi), min(aj, bj)
+    ei, ej = max(ai, bi), max(aj, bj)
+
+    vlines = vcat([CartesianIndex(i, sj) for i in si:ei],
+        [CartesianIndex(i, ej) for i in si:ei])
+
+    hlines = vcat([CartesianIndex(si, j) for j in sj:ej],
+        [CartesianIndex(ei, j) for j in sj:ej])
+
+    return unique(vcat(vlines, hlines))
+
+end
+
+
+"""
+    Line from starting point in given direction.
+"""
+# TODO: depends on connect
+# function shoot(start, direction)
+#     return connect(start, (start[0] + 42 * direction[0], start[1] + 42 * direction[1]))
+# end
+"""
+    Locations where object occurs in grid.
+"""
+function occurrences(grid, object) # TODO: move to grid operations
+    isempty(object) && return []
+
+    # Normalize and compute dimensions in one pass
+    norm = normalize(object)
+    oh, ow = shape(object)
+
+    # Unified grid access using indexing
+    h, w = shape(grid)
+
+    h2 = h - oh + 1
+    w2 = w - ow + 1
+    (h2 < 1 || w2 < 1) && return []
+
+    occs = []
+
+    @inbounds for i0 in 1:h2, j0 in 1:w2
+        if all(grid[i0+d[1], j0+d[2]] == v for (v, d) in norm)
+            push!(occs, CartesianIndex(i0, j0))
+        end
+    end
+
+    return occs
+end
