@@ -2965,7 +2965,7 @@ grammar_strip_numeric_characters_from_cell = @cfgrammar begin
 end
 grammar_11440431 = @cfgrammar begin
     Start = ntString
-    ntString = _arg_0
+    ntString = _arg_1
     ntString = ""
     ntString = " "
     ntString = "US"
