@@ -2,6 +2,7 @@ using HerbBenchmarks.ARC_AGI_1.ARC_Hodel
 
 A = [1 0; 0 1; 1 0]
 B = [2 1; 0 1; 2 1]
+C = [3 4; 5 5]
 
 @testset verbose = true "Basic operators" begin
     @testset "Numerical" begin
@@ -139,10 +140,59 @@ B = [2 1; 0 1; 2 1]
         @test difference(obj1, obj2) == [(1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))]
         @test difference([1, 2, 3], [1, 2]) == [3]
     end
-    @testset "dedupe" begin
+    @testset "dedupe, order, repeat" begin
         @test dedupe(B) == [2 1; 0 1]
         @test dedupe([1, 2, 3, 3, 2, 4, 1]) == [1, 2, 3, 4]
+
+        @test order([[1], [1, 2, 3], [1, 2]], length) == [[1], [1, 2], [1, 2, 3]]
+        @test order([1, 4, -3], abs) == [1, -3, 4]
+
+        @test repeat_item(C, 3) == [3 4 3 4 3 4; 5 5 5 5 5 5]
     end
+    @testset "greater" begin
+        @test greater(2, 1) == true
+        @test greater(4, 10) == false
+    end
+
+    @testset "size_of, merge_containers, init" begin
+        @test size_of([1, 2, 3]) == 3
+        @test size_of([(4, CartesianIndex(4, 3)), (3, CartesianIndex(3, 3))]) == 2
+
+        @test merge_containers([[(1, CartesianIndex(1, 1))], [(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]]) == [
+            (1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))
+        ]
+        @test merge_containers([[1, 2], [3, 4, 5]]) == [1, 2, 3, 4, 5]
+        @test merge_containers([[4, 5], [7]]) == [4, 5, 7]
+
+        @test init(2) == [2]
+    end
+
+    @testset "maximum_of, minimum_of, valmax, valmin, mostcommon, leastcommon" begin
+        @test maximum_of([1, 2, 5, 3]) == 5
+        @test maximum_of([4, 2, 6]) == 6
+        @test minimum_of([1, 2, 5, 3]) == 1
+        @test minimum_of([4, 2, 6]) == 2
+
+        @test valmax([[1], [1, 2]], size_of) == 2
+        @test valmin([[1], [1, 2]], size_of) == 1
+
+        @test argmax_by([[1], [1, 2]], size_of) == [1, 2]
+        @test argmin_by([[1], [1, 2]], size_of) == [1]
+
+        @test mostcommon([1, 2, 2, 3, 3, 3]) == 3
+        @test leastcommon([1, 2, 3, 4, 2, 3, 4]) == 1
+    end
+
+    @testset "sfilter, mfilter" begin
+        @test sfilter([1, 2, 3], x -> x > 1) == [2, 3]
+        @test sfilter([2, 3, 4], x -> x % 2 == 0) == [2, 4]
+
+    end
+    @testset "identity" begin
+        @test identityfn(1) == 1
+        @test identityfn(A) == A
+    end
+
 end
 
 

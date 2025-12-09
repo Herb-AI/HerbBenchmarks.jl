@@ -1,4 +1,5 @@
 using MLStyle
+using StatsBase
 
 """
 	Returns the sum of `a` and `b`, where each `a` and `b` can either be `Integer` or `CartesianIndex`.
@@ -142,5 +143,63 @@ difference(a, b) = setdiff(a, b)
 dedupe(grid::Matrix) = stack(unique(eachrow(grid)))'
 dedupe(a) = unique(a)
 
-# - [ ]  difference
-# - [ ]  dedupe
+"""Order container by custom key `compfunc`"""
+function order(container, compfunc) where T
+    return sort(collect(container), by=compfunc)
+end
+
+"""Repeat item to have item a total of num times"""
+function repeat_item(item, num)
+    return hcat([item for i in 1:num]...)
+end
+
+"""Greater-than operator: a > b"""
+greater(a, b) = a > b
+
+"""Size of container"""
+size_of(container) = length(container)
+
+
+"""Merge elements of nested containers"""
+function merge_containers(containers)
+    return reduce(vcat, containers)
+end
+
+"""maximum"""
+maximum_of(container) = maximum(container)
+
+"""maximum"""
+minimum_of(container) = minimum(container)
+
+"""maximum by custom function"""
+function valmax(container, compfunc; default=0)
+    isempty(container) && return compfunc(default)
+    return maximum(compfunc(x) for x in container)
+end
+
+"""minimum by custom function"""
+function valmin(container, compfunc; default=0)
+    isempty(container) && return compfunc(default)
+    return minimum(compfunc(x) for x in container)
+end
+
+"""returns the container that maximizes the custom function"""
+argmax_by(containers, compfunc) = containers[argmax(compfunc.(containers))]
+
+"""returns the container that maximizes the custom function"""
+argmin_by(containers, compfunc) = containers[argmin(compfunc.(containers))]
+
+"""most common item in container"""
+mostcommon(container) = mode(container)
+
+"""least common item in container"""
+leastcommon(container) = argmin(countmap(container))
+
+"""initialize vector"""
+init(value) = [value]
+
+"""filter container for elements that satisfy condition"""
+sfilter(container, condition) = filter(condition, container)
+
+"""identity function"""
+identityfn(x) = identity(x)
