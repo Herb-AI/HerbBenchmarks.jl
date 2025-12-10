@@ -28,10 +28,29 @@ cartesian_product(a, b) = vec(collect(CartesianIndex.(Iterators.product(a, b))))
 """Zip up two CartesianIndex"""
 pair(a, b) = collect(CartesianIndex.(zip(a.I, b.I)))
 
+# note: some primitives below wouldn't be necessary in Herb
+
 """if-else condition"""
 branch(condition, a, b) = condition ? a : b
 
-# note: compose and chain not really necessary. can be handled in grammar
+"""Apply function to each element in container"""
+apply(func, container) = map(func, container)
+
+"""Apply each function in container to a value"""
+rapply(container, value) = [f(value) for f in container]
+
+"""Apply and merge"""
+mapply(func, container) = merge_containers(apply(func, container))
+
+"""Apply function on two vectors a and b"""
+papply(func, a, b) = func.(a, b)
+
+"""""Apply function on two vectors and merge"""
+mpapply(func, a, b) = merge_containers(papply(func, a, b))
+
+"""apply function on cartesian product"""
+prapply(func, a, b) = [func(i, j) for j in b for i in a]
+
 """Compose a function from inner and outer"""
 compose(outer, inner) = x -> outer(inner(x))
 
@@ -47,23 +66,4 @@ rbind(func, fixed) = (args...) -> func(args..., fixed)
 """Fix the leftmost argument of a function"""
 lbind(func, fixed) = (args...) -> func(fixed, args...)
 
-# def rbind(function: Callable, fixed: Any) -> Callable:
-#     """fix the rightmost argument"""
-#     n = function.__code__.co_argcount
-#     if n == 2:
-#         return lambda x: function(x, fixed)
-#     elif n == 3:
-#         return lambda x, y: function(x, y, fixed)
-#     else:
-#         return lambda x, y, z: function(x, y, z, fixed)
-
-
-# def lbind(function: Callable, fixed: Any) -> Callable:
-#     """fix the leftmost argument"""
-#     n = function.__code__.co_argcount
-#     if n == 2:
-#         return lambda y: function(fixed, y)
-#     elif n == 3:
-#         return lambda y, z: function(fixed, y, z)
-#     else:
-#         return lambda y, z, a: function(fixed, y, z, a)
+# primitives totuple, power, fork not implemented -> not necessary in Herb

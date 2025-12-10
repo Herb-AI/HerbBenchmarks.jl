@@ -10,5 +10,5 @@ using Test
     # include("test_robots_2020.jl")
     # include("test_pixels_2020.jl")
     # include("test_problem_fetcher.jl")
-    include("ARC_AGI_1/test_arc_dsl.jl")
+    include("ARC_AGI_1/test_arc_agi_1.jl")
 end

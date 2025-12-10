@@ -1,5 +1,4 @@
 using HerbBenchmarks.ARC_AGI_1.ARC_Hodel
-
 A = [1 0; 0 1; 1 0]
 B = [2 1; 0 1; 2 1]
 C = [3 4; 5 5]
@@ -9,10 +8,23 @@ G = [1 0 0 0 3;
     0 1 1 2 0;
     0 0 2 2 0;
     0 2 0 0 0]
-@testset verbose = true "arc something" begin
-    indices = [CartesianIndex(1, 5)]
-    object_1 = [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))]
-    object_2 = [(1, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (2, CartesianIndex(1, 2))]
+
+indices = [CartesianIndex(1, 5)]
+object_1 = [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))]
+object_2 = [(1, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (2, CartesianIndex(1, 2))]
+
+@testset verbose = true "core primitives" begin
+    @testset "init, toindices" begin
+        @test init(2) == [2]
+
+        @test toindices([(1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 1))]) == [CartesianIndex(2, 2), CartesianIndex(2, 1)]
+        @test toindices([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == [CartesianIndex(2, 2), CartesianIndex(2, 1)]
+
+    end
+    @testset "vfrontier, hfrontier" begin
+        @test vfrontier(CartesianIndex(3, 4)) == [CartesianIndex(i, 4) for i in 1:30]
+        @test hfrontier(CartesianIndex(3, 4)) == [CartesianIndex(3, j) for j in 1:30]
+    end
 
     @testset "upper-, lower-, left- and rightmost" begin
         @test uppermost(indices) == 1
@@ -180,7 +192,6 @@ G = [1 0 0 0 3;
         expected = Set([obj1, obj2, obj3, obj4])
         @test objects(G, false, false, true) == expected
 
-        # TODO: @test objects(G, true, true, false) == expected
         obj1 = Set([
             (1, CartesianIndex(1, 1)),
             (1, CartesianIndex(2, 2)),
@@ -392,6 +403,19 @@ G = [1 0 0 0 3;
         @test centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(1, 2)]) == CartesianIndex(1, 1)
     end
 
+    @testset "center, rel_position, corner" begin
+        @test center([(1, CartesianIndex(1, 1))]) == CartesianIndex(1, 1)
+        @test center([(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 3))]) == CartesianIndex(1, 2)
+        @test center([(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 3)), (1, CartesianIndex(3, 1)), (1, CartesianIndex(3, 3))]) == CartesianIndex(2, 2)
+
+        @test rel_position([(0, CartesianIndex(2, 2))], [(0, CartesianIndex(3, 3))]) == CartesianIndex(1, 1)
+        @test rel_position([(0, CartesianIndex(3, 3))], [(0, CartesianIndex(2, 3))]) == CartesianIndex(-1, 0)
+        @test rel_position([(0, CartesianIndex(4, 4))], [(0, CartesianIndex(4, 5))]) == CartesianIndex(0, 1)
+
+        @test corners([CartesianIndex(2, 3), CartesianIndex(1, 4), CartesianIndex(5, 1)]) == [CartesianIndex(1, 1), CartesianIndex(1, 4), CartesianIndex(5, 1), CartesianIndex(5, 4)]
+        @test corners([CartesianIndex(2, 3), CartesianIndex(1, 1), CartesianIndex(5, 4)]) == [CartesianIndex(1, 1), CartesianIndex(1, 4), CartesianIndex(5, 1), CartesianIndex(5, 4)]
+    end
+
     @testset "toobject, asobject" begin
         indices_1 = [CartesianIndex(1, 1), CartesianIndex(1, 3)]
         indices_2 = [CartesianIndex(1, 5)]
@@ -475,9 +499,174 @@ G = [1 0 0 0 3;
         ])
     end
 
-    @testset "occurences" begin
-        @test occurrences(G, [(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2))]) == [CartesianIndex(2, 2), CartesianIndex(3, 2)]
+    @testset "sfilter, mfilter" begin
+        @test sfilter([1, 2, 3], x -> x > 1) == [2, 3]
+        @test sfilter([2, 3, 4], x -> x % 2 == 0) == [2, 4]
+
+        @test mfilter(
+            [
+                [(2, CartesianIndex(4, 4))],
+                [(1, CartesianIndex(1, 1))],
+                [(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]
+            ],
+            x -> length(x) == 1
+        ) == [(2, CartesianIndex(4, 4)), (1, CartesianIndex(1, 1))]
     end
 
+    @testset "merge_containers,connect, shoot" begin
+        @test merge_containers([[(1, CartesianIndex(1, 1))], [(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]]) == [
+            (1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))
+        ]
+        @test merge_containers([[1, 2], [3, 4, 5]]) == [1, 2, 3, 4, 5]
+        @test merge_containers([[4, 5], [7]]) == [4, 5, 7]
 
+        @test connect(CartesianIndex(1, 1), CartesianIndex(2, 2)) == [CartesianIndex(1, 1), CartesianIndex(2, 2)]
+        @test connect(CartesianIndex(1, 1), CartesianIndex(1, 4)) == [
+            CartesianIndex(1, 1),
+            CartesianIndex(1, 2),
+            CartesianIndex(1, 3),
+            CartesianIndex(1, 4)
+        ]
+
+        @test shoot(CartesianIndex(1, 1), CartesianIndex(1, 1)) == [CartesianIndex(i, i) for i in range(1, 43)]
+    end
+
+    @testset "ulcorner, urcorner, llcorner, rrcorner" begin
+        # ulcorner
+        indices_1 = [CartesianIndex(2, 3), CartesianIndex(1, 4), CartesianIndex(5, 1)]
+        indices_2 = [CartesianIndex(2, 3), CartesianIndex(1, 1), CartesianIndex(5, 4)]
+        indices_3 = [CartesianIndex(2, 6), CartesianIndex(1, 1), CartesianIndex(3, 4)]
+        cells = [(4, CartesianIndex(2, 6)), (16, CartesianIndex(9, 2)), (4, CartesianIndex(5, 5))]
+
+        @test ulcorner(indices_1) == CartesianIndex(1, 1)
+        @test ulcorner(indices_2) == CartesianIndex(1, 1)
+        @test ulcorner(cells) == CartesianIndex(2, 2)
+
+        # urcorner
+        @test urcorner(indices_1) == CartesianIndex(1, 4)
+        @test urcorner(indices_2) == CartesianIndex(1, 4)
+        @test urcorner(cells) == CartesianIndex(2, 6)
+
+        # llcorner
+        @test llcorner(indices_1) == CartesianIndex(5, 1)
+        @test llcorner(indices_2) == CartesianIndex(5, 1)
+        @test llcorner(indices_3) == CartesianIndex(3, 1)
+        @test llcorner(cells) == CartesianIndex(9, 2)
+
+        # lrcorner
+        @test lrcorner(indices_1) == CartesianIndex(5, 4)
+        @test lrcorner(indices_2) == CartesianIndex(5, 4)
+        @test lrcorner(cells) == CartesianIndex(9, 6)
+    end
+
+    @testset "vmirror, hmirror, dmirror, cmirror" begin
+        indices_1 = [CartesianIndex(1, 1), CartesianIndex(2, 2)]
+        indices_2 = [CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(2, 2)]
+        indices_3 = [CartesianIndex(1, 2), CartesianIndex(2, 3)]
+        object = [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(3, 3))]
+        # vmirror
+        @test vmirror(B) == [1 2; 1 0; 1 2] # grid
+        @test vmirror(C) == [4 3; 5 5] # grid
+        @test Set(vmirror(indices_1)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)]) # indices
+        @test Set(vmirror(indices_2)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]) # indices
+        @test Set(vmirror(indices_3)) == Set([CartesianIndex(1, 3), CartesianIndex(2, 2)]) # indices
+        @test Set(vmirror(object)) == Set([(2, CartesianIndex(1, 3)), (2, CartesianIndex(2, 2)), (2, CartesianIndex(3, 2))])
+
+        # hmirror
+        @test hmirror(B) == [2 1; 0 1; 2 1]
+        @test hmirror(C) == [5 5; 3 4]
+        @test Set(hmirror(indices_1)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)])
+        @test Set(hmirror(indices_2)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 1), CartesianIndex(1, 2)])
+        @test Set(hmirror(indices_3)) == Set([CartesianIndex(2, 2), CartesianIndex(1, 3)])
+        @test Set(hmirror(object)) == Set([(2, CartesianIndex(3, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(1, 3))])
+
+        # dmirror
+        @test dmirror(B) == [2 0 2; 1 1 1]
+        @test dmirror(C) == [3 5; 4 5]
+        @test dmirror(indices_1) == [CartesianIndex(1, 1), CartesianIndex(2, 2)]
+        @test dmirror(indices_2) == [CartesianIndex(1, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]
+        @test dmirror(indices_3) == indices_3
+        @test dmirror(object) == [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(2, 4))]
+
+        # cmirror
+        @test cmirror(B) == [1 1 1; 2 0 2]
+        @test cmirror(C) == [5 4; 5 3]
+        @test cmirror(indices_1) == [CartesianIndex(2, 2), CartesianIndex(1, 1)]
+        @test cmirror(indices_2) == [CartesianIndex(2, 2), CartesianIndex(2, 1), CartesianIndex(1, 1)]
+        @test cmirror(indices_3) == [CartesianIndex(2, 3), CartesianIndex(1, 2)]
+    end
+
+    @testset "upscale" begin
+        ## grid
+        @test upscale(B, 1) == B
+        @test upscale(C, 1) == C
+        @test upscale(B, 2) == [2 2 1 1; 2 2 1 1; 0 0 1 1; 0 0 1 1; 2 2 1 1; 2 2 1 1]
+        @test upscale(C, 2) == [3 3 4 4; 3 3 4 4; 5 5 5 5; 5 5 5 5]
+
+        ## object
+        obj1 = [(3, CartesianIndex(1, 2)), (4, CartesianIndex(2, 1)), (5, CartesianIndex(2, 2))]
+        expected = [(3, CartesianIndex(1, 3)), (3, CartesianIndex(1, 4)),
+            (3, CartesianIndex(2, 3)), (3, CartesianIndex(2, 4)),
+            (4, CartesianIndex(3, 1)), (4, CartesianIndex(4, 1)),
+            (4, CartesianIndex(3, 2)), (4, CartesianIndex(4, 2)),
+            (5, CartesianIndex(3, 3)), (5, CartesianIndex(4, 3)),
+            (5, CartesianIndex(3, 4)), (5, CartesianIndex(4, 4))]
+        @test Set(upscale(obj1, 2)) == Set(expected)
+
+        obj2 = [(3, CartesianIndex(1, 1))]
+        expected = [(3, CartesianIndex(1, 1)), (3, CartesianIndex(2, 1)),
+            (3, CartesianIndex(1, 2)), (3, CartesianIndex(2, 2))]
+        @test Set(upscale(obj2, 2)) == Set(expected)
+    end
+
+    @testset "frontiers, hperiod" begin
+        @test frontiers(C) == [[(5, CartesianIndex(2, 1)), (5, CartesianIndex(2, 2))]]
+
+        obj1 = [
+            (8, CartesianIndex(3, 2)),
+            (8, CartesianIndex(2, 4)),
+            (2, CartesianIndex(3, 5)),
+            (8, CartesianIndex(3, 4)),
+            (2, CartesianIndex(3, 3)),
+            (2, CartesianIndex(2, 3)),
+            (8, CartesianIndex(2, 2)),
+            (8, CartesianIndex(2, 6)),
+            (2, CartesianIndex(2, 5)),
+            (8, CartesianIndex(3, 6)),
+            (2, CartesianIndex(3, 1)),
+            (2, CartesianIndex(2, 1)),
+        ]
+        obj2 = [
+            (2, CartesianIndex(3, 7)),
+            (2, CartesianIndex(3, 1)),
+            (3, CartesianIndex(3, 5)),
+            (3, CartesianIndex(3, 3)),
+            (3, CartesianIndex(3, 6)),
+            (2, CartesianIndex(3, 4)),
+            (3, CartesianIndex(3, 2)),
+        ]
+        obj3 = [
+            (1, CartesianIndex(3, 7)),
+            (2, CartesianIndex(4, 6)),
+            (2, CartesianIndex(4, 1)),
+            (2, CartesianIndex(3, 3)),
+            (2, CartesianIndex(3, 8)),
+            (1, CartesianIndex(4, 5)),
+            (2, CartesianIndex(3, 2)),
+            (1, CartesianIndex(3, 4)),
+            (2, CartesianIndex(3, 6)),
+            (2, CartesianIndex(3, 5)),
+            (1, CartesianIndex(4, 8)),
+            (1, CartesianIndex(3, 1)),
+            (2, CartesianIndex(4, 7)),
+            (2, CartesianIndex(4, 3)),
+            (2, CartesianIndex(4, 4)),
+            (1, CartesianIndex(4, 2)),
+        ]
+        @test hperiod(obj1) == 2
+        @test hperiod(obj2) == 3
+        @test vperiod(obj2) == 1
+        @test vperiod(obj3) == 2
+
+    end
 end

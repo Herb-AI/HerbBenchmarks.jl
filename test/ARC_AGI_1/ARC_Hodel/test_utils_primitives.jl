@@ -57,4 +57,34 @@ using HerbBenchmarks.ARC_AGI_1.ARC_Hodel
         @test lbind((x, y) -> x / y, 2)(10) == 0.2
         @test lbind((x, y, z) -> x - y - z, 10)(2, 5) == 3
     end
+    @testset "apply,rapply, mapply, papply, mpapply, prapply" begin
+        @test apply(x -> x^2, [1, 2, 3]) == [1, 4, 9]
+        @test apply(x -> x % 2, [1, 2]) == [1, 0]
+
+        @test rapply([x -> x + 1, x -> x - 1], 1) == [2, 0]
+
+        @test mapply(
+            x -> [(v + 1, ind) for (v, ind) in x],
+            [
+                [(1, CartesianIndex(1, 1))],
+                [(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]
+            ]
+        ) == [
+            (2, CartesianIndex(1, 1)),
+            (2, CartesianIndex(2, 2)), (2, CartesianIndex(1, 2))
+        ]
+
+        @test papply((x, y) -> x + y, [1, 2], [3, 4]) == [4, 6]
+
+        @test mpapply(
+            (x, y) -> [(x, ind) for (_, ind) in y],
+            [3, 4],
+            [
+                [(1, CartesianIndex(1, 1))],
+                [(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]
+            ]
+        ) == [(3, CartesianIndex(1, 1)), (4, CartesianIndex(2, 2)), (4, CartesianIndex(1, 2))]
+
+        @test prapply((x, y) -> x + y, [1, 2], [2, 3]) == [3, 4, 4, 5]
+    end
 end
