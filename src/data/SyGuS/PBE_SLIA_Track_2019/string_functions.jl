@@ -24,7 +24,7 @@ prefixof_cvc(prefix::String, str::String) = startswith(str, prefix)
 
 suffixof_cvc(suffix::String, str::String) = endswith(str, suffix)
 
-contains_cvc(contained::String, str::String) = contains(str, contained)
+contains_cvc(str::String, contained::String) = contains(str, contained)
 
 lt_cvc(str1::String, str2::String) = cmp(str1, str2) < 0
 
@@ -33,7 +33,7 @@ leq_cvc(str1::String, str2::String) = cmp(str1, str2) <= 0
 isdigit_cvc(str::String) = tryparse(Int, str) !== nothing
 
 """
-Gets relevant symbol to easily match grammar rules to operations in `interpret` function
+Gets the relevant symbol to easily match grammar rules to operations in `interpret` function
 """
 function get_relevant_tags(grammar::ContextSensitiveGrammar)
         tags = Dict{Int,Any}()
