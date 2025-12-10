@@ -32,6 +32,25 @@ leq_cvc(str1::String, str2::String) = cmp(str1, str2) <= 0
 
 isdigit_cvc(str::String) = tryparse(Int, str) !== nothing
 
+"""
+Gets the relevant symbol to easily match grammar rules to operations in `interpret` function
+"""
+function get_relevant_tags(grammar::ContextSensitiveGrammar)
+        tags = Dict{Int,Any}()
+        for (ind, r) in pairs(grammar.rules)
+                tags[ind] = if typeof(r) != Expr
+                        r
+                else
+                        @match r.head begin
+                                :block => :OpSeq
+                                :call => r.args[1]
+                                :if => :IF
+                        end
+                end
+        end
+        return tags
+end
+
 function interpret_sygus(prog::AbstractRuleNode, grammar_tags::Dict{Int,Any})
     r = get_rule(prog)
     c = get_children(prog)
