@@ -5,6 +5,7 @@ version = "0.2.3"
 
 [deps]
 FilePathsBase = "48062228-2e41-5def-b9a4-89aafe57970f"
+Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
 HerbCore = "2b23ba43-8213-43cb-b5ea-38c12b45bd45"
 HerbGrammar = "4ef9e186-2fe5-4b24-8de7-9f7291f24af7"
 HerbSpecification = "6d54aada-062f-46d8-85cf-a1ceaf058a06"
@@ -13,12 +14,17 @@ MLStyle = "d8e11817-5142-5d16-987a-aa16d5891078"
 ParserCombinator = "fae87a5f-d1ad-5cf0-8f61-c941e1580b46"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
+Flux = "0.16.7"
 HerbCore = "^0.3.0"
 HerbGrammar = "0.6"
-HerbSpecification = "^0.2.0"
+HerbSpecification = "0.2.1"
 ParserCombinator = "2.2.1"
+SparseArrays = "1.11.0"
+StatsBase = "0.34.9"
 julia = "^1.8"
 
 [extras]
