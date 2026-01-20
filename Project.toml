@@ -1,7 +1,7 @@
 name = "HerbBenchmarks"
 uuid = "eadf8b74-d38a-4b1a-a063-8d36e493d376"
-authors = ["jaapjong <J.deJong-18@student.tudelft.nl>", "Tilman Hinnerichs <t.r.hinnerichs@tudelft.nl>", "Sebastijan Dumancic <s.dumancic@tudelft.nl>"]
 version = "0.2.3"
+authors = ["jaapjong <J.deJong-18@student.tudelft.nl>", "Tilman Hinnerichs <t.r.hinnerichs@tudelft.nl>", "Sebastijan Dumancic <s.dumancic@tudelft.nl>"]
 
 [deps]
 FilePathsBase = "48062228-2e41-5def-b9a4-89aafe57970f"
@@ -15,7 +15,7 @@ Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 
 [compat]
-HerbCore = "^0.3.0"
+HerbCore = "^0.3.0, 1"
 HerbGrammar = "0.6"
 HerbSpecification = "^0.2.0"
 ParserCombinator = "2.2.1"
