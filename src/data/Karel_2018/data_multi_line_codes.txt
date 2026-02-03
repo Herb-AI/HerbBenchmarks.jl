@@ -1,0 +1,1189 @@
+DEF run {
+  IFELSE(noMarkersPresent) {
+    WHILE(not(leftIsClear)) {
+      turnRight
+    }
+  }
+  ELSE {
+    pickMarker putMarker
+  }
+  IF(rightIsClear) {
+    WHILE(noMarkersPresent) {
+      move
+    }
+  }
+}
+DEF run {
+  IF(leftIsClear) {
+    WHILE(leftIsClear) {
+      move
+    }
+  }
+  IFELSE(not(rightIsClear)) {
+    WHILE(not(leftIsClear)) {
+      move
+    }
+  }
+  ELSE {
+    IFELSE(not(frontIsClear)) {
+      turnLeft
+    }
+    ELSE {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  REPEAT R=1 {
+    turnRight
+  }
+  REPEAT R=2 {
+    IFELSE(rightIsClear) {
+      move
+    }
+    ELSE {
+      putMarker
+    }
+  }
+}
+DEF run {
+  WHILE(not(leftIsClear)) {
+    IFELSE(not(leftIsClear)) {
+      putMarker
+    }
+    ELSE {
+      turnRight
+    }
+  }
+  REPEAT R=2 {
+    IF(leftIsClear) {
+      turnRight
+    }
+  }
+}
+DEF run {
+  IF(not(markersPresent)) {
+    REPEAT R=1 {
+      turnRight
+    }
+  }
+  REPEAT R=5 {
+    move turnRight
+  }
+}
+DEF run {
+  REPEAT R=18 {
+    turnRight
+  }
+  WHILE(leftIsClear) {
+    WHILE(not(rightIsClear)) {
+      turnRight
+    }
+  }
+}
+DEF run {
+  IFELSE(frontIsClear) {
+    IFELSE(not(frontIsClear)) {
+      WHILE(not(leftIsClear)) {
+        move
+      }
+    }
+    ELSE {
+      IFELSE(leftIsClear) {
+        move
+      }
+      ELSE {
+        putMarker
+      }
+    }
+  }
+  ELSE {
+    WHILE(not(leftIsClear)) {
+      WHILE(not(leftIsClear)) {
+        turnLeft
+      }
+    }
+  }
+}
+DEF run {
+  turnRight IFELSE(not(frontIsClear)) {
+    pickMarker pickMarker
+  }
+  ELSE {
+    WHILE(rightIsClear) {
+      turnRight
+    }
+  }
+}
+DEF run {
+  WHILE(markersPresent) {
+    putMarker
+  }
+  move turnRight REPEAT R=0 {
+    turnLeft
+  }
+}
+DEF run {
+  WHILE(not(leftIsClear)) {
+    turnRight turnLeft
+  }
+  REPEAT R=14 {
+    turnLeft move
+  }
+}
+DEF run {
+  IFELSE(frontIsClear) {
+    IFELSE(not(rightIsClear)) {
+      IF(leftIsClear) {
+        turnLeft
+      }
+    }
+    ELSE {
+      pickMarker turnRight
+    }
+  }
+  ELSE {
+    IFELSE(not(noMarkersPresent)) {
+      move move
+    }
+    ELSE {
+      putMarker
+    }
+  }
+}
+DEF run {
+  REPEAT R=11 {
+    WHILE(not(rightIsClear)) {
+      pickMarker
+    }
+  }
+  pickMarker
+}
+DEF run {
+  move IFELSE(not(frontIsClear)) {
+    turnLeft
+  }
+  ELSE {
+    IFELSE(markersPresent) {
+      turnLeft
+    }
+    ELSE {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  WHILE(not(rightIsClear)) {
+    putMarker
+  }
+  IF(not(markersPresent)) {
+    IF(frontIsClear) {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  IFELSE(not(noMarkersPresent)) {
+    move
+  }
+  ELSE {
+    IF(not(markersPresent)) {
+      IFELSE(not(markersPresent)) {
+        putMarker
+      }
+      ELSE {
+        move
+      }
+    }
+  }
+}
+DEF run {
+  REPEAT R=3 {
+    IF(not(noMarkersPresent)) {
+      move
+    }
+  }
+  pickMarker
+}
+DEF run {
+  move pickMarker
+}
+DEF run {
+  WHILE(leftIsClear) {
+    REPEAT R=19 {
+      turnLeft
+    }
+  }
+  pickMarker
+}
+DEF run {
+  IF(markersPresent) {
+    turnLeft
+  }
+}
+DEF run {
+  WHILE(not(leftIsClear)) {
+    turnLeft
+  }
+  IF(not(leftIsClear)) {
+    turnLeft
+  }
+  WHILE(rightIsClear) {
+    move
+  }
+}
+DEF run {
+  WHILE(leftIsClear) {
+    IF(frontIsClear) {
+      pickMarker
+    }
+  }
+  turnLeft
+}
+DEF run {
+  REPEAT R=5 {
+    REPEAT R=9 {
+      move
+    }
+  }
+  REPEAT R=7 {
+    IF(markersPresent) {
+      move
+    }
+  }
+}
+DEF run {
+  IF(not(frontIsClear)) {
+    turnLeft
+  }
+}
+DEF run {
+  REPEAT R=4 {
+    move IF(not(markersPresent)) {
+      move
+    }
+  }
+}
+DEF run {
+  IFELSE(not(frontIsClear)) {
+    pickMarker
+  }
+  ELSE {
+    REPEAT R=7 {
+      REPEAT R=0 {
+        turnLeft
+      }
+    }
+  }
+}
+DEF run {
+  IF(markersPresent) {
+    turnRight
+  }
+  turnRight move move
+}
+DEF run {
+  WHILE(not(frontIsClear)) {
+    move move
+  }
+  REPEAT R=3 {
+    REPEAT R=9 {
+      move
+    }
+  }
+}
+DEF run {
+  IF(noMarkersPresent) {
+    IFELSE(not(rightIsClear)) {
+      pickMarker
+    }
+    ELSE {
+      turnRight
+    }
+    WHILE(not(noMarkersPresent)) {
+      pickMarker
+    }
+  }
+}
+DEF run {
+  IF(not(markersPresent)) {
+    REPEAT R=2 {
+      pickMarker
+    }
+  }
+  IFELSE(noMarkersPresent) {
+    turnLeft
+  }
+  ELSE {
+    pickMarker
+  }
+}
+DEF run {
+  turnLeft
+}
+DEF run {
+  pickMarker
+}
+DEF run {
+  IF(not(leftIsClear)) {
+    IFELSE(noMarkersPresent) {
+      move
+    }
+    ELSE {
+      turnLeft
+    }
+  }
+  WHILE(frontIsClear) {
+    REPEAT R=9 {
+      turnRight
+    }
+  }
+}
+DEF run {
+  turnRight turnRight
+}
+DEF run {
+  IFELSE(not(noMarkersPresent)) {
+    IFELSE(frontIsClear) {
+      IFELSE(not(noMarkersPresent)) {
+        putMarker
+      }
+      ELSE {
+        turnRight
+      }
+    }
+    ELSE {
+      IFELSE(markersPresent) {
+        turnRight
+      }
+      ELSE {
+        move
+      }
+    }
+  }
+  ELSE {
+    turnRight
+  }
+}
+DEF run {
+  IF(not(markersPresent)) {
+    REPEAT R=13 {
+      putMarker
+    }
+  }
+  IF(rightIsClear) {
+    REPEAT R=10 {
+      move
+    }
+  }
+}
+DEF run {
+  WHILE(frontIsClear) {
+    move
+  }
+}
+DEF run {
+  turnRight REPEAT R=10 {
+    turnRight
+  }
+  REPEAT R=11 {
+    IF(not(rightIsClear)) {
+      putMarker
+    }
+  }
+}
+DEF run {
+  WHILE(frontIsClear) {
+    IFELSE(not(frontIsClear)) {
+      turnLeft move
+    }
+    ELSE {
+      IFELSE(markersPresent) {
+        turnRight
+      }
+      ELSE {
+        putMarker
+      }
+    }
+  }
+}
+DEF run {
+  IFELSE(noMarkersPresent) {
+    move
+  }
+  ELSE {
+    REPEAT R=6 {
+      move
+    }
+  }
+}
+DEF run {
+  IF(leftIsClear) {
+    IFELSE(rightIsClear) {
+      move
+    }
+    ELSE {
+      putMarker
+    }
+  }
+  REPEAT R=19 {
+    turnRight
+  }
+}
+DEF run {
+  IFELSE(not(noMarkersPresent)) {
+    REPEAT R=18 {
+      turnRight
+    }
+  }
+  ELSE {
+    IF(not(markersPresent)) {
+      move
+    }
+  }
+  IF(not(markersPresent)) {
+    IFELSE(not(markersPresent)) {
+      turnLeft
+    }
+    ELSE {
+      turnRight
+    }
+  }
+}
+DEF run {
+  REPEAT R=10 {
+    turnRight
+  }
+  REPEAT R=6 {
+    turnRight
+  }
+  REPEAT R=1 {
+    turnLeft
+  }
+  IFELSE(leftIsClear) {
+    turnRight
+  }
+  ELSE {
+    turnLeft
+  }
+}
+DEF run {
+  IFELSE(rightIsClear) {
+    IFELSE(leftIsClear) {
+      REPEAT R=15 {
+        putMarker
+      }
+    }
+    ELSE {
+      REPEAT R=7 {
+        move
+      }
+    }
+  }
+  ELSE {
+    REPEAT R=19 {
+      IF(leftIsClear) {
+        move
+      }
+    }
+  }
+}
+DEF run {
+  WHILE(frontIsClear) {
+    pickMarker
+  }
+  IFELSE(markersPresent) {
+    turnRight
+  }
+  ELSE {
+    turnLeft
+  }
+  IFELSE(noMarkersPresent) {
+    WHILE(leftIsClear) {
+      move
+    }
+  }
+  ELSE {
+    WHILE(not(frontIsClear)) {
+      move
+    }
+  }
+}
+DEF run {
+  REPEAT R=12 {
+    WHILE(not(rightIsClear)) {
+      turnLeft
+    }
+  }
+  REPEAT R=18 {
+    WHILE(noMarkersPresent) {
+      move
+    }
+  }
+}
+DEF run {
+  pickMarker turnRight WHILE(not(leftIsClear)) {
+    WHILE(not(frontIsClear)) {
+      turnRight
+    }
+  }
+}
+DEF run {
+  IFELSE(noMarkersPresent) {
+    turnLeft
+  }
+  ELSE {
+    turnLeft
+  }
+}
+DEF run {
+  REPEAT R=9 {
+    turnRight
+  }
+  WHILE(frontIsClear) {
+    putMarker
+  }
+  IFELSE(not(rightIsClear)) {
+    IF(not(frontIsClear)) {
+      move
+    }
+  }
+  ELSE {
+    REPEAT R=0 {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  IF(rightIsClear) {
+    REPEAT R=12 {
+      WHILE(not(leftIsClear)) {
+        turnRight
+      }
+    }
+  }
+}
+DEF run {
+  WHILE(not(noMarkersPresent)) {
+    IF(frontIsClear) {
+      move
+    }
+    IFELSE(rightIsClear) {
+      turnRight
+    }
+    ELSE {
+      pickMarker
+    }
+  }
+}
+DEF run {
+  IFELSE(markersPresent) {
+    IFELSE(frontIsClear) {
+      move
+    }
+    ELSE {
+      move
+    }
+  }
+  ELSE {
+    IF(rightIsClear) {
+      putMarker
+    }
+  }
+  REPEAT R=13 {
+    REPEAT R=2 {
+      turnRight
+    }
+  }
+}
+DEF run {
+  move IF(leftIsClear) {
+    IF(not(noMarkersPresent)) {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  IFELSE(noMarkersPresent) {
+    turnRight turnRight
+  }
+  ELSE {
+    turnRight turnRight
+  }
+  WHILE(not(leftIsClear)) {
+    IFELSE(frontIsClear) {
+      pickMarker
+    }
+    ELSE {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  IFELSE(frontIsClear) {
+    IFELSE(markersPresent) {
+      WHILE(not(frontIsClear)) {
+        turnRight
+      }
+    }
+    ELSE {
+      WHILE(markersPresent) {
+        pickMarker
+      }
+    }
+  }
+  ELSE {
+    IFELSE(leftIsClear) {
+      turnRight turnLeft
+    }
+    ELSE {
+      pickMarker
+    }
+  }
+}
+DEF run {
+  IF(not(rightIsClear)) {
+    putMarker
+  }
+  WHILE(noMarkersPresent) {
+    turnLeft
+  }
+  IFELSE(not(leftIsClear)) {
+    WHILE(rightIsClear) {
+      turnRight
+    }
+  }
+  ELSE {
+    pickMarker
+  }
+}
+DEF run {
+  IF(noMarkersPresent) {
+    move turnLeft
+  }
+  turnRight
+}
+DEF run {
+  REPEAT R=1 {
+    IFELSE(not(leftIsClear)) {
+      turnLeft
+    }
+    ELSE {
+      pickMarker
+    }
+  }
+  putMarker IFELSE(frontIsClear) {
+    move
+  }
+  ELSE {
+    pickMarker
+  }
+}
+DEF run {
+  REPEAT R=15 {
+    IFELSE(markersPresent) {
+      IFELSE(rightIsClear) {
+        turnRight
+      }
+      ELSE {
+        putMarker
+      }
+    }
+    ELSE {
+      IFELSE(markersPresent) {
+        move
+      }
+      ELSE {
+        move
+      }
+    }
+  }
+}
+DEF run {
+  IF(rightIsClear) {
+    pickMarker
+  }
+}
+DEF run {
+  REPEAT R=17 {
+    IF(not(leftIsClear)) {
+      putMarker
+    }
+  }
+  WHILE(not(rightIsClear)) {
+    move
+  }
+  WHILE(not(frontIsClear)) {
+    turnRight
+  }
+}
+DEF run {
+  REPEAT R=8 {
+    IF(frontIsClear) {
+      turnRight
+    }
+  }
+  REPEAT R=9 {
+    move
+  }
+  turnLeft
+}
+DEF run {
+  REPEAT R=7 {
+    IF(markersPresent) {
+      turnLeft
+    }
+    WHILE(not(noMarkersPresent)) {
+      pickMarker
+    }
+  }
+}
+DEF run {
+  pickMarker
+}
+DEF run {
+  turnLeft IF(not(leftIsClear)) {
+    IFELSE(rightIsClear) {
+      turnRight
+    }
+    ELSE {
+      move
+    }
+  }
+}
+DEF run {
+  WHILE(not(noMarkersPresent)) {
+    IFELSE(not(markersPresent)) {
+      putMarker
+    }
+    ELSE {
+      turnRight
+    }
+    IFELSE(not(rightIsClear)) {
+      turnLeft
+    }
+    ELSE {
+      pickMarker
+    }
+  }
+}
+DEF run {
+  WHILE(not(markersPresent)) {
+    turnRight
+  }
+  turnLeft move REPEAT R=10 {
+    WHILE(rightIsClear) {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  IF(markersPresent) {
+    WHILE(leftIsClear) {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  pickMarker turnLeft
+}
+DEF run {
+  REPEAT R=9 {
+    WHILE(not(frontIsClear)) {
+      REPEAT R=6 {
+        turnRight
+      }
+    }
+  }
+}
+DEF run {
+  WHILE(frontIsClear) {
+    move
+  }
+  IFELSE(not(noMarkersPresent)) {
+    pickMarker
+  }
+  ELSE {
+    move
+  }
+  move
+}
+DEF run {
+  IF(markersPresent) {
+    putMarker turnRight
+  }
+  WHILE(not(leftIsClear)) {
+    IFELSE(not(rightIsClear)) {
+      turnLeft
+    }
+    ELSE {
+      pickMarker
+    }
+  }
+}
+DEF run {
+  IF(noMarkersPresent) {
+    turnLeft move
+  }
+  move
+}
+DEF run {
+  IFELSE(not(rightIsClear)) {
+    IFELSE(frontIsClear) {
+      turnLeft
+    }
+    ELSE {
+      REPEAT R=8 {
+        pickMarker
+      }
+    }
+  }
+  ELSE {
+    IFELSE(frontIsClear) {
+      REPEAT R=3 {
+        turnRight
+      }
+    }
+    ELSE {
+      IFELSE(leftIsClear) {
+        putMarker
+      }
+      ELSE {
+        move
+      }
+    }
+  }
+}
+DEF run {
+  IFELSE(not(leftIsClear)) {
+    REPEAT R=6 {
+      IF(not(markersPresent)) {
+        putMarker
+      }
+    }
+  }
+  ELSE {
+    IFELSE(noMarkersPresent) {
+      IFELSE(markersPresent) {
+        putMarker
+      }
+      ELSE {
+        move
+      }
+    }
+    ELSE {
+      WHILE(noMarkersPresent) {
+        pickMarker
+      }
+    }
+  }
+}
+DEF run {
+  IFELSE(frontIsClear) {
+    WHILE(noMarkersPresent) {
+      turnLeft
+    }
+  }
+  ELSE {
+    IFELSE(rightIsClear) {
+      turnLeft
+    }
+    ELSE {
+      putMarker
+    }
+    WHILE(frontIsClear) {
+      putMarker
+    }
+  }
+}
+DEF run {
+  REPEAT R=1 {
+    WHILE(noMarkersPresent) {
+      REPEAT R=17 {
+        move
+      }
+    }
+  }
+}
+DEF run {
+  IFELSE(not(markersPresent)) {
+    WHILE(frontIsClear) {
+      putMarker
+    }
+  }
+  ELSE {
+    REPEAT R=2 {
+      pickMarker
+    }
+  }
+  IF(not(leftIsClear)) {
+    turnLeft move
+  }
+}
+DEF run {
+  IFELSE(not(markersPresent)) {
+    turnLeft
+  }
+  ELSE {
+    IF(not(noMarkersPresent)) {
+      pickMarker
+    }
+  }
+  IF(not(noMarkersPresent)) {
+    turnLeft
+  }
+}
+DEF run {
+  WHILE(rightIsClear) {
+    IF(frontIsClear) {
+      IFELSE(noMarkersPresent) {
+        move
+      }
+      ELSE {
+        putMarker
+      }
+    }
+  }
+}
+DEF run {
+  WHILE(not(markersPresent)) {
+    IF(not(noMarkersPresent)) {
+      turnLeft
+    }
+  }
+  move WHILE(leftIsClear) {
+    move
+  }
+}
+DEF run {
+  WHILE(noMarkersPresent) {
+    IFELSE(noMarkersPresent) {
+      putMarker
+    }
+    ELSE {
+      turnLeft
+    }
+  }
+  REPEAT R=8 {
+    IFELSE(not(leftIsClear)) {
+      move
+    }
+    ELSE {
+      turnRight
+    }
+  }
+}
+DEF run {
+  WHILE(not(rightIsClear)) {
+    REPEAT R=7 {
+      pickMarker
+    }
+  }
+  IFELSE(not(leftIsClear)) {
+    REPEAT R=14 {
+      turnRight
+    }
+  }
+  ELSE {
+    move turnLeft
+  }
+}
+DEF run {
+  IFELSE(not(rightIsClear)) {
+    IF(not(noMarkersPresent)) {
+      turnLeft
+    }
+  }
+  ELSE {
+    turnRight putMarker
+  }
+  WHILE(not(leftIsClear)) {
+    REPEAT R=1 {
+      move
+    }
+  }
+}
+DEF run {
+  WHILE(leftIsClear) {
+    pickMarker
+  }
+  WHILE(not(markersPresent)) {
+    IFELSE(markersPresent) {
+      turnLeft
+    }
+    ELSE {
+      move
+    }
+  }
+}
+DEF run {
+  WHILE(not(markersPresent)) {
+    IF(noMarkersPresent) {
+      turnRight
+    }
+  }
+  move
+}
+DEF run {
+  IFELSE(leftIsClear) {
+    pickMarker
+  }
+  ELSE {
+    pickMarker
+  }
+  WHILE(not(leftIsClear)) {
+    move
+  }
+  IF(not(rightIsClear)) {
+    pickMarker
+  }
+  pickMarker move
+}
+DEF run {
+  IF(not(frontIsClear)) {
+    turnLeft
+  }
+}
+DEF run {
+  turnLeft turnLeft WHILE(frontIsClear) {
+    putMarker
+  }
+  IF(leftIsClear) {
+    turnRight turnRight
+  }
+}
+DEF run {
+  IF(not(leftIsClear)) {
+    IFELSE(leftIsClear) {
+      turnLeft
+    }
+    ELSE {
+      putMarker
+    }
+  }
+  WHILE(rightIsClear) {
+    WHILE(markersPresent) {
+      move
+    }
+  }
+}
+DEF run {
+  IF(not(rightIsClear)) {
+    turnRight
+  }
+  WHILE(not(markersPresent)) {
+    pickMarker
+  }
+  turnLeft
+}
+DEF run {
+  IFELSE(not(frontIsClear)) {
+    WHILE(not(markersPresent)) {
+      pickMarker
+    }
+  }
+  ELSE {
+    REPEAT R=2 {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  IFELSE(not(leftIsClear)) {
+    REPEAT R=7 {
+      move
+    }
+  }
+  ELSE {
+    WHILE(not(frontIsClear)) {
+      turnLeft
+    }
+  }
+  WHILE(not(frontIsClear)) {
+    turnLeft
+  }
+}
+DEF run {
+  IF(leftIsClear) {
+    turnRight
+  }
+  REPEAT R=11 {
+    turnLeft
+  }
+  IF(frontIsClear) {
+    REPEAT R=15 {
+      pickMarker
+    }
+  }
+}
+DEF run {
+  IFELSE(not(noMarkersPresent)) {
+    turnLeft
+  }
+  ELSE {
+    IF(noMarkersPresent) {
+      IF(frontIsClear) {
+        turnRight
+      }
+    }
+  }
+}
+DEF run {
+  pickMarker
+}
+DEF run {
+  move
+}
+DEF run {
+  IFELSE(leftIsClear) {
+    IFELSE(not(leftIsClear)) {
+      turnRight
+    }
+    ELSE {
+      putMarker
+    }
+  }
+  ELSE {
+    IF(not(markersPresent)) {
+      pickMarker
+    }
+  }
+  IFELSE(rightIsClear) {
+    WHILE(rightIsClear) {
+      turnRight
+    }
+  }
+  ELSE {
+    move putMarker
+  }
+}
+DEF run {
+  IF(leftIsClear) {
+    WHILE(not(rightIsClear)) {
+      turnLeft
+    }
+  }
+  WHILE(not(noMarkersPresent)) {
+    turnRight turnRight
+  }
+}
+DEF run {
+  IF(noMarkersPresent) {
+    putMarker pickMarker
+  }
+  WHILE(frontIsClear) {
+    IF(markersPresent) {
+      turnLeft
+    }
+  }
+}
+DEF run {
+  IF(noMarkersPresent) {
+    move turnLeft IFELSE(leftIsClear) {
+      move
+    }
+    ELSE {
+      move
+    }
+  }
+}
