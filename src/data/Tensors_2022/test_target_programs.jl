@@ -48,4 +48,4 @@ target_simple_add_big_tensors = :(tf_add(_arg_1, tf_expand_dims(_arg_2, 2)))
 
 # test_all_target_programs()
 
-test_target_program("test_add")
+test_target_program("simple_add_big_tensors")
