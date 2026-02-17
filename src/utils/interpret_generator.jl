@@ -1,7 +1,7 @@
 using MLStyle
 
 function get_relevant_tags(grammar::AbstractGrammar)
-    tags = Dict{Int,Any}()
+    tags = Dict{Int,Symbol}()
     for (ind, r) in pairs(grammar.rules)
         tags[ind] = if r isa Expr
             @match r.head begin

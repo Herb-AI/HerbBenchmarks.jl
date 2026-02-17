@@ -23,17 +23,13 @@ calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::St
 Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
 The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
 """
-function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-    interpret(prog, get_relevant_tags(grammar), only(values(example.in)), Dict())
-end
-
 function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample,
-        new_rules_decoding::Dict{Int,AbstractRuleNode})
+        new_rules_decoding::Dict{Int,AbstractRuleNode}=Dict{Int,AbstractRuleNode}())
     interpret(prog, get_relevant_tags(grammar), only(values(example.in)), new_rules_decoding)
 end
 
 function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::PixelState,
-        new_rules_decoding::Dict{Int,AbstractRuleNode})
+        new_rules_decoding::Dict{Int,AbstractRuleNode}=Dict{Int,AbstractRuleNode}())
     rule_node = get_rule(prog)
     if rule_node in keys(new_rules_decoding)
         return interpret(new_rules_decoding[rule_node], grammartags, state, new_rules_decoding)

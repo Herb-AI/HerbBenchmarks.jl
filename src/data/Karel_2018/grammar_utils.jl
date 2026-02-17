@@ -5,12 +5,8 @@ using MLStyle
 
 Interprets a Karel program on a given input state.
 """
-function interpret(prog::AbstractRuleNode, grammar::AbstractGrammar, example::IOExample)
-    return interpret(prog, grammar, example, Dict())
-end
-
 function interpret(prog::AbstractRuleNode, grammar::AbstractGrammar, example::IOExample,
-    new_rules_decoding::Dict{Int,AbstractRuleNode})
+        new_rules_decoding::Dict{Int,AbstractRuleNode}=Dict{Int,AbstractRuleNode}())
     input_state = deepcopy(example.in[:_arg_1])
     tags = get_relevant_tags(grammar)
     return interpret(prog, tags, input_state, new_rules_decoding)
@@ -22,7 +18,7 @@ end
 Internal interpreter function that executes Karel programs.
 """
 function interpret(prog::AbstractRuleNode, tags::Dict{Int,Symbol}, state::KarelState,
-    new_rules_decoding::Dict{Int,AbstractRuleNode})
+        new_rules_decoding::Dict{Int,AbstractRuleNode}=Dict{Int,AbstractRuleNode}())
     rule_node = get_rule(prog)
     if rule_node in keys(new_rules_decoding)
         return interpret(new_rules_decoding[rule_node], tags, state, new_rules_decoding)

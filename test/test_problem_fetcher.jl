@@ -105,13 +105,13 @@ end
     end
 
     @testset "Get problem grammar pair" begin
-        result1 = get_all_problem_grammar_pairs(Test_benchmark_different_grammars)
+        result1 = HerbBenchmarks.get_all_problem_grammar_pairs(Test_benchmark_different_grammars)
         @test result1[1].problem == Test_benchmark_different_grammars.problem_1
         @test result1[1].grammar == Test_benchmark_different_grammars.grammar_1
         @test result1[2].problem == Test_benchmark_different_grammars.problem_2
         @test result1[2].grammar == Test_benchmark_different_grammars.grammar_2
 
-        result2 = get_all_problem_grammar_pairs(Test_benchmark_default_grammar)
+        result2 = HerbBenchmarks.get_all_problem_grammar_pairs(Test_benchmark_default_grammar)
 
         @test result2[1].problem == Test_benchmark_default_grammar.problem_1
         @test result2[1].grammar == Test_benchmark_default_grammar.grammar_default

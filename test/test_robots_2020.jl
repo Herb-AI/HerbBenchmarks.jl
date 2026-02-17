@@ -21,7 +21,7 @@ prim_notAtRight = RuleNode(21, [])
 prim_if = RuleNode(12, [RuleNode(18), RuleNode(9), RuleNode(7)]) # IF(notAtTop, moveUp, moveDown)
 prim_while = RuleNode(13, [RuleNode(14), RuleNode(6)]) # WHILE(atTop, moveRight)
 
-tags = get_relevant_tags(grammar_robots)
+tags = HerbBenchmarks.get_relevant_tags(grammar_robots)
 
 @testset verbose = true "Robots_2020" begin
     @testset verbose = true "Testing robot transformations" begin

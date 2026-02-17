@@ -16,8 +16,7 @@ prim_notAtLeft = RuleNode(20, [])
 prim_notAtRight = RuleNode(21, [])
 
 
-tags = get_relevant_tags(grammar_pixels)
-println("Tags: ", tags)
+tags = HerbBenchmarks.get_relevant_tags(grammar_pixels)
 function emptymatrix()
     return PixelState(Bool[0 0 0; 0 0 0; 0 0 0])
 end

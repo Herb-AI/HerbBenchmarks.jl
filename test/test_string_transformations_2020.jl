@@ -32,11 +32,11 @@ prim_isNotNumber = RuleNode(24, [])
 prim_isSpace = RuleNode(25, [])
 prim_isNotSpace = RuleNode(26, [])
 
-tags = get_relevant_tags(grammar_string)
+tags = HerbBenchmarks.get_relevant_tags(grammar_string)
 
 @testset verbose = true "String_transformations_2020" begin
     @testset verbose = true "General tests" begin
-        problems = get_all_problems(String_transformations_2020)
+        problems = HerbBenchmarks.get_all_problems(String_transformations_2020)
         @testset verbose = true "Inputs/Outputs are StringStates" begin
             for problem in problems
                 @test all(
