@@ -16,9 +16,9 @@ Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 
 [compat]
-HerbCore = "^0.3.0"
-HerbGrammar = "0.6"
-HerbSpecification = "^0.2.0"
+HerbCore = "^0.3.0, 1"
+HerbGrammar = "0.6, 1"
+HerbSpecification = "^0.2.0, 1"
 NPZ = "0.4"
 ParserCombinator = "2.2.1"
 julia = "^1.8"
