@@ -18,25 +18,25 @@ Base.length(st::StringState) = length(st.str)
 
 Interprets a program (in form of an AbstractRuleNode) on a given grammar and `IOExample`. 
 Serves as an entry point that prepares the necessary grammar tags and initial state before 
-calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState)`.
+calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)`.
 
 ---
-    interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState)
+    interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)
 
 Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
 The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
 """
 function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-    interpret(prog, get_relevant_tags(grammar), example.in[:_arg_1])
+    interpret(prog, get_relevant_tags(grammar), example.in[:_arg_1], Dict())
 end
 
 function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample,
-    new_rules_decoding::Dict{Int,AbstractRuleNode})
+        new_rules_decoding::Dict{Int,AbstractRuleNode})
     interpret(prog, get_relevant_tags(grammar), example.in[:_arg_1], new_rules_decoding)
 end
 
 function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::StringState,
-    new_rules_decoding::Dict{Int,AbstractRuleNode})
+        new_rules_decoding::Dict{Int,AbstractRuleNode})
     rule_node = get_rule(prog)
     if rule_node in keys(new_rules_decoding)
         return interpret(new_rules_decoding[rule_node], grammartags, state, new_rules_decoding)
@@ -74,23 +74,6 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state:
 
 end
 
-"""
-Gets relevant symbol to easily match grammar rules to operations in `interpret` function
-"""
-function get_relevant_tags(grammar::ContextSensitiveGrammar)
-    tags = Dict{Int,Symbol}()
-    for (ind, r) in pairs(grammar.rules)
-        tags[ind] = if typeof(r) == Symbol
-            r
-        else
-            @match r.head begin
-                :block => :OpSeq
-                :call => r.args[1]
-            end
-        end
-    end
-    return tags
-end
 
 """
 Custom implementation of a while loop with a condition and a body. 
@@ -98,7 +81,7 @@ Custom implementation of a while loop with a condition and a body.
 Loop is terminated either when condition is false or when `max_steps` is reached.
 """
 function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, grammartags::Dict{Int,Symbol},
-    state::StringState, new_rules_decoding::Dict{Int,AbstractRuleNode}, max_steps::Int=1000)
+        state::StringState, new_rules_decoding::Dict{Int,AbstractRuleNode}, max_steps::Int=1000)
     counter = max_steps
     while interpret(condition, grammartags, state, new_rules_decoding) && counter > 0
         state = interpret(body, grammartags, state, new_rules_decoding)
