@@ -1,0 +1,5 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+HerbCore = "2b23ba43-8213-43cb-b5ea-38c12b45bd45"
+HerbSpecification = "6d54aada-062f-46d8-85cf-a1ceaf058a06"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
