@@ -1,8 +1,14 @@
+"""
+$(TESTABLEREADME)
+"""
 module HerbBenchmarks
 
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using DocStringExtensions
+
+include("utils/docstrings.jl")
 
 include("utils/SExpressionParser.jl")
 
