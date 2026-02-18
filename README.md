@@ -40,21 +40,25 @@ julia> problem_100 = Problem("problem_100", [
 If you want to test on a single problem and grammar, you can do the following
 
 Select your favourite benchmark, we use the string transformation benchmark from the SyGuS challenge:
+
 ```julia,jldoctest
-julia> using HerbBenchmarks.String_transformations_2020
+julia> using HerbBenchmarks, HerbBenchmarks.String_transformations_2020
 
-julia> grammar = String_transformations_2020.grammar_string;
+julia> using HerbBenchmarks.String_transformations_2020: StringState
 
-julia> problem = String_transformations_2020.problem_100;
+julia> all_pairs = get_all_problem_grammar_pairs(String_transformations_2020);
 
-julia> example = problem.spec[1]; # get the first example
+julia> length(all_pairs)
+326
+
+julia> example = all_pairs[1].problem.spec[1]; # get the first example
 
 julia> example.in
 Dict{Symbol, Any} with 1 entry:
-  :_arg_1 => StringState("369K 16 Oct 17:30 JCR-Menu.ppt", 1)
+  :_arg_1 => StringState("@gill", 1)
 
 julia> example.out
-HerbBenchmarks.String_transformations_2020.StringState("16 Oct", nothing)
+StringState("gill", nothing)
 ```
 
-Some benchmarks there is only a single grammar for all problems. 
+Note that for some benchmarks the grammar is the same for all problems. 
