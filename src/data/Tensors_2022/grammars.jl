@@ -21,9 +21,9 @@ common_tensor_grammar = quote
     Tensor = tf_eye(Value, Integer)
     Tensor = tf_eye(Value, Type)
     Tensor = tf_fill(Dims, Scalar)
-    Tensor = tf_gather(Tensor, Range)
-    Tensor = tf_gather(Tensor, Range, Axis) 
-    Tensor = tf_gather(Tensor, Range, Axis, Dimensions)
+    Tensor = tf_gather(Tensor, Ranges)
+    Tensor = tf_gather(Tensor, Ranges, Axis) 
+    Tensor = tf_gather(Tensor, Ranges, Axis, Dimensions)
     Tensor = tf_gather_nd(Tensor, Tensor)
     # Tensor = tf_gather_nd(params, indices, batch_dims) # batch_dims not directly supported
     Tensor = tf_greater(Tensor, Tensor)
@@ -64,8 +64,8 @@ common_tensor_grammar = quote
     # Tensor = tf_pad(tensor, paddings, mode='CONSTANT', constant_Scalars)
     # Tensor = tf_pad(tensor, paddings, mode='REFLECT')
     # Tensor = tf_pad(tensor, paddings, mode='SYMMETRIC')
-    Tensor = tf_range(Integer)
-    Tensor = tf_range(Integer, Integer, Integer)
+    Tensor = tf_Ranges(Integer)
+    Tensor = tf_Ranges(Integer, Integer, Integer)
     Tensor = tf_reduce_any(Tensor, Axis)
     Tensor = tf_reduce_max(Tensor)
     Tensor = tf_reduce_max(Tensor, Axis)
@@ -104,37 +104,46 @@ common_tensor_grammar = quote
     Tensor = tf_where(Condition, Tensor, Tensor)
     Tensor = tf_zeros(Dimensions)
     Tensor = tf_zeros_like(Tensor)
-    Tensor = tf_SparseTensor(Tensor, Tensor, Tensor)
-    Tensor = tf_sparse_add(SparseTensor, SparseTensor)
-    # Tensor = tf_sparse_concat(Axis, sp_inputs)
-    Tensor = tf_sparse_expand_dims(SparseTensor, Axis)
-    Tensor = tf_sparse_from_dense(Tensor)
-    Tensor = tf_sparse_maximum(SparseTensor, SparseTensor)
-    Tensor = tf_sparse_minimum(SparseTensor, SparseTensor)
-    Tensor = tf_sparse_reduce_max(SparseTensor, Axis, Boolean)
-    Tensor = tf_sparse_reduce_max(SparseTensor, Axis)
-    Tensor = tf_sparse_reduce_sum(SparseTensor, Axis, Boolean)
-    Tensor = tf_sparse_reduce_sum(SparseTensor, Axis)
-    Tensor = tf_sparse_reset_shape(SparseTensor)
-    Tensor = tf_sparse_reshape(SparseTensor, Tensor)
+    SparseTensor = tf_SparseTensor(Tensor, Tensor, Tensor)
+    SparseTensor = tf_sparse_add(SparseTensor, SparseTensor)
+    # SparseTensor = tf_sparse_concat(Axis, sp_inputs)
+    SparseTensor = tf_sparse_expand_dims(SparseTensor, Axis)
+    SparseTensor = tf_sparse_from_dense(Tensor)
+    SparseTensor = tf_sparse_maximum(SparseTensor, SparseTensor)
+    SparseTensor = tf_sparse_minimum(SparseTensor, SparseTensor)
+    SparseTensor = tf_sparse_reduce_max(SparseTensor, Axis, Boolean)
+    SparseTensor = tf_sparse_reduce_max(SparseTensor, Axis)
+    SparseTensor = tf_sparse_reduce_sum(SparseTensor, Axis, Boolean)
+    SparseTensor = tf_sparse_reduce_sum(SparseTensor, Axis)
+    SparseTensor = tf_sparse_reset_shape(SparseTensor)
+    SparseTensor = tf_sparse_reshape(SparseTensor, Tensor)
 
-    Tensor = slice(Tensor, Range)
-    Tensor = slice_scalar_1(Tensor, Range)
-    Tensor = create_singleton(Tensor)
-    Tensor = create_tuple(Tensor, Tensor)
-    Tensor = create_triplet(Tensor, Tensor, Tensor)
+    Tensor = tf_slice(Tensor, Ranges)
+    Tensor = tf_slice_scalar_1(Tensor, Ranges)
+    Tensor = tf_create_singleton(Tensor)
+    Tensor = tf_create_tuple(Tensor, Tensor)
+    Tensor = tf_create_triplet(Tensor, Tensor, Tensor)
 
-    Dimensions = Int
-    Dimensions = dimensions(Int, Dimensions)
-    Range = range(Index, Index) | Index
-    Range = ranges(Range, Range)
-    Index = Int | start | finish
-    Axis = Int
-    Axes = Axis | axes(Axes, Axis)
-    Bool = true | false
-    Value = Int | Float | Bool
+	# Dimensions: list of integers
+	Dimension = tf_dimension(Int)
+    Dimensions = Dimension | tf_dimensions(Dimension, Dimensions)
+
+	# Axis: list of integers
+    Axis = tf_axis(Int)
+    Axes = Axis | tf_axes(Axis, Axes)
+
+	# Ranges: list of indices/slices
+    Index = tf_index(Int)
+	#| start | finish | start + Int | finish - Int
+    Range = tf_slice(Index, Index) | Index
+    Ranges = Range | tf_ranges(Range, Ranges)
+
+
+    Value = Int | Float | Bool | Tensor | SparseTensor
+    Bool = tf_true | tf_false
+	Int = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+
 	Type = tf_int | tf_float | tf_bool
-	Int = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 end
 
 macro grammar_tensor(body)
@@ -209,7 +218,7 @@ grammar_simple_slice = @grammar_tensor begin
 end
 
 grammar_simple_sparse_add = @grammar_tensor begin
-	Tensor = _arg_1
+	SparseTensor = _arg_1
 	Tensor = _arg_2
 end
 

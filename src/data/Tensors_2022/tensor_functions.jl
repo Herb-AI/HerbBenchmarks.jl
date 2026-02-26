@@ -16,7 +16,7 @@ tf_divide(x, y) = x ./ y
 tf_equal(x, y) = x .== y
 tf_exp(x) = exp.(x)
 tf_expand_dims(input, axis) = Flux.unsqueeze(input, axis)
-tf_eye(num_rows) = Matrix{Float32}(I, num_rows, num_rows)
+tf_eye(num_rows) = Float32.(I(num_rows))
 tf_eye(num_rows, num_columns) = Matrix{Float32}(I, num_rows, num_columns)
 tf_eye(num_rows, dtype) = convert.(dtype, Matrix(I, num_rows, num_rows))
 tf_fill(dims, value) = fill(value, dims...)
@@ -100,7 +100,7 @@ tf_transpose(a, perm) = permutedims(a, perm)
 tf_unstack(value, axis) = [selectdim(value, axis, i) for i=1:size(value, axis)]
 tf_where(condition) = Tuple.(findall(condition))
 tf_where(condition, x, y) = ifelse.(condition, x, y)
-tf_zeros(shape) = zeros(Float32, shape...)
+tf_zeros(shape) = zeros(Float32, shape)
 tf_zeros_like(input) = zeros(Float32, size(input))
 
 
@@ -131,6 +131,19 @@ tf_slice_scalar_1_left(arg1, arg2) = arg1[:, arg2:end]
 tf_slice_scalar_1_right(arg1, arg2) = arg1[:, 1:arg2]
 tf_index_scalar_1(arg1, arg2) = arg1[:, arg2]
 
+tf_dimension(d) = d
+tf_dimensions(d, ds) = [d; ds]
+
+tf_axis(a) = a
+tf_axes(a, as) = [a; as]
+
+tf_index(i) = i
+tf_slice(i1, i2) = i1:i2
+tf_range(r, rs) = [r; rs]
+
+tf_true() = true
+tf_false() = false
+
 tf_int() = Int64
 tf_float() = Float64
 tf_bool() = Bool
@@ -152,25 +165,17 @@ function get_relevant_tags(grammar::ContextSensitiveGrammar, args::Dict)
     return tags
 end
 
-
-macro build_tf_table(fnames...)
-    tf_syms = filter(name -> startswith(string(name), "tf_") && isdefined(Main, name) && isa(getfield(Main, name), Function),
-        names(Main, all=true))
-
-    pairs = []
-    for f in tf_syms
-        push!(pairs, :( $(QuoteNode(f)) => $(esc(f)) ))
-    end
-    return :(Dict{Symbol, Function}($(pairs...)))
-end
-
-const TF_TABLE = @build_tf_table
+const TF_TABLE = Dict(
+    Symbol(name) => getfield(@__MODULE__, name)
+    for name in names(@__MODULE__, all=true) 
+        if startswith(string(name), "tf_") && 
+            isdefined(@__MODULE__, name) && 
+            isa(getfield(@__MODULE__, name), Function))
 
 function interpret_tensor(prog::AbstractRuleNode, grammar_tags::Dict{Int,Any})
-    cs = HerbSearch.get_children(prog)
+    cs = get_children(prog)
     vals = map(c -> interpret_tensor(c, grammar_tags), cs)
-
-    fname = grammar_tags[HerbSearch.get_rule(prog)]
+    fname = grammar_tags[get_rule(prog)]
 
     if haskey(TF_TABLE, fname)
         return TF_TABLE[fname](vals...)
