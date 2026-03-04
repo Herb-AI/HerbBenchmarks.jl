@@ -1,5 +1,8 @@
 module PBE_BV_Track_2018
 
+using RuntimeGeneratedFunctions
+RuntimeGeneratedFunctions.init(@__MODULE__)
+
 using HerbCore
 using HerbSpecification
 using HerbGrammar
