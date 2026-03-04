@@ -1,10 +1,12 @@
-using HerbCore
+using ReTestItems
 using HerbBenchmarks
-using HerbSpecification
-using Test
-using Documenter
 
-@testset "HerbBenchmarks.jl" verbose = true begin
+@testitem "HerbBenchmarks.jl" begin
+    using HerbCore
+    using HerbBenchmarks
+    using HerbSpecification
+    using Test
+    using Documenter
     @testset doctest(HerbBenchmarks, manual=false)
     include("test_general.jl")
     include("test_string_transformations_2020.jl")
