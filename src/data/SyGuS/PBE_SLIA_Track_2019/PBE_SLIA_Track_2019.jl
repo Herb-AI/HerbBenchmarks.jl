@@ -1,5 +1,8 @@
 module PBE_SLIA_Track_2019
 
+using RuntimeGeneratedFunctions
+RuntimeGeneratedFunctions.init(@__MODULE__)
+
 using HerbCore
 using HerbSpecification
 using HerbGrammar
