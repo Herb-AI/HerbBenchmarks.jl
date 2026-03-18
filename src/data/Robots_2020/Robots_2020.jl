@@ -1,15 +1,18 @@
 module Robots_2020
-using RuntimeGeneratedFunctions
-RuntimeGeneratedFunctions.init(@__MODULE__)
-
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using HerbInterpret
+
+using RuntimeGeneratedFunctions
+RuntimeGeneratedFunctions.init(@__MODULE__)
 
 include("robots_primitives.jl")
 include("data.jl")
 include("data_generation.jl")
 include("grammar.jl")
+
+interpret = make_stateful_interpreter(grammar_robots; target_module=Robots_2020, cache_module=Robots_2020)
 
 generated_data_path = "generated_data.jl"
 if isfile(generated_data_path)
