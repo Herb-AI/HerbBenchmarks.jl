@@ -12,70 +12,61 @@ end
 StringState(s::String) = StringState(s, 1)
 
 Base.length(st::StringState) = length(st.str)
-
-"""
-    interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-
-Interprets a program (in form of an AbstractRuleNode) on a given grammar and `IOExample`. 
-Serves as an entry point that prepares the necessary grammar tags and initial state before 
-calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)`.
-
----
-    interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)
-
-Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
-The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
-"""
-function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-    interpret(prog, get_relevant_tags(grammar), example.in[:_arg_1])
+function moveRight(state)
+    StringState(state.str, min(state.pointer + 1, length(state.str)))
 end
-
-function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)
-    rule_node = get_rule(prog)
-
-    @match grammartags[rule_node] begin
-        :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammartags, state)) # (Operation ; Sequence)
-        :moveRight => StringState(state.str, min(state.pointer + 1, length(state.str))) # moveRight
-        :moveLeft => StringState(state.str, max(state.pointer - 1, 1))   # moveLeft
-        :makeUppercase => StringState(state.str[1:state.pointer-1] * uppercase(state.str[state.pointer]) * state.str[state.pointer+1:end], state.pointer) #MakeUppercase
-        :makeLowercase => StringState(state.str[1:state.pointer-1] * lowercase(state.str[state.pointer]) * state.str[state.pointer+1:end], state.pointer) #makeLowercase
-        :drop => state.pointer < length(state.str) ? StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer) : StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer - 1) #drop
-        :IF => interpret(prog.children[1], grammartags, state) ? interpret(prog.children[2], grammartags, state) : interpret(prog.children[3], grammartags, state) # if statement
-        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state) # while statement
-        :atEnd => state.pointer == length(state.str) # atEnd
-        :notAtEnd => state.pointer != length(state.str) # notAtEnd
-        :atStart => state.pointer == 1 # atStart
-        :notAtStart => state.pointer != 1 # notAtStart
-        :isLetter => state.pointer <= length(state.str) && isletter(state.str[state.pointer]) # isLetter
-        :isNotLetter => state.pointer > length(state.str) || !isletter(state.str[state.pointer]) # isNotLetter
-        :isUppercase => state.pointer <= length(state.str) && isuppercase(state.str[state.pointer]) # isUpperCase 
-        :isNotUppercase => state.pointer > length(state.str) || !isuppercase(state.str[state.pointer]) # isNotUppercase
-        :isLowercase => state.pointer <= length(state.str) && islowercase(state.str[state.pointer]) # isLowercase
-        :isNotLowercase => state.pointer > length(state.str) || !islowercase(state.str[state.pointer]) # isNotLowercase
-        :isNumber => state.pointer <= length(state.str) && isdigit(state.str[state.pointer]) # isNumber
-        :isNotNumber => state.pointer > length(state.str) || !isdigit(state.str[state.pointer]) # isNotNumber
-        :isSpace => state.pointer <= length(state.str) && isspace(state.str[state.pointer]) # isSpace
-        :isNotSpace => state.pointer > length(state.str) || !isspace(state.str[state.pointer]) # isNotSpace
-        _ => interpret(prog.children[1], grammartags, state)
-    end
-
+function moveLeft(state)
+    StringState(state.str, max(state.pointer - 1, 1))
 end
-
-
-"""
-Custom implementation of a while loop with a condition and a body. 
-
-Loop is terminated either when condition is false or when `max_steps` is reached.
-"""
-function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState, max_steps::Int=1000)
-    counter = max_steps
-    while interpret(condition, grammartags, state) && counter > 0
-        state = interpret(body, grammartags, state)
-        counter -= 1
-    end
-    state
+function makeUppercase(state)
+    StringState(state.str[1:state.pointer-1] * uppercase(state.str[state.pointer]) * state.str[state.pointer+1:end], state.pointer)
 end
-
+function makeLowercase(state)
+    StringState(state.str[1:state.pointer-1] * lowercase(state.str[state.pointer]) * state.str[state.pointer+1:end], state.pointer)
+end
+function drop(state)
+    state.pointer < length(state.str) ? StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer) : StringState(state.str[1:state.pointer-1] * state.str[state.pointer+1:end], state.pointer - 1)
+end
+function atEnd(state)
+    state.pointer == length(state.str)
+end
+function notAtEnd(state)
+    !atEnd(state)
+end
+function atStart(state)
+    state.pointer == 1
+end
+function notAtStart(state)
+    !atStart(state)
+end
+function isLetter(state)
+    state.pointer <= length(state.str) && isletter(state.str[state.pointer])
+end
+function isNotLetter(state)
+    !isLetter(state)
+end
+function isUppercase(state)
+    state.pointer <= length(state.str) && isuppercase(state.str[state.pointer])
+end
+function isNotUppercase(state)
+    !isUppercase(state)
+end
+isLowercase(state) = state.pointer <= length(state.str) && islowercase(state.str[state.pointer])
+function isNotLowercase(state)
+    !isLowercase(state)
+end
+function isNumber(state)
+    state.pointer <= length(state.str) && isdigit(state.str[state.pointer])
+end
+function isNotNumber(state)
+    !isNumber(state)
+end
+function isSpace(state)
+    state.pointer <= length(state.str) && isspace(state.str[state.pointer])
+end
+function isNotSpace(state)
+    !isSpace(state)
+end
 
 # Two instances of StringState are equal if their strings are equal and at least one of the pointers is nothing
 Base.:(==)(a::StringState, b::StringState) = a.str == b.str && (a.pointer == b.pointer || a.pointer === nothing || b.pointer === nothing)
