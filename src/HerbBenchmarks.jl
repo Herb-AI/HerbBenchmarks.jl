@@ -53,7 +53,5 @@ export
     get_problem_grammar_pair,
     get_problem,
     get_grammar,
-    get_default_grammar, make_public,
-    make_public_rec,
-    get_submodules
+    get_default_grammar
 end # module HerbBenchmarks
