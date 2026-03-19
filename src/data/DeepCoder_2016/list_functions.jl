@@ -9,7 +9,7 @@ using MLStyle
 end
 
 @inline function take(xs::AbstractArray, n::Int)
-    return first(n, xs)
+    return first(xs, n)
 end
 
 """
