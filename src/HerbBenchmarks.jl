@@ -7,6 +7,7 @@ using HerbCore
 using HerbSpecification
 using HerbGrammar
 using DocStringExtensions
+using DataFrames, StatsPlots, Query
 
 include("utils/docstrings.jl")
 
@@ -15,6 +16,8 @@ include("utils/SExpressionParser.jl")
 include("utils/benchmarks_io.jl")
 include("utils/problem_fetcher.jl")
 include("utils/interpret_generator.jl")
+
+include("utils/evaluate_synthesizer.jl")
 
 # Include data types
 include("datatypes/problem_grammar_pair.jl")
@@ -39,6 +42,10 @@ export
     parse_to_julia,
     append_cfgrammar,
     enumerate_problem_files,
+
+    # evaluator
+    evaluate_synthesizer,
+    problems_solved_over_time,
 
     # grammar_tag generators
     make_interpreter,
