@@ -1,25 +1,18 @@
 @testsetup module TestEvaluate
-    using HerbCore, HerbBenchmarks, HerbGrammar, HerbSearch, HerbSpecification, HerbConstraints
+    using HerbCore, HerbBenchmarks, HerbGrammar, HerbSearch, HerbSpecification, HerbConstraints, HerbInterpret
+    using RuntimeGeneratedFunctions
+    RuntimeGeneratedFunctions.init(@__MODULE__)
+
     export grammar, interpreter, to_io_example, iterator, synthesizer, synthesizer_dfs
 
     grammar = @cfgrammar begin
         Int = 1 | 2
         Int = Int + Int
         Int = Int * Int
-        Int = x
+        Int = _arg_1
     end
 
-    interpreter = (program, input) -> begin
-        r = get_rule(program)
-        cs = [interpreter(c, input) for c in get_children(program)]
-
-            if r == 1 return 1
-        elseif r == 2 return 2
-        elseif r == 3 return cs[1] + cs[2]
-        elseif r == 4 return cs[1] * cs[2]
-        elseif r == 5 return input[:x]
-        end
-    end
+    interpreter = HerbInterpret.make_interpreter(grammar)
 
     function synthesizer(problem::Problem)
         programs_enumerated = 0
@@ -29,7 +22,7 @@
             programs_enumerated += 1
 
             # Success: all I/O examples solved
-            all(interpreter(program, io.in) == io.out for io in problem.spec) && (solution = freeze_state(program); break)
+            all(interpreter(program, io) == io.out for io in problem.spec) && (solution = freeze_state(program); break)
 
             # Failure: max enumerations reached
             programs_enumerated >= 1000 && break
@@ -52,7 +45,7 @@
             programs_enumerated += 1
 
             # Success: all I/O examples solved
-            all(interpreter(program, io.in) == io.out for io in problem.spec) && (solution = freeze_state(program); break)
+            all(interpreter(program, io) == io.out for io in problem.spec) && (solution = freeze_state(program); break)
 
             # Failure: max enumerations reached
             programs_enumerated >= 1000 && break
@@ -75,7 +68,7 @@
             programs_enumerated += 1
 
             # Success: all I/O examples solved
-            all(interpreter(program, io.in) == io.out for io in first(problems).spec) && (solution = freeze_state(program); break)
+            all(interpreter(program, io) == io.out for io in first(problems).spec) && (solution = freeze_state(program); break)
 
             programs_enumerated >= 1000 && break
         end
@@ -86,16 +79,18 @@
             :training_examples => last(problems).spec,
             :solved => !isnothing(solution),
             :solution => solution,
-            :test_examples_solved => isnothing(solution) ? 0 : count(interpreter(solution, io.in) == io.out for io in last(problems).spec),
+            :test_examples_solved => isnothing(solution) ? 0 : count(interpreter(solution, io) == io.out for io in last(problems).spec),
             :programs_enumerated => programs_enumerated,
         )
     end
 
-    to_io_example = ex -> IOExample(Dict(:x => first(ex)), last(ex))
+    to_io_example = ex -> IOExample(Dict{Symbol, Any}(:_arg_1 => first(ex)), last(ex))
 end
 
 @testitem "Evaluate single problem" setup=[TestEvaluate] begin
-    using HerbCore, HerbBenchmarks, HerbGrammar, HerbSearch, HerbSpecification, HerbConstraints
+    using HerbCore, HerbBenchmarks, HerbGrammar, HerbSearch, HerbSpecification, HerbConstraints, HerbInterpret
+    using RuntimeGeneratedFunctions
+    RuntimeGeneratedFunctions.init(@__MODULE__)
 
     examples = [(0, 0), (1, 3), (2, 8), (3, 15)]
     problem = Problem("x^2 + 2x", to_io_example.(examples))
@@ -110,7 +105,9 @@ end
 end
 
 @testitem "Evaluate single problem with test problem" setup=[TestEvaluate] begin
-    using HerbCore, HerbBenchmarks, HerbGrammar, HerbSearch, HerbSpecification
+    using HerbCore, HerbBenchmarks, HerbGrammar, HerbSearch, HerbSpecification, HerbInterpret
+    using RuntimeGeneratedFunctions
+    RuntimeGeneratedFunctions.init(@__MODULE__)
 
     examples = [(0, 0), (1, 3), (2, 8), (3, 15)]
     problem = Problem("x^2 + 2x", to_io_example.(examples))
@@ -130,7 +127,9 @@ end
 end
 
 @testitem "Evaluate problem set" setup=[TestEvaluate] begin
-    using HerbCore, HerbBenchmarks, HerbGrammar, HerbSearch, HerbSpecification, HerbConstraints
+    using HerbCore, HerbBenchmarks, HerbGrammar, HerbSearch, HerbSpecification, HerbConstraints, HerbInterpret
+    using RuntimeGeneratedFunctions
+    RuntimeGeneratedFunctions.init(@__MODULE__)
     using DataFrames
     using Random
 
