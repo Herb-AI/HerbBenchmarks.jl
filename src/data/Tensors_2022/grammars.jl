@@ -140,7 +140,7 @@ common_tensor_grammar = quote
 
 
     Value = Int | Float | Bool | Tensor | SparseTensor
-    Bool = tf_true | tf_false
+    Bool = true | false
 	Int = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 
 	Type = tf_int | tf_float | tf_bool
