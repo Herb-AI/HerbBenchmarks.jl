@@ -30,16 +30,30 @@
     end
     
     # Single problem
-    d1 = benchmark(BFSIterator, params=(starting_symbol=:Num, max_enumerations=100,), problem=DummyBenchmark.problem_1, grammar=DummyBenchmark.grammar_1)
-    @show d1
+    d1 = benchmark(BFSIterator, problem=DummyBenchmark.problem_1, grammar=DummyBenchmark.grammar_1, params=(starting_symbol=:Num, max_enumerations=100))
 
     # Benchmark
-    d2 = benchmark(BFSIterator, params=(starting_symbol=:Num, max_enumerations=100,), benchmark=DummyBenchmark)
-    d3 = benchmark(DFSIterator, params=(starting_symbol=:Num, max_depth=5, max_enumerations=100,), benchmark=DummyBenchmark)
+    d2 = benchmark(BFSIterator, benchmark=DummyBenchmark, params=(starting_symbol=:Num, max_enumerations=100))
+    d3 = benchmark(DFSIterator, benchmark=DummyBenchmark, params=(starting_symbol=:Num, max_enumerations=100, max_depth=5))
     problems_solved_over_time([d2, d3])
 
     # Custom labels
-    d2 = benchmark(BFSIterator, params=(label="Breadth first search", starting_symbol=:Num, max_enumerations=100,), benchmark=DummyBenchmark)
-    d3 = benchmark(DFSIterator, params=(label="Depth first search", starting_symbol=:Num, max_depth=5, max_enumerations=100,), benchmark=DummyBenchmark)
-    problems_solved_over_time([d2, d3], label=r->r.params.label)
+    d4 = benchmark(DFSIterator, benchmark=DummyBenchmark, params=(starting_symbol=:Num, max_depth=2, max_enumerations=100,))
+    d5 = benchmark(DFSIterator, benchmark=DummyBenchmark, params=(starting_symbol=:Num, max_depth=5, max_enumerations=100,))
+    problems_solved_over_time([d4, d5], label=r->"Max depth $(r.params.max_depth)")
+
+    #= 
+    
+    Each data frame contains:
+        - iterator: type of iterator
+        - params:   user-defined parameters
+        - results:  result dataframe with rows of:
+            - problem_name
+            - solved
+            - solution
+            - program_enumerated
+            - execution_time_sec
+            - allocated_bytes 
+
+    =#
 end
