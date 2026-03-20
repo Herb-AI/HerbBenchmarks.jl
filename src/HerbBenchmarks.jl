@@ -6,8 +6,11 @@ module HerbBenchmarks
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using HerbSearch
+using HerbInterpret
+using HerbConstraints
 using DocStringExtensions
-using DataFrames, StatsPlots, Query
+using DataFrames, StatsPlots, Query, CSV
 
 include("utils/docstrings.jl")
 
@@ -44,8 +47,11 @@ export
     enumerate_problem_files,
 
     # evaluator
+    synthesize,
+    get_benchmark_synthesizer_instances,
     evaluate_synthesizer,
     problems_solved_over_time,
+    problems_solved_over_enumerations,
 
     # grammar_tag generators
     make_interpreter,
