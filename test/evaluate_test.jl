@@ -28,19 +28,21 @@
             Num = _arg_1 
         end
     end
+
+    b = DummyBenchmark
     
     # Single problem
-    d1 = benchmark(BFSIterator, problem=DummyBenchmark.problem_1, grammar=DummyBenchmark.grammar_1, params=(starting_symbol=:Num, max_enumerations=100))
+    d1 = @benchmark BFSIterator problem=b.problem_1 grammar=b.grammar_1 params=(starting_symbol=:Num, max_enumerations=100)
 
     # Benchmark
-    d2 = benchmark(BFSIterator, benchmark=DummyBenchmark, params=(starting_symbol=:Num, max_enumerations=100))
-    d3 = benchmark(DFSIterator, benchmark=DummyBenchmark, params=(starting_symbol=:Num, max_enumerations=100, max_depth=5))
+    d2 = @benchmark BFSIterator benchmark=b params=(starting_symbol=:Num, max_enumerations=100)
+    d3 = @benchmark DFSIterator benchmark=b params=(starting_symbol=:Num, max_enumerations=100, max_depth=5)
     problems_solved_over_time([d2, d3])
 
     # Custom labels
-    d4 = benchmark(DFSIterator, benchmark=DummyBenchmark, params=(starting_symbol=:Num, max_depth=2, max_enumerations=100,))
-    d5 = benchmark(DFSIterator, benchmark=DummyBenchmark, params=(starting_symbol=:Num, max_depth=5, max_enumerations=100,))
-    problems_solved_over_time([d4, d5], label=r->"Max depth $(r.params.max_depth)")
+    d4 = @benchmark DFSIterator benchmark=DummyBenchmark params=(starting_symbol=:Num, max_depth=2, max_enumerations=100,)
+    d5 = @benchmark DFSIterator benchmark=DummyBenchmark params=(starting_symbol=:Num, max_depth=5, max_enumerations=100,)
+    problems_solved_over_time([d4, d5], label=r->"Max depth $(r.params[:max_depth])")
 
     #= 
     

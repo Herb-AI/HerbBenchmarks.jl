@@ -1,60 +1,47 @@
+"""
+    @benchmark IteratorType params=... problem=... grammar=...
+    @benchmark IteratorType params=... benchmark=...
 
-function benchmark(iterator_type::Type{<:ProgramIterator}; kwargs...)
-    # ---------------------------------------------------------------
-    #   Obtain problem grammar pairs
-    # ---------------------------------------------------------------
+Benchmark an iterator on a specific 'problem' and 'grammar' or an entire 'benchmark' module.
+The iterator is supplied by its 'IteratorType', with all additional hyperparameters specified in the 'params' argument.
+By default a 'default_synthesizer' is used to solve problems, but this can be easily overwritten and supplied in the params (see 'default_synthesizer').
 
-    # Case 1: user supplied benchmark
-    if :benchmark in keys(kwargs)
-        problem_grammar_pairs = [(pg.problem, pg.grammar) for pg in get_all_problem_grammar_pairs(kwargs[:benchmark])]
-    
-    # Case 2: user supplied problem and grammar
-    elseif :problem in keys(kwargs) && :grammar in keys(kwargs)
-        problem_grammar_pairs = [(kwargs[:problem], kwargs[:grammar])]
-
-    # Case 3: user failed
-    else
-        throw("Must supply problems to benchmark either through 'problem=... grammar=...' or 'benchmark=...'") 
+"""
+macro benchmark(arg, kws...)
+    for kw in kws
+        if !(kw isa Expr && kw.head == :(=))
+            error("Expected keyword argument like benchmark=..., got $kw")
+        end
     end
+    return esc(:(_benchmark($arg; $(kws...))))
+end
 
-    # ---------------------------------------------------------------
-    #   Obtain other parameters
-    # ---------------------------------------------------------------
-    params = :params in keys(kwargs) ? kwargs[:params] : ()
-    path = :path in keys(kwargs) ? kwargs[:path] : nothing
+function _benchmark(iterator_type::Type{<:ProgramIterator}; kwargs...)
+    args = Dict(kwargs)
 
-    # Arguments:
-    #  - Starting symbol: by default :Start
-    #  - Solver function: by default default_solver
-    starting_symbol = hasproperty(params, :starting_symbol) ? params.starting_symbol : :Start
-    solver = hasproperty(params, :solver) ? params.solver : default_solver
+    # Obtain iterator/synth hyperparameters, or empty NamedTuple if not supplied
+    params = Dict(pairs(get!(args, :params, ())))
+    params[:iterator_type] = iterator_type
 
-    # Excuse me for these monstrosity, but it filters out the named keywords for the iterator/solver such that we can extract these from the parameters
-    iterator_param_names = Base.kwarg_decl(first(filter(x -> :grammar in Base.method_argnames(x) && :start_symbol in Base.method_argnames(x), methods(BFSIterator))))
-    iterator_params = Dict(k => v for (k, v) in pairs(params) if k in iterator_param_names)
-    solver_params = Dict(k => v for (k, v) in pairs(params) if k in Base.kwarg_decl(first(methods(solver))))
+    # Obtain path to store data, or a temporary file if not supplied (will be deleted afterwards)
+    args[:no_path_supplied] = !haskey(args, :path)
+    path = get!(args, :path, "__temp_results.jld2")
 
+    # Obtain problem/grammar-pairs to benchmark with; throws exception if no source is supplied
+    problem_grammar_pairs = get_problem_grammar_pairs(args)
 
-    # ---------------------------------------------------------------
-    #   Actual functionality
-    # ---------------------------------------------------------------
-
-    # Prevent overwritting results by checking if a file already exists at the path
-    !isnothing(path) && isfile(path) && throw("Cannot overwrite existing results at location $path.")
-    df = nothing
+    # Lock for read/write operations to results file
+    io_lock = ReentrantLock()
 
     # Loop over all problem grammar pairs
-    for (problem, grammar) in problem_grammar_pairs
-        # Build synth call
-        # This is extracted from the call so that people can build these on their own if needed
-        solver_call = (
-            iterator = iterator_type(grammar, starting_symbol; iterator_params...),
-            problem = problem,
-            solver_params...,
-        )
-        
+    Threads.@threads for (problem, grammar) in problem_grammar_pairs
+        # Obtain synth function
+        params[:problem] = problem
+        params[:grammar] = grammar
+        synth = build_synth(params)
+
         # Call the synthesizer on arguemnts provided by it, while collecting statistics
-        stats = @timed solver(; solver_call...)
+        stats = @timed synth()
 
         # Create row dataframe
         result = (
@@ -62,32 +49,99 @@ function benchmark(iterator_type::Type{<:ProgramIterator}; kwargs...)
             :execution_time_sec => stats.time,
             :allocated_bytes => stats.bytes,
         )
-
-        # Build new dataframe if this is the first problem, otherwise push to existing
-        if isnothing(df)
-            df = DataFrame(
-                :iterator => iterator_type,
-                :params => params,
-                :results => DataFrame(result...),
-            )
-        else
-            push!(df.results[1], Dict(result), promote=true)
+        
+        # If this is the first problem solved, create a new dataframe
+        lock(io_lock) do
+            if !isfile(path)
+                df = DataFrame(
+                    :iterator => iterator_type,
+                    :params => params,
+                    :results => DataFrame(result...),
+                )
+            # Otherwise obtain the existing and push to it
+            else
+                @load path df
+                push!(df.results[1], Dict(result), promote=true)
+            end
+            
+            # Safe dataframe
+            @save path df
         end
-
-        # Store the dataframe after each instance
-        # Ensures that expensive results are not lost if this function is interrupted
-        !isnothing(path) && CSV.write(path, df)
     end
+
+    # Obtain the dataframe and potentially remove tempory file
+    @load path df
+    args[:no_path_supplied] && rm(path)
 
     return df
 end
 
-#=
-    TODO: this practially does the same as the existing 'synth' function.
-    We can change that fuction to return a more informative result in the same format.
-    Then we can use that synth function and don't have two practially identical functions.
-=#
-function default_solver(;
+# Builds the iterator given the hyperparameters
+function build_iterator(params)
+    # Obtain iterator parameters
+    # Excuse me for these monstrosity, but it filters out the named keywords for the iterator such that we can extract these from the parameters
+    get!(params, :starting_symbol, :Start)
+    iterator_param_names = Base.kwarg_decl(first(filter(x -> :grammar in Base.method_argnames(x) && :start_symbol in Base.method_argnames(x), methods(params[:iterator_type]))))
+    iterator_params = Dict(k => v for (k, v) in pairs(params) if k in iterator_param_names)
+
+    return params[:iterator_type](params[:grammar], params[:starting_symbol]; iterator_params...)
+end
+
+# Builds the call to the synthesize function given the hyperparameters
+function build_synth(params)
+    # Obtain synthesize function and parameters
+    synth = hasproperty(params, :synthesizer) ? params[:synth] : default_synthesizer
+    synth_params = Dict(k => v for (k, v) in pairs(params) if k in Base.kwarg_decl(first(methods(synth))))
+
+    return () -> synth(
+        iterator = build_iterator(params),
+        problem = params[:problem];
+        synth_params...,
+    )
+end
+
+# Returns the problem/grammar pairs given arguments. Ensures that problems that are already run are not run again
+function get_problem_grammar_pairs(args)
+    problem_grammar_pairs = nothing
+
+    # Case 1: user supplied benchmark
+    if :benchmark in keys(args)
+        problem_grammar_pairs = [(pg.problem, pg.grammar) for pg in get_all_problem_grammar_pairs(args[:benchmark])]
+    
+    # Case 2: user supplied problem and grammar
+    elseif :problem in keys(args) && :grammar in keys(args)
+        problem_grammar_pairs = [(args[:problem], args[:grammar])]
+
+    # Case 3: user failed
+    else
+        throw("Must supply problems to benchmark either through 'problem=... grammar=...' or 'benchmark=...'") 
+    end
+
+    # Make sure to only return problems that are not solved yet.
+    # If no path was supplied or file doesn't exists, return all propblems
+    (args[:no_path_supplied] || !isfile(args[:path])) && return problem_grammar_pairs
+
+    # Otherwise, obtain problems solved and filter pairs
+    @load args[:path] df
+    problems_solved = df.results[1].problem_name
+    filter!(pg -> !(first(pg).name in problems_solved), problem_grammar_pairs)
+
+    # If the length is zero, warn user
+    if length(problem_grammar_pairs) == 0
+        @warn "No problems found; are all problems already solved in $(args[:path])"
+    end
+
+    return problem_grammar_pairs
+end
+
+"""
+    default_synthesizer(; iterator::ProgramIterator, problem::Problem, max_enumerations::Number = Inf)
+
+This functions serves as a default or template synthesizer for the '@benchmark' macro.
+The macro calls a synthesizer function with keyword arguments 'iterator', 'problem' and all specified hyperparameters through the 'param' argument.
+The macro expects a named tuple to be returned, that contains at least the fields 'problem_name', 'solved', 'program_enumerated'.
+"""
+function default_synthesizer(;
     iterator::ProgramIterator,
     problem::Problem,
     max_enumerations::Number = Inf,
@@ -113,108 +167,4 @@ function default_solver(;
         :solution => solution,
         :programs_enumerated => programs_enumerated,
     )
-end
-
-function problems_solved_over_time(datas::Vector{DataFrame}; label=r->r.iterator)
-    problems_solved_over_time(vcat(datas...), label=label)
-end
-
-function problems_solved_over_time(data::DataFrame; label=r->r.iterator)
-    # Ensure that dataframe has column "results"
-    @assert "results" in names(data)
-
-    # Find the longest execution time for any solved problem to scale the graph
-    longest_execution_time = maximum(
-        maximum(df.execution_time_sec[df.solved])
-        for df in data.results
-        if any(df.solved)
-    )
-
-    # Init empty plot
-    p = plot(
-        seriestype = :steppost,
-        xlabel = "Execution time (s)",
-        ylabel = "Problems solved",
-        xlims = (0, longest_execution_time * 1.1)
-    )
-
-    for row in eachrow(data)
-        # Assert that each results dataframe has columns "solved" and "execution_time_sec"
-        @assert "solved" in names(row.results)
-        @assert "execution_time_sec" in names(row.results)
-
-        # Data process pipeline:
-        row.results |>
-            # Sort on execution time
-            @orderby(_.execution_time_sec) |>
-
-            # Take the cummulative sum 
-            DataFrame |>
-            (df -> let df = df
-                df.cumulative_solved = cumsum(df.solved)
-                df
-            end) |>
-
-            # Add to plot
-            @df plot!(p,
-                :execution_time_sec, 
-                :cumulative_solved, 
-                label=label(row),
-            )
-    end
-
-    # Return plot
-    return p
-end
-
-function problems_solved_over_enumerations(datas::Vector{DataFrame}; label=r->r.iterator)
-    problems_solved_over_time(vcat(datas...), label=label)
-end
-
-function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator)
-    # Ensure that dataframe has column "results"
-    @assert "results" in names(data)
-
-    # Find the maximum amount of enumerations for any solved problem to scale the graph
-    maximum_enumerations = maximum(
-        maximum(df.programs_enumerated[df.solved])
-        for df in data.results
-        if any(df.solved)
-    )
-
-    # Init empty plot
-    p = plot(
-        seriestype = :steppost,
-        xlabel = "Programs enumerated",
-        ylabel = "Problems solved",
-        xlims = (0, maximum_enumerations * 1.1),
-    )
-
-    for row in eachrow(data)
-        # Assert that each results dataframe has columns "solved" and "programs_enumerated"
-        @assert "solved" in names(row.results)
-        @assert "programs_enumerated" in names(row.results)
-
-        # Data process pipeline:
-        row.results |>
-            # Sort on enumerated programs
-            @orderby(_.programs_enumerated) |>
-
-            # Take the cummulative sum 
-            DataFrame |>
-            (df -> let df = df
-                df.cumulative_solved = cumsum(df.solved)
-                df
-            end) |>
-
-            # Add to plot
-            @df plot!(p,
-                :programs_enumerated, 
-                :cumulative_solved, 
-                label=label(row),
-            )
-    end
-
-    # Return plot
-    return p
 end

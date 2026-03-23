@@ -10,7 +10,7 @@ using HerbSearch
 using HerbInterpret
 using HerbConstraints
 using DocStringExtensions
-using DataFrames, StatsPlots, Query, CSV
+using DataFrames, StatsPlots, Query, JLD2
 
 include("utils/docstrings.jl")
 
@@ -21,6 +21,7 @@ include("utils/problem_fetcher.jl")
 include("utils/interpret_generator.jl")
 
 include("utils/evaluate_synthesizer.jl")
+include("utils/plot_results.jl")
 
 # Include data types
 include("datatypes/problem_grammar_pair.jl")
@@ -47,9 +48,7 @@ export
     enumerate_problem_files,
 
     # evaluator
-    synthesize,
-    get_benchmark_synthesizer_instances,
-    evaluate_synthesizer,
+    @benchmark, _benchmark,
     problems_solved_over_time,
     problems_solved_over_enumerations,
 
