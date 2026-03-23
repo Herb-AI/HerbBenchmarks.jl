@@ -146,21 +146,26 @@ function default_synthesizer(;
     problem::Problem,
     max_enumerations::Number = Inf,
 )
+    # Get grammar and build interpreter
     grammar = HerbSearch.get_grammar(iterator)
-
     interpreter = HerbInterpret.make_interpreter(grammar)
+
+    # Collect stats: program enumerated and solution
     programs_enumerated = 0
     solution = missing
 
+    # Loop over programs
     for program in iterator
         programs_enumerated += 1
 
         # Success: all I/O examples solved
         all(interpreter(program, io) == io.out for io in problem.spec) && (solution = freeze_state(program); break)
 
+        # If max enumerations has been reached: break the loop
         programs_enumerated >= max_enumerations && break
     end
 
+    # Return results
     (
         :problem_name => problem.name,
         :solved => !ismissing(solution),
