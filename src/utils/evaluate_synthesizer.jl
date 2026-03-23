@@ -16,56 +16,74 @@ macro benchmark(arg, kws...)
     return esc(:(_benchmark($arg; $(kws...))))
 end
 
-function _benchmark(iterator_type::Type{<:ProgramIterator}; kwargs...)
-    args = Dict(kwargs)
+macro params(iter, kwargs)
+    esc(:(($iter, $kwargs)))
+end
 
-    # Obtain iterator/synth hyperparameters, or empty NamedTuple if not supplied
-    params = Dict(pairs(get!(args, :params, ())))
-    params[:iterator_type] = iterator_type
+_benchmark(iterator_type::Type{<:ProgramIterator}; kwargs...) = _benchmark([iterator_type]; kwargs...)
+
+function _benchmark(iterator_types::Vector{}; kwargs...)
+    args = Dict(kwargs)
 
     # Obtain path to store data, or a temporary file if not supplied (will be deleted afterwards)
     args[:no_path_supplied] = !haskey(args, :path)
     path = get!(args, :path, "__temp_results.jld2")
 
-    # Obtain problem/grammar-pairs to benchmark with; throws exception if no source is supplied
-    problem_grammar_pairs = get_problem_grammar_pairs(args)
+    # Create empty dataframe with column structure at path
+    df = DataFrame(iterator=DataType[],params=Dict[],results=DataFrame[])
+    @save path df
 
-    # Lock for read/write operations to results file
-    io_lock = ReentrantLock()
+    # Loop over all iterators
+    for (iterator_index, iterator_type) in enumerate(iterator_types)
+        # Obtain iterator/synth hyperparameters, or empty NamedTuple if not supplied
+        params = Dict(pairs(get!(args, :params, ())))
+        extra_params = Dict(pairs(get!(args, :extra_params, fill((), length(iterator_types)))[iterator_index]))
+        params = merge(params, extra_params)
+        params[:iterator_type] = iterator_type
+        params[:iterator_index] = iterator_index
 
-    # Loop over all problem grammar pairs
-    Threads.@threads for (problem, grammar) in problem_grammar_pairs
-        # Obtain synth function
-        params[:problem] = problem
-        params[:grammar] = grammar
-        synth = build_synth(params)
+        # Obtain problem/grammar-pairs to benchmark with; throws exception if no source is supplied
+        problem_grammar_pairs = get_problem_grammar_pairs(params, args)
 
-        # Call the synthesizer on arguemnts provided by it, while collecting statistics
-        stats = @timed synth()
+        # Lock for read/write operations to results file
+        io_lock = ReentrantLock()
 
-        # Create row dataframe
-        result = (
-            stats.value...,
-            :execution_time_sec => stats.time,
-            :allocated_bytes => stats.bytes,
-        )
-        
-        # If this is the first problem solved, create a new dataframe
-        lock(io_lock) do
-            if !isfile(path)
-                df = DataFrame(
-                    :iterator => iterator_type,
-                    :params => params,
-                    :results => DataFrame(result...),
-                )
-            # Otherwise obtain the existing and push to it
-            else
-                @load path df
-                push!(df.results[1], Dict(result), promote=true)
-            end
+        # Loop over all problem grammar pairs
+        Threads.@threads for (problem, grammar) in problem_grammar_pairs
+            # Obtain synth function
+            params[:problem] = problem
+            params[:grammar] = grammar
+            synth = build_synth(params)
+
+            # Call the synthesizer on arguemnts provided by it, while collecting statistics
+            stats = @timed synth()
+
+            # Create row dataframe
+            result = Dict(
+                stats.value...,
+                :execution_time_sec => stats.time,
+                :allocated_bytes => stats.bytes,
+            )
             
-            # Safe dataframe
-            @save path df
+            lock(io_lock) do
+                # Load dataframe
+                @load path df
+
+                # If this is the first problem, create a new dataframe
+                if size(df)[1] < iterator_index
+                    row = Dict(
+                        :iterator => iterator_type,
+                        :params => params,
+                        :results => DataFrame(result...),
+                    )
+                    push!(df, row, promote=true)
+                else
+                    push!(df.results[iterator_index], result, promote=true)
+                end
+                
+                # Safe dataframe
+                @save path df
+            end
         end
     end
 
@@ -102,7 +120,7 @@ function build_synth(params)
 end
 
 # Returns the problem/grammar pairs given arguments. Ensures that problems that are already run are not run again
-function get_problem_grammar_pairs(args)
+function get_problem_grammar_pairs(params, args)
     problem_grammar_pairs = nothing
 
     # Case 1: user supplied benchmark
@@ -124,7 +142,7 @@ function get_problem_grammar_pairs(args)
 
     # Otherwise, obtain problems solved and filter pairs
     @load args[:path] df
-    problems_solved = df.results[1].problem_name
+    problems_solved = df.results[params[:iterator_index]].problem_name
     filter!(pg -> !(first(pg).name in problems_solved), problem_grammar_pairs)
 
     # If the length is zero, warn user
