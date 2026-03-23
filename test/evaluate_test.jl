@@ -43,19 +43,4 @@
     d4 = @benchmark DFSIterator benchmark=DummyBenchmark params=(starting_symbol=:Num, max_depth=2, max_enumerations=100,)
     d5 = @benchmark DFSIterator benchmark=DummyBenchmark params=(starting_symbol=:Num, max_depth=5, max_enumerations=100,)
     problems_solved_over_time([d4, d5], label=r->"Max depth $(r.params[:max_depth])")
-
-    #= 
-    
-    Each data frame contains:
-        - iterator: type of iterator
-        - params:   user-defined parameters
-        - results:  result dataframe with rows of:
-            - problem_name
-            - solved
-            - solution
-            - program_enumerated
-            - execution_time_sec
-            - allocated_bytes 
-
-    =#
 end
