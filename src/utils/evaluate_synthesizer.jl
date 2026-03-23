@@ -84,6 +84,7 @@ function build_iterator(params)
     iterator_param_names = Base.kwarg_decl(first(filter(x -> :grammar in Base.method_argnames(x) && :start_symbol in Base.method_argnames(x), methods(params[:iterator_type]))))
     iterator_params = Dict(k => v for (k, v) in pairs(params) if k in iterator_param_names)
 
+    # Call iterator constructor
     return params[:iterator_type](params[:grammar], params[:starting_symbol]; iterator_params...)
 end
 
