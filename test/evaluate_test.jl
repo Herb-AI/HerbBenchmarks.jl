@@ -7,7 +7,8 @@
         p = (n, exs) -> Problem(n, [IOExample(Dict{Symbol, Any}(:_arg_1 => first(ex)), last(ex)) for ex in exs])
 
         problem_1 = p("y = x", [(0, 0), (1, 1), (2, 2)])
-        grammar_1 = @cfgrammar begin 
+        grammar_1 = @cfgrammar begin
+            Start = Num
             Num = 1 | 2
             Num = -Num 
             Num = Num + Num 
@@ -23,6 +24,7 @@
 
         problem_4 = p("y = x / 2", [(0.0, 0.0), (1.0, 0.5), (2.0, 1.0)])
         grammar_4 = @cfgrammar begin 
+            Start = Num
             Num = 1 | 2
             Num = Num / Num
             Num = _arg_1 
@@ -32,13 +34,13 @@
     b = DummyBenchmark
     
     # Single problem
-    d1 = @benchmark BFSIterator params=(starting_symbol=:Num, max_enumerations=100) problem=b.problem_1 grammar=b.grammar_1
+    d1 = @benchmark BFSIterator params=(max_enumerations=100,) problem=b.problem_1 grammar=b.grammar_1
 
     # Benchmark
-    d2 = @benchmark [BFSIterator, DFSIterator] params=(starting_symbol=:Num, max_enumerations=100, max_depth=5) benchmark=b
+    d2 = @benchmark [BFSIterator, DFSIterator] params=(max_enumerations=100, max_depth=5) benchmark=b
     problems_solved_over_time(d2)
 
     # Custom labels
-    d3 = @benchmark [DFSIterator, DFSIterator] specific_params=[(max_depth=5,), (max_depth=2,)] params=(starting_symbol=:Num, max_enumerations=100) benchmark=b
+    d3 = @benchmark [DFSIterator, DFSIterator] specific_params=[(max_depth=5,), (max_depth=2,)] params=(max_enumerations=100,) benchmark=b
     problems_solved_over_time(d3, label=r->"Max depth $(r.params[:max_depth])")
 end

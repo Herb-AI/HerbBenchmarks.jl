@@ -33,11 +33,13 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
     df = DataFrame(iterator=DataType[],params=Dict[],results=DataFrame[])
     @save path df
 
+    # Obtain default parameters
+    params = Dict{Symbol,Any}(pairs(get!(args, :params, ())))
+
     # Loop over all iterators
     for (iterator_index, iterator_type) in enumerate(iterator_types)
         # Obtain iterator/synth hyperparameters, or empty NamedTuple if not supplied
-        params = Dict(pairs(get!(args, :params, ())))
-        specific_params = Dict(pairs(get!(args, :specific_params, fill((), length(iterator_types)))[iterator_index]))
+        specific_params = Dict{Symbol,Any}(pairs(get!(args, :specific_params, fill((), length(iterator_types)))[iterator_index]))
         params = merge(params, specific_params)
         params[:iterator_type] = iterator_type
         params[:iterator_index] = iterator_index
