@@ -39,6 +39,6 @@
     problems_solved_over_time(d2)
 
     # Custom labels
-    d3 = @benchmark [DFSIterator, DFSIterator] extra_params=[(max_depth=5,), (max_depth=2,)] params=(starting_symbol=:Num, max_enumerations=100) benchmark=b
+    d3 = @benchmark [DFSIterator, DFSIterator] specific_params=[(max_depth=5,), (max_depth=2,)] params=(starting_symbol=:Num, max_enumerations=100) benchmark=b
     problems_solved_over_time(d3, label=r->"Max depth $(r.params[:max_depth])")
 end

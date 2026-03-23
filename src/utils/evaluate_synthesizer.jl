@@ -37,8 +37,8 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
     for (iterator_index, iterator_type) in enumerate(iterator_types)
         # Obtain iterator/synth hyperparameters, or empty NamedTuple if not supplied
         params = Dict(pairs(get!(args, :params, ())))
-        extra_params = Dict(pairs(get!(args, :extra_params, fill((), length(iterator_types)))[iterator_index]))
-        params = merge(params, extra_params)
+        specific_params = Dict(pairs(get!(args, :specific_params, fill((), length(iterator_types)))[iterator_index]))
+        params = merge(params, specific_params)
         params[:iterator_type] = iterator_type
         params[:iterator_index] = iterator_index
 
