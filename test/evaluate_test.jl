@@ -43,4 +43,8 @@
     # Custom labels
     d3 = @benchmark [DFSIterator, DFSIterator] specific_params=[(max_depth=5,), (max_depth=2,)] params=(max_enumerations=100,) benchmark=b
     problems_solved_over_time(d3, label=r->"Max depth $(r.params[:max_depth])")
+
+    # Problem grammar pairs
+    problem_grammar_pairs = [(b.problem_1, b.grammar_1), (b.problem_2, b.grammar_2), (b.problem_3, b.grammar_3)]
+    d4 = @benchmark BFSIterator params=(max_enumerations=100,) problem_grammar_pairs=problem_grammar_pairs
 end

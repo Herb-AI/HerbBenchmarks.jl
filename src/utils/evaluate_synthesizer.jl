@@ -133,9 +133,13 @@ function get_problem_grammar_pairs(params, args)
     elseif :problem in keys(args) && :grammar in keys(args)
         problem_grammar_pairs = [(args[:problem], args[:grammar])]
 
-    # Case 3: user failed
+    # Case 3: user supplied problem-grammar pairs
+    elseif :problem_grammar_pairs in keys(args)
+        problem_grammar_pairs = args[:problem_grammar_pairs]
+
+    # Case 4: user failed
     else
-        throw("Must supply problems to benchmark either through 'problem=... grammar=...' or 'benchmark=...'") 
+        throw("Must supply problems to benchmark either through 'problem=... grammar=...', 'benchmark=...' or 'problem_grammar_pairs=...'") 
     end
 
     # Make sure to only return problems that are not solved yet.
