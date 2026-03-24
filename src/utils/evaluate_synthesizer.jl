@@ -52,10 +52,10 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
 
         # Loop over all problem grammar pairs
         Threads.@threads for (problem, grammar) in problem_grammar_pairs
-            @show params
             # Obtain synth function
             params[:problem] = problem
             params[:grammar] = grammar
+            @show params
             synth = build_synth(params)
 
             # Call the synthesizer on arguemnts provided by it, while collecting statistics
