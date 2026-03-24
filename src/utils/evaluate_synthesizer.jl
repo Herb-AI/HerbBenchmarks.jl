@@ -55,7 +55,6 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
             # Obtain synth function
             params[:problem] = problem
             params[:grammar] = grammar
-            @show params
             synth = build_synth(params)
 
             # Call the synthesizer on arguemnts provided by it, while collecting statistics
