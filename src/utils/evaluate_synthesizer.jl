@@ -62,16 +62,14 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
 
             # Create row dataframe
             result = Dict(
-                stats.value...,
-                :execution_time_sec => stats.time,
-                :allocated_bytes => stats.bytes,
+                [k => [v] for (k, v) in pairs(stats.value)]...,
+                :execution_time_sec => [stats.time],
+                :allocated_bytes => [stats.bytes],
             )
             
             lock(io_lock) do
                 # Load dataframe
                 @load path df
-                @show df
-                @show result
 
                 # If this is the first problem, create a new dataframe
                 if size(df)[1] < iterator_index
