@@ -111,7 +111,7 @@ end
 # Builds the call to the synthesize function given the hyperparameters
 function build_synth(params)
     # Obtain synthesize function and parameters
-    synth = hasproperty(params, :synthesizer) ? params[:synth] : default_synthesizer
+    synth = hasproperty(params, :synth) ? params[:synth] : default_synthesizer
     synth_params = Dict(k => v for (k, v) in pairs(params) if k in Base.kwarg_decl(first(methods(synth))))
 
     return () -> synth(
