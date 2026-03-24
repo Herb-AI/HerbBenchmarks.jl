@@ -17,7 +17,8 @@ substr_cvc(str, start_index::Int, end_index::Int) = checkbounds(Bool, str, start
 # Int typed
 len_cvc(str::String) = length(str)
 
-str_to_int_cvc(str::String) = parse(Int64, str)
+# str_to_int_cvc(str::String) = parse(Int64, str)
+str_to_int_cvc(str::String) = tryparse(Int64, str)
 
 # indexof_cvc(str::String, substring::String, index::Int) = (n = findfirst(substring, str); n == nothing ? -1 : (n[1] >= index ? n[1] : -1))
 indexof_cvc(str::String, substring::String, index::Int) = checkbounds(Bool, str, index) ? (n = findfirst(substring, str); n == nothing ? -1 : (n[1] >= index ? n[1] : -1)) : nothing
