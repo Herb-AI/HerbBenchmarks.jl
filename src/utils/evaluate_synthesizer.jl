@@ -71,7 +71,7 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
                 # Load dataframe
                 @load path df
                 @show df
-                @show row
+                @show result
 
                 # If this is the first problem, create a new dataframe
                 if size(df)[1] < iterator_index
