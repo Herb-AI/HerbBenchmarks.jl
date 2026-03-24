@@ -160,8 +160,8 @@ function get_problem_grammar_pairs(params, args)
     # Otherwise, obtain problems solved and filter pairs
     @load args[:path] df
 
-    # Check if this iterator has any row at all
-    size(df.results)[1] > params[:iterator_index] && return problem_grammar_pairs
+    # Check if this iterator has been attempted at all
+    size(df.results)[1] < params[:iterator_index] && return problem_grammar_pairs
 
     # Otherwise, obtain problems solved and filter
     problems_solved = df.results[params[:iterator_index]].problem_name
