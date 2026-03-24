@@ -76,7 +76,7 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
                     row = Dict(
                         :iterator => iterator_type,
                         :params => params,
-                        :results => DataFrame([k => [v] for (k,v) in results]),
+                        :results => DataFrame([k => [v] for (k,v) in result]),
                     )
                     push!(df, row, promote=true)
                 else
