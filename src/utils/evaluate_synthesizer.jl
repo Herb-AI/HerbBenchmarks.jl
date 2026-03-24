@@ -133,21 +133,37 @@ function get_problem_grammar_pairs(params, args)
     elseif :problem in keys(args) && :grammar in keys(args)
         problem_grammar_pairs = [(args[:problem], args[:grammar])]
 
-    # Case 3: user supplied problem-grammar pairs
+    # Case 3: user supplied problems and grammars
+    elseif :problems in keys(args) && :grammars in keys(args)
+        problem_grammar_pairs = collect(zip(args[:problems], args[:grammars]))
+    
+    # Case 4: user supplied problems and single grammar
+    elseif :problems in keys(args) && :grammars in keys(args)
+        problem_grammar_pairs = [(problem, args[:grammar]) for problem in args[:problem]]
+
+    # Case 5: user supplied problem-grammar pairs
     elseif :problem_grammar_pairs in keys(args)
         problem_grammar_pairs = args[:problem_grammar_pairs]
 
-    # Case 4: user failed
+    # Case 6: user failed
     else
         throw("Must supply problems to benchmark either through 'problem=... grammar=...', 'benchmark=...' or 'problem_grammar_pairs=...'") 
     end
 
+    # ------------------------
     # Make sure to only return problems that are not solved yet.
+    # ------------------------
+
     # If no path was supplied or file doesn't exists, return all propblems
     (args[:no_path_supplied] || !isfile(args[:path])) && return problem_grammar_pairs
 
     # Otherwise, obtain problems solved and filter pairs
     @load args[:path] df
+
+    # Check if this iterator has any row at all
+    size(df.results)[1] > params[:iterator_index] && return problem_grammar_pairs
+
+    # Otherwise, obtain problems solved and filter
     problems_solved = df.results[params[:iterator_index]].problem_name
     filter!(pg -> !(first(pg).name in problems_solved), problem_grammar_pairs)
 
