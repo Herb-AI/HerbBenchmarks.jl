@@ -156,26 +156,18 @@ function get_problem_grammar_pairs(params, args)
     # Make sure to only return problems that are not solved yet.
     # ------------------------
 
-    @show problem_grammar_pairs
-    @show params
-
     # If no path was supplied or file doesn't exists, return all propblems
     (args[:no_path_supplied] || !isfile(args[:path])) && return problem_grammar_pairs
 
     # Otherwise, obtain problems solved and filter pairs
     @load args[:path] df
 
-    @show df
-
     # Check if this iterator has been attempted at all
     size(df.results)[1] < params[:iterator_index] && return problem_grammar_pairs
 
     # Otherwise, obtain problems solved and filter
     problems_solved = df.results[params[:iterator_index]].problem_name
-    @show problems_solved
     filter!(pg -> !(first(pg).name in problems_solved), problem_grammar_pairs)
-
-    @show problem_grammar_pairs
 
     # If the length is zero, warn user
     if length(problem_grammar_pairs) == 0
