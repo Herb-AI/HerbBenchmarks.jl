@@ -70,6 +70,8 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
             lock(io_lock) do
                 # Load dataframe
                 @load path df
+                @show df
+                @show row
 
                 # If this is the first problem, create a new dataframe
                 if size(df)[1] < iterator_index
@@ -80,10 +82,10 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
                     )
                     push!(df, row, promote=true)
                 else
-                    @show df
                     push!(df.results[iterator_index], result, promote=true)
-                    @show result
                 end
+
+                @show df
                 
                 # Safe dataframe
                 @save path df
