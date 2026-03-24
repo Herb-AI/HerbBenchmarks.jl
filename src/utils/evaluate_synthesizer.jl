@@ -29,9 +29,11 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
     args[:no_path_supplied] = !haskey(args, :path)
     path = get!(args, :path, "__temp_results.jld2")
 
-    # Create empty dataframe with column structure at path
-    df = DataFrame(iterator=DataType[],params=Dict[],results=DataFrame[])
-    @save path df
+    # Create empty dataframe with column structure at path if it does not exists
+    if !isfile(path)
+        df = DataFrame(iterator=DataType[],params=Dict[],results=DataFrame[])
+        @save path df
+    end
 
     # Obtain default parameters
     params = Dict{Symbol,Any}(pairs(get!(args, :params, ())))
