@@ -147,7 +147,7 @@ function get_problem_grammar_pairs(params, args)
 
     # Case 6: user failed
     else
-        throw("Must supply problems to benchmark either through 'problem=... grammar=...', 'benchmark=...' or 'problem_grammar_pairs=...'") 
+        throw("Must supply problems to benchmark either through 'problem(s)=... grammar(s)=...', 'benchmark=...' or 'problem_grammar_pairs=...'") 
     end
 
     # ------------------------
