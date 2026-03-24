@@ -80,7 +80,9 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
                     )
                     push!(df, row, promote=true)
                 else
+                    @show df
                     push!(df.results[iterator_index], result, promote=true)
+                    @show result
                 end
                 
                 # Safe dataframe
