@@ -62,9 +62,9 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
 
             # Create row dataframe
             result = Dict(
-                [k => [v] for (k, v) in pairs(stats.value)]...,
-                :execution_time_sec => [stats.time],
-                :allocated_bytes => [stats.bytes],
+                stats.value...,
+                :execution_time_sec => stats.time,
+                :allocated_bytes => stats.bytes,
             )
             
             lock(io_lock) do
@@ -76,7 +76,7 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
                     row = Dict(
                         :iterator => iterator_type,
                         :params => params,
-                        :results => DataFrame(result...),
+                        :results => DataFrame([k => [v] for (k,v) in results]),
                     )
                     push!(df, row, promote=true)
                 else
