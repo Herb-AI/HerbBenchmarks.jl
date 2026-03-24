@@ -112,9 +112,9 @@ end
 function build_synth(params)
     # Obtain synthesize function and parameters
     get!(params, :synth, default_synthesizer)
-    synth_params = Dict(k => v for (k, v) in pairs(params) if k in Base.kwarg_decl(first(methods(synth))))
+    synth_params = Dict(k => v for (k, v) in pairs(params) if k in Base.kwarg_decl(first(methods(params[:synth]))))
 
-    return () -> synth(
+    return () -> params[:synth](
         iterator = build_iterator(params),
         problem = params[:problem];
         synth_params...,
