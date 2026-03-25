@@ -37,7 +37,7 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
 
     # Obtain default parameters and additional arguments
     params = Dict{Symbol,Any}(pairs(get!(args, :params, ())))
-    extra_args = get!(args, :args, ())
+    extra_args = Dict{Symbol,Any}(get!(args, :args, ()))
 
     # Loop over all iterators
     for (iterator_index, iterator_type) in enumerate(iterator_types)
