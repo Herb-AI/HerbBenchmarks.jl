@@ -61,7 +61,7 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
         # Loop over all problem grammar pairs
         Threads.@threads for (problem, grammar) in problem_grammar_pairs
             # Copy parameters for threading
-            t_params = deepcopy(params)
+            t_params = copy(params)
 
             # Obtain synth function
             t_params[:problem] = problem
