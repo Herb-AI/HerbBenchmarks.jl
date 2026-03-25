@@ -25,8 +25,6 @@ function problems_solved_over_time(data::DataFrame; label=r->r.iterator)
         @assert "solved" in names(row.results)
         @assert "execution_time_sec" in names(row.results)
 
-        @show row.results
-
         # Data process pipeline:
         row.results |>
             # Sort on execution time
@@ -79,8 +77,6 @@ function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator)
         # Assert that each results dataframe has columns "solved" and "execution_time_sec"
         @assert "solved" in names(row.results)
         @assert "programs_enumerated" in names(row.results)
-
-        @show row.results
 
         # Data process pipeline:
         row.results |>

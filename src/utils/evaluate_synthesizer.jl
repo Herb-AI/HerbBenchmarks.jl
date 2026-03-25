@@ -43,6 +43,10 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
         # Obtain iterator/synth hyperparameters, or empty NamedTuple if not supplied
         specific_params = Dict{Symbol,Any}(pairs(get!(args, :specific_params, fill((), length(iterator_types)))[iterator_index]))
         params = merge(params, specific_params)
+
+        # Format run parameters for storage
+        df_params = NamedTuple(params)
+
         params[:iterator_type] = iterator_type
         params[:iterator_index] = iterator_index
 
@@ -77,7 +81,7 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
                 if size(df)[1] < iterator_index
                     row = Dict(
                         :iterator => iterator_type,
-                        :params => params,
+                        :params => df_params,
                         :results => DataFrame([k => [v] for (k,v) in result]),
                     )
                     push!(df, row, promote=true)
