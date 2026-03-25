@@ -10,7 +10,7 @@ using HerbSearch
 using HerbInterpret
 using HerbConstraints
 using DocStringExtensions
-using DataFrames, StatsPlots, Query, JLD2
+using DataFrames, StatsPlots, Query, JLD2, Dates
 
 include("utils/docstrings.jl")
 

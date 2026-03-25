@@ -27,7 +27,7 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
 
     # Obtain path to store data, or a temporary file if not supplied (will be deleted afterwards)
     args[:no_path_supplied] = !haskey(args, :path)
-    path = get!(args, :path, "__temp_results.jld2")
+    path = get!(args, :path, "__temp_$(Dates.format(now(), "yyyy-mm-dd_HH-MM-SS")).jld2")
 
     # Create empty dataframe with column structure at path if it does not exists
     if !isfile(path)
