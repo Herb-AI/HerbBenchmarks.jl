@@ -22,6 +22,7 @@ include("datatypes/benchmark.jl")
 
 include("data/Abstract_Reasoning_2019/Abstract_Reasoning_2019.jl")
 include("data/DeepCoder_2016/DeepCoder_2016.jl")
+include("data/Karel_2018/Karel_2018.jl")
 include("data/Pixels_2020/Pixels_2020.jl")
 include("data/Robots_2020/Robots_2020.jl")
 include("data/String_transformations_2020/String_transformations_2020.jl")
