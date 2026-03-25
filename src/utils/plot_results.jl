@@ -1,8 +1,8 @@
-function problems_solved_over_time(datas::Vector{DataFrame}; label=r->r.iterator)
+function problems_solved_over_time(datas::Vector{DataFrame}; label=r->r.iterator, kwargs...)
     problems_solved_over_time(vcat(datas...), label=label)
 end
 
-function problems_solved_over_time(data::DataFrame; label=r->r.iterator)
+function problems_solved_over_time(data::DataFrame; label=r->r.iterator, kwargs...)
     # Ensure that dataframe has column "results"
     @assert "results" in names(data)
 
@@ -17,7 +17,8 @@ function problems_solved_over_time(data::DataFrame; label=r->r.iterator)
     p = plot(
         xlabel = "Execution time (s)",
         ylabel = "Problems solved",
-        xlims = (0, longest_execution_time * 1.1)
+        xlims = (0, longest_execution_time * 1.1),
+        kwargs...,
     )
 
     for row in eachrow(data)
@@ -51,11 +52,11 @@ function problems_solved_over_time(data::DataFrame; label=r->r.iterator)
 end
 
 
-function problems_solved_over_enumerations(datas::Vector{DataFrame}; label=r->r.iterator)
+function problems_solved_over_enumerations(datas::Vector{DataFrame}; label=r->r.iterator, kwargs...)
     problems_solved_over_enumerations(vcat(datas...), label=label)
 end
 
-function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator)
+function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator, kwargs...)
     # Ensure that dataframe has column "results"
     @assert "results" in names(data)
 
@@ -68,9 +69,10 @@ function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator)
 
     # Init empty plot
     p = plot(
-        xlabel = "Execution time (s)",
-        ylabel = "Programs enumerated",
-        xlims = (0, maximum_enumerations * 1.1)
+        xlabel = "Programs enumerated",
+        ylabel = "Problems solved enumerated",
+        xlims = (0, maximum_enumerations * 1.1),
+        kwargs...
     )
 
     for row in eachrow(data)
