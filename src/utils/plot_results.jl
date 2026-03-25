@@ -14,7 +14,7 @@ function problems_solved_over_time(data::DataFrame; label=r->r.iterator, kwargs.
     )
 
     # Init empty plot
-    p = plot(
+    p = plot(;
         xlabel = "Execution time (s)",
         ylabel = "Problems solved",
         xlims = (0, longest_execution_time * 1.1),
@@ -68,7 +68,7 @@ function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator,
     )
 
     # Init empty plot
-    p = plot(
+    p = plot(;
         xlabel = "Programs enumerated",
         ylabel = "Problems solved enumerated",
         xlims = (0, maximum_enumerations * 1.1),
