@@ -1,5 +1,5 @@
 function problems_solved_over_time(datas::Vector{DataFrame}; label=r->r.iterator, kwargs...)
-    problems_solved_over_time(vcat(datas...), label=label)
+    problems_solved_over_time(vcat(datas...); label=label, kwargs...)
 end
 
 function problems_solved_over_time(data::DataFrame; label=r->r.iterator, kwargs...)
@@ -53,7 +53,7 @@ end
 
 
 function problems_solved_over_enumerations(datas::Vector{DataFrame}; label=r->r.iterator, kwargs...)
-    problems_solved_over_enumerations(vcat(datas...), label=label)
+    problems_solved_over_enumerations(vcat(datas...); label=label, kwargs...)
 end
 
 function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator, kwargs...)
@@ -97,59 +97,6 @@ function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator,
                 :programs_enumerated, 
                 :cumulative_solved, 
                 seriestype = :steppost,
-                label=label(row),
-            )
-    end
-
-    # Return plot
-    return p
-end
-
-
-function problems_solved_over_enumerations(datas::Vector{DataFrame}; label=r->r.iterator)
-    problems_solved_over_time(vcat(datas...), label=label)
-end
-
-function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator)
-    # Ensure that dataframe has column "results"
-    @assert "results" in names(data)
-
-    # Find the maximum amount of enumerations for any solved problem to scale the graph
-    maximum_enumerations = maximum(
-        maximum(df.programs_enumerated[df.solved])
-        for df in data.results
-        if any(df.solved)
-    )
-
-    # Init empty plot
-    p = plot(
-        seriestype = :steppost,
-        xlabel = "Programs enumerated",
-        ylabel = "Problems solved",
-        xlims = (0, maximum_enumerations * 1.1),
-    )
-
-    for row in eachrow(data)
-        # Assert that each results dataframe has columns "solved" and "programs_enumerated"
-        @assert "solved" in names(row.results)
-        @assert "programs_enumerated" in names(row.results)
-
-        # Data process pipeline:
-        row.results |>
-            # Sort on enumerated programs
-            @orderby(_.programs_enumerated) |>
-
-            # Take the cummulative sum 
-            DataFrame |>
-            (df -> let df = df
-                df.cumulative_solved = cumsum(df.solved)
-                df
-            end) |>
-
-            # Add to plot
-            @df plot!(p,
-                :programs_enumerated, 
-                :cumulative_solved, 
                 label=label(row),
             )
     end
