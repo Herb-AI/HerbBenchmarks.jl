@@ -35,8 +35,9 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
         @save path df
     end
 
-    # Obtain default parameters
+    # Obtain default parameters and additional arguments
     params = Dict{Symbol,Any}(pairs(get!(args, :params, ())))
+    extra_args = get!(args, :args, ())
 
     # Loop over all iterators
     for (iterator_index, iterator_type) in enumerate(iterator_types)
@@ -46,7 +47,8 @@ function _benchmark(iterator_types::Vector{}; kwargs...)
 
         # Format run parameters for storage
         df_params = NamedTuple(params)
-
+        
+        params = merge(params, extra_args)
         params[:iterator_type] = iterator_type
         params[:iterator_index] = iterator_index
 
