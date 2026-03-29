@@ -13,11 +13,13 @@ function problems_solved_over_time(data::DataFrame; label=r->r.iterator, kwargs.
         if any(df.solved)
     )
 
+    xlims = get!(Dict(kwargs), :xlims, (1e-5, maximum_enumerations * 1.1))
+
     # Init empty plot
     p = plot(;
         xlabel = "Execution time (s)",
         ylabel = "Problems solved",
-        xlims = (1e-5, longest_execution_time * 1.1),
+        xlims = xlims,
         kwargs...,
     )
 
@@ -34,8 +36,8 @@ function problems_solved_over_time(data::DataFrame; label=r->r.iterator, kwargs.
             # Take the cummulative sum 
             DataFrame |>
                 (df -> DataFrame(
-                    cumulative_solved = [1e-5; cumsum(df.solved)...; maximum(cumsum(df.solved))],
-                    execution_time_sec = [1e-5; df.execution_time_sec...; longest_execution_time * 1.1]
+                    cumulative_solved = [0; cumsum(df.solved)...; maximum(cumsum(df.solved))],
+                    execution_time_sec = [xlims[1]; df.execution_time_sec...; xlims[2]]
                 )) |>
 
             # Add to plot
@@ -67,11 +69,13 @@ function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator,
         if any(df.solved)
     )
 
+    xlims = get!(Dict(kwargs), :xlims, (1e-5, maximum_enumerations * 1.1))
+
     # Init empty plot
     p = plot(;
         xlabel = "Programs enumerated",
         ylabel = "Problems solved",
-        xlims = (1e-5, maximum_enumerations * 1.1),
+        xlims = xlims,
         kwargs...
     )
 
@@ -88,8 +92,8 @@ function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator,
             # Take the cummulative sum 
             DataFrame |>
                 (df -> DataFrame(
-                    cumulative_solved = [1e-5; cumsum(df.solved)...; maximum(cumsum(df.solved))],
-                    programs_enumerated = [1e-5; df.programs_enumerated...; maximum_enumerations * 1.1]
+                    cumulative_solved = [0; cumsum(df.solved)...; maximum(cumsum(df.solved))],
+                    programs_enumerated = [xlims[1]; df.programs_enumerated...; xlims[2]]
                 )) |>
 
             # Add to plot
