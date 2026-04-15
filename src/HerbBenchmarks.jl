@@ -20,7 +20,8 @@ include("utils/interpret_generator.jl")
 include("datatypes/problem_grammar_pair.jl")
 include("datatypes/benchmark.jl")
 
-include("data/Abstract_Reasoning_2019/Abstract_Reasoning_2019.jl")
+include("data/ARC_AGI1/ARC_AGI1.jl")
+include("data/ARC_AGI2/ARC_AGI2.jl")
 include("data/DeepCoder_2016/DeepCoder_2016.jl")
 include("data/Pixels_2020/Pixels_2020.jl")
 include("data/Robots_2020/Robots_2020.jl")
@@ -28,7 +29,6 @@ include("data/String_transformations_2020/String_transformations_2020.jl")
 include("data/SyGuS/PBE_BV_Track_2018/PBE_BV_Track_2018.jl")
 include("data/SyGuS/PBE_SLIA_Track_2019/PBE_SLIA_Track_2019.jl")
 
->>>>>>> master
 export
     # Data types
     ProblemGrammarPair,
