@@ -20741,4 +20741,4 @@ const ARC_AGI2_EVALUATION_SPLITS = Dict(
     :problem_f931b4a8 => (train = 5, test = 2),
     :problem_faa9f03d => (train = 4, test = 1),
     :problem_fc7cae8d => (train = 3, test = 1),
-
+)

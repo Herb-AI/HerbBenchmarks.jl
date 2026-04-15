@@ -12,6 +12,7 @@ RuntimeGeneratedFunctions.init(@__MODULE__)
 using JSON
 
 include("arc_primitives.jl")
+include("arc_visualize.jl")
 include("training_data.jl")
 include("evaluation_data.jl")
 include("grammar.jl")

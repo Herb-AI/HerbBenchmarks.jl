@@ -1,4 +1,5 @@
 grammar_hodel = @csgrammar begin    
+    Start = Grid
     Grid = _arg_1
 
     Integer = |(1:30) # covers color and grid size

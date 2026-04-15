@@ -7,6 +7,7 @@ using HerbGrammar
 using RuntimeGeneratedFunctions
 RuntimeGeneratedFunctions.init(@__MODULE__)
 
+include("arc2_primitives.jl")
 include("training_data.jl")
 include("evaluation_data.jl")
 # include("grammar.jl")

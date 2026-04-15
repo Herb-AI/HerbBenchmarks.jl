@@ -31,11 +31,25 @@ You can recover the original split using the corresponding split dictionary.
 For example:
 
 ```julia
+using HerbBenchmarks
 using HerbBenchmarks.ARC_AGI1
 
 p = ARC_AGI1.problem_007bbfb7
 
 train_examples(p)
 test_examples(p)
+```
+
+You can also visualize an ARC problem (or just a single `Grid`) using `visualize`:
+
+```julia
+using HerbBenchmarks
+using HerbBenchmarks.ARC_AGI1
+
+p = ARC_AGI1.problem_007bbfb7
+
+ARC_AGI1.visualize(p)
+ARC_AGI1.visualize(p; show_numbers=true)
+ARC_AGI1.visualize(p; show_numbers=true, show_axes=true)
 ```
 
