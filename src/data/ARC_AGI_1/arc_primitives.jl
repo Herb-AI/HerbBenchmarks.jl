@@ -1,5 +1,177 @@
+#=
+    ARC-AGI-1 Primitives
+    
+    Primitive functions based on Michael Hodel's Python implementation
+
+=#
+
+
+# Some primitives are not needed in Herb and hence not impemented:
+# `chain`, `composer`, `power`, `matcher`, `lbind`, `rbind`, `fork`, `totuple`
+# 
+# 
+#=
+    Types
+    
+    Core Types:
+    - Grid: Matrix{Int} — 2D matrix of integers (color values 0-9)
+    - Integer: Int — Integer scalar
+    - Boolean: Bool — Boolean true/false value
+    - IntegerTuple: CartesianIndex{2} — 2D coordinate pair (row, col)
+    - Indices: Vector{CartesianIndex} — List of grid positions
+    - Object: Vector{Tuple{Int, CartesianIndex}} — Colored patch (color, position) pairs
+    - Objects: Vector{Object} — List of objects
+    
+    Union Types:
+    - Patch: Object | Indices — Spatial regions (colored or uncolored)
+    - Piece: Grid | Patch — Any spatial data
+    - Element: Object | Grid — Things with colors
+    - Container: Grid | Object | Objects | Indices — Generic containers
+=#
+
+using MLStyle
+using StatsBase
+
+"""Returns the sum of a and b"""
+add(a, b) = a + b
+add(a::CartesianIndex{N}, b::Integer) where N = a + CartesianIndex(ntuple(_ -> b, N))
+add(a::Integer, b::CartesianIndex{N}) where N = CartesianIndex(ntuple(_ -> a, N)) + b
+
+
+"""Subtracts b from a"""
+subtract(a, b) = a - b
+subtract(a::CartesianIndex{N}, b::Integer) where N = a - CartesianIndex(ntuple(_ -> b, N))
+subtract(a::Integer, b::CartesianIndex{N}) where N = CartesianIndex(ntuple(_ -> a, N)) - b
+
+"""Returns the product of  a and b"""
+multiply(a, b) = a * b
+multiply(a::CartesianIndex{N}, b::CartesianIndex{N}) where N =
+    CartesianIndex(ntuple(i -> a[i] * b[i], N))
+
+""" Returns the result of integer division of  a and b"""
+divide(a, b) = a ÷ b
+divide(a::CartesianIndex{N}, b) where N = CartesianIndex(ntuple(i -> a[i] ÷ b, N))
+divide(a, b::CartesianIndex{N}) where N = CartesianIndex(ntuple(i -> a ÷ b[i], N))
+divide(a::CartesianIndex{N}, b::CartesianIndex{N}) where N =
+    CartesianIndex(ntuple(i -> a[i] ÷ b[i], N))
+
+"""Inverts the sign of a"""
+invert(a) = -1 * a
+
+
+"""Scales a by two"""
+
+double(a) = a * 2
+
+"""Floor division of a by two"""
+halve(a::Integer) = a ÷ 2
+halve(a::CartesianIndex) = divide(a, 2)
+
+"""Increment by one"""
+increment(a) = add(a, 1)
+
+"""Decrement by one"""
+decrement(a) = subtract(a, 1)
+
+"""Increments positive values, decrements negative. Zero unchanged"""
+crement(a) = a + (a > 0) - (a < 0)
+crement(a::CartesianIndex{N}) where N = CartesianIndex(ntuple(i -> crement(a[i]), N))
+
+"""Returns sign of (each element of) a, preserving the type of a"""
+signof(a) = sign(a)
+signof(a::CartesianIndex{N}) where N = CartesianIndex(ntuple(i -> sign(a[i]), N))
+
+"""Returns whether an a is even"""
+even(a) = a % 2 == 0
+
+"""Returns wheter a is greater than b"""
+greater(a, b) = a > b
+
+"""Returns whether a is greater than zero"""
+positive(a) = a > 0
+
+"""Returns vertically pointing vector"""
+toivec(i) = CartesianIndex(i, 0)
+
+"""Returns horizontally pointing vector"""
+tojvec(j) = CartesianIndex(0, j)
+
+"""Constructs CartesianIndex from a and b"""
+astuple(a, b) = CartesianIndex(a, b)
+
+"""Flip bool to opposite value"""
+flip(a) = !a
+
+"""Boolean AND (short-circuiting)"""
+both(a, b) = a && b
+
+"""Boolean OR (short-circuiting)"""
+either(a, b) = a || b
+
+"""Wrapper around `==`"""
+equality(a, b) = a == b
+equality(a::Vector, b::Vector) = Set(a) == Set(b) # for Object where order doesn't matter
+
+"""Whether value is an element of container"""
+contained(value, container) = value in container
+
+"""Combine two vectors"""
+combine(a, b) = vcat(a, b)
+
+"""Intersection of two containers (vectors) a and b"""
+intersection(a, b) = intersect(a, b)
+
+"""difference between elements in two containers (vectors) a and b"""
+difference(a, b) = setdiff(a, b)
+
+"""Removes duplicate rows/elements from matrix/vector"""
+dedupe(grid::Matrix) = stack(unique(eachrow(grid)))'
+dedupe(a) = unique(a)
+
+"""Order container"""
+order(container) = sort(collect(container))
+
+"""Order container by custom key `compfunc`"""
+order_by(container, compfunc) = sort(collect(container), by=compfunc)
+
+"""Repeat item (Grid) to have item a total of num times"""
+repeat_item(item, num) = hcat([item for i in 1:num]...)
+
+"""Size of container"""
+size_of(container) = length(container)
+
+"""maximum"""
+maximum_of(container) = maximum(container)
+
+"""maximum"""
+minimum_of(container) = minimum(container)
+
+"""maximum by custom function"""
+function valmax(container, compfunc; default=0)
+    isempty(container) && return compfunc(default)
+    return maximum(compfunc(x) for x in container)
+end
+
+"""minimum by custom function"""
+function valmin(container, compfunc; default=0)
+    isempty(container) && return compfunc(default)
+    return minimum(compfunc(x) for x in container)
+end
+
+"""returns the container that maximizes the custom function"""
+argmax_by(containers, compfunc) = containers[argmax(compfunc.(containers))]
+
+"""returns the container that maximizes the custom function"""
+argmin_by(containers, compfunc) = containers[argmin(compfunc.(containers))]
+
+"""most common item in container"""
+mostcommon(container) = mode(container)
+
+"""least common item in container"""
+leastcommon(container) = argmin(countmap(container))
+
 """initialize vector"""
-init(value) = [value]
+init(value) = fill(value, 1, 1)
 
 """Row index of lowermost occupied cell"""
 lowermost(object::Vector{<:Tuple}) = maximum(x[2][1] for x in object)
@@ -26,7 +198,7 @@ width(grid::Matrix) = size(grid)[2]
 width(patch) = rightmost(patch) - leftmost(patch) + 1
 
 """Dimensions (height and width) of grid or patch"""
-shape(piece) = (height(piece), width(piece))
+shape(piece) = CartesianIndex(height(piece), width(piece))
 
 """Whether height is greater than width"""
 portrait(piece) = height(piece) > width(piece)
@@ -221,7 +393,7 @@ end
 
 """Returns the index of the center of the patch"""
 function center(patch)
-    height, width = shape(patch)
+    height, width = shape(patch).I
     return CartesianIndex(uppermost(patch) + (height ÷ 2), leftmost(patch) + (width ÷ 2))
 end
 
@@ -626,14 +798,426 @@ function connect(a, b)
     end
 end
 
-"""filter container for elements that satisfy condition (provided as function)"""
+"""filter container for elements that satisfy predicate function (provided as function)"""
 sfilter(container, condition) = filter(condition, container)
 
 """filter and merge"""
-mfilter(container, func) = merge_containers(sfilter(container, func))
+mfilter(containers, condition) = merge_containers(sfilter(containers, condition))
 
 """Line from starting point in given direction"""
 shoot(start, direction) = connect(start, (start[1] + 42 * direction[1], start[2] + 42 * direction[2]))
 
-"""Merge elements of nested containers"""
-merge_containers(containers) = reduce(vcat, containers)
+"""Merge elements of nested container"""
+merge_containers(container) = reduce(vcat, container) # also works with non-nested containers. We don't have `ContainerContainer` 
+
+"""Returns all indices of a grid"""
+asindices(grid) = CartesianIndices(grid)
+
+"""Returns indices of all grid cells of given value (color)"""
+ofcolor(grid, value) = findall(x -> x == value, grid)
+
+"""Rotates grid by 90 degrees clockwise"""
+rot90deg(grid) = rotr90(grid, 1)
+
+"""Rotates grid by 180 degrees"""
+rot180deg(grid) = Base.rot180(grid)
+
+"""Rotates grid by 270 degrees (left-rotate by 90 degrees)"""
+rot270deg(grid) = Base.rotl90(grid)
+
+"""Downscale grid by given factor."""
+downscale(grid, factor) = grid[1:factor:end, 1:factor:end]
+
+"""Concatenate grid a and grid b horizontally."""
+hconcat(a, b) = hcat(a, b)
+
+"""Concatenate grid a and grid b horizontally."""
+vconcat(a, b) = vcat(a, b)
+
+"""Upscale grid horizontally."""
+hupscale(grid, factor) = reduce(vcat, [repeat(row, inner=(factor,))' for row in eachrow(grid)])
+
+
+"""Upscale grid vertically."""
+vupscale(grid, factor) = reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])
+
+
+"""Split grid along horizontal into n parts."""
+function hsplit(grid::Matrix, n::Integer)
+    _, w_total = size(grid)
+    w = w_total ÷ n
+    offset = w_total % n != 0 ? 1 : 0
+    return [grid[:, (w*i+i*offset+1):(w*(i+1)+i*offset)] for i in 0:n-1]
+end
+
+"""Split grid along vertica into n parts"""
+function vsplit(grid::Matrix, n::Integer)
+    h_total, _ = size(grid)
+    h = h_total ÷ n
+    offset = h_total % n != 0 ? 1 : 0
+    return [grid[(h*i+i*offset+1):(h*(i+1)+i*offset), :] for i in 0:n-1]
+end
+
+"""Cellwise matching of grids a and b. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`."""
+cellwise(a, b, fallback) = [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)]
+
+
+"""Substituion of color value replacee with new color replacer."""
+replace_color(grid, replacee, replacer) = [grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
+# replace in original Python implementation => renamed due to name clash
+
+
+"""Switches color for cells with value a and b. Other cells remain unchanged."""
+switch(grid, a, b) = [grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
+
+
+"""Trims the borders of the grid, i.e., removes outermost rows and columns"""
+trim(grid) = grid[2:end-1, 2:end-1]
+
+"""Returns upper half of the grid. For odd number of rows, this excludes the middle row"""
+function tophalf(grid)
+    nrows = size(grid, 1)
+    return grid[1:nrows÷2, :]
+end
+
+"""Returns lower half of the grid. For odd number of rows, this excludes the middle row"""
+function bottomhalf(grid)
+    nrows = size(grid, 1)
+    return grid[nrows-nrows÷2+1:end, :]
+end
+
+"""Returns the left half of the grid. For odd number of colums, this excludes the middle column."""
+function lefthalf(grid)
+    ncols = size(grid, 2)
+    return grid[:, 1:ncols÷2]
+end
+
+"""Returns the right half of the grid. For odd number of colums, this excludes the middle column."""
+function righthalf(grid)
+    ncols = size(grid, 2)
+    return grid[:, ncols-ncols÷2+1:end]
+end
+
+"""Removes frontiers from the grid, i.e., rows and columns where all cells have the same value"""
+function compress(grid)
+    keep_rows = .![all(x -> x == r[1], r) for r in eachrow(grid)]
+    keep_cols = .![all(x -> x == c[1], c) for c in eachcol(grid)]
+
+    return grid[keep_rows, keep_cols]
+end
+
+"""Vector of frontiers, i.e., horizontal and vertical rows/columns where all values are the same"""
+function frontiers(grid)
+    h, w = shape(grid).I
+
+    # Find rows and cols where all elements are the same
+    row_indices = [i for i in 1:h if length(unique(grid[i, :])) == 1]
+    column_indices = [j for j in 1:w if length(unique(grid[:, j])) == 1]
+
+    # horizontal frontiers
+    hfrontiers = [
+        [(grid[i, j], CartesianIndex(i, j)) for j in 1:w]
+        for i in row_indices
+    ]
+
+    # vertical frontiers
+    vfrontiers = [
+        [(grid[i, j], CartesianIndex(i, j)) for i in 1:h]
+        for j in column_indices
+    ]
+    return vcat(hfrontiers, vfrontiers)
+end
+
+"""Constructs a grid of given dimensions and fills it with value"""
+canvas(value::Integer, dimensions::CartesianIndex) = fill(value, dimensions[1], dimensions[2])
+
+
+"""Get color of grid at given location loc"""
+index(grid, loc) = grid[loc]
+
+"""Returns smalles subgrid that contains the patch"""
+subgrid(patch, grid) = crop(grid, ulcorner(patch), shape(patch).I)
+
+"""Remove an object from grid by filling with locations with background color."""
+cover(grid, patch) = fill_loc(grid, mostcolor(grid), patch)
+
+"""Moves object on grid by given offset"""
+move(grid, object, offset) = paint(cover(grid, object), shift(object, offset))
+
+"""Locations where object occurs in grid"""
+function occurrences(grid, object)
+    isempty(object) && return []
+
+    # Normalize and compute dimensions in one pass
+    norm = normalize(object)
+    oh, ow = shape(object).I
+
+    # Unified grid access using indexing
+    h, w = shape(grid).I
+
+    h2 = h - oh + 1
+    w2 = w - ow + 1
+    (h2 < 1 || w2 < 1) && return []
+
+    occs = []
+
+    @inbounds for i0 in 1:h2, j0 in 1:w2
+        if all(grid[i0+d[1], j0+d[2]] == v for (v, d) in norm)
+            push!(occs, CartesianIndex(i0, j0))
+        end
+    end
+
+    return occs
+end
+
+"""Return first element of container that fulfills given condition"""
+function extract(container, condition)
+    idx = findfirst(condition, container)
+    return idx === nothing ? nothing : container[idx]
+end
+
+"""Return first element of a container"""
+firstof(container) = first(container)
+
+"""Return last element of a container"""
+lastof(container) = last(container)
+
+"""Insert element to container"""
+insert(value, container) = push!(copy(container), value)
+
+"""Remove value from container"""
+remove(value, container) = filter(!=(value), container)
+
+"""Returns other value in container, i.e., first element after removing given value"""
+other(value, container) = firstof(remove(value, container))
+
+"""Returns range between start and stop with given step size"""
+interval(start, stop, step) = range(start, stop, step=step)
+
+"""Cartesian product of two containers a and b"""
+cartesian_product(a, b) = vec(collect(CartesianIndex.(Iterators.product(a, b))))
+
+"""Zip up two CartesianIndex"""
+pair(a, b) = collect(CartesianIndex.(zip(a.I, b.I)))
+
+# note: some primitives below wouldn't be necessary in Herb
+
+"""if-else condition"""
+branch(condition, a, b) = condition ? a : b
+
+"""Apply function to each element in container"""
+apply(func, container) = map(func, container)
+
+"""Apply each function in container to a value"""
+rapply(container, value) = [f(value) for f in container] # not included in grammar since it can't construct container of functions
+
+"""Apply and merge"""
+mapply(func, container) = merge_containers(apply(func, container)) # not included in grammar
+
+"""Apply function on two vectors a and b"""
+papply(func, a, b) = func.(a, b) # not included in grammar - only works if a and be are the same length (hard to guarantee in search)
+
+"""""Apply function on two vectors and merge"""
+mpapply(func, a, b) = merge_containers(papply(func, a, b)) # not included (see papply())
+
+"""apply function on cartesian product"""
+prapply(func, a, b) = [func(i, j) for j in b for i in a] # not included in grammar
+
+"""Compose a function from inner and outer"""
+compose(outer, inner) = x -> outer(inner(x)) # not included in grammar
+
+"""Compose from three functions by chaining: h(g(f(x)))"""
+chain(h, g, f) = x -> h(g(f(x))) # not included in grammar
+
+"""Negates predicate function"""
+negate(f) = x -> !f(x)
+
+"""
+Given predicates f and g, returns a predicate that is true when both f(x) and g(x) are true.
+"""
+conjunct(f, g) = x -> f(x) && g(x)
+
+"""
+Given predicates f and g, returns a predicate that is true when either f(x) or g(x) is true.
+"""
+disjunct(f, g) = x -> f(x) || g(x)
+
+#=
+    ARC-AGI-1 basic primitives
+    
+    A "naive" primitive implementation
+
+=#
+
+# Define a struct to represent the grid
+struct Grid
+    width::Int
+    height::Int
+    data::Matrix{Int}
+end
+
+Grid(mat::Matrix{Int}) = Grid(size(mat)..., mat)
+
+"""
+Returns a new `Grid` initialized from a one-dimensional vector of integers (`raw_grid`).
+"""
+function initState(raw_grid::Vector{Int})
+    return Grid(array_to_matrix(raw_grid))
+end
+
+"""
+Helper function to transform the input vector to a matrix of square form. 
+    
+If length is not a squared integer, then iteratively adjust the factors a,b such that a<b and `a*b = length(input_array)`
+"""
+function array_to_matrix(arr::Vector{T}) where {T}
+    n = length(arr)
+    a = isqrt(n)  # Start with the integer square root of n
+    b = a
+
+    # Adjust a and b to meet the requirements
+    while a * b < n || b < a
+        if a * b < n
+            b += 1
+        elseif b < a
+            a -= 1
+        end
+    end
+
+    # Create the matrix and fill it
+    mat = Matrix{T}(undef, a, b)
+    fill!(mat, 0)
+
+    for i in 1:n
+        row = div(i - 1, b) + 1
+        col = rem(i - 1, b) + 1
+        mat[row, col] = arr[i]
+    end
+
+    return mat
+end
+
+"""
+Returns the `Grid` data as a one-dimensional vector.
+"""
+function returnState(grid::Grid)
+    return (grid.mat')[:] # transform and flatten matrix @TODO: grid struct has no field `mat`
+end
+
+"""
+Initializes a `Grid` of given width and height with zeros.
+"""
+function init_grid(width::Int, height::Int)
+    return Grid(width, height, zeros(Int, height, width))
+end
+
+
+"""
+Returns a new `Grid` cloned from the input `grid`.
+
+"""
+function clone_grid(grid::Grid)
+    return Grid(grid.width, grid.height, copy(grid.data))
+end
+
+"""Return a new `Grid` based on the input `grid`, resized to the new width and height.
+
+Data is copied to the new `Grid` from the top-left corner of the grid. 
+If the new dimensions are smaller than the current dimensions, the grid is cropped.  
+If the new dimensions are larger, the grid is padded with zeros.
+"""
+function resize_grid(grid::Grid, new_width::Int, new_height::Int)
+    new_grid = clone_grid(grid)
+    new_data = zeros(Int, new_height, new_width)
+    for i in 1:min(grid.height, new_height), j in 1:min(grid.width, new_width)
+        new_data[i, j] = grid.data[i, j]
+    end
+    return Grid(new_data)
+end
+
+"""
+Wrapper around `clone_grid`. 
+"""
+# @TODO: Why clone and copy_from_input?
+function copy_from_input(source::Grid)
+    return clone_grid(source)
+end
+
+"""
+Creates a new `Grid` instance with the same dimensions as the input `grid`, 
+but sets all values within `Grid.data` to zero. 
+"""
+function reset_grid(grid::Grid)
+    new_grid = clone_grid(grid)
+    fill!(new_grid.data, 0)
+    return new_grid
+end
+
+"""
+Returns a copy of the input `grid` with the value at the cel at position `row` and `col` set to `color`.
+"""
+function set_cell(grid::Grid, row::Int, col::Int, color::Int)
+    new_grid = clone_grid(grid)
+    new_grid.data[row, col] = color
+    return new_grid
+end
+
+"""
+Returns a list of coordinates within a rectangle defined by the top-left and bottom-right corners. 
+"""
+function select(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int) # redundant function
+    selected_cells = []
+    if start_row > end_row || start_col > end_col
+        return selected_cells
+    end
+
+    for i in start_row:min(end_row, grid.height), j in start_col:min(end_col, grid.width)
+        push!(selected_cells, (i, j))
+    end
+    return selected_cells
+end
+
+"""
+Selects a rectangular region from the input `grid` and pastes it at the specified position into the copy of a grid. 
+
+The function is overloaded to work either on a single grid or between two grids.
+"""
+function select_and_paste(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, paste_row::Int, paste_col::Int)
+    new_grid = clone_grid(grid) # Copy of the input grid to paste into.
+    new_grid.data[paste_row:paste_row+end_row-start_row, paste_col:paste_col+end_col-start_col] = grid.data[start_row:end_row, start_col:end_col]
+    return new_grid
+end
+
+function select_and_paste(input_grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, target_grid::Grid, paste_row::Int, paste_col::Int)
+    new_grid = clone_grid(target_grid) # Copy of the target grid to paste into.
+    new_grid.data[paste_row:paste_row+end_row-start_row, paste_col:paste_col+end_col-start_col] = input_grid.data[start_row:end_row, start_col:end_col]
+    return new_grid
+
+end
+
+"""
+Applies the floodfill algorithm to a Grid. 
+
+The algorithm starts with the cell at the given row and column and changes the color of all connected cells to the given color.
+"""
+function floodfill(grid::Grid, row::Int, col::Int, color::Int)
+    old_value = grid.data[row, col]
+    if old_value == color # No need to floodfill if the color is the same
+        return grid
+    end
+
+    new_grid = clone_grid(grid)
+    function floodfill_recursive(r, c)
+        if r < 1 || r > new_grid.height || c < 1 || c > new_grid.width || new_grid.data[r, c] != old_value
+            return
+        end
+        new_grid.data[r, c] = color
+        floodfill_recursive(r - 1, c)
+        floodfill_recursive(r + 1, c)
+        floodfill_recursive(r, c - 1)
+        floodfill_recursive(r, c + 1)
+    end
+
+    floodfill_recursive(row, col)
+    return new_grid
+end

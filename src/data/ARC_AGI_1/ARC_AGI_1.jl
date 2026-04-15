@@ -3,12 +3,15 @@ module ARC_AGI_1
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using Herb.HerbInterpret
+using StatsBase
 
 using JSON
 
-include("ARC_Hodel/ARC_Hodel.jl")
-include("ARC_Tilman/ARC_Tilman.jl")
+# include("ARC_Hodel/ARC_Hodel.jl")
+# include("ARC_Tilman/ARC_Tilman.jl")
 
+include("arc_primitives.jl")
 include("training_data.jl")
 include("evaluation_data.jl")
 include("grammar.jl")
