@@ -6,7 +6,11 @@ module HerbBenchmarks
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using HerbSearch
+using HerbInterpret
+using HerbConstraints
 using DocStringExtensions
+using DataFrames, StatsPlots, Query, JLD2, Dates
 
 include("utils/docstrings.jl")
 
@@ -15,6 +19,9 @@ include("utils/SExpressionParser.jl")
 include("utils/benchmarks_io.jl")
 include("utils/problem_fetcher.jl")
 include("utils/interpret_generator.jl")
+
+include("utils/evaluate_synthesizer.jl")
+include("utils/plot_results.jl")
 
 # Include data types
 include("datatypes/problem_grammar_pair.jl")
@@ -39,6 +46,11 @@ export
     parse_to_julia,
     append_cfgrammar,
     enumerate_problem_files,
+
+    # evaluator
+    @benchmark, _benchmark,
+    problems_solved_over_time,
+    problems_solved_over_enumerations,
 
     # grammar_tag generators
     make_interpreter,
