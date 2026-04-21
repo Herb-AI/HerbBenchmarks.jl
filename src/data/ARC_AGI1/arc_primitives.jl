@@ -1054,7 +1054,11 @@ struct Grid
     width::Int
     height::Int
     data::Matrix{Int}
-end
+end <: AbstractMatrix
+
+size(grid::Grid) = size(grid.data)
+
+getindex(grid::Grid, i, j) = getindex(grid.data, i, j)
 
 Grid(mat::Matrix{Int}) = Grid(size(mat)..., mat)
 
