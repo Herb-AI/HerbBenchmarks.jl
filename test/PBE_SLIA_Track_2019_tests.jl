@@ -1,6 +1,7 @@
 @testitem "PBE SLIA Track 2019" begin
     import HerbBenchmarks.PBE_SLIA_Track_2019 as SLIA
     import HerbGrammar: expr2rulenode
+    import HerbCore: @rulenode
 
     pgp = first(HerbBenchmarks.get_all_problem_grammar_pairs(SLIA))
     g = pgp.grammar
@@ -49,4 +50,26 @@
     @test interpret(prefixof_rn, spec) == [startswith(str, "US") for str in args1]
     @test interpret(suffixof_rn, spec) == [endswith(str, "US") for str in args1]
     @test interpret(contains_rn, spec) == [contains(str, "CAN") for str in args1]
+
+    # If expressions
+
+    # if contains_cvc(_arg_1, "US")
+    #     "US"
+    # else
+    #     "CAN"
+    # end
+    if_string_rn = @rulenode 11{27{2,5},5,6}
+
+    # if contains_cvc(_arg_1, "US")
+    #     1
+    # else
+    #     0
+    # end
+    if_int_rn = @rulenode 20{27{2,5},13,14}
+
+    @test interpret(if_string_rn, spec) ==
+        [contains(str, "US") ? "US" : "CAN" for str in args1]
+
+    @test interpret(if_int_rn, spec) ==
+        [contains(str, "US") ? 1 : 0 for str in args1]
 end
