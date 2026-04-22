@@ -1,16 +1,24 @@
 module PBE_SLIA_Track_2019
-
-using RuntimeGeneratedFunctions
-RuntimeGeneratedFunctions.init(@__MODULE__)
-
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using HerbInterpret
+
+using RuntimeGeneratedFunctions
+RuntimeGeneratedFunctions.init(@__MODULE__)
 
 include("data.jl")
 include("grammars.jl")
 
 include("string_functions.jl")
+
+function make_SLIA_interpreter(g)
+    return make_interpreter(
+        g;
+        target_module=PBE_SLIA_Track_2019,
+        cache_module=PBE_SLIA_Track_2019
+    )
+end
 
 export 
     format_string_grammars

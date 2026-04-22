@@ -1,6 +1,5 @@
 @testitem "PBE BV Track 2018" begin
     import HerbBenchmarks.PBE_BV_Track_2018 as BV
-    import HerbCore: @rulenode, RuleNode
     import HerbGrammar: nonterminals, expr2rulenode
 
     pgp = first(HerbBenchmarks.get_all_problem_grammar_pairs(BV))
@@ -14,11 +13,11 @@
     ehad_rn = expr2rulenode(:(ehad_cvc(_arg_1)), g)
     arba_rn = expr2rulenode(:(arba_cvc(_arg_1)), g)
     shesh_rn = expr2rulenode(:(shesh_cvc(_arg_1)), g)
-    bvand_rn = expr2rulenode(:(bvand_cvc(_arg_1, 0)), g)
-    bvor_rn = expr2rulenode(:(bvor_cvc(_arg_1, 1)), g)
-    bvadd_rn = expr2rulenode(:(bvadd_cvc(_arg_1, 1)), g)
-    im_rn = expr2rulenode(:(im_cvc(1, _arg_1, 1)), g)
-    im_rn0 = expr2rulenode(:(im_cvc(0, 1, _arg_1)), g)
+    bvand_rn = expr2rulenode(:(bvand_cvc(_arg_1, 0x0000000000000000)), g)
+    bvor_rn = expr2rulenode(:(bvor_cvc(_arg_1, 0x0000000000000001)), g)
+    bvadd_rn = expr2rulenode(:(bvadd_cvc(_arg_1, 0x0000000000000001)), g)
+    im_rn = expr2rulenode(:(im_cvc(0x0000000000000001, _arg_1, 0x0000000000000001)), g)
+    im_rn0 = expr2rulenode(:(im_cvc(0x0000000000000000, 0x0000000000000001, _arg_1)), g)
 
     @test interpret(bvnot_rn, spec) == [.~bv for bv in args1]
     @test interpret(smol_rn, spec) == [bv << 1 for bv in args1]
@@ -33,8 +32,8 @@
 
     g = BV.grammar_if0_70_10
     interpret = BV.make_bv_interpreter(g)
-    if0_rn = expr2rulenode(:(if0_cvc(0, 1, 0)), g)
-    if01_rn = expr2rulenode(:(if0_cvc(1, 0, 1)), g)
+    if0_rn = expr2rulenode(:(if0_cvc(0x0000000000000000, 0x0000000000000001, 0x0000000000000000)), g)
+    if01_rn = expr2rulenode(:(if0_cvc(0x0000000000000001, 0x0000000000000000, 0x0000000000000001)), g)
     @test all(interpret(if0_rn, spec) .== 1)
     @test all(interpret(if01_rn, spec) .== 1)
 end
