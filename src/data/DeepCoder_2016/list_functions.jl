@@ -81,102 +81,52 @@ end
 @inline binopMult(x::Integer, y::Integer) = x * y
 @inline binopMax(x::Integer, y::Integer) = max(x, y)
 @inline binopMin(x::Integer, y::Integer) = min(x, y)
-@inline binopDiv(x::Integer, y::Integer)  = div(x, y)
-@inline binopPow(x::Integer, y::Integer)  = x ^ y
+@inline binopDiv(x::Integer, y::Integer) = div(x, y)
+@inline binopPow(x::Integer, y::Integer) = x^y
 
-@inline binopBoolSt(x::Integer, y::Integer)  = x > y
-@inline binopBoolGt(x::Integer, y::Integer)  = x < y
-@inline binopBoolEq(x::Integer, y::Integer)  = x == y
+@inline binopBoolSt(x::Integer, y::Integer) = x > y
+@inline binopBoolGt(x::Integer, y::Integer) = x < y
+@inline binopBoolEq(x::Integer, y::Integer) = x == y
 @inline binopBoolNeq(x::Integer, y::Integer) = x != y
-@inline binopBoolMod(x::Integer, y::Integer)  = (y == 0) ? false : (x % y == 0)
-@inline binopBoolNmod(x::Integer, y::Integer) = (y == 0) ? true  : (x % y != 0)
+@inline binopBoolMod(x::Integer, y::Integer) = (y == 0) ? false : (x % y == 0)
+@inline binopBoolNmod(x::Integer, y::Integer) = (y == 0) ? true : (x % y != 0)
 
 # -------------------------------------------------
 # Concrete wrappers for the grammar (lambda plugged)
 # -------------------------------------------------
 
 # map with arithmetic ops
-@inline mapPlus(arr::AbstractVector{<:Integer}, k::Integer)  = map2(binopPlus,  arr, k)
-@inline mapMult(arr::AbstractVector{<:Integer}, k::Integer)  = map2(binopMult,  arr, k)
-@inline mapDiv(arr::AbstractVector{<:Integer}, k::Integer)   = map2(binopDiv,    arr, k)
-@inline mapPow(arr::AbstractVector{<:Integer}, k::Integer)   = map2(binopPow,    arr, k)
+@inline mapPlus(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopPlus, arr, k)
+@inline mapMult(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopMult, arr, k)
+@inline mapDiv(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopDiv, arr, k)
+@inline mapPow(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopPow, arr, k)
 
 # filter with boolean predicates
-@inline filterSt(arr::AbstractVector{<:Integer}, k::Integer)   = filter2(binopBoolSt,   arr, k)
-@inline filterGt(arr::AbstractVector{<:Integer}, k::Integer)   = filter2(binopBoolGt,   arr, k)
-@inline filterEq(arr::AbstractVector{<:Integer}, k::Integer)   = filter2(binopBoolEq,   arr, k)
+@inline filterSt(arr::AbstractVector{<:Integer}, k::Integer) = filter2(binopBoolSt, arr, k)
+@inline filterGt(arr::AbstractVector{<:Integer}, k::Integer) = filter2(binopBoolGt, arr, k)
+@inline filterEq(arr::AbstractVector{<:Integer}, k::Integer) = filter2(binopBoolEq, arr, k)
 @inline filterNeq(arr::AbstractVector{<:Integer}, k::Integer) = filter2(binopBoolNeq, arr, k)
-@inline filterMod(arr::AbstractVector{<:Integer}, k::Integer)  = filter2(binopBoolMod,  arr, k)
+@inline filterMod(arr::AbstractVector{<:Integer}, k::Integer) = filter2(binopBoolMod, arr, k)
 @inline filterNmod(arr::AbstractVector{<:Integer}, k::Integer) = filter2(binopBoolNmod, arr, k)
 
 # count with boolean predicates
-@inline countSt(arr::AbstractVector{<:Integer}, k::Integer)   = count2(binopBoolSt,   arr, k)
-@inline countGt(arr::AbstractVector{<:Integer}, k::Integer)   = count2(binopBoolGt,   arr, k)
-@inline countEq(arr::AbstractVector{<:Integer}, k::Integer)   = count2(binopBoolEq,   arr, k)
-@inline countNeq(arr::AbstractVector{<:Integer}, k::Integer)  = count2(binopBoolNeq,  arr, k)
-@inline countMod(arr::AbstractVector{<:Integer}, k::Integer)  = count2(binopBoolMod,  arr, k)
+@inline countSt(arr::AbstractVector{<:Integer}, k::Integer) = count2(binopBoolSt, arr, k)
+@inline countGt(arr::AbstractVector{<:Integer}, k::Integer) = count2(binopBoolGt, arr, k)
+@inline countEq(arr::AbstractVector{<:Integer}, k::Integer) = count2(binopBoolEq, arr, k)
+@inline countNeq(arr::AbstractVector{<:Integer}, k::Integer) = count2(binopBoolNeq, arr, k)
+@inline countMod(arr::AbstractVector{<:Integer}, k::Integer) = count2(binopBoolMod, arr, k)
 @inline countNmod(arr::AbstractVector{<:Integer}, k::Integer) = count2(binopBoolNmod, arr, k)
 
 # concrete scanl1 wrappers
-@inline scanl1Plus(arr::AbstractVector{<:Integer})  = scanl1_int(binopPlus,  arr)
+@inline scanl1Plus(arr::AbstractVector{<:Integer}) = scanl1_int(binopPlus, arr)
 @inline scanl1Minus(arr::AbstractVector{<:Integer}) = scanl1_int(binopMinus, arr)
-@inline scanl1Mult(arr::AbstractVector{<:Integer})  = scanl1_int(binopMult,  arr)
-@inline scanl1Max(arr::AbstractVector{<:Integer})   = scanl1_int(binopMax,   arr)
-@inline scanl1Min(arr::AbstractVector{<:Integer})   = scanl1_int(binopMin,   arr)
+@inline scanl1Mult(arr::AbstractVector{<:Integer}) = scanl1_int(binopMult, arr)
+@inline scanl1Max(arr::AbstractVector{<:Integer}) = scanl1_int(binopMax, arr)
+@inline scanl1Min(arr::AbstractVector{<:Integer}) = scanl1_int(binopMin, arr)
 
 # --- zipwith: concrete wrappers ---
-@inline zipwithPlus(xs::AbstractVector{<:Integer}, ys::AbstractVector{<:Integer})  = zipwith(binopPlus,  xs, ys)
+@inline zipwithPlus(xs::AbstractVector{<:Integer}, ys::AbstractVector{<:Integer}) = zipwith(binopPlus, xs, ys)
 @inline zipwithMinus(xs::AbstractVector{<:Integer}, ys::AbstractVector{<:Integer}) = zipwith(binopMinus, xs, ys)
-@inline zipwithMult(xs::AbstractVector{<:Integer}, ys::AbstractVector{<:Integer})  = zipwith(binopMult,  xs, ys)
-@inline zipwithMax(xs::AbstractVector{<:Integer}, ys::AbstractVector{<:Integer})   = zipwith(binopMax,   xs, ys)
-@inline zipwithMin(xs::AbstractVector{<:Integer}, ys::AbstractVector{<:Integer})   = zipwith(binopMin,   xs, ys)
-
-
-function interpret_deepcoder(prog::AbstractRuleNode, grammar_tags::Dict{Int, Any}, input::Dict{Symbol, Any})
-    r = get_rule(prog)
-    c = get_children(prog)
-
-    if haskey(input, grammar_tags[r])
-        return input[grammar_tags[r]]
-    end
-
-    MLStyle.@match grammar_tags[r] begin
-        :maximum => maximum(interpret_deepcoder(c[1], grammar_tags, input))
-        :minimum => minimum(interpret_deepcoder(c[1], grammar_tags, input))
-        :sum => sum(interpret_deepcoder(c[1], grammar_tags, input))
-        :first => first(interpret_deepcoder(c[1], grammar_tags, input))
-        :last => last(interpret_deepcoder(c[1], grammar_tags, input))
-        :getindex => getindex(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :countSt => countSt(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :countGt => countGt(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :countEq => countEq(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :countNeq => countNeq(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :countMod => countMod(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :countNmod => countNmod(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :drop => drop(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :take => take(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :sort => sort(interpret_deepcoder(c[1], grammar_tags, input))
-        :reverse => reverse(interpret_deepcoder(c[1], grammar_tags, input))
-        :filterSt => filterSt(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :filterGt => filterGt(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :filterEq => filterEq(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :filterNeq => filterNeq(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :filterMod => filterMod(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :filterNmod => filterNmod(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :mapDiv => mapDiv(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :mapMul => mapMult(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :mapPlus => mapPlus(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :mapPow => mapPow(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :zipwithMax => zipwithMax(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :zipwithMin => zipwithMin(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :zipwithPlus => zipwithPlus(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :zipwithMinus => zipwithMinus(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :zipwithMult => zipwithMult(interpret_deepcoder(c[1], grammar_tags, input), interpret_deepcoder(c[2], grammar_tags, input))
-        :scanl1Max => scanl1Max(interpret_deepcoder(c[1], grammar_tags, input))
-        :scanl1Min => scanl1Min(interpret_deepcoder(c[1], grammar_tags, input))
-        :scanl1Plus => scanl1Plus(interpret_deepcoder(c[1], grammar_tags, input))
-        :scanl1Minus => scanl1Minus(interpret_deepcoder(c[1], grammar_tags, input))
-        :scanl1Mult => scanl1Mult(interpret_deepcoder(c[1], grammar_tags, input))
-        _ => grammar_tags[r]
-    end
-end
+@inline zipwithMult(xs::AbstractVector{<:Integer}, ys::AbstractVector{<:Integer}) = zipwith(binopMult, xs, ys)
+@inline zipwithMax(xs::AbstractVector{<:Integer}, ys::AbstractVector{<:Integer}) = zipwith(binopMax, xs, ys)
+@inline zipwithMin(xs::AbstractVector{<:Integer}, ys::AbstractVector{<:Integer}) = zipwith(binopMin, xs, ys)
