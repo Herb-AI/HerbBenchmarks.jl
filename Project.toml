@@ -1,6 +1,6 @@
 name = "HerbBenchmarks"
 uuid = "eadf8b74-d38a-4b1a-a063-8d36e493d376"
-version = "0.2.3"
+version = "0.3.0"
 authors = ["jaapjong <J.deJong-18@student.tudelft.nl>", "Tilman Hinnerichs <t.r.hinnerichs@tudelft.nl>", "Sebastijan Dumancic <s.dumancic@tudelft.nl>"]
 
 [deps]

@@ -1,14 +1,19 @@
 module String_transformations_2020
-
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using HerbInterpret
+
+using RuntimeGeneratedFunctions
+RuntimeGeneratedFunctions.init(@__MODULE__)
 
 include("string_primitives.jl")
 include("data.jl")
 include("grammar.jl")
 
-export 
+interpret = make_stateful_interpreter(grammar_string; target_module=String_transformations_2020, cache_module=String_transformations_2020)
+
+export
     parseline_string_transformations
 
 """
