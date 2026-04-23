@@ -1,9 +1,6 @@
+@testitem "ARC-AGI-1: Hodel operators" begin
+    import HerbBenchmarks.ARC_AGI1 as ARC
 
-
-
-using HerbBenchmarks.ARC_AGI_1
-
-@testset "ARC-AGI-1: Hodel" verbose = true begin
     A = [1 0; 0 1; 1 0]
     B = [2 1; 0 1; 2 1]
     C = [3 4; 5 5]
@@ -45,178 +42,178 @@ using HerbBenchmarks.ARC_AGI_1
 
     @testset verbose = true "Basic primitives" begin
         @testset "Numerical" begin
-            @testset "add" begin
-                @test add(1, 2) == 3
-                @test add(4, 6) == 10
-                @test add(CartesianIndex(1, 2), CartesianIndex(3, 4)) == CartesianIndex(4, 6)
-                @test add(9, CartesianIndex(1, 1)) == CartesianIndex(10, 10)
-                @test add(CartesianIndex(1, 1), 9) == CartesianIndex(10, 10)
+            @testset "ARC.add" begin
+                @test ARC.add(1, 2) == 3
+                @test ARC.add(4, 6) == 10
+                @test ARC.add(CartesianIndex(1, 2), CartesianIndex(3, 4)) == CartesianIndex(4, 6)
+                @test ARC.add(9, CartesianIndex(1, 1)) == CartesianIndex(10, 10)
+                @test ARC.add(CartesianIndex(1, 1), 9) == CartesianIndex(10, 10)
             end
-            @testset "subtract" begin
-                @test subtract(1, 2) == -1
-                @test subtract(4, 6) == -2
-                @test subtract(10, 1) == 9
+            @testset "ARC.subtract" begin
+                @test ARC.subtract(1, 2) == -1
+                @test ARC.subtract(4, 6) == -2
+                @test ARC.subtract(10, 1) == 9
 
-                @test subtract(CartesianIndex(8, 9), CartesianIndex(3, 4)) == CartesianIndex(5, 5)
+                @test ARC.subtract(CartesianIndex(8, 9), CartesianIndex(3, 4)) == CartesianIndex(5, 5)
 
-                @test subtract(5, CartesianIndex(10, 6)) == CartesianIndex(-5, -1)
-                @test subtract(5, CartesianIndex(1, 2)) == CartesianIndex(4, 3)
+                @test ARC.subtract(5, CartesianIndex(10, 6)) == CartesianIndex(-5, -1)
+                @test ARC.subtract(5, CartesianIndex(1, 2)) == CartesianIndex(4, 3)
 
-                @test subtract(CartesianIndex(5, 5), 4) == CartesianIndex(1, 1)
+                @test ARC.subtract(CartesianIndex(5, 5), 4) == CartesianIndex(1, 1)
             end
-            @testset "multiply" begin
-                @test multiply(2, 3) == 6
-                @test multiply(4, 3) == 12
-                @test multiply(2, CartesianIndex(3, 4)) == CartesianIndex(6, 8)
-                @test multiply(CartesianIndex(3, 4), 2) == CartesianIndex(6, 8)
-                @test multiply(CartesianIndex(2, 3), CartesianIndex(4, 3)) == CartesianIndex(8, 9)
+            @testset "ARC.multiply" begin
+                @test ARC.multiply(2, 3) == 6
+                @test ARC.multiply(4, 3) == 12
+                @test ARC.multiply(2, CartesianIndex(3, 4)) == CartesianIndex(6, 8)
+                @test ARC.multiply(CartesianIndex(3, 4), 2) == CartesianIndex(6, 8)
+                @test ARC.multiply(CartesianIndex(2, 3), CartesianIndex(4, 3)) == CartesianIndex(8, 9)
             end
-            @testset "divide" begin
-                @test divide(4, 2) == 2
-                @test divide(3, 2) == 1
-                @test divide(CartesianIndex(10, 6), CartesianIndex(5, 2)) == CartesianIndex(2, 3)
-                @test divide(CartesianIndex(10, 10), 3) == CartesianIndex(3, 3)
-                @test divide(10, CartesianIndex(2, 4)) == CartesianIndex(5, 2)
-                @test divide(3, CartesianIndex(10, 10)) == CartesianIndex(0, 0)
-                @test_throws DivideError divide(4, CartesianIndex(0, 9))
-                @test_throws DivideError divide(CartesianIndex(3, 4), 0)
-                @test_throws DivideError divide(CartesianIndex(3, 4), CartesianIndex(0, 0))
-                @test_throws DivideError divide(0, 0)
+            @testset "ARC.divide" begin
+                @test ARC.divide(4, 2) == 2
+                @test ARC.divide(3, 2) == 1
+                @test ARC.divide(CartesianIndex(10, 6), CartesianIndex(5, 2)) == CartesianIndex(2, 3)
+                @test ARC.divide(CartesianIndex(10, 10), 3) == CartesianIndex(3, 3)
+                @test ARC.divide(10, CartesianIndex(2, 4)) == CartesianIndex(5, 2)
+                @test ARC.divide(3, CartesianIndex(10, 10)) == CartesianIndex(0, 0)
+                @test_throws DivideError ARC.divide(4, CartesianIndex(0, 9))
+                @test_throws DivideError ARC.divide(CartesianIndex(3, 4), 0)
+                @test_throws DivideError ARC.divide(CartesianIndex(3, 4), CartesianIndex(0, 0))
+                @test_throws DivideError ARC.divide(0, 0)
             end
-            @testset "invert" begin
-                @test invert(1) == -1
-                @test invert(-4) == 4
-                @test invert(CartesianIndex(5, 6)) == CartesianIndex(-5, -6)
-                @test invert(CartesianIndex(-1, 9)) == CartesianIndex(1, -9)
+            @testset "ARC.invert" begin
+                @test ARC.invert(1) == -1
+                @test ARC.invert(-4) == 4
+                @test ARC.invert(CartesianIndex(5, 6)) == CartesianIndex(-5, -6)
+                @test ARC.invert(CartesianIndex(-1, 9)) == CartesianIndex(1, -9)
             end
-            @testset "double and halve" begin
-                @test double(1) == 2
-                @test double(CartesianIndex(2, 3)) == CartesianIndex(4, 6)
+            @testset "ARC.double and ARC.halve" begin
+                @test ARC.double(1) == 2
+                @test ARC.double(CartesianIndex(2, 3)) == CartesianIndex(4, 6)
 
-                @test halve(2) == 1
-                @test halve(5) == 2
-                @test halve(CartesianIndex(10, 9)) == CartesianIndex(5, 4)
+                @test ARC.halve(2) == 1
+                @test ARC.halve(5) == 2
+                @test ARC.halve(CartesianIndex(10, 9)) == CartesianIndex(5, 4)
             end
-            @testset "Increment, decrement, crement, sign" begin
-                @test increment(1) == 2
-                @test increment(CartesianIndex(7, 9)) == CartesianIndex(8, 10)
+            @testset "Increment, ARC.decrement, ARC.crement, sign" begin
+                @test ARC.increment(1) == 2
+                @test ARC.increment(CartesianIndex(7, 9)) == CartesianIndex(8, 10)
 
-                @test decrement(1) == 0
-                @test decrement(CartesianIndex(7, 9)) == CartesianIndex(6, 8)
+                @test ARC.decrement(1) == 0
+                @test ARC.decrement(CartesianIndex(7, 9)) == CartesianIndex(6, 8)
 
-                @test crement(1) == 2
-                @test crement(-2) == -3
-                @test crement(CartesianIndex(-2, 1)) == CartesianIndex(-3, 2)
-                @test crement(CartesianIndex(0, -1)) == CartesianIndex(0, -2)
+                @test ARC.crement(1) == 2
+                @test ARC.crement(-2) == -3
+                @test ARC.crement(CartesianIndex(-2, 1)) == CartesianIndex(-3, 2)
+                @test ARC.crement(CartesianIndex(0, -1)) == CartesianIndex(0, -2)
 
-                @test signof(2) == 1
-                @test signof(0) == 0
-                @test signof(-1) == -1
-                @test signof(CartesianIndex(0, -3)) == CartesianIndex(0, -1)
+                @test ARC.signof(2) == 1
+                @test ARC.signof(0) == 0
+                @test ARC.signof(-1) == -1
+                @test ARC.signof(CartesianIndex(0, -3)) == CartesianIndex(0, -1)
             end
         end
 
         @testset "Integer" begin
-            @testset "even, greater, positive" begin
-                @test even(1) == false
-                @test even(2) == true
+            @testset "ARC.even, ARC.greater, ARC.positive" begin
+                @test ARC.even(1) == false
+                @test ARC.even(2) == true
 
-                @test greater(2, 1) == true
-                @test greater(4, 10) == false
+                @test ARC.greater(2, 1) == true
+                @test ARC.greater(4, 10) == false
 
-                @test positive(1) == true
-                @test positive(0) == false
-                @test positive(-2) == false
+                @test ARC.positive(1) == true
+                @test ARC.positive(0) == false
+                @test ARC.positive(-2) == false
             end
-            @testset verbose = true "toivec, tojvec, astuple" begin
-                @test toivec(2) == CartesianIndex(2, 0)
-                @test tojvec(3) == CartesianIndex(0, 3)
-                @test astuple(3, 4) == CartesianIndex(3, 4)
+            @testset verbose = true "ARC.toivec, ARC.tojvec, ARC.astuple" begin
+                @test ARC.toivec(2) == CartesianIndex(2, 0)
+                @test ARC.tojvec(3) == CartesianIndex(0, 3)
+                @test ARC.astuple(3, 4) == CartesianIndex(3, 4)
             end
 
         end
 
         @testset "Boolean" begin
-            @testset verbose = true "flip" begin
-                @test flip(false) == true
-                @test flip(true) == false
+            @testset verbose = true "ARC.flip" begin
+                @test ARC.flip(false) == true
+                @test ARC.flip(true) == false
             end
             @testset "Boolean operations" begin
-                @test both(true, false) == false
-                @test both(false, true) == false
-                @test both(false, false) == false
-                @test both(true, true) == true
+                @test ARC.both(true, false) == false
+                @test ARC.both(false, true) == false
+                @test ARC.both(false, false) == false
+                @test ARC.both(true, true) == true
 
-                @test either(true, false) == true
-                @test either(true, true) == true
-                @test either(false, false) == false
+                @test ARC.either(true, false) == true
+                @test ARC.either(true, true) == true
+                @test ARC.either(false, false) == false
             end
         end
 
-        @testset "equality" begin
-            @test equality(A, A) == true
-            @test equality(A, B) == false
-            # on object (order shouldn't matter)
+        @testset "ARC.equality" begin
+            @test ARC.equality(A, A) == true
+            @test ARC.equality(A, B) == false
+            # on object (ARC.order shouldn't matter)
             obj1 = [(4, CartesianIndex(3, 3)), (2, CartesianIndex(3, 4))]
             obj2 = [(2, CartesianIndex(3, 4)), (4, CartesianIndex(3, 3))]
-            @test equality(obj1, obj2) == true
+            @test ARC.equality(obj1, obj2) == true
         end
 
-        @testset "contained, combine, intersection, difference" begin
-            @test contained(0, A) == true
-            @test contained(666, A) == false
-            @test contained(CartesianIndex(1, 1), [CartesianIndex(1, 1), CartesianIndex(3, 4)]) == true
-            @test contained((4, CartesianIndex(3, 3)), [(2, CartesianIndex(3, 4)), (4, CartesianIndex(3, 3))]) == true
+        @testset "ARC.contained, ARC.combine, ARC.intersection, ARC.difference" begin
+            @test ARC.contained(0, A) == true
+            @test ARC.contained(666, A) == false
+            @test ARC.contained(CartesianIndex(1, 1), [CartesianIndex(1, 1), CartesianIndex(3, 4)]) == true
+            @test ARC.contained((4, CartesianIndex(3, 3)), [(2, CartesianIndex(3, 4)), (4, CartesianIndex(3, 3))]) == true
 
-            @test combine([CartesianIndex(1, 2)], [CartesianIndex(3, 4)]) == [CartesianIndex(1, 2), CartesianIndex(3, 4)]
-            @test combine([(5, CartesianIndex(1, 2))], [(3, CartesianIndex(3, 4)), (5, CartesianIndex(3, 3))]) == [(5, CartesianIndex(1, 2)), (3, CartesianIndex(3, 4)), (5, CartesianIndex(3, 3))]
+            @test ARC.combine([CartesianIndex(1, 2)], [CartesianIndex(3, 4)]) == [CartesianIndex(1, 2), CartesianIndex(3, 4)]
+            @test ARC.combine([(5, CartesianIndex(1, 2))], [(3, CartesianIndex(3, 4)), (5, CartesianIndex(3, 3))]) == [(5, CartesianIndex(1, 2)), (3, CartesianIndex(3, 4)), (5, CartesianIndex(3, 3))]
 
             obj1 = [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))]
             obj2 = [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2))]
             objects = [obj1, obj2]
             ind1 = [CartesianIndex(1, 1), CartesianIndex(2, 2)]
             ind2 = [CartesianIndex(1, 1), CartesianIndex(4, 4)]
-            @test intersection(obj1, obj2) == [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2))]
-            @test intersection(ind1, ind2) == [CartesianIndex(1, 1)]
-            @test intersection(objects, [obj1]) == [obj1]
+            @test ARC.intersection(obj1, obj2) == [(1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2))]
+            @test ARC.intersection(ind1, ind2) == [CartesianIndex(1, 1)]
+            @test ARC.intersection(objects, [obj1]) == [obj1]
 
-            @test difference(obj1, obj2) == [(1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))]
-            @test difference([1, 2, 3], [1, 2]) == [3]
+            @test ARC.difference(obj1, obj2) == [(1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 3))]
+            @test ARC.difference([1, 2, 3], [1, 2]) == [3]
         end
-        @testset "dedupe, order, repeat" begin
-            @test dedupe(B) == [2 1; 0 1]
-            @test dedupe([1, 2, 3, 3, 2, 4, 1]) == [1, 2, 3, 4]
+        @testset "ARC.dedupe, ARC.order, repeat" begin
+            @test ARC.dedupe(B) == [2 1; 0 1]
+            @test ARC.dedupe([1, 2, 3, 3, 2, 4, 1]) == [1, 2, 3, 4]
 
-            @test order([3, 2, 4, 1]) == [1, 2, 3, 4]
-            @test order_by([[1], [1, 2, 3], [1, 2]], length) == [[1], [1, 2], [1, 2, 3]]
-            @test order_by([1, 4, -3], abs) == [1, -3, 4]
+            @test ARC.order([3, 2, 4, 1]) == [1, 2, 3, 4]
+            @test ARC.order_by([[1], [1, 2, 3], [1, 2]], length) == [[1], [1, 2], [1, 2, 3]]
+            @test ARC.order_by([1, 4, -3], abs) == [1, -3, 4]
 
-            @test repeat_item(C, 3) == [3 4 3 4 3 4; 5 5 5 5 5 5]
+            @test ARC.repeat_item(C, 3) == [3 4 3 4 3 4; 5 5 5 5 5 5]
         end
-        @testset "greater" begin
-            @test greater(2, 1) == true
-            @test greater(4, 10) == false
-        end
-
-        @testset "size_of" begin
-            @test size_of([1, 2, 3]) == 3
-            @test size_of([(4, CartesianIndex(4, 3)), (3, CartesianIndex(3, 3))]) == 2
+        @testset "ARC.greater" begin
+            @test ARC.greater(2, 1) == true
+            @test ARC.greater(4, 10) == false
         end
 
-        @testset "maximum_of, minimum_of, valmax, valmin, mostcommon, leastcommon" begin
-            @test maximum_of([1, 2, 5, 3]) == 5
-            @test maximum_of([4, 2, 6]) == 6
-            @test minimum_of([1, 2, 5, 3]) == 1
-            @test minimum_of([4, 2, 6]) == 2
+        @testset "ARC.size_of" begin
+            @test ARC.size_of([1, 2, 3]) == 3
+            @test ARC.size_of([(4, CartesianIndex(4, 3)), (3, CartesianIndex(3, 3))]) == 2
+        end
 
-            @test valmax([[1], [1, 2]], size_of) == 2
-            @test valmin([[1], [1, 2]], size_of) == 1
+        @testset "ARC.maximum_of, ARC.minimum_of, ARC.valmax, ARC.valmin, ARC.mostcommon, ARC.leastcommon" begin
+            @test ARC.maximum_of([1, 2, 5, 3]) == 5
+            @test ARC.maximum_of([4, 2, 6]) == 6
+            @test ARC.minimum_of([1, 2, 5, 3]) == 1
+            @test ARC.minimum_of([4, 2, 6]) == 2
 
-            @test argmax_by([[1], [1, 2]], size_of) == [1, 2]
-            @test argmin_by([[1], [1, 2]], size_of) == [1]
+            @test ARC.valmax([[1], [1, 2]], ARC.size_of) == 2
+            @test ARC.valmin([[1], [1, 2]], ARC.size_of) == 1
 
-            @test mostcommon([1, 2, 2, 3, 3, 3]) == 3
-            @test leastcommon([1, 2, 3, 4, 2, 3, 4]) == 1
+            @test ARC.argmax_by([[1], [1, 2]], ARC.size_of) == [1, 2]
+            @test ARC.argmin_by([[1], [1, 2]], ARC.size_of) == [1]
+
+            @test ARC.mostcommon([1, 2, 2, 3, 3, 3]) == 3
+            @test ARC.leastcommon([1, 2, 3, 4, 2, 3, 4]) == 1
         end
 
     end
@@ -227,82 +224,82 @@ using HerbBenchmarks.ARC_AGI_1
         object_2 = [(1, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (2, CartesianIndex(1, 2))]
 
 
-        @testset "init, toindices" begin
-            @test init(2) == [2;;]
+        @testset "ARC.init, ARC.toindices" begin
+            @test ARC.init(2) == [2;;]
 
-            @test toindices([(1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 1))]) == [CartesianIndex(2, 2), CartesianIndex(2, 1)]
-            @test toindices([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == [CartesianIndex(2, 2), CartesianIndex(2, 1)]
+            @test ARC.toindices([(1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 1))]) == [CartesianIndex(2, 2), CartesianIndex(2, 1)]
+            @test ARC.toindices([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == [CartesianIndex(2, 2), CartesianIndex(2, 1)]
 
         end
-        @testset "vfrontier, hfrontier" begin
-            @test vfrontier(CartesianIndex(3, 4)) == [CartesianIndex(i, 4) for i in 1:30]
-            @test hfrontier(CartesianIndex(3, 4)) == [CartesianIndex(3, j) for j in 1:30]
+        @testset "ARC.vfrontier, ARC.hfrontier" begin
+            @test ARC.vfrontier(CartesianIndex(3, 4)) == [CartesianIndex(i, 4) for i in 1:30]
+            @test ARC.hfrontier(CartesianIndex(3, 4)) == [CartesianIndex(3, j) for j in 1:30]
         end
 
-        @testset "upper-, lower-, left- and rightmost" begin
-            @test uppermost(indices) == 1
-            @test uppermost(object_1) == 1
+        @testset "upper-, lower-, left- and ARC.rightmost" begin
+            @test ARC.uppermost(indices) == 1
+            @test ARC.uppermost(object_1) == 1
 
-            @test lowermost(indices) == 1
-            @test lowermost(object_1) == 3
+            @test ARC.lowermost(indices) == 1
+            @test ARC.lowermost(object_1) == 3
 
-            @test leftmost(indices) == 5
-            @test leftmost(object_1) == 1
+            @test ARC.leftmost(indices) == 5
+            @test ARC.leftmost(object_1) == 1
 
-            @test rightmost(indices) == 5
-            @test rightmost(object_1) == 3
+            @test ARC.rightmost(indices) == 5
+            @test ARC.rightmost(object_1) == 3
         end
 
 
-        @testset "height, width, shape, portrait" begin
-            @test height(A) == 3
-            @test height(indices) == 1
-            @test height(object_1) == 3
+        @testset "ARC.height, ARC.width, ARC.shape, ARC.portrait" begin
+            @test ARC.height(A) == 3
+            @test ARC.height(indices) == 1
+            @test ARC.height(object_1) == 3
 
-            @test width(A) == 2
-            @test width(C) == 2
-            @test width(indices) == 1
-            @test width(object_1) == 3
+            @test ARC.width(A) == 2
+            @test ARC.width(C) == 2
+            @test ARC.width(indices) == 1
+            @test ARC.width(object_1) == 3
 
-            @test shape(A) == CartesianIndex(3, 2)
-            @test shape(C) == CartesianIndex(2, 2)
-            @test shape(indices) == CartesianIndex(1, 1)
-            @test shape(object_1) == CartesianIndex(3, 3)
+            @test ARC.shape(A) == CartesianIndex(3, 2)
+            @test ARC.shape(C) == CartesianIndex(2, 2)
+            @test ARC.shape(indices) == CartesianIndex(1, 1)
+            @test ARC.shape(object_1) == CartesianIndex(3, 3)
 
-            @test portrait(A) == true
-            @test portrait(C) == false
+            @test ARC.portrait(A) == true
+            @test ARC.portrait(C) == false
         end
 
-        @testset "square, vline, hline" begin
-            @test square(A) == false
-            @test square(B) == false
-            @test square(C) == true
-            @test square(D) == true
-            @test square([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == false
-            @test square([CartesianIndex(2, 2), CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(1, 2)]) == true
-            @test square([CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(1, 2)]) == false
-            @test square([(1, CartesianIndex(2, 2)), (2, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (3, CartesianIndex(1, 2))]) == true
+        @testset "ARC.square, ARC.vline, ARC.hline" begin
+            @test ARC.square(A) == false
+            @test ARC.square(B) == false
+            @test ARC.square(C) == true
+            @test ARC.square(D) == true
+            @test ARC.square([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == false
+            @test ARC.square([CartesianIndex(2, 2), CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(1, 2)]) == true
+            @test ARC.square([CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(1, 2)]) == false
+            @test ARC.square([(1, CartesianIndex(2, 2)), (2, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (3, CartesianIndex(1, 2))]) == true
 
-            @test vline([(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]) == true
-            @test vline([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == false
+            @test ARC.vline([(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]) == true
+            @test ARC.vline([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == false
 
-            @test hline([(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]) == false
-            @test hline([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == true
+            @test ARC.hline([(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]) == false
+            @test ARC.hline([CartesianIndex(2, 2), CartesianIndex(2, 1)]) == true
         end
 
-        @testset "mostcolor, leastcolor, colorcount, colorfilter, sizefilter" begin
-            @test mostcolor(B) == 1
-            @test mostcolor(C) == 5
-            @test mostcolor(object_1) == 1
+        @testset "ARC.mostcolor, ARC.leastcolor, ARC.colorcount, ARC.colorfilter, ARC.sizefilter" begin
+            @test ARC.mostcolor(B) == 1
+            @test ARC.mostcolor(C) == 5
+            @test ARC.mostcolor(object_1) == 1
 
-            @test leastcolor(B) == 0
-            @test leastcolor(object_1) == 1
+            @test ARC.leastcolor(B) == 0
+            @test ARC.leastcolor(object_1) == 1
 
-            @test colorcount(A, 1) == 3
-            @test colorcount(C, 5) == 2
-            @test colorcount(object_1, 1) == 4
-            @test colorcount(object_1, 4) == 0
-            @test colorcount(object_2, 2) == 2
+            @test ARC.colorcount(A, 1) == 3
+            @test ARC.colorcount(C, 5) == 2
+            @test ARC.colorcount(object_1, 1) == 4
+            @test ARC.colorcount(object_1, 4) == 0
+            @test ARC.colorcount(object_2, 2) == 2
 
             objects = [
                 [(3, CartesianIndex(1, 5))],
@@ -311,45 +308,45 @@ using HerbBenchmarks.ARC_AGI_1
                 [(1, CartesianIndex(2, 2)), (1, CartesianIndex(2, 3)), (1, CartesianIndex(3, 2)), (1, CartesianIndex(3, 3))],
                 [(2, CartesianIndex(4, 3)), (2, CartesianIndex(3, 4)), (2, CartesianIndex(4, 4))]
             ]
-            @test colorfilter(objects, 2) == [[(2, CartesianIndex(5, 1))], [(2, CartesianIndex(4, 3)), (2, CartesianIndex(3, 4)), (2, CartesianIndex(4, 4))]]
+            @test ARC.colorfilter(objects, 2) == [[(2, CartesianIndex(5, 1))], [(2, CartesianIndex(4, 3)), (2, CartesianIndex(3, 4)), (2, CartesianIndex(4, 4))]]
 
-            @test sizefilter(objects, 1) == [
+            @test ARC.sizefilter(objects, 1) == [
                 [(3, CartesianIndex(1, 5))],
                 [(1, CartesianIndex(1, 1))],
                 [(2, CartesianIndex(5, 1))]]
-            @test isempty(sizefilter(objects, 7)) == true
+            @test isempty(ARC.sizefilter(objects, 7)) == true
         end
 
-        @testset "crop, recolor, shift, normalize" begin
-            @test crop(A, CartesianIndex(1, 1), (2, 2)) == [1 0; 0 1]
-            @test crop(C, CartesianIndex(1, 2), (1, 1)) == [4;;]
-            @test crop(D, CartesianIndex(2, 3), (2, 1)) == [6; 0;;]
+        @testset "ARC.crop, ARC.recolor, ARC.shift, ARC.normalize" begin
+            @test ARC.crop(A, CartesianIndex(1, 1), (2, 2)) == [1 0; 0 1]
+            @test ARC.crop(C, CartesianIndex(1, 2), (1, 1)) == [4;;]
+            @test ARC.crop(D, CartesianIndex(2, 3), (2, 1)) == [6; 0;;]
 
-            @test recolor(3, [(2, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2)), (5, CartesianIndex(2, 1))]) == [(3, CartesianIndex(1, 1)), (3, CartesianIndex(1, 2)), (3, CartesianIndex(2, 1))]
-            @test recolor(2, [(2, CartesianIndex(3, 6)), (2, CartesianIndex(2, 2))]) == [(2, CartesianIndex(3, 6)), (2, CartesianIndex(2, 2))]
-            @test recolor(3, [CartesianIndex(1, 1), CartesianIndex(1, 2), CartesianIndex(2, 1)]) == [(3, CartesianIndex(1, 1)), (3, CartesianIndex(1, 2)), (3, CartesianIndex(2, 1))]
+            @test ARC.recolor(3, [(2, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2)), (5, CartesianIndex(2, 1))]) == [(3, CartesianIndex(1, 1)), (3, CartesianIndex(1, 2)), (3, CartesianIndex(2, 1))]
+            @test ARC.recolor(2, [(2, CartesianIndex(3, 6)), (2, CartesianIndex(2, 2))]) == [(2, CartesianIndex(3, 6)), (2, CartesianIndex(2, 2))]
+            @test ARC.recolor(3, [CartesianIndex(1, 1), CartesianIndex(1, 2), CartesianIndex(2, 1)]) == [(3, CartesianIndex(1, 1)), (3, CartesianIndex(1, 2)), (3, CartesianIndex(2, 1))]
 
-            @test shift([(2, CartesianIndex(2, 2)), (4, CartesianIndex(2, 3)), (1, CartesianIndex(3, 4))], (1, 2)) == [(2, CartesianIndex(3, 4)), (4, CartesianIndex(3, 5)), (1, CartesianIndex(4, 6))]
-            @test shift([CartesianIndex(2, 4), CartesianIndex(1, 3), CartesianIndex(4, 5)], (0, -1)) == [CartesianIndex(2, 3), CartesianIndex(1, 2), CartesianIndex(4, 4)]
+            @test ARC.shift([(2, CartesianIndex(2, 2)), (4, CartesianIndex(2, 3)), (1, CartesianIndex(3, 4))], (1, 2)) == [(2, CartesianIndex(3, 4)), (4, CartesianIndex(3, 5)), (1, CartesianIndex(4, 6))]
+            @test ARC.shift([CartesianIndex(2, 4), CartesianIndex(1, 3), CartesianIndex(4, 5)], (0, -1)) == [CartesianIndex(2, 3), CartesianIndex(1, 2), CartesianIndex(4, 4)]
 
-            @testset normalize([(2, CartesianIndex(2, 2)), (4, CartesianIndex(2, 3)), (1, CartesianIndex(3, 4))]) == [(2, CartesianIndex(1, 1)), (4, CartesianIndex(1, 2)), (1, CartesianIndex(2, 3))]
-            @testset normalize([CartesianIndex(2, 1), CartesianIndex(1, 3), CartesianIndex(4, 5)]) == [CartesianIndex(2, 1), CartesianIndex(1, 3), CartesianIndex(4, 5)]
-            @testset normalize([]) == []
+            @testset ARC.normalize([(2, CartesianIndex(2, 2)), (4, CartesianIndex(2, 3)), (1, CartesianIndex(3, 4))]) == [(2, CartesianIndex(1, 1)), (4, CartesianIndex(1, 2)), (1, CartesianIndex(2, 3))]
+            @testset ARC.normalize([CartesianIndex(2, 1), CartesianIndex(1, 3), CartesianIndex(4, 5)]) == [CartesianIndex(2, 1), CartesianIndex(1, 3), CartesianIndex(4, 5)]
+            @testset ARC.normalize([]) == []
         end
 
-        @testset "dneighbors, ineighbors, neighbors" begin
-            @test dneighbors(CartesianIndex(1, 1)) == [CartesianIndex(0, 1), CartesianIndex(2, 1), CartesianIndex(1, 0), CartesianIndex(1, 2)]
-            @test dneighbors(CartesianIndex(2, 2)) == [CartesianIndex(1, 2), CartesianIndex(3, 2), CartesianIndex(2, 1), CartesianIndex(2, 3)]
-            @test dneighbors(CartesianIndex(1, 2)) == [CartesianIndex(0, 2), CartesianIndex(2, 2), CartesianIndex(1, 1), CartesianIndex(1, 3)]
-            @test dneighbors(CartesianIndex(2, 1)) == [CartesianIndex(1, 1), CartesianIndex(3, 1), CartesianIndex(2, 0), CartesianIndex(2, 2)]
+        @testset "ARC.dneighbors, ARC.ineighbors, ARC.neighbors" begin
+            @test ARC.dneighbors(CartesianIndex(1, 1)) == [CartesianIndex(0, 1), CartesianIndex(2, 1), CartesianIndex(1, 0), CartesianIndex(1, 2)]
+            @test ARC.dneighbors(CartesianIndex(2, 2)) == [CartesianIndex(1, 2), CartesianIndex(3, 2), CartesianIndex(2, 1), CartesianIndex(2, 3)]
+            @test ARC.dneighbors(CartesianIndex(1, 2)) == [CartesianIndex(0, 2), CartesianIndex(2, 2), CartesianIndex(1, 1), CartesianIndex(1, 3)]
+            @test ARC.dneighbors(CartesianIndex(2, 1)) == [CartesianIndex(1, 1), CartesianIndex(3, 1), CartesianIndex(2, 0), CartesianIndex(2, 2)]
 
-            @test ineighbors(CartesianIndex(1, 1)) == [CartesianIndex(0, 0), CartesianIndex(0, 2), CartesianIndex(2, 0), CartesianIndex(2, 2)]
-            @test ineighbors(CartesianIndex(2, 2)) == [CartesianIndex(1, 1), CartesianIndex(1, 3), CartesianIndex(3, 1), CartesianIndex(3, 3)]
-            @test ineighbors(CartesianIndex(1, 2)) == [CartesianIndex(0, 1), CartesianIndex(0, 3), CartesianIndex(2, 1), CartesianIndex(2, 3)]
-            @test ineighbors(CartesianIndex(2, 1)) == [CartesianIndex(1, 0), CartesianIndex(1, 2), CartesianIndex(3, 0), CartesianIndex(3, 2)]
+            @test ARC.ineighbors(CartesianIndex(1, 1)) == [CartesianIndex(0, 0), CartesianIndex(0, 2), CartesianIndex(2, 0), CartesianIndex(2, 2)]
+            @test ARC.ineighbors(CartesianIndex(2, 2)) == [CartesianIndex(1, 1), CartesianIndex(1, 3), CartesianIndex(3, 1), CartesianIndex(3, 3)]
+            @test ARC.ineighbors(CartesianIndex(1, 2)) == [CartesianIndex(0, 1), CartesianIndex(0, 3), CartesianIndex(2, 1), CartesianIndex(2, 3)]
+            @test ARC.ineighbors(CartesianIndex(2, 1)) == [CartesianIndex(1, 0), CartesianIndex(1, 2), CartesianIndex(3, 0), CartesianIndex(3, 2)]
 
-            @test neighbors(CartesianIndex(1, 1)) == [CartesianIndex(0, 1), CartesianIndex(2, 1), CartesianIndex(1, 0), CartesianIndex(1, 2), CartesianIndex(0, 0), CartesianIndex(0, 2), CartesianIndex(2, 0), CartesianIndex(2, 2)]
-            @test neighbors(CartesianIndex(2, 2)) == [CartesianIndex(1, 2), CartesianIndex(3, 2), CartesianIndex(2, 1), CartesianIndex(2, 3), CartesianIndex(1, 1), CartesianIndex(1, 3), CartesianIndex(3, 1), CartesianIndex(3, 3)]
+            @test ARC.neighbors(CartesianIndex(1, 1)) == [CartesianIndex(0, 1), CartesianIndex(2, 1), CartesianIndex(1, 0), CartesianIndex(1, 2), CartesianIndex(0, 0), CartesianIndex(0, 2), CartesianIndex(2, 0), CartesianIndex(2, 2)]
+            @test ARC.neighbors(CartesianIndex(2, 2)) == [CartesianIndex(1, 2), CartesianIndex(3, 2), CartesianIndex(2, 1), CartesianIndex(2, 3), CartesianIndex(1, 1), CartesianIndex(1, 3), CartesianIndex(3, 1), CartesianIndex(3, 3)]
         end
 
         @testset "objects" begin
@@ -362,7 +359,7 @@ using HerbBenchmarks.ARC_AGI_1
                 (2, CartesianIndex(4, 4))])
             obj5 = Set([(2, CartesianIndex(5, 2))])
             expected = Set([obj1, obj2, obj3, obj4, obj5])
-            actual = objects(G, true, false, true)
+            actual = ARC.objects(G, true, false, true)
             @test actual == expected
 
             # with diagonal neighbours 
@@ -372,7 +369,7 @@ using HerbBenchmarks.ARC_AGI_1
             obj3 = Set([(2, CartesianIndex(3, 4)), (2, CartesianIndex(4, 3)),
                 (2, CartesianIndex(4, 4)), (2, CartesianIndex(5, 2))])
             expected = Set([obj1, obj2, obj3])
-            actual = objects(G, true, true, true)
+            actual = ARC.objects(G, true, true, true)
             @test actual == expected
 
             obj1 = Set([(3, CartesianIndex(1, 5))])
@@ -388,7 +385,7 @@ using HerbBenchmarks.ARC_AGI_1
                 (2, CartesianIndex(5, 2))
             ])
             expected = Set([obj1, obj2])
-            @test objects(G, false, true, true) == expected
+            @test ARC.objects(G, false, true, true) == expected
 
             obj1 = Set([(1, CartesianIndex(1, 1))])
             obj2 = Set([(3, CartesianIndex(1, 5))])
@@ -403,7 +400,7 @@ using HerbBenchmarks.ARC_AGI_1
             ])
             obj4 = Set([(2, CartesianIndex(5, 2))])
             expected = Set([obj1, obj2, obj3, obj4])
-            @test objects(G, false, false, true) == expected
+            @test ARC.objects(G, false, false, true) == expected
 
             obj1 = Set([
                 (1, CartesianIndex(1, 1)),
@@ -436,7 +433,7 @@ using HerbBenchmarks.ARC_AGI_1
                 (0, CartesianIndex(5, 5)),
             ])
             expected = Set([obj1, obj2, obj3, obj4])
-            @test objects(G, true, true, false) == expected
+            @test ARC.objects(G, true, true, false) == expected
 
             obj1 = Set([
                 (1, CartesianIndex(2, 2)),
@@ -452,7 +449,7 @@ using HerbBenchmarks.ARC_AGI_1
             obj4 = Set([(2, CartesianIndex(5, 2))])
             obj5 = Set([(1, CartesianIndex(1, 1))])
             expected = Set([obj1, obj2, obj3, obj4, obj5])
-            @test objects(G, true, false, true) == expected
+            @test ARC.objects(G, true, false, true) == expected
 
             obj1 = Set([(1, CartesianIndex(1, 1)),
                 (3, CartesianIndex(1, 5)),
@@ -481,19 +478,19 @@ using HerbBenchmarks.ARC_AGI_1
                 (0, CartesianIndex(5, 5)),
             ])
             expected = Set([obj1])
-            @test objects(G, false, false, false) == expected
+            @test ARC.objects(G, false, false, false) == expected
         end
 
-        @testset "partition, fgpartition" begin
-            actual = partition(B)
+        @testset "ARC.partition, ARC.fgpartition" begin
+            actual = ARC.partition(B)
             expected = [
                 [(0, CartesianIndex(2, 1))],
                 [(1, CartesianIndex(1, 2)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(3, 2))],
                 [(2, CartesianIndex(1, 1)), (2, CartesianIndex(3, 1))]
             ]
-            @test Set(sort(obj) for obj in actual) == Set(sort(obj) for obj in expected) # order doesn't matter, we only care about cells
+            @test Set(sort(obj) for obj in actual) == Set(sort(obj) for obj in expected) # ARC.order doesn't matter, we only care about cells
 
-            actual = partition(G)
+            actual = ARC.partition(G)
             expected = [
                 [
                     (1, CartesianIndex(1, 1)),
@@ -529,16 +526,16 @@ using HerbBenchmarks.ARC_AGI_1
                     (0, CartesianIndex(5, 5))
                 ]
             ]
-            @test Set(sort(obj) for obj in actual) == Set(sort(obj) for obj in expected) # order doesn't matter, we only care about cells
+            @test Set(sort(obj) for obj in actual) == Set(sort(obj) for obj in expected) # ARC.order doesn't matter, we only care about cells
 
-            actual = fgpartition(B)
+            actual = ARC.fgpartition(B)
             expected = [
                 [(0, CartesianIndex(2, 1))],
                 [(2, CartesianIndex(1, 1)), (2, CartesianIndex(3, 1))]
             ]
-            @test Set(sort(obj) for obj in actual) == Set(sort(obj) for obj in expected) # order doesn't matter, we only care about cells
+            @test Set(sort(obj) for obj in actual) == Set(sort(obj) for obj in expected) # ARC.order doesn't matter, we only care about cells
 
-            actual = fgpartition(G)
+            actual = ARC.fgpartition(G)
             expected = [
                 [
                     (1, CartesianIndex(1, 1)),
@@ -558,29 +555,29 @@ using HerbBenchmarks.ARC_AGI_1
                 ],
             ]
         end
-        @testset "palette, numcolors, color" begin
-            pal = palette(G)
+        @testset "ARC.palette, ARC.numcolors, ARC.color" begin
+            pal = ARC.palette(G)
             @test length(pal) == 4
             @test Set(pal) == Set([0, 1, 2, 3])
 
             obj1 = [(1, CartesianIndex(2, 2)), (2, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (3, CartesianIndex(1, 2))]
             obj2 = [(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2))]
             obj3 = [(1, CartesianIndex(2, 2)), (2, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (3, CartesianIndex(1, 2))]
-            pal = palette(obj1)
+            pal = ARC.palette(obj1)
             @test length(pal) == 3
             @test Set(pal) == Set([1, 2, 3])
 
-            @test palette(obj2) == [1]
+            @test ARC.palette(obj2) == [1]
 
-            @test numcolors(G) == 4
-            @test numcolors(obj2) == 1
-            @test numcolors(obj3) == 3
+            @test ARC.numcolors(G) == 4
+            @test ARC.numcolors(obj2) == 1
+            @test ARC.numcolors(obj3) == 3
 
-            @test color(obj2) == 1
-            @test color((2, CartesianIndex(4, 2))) == 2
+            @test ARC.color(obj2) == 1
+            @test ARC.color((2, CartesianIndex(4, 2))) == 2
         end
 
-        @testset "hmatching, vmatching" begin
+        @testset "ARC.hmatching, ARC.vmatching" begin
             obj1 = [
                 (1, CartesianIndex(2, 2)),
                 (2, CartesianIndex(1, 1)),
@@ -588,56 +585,56 @@ using HerbBenchmarks.ARC_AGI_1
                 (3, CartesianIndex(1, 2)),]
             obj2 = [(3, CartesianIndex(1, 5))]
             obj3 = [(1, CartesianIndex(3, 4)), (2, CartesianIndex(3, 5))]
-            @test hmatching(obj1, obj2) == true
-            @test hmatching(obj1, obj3) == false
+            @test ARC.hmatching(obj1, obj2) == true
+            @test ARC.hmatching(obj1, obj3) == false
 
             obj4 = [(1, CartesianIndex(4, 2)), (2, CartesianIndex(5, 2))]
             obj5 = [(1, CartesianIndex(4, 3)), (2, CartesianIndex(5, 3))]
-            @test vmatching(obj1, obj4) == true
-            @test vmatching(obj1, obj5) == false
+            @test ARC.vmatching(obj1, obj4) == true
+            @test ARC.vmatching(obj1, obj5) == false
         end
 
-        @testset "manhattan, adjacent, bordering, centerofmass" begin
-            @test manhattan([CartesianIndex(1, 1), CartesianIndex(2, 2)], [CartesianIndex(2, 3), CartesianIndex(3, 4)]) == 1
-            @test manhattan([CartesianIndex(2, 2)], [CartesianIndex(3, 4)]) == 3
-            @test manhattan([(5, CartesianIndex(2, 2))], [(3, CartesianIndex(3, 4))]) == 3
+        @testset "ARC.manhattan, ARC.adjacent, ARC.bordering, ARC.centerofmass" begin
+            @test ARC.manhattan([CartesianIndex(1, 1), CartesianIndex(2, 2)], [CartesianIndex(2, 3), CartesianIndex(3, 4)]) == 1
+            @test ARC.manhattan([CartesianIndex(2, 2)], [CartesianIndex(3, 4)]) == 3
+            @test ARC.manhattan([(5, CartesianIndex(2, 2))], [(3, CartesianIndex(3, 4))]) == 3
 
-            @test adjacent([CartesianIndex(1, 1)], [CartesianIndex(1, 2), CartesianIndex(2, 1)]) == true
-            @test adjacent([CartesianIndex(1, 1)], [CartesianIndex(2, 2)]) == false
+            @test ARC.adjacent([CartesianIndex(1, 1)], [CartesianIndex(1, 2), CartesianIndex(2, 1)]) == true
+            @test ARC.adjacent([CartesianIndex(1, 1)], [CartesianIndex(2, 2)]) == false
 
-            @test bordering([CartesianIndex(1, 1)], D) == true
-            @test bordering([CartesianIndex(1, 3)], D) == true
-            @test bordering([CartesianIndex(3, 1)], D) == true
-            @test bordering([CartesianIndex(3, 3)], D) == true
-            @test bordering([CartesianIndex(2, 2)], D) == false
+            @test ARC.bordering([CartesianIndex(1, 1)], D) == true
+            @test ARC.bordering([CartesianIndex(1, 3)], D) == true
+            @test ARC.bordering([CartesianIndex(3, 1)], D) == true
+            @test ARC.bordering([CartesianIndex(3, 3)], D) == true
+            @test ARC.bordering([CartesianIndex(2, 2)], D) == false
 
-            @test centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(2, 3)]) == CartesianIndex(1, 2)
-            @test centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(3, 3)]) == CartesianIndex(2, 2)
-            @test centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(1, 2)]) == CartesianIndex(1, 1)
+            @test ARC.centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(2, 3)]) == CartesianIndex(1, 2)
+            @test ARC.centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(3, 3)]) == CartesianIndex(2, 2)
+            @test ARC.centerofmass([CartesianIndex(1, 1), CartesianIndex(2, 2), CartesianIndex(1, 2)]) == CartesianIndex(1, 1)
         end
 
-        @testset "center, rel_position, corner" begin
-            @test center([(1, CartesianIndex(1, 1))]) == CartesianIndex(1, 1)
-            @test center([(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 3))]) == CartesianIndex(1, 2)
-            @test center([(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 3)), (1, CartesianIndex(3, 1)), (1, CartesianIndex(3, 3))]) == CartesianIndex(2, 2)
+        @testset "ARC.center, ARC.rel_position, corner" begin
+            @test ARC.center([(1, CartesianIndex(1, 1))]) == CartesianIndex(1, 1)
+            @test ARC.center([(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 3))]) == CartesianIndex(1, 2)
+            @test ARC.center([(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 3)), (1, CartesianIndex(3, 1)), (1, CartesianIndex(3, 3))]) == CartesianIndex(2, 2)
 
-            @test rel_position([(0, CartesianIndex(2, 2))], [(0, CartesianIndex(3, 3))]) == CartesianIndex(1, 1)
-            @test rel_position([(0, CartesianIndex(3, 3))], [(0, CartesianIndex(2, 3))]) == CartesianIndex(-1, 0)
-            @test rel_position([(0, CartesianIndex(4, 4))], [(0, CartesianIndex(4, 5))]) == CartesianIndex(0, 1)
+            @test ARC.rel_position([(0, CartesianIndex(2, 2))], [(0, CartesianIndex(3, 3))]) == CartesianIndex(1, 1)
+            @test ARC.rel_position([(0, CartesianIndex(3, 3))], [(0, CartesianIndex(2, 3))]) == CartesianIndex(-1, 0)
+            @test ARC.rel_position([(0, CartesianIndex(4, 4))], [(0, CartesianIndex(4, 5))]) == CartesianIndex(0, 1)
 
-            @test corners([CartesianIndex(2, 3), CartesianIndex(1, 4), CartesianIndex(5, 1)]) == [CartesianIndex(1, 1), CartesianIndex(1, 4), CartesianIndex(5, 1), CartesianIndex(5, 4)]
-            @test corners([CartesianIndex(2, 3), CartesianIndex(1, 1), CartesianIndex(5, 4)]) == [CartesianIndex(1, 1), CartesianIndex(1, 4), CartesianIndex(5, 1), CartesianIndex(5, 4)]
+            @test ARC.corners([CartesianIndex(2, 3), CartesianIndex(1, 4), CartesianIndex(5, 1)]) == [CartesianIndex(1, 1), CartesianIndex(1, 4), CartesianIndex(5, 1), CartesianIndex(5, 4)]
+            @test ARC.corners([CartesianIndex(2, 3), CartesianIndex(1, 1), CartesianIndex(5, 4)]) == [CartesianIndex(1, 1), CartesianIndex(1, 4), CartesianIndex(5, 1), CartesianIndex(5, 4)]
         end
 
-        @testset "toobject, asobject" begin
+        @testset "ARC.toobject, ARC.asobject" begin
             indices_1 = [CartesianIndex(1, 1), CartesianIndex(1, 3)]
             indices_2 = [CartesianIndex(1, 5)]
             object = [(4, CartesianIndex(1, 1)), (9, CartesianIndex(1, 3))]
-            @test toobject(indices_1, G) == [(1, CartesianIndex(1, 1)), (0, CartesianIndex(1, 3))]
-            @test toobject(indices_2, G) == [(3, CartesianIndex(1, 5))]
-            @test toobject(object, G) == [(1, CartesianIndex(1, 1)), (0, CartesianIndex(1, 3))]
+            @test ARC.toobject(indices_1, G) == [(1, CartesianIndex(1, 1)), (0, CartesianIndex(1, 3))]
+            @test ARC.toobject(indices_2, G) == [(3, CartesianIndex(1, 5))]
+            @test ARC.toobject(object, G) == [(1, CartesianIndex(1, 1)), (0, CartesianIndex(1, 3))]
 
-            @test Set(asobject(A)) == Set([
+            @test Set(ARC.asobject(A)) == Set([
                 (1, CartesianIndex(1, 1)),
                 (0, CartesianIndex(1, 2)),
                 (0, CartesianIndex(2, 1)),
@@ -646,27 +643,27 @@ using HerbBenchmarks.ARC_AGI_1
                 (0, CartesianIndex(3, 2)),
             ])
 
-            @test fill_loc(B, 3, [CartesianIndex(1, 1), CartesianIndex(2, 2)]) == [3 1; 0 3; 2 1]
-            @test fill_loc(C, 1, [CartesianIndex(2, 1)]) == [3 4; 1 5]
+            @test ARC.fill_loc(B, 3, [CartesianIndex(1, 1), CartesianIndex(2, 2)]) == [3 1; 0 3; 2 1]
+            @test ARC.fill_loc(C, 1, [CartesianIndex(2, 1)]) == [3 4; 1 5]
 
         end
 
-        @testset "paint, underfill, underpaint" begin
+        @testset "ARC.paint, ARC.underfill, ARC.underpaint" begin
             obj1 = [(1, CartesianIndex(1, 1)), (4, CartesianIndex(2, 2))]
             obj2 = [(6, CartesianIndex(2, 1))]
             obj3 = [(6, CartesianIndex(3, 1))]
-            @test paint(B, obj1) == [1 1; 0 4; 2 1]
-            @test paint(C, obj2) == [3 4; 6 5]
-            @test paint(C, obj3) == C # out-of-bounds index is ignored
+            @test ARC.paint(B, obj1) == [1 1; 0 4; 2 1]
+            @test ARC.paint(C, obj2) == [3 4; 6 5]
+            @test ARC.paint(C, obj3) == C # out-of-bounds ARC.index is ignored
 
-            @test underfill(C, 1, [CartesianIndex(1, 1), CartesianIndex(2, 1)]) == [3 4; 1 5]
-            @test underfill(C, 1, [CartesianIndex(1, 1), CartesianIndex(4, 1)]) == C
+            @test ARC.underfill(C, 1, [CartesianIndex(1, 1), CartesianIndex(2, 1)]) == [3 4; 1 5]
+            @test ARC.underfill(C, 1, [CartesianIndex(1, 1), CartesianIndex(4, 1)]) == C
 
             obj4 = [(3, CartesianIndex(1, 1)), (3, CartesianIndex(2, 2)), (3, CartesianIndex(4, 3))]
-            @test underpaint(B, obj4) == [2 1; 0 3; 2 1]
+            @test ARC.underpaint(B, obj4) == [2 1; 0 3; 2 1]
         end
-        @testset "backdrop, delta" begin
-            @test backdrop([CartesianIndex(2, 3), CartesianIndex(3, 2), CartesianIndex(3, 3), CartesianIndex(4, 1)]) == [
+        @testset "ARC.backdrop, ARC.delta" begin
+            @test ARC.backdrop([CartesianIndex(2, 3), CartesianIndex(3, 2), CartesianIndex(3, 3), CartesianIndex(4, 1)]) == [
                 CartesianIndex(2, 1),
                 CartesianIndex(2, 2),
                 CartesianIndex(2, 3),
@@ -677,9 +674,9 @@ using HerbBenchmarks.ARC_AGI_1
                 CartesianIndex(4, 2),
                 CartesianIndex(4, 3),
             ]
-            @test isempty(backdrop([])) == true
+            @test isempty(ARC.backdrop([])) == true
 
-            @test delta([CartesianIndex(2, 3), CartesianIndex(3, 2), CartesianIndex(3, 3), CartesianIndex(4, 1)]) == [
+            @test ARC.delta([CartesianIndex(2, 3), CartesianIndex(3, 2), CartesianIndex(3, 3), CartesianIndex(4, 1)]) == [
                 CartesianIndex(2, 1),
                 CartesianIndex(2, 2),
                 CartesianIndex(3, 1),
@@ -687,13 +684,13 @@ using HerbBenchmarks.ARC_AGI_1
                 CartesianIndex(4, 3),
             ]
         end
-        @testset "gravitate, inbox, outbox" begin
-            @test gravitate([CartesianIndex(1, 1)], [CartesianIndex(1, 2)]) == CartesianIndex(0, 0)
-            @test gravitate([CartesianIndex(1, 1)], [CartesianIndex(1, 5)]) == CartesianIndex(0, 3)
+        @testset "ARC.gravitate, ARC.inbox, ARC.outbox" begin
+            @test ARC.gravitate([CartesianIndex(1, 1)], [CartesianIndex(1, 2)]) == CartesianIndex(0, 0)
+            @test ARC.gravitate([CartesianIndex(1, 1)], [CartesianIndex(1, 5)]) == CartesianIndex(0, 3)
 
-            @test inbox([CartesianIndex(1, 1), CartesianIndex(3, 3)]) == [CartesianIndex(2, 2)]
+            @test ARC.inbox([CartesianIndex(1, 1), CartesianIndex(3, 3)]) == [CartesianIndex(2, 2)]
 
-            @test Set(outbox([CartesianIndex(2, 2)])) == Set([
+            @test Set(ARC.outbox([CartesianIndex(2, 2)])) == Set([
                 CartesianIndex(1, 1),
                 CartesianIndex(1, 2),
                 CartesianIndex(1, 3),
@@ -704,7 +701,7 @@ using HerbBenchmarks.ARC_AGI_1
                 CartesianIndex(3, 3),
             ])
 
-            @test Set(box([CartesianIndex(1, 1), CartesianIndex(2, 2)])) == Set([
+            @test Set(ARC.box([CartesianIndex(1, 1), CartesianIndex(2, 2)])) == Set([
                 CartesianIndex(1, 1),
                 CartesianIndex(1, 2),
                 CartesianIndex(2, 1),
@@ -712,11 +709,11 @@ using HerbBenchmarks.ARC_AGI_1
             ])
         end
 
-        @testset "sfilter, mfilter" begin
-            @test sfilter([1, 2, 3], x -> x > 1) == [2, 3]
-            @test sfilter([2, 3, 4], x -> x % 2 == 0) == [2, 4]
+        @testset "ARC.sfilter, ARC.mfilter" begin
+            @test ARC.sfilter([1, 2, 3], x -> x > 1) == [2, 3]
+            @test ARC.sfilter([2, 3, 4], x -> x % 2 == 0) == [2, 4]
 
-            @test mfilter(
+            @test ARC.mfilter(
                 [
                     [(2, CartesianIndex(4, 4))],
                     [(1, CartesianIndex(1, 1))],
@@ -726,97 +723,97 @@ using HerbBenchmarks.ARC_AGI_1
             ) == [(2, CartesianIndex(4, 4)), (1, CartesianIndex(1, 1))]
         end
 
-        @testset "merge_containers,connect, shoot" begin
-            @test merge_containers([[(1, CartesianIndex(1, 1))], [(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]]) == [
+        @testset "ARC.merge_containers,ARC.connect, ARC.shoot" begin
+            @test ARC.merge_containers([[(1, CartesianIndex(1, 1))], [(1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))]]) == [
                 (1, CartesianIndex(1, 1)), (1, CartesianIndex(2, 2)), (1, CartesianIndex(1, 2))
             ]
-            @test merge_containers([[1, 2], [3, 4, 5]]) == [1, 2, 3, 4, 5]
-            @test merge_containers([[4, 5], [7]]) == [4, 5, 7]
+            @test ARC.merge_containers([[1, 2], [3, 4, 5]]) == [1, 2, 3, 4, 5]
+            @test ARC.merge_containers([[4, 5], [7]]) == [4, 5, 7]
             # test it also works on not-nested containers
-            @test merge_containers([1,2,3]) == [1, 2, 3]
+            @test ARC.merge_containers([1,2,3]) == [1, 2, 3]
 
-            @test connect(CartesianIndex(1, 1), CartesianIndex(2, 2)) == [CartesianIndex(1, 1), CartesianIndex(2, 2)]
-            @test connect(CartesianIndex(1, 1), CartesianIndex(1, 4)) == [
+            @test ARC.connect(CartesianIndex(1, 1), CartesianIndex(2, 2)) == [CartesianIndex(1, 1), CartesianIndex(2, 2)]
+            @test ARC.connect(CartesianIndex(1, 1), CartesianIndex(1, 4)) == [
                 CartesianIndex(1, 1),
                 CartesianIndex(1, 2),
                 CartesianIndex(1, 3),
                 CartesianIndex(1, 4)
             ]
 
-            @test shoot(CartesianIndex(1, 1), CartesianIndex(1, 1)) == [CartesianIndex(i, i) for i in range(1, 43)]
+            @test ARC.shoot(CartesianIndex(1, 1), CartesianIndex(1, 1)) == [CartesianIndex(i, i) for i in range(1, 43)]
         end
 
-        @testset "ulcorner, urcorner, llcorner, rrcorner" begin
-            # ulcorner
+        @testset "ARC.ulcorner, ARC.urcorner, ARC.llcorner, rrcorner" begin
+            # ARC.ulcorner
             indices_1 = [CartesianIndex(2, 3), CartesianIndex(1, 4), CartesianIndex(5, 1)]
             indices_2 = [CartesianIndex(2, 3), CartesianIndex(1, 1), CartesianIndex(5, 4)]
             indices_3 = [CartesianIndex(2, 6), CartesianIndex(1, 1), CartesianIndex(3, 4)]
             cells = [(4, CartesianIndex(2, 6)), (16, CartesianIndex(9, 2)), (4, CartesianIndex(5, 5))]
 
-            @test ulcorner(indices_1) == CartesianIndex(1, 1)
-            @test ulcorner(indices_2) == CartesianIndex(1, 1)
-            @test ulcorner(cells) == CartesianIndex(2, 2)
+            @test ARC.ulcorner(indices_1) == CartesianIndex(1, 1)
+            @test ARC.ulcorner(indices_2) == CartesianIndex(1, 1)
+            @test ARC.ulcorner(cells) == CartesianIndex(2, 2)
 
-            # urcorner
-            @test urcorner(indices_1) == CartesianIndex(1, 4)
-            @test urcorner(indices_2) == CartesianIndex(1, 4)
-            @test urcorner(cells) == CartesianIndex(2, 6)
+            # ARC.urcorner
+            @test ARC.urcorner(indices_1) == CartesianIndex(1, 4)
+            @test ARC.urcorner(indices_2) == CartesianIndex(1, 4)
+            @test ARC.urcorner(cells) == CartesianIndex(2, 6)
 
-            # llcorner
-            @test llcorner(indices_1) == CartesianIndex(5, 1)
-            @test llcorner(indices_2) == CartesianIndex(5, 1)
-            @test llcorner(indices_3) == CartesianIndex(3, 1)
-            @test llcorner(cells) == CartesianIndex(9, 2)
+            # ARC.llcorner
+            @test ARC.llcorner(indices_1) == CartesianIndex(5, 1)
+            @test ARC.llcorner(indices_2) == CartesianIndex(5, 1)
+            @test ARC.llcorner(indices_3) == CartesianIndex(3, 1)
+            @test ARC.llcorner(cells) == CartesianIndex(9, 2)
 
-            # lrcorner
-            @test lrcorner(indices_1) == CartesianIndex(5, 4)
-            @test lrcorner(indices_2) == CartesianIndex(5, 4)
-            @test lrcorner(cells) == CartesianIndex(9, 6)
+            # ARC.lrcorner
+            @test ARC.lrcorner(indices_1) == CartesianIndex(5, 4)
+            @test ARC.lrcorner(indices_2) == CartesianIndex(5, 4)
+            @test ARC.lrcorner(cells) == CartesianIndex(9, 6)
         end
 
-        @testset "vmirror, hmirror, dmirror, cmirror" begin
+        @testset "ARC.vmirror, ARC.hmirror, ARC.dmirror, ARC.cmirror" begin
             indices_1 = [CartesianIndex(1, 1), CartesianIndex(2, 2)]
             indices_2 = [CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(2, 2)]
             indices_3 = [CartesianIndex(1, 2), CartesianIndex(2, 3)]
             object = [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(3, 3))]
-            # vmirror
-            @test vmirror(B) == [1 2; 1 0; 1 2] # grid
-            @test vmirror(C) == [4 3; 5 5] # grid
-            @test Set(vmirror(indices_1)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)]) # indices
-            @test Set(vmirror(indices_2)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]) # indices
-            @test Set(vmirror(indices_3)) == Set([CartesianIndex(1, 3), CartesianIndex(2, 2)]) # indices
-            @test Set(vmirror(object)) == Set([(2, CartesianIndex(1, 3)), (2, CartesianIndex(2, 2)), (2, CartesianIndex(3, 2))])
+            # ARC.vmirror
+            @test ARC.vmirror(B) == [1 2; 1 0; 1 2] # grid
+            @test ARC.vmirror(C) == [4 3; 5 5] # grid
+            @test Set(ARC.vmirror(indices_1)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)]) # indices
+            @test Set(ARC.vmirror(indices_2)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]) # indices
+            @test Set(ARC.vmirror(indices_3)) == Set([CartesianIndex(1, 3), CartesianIndex(2, 2)]) # indices
+            @test Set(ARC.vmirror(object)) == Set([(2, CartesianIndex(1, 3)), (2, CartesianIndex(2, 2)), (2, CartesianIndex(3, 2))])
 
-            # hmirror
-            @test hmirror(B) == [2 1; 0 1; 2 1]
-            @test hmirror(C) == [5 5; 3 4]
-            @test Set(hmirror(indices_1)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)])
-            @test Set(hmirror(indices_2)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 1), CartesianIndex(1, 2)])
-            @test Set(hmirror(indices_3)) == Set([CartesianIndex(2, 2), CartesianIndex(1, 3)])
-            @test Set(hmirror(object)) == Set([(2, CartesianIndex(3, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(1, 3))])
+            # ARC.hmirror
+            @test ARC.hmirror(B) == [2 1; 0 1; 2 1]
+            @test ARC.hmirror(C) == [5 5; 3 4]
+            @test Set(ARC.hmirror(indices_1)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 2)])
+            @test Set(ARC.hmirror(indices_2)) == Set([CartesianIndex(2, 1), CartesianIndex(1, 1), CartesianIndex(1, 2)])
+            @test Set(ARC.hmirror(indices_3)) == Set([CartesianIndex(2, 2), CartesianIndex(1, 3)])
+            @test Set(ARC.hmirror(object)) == Set([(2, CartesianIndex(3, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(1, 3))])
 
-            # dmirror
-            @test dmirror(B) == [2 0 2; 1 1 1]
-            @test dmirror(C) == [3 5; 4 5]
-            @test dmirror(indices_1) == [CartesianIndex(1, 1), CartesianIndex(2, 2)]
-            @test dmirror(indices_2) == [CartesianIndex(1, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]
-            @test dmirror(indices_3) == indices_3
-            @test dmirror(object) == [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(2, 4))]
+            # ARC.dmirror
+            @test ARC.dmirror(B) == [2 0 2; 1 1 1]
+            @test ARC.dmirror(C) == [3 5; 4 5]
+            @test ARC.dmirror(indices_1) == [CartesianIndex(1, 1), CartesianIndex(2, 2)]
+            @test ARC.dmirror(indices_2) == [CartesianIndex(1, 1), CartesianIndex(1, 2), CartesianIndex(2, 2)]
+            @test ARC.dmirror(indices_3) == indices_3
+            @test ARC.dmirror(object) == [(2, CartesianIndex(1, 2)), (2, CartesianIndex(2, 3)), (2, CartesianIndex(2, 4))]
 
-            # cmirror
-            @test cmirror(B) == [1 1 1; 2 0 2]
-            @test cmirror(C) == [5 4; 5 3]
-            @test cmirror(indices_1) == [CartesianIndex(2, 2), CartesianIndex(1, 1)]
-            @test cmirror(indices_2) == [CartesianIndex(2, 2), CartesianIndex(2, 1), CartesianIndex(1, 1)]
-            @test cmirror(indices_3) == [CartesianIndex(2, 3), CartesianIndex(1, 2)]
+            # ARC.cmirror
+            @test ARC.cmirror(B) == [1 1 1; 2 0 2]
+            @test ARC.cmirror(C) == [5 4; 5 3]
+            @test ARC.cmirror(indices_1) == [CartesianIndex(2, 2), CartesianIndex(1, 1)]
+            @test ARC.cmirror(indices_2) == [CartesianIndex(2, 2), CartesianIndex(2, 1), CartesianIndex(1, 1)]
+            @test ARC.cmirror(indices_3) == [CartesianIndex(2, 3), CartesianIndex(1, 2)]
         end
 
-        @testset "upscale" begin
+        @testset "ARC.upscale" begin
             ## grid
-            @test upscale(B, 1) == B
-            @test upscale(C, 1) == C
-            @test upscale(B, 2) == [2 2 1 1; 2 2 1 1; 0 0 1 1; 0 0 1 1; 2 2 1 1; 2 2 1 1]
-            @test upscale(C, 2) == [3 3 4 4; 3 3 4 4; 5 5 5 5; 5 5 5 5]
+            @test ARC.upscale(B, 1) == B
+            @test ARC.upscale(C, 1) == C
+            @test ARC.upscale(B, 2) == [2 2 1 1; 2 2 1 1; 0 0 1 1; 0 0 1 1; 2 2 1 1; 2 2 1 1]
+            @test ARC.upscale(C, 2) == [3 3 4 4; 3 3 4 4; 5 5 5 5; 5 5 5 5]
 
             ## object
             obj1 = [(3, CartesianIndex(1, 2)), (4, CartesianIndex(2, 1)), (5, CartesianIndex(2, 2))]
@@ -826,16 +823,16 @@ using HerbBenchmarks.ARC_AGI_1
                 (4, CartesianIndex(3, 2)), (4, CartesianIndex(4, 2)),
                 (5, CartesianIndex(3, 3)), (5, CartesianIndex(4, 3)),
                 (5, CartesianIndex(3, 4)), (5, CartesianIndex(4, 4))]
-            @test Set(upscale(obj1, 2)) == Set(expected)
+            @test Set(ARC.upscale(obj1, 2)) == Set(expected)
 
             obj2 = [(3, CartesianIndex(1, 1))]
             expected = [(3, CartesianIndex(1, 1)), (3, CartesianIndex(2, 1)),
                 (3, CartesianIndex(1, 2)), (3, CartesianIndex(2, 2))]
-            @test Set(upscale(obj2, 2)) == Set(expected)
+            @test Set(ARC.upscale(obj2, 2)) == Set(expected)
         end
 
-        @testset "frontiers, hperiod" begin
-            @test frontiers(C) == [[(5, CartesianIndex(2, 1)), (5, CartesianIndex(2, 2))]]
+        @testset "ARC.frontiers, ARC.hperiod" begin
+            @test ARC.frontiers(C) == [[(5, CartesianIndex(2, 1)), (5, CartesianIndex(2, 2))]]
 
             obj1 = [
                 (8, CartesianIndex(3, 2)),
@@ -878,10 +875,10 @@ using HerbBenchmarks.ARC_AGI_1
                 (2, CartesianIndex(4, 4)),
                 (1, CartesianIndex(4, 2)),
             ]
-            @test hperiod(obj1) == 2
-            @test hperiod(obj2) == 3
-            @test vperiod(obj2) == 1
-            @test vperiod(obj3) == 2
+            @test ARC.hperiod(obj1) == 2
+            @test ARC.hperiod(obj2) == 3
+            @test ARC.vperiod(obj2) == 1
+            @test ARC.vperiod(obj3) == 2
 
         end
     end
@@ -893,133 +890,133 @@ using HerbBenchmarks.ARC_AGI_1
                 CartesianIndex(2, 1) CartesianIndex(2, 2);
                 CartesianIndex(3, 1) CartesianIndex(3, 2)
             ]
-            @test collect(asindices(A)) == expected_indices
+            @test collect(ARC.asindices(A)) == expected_indices
 
             expected_indices = [
                 CartesianIndex(1, 1) CartesianIndex(1, 2);
                 CartesianIndex(2, 1) CartesianIndex(2, 2)
             ]
-            @test collect(asindices(C)) == expected_indices
+            @test collect(ARC.asindices(C)) == expected_indices
         end
-        @testset "ofcolor" begin
-            @test Set(ofcolor(A, 0)) == Set([CartesianIndex(1, 2), CartesianIndex(2, 1), CartesianIndex(3, 2)])
-            @test Set(ofcolor(B, 2)) == Set([CartesianIndex(1, 1), CartesianIndex(3, 1)])
-            @test ofcolor(C, 1) == []
+        @testset "ARC.ofcolor" begin
+            @test Set(ARC.ofcolor(A, 0)) == Set([CartesianIndex(1, 2), CartesianIndex(2, 1), CartesianIndex(3, 2)])
+            @test Set(ARC.ofcolor(B, 2)) == Set([CartesianIndex(1, 1), CartesianIndex(3, 1)])
+            @test ARC.ofcolor(C, 1) == []
         end
         @testset "grid rotations" begin
             # 90 deg clockwise
-            @test rot90deg(B) == [2 0 2; 1 1 1]
-            @test rot90deg(C) == [5 3; 5 4]
+            @test ARC.rot90deg(B) == [2 0 2; 1 1 1]
+            @test ARC.rot90deg(C) == [5 3; 5 4]
 
 
             # 180 deg
-            @test rot180deg(B) == [1 2; 1 0; 1 2]
-            @test rot180deg(B) == rot90deg(rot90deg(B))
-            @test rot180deg(C) == [5 5; 4 3]
+            @test ARC.rot180deg(B) == [1 2; 1 0; 1 2]
+            @test ARC.rot180deg(B) == ARC.rot90deg(ARC.rot90deg(B))
+            @test ARC.rot180deg(C) == [5 5; 4 3]
 
             # 270 deg
-            @test rot270deg(B) == [1 1 1; 2 0 2]
-            @test rot270deg(C) == [4 5; 3 5]
+            @test ARC.rot270deg(B) == [1 1 1; 2 0 2]
+            @test ARC.rot270deg(C) == [4 5; 3 5]
         end
-        @testset "up- and downscale" begin
-            @test downscale(B, 1) == B
-            @test downscale(C, 1) == C
+        @testset "up- and ARC.downscale" begin
+            @test ARC.downscale(B, 1) == B
+            @test ARC.downscale(C, 1) == C
             B2 = [2 2 1 1;
                 2 2 1 1;
                 0 0 1 1;
                 0 0 1 1;
                 2 2 1 1;
                 2 2 1 1]
-            @test downscale(B2, 2) == B
+            @test ARC.downscale(B2, 2) == B
             C2 = [3 3 4 4;
                 3 3 4 4;
                 5 5 5 5;
                 5 5 5 5]
-            @test downscale(C2, 2) == C
-            @test downscale(B2, 3) == [2 1; 0 1]
+            @test ARC.downscale(C2, 2) == C
+            @test ARC.downscale(B2, 3) == [2 1; 0 1]
 
-            # upscale horizontally
-            @test hupscale(B, 1) == B
-            @test hupscale(C, 1) == C
-            @test hupscale(B, 2) == [2 2 1 1; 0 0 1 1; 2 2 1 1]
-            @test hupscale(C, 2) == [3 3 4 4; 5 5 5 5]
-            @test hupscale(A, 3) == [1 1 1 0 0 0; 0 0 0 1 1 1; 1 1 1 0 0 0]
+            # ARC.upscale horizontally
+            @test ARC.hupscale(B, 1) == B
+            @test ARC.hupscale(C, 1) == C
+            @test ARC.hupscale(B, 2) == [2 2 1 1; 0 0 1 1; 2 2 1 1]
+            @test ARC.hupscale(C, 2) == [3 3 4 4; 5 5 5 5]
+            @test ARC.hupscale(A, 3) == [1 1 1 0 0 0; 0 0 0 1 1 1; 1 1 1 0 0 0]
 
-            # upscale verticallydef test_vupscale():
-            @test vupscale(B, 1) == B
-            @test vupscale(C, 1) == C
-            @test vupscale(B, 2) == [2 1; 2 1; 0 1; 0 1; 2 1; 2 1]
-            @test vupscale(C, 2) == [3 4; 3 4; 5 5; 5 5]
-            @test vupscale(A, 3) == [1 0; 1 0; 1 0; 0 1; 0 1; 0 1; 1 0; 1 0; 1 0]
+            # ARC.upscale verticallydef test_vupscale():
+            @test ARC.vupscale(B, 1) == B
+            @test ARC.vupscale(C, 1) == C
+            @test ARC.vupscale(B, 2) == [2 1; 2 1; 0 1; 0 1; 2 1; 2 1]
+            @test ARC.vupscale(C, 2) == [3 4; 3 4; 5 5; 5 5]
+            @test ARC.vupscale(A, 3) == [1 0; 1 0; 1 0; 0 1; 0 1; 0 1; 1 0; 1 0; 1 0]
         end
         @testset "concatenate grids" begin
             # hcat
-            @test hconcat(A, B) == [1 0 2 1; 0 1 0 1; 1 0 2 1]
-            @test hconcat(B, A) == [2 1 1 0; 0 1 0 1; 2 1 1 0]
+            @test ARC.hconcat(A, B) == [1 0 2 1; 0 1 0 1; 1 0 2 1]
+            @test ARC.hconcat(B, A) == [2 1 1 0; 0 1 0 1; 2 1 1 0]
 
             # vcat
-            @test vconcat(A, B) == [1 0; 0 1; 1 0; 2 1; 0 1; 2 1]
-            @test vconcat(B, A) == [2 1; 0 1; 2 1; 1 0; 0 1; 1 0]
-            @test vconcat(B, C) == [2 1; 0 1; 2 1; 3 4; 5 5]
+            @test ARC.vconcat(A, B) == [1 0; 0 1; 1 0; 2 1; 0 1; 2 1]
+            @test ARC.vconcat(B, A) == [2 1; 0 1; 2 1; 1 0; 0 1; 1 0]
+            @test ARC.vconcat(B, C) == [2 1; 0 1; 2 1; 3 4; 5 5]
         end
 
-        @testset "subgrid, split grid" begin
-            @test subgrid([(3, CartesianIndex(1, 1))], C) == [3;;]
-            @test subgrid([(5, CartesianIndex(2, 1)), (5, CartesianIndex(2, 2))], C) == [5 5;]
-            @test subgrid([(2, CartesianIndex(1, 2)), (4, CartesianIndex(2, 1))], D) == [1 2; 4 5]
-            @test subgrid([(1, CartesianIndex(1, 1)), (0, CartesianIndex(3, 3))], D) == D
+        @testset "ARC.subgrid, split grid" begin
+            @test ARC.subgrid([(3, CartesianIndex(1, 1))], C) == [3;;]
+            @test ARC.subgrid([(5, CartesianIndex(2, 1)), (5, CartesianIndex(2, 2))], C) == [5 5;]
+            @test ARC.subgrid([(2, CartesianIndex(1, 2)), (4, CartesianIndex(2, 1))], D) == [1 2; 4 5]
+            @test ARC.subgrid([(1, CartesianIndex(1, 1)), (0, CartesianIndex(3, 3))], D) == D
 
-            @test hsplit(B, 1) == [B]
-            @test hsplit(B, 2) == [[2; 0; 2;;], [1; 1; 1;;]]
-            @test hsplit(C, 1) == [C]
-            @test hsplit(C, 2) == [[3; 5;;], [4; 5;;]]
+            @test ARC.hsplit(B, 1) == [B]
+            @test ARC.hsplit(B, 2) == [[2; 0; 2;;], [1; 1; 1;;]]
+            @test ARC.hsplit(C, 1) == [C]
+            @test ARC.hsplit(C, 2) == [[3; 5;;], [4; 5;;]]
 
-            @test vsplit(B, 1) == [B]
-            @test vsplit(B, 3) == [[2 1;], [0 1;], [2 1;]]
-            @test vsplit(C, 1) == [C]
-            @test vsplit(C, 2) == [[3 4;], [5 5;]]
+            @test ARC.vsplit(B, 1) == [B]
+            @test ARC.vsplit(B, 3) == [[2 1;], [0 1;], [2 1;]]
+            @test ARC.vsplit(C, 1) == [C]
+            @test ARC.vsplit(C, 2) == [[3 4;], [5 5;]]
         end
-        @testset "cellwise, replace, switch" begin
-            # cellwise
-            @test cellwise(A, B, 0) == [0 0; 0 1; 0 0]
-            @test cellwise(C, E, 0) == [0 0; 0 5]
+        @testset "ARC.cellwise, replace, ARC.switch" begin
+            # ARC.cellwise
+            @test ARC.cellwise(A, B, 0) == [0 0; 0 1; 0 0]
+            @test ARC.cellwise(C, E, 0) == [0 0; 0 5]
 
             #replace   
-            @test replace_color(A, 1, 1) == A
-            @test replace_color(B, 2, 3) == [3 1; 0 1; 3 1]
-            @test replace_color(C, 5, 0) == [3 4; 0 0]
+            @test ARC.replace_color(A, 1, 1) == A
+            @test ARC.replace_color(B, 2, 3) == [3 1; 0 1; 3 1]
+            @test ARC.replace_color(C, 5, 0) == [3 4; 0 0]
 
-            # switch
-            @test switch(A, 1, 1) == A
-            @test switch(A, 1, 0) == [0 1; 1 0; 0 1]
-            @test switch(C, 3, 4) == [4 3; 5 5]
+            # ARC.switch
+            @test ARC.switch(A, 1, 1) == A
+            @test ARC.switch(A, 1, 0) == [0 1; 1 0; 0 1]
+            @test ARC.switch(C, 3, 4) == [4 3; 5 5]
         end
-        @testset "trim, tophalf, bottomhalf, lefthalf, righthalf" begin
-            # trim
-            @test trim(D) == [5;;]
-            @test trim(G) == [1 1 0; 1 1 2; 0 2 2]
+        @testset "ARC.trim, ARC.tophalf, ARC.bottomhalf, ARC.lefthalf, ARC.righthalf" begin
+            # ARC.trim
+            @test ARC.trim(D) == [5;;]
+            @test ARC.trim(G) == [1 1 0; 1 1 2; 0 2 2]
 
-            # tophalf and bottomhalf
-            @test tophalf(C) == [3 4;]
-            @test tophalf(D) == [1 2 3;]
+            # ARC.tophalf and ARC.bottomhalf
+            @test ARC.tophalf(C) == [3 4;]
+            @test ARC.tophalf(D) == [1 2 3;]
 
-            @test bottomhalf(C) == [5 5]
-            @test bottomhalf(D) == [7 8 0]
-            @test bottomhalf(G) == [0 0 2 2 0;
+            @test ARC.bottomhalf(C) == [5 5]
+            @test ARC.bottomhalf(D) == [7 8 0]
+            @test ARC.bottomhalf(G) == [0 0 2 2 0;
                 0 2 0 0 0]
 
-            # lefthalf and righthalf
+            # ARC.lefthalf and ARC.righthalf
             v = reshape([3, 5], :, 1)  # 2×1 column vector
-            @test lefthalf(C) == v
-            @test lefthalf(D) == [1; 4; 7;;]
-            @test lefthalf(G) == [1 0; 0 1; 0 1; 0 0; 0 2]
+            @test ARC.lefthalf(C) == v
+            @test ARC.lefthalf(D) == [1; 4; 7;;]
+            @test ARC.lefthalf(G) == [1 0; 0 1; 0 1; 0 0; 0 2]
 
-            @test righthalf(C) == [4; 5;;]
-            @test righthalf(D) == [3; 6; 0;;]
-            @test righthalf(G) == [0 3; 0 0; 2 0; 2 0; 0 0]
+            @test ARC.righthalf(C) == [4; 5;;]
+            @test ARC.righthalf(D) == [3; 6; 0;;]
+            @test ARC.righthalf(G) == [0 3; 0 0; 2 0; 2 0; 0 0]
         end
-        @testset "compress" begin
-            # compress
+        @testset "ARC.compress" begin
+            # ARC.compress
             expected_K = [0 0 0 0 0 0;
                 0 0 0 0 0 0;
                 0 0 0 0 0 0;
@@ -1031,93 +1028,93 @@ using HerbBenchmarks.ARC_AGI_1
                 2 0 0 2;
                 0 0 2 0]
 
-            @test compress(K) == expected_K
-            @test compress(H) == expected_H
+            @test ARC.compress(K) == expected_K
+            @test ARC.compress(H) == expected_H
         end
-        @testset "canvas" begin
-            @test canvas(3, CartesianIndex(1, 2)) == [3 3]
-            @test canvas(2, CartesianIndex(3, 1)) == fill(2, 3, 1)
-            @test canvas(7, CartesianIndex(3, 3)) == [7 7 7; 7 7 7; 7 7 7]
+        @testset "ARC.canvas" begin
+            @test ARC.canvas(3, CartesianIndex(1, 2)) == [3 3]
+            @test ARC.canvas(2, CartesianIndex(3, 1)) == fill(2, 3, 1)
+            @test ARC.canvas(7, CartesianIndex(3, 3)) == [7 7 7; 7 7 7; 7 7 7]
         end
-        @testset "index" begin
-            @test index(C, CartesianIndex(1, 1)) == 3
-            @test index(D, CartesianIndex(2, 3)) == 6
+        @testset "ARC.index" begin
+            @test ARC.index(C, CartesianIndex(1, 1)) == 3
+            @test ARC.index(D, CartesianIndex(2, 3)) == 6
 
         end
 
-        @testset "cover, move" begin
-            @test cover(C, [CartesianIndex(1, 1)]) == [5 4; 5 5]
+        @testset "ARC.cover, ARC.move" begin
+            @test ARC.cover(C, [CartesianIndex(1, 1)]) == [5 4; 5 5]
 
-            @test move(C, [(3, CartesianIndex(1, 1))], CartesianIndex(1, 1)) == [5 4; 5 3]
+            @test ARC.move(C, [(3, CartesianIndex(1, 1))], CartesianIndex(1, 1)) == [5 4; 5 3]
         end
 
 
         @testset "occurences" begin
-            @test occurrences(G, [(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2))]) == [CartesianIndex(2, 2), CartesianIndex(3, 2)]
+            @test ARC.occurrences(G, [(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 2))]) == [CartesianIndex(2, 2), CartesianIndex(3, 2)]
         end
     end
 
     @testset "Utils primitives" begin
-        @testset "extract, insert, remove" begin
-            @test extract([1, 2, 3], x -> x > 2) == 3
-            @test extract([2, 3, 4], x -> x % 4 == 0) == 4
+        @testset "ARC.extract, ARC.insert, ARC.remove" begin
+            @test ARC.extract([1, 2, 3], x -> x > 2) == 3
+            @test ARC.extract([2, 3, 4], x -> x % 4 == 0) == 4
 
-            @test insert(1, [2]) == [2, 1]
-            @test insert(1, Set([2])) == Set([1, 2])
-            @test remove(1, [1, 2]) == [2]
+            @test ARC.insert(1, [2]) == [2, 1]
+            @test ARC.insert(1, Set([2])) == Set([1, 2])
+            @test ARC.remove(1, [1, 2]) == [2]
         end
-        @testset "first, last, other" begin
+        @testset "first, last, ARC.other" begin
             object = [(1, CartesianIndex(1, 1)), (2, CartesianIndex(2, 1)), (2, CartesianIndex(1, 2))]
-            @test firstof([2, 3]) == 2
-            @test firstof(object) == (1, CartesianIndex(1, 1))
-            @test lastof([2, 3]) == 3
-            @test lastof(object) == (2, CartesianIndex(1, 2))
-            @test other(1, [1, 2]) == 2
+            @test ARC.firstof([2, 3]) == 2
+            @test ARC.firstof(object) == (1, CartesianIndex(1, 1))
+            @test ARC.lastof([2, 3]) == 3
+            @test ARC.lastof(object) == (2, CartesianIndex(1, 2))
+            @test ARC.other(1, [1, 2]) == 2
         end
-        @testset "interval, product, pair" begin
-            @test interval(1, 4, 1) == [1, 2, 3, 4]
-            @test interval(5, 2, -1) == [5, 4, 3, 2]
+        @testset "ARC.interval, product, ARC.pair" begin
+            @test ARC.interval(1, 4, 1) == [1, 2, 3, 4]
+            @test ARC.interval(5, 2, -1) == [5, 4, 3, 2]
 
-            @test Set(cartesian_product([1, 2], [2, 3])) == Set([
+            @test Set(ARC.cartesian_product([1, 2], [2, 3])) == Set([
                 CartesianIndex(1, 2),
                 CartesianIndex(1, 3),
                 CartesianIndex(2, 2),
                 CartesianIndex(2, 3)
             ])
 
-            @test pair(CartesianIndex(1, 2), CartesianIndex(4, 3)) == [CartesianIndex(1, 4), CartesianIndex(2, 3)]
+            @test ARC.pair(CartesianIndex(1, 2), CartesianIndex(4, 3)) == [CartesianIndex(1, 4), CartesianIndex(2, 3)]
         end
-        @testset "branch, compose, chain, matcher, negate, conjunct" begin
-            @test branch(true, 1, 3) == 1
-            @test branch(false, 4, 2) == 2
-            @test branch(5 > 9, 1, 2) == 2
+        @testset "ARC.branch, ARC.compose, ARC.chain, matcher, ARC.negate, ARC.conjunct" begin
+            @test ARC.branch(true, 1, 3) == 1
+            @test ARC.branch(false, 4, 2) == 2
+            @test ARC.branch(5 > 9, 1, 2) == 2
 
-            myfun = compose(x -> x^2, x -> x + 1)
+            myfun = ARC.compose(x -> x^2, x -> x + 1)
             @test myfun(2) == 9
-            myotherfun = compose(x -> x + 1, x -> x^2)
+            myotherfun = ARC.compose(x -> x + 1, x -> x^2)
             @test myotherfun(2) == 5
 
-            mychainfun = chain(x -> x + 3, x -> x^2, x -> x + 1)
+            mychainfun = ARC.chain(x -> x + 3, x -> x^2, x -> x + 1)
             @test mychainfun(2) == 12
 
-            is_even = even
-            not_even = negate(is_even)
+            is_even = ARC.even
+            not_even = ARC.negate(is_even)
             @test not_even(2) == false
             @test not_even(3) == true
 
             greater_than_zero = x -> x > 0 
-            even_and_positive = conjunct(is_even, positive)
+            even_and_positive = ARC.conjunct(is_even, ARC.positive)
             @test even_and_positive(2) == true
             @test even_and_positive(3) == false
             @test even_and_positive(-2) == false
         end
-        @testset "apply,rapply, mapply, papply, mpapply, prapply" begin
-            @test apply(x -> x^2, [1, 2, 3]) == [1, 4, 9]
-            @test apply(x -> x % 2, [1, 2]) == [1, 0]
+        @testset "ARC.apply,ARC.rapply, ARC.mapply, ARC.papply, ARC.mpapply, ARC.prapply" begin
+            @test ARC.apply(x -> x^2, [1, 2, 3]) == [1, 4, 9]
+            @test ARC.apply(x -> x % 2, [1, 2]) == [1, 0]
 
-            @test rapply([x -> x + 1, x -> x - 1], 1) == [2, 0]
+            @test ARC.rapply([x -> x + 1, x -> x - 1], 1) == [2, 0]
 
-            @test mapply(
+            @test ARC.mapply(
                 x -> [(v + 1, ind) for (v, ind) in x],
                 [
                     [(1, CartesianIndex(1, 1))],
@@ -1128,9 +1125,9 @@ using HerbBenchmarks.ARC_AGI_1
                 (2, CartesianIndex(2, 2)), (2, CartesianIndex(1, 2))
             ]
 
-            @test papply((x, y) -> x + y, [1, 2], [3, 4]) == [4, 6]
+            @test ARC.papply((x, y) -> x + y, [1, 2], [3, 4]) == [4, 6]
 
-            @test mpapply(
+            @test ARC.mpapply(
                 (x, y) -> [(x, ind) for (_, ind) in y],
                 [3, 4],
                 [
@@ -1139,153 +1136,210 @@ using HerbBenchmarks.ARC_AGI_1
                 ]
             ) == [(3, CartesianIndex(1, 1)), (4, CartesianIndex(2, 2)), (4, CartesianIndex(1, 2))]
 
-            @test prapply((x, y) -> x + y, [1, 2], [2, 3]) == [3, 4, 4, 5]
+            @test ARC.prapply((x, y) -> x + y, [1, 2], [2, 3]) == [3, 4, 4, 5]
         end
     end
 
 end
 
+@testitem "ARC-AGI-1: Hodel interpreter tests" begin
+    import HerbBenchmarks.ARC_AGI1 as ARC
+    import HerbGrammar: expr2rulenode
 
-@testset "ARC-AGI-1: Basic" begin
-    @testset "Initialize and resize grid" begin
-        # Test Grid struct
-        mat = [1 2 3; 4 5 6; 7 8 9]
-        grid = Grid(mat)
-        @test (grid.width, grid.height) == (3, 3)
-        @test grid.data == mat
+    g = ARC.grammar_hodel
+    spec = ARC.problem_007bbfb7.spec
+    args1 = [ex.in[:_arg_1] for ex in spec]
 
-        # Test initialise grid state
-        vec = collect(1:9)
-        grid = initState(vec)
-        @test (grid.width, grid.height) == (3, 3)
-        @test grid.data == mat
+    rn(ex) = expr2rulenode(ex, g)
 
-        # Test array_to_matrix
-        vec = collect(1:10)
-        mat = array_to_matrix(vec)
-        @test size(mat) == (3, 4)
+    # -------------------------------------------------------------------------
+    # Basic Grid / identity
+    # -------------------------------------------------------------------------
 
-        # Test initialise grid with zeros
-        grid = init_grid(3, 3)
-        @test (grid.width, grid.height) == (3, 3)
-        @test all(grid.data .== 0)
+    arg_rn = rn(:(_arg_1))
+    @test ARC.interpret(arg_rn, spec) == args1
 
-        # Test resize grid
-        mat = [0 1 0; 1 0 1; 1 1 1]
-        grid = Grid(mat)
-        # Make grid larger
-        new_grid = resize_grid(grid, 5, 5)
-        @test (new_grid.width, new_grid.height) == (5, 5)
-        @test new_grid.data[1:3, 1:3] == mat
-        @test all(new_grid.data[end-1:end, end-1:end] .== 0)
-        # Shrink grid
-        new_grid = resize_grid(grid, 2, 2)
-        @test (new_grid.width, new_grid.height) == (2, 2)
-        @test new_grid.data == mat[1:2, 1:2]
-        # Keep grid the same size
-        new_grid = resize_grid(grid, 3, 3)
-        @test (new_grid.width, new_grid.height) == (3, 3)
-        @test new_grid.data == mat
-    end
+    # -------------------------------------------------------------------------
+    # Basic grid transformations
+    # -------------------------------------------------------------------------
 
-    @testset "Clone, copy and reset grid" begin
-        mat = [1 2 3; 4 5 6; 7 8 9]
-        grid = Grid(mat)
-        # Test clone grid
-        new_grid = clone_grid(grid)
-        @test (new_grid.width, new_grid.height) == (3, 3)
-        @test new_grid.data == mat
+    rot90_rn = rn(:(rot90deg(_arg_1)))
+    rot180_rn = rn(:(rot180deg(_arg_1)))
+    rot270_rn = rn(:(rot270deg(_arg_1)))
 
-        # Test copy from input
-        # TODO: Why clone and copy_from_input?
-        new_grid = copy_from_input(grid)
-        @test (new_grid.width, new_grid.height) == (3, 3)
-        @test new_grid.data == mat
+    @test ARC.interpret(rot90_rn, spec) == [ARC.rot90deg(g) for g in args1]
+    @test ARC.interpret(rot180_rn, spec) == [ARC.rot180deg(g) for g in args1]
+    @test ARC.interpret(rot270_rn, spec) == [ARC.rot270deg(g) for g in args1]
 
-        # Test reset grid to zeros
-        new_grid = reset_grid(grid)
-        @test (new_grid.width, new_grid.height) == (3, 3)
-        @test all(new_grid.data .== 0)
-    end
+    # -------------------------------------------------------------------------
+    # Grid composition
+    # -------------------------------------------------------------------------
 
-    @testset "Manipulate cells" begin
-        @testset "Select cells" begin
-            mat = [1 2 3; 4 5 6; 7 8 9]
-            grid = Grid(mat)
-            another_grid = init_grid(5, 5)
+    hconcat_rn = rn(:(hconcat(_arg_1, _arg_1)))
+    vconcat_rn = rn(:(vconcat(_arg_1, _arg_1)))
+    repeat_rn = rn(:(repeat_item(_arg_1, 2)))
 
-            # Test set cell value 
-            new_grid = set_cell(grid, 3, 3, 0)
-            @test new_grid.data[end, end] == 0
-            @test_throws BoundsError set_cell(grid, 4, 3, 0)
+    @test ARC.interpret(hconcat_rn, spec) == [ARC.hconcat(g, g) for g in args1]
+    @test ARC.interpret(vconcat_rn, spec) == [ARC.vconcat(g, g) for g in args1]
+    @test ARC.interpret(repeat_rn, spec) == [ARC.repeat_item(g, 2) for g in args1]
 
-            # Test select  
-            start_row, start_col, end_row, end_col = 1, 1, 2, 2
-            selected_cells = select(grid, start_row, start_col, end_row, end_col)
-            @test selected_cells == [(1, 1), (1, 2), (2, 1), (2, 2)]
-            # ... with invalid start and end values
-            start_row, start_col, end_row, end_col = 2, 2, 1, 1
-            selected_cells = select(grid, start_row, start_col, end_row, end_col)
-            @test selected_cells == []
-            # ... with out of bounds end values
-            start_row, start_col, end_row, end_col = 1, 1, 4, 4
-            selected_cells = select(grid, start_row, start_col, end_row, end_col)
-            @test selected_cells == [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]
-        end
-        @testset "Select and paste cells" begin
-            # Test case: same input and target grid
-            mat = [1 2 3; 4 5 6; 7 8 9]
-            grid_1 = Grid(mat)
-            start_row, start_col, end_row, end_col = 3, 1, 3, 3
-            paste_row, paste_col = 1, 1
-            new_grid = select_and_paste(grid_1, start_row, start_col, end_row, end_col, paste_row, paste_col)
-            @test new_grid.data == [7 8 9; 4 5 6; 7 8 9]
-            # ... on a bigger grid
-            mat = Matrix{Int}(transpose(reshape(Int.(1:100), 10, 10)))
-            grid_2 = Grid(mat)
-            expected_data = copy(mat)
-            expected_data[10, 8:10] = (12:14)
-            start_row, start_col, end_row, end_col = 2, 2, 2, 4
-            paste_row, paste_col = 10, 8
-            new_grid = select_and_paste(grid_2, start_row, start_col, end_row, end_col, paste_row, paste_col)
-            @test new_grid.data == expected_data
-            # ... errors when paste indices out of bounds 
-            start_row, start_col, end_row, end_col = 2, 2, 2, 4
-            paste_row, paste_col = 10, 9
-            @test_throws BoundsError select_and_paste(grid_2, start_row, start_col, end_row, end_col, paste_row, paste_col)
+    # -------------------------------------------------------------------------
+    # Grid editing
+    # -------------------------------------------------------------------------
 
-            # Test case: different input and target grid
-            grid_3 = Grid(zeros(Int, 3, 3))
-            expected_data = copy(mat)
-            expected_data[4:6, 3:5] .= 0
-            start_row, start_col, end_row, end_col = 1, 1, 3, 3
-            paste_row, paste_col = 4, 3
-            new_grid = select_and_paste(grid_3, start_row, start_col, end_row, end_col, grid_2, paste_row, paste_col)
-            @test new_grid.data == expected_data
-            # ... errors when paste indices out of bounds
-            start_row, start_col, end_row, end_col = 1, 1, 3, 3
-            paste_row, paste_col = 10, 8
-            @test_throws BoundsError select_and_paste(grid_3, start_row, start_col, end_row, end_col, grid_2, paste_row, paste_col)
-        end
-        @testset "flood fill cells" begin
-            mat = [0 2 9 0; 2 2 1 3; 2 0 7 2; 2 2 2 5]
-            [0 2 9 0]
-            [2 2 1 3]
-            [2 0 7 2]
-            [2 2 2 5]
+    replace_rn = rn(:(replace_color(_arg_1, 7, 1)))
+    switch_rn = rn(:(switch(_arg_1, 0, 7)))
+    cellwise_rn = rn(:(cellwise(_arg_1, _arg_1, 1)))
 
-            grid = Grid(mat)
-            row, col = 2, 2
-            color = 4
-            expected_data = [0 4 9 0; 4 4 1 3; 4 0 7 2; 4 4 4 5]
-            new_grid = floodfill(grid, row, col, color)
-            @test new_grid.data == expected_data
-            # no connected cells
-            row, col = 1, 1
-            color = 4
-            expected_data = [4 2 9 0; 2 2 1 3; 2 0 7 2; 2 2 2 5]
-            new_grid = floodfill(grid, row, col, color)
-            @test new_grid.data == expected_data
-        end
-    end
+    @test ARC.interpret(replace_rn, spec) == [ARC.replace_color(g, 7, 1) for g in args1]
+    @test ARC.interpret(switch_rn, spec) == [ARC.switch(g, 0, 7) for g in args1]
+    @test ARC.interpret(cellwise_rn, spec) == [ARC.cellwise(g, g, 1) for g in args1]
+
+    # -------------------------------------------------------------------------
+    # IntegerTuple construction and ARC.shape-sensitive grid construction
+    # -------------------------------------------------------------------------
+
+    canvas_rn = rn(:(canvas(1, shape(_arg_1))))
+    crop_rn = rn(:(crop(_arg_1, astuple(1, 1), shape(_arg_1))))
+
+    @test ARC.interpret(canvas_rn, spec) == [
+        ARC.canvas(1, ARC.shape(g)) for g in args1
+    ]
+
+    @test ARC.interpret(crop_rn, spec) == [
+        ARC.crop(g, ARC.astuple(1, 1), ARC.shape(g)) for g in args1
+    ]
+
+    # -------------------------------------------------------------------------
+    # Grid containers
+    # -------------------------------------------------------------------------
+
+    first_hsplit_rn = rn(:(firstof(hsplit(_arg_1, 3))))
+    last_vsplit_rn = rn(:(lastof(vsplit(_arg_1, 3))))
+    tallest_hsplit_rn = rn(:(argmax_by(hsplit(_arg_1, 3), height)))
+
+    @test ARC.interpret(first_hsplit_rn, spec) == [
+        ARC.firstof(ARC.hsplit(g, 3)) for g in args1
+    ]
+
+    @test ARC.interpret(last_vsplit_rn, spec) == [
+        ARC.lastof(ARC.vsplit(g, 3)) for g in args1
+    ]
+
+    @test ARC.interpret(tallest_hsplit_rn, spec) == [
+        ARC.argmax_by(ARC.hsplit(g, 3), ARC.height) for g in args1
+    ]
+
+    # -------------------------------------------------------------------------
+    # Indices, ARC.objects, ARC.paint/fill/ARC.cover
+    # -------------------------------------------------------------------------
+
+    paint_recolor_rn = rn(:(paint(_arg_1, recolor(1, ofcolor(_arg_1, 7)))))
+    fill_rn = rn(:(fill_loc(_arg_1, 1, ofcolor(_arg_1, 7))))
+    cover_rn = rn(:(cover(_arg_1, ofcolor(_arg_1, 7))))
+
+    @test ARC.interpret(paint_recolor_rn, spec) == [
+        ARC.paint(g, ARC.recolor(1, ARC.ofcolor(g, 7))) for g in args1
+    ]
+
+    @test ARC.interpret(fill_rn, spec) == [
+        ARC.fill_loc(g, 1, ARC.ofcolor(g, 7)) for g in args1
+    ]
+
+    @test ARC.interpret(cover_rn, spec) == [
+        ARC.cover(g, ARC.ofcolor(g, 7)) for g in args1
+    ]
+
+    # -------------------------------------------------------------------------
+    # Objects and higher-ARC.order object rules
+    #
+    # ARC.equality(1, 1) == true
+    # ARC.equality(1, 2) == false
+    #
+    # ARC.objects(grid, true, false, true)
+    # means:
+    #   univalued = true
+    #   diagonal = false
+    #   without_bg = true
+    # -------------------------------------------------------------------------
+
+    largest_object_painted_rn = rn(:(
+        paint(
+            _arg_1,
+            argmax_by(
+                objects(_arg_1, equality(1, 1), equality(1, 2), equality(1, 1)),
+                size_of
+            )
+        )
+    ))
+
+    first_ordered_object_painted_rn = rn(:(
+        paint(
+            _arg_1,
+            firstof(
+                order_by(
+                    objects(_arg_1, equality(1, 1), equality(1, 2), equality(1, 1)),
+                    size_of
+                )
+            )
+        )
+    ))
+
+    @test ARC.interpret(largest_object_painted_rn, spec) == [
+        ARC.paint(
+            g,
+            ARC.argmax_by(
+                ARC.objects(g, true, false, true),
+                ARC.size_of,
+            ),
+        )
+        for g in args1
+    ]
+
+    @test ARC.interpret(first_ordered_object_painted_rn, spec) == [
+        ARC.paint(
+            g,
+            ARC.firstof(
+                ARC.order_by(
+                    ARC.objects(g, true, false, true),
+                    ARC.size_of,
+                ),
+            ),
+        )
+        for g in args1
+    ]
+
+    # -------------------------------------------------------------------------
+    # Predicates and ARC.branch
+    # -------------------------------------------------------------------------
+
+    branch_true_rn = rn(:(branch(equality(1, 1), rot90deg(_arg_1), rot180deg(_arg_1))))
+    branch_false_rn = rn(:(branch(equality(1, 2), rot90deg(_arg_1), rot180deg(_arg_1))))
+
+    @test ARC.interpret(branch_true_rn, spec) == [ARC.rot90deg(g) for g in args1]
+    @test ARC.interpret(branch_false_rn, spec) == [ARC.rot180deg(g) for g in args1]
+
+    # -------------------------------------------------------------------------
+    # Integer-valued accessors used inside Grid expressions
+    # -------------------------------------------------------------------------
+
+    canvas_index_rn = rn(:(canvas(index(_arg_1, astuple(1, 1)), shape(_arg_1))))
+    canvas_mostcolor_rn = rn(:(canvas(mostcolor(_arg_1), shape(_arg_1))))
+    canvas_numcolors_rn = rn(:(canvas(numcolors(_arg_1), shape(_arg_1))))
+
+    @test ARC.interpret(canvas_index_rn, spec) == [
+        ARC.canvas(
+            ARC.index(g, ARC.astuple(1, 1)),
+            ARC.shape(g),
+        )
+        for g in args1
+    ]
+
+    @test ARC.interpret(canvas_mostcolor_rn, spec) == [
+        ARC.canvas(ARC.mostcolor(g), ARC.shape(g)) for g in args1
+    ]
+
+    @test ARC.interpret(canvas_numcolors_rn, spec) == [
+        ARC.canvas(ARC.numcolors(g), ARC.shape(g)) for g in args1
+    ]
 end

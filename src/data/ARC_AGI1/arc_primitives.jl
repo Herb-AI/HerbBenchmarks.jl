@@ -450,7 +450,7 @@ end
 function crop(grid, start, dims)
     row = start[1]
     col = start[2]
-    nrows, ncols = dims
+    nrows, ncols = Tuple(dims)
     return grid[row:row+nrows-1, col:col+ncols-1]
 end
 
