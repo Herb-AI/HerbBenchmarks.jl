@@ -1,15 +1,17 @@
 module Pixels_2020
-
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using HerbInterpret
+
+using RuntimeGeneratedFunctions
+RuntimeGeneratedFunctions.init(@__MODULE__)
 
 include("pixels_primitives.jl")
 include("data.jl")
 include("grammar.jl")
 
-export
-    parseline_pixels
+interpret = make_stateful_interpreter(grammar_pixels; target_module=Pixels_2020, cache_module=Pixels_2020)
 
 """
 Parses a line from a file in the `pixels` dataset
