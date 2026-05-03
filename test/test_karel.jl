@@ -108,13 +108,13 @@ using HerbBenchmarks.Karel_2018
         hero = Hero((2, 2), EAST)  # Facing east
         initial_state = KarelState(world, hero)
         example = IOExample(Dict(:_arg_1 => initial_state), 0)
-        result = interpret(prog, grammar_karel, example)
+        result = interpret(prog, example)
         # Check results
         @test size(result.world) == (5, 5)
         # Should have moved one step east
         @test result.hero.position == (3, 2)
         @test result.hero.direction == EAST
-        # Original hero unchanged
+        # Original hero unchanged (interpret deepcopies the IOExample input)
         @test hero.position == (2, 2)
     end
 
