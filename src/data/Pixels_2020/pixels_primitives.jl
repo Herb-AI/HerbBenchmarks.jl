@@ -52,7 +52,6 @@ function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::Pi
     end
 end
 
-
 """
 Custom implementation of a while loop with a condition and a body. 
 

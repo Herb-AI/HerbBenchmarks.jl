@@ -1,9 +1,8 @@
 function get_all_benchmarks()::Vector{Benchmark}
     # Map all benchmark modules to the benchmark datastructure and return
-    modules = [Abstract_Reasoning_2019, Pixels_2020, Robots_2020, String_transformations_2020, PBE_BV_Track_2018, PBE_SLIA_Track_2019, DeepCoder_2016]
+    modules = [ARC_AGI_1, ARC_AGI_2, Pixels_2020, Robots_2020, String_transformations_2020, PBE_BV_Track_2018, PBE_SLIA_Track_2019]
     return [get_benchmark(m) for m in modules]
 end
-
 
 """
     get_all_problem_grammar_pairs(module_name::Module) -> Benchmark
@@ -128,7 +127,7 @@ function get_default_grammar(module_name::Module)::AbstractGrammar
 
     # Find the first name that starts with grammar
     id = findfirst(name -> startswith(string(name), "grammar_"), all_names)
-    
+
     # Throw error if no such name exists
     if typeof(id) == Nothing
         throw(KeyError("No default grammar found for $module_name"))
