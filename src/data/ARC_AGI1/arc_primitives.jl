@@ -125,7 +125,7 @@ intersection(a, b) = intersect(a, b)
 difference(a, b) = setdiff(a, b)
 
 """Removes duplicate rows/elements from matrix/vector"""
-dedupe(grid::Matrix) = stack(unique(eachrow(grid)))'
+dedupe(grid::Grid) = stack(unique(eachrow(grid)))'
 dedupe(a) = unique(a)
 
 """Order container"""
@@ -190,11 +190,11 @@ leftmost(object::Vector{<:Tuple}) = minimum(x[2][2] for x in object)
 leftmost(indices) = minimum(x[2] for x in indices)
 
 """ Height of grid or patch"""
-height(grid::Matrix) = size(grid)[1]
+height(grid::Grid) = size(grid)[1]
 height(patch) = lowermost(patch) - uppermost(patch) + 1
 
 """Width of grid or patch"""
-width(grid::Matrix) = size(grid)[2]
+width(grid::Grid) = size(grid)[2]
 width(patch) = rightmost(patch) - leftmost(patch) + 1
 
 """Dimensions (height and width) of grid or patch"""
@@ -204,7 +204,7 @@ shape(piece) = CartesianIndex(height(piece), width(piece))
 portrait(piece) = height(piece) > width(piece)
 
 """Whether the piece forms a square"""
-square(grid::Matrix) = height(grid) == width(grid)
+square(grid::Grid) = height(grid) == width(grid)
 
 function square(patch)
     h = height(patch)
@@ -222,18 +222,18 @@ hline(piece) = width(piece) == length(piece) && height(piece) == 1
     Returns the most common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-mostcolor(grid::Matrix) = findmax(countmap(grid))[2]
+mostcolor(grid::Grid) = findmax(countmap(grid))[2]
 mostcolor(object) = findmax(countmap(x[1] for x in object))[2]
 
 """
     Returns the least common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-leastcolor(grid::Matrix) = findmin(countmap(grid))[2]
+leastcolor(grid::Grid) = findmin(countmap(grid))[2]
 leastcolor(object) = findmin(countmap(x[1] for x in object))[2]
 
 """Number of cells with given color value"""
-colorcount(grid::Matrix, value) = count(==(value), grid)
+colorcount(grid::Grid, value) = count(==(value), grid)
 colorcount(element, value) = count(==(value), x[1] for x in element)
 
 
@@ -554,7 +554,7 @@ function objects(grid, univalued, diagonal, without_bg)
 end
 
 """All color in object or grid"""
-palette(grid::Matrix) = unique(grid)
+palette(grid::Grid) = unique(grid)
 palette(object) = unique([v[1] for v in object])
 
 """Splits the grid into objects where each object contains all cells of one color/value"""
