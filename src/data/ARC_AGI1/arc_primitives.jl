@@ -842,10 +842,10 @@ rot270deg(grid) = Base.rotl90(grid)
 downscale(grid, factor) = grid[1:factor:end, 1:factor:end]
 
 """Concatenate grid a and grid b horizontally."""
-hconcat(a, b) = hcat(a, b)
+hconcat(a, b) = size(a)[1] == size(b)[1] ? hcat(a, b) : nothing
 
-"""Concatenate grid a and grid b horizontally."""
-vconcat(a, b) = vcat(a, b)
+"""Concatenate grid a and grid b vertically."""
+vconcat(a, b) = size(a)[2] == size(b)[2] ? vcat(a, b) : nothing
 
 """Upscale grid horizontally."""
 hupscale(grid, factor) = reduce(vcat, [repeat(row, inner=(factor,))' for row in eachrow(grid)])
@@ -872,6 +872,7 @@ function vsplit(grid::Grid, n::Integer)
 end
 
 """Cellwise matching of grids a and b. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`."""
+# MAKE EXCEPTION FREE
 cellwise(a, b, fallback) = [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)]
 
 
