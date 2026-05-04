@@ -172,7 +172,7 @@ grammar_hodel = @csgrammar begin
     Objects = objects(Grid, Boolean, Boolean, Boolean)
     Objects = partition(Grid)
     Objects = fgpartition(Grid)
-    Objects = frontiers(Grid)
+    # Objects = frontiers(Grid)
 
     ## Object/Patch/Piece/Element construction & transformation
     Object = recolor(Integer, Patch) 
