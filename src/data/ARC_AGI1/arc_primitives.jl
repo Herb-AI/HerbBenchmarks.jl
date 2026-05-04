@@ -843,7 +843,7 @@ vupscale(grid, factor) = reduce(hcat, [repeat(col, inner=(factor,)) for col in e
 
 
 """Split grid along horizontal into n parts."""
-function hsplit(grid::Matrix, n::Integer)
+function hsplit(grid::Grid, n::Integer)
     _, w_total = size(grid)
     w = w_total ÷ n
     offset = w_total % n != 0 ? 1 : 0
@@ -851,7 +851,7 @@ function hsplit(grid::Matrix, n::Integer)
 end
 
 """Split grid along vertica into n parts"""
-function vsplit(grid::Matrix, n::Integer)
+function vsplit(grid::Grid, n::Integer)
     h_total, _ = size(grid)
     h = h_total ÷ n
     offset = h_total % n != 0 ? 1 : 0
