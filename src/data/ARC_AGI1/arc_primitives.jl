@@ -839,7 +839,7 @@ rot180deg(grid) = Base.rot180(grid)
 rot270deg(grid) = Base.rotl90(grid)
 
 """Downscale grid by given factor."""
-downscale(grid, factor) = factor > 0 : grid[1:factor:end, 1:factor:end] ? nothing
+downscale(grid, factor) = factor > 0 ? grid[1:factor:end, 1:factor:end] : nothing
 
 """Concatenate grid a and grid b horizontally."""
 hconcat(a, b) = size(a)[1] == size(b)[1] ? hcat(a, b) : nothing
