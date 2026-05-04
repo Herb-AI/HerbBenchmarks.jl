@@ -848,11 +848,11 @@ hconcat(a, b) = size(a)[1] == size(b)[1] ? hcat(a, b) : nothing
 vconcat(a, b) = size(a)[2] == size(b)[2] ? vcat(a, b) : nothing
 
 """Upscale grid horizontally."""
-hupscale(grid, factor) = reduce(vcat, [repeat(row, inner=(factor,))' for row in eachrow(grid)])
+hupscale(grid, factor) = factor > 0 ? reduce(vcat, [repeat(row, inner=(factor,))' for row in eachrow(grid)]) : nothing
 
 
 """Upscale grid vertically."""
-vupscale(grid, factor) = reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])
+vupscale(grid, factor) = factor > 0 ? reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)]) : nothing
 
 
 """Split grid along horizontal into n parts."""
