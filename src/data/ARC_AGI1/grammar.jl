@@ -191,7 +191,7 @@ grammar_hodel = @csgrammar begin
     Element = upscale(Element, Integer)
 
     # Predicates & filtering
-    IntPredicate = IntToBoolFunc
+    # IntPredicate = IntToBoolFunc
     ObjectPredicate = ObjectToBoolFunc
     GridPredicate = ObjectToBoolFunc
 
