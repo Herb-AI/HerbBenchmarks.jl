@@ -14,7 +14,7 @@
     Types
     
     Core Types:
-    - Grid: Matrix{Int} — 2D matrix of integers (color values 0-9)
+    - Grid: Grid — 2D matrix of integers (color values 0-9)
     - Integer: Int — Integer scalar
     - Boolean: Bool — Boolean true/false value
     - IntegerTuple: CartesianIndex{2} — 2D coordinate pair (row, col)
@@ -31,6 +31,19 @@
 
 using MLStyle
 using StatsBase
+
+# Define a struct to represent the grid
+struct Grid <: AbstractMatrix{Int}
+    width::Int
+    height::Int
+    data::Matrix{Int}
+end
+
+Base.size(grid::Grid) = size(grid.data)
+
+Base.getindex(grid::Grid, i, j) = getindex(grid.data, i, j)
+
+Grid(mat::Matrix{Int}) = Grid(size(mat)..., mat)
 
 """Returns the sum of a and b"""
 add(a, b) = a + b
@@ -125,7 +138,7 @@ intersection(a, b) = intersect(a, b)
 difference(a, b) = setdiff(a, b)
 
 """Removes duplicate rows/elements from matrix/vector"""
-dedupe(grid::Matrix{Int}) = stack(unique(eachrow(grid)))'
+dedupe(grid::Grid) = stack(unique(eachrow(grid)))'
 dedupe(a) = unique(a)
 
 """Order container"""
@@ -190,11 +203,11 @@ leftmost(object::Vector{<:Tuple}) = minimum(x[2][2] for x in object)
 leftmost(indices) = minimum(x[2] for x in indices)
 
 """ Height of grid or patch"""
-height(grid::Matrix{Int}) = size(grid)[1]
+height(grid::Grid) = size(grid)[1]
 height(patch) = lowermost(patch) - uppermost(patch) + 1
 
 """Width of grid or patch"""
-width(grid::Matrix{Int}) = size(grid)[2]
+width(grid::Grid) = size(grid)[2]
 width(patch) = rightmost(patch) - leftmost(patch) + 1
 
 """Dimensions (height and width) of grid or patch"""
@@ -204,7 +217,7 @@ shape(piece) = CartesianIndex(height(piece), width(piece))
 portrait(piece) = height(piece) > width(piece)
 
 """Whether the piece forms a square"""
-square(grid::Matrix{Int}) = height(grid) == width(grid)
+square(grid::Grid) = height(grid) == width(grid)
 
 function square(patch)
     h = height(patch)
@@ -222,18 +235,18 @@ hline(piece) = width(piece) == length(piece) && height(piece) == 1
     Returns the most common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-mostcolor(grid::Matrix{Int}) = findmax(countmap(grid))[2]
+mostcolor(grid::Grid) = findmax(countmap(grid))[2]
 mostcolor(object) = findmax(countmap(x[1] for x in object))[2]
 
 """
     Returns the least common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-leastcolor(grid::Matrix{Int}) = findmin(countmap(grid))[2]
+leastcolor(grid::Grid) = findmin(countmap(grid))[2]
 leastcolor(object) = findmin(countmap(x[1] for x in object))[2]
 
 """Number of cells with given color value"""
-colorcount(grid::Matrix{Int}, value) = count(==(value), grid)
+colorcount(grid::Grid, value) = count(==(value), grid)
 colorcount(element, value) = count(==(value), x[1] for x in element)
 
 
@@ -554,7 +567,7 @@ function objects(grid, univalued, diagonal, without_bg)
 end
 
 """All color in object or grid"""
-palette(grid::Matrix{Int}) = unique(grid)
+palette(grid::Grid) = unique(grid)
 palette(object) = unique([v[1] for v in object])
 
 """Splits the grid into objects where each object contains all cells of one color/value"""
@@ -843,7 +856,7 @@ vupscale(grid, factor) = reduce(hcat, [repeat(col, inner=(factor,)) for col in e
 
 
 """Split grid along horizontal into n parts."""
-function hsplit(grid::Matrix{Int}, n::Integer)
+function hsplit(grid::Grid, n::Integer)
     _, w_total = size(grid)
     w = w_total ÷ n
     offset = w_total % n != 0 ? 1 : 0
@@ -851,7 +864,7 @@ function hsplit(grid::Matrix{Int}, n::Integer)
 end
 
 """Split grid along vertica into n parts"""
-function vsplit(grid::Matrix{Int}, n::Integer)
+function vsplit(grid::Grid, n::Integer)
     h_total, _ = size(grid)
     h = h_total ÷ n
     offset = h_total % n != 0 ? 1 : 0
@@ -1048,19 +1061,6 @@ disjunct(f, g) = x -> f(x) || g(x)
     A "naive" primitive implementation
 
 =#
-
-# Define a struct to represent the grid
-struct Grid <: AbstractMatrix{Int}
-    width::Int
-    height::Int
-    data::Matrix{Int}
-end
-
-Base.size(grid::Grid) = size(grid.data)
-
-Base.getindex(grid::Grid, i, j) = getindex(grid.data, i, j)
-
-Grid(mat::Matrix{Int}) = Grid(size(mat)..., mat)
 
 """
 Returns a new `Grid` initialized from a one-dimensional vector of integers (`raw_grid`).
