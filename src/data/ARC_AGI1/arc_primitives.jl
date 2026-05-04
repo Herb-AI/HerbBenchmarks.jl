@@ -1050,7 +1050,7 @@ disjunct(f, g) = x -> f(x) || g(x)
 =#
 
 # Define a struct to represent the grid
-struct Grid <: Matrix
+struct Grid <: AbstractMatrix
     width::Int
     height::Int
     data::Matrix{Int}
