@@ -63,10 +63,10 @@ multiply(a::CartesianIndex{N}, b::CartesianIndex{N}) where N =
 
 """ Returns the result of integer division of  a and b"""
 divide(a, b) = b != 0 ? a ÷ b : nothing
-divide(a::CartesianIndex{N}, b) where N = CartesianIndex(ntuple(i -> a[i] ÷ b, N))
-divide(a, b::CartesianIndex{N}) where N = CartesianIndex(ntuple(i -> a ÷ b[i], N))
+divide(a::CartesianIndex{N}, b) where N = b != 0 ? CartesianIndex(ntuple(i -> a[i] ÷ b, N)) : nothing
+divide(a, b::CartesianIndex{N}) where N = !any(iszero, b.I) ? CartesianIndex(ntuple(i -> a ÷ b[i], N)) : nothing
 divide(a::CartesianIndex{N}, b::CartesianIndex{N}) where N =
-    CartesianIndex(ntuple(i -> a[i] ÷ b[i], N))
+    !any(iszero, b.I) ? CartesianIndex(ntuple(i -> a[i] ÷ b[i], N)) : nothing
 
 """Inverts the sign of a"""
 invert(a) = -1 * a
