@@ -181,7 +181,7 @@ argmin_by(containers, compfunc) = containers[argmin(compfunc.(containers))]
 mostcommon(container) = !isempty(container) ? mode(container) : nothing
 
 """least common item in container"""
-leastcommon(container) = argmin(countmap(container))
+leastcommon(container) = !isempty(container) ? argmin(countmap(container)) : nothing
 
 """initialize vector"""
 init(value) = fill(value, 1, 1)
