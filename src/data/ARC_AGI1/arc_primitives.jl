@@ -178,7 +178,7 @@ argmax_by(containers, compfunc) = containers[argmax(compfunc.(containers))]
 argmin_by(containers, compfunc) = containers[argmin(compfunc.(containers))]
 
 """most common item in container"""
-mostcommon(container) = mode(container)
+mostcommon(container) = !isempty(container) ? mode(container) : nothing
 
 """least common item in container"""
 leastcommon(container) = argmin(countmap(container))
