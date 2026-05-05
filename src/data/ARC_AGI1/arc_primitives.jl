@@ -172,10 +172,10 @@ function valmin(container, compfunc; default=0)
 end
 
 """returns the container that maximizes the custom function"""
-argmax_by(containers, compfunc) = containers[argmax(compfunc.(containers))]
+argmax_by(containers, compfunc) = !isempty(containers) ? containers[argmax(compfunc.(containers))] : nothing
 
 """returns the container that maximizes the custom function"""
-argmin_by(containers, compfunc) = containers[argmin(compfunc.(containers))]
+argmin_by(containers, compfunc) = !isempty(containers) ? containers[argmin(compfunc.(containers))] : nothing
 
 """most common item in container"""
 mostcommon(container) = !isempty(container) ? mode(container) : nothing
