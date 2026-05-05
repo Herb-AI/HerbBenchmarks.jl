@@ -631,10 +631,10 @@ numcolors(element) = length(palette(element))
 color(object) = first(object)[1]
 
 """Returns an object made from indices provided by patch and corresponding values in grid"""
-toobject(patch, grid) = [(grid[ind], ind) for ind in toindices(patch)]
+toobject(patch, grid) = [(grid[ind], ind) for ind in vec(toindices(patch))]
 
 """Converts grid into an object"""
-asobject(grid) = [(grid[idx], idx) for idx in asindices(grid)]
+asobject(grid) = [(grid[idx], idx) for idx in vec(asindices(grid))]
 
 """Fill value in grid at locations given by patch indices"""
 function fill_loc(grid, value, patch) # fill() in original. Renamed due to name clash.
