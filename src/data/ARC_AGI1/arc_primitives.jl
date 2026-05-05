@@ -399,7 +399,7 @@ end
 """Returns the index of the of the patch"""
 function center(patch)
     isempty(patch) && return nothing
-    
+
     height, width = shape(patch).I
     return CartesianIndex(uppermost(patch) + (height ÷ 2), leftmost(patch) + (width ÷ 2))
 end
@@ -613,6 +613,8 @@ end
 
 """Returns the center of mass for a patch"""
 function centerofmass(patch)
+    isempty(patch) && return nothing
+    
     n = length(patch)
     sum_rows = 0
     sum_cols = 0
