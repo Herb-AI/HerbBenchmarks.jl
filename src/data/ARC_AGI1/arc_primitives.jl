@@ -831,13 +831,13 @@ asindices(grid) = CartesianIndices(grid)
 ofcolor(grid, value) = findall(x -> x == value, grid)
 
 """Rotates grid by 90 degrees clockwise"""
-rot90deg(grid) = rotr90(grid, 1)
+rot90deg(grid) = isempty(grid) ? grid : rotr90(grid, 1)
 
 """Rotates grid by 180 degrees"""
-rot180deg(grid) = Base.rot180(grid)
+rot180deg(grid) = isempty(grid) ? grid : Base.rot180(grid)
 
 """Rotates grid by 270 degrees (left-rotate by 90 degrees)"""
-rot270deg(grid) = Base.rotl90(grid)
+rot270deg(grid) = isempty(grid) ? grid : Base.rotl90(grid)
 
 """Downscale grid by given factor."""
 downscale(grid, factor) = factor > 0 ? grid[1:factor:end, 1:factor:end] : nothing
