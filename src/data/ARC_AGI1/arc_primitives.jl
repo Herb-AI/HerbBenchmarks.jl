@@ -141,10 +141,10 @@ repeat_item(item, num) = hcat([item for i in 1:num]...)
 size_of(container) = length(container)
 
 """maximum"""
-maximum_of(container) = maximum(container)
+maximum_of(container) = !isempty(container) ? maximum(container) : nothing
 
 """maximum"""
-minimum_of(container) = minimum(container)
+minimum_of(container) = !isempty(container) ? minimum(container) : nothing
 
 """maximum by custom function"""
 function valmax(container, compfunc)
