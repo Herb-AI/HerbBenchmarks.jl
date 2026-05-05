@@ -125,7 +125,7 @@ intersection(a, b) = intersect(a, b)
 difference(a, b) = setdiff(a, b)
 
 """Removes duplicate rows/elements from matrix/vector"""
-dedupe(grid::Matrix) = permutedims(stack(unique(eachrow(grid))))
+dedupe(grid::Matrix) = isempty(grid) ? grid : permutedims(stack(unique(eachrow(grid))))
 dedupe(a) = unique(a)
 
 """Order container"""
@@ -580,7 +580,7 @@ end
 """Splits the grid into objects where each object contains all cells of one color/value excluding background"""
 function fgpartition(grid)
     isempty(grid) && return nothing
-    
+
     pal = palette(grid)
     bg = mostcolor(grid) # background color
     vals = setdiff(pal, bg)
