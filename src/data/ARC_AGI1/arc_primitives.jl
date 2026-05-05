@@ -810,7 +810,7 @@ mfilter(containers, condition) = merge_containers(sfilter(containers, condition)
 shoot(start, direction) = connect(start, (start[1] + 42 * direction[1], start[2] + 42 * direction[2]))
 
 """Merge elements of nested container"""
-merge_containers(container) = reduce(vcat, container) # also works with non-nested containers. We don't have `ContainerContainer` 
+merge_containers(container) = !isempty(container) ? reduce(vcat, container) : nothing # also works with non-nested containers. We don't have `ContainerContainer` 
 
 """Returns all indices of a grid"""
 asindices(grid) = CartesianIndices(grid)
