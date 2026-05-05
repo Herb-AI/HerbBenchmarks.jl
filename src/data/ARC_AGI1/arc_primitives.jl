@@ -125,7 +125,7 @@ intersection(a, b) = intersect(a, b)
 difference(a, b) = setdiff(a, b)
 
 """Removes duplicate rows/elements from matrix/vector"""
-dedupe(grid::Matrix) = stack(unique(eachrow(grid)))'
+dedupe(grid::Matrix) = permutedims(stack(unique(eachrow(grid))))
 dedupe(a) = unique(a)
 
 """Order container"""
