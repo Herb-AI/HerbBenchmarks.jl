@@ -204,10 +204,12 @@ leftmost(indices) = minimum(x[2] for x in indices)
 
 """ Height of grid or patch"""
 height(grid::Grid) = size(grid)[1]
+height(grid::Matrix) = size(grid)[1]
 height(patch) = lowermost(patch) - uppermost(patch) + 1
 
 """Width of grid or patch"""
 width(grid::Grid) = size(grid)[2]
+width(grid::Matrix) = size(grid)[2]
 width(patch) = rightmost(patch) - leftmost(patch) + 1
 
 """Dimensions (height and width) of grid or patch"""
