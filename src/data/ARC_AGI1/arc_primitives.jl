@@ -337,7 +337,7 @@ function hmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
 end
 
 """Mirrors along diagonal."""
-dmirror(grid) = transpose(grid)
+dmirror(grid) = permutedims(grid)
 
 function dmirror(indices::AbstractVector)
     corner = ulcorner(indices)
@@ -354,7 +354,7 @@ function dmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
 end
 
 """Mirrors along the counter-diagonal"""
-cmirror(grid) = reverse(transpose(reverse(grid, dims=1)), dims=1)
+cmirror(grid) = reverse(permutedims(reverse(grid, dims=1)), dims=1)
 
 cmirror(piece::AbstractVector) = vmirror(dmirror(vmirror(piece)))
 
