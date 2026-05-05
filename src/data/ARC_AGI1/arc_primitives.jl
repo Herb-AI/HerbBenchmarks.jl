@@ -159,10 +159,10 @@ function valmin(container, compfunc)
 end
 
 """returns the container that maximizes the custom function"""
-argmax_by(containers, compfunc) = !isempty(containers) ? containers[argmax(compfunc.(containers))] : nothing
+argmax_by(containers, compfunc) = (!isempty(containers) && !any(isempty, containers)) ? containers[argmax(compfunc.(containers))] : nothing
 
 """returns the container that maximizes the custom function"""
-argmin_by(containers, compfunc) = !isempty(containers) ? containers[argmin(compfunc.(containers))] : nothing
+argmin_by(containers, compfunc) = (!isempty(containers) && !any(isempty, containers)) ? containers[argmin(compfunc.(containers))] : nothing
 
 """most common item in container"""
 mostcommon(container) = !isempty(container) ? mode(container) : nothing
@@ -614,7 +614,7 @@ end
 """Returns the center of mass for a patch"""
 function centerofmass(patch)
     isempty(patch) && return nothing
-    
+
     n = length(patch)
     sum_rows = 0
     sum_cols = 0
