@@ -191,11 +191,11 @@ leftmost(indices) = !isempty(indices) ? minimum(x[2] for x in indices) : nothing
 
 """ Height of grid or patch"""
 height(grid::Matrix) = size(grid)[1]
-height(patch) = lowermost(patch) - uppermost(patch) + 1
+height(patch) = isempty(patch) ? 0 : lowermost(patch) - uppermost(patch) + 1
 
 """Width of grid or patch"""
 width(grid::Matrix) = size(grid)[2]
-width(patch) = rightmost(patch) - leftmost(patch) + 1
+width(patch) = isempty(patch) ? 0 : rightmost(patch) - leftmost(patch) + 1
 
 """Dimensions (height and width) of grid or patch"""
 shape(piece) = CartesianIndex(height(piece), width(piece))
