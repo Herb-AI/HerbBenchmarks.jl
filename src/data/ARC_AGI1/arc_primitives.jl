@@ -174,18 +174,22 @@ leastcommon(container) = !isempty(container) ? argmin(countmap(container)) : not
 init(value) = fill(value, 1, 1)
 
 """Row index of lowermost occupied cell"""
+lowermost(object::Matrix{<:Tuple}) = lowermost([object...])
 lowermost(object::Vector{<:Tuple}) = maximum(x[2][1] for x in object)
 lowermost(indices) = maximum(x[1] for x in indices)
 
 """Row index of uppermost occupied cell"""
+uppermost(object::Matrix{<:Tuple}) = uppermost([object...])
 uppermost(object::Vector{<:Tuple}) = minimum(x[2][1] for x in object)
 uppermost(indices) = minimum(x[1] for x in indices)
 
 """Row index of rightmost occupied cell"""
+rightmost(object::Matrix{<:Tuple}) = rightmost([object...])
 rightmost(object::Vector{<:Tuple}) = maximum(x[2][2] for x in object)
 rightmost(indices) = maximum(x[2] for x in indices)
 
 """Row index of leftmost occupied cell"""
+leftmost(object::Matrix{<:Tuple}) = leftmost([object...])
 leftmost(object::Vector{<:Tuple}) = minimum(x[2][2] for x in object)
 leftmost(indices) = minimum(x[2] for x in indices)
 
@@ -396,7 +400,7 @@ function upscale(object, factor)
     return shift(o, CartesianIndex(di_inv, dj_inv))
 end
 
-"""Returns the index of the center of the patch"""
+"""Returns the index of the of the patch"""
 function center(patch)
     height, width = shape(patch).I
     return CartesianIndex(uppermost(patch) + (height ÷ 2), leftmost(patch) + (width ÷ 2))
