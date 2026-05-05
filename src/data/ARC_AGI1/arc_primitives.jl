@@ -579,6 +579,8 @@ end
 
 """Splits the grid into objects where each object contains all cells of one color/value excluding background"""
 function fgpartition(grid)
+    isempty(grid) && return nothing
+    
     pal = palette(grid)
     bg = mostcolor(grid) # background color
     vals = setdiff(pal, bg)
