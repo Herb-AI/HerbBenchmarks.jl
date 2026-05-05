@@ -251,7 +251,7 @@ grammar_hodel = @csgrammar begin
     ## from Grid
     Indices = asindices(Grid) 
     Indices = ofcolor(Grid, Integer) 
-    Indices = occurrences(Grid, Object)
+    # Indices = occurrences(Grid, Object)
     Indices = cartesian_product(IntContainer, IntContainer)
 
     # IntContainer producers
