@@ -147,14 +147,14 @@ maximum_of(container) = maximum(container)
 minimum_of(container) = minimum(container)
 
 """maximum by custom function"""
-function valmax(container, compfunc; default=0)
-    isempty(container) && return compfunc(default)
+function valmax(container, compfunc)
+    isempty(container) && return nothing
     return maximum(compfunc(x) for x in container)
 end
 
 """minimum by custom function"""
-function valmin(container, compfunc; default=0)
-    isempty(container) && return compfunc(default)
+function valmin(container, compfunc)
+    isempty(container) && return nothing
     return minimum(compfunc(x) for x in container)
 end
 
@@ -854,7 +854,7 @@ end
 """Split grid along vertica into n parts"""
 function vsplit(grid::Matrix, n::Integer)
     n == 0 && return nothing
-    
+
     h_total, _ = size(grid)
     h = h_total ÷ n
     offset = h_total % n != 0 ? 1 : 0
