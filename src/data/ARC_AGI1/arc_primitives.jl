@@ -947,7 +947,7 @@ canvas(value::Integer, dimensions::CartesianIndex) = fill(value, dimensions[1], 
 
 
 """Get color of grid at given location loc"""
-index(grid, loc) = grid[loc]
+index(grid, loc) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
 
 """Returns smalles subgrid that contains the patch"""
 subgrid(patch, grid) = crop(grid, ulcorner(patch), shape(patch).I)
