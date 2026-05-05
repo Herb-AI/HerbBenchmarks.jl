@@ -38,7 +38,7 @@ grammar_hodel = @csgrammar begin
     Integer = manhattan(Patch, Patch) 
     Integer = color(Object) 
     # Integer = hperiod(Object)
-    Integer = vperiod(Object)
+    # Integer = vperiod(Object)
     Integer = index(Grid, IntegerTuple)
     Integer = numcolors(Element)  
 
