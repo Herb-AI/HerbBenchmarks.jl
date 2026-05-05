@@ -626,7 +626,7 @@ numcolors(element) = length(palette(element))
 
 """Returns color of an object."""
 # Assumes object is uniform in color. 
-color(object) = first(object)[1]
+color(object) = !isempty(object) ? first(object)[1] : nothing
 
 """Returns an object made from indices provided by patch and corresponding values in grid"""
 toobject(patch, grid) = [(grid[ind], ind) for ind in vec(toindices(patch))]
