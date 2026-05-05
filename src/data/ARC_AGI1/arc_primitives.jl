@@ -948,7 +948,7 @@ function occurrences(grid, object)
     isempty(object) && return []
 
     # Normalize and compute dimensions in one pass
-    norm = normalize(object)
+    norm = normalize([object...])
     oh, ow = shape(object).I
 
     # Unified grid access using indexing
