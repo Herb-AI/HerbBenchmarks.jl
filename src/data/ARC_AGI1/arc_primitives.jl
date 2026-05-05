@@ -226,15 +226,15 @@ hline(piece) = width(piece) == length(piece) && height(piece) == 1
     Returns the most common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-mostcolor(grid::Matrix) = findmax(countmap(grid))[2]
-mostcolor(object) = findmax(countmap(x[1] for x in object))[2]
+mostcolor(grid::Matrix) = !isempty(grid) ? findmax(countmap(grid))[2] : nothing
+mostcolor(object) = !isempty(grid) ? findmax(countmap(x[1] for x in object))[2] : nothing
 
 """
     Returns the least common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-leastcolor(grid::Matrix) = findmin(countmap(grid))[2]
-leastcolor(object) = findmin(countmap(x[1] for x in object))[2]
+leastcolor(grid::Matrix) = !isempty(grid) ? findmin(countmap(grid))[2] : nothing
+leastcolor(object) = !isempty(grid) ? findmin(countmap(x[1] for x in object))[2] : nothing
 
 """Number of cells with given color value"""
 colorcount(grid::Matrix, value) = count(==(value), grid)
