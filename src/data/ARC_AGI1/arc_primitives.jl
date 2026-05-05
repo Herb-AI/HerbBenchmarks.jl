@@ -991,10 +991,10 @@ function extract(container, condition)
 end
 
 """Return first element of a container"""
-firstof(container) = !isempty ? first(container) : nothing
+firstof(container) = !isempty(container) ? first(container) : nothing
 
 """Return last element of a container"""
-lastof(container) =  !isempty ? last(container) : nothing
+lastof(container) =  !isempty(container) ? last(container) : nothing
 
 """Insert element to container"""
 insert(value, container) = push!(copy(container), value)
