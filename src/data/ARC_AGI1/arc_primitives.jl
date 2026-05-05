@@ -14,7 +14,7 @@
     Types
     
     Core Types:
-    - Grid: Grid — 2D matrix of integers (color values 0-9)
+    - Grid: Matrix{Int} — 2D matrix of integers (color values 0-9)
     - Integer: Int — Integer scalar
     - Boolean: Bool — Boolean true/false value
     - IntegerTuple: CartesianIndex{2} — 2D coordinate pair (row, col)
@@ -31,19 +31,6 @@
 
 using MLStyle
 using StatsBase
-
-# Define a struct to represent the grid
-struct Grid <: AbstractMatrix{Int}
-    width::Int
-    height::Int
-    data::Matrix{Int}
-end
-
-Base.size(grid::Grid) = size(grid.data)
-
-Base.getindex(grid::Grid, i, j) = getindex(grid.data, i, j)
-
-Grid(mat::Matrix{Int}) = Grid(size(mat)..., mat)
 
 """Returns the sum of a and b"""
 add(a, b) = a + b
@@ -138,7 +125,7 @@ intersection(a, b) = intersect(a, b)
 difference(a, b) = setdiff(a, b)
 
 """Removes duplicate rows/elements from matrix/vector"""
-dedupe(grid::Grid) = stack(unique(eachrow(grid)))'
+dedupe(grid::Matrix) = stack(unique(eachrow(grid)))'
 dedupe(a) = unique(a)
 
 """Order container"""
@@ -203,12 +190,10 @@ leftmost(object::Vector{<:Tuple}) = minimum(x[2][2] for x in object)
 leftmost(indices) = minimum(x[2] for x in indices)
 
 """ Height of grid or patch"""
-height(grid::Grid) = size(grid)[1]
 height(grid::Matrix) = size(grid)[1]
 height(patch) = lowermost(patch) - uppermost(patch) + 1
 
 """Width of grid or patch"""
-width(grid::Grid) = size(grid)[2]
 width(grid::Matrix) = size(grid)[2]
 width(patch) = rightmost(patch) - leftmost(patch) + 1
 
@@ -219,7 +204,7 @@ shape(piece) = CartesianIndex(height(piece), width(piece))
 portrait(piece) = height(piece) > width(piece)
 
 """Whether the piece forms a square"""
-square(grid::Grid) = height(grid) == width(grid)
+square(grid::Matrix) = height(grid) == width(grid)
 
 function square(patch)
     h = height(patch)
@@ -237,18 +222,18 @@ hline(piece) = width(piece) == length(piece) && height(piece) == 1
     Returns the most common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-mostcolor(grid::Grid) = findmax(countmap(grid))[2]
+mostcolor(grid::Matrix) = findmax(countmap(grid))[2]
 mostcolor(object) = findmax(countmap(x[1] for x in object))[2]
 
 """
     Returns the least common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-leastcolor(grid::Grid) = findmin(countmap(grid))[2]
+leastcolor(grid::Matrix) = findmin(countmap(grid))[2]
 leastcolor(object) = findmin(countmap(x[1] for x in object))[2]
 
 """Number of cells with given color value"""
-colorcount(grid::Grid, value) = count(==(value), grid)
+colorcount(grid::Matrix, value) = count(==(value), grid)
 colorcount(element, value) = count(==(value), x[1] for x in element)
 
 
@@ -465,7 +450,7 @@ end
 function crop(grid, start, dims)
     row = start[1]
     col = start[2]
-    nrows, ncols = dims
+    nrows, ncols = Tuple(dims)
     return grid[row:row+nrows-1, col:col+ncols-1]
 end
 
@@ -569,7 +554,7 @@ function objects(grid, univalued, diagonal, without_bg)
 end
 
 """All color in object or grid"""
-palette(grid::Grid) = unique(grid)
+palette(grid::Matrix) = unique(grid)
 palette(object) = unique([v[1] for v in object])
 
 """Splits the grid into objects where each object contains all cells of one color/value"""
@@ -852,13 +837,12 @@ vconcat(a, b) = size(a)[2] == size(b)[2] ? vcat(a, b) : nothing
 """Upscale grid horizontally."""
 hupscale(grid, factor) = factor > 0 ? reduce(vcat, [repeat(row, inner=(factor,))' for row in eachrow(grid)]) : nothing
 
-
 """Upscale grid vertically."""
 vupscale(grid, factor) = factor > 0 ? reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)]) : nothing
 
 
 """Split grid along horizontal into n parts."""
-function hsplit(grid::Grid, n::Integer)
+function hsplit(grid::Matrix, n::Integer)
     _, w_total = size(grid)
     w = w_total ÷ n
     offset = w_total % n != 0 ? 1 : 0
@@ -866,7 +850,7 @@ function hsplit(grid::Grid, n::Integer)
 end
 
 """Split grid along vertica into n parts"""
-function vsplit(grid::Grid, n::Integer)
+function vsplit(grid::Matrix, n::Integer)
     h_total, _ = size(grid)
     h = h_total ÷ n
     offset = h_total % n != 0 ? 1 : 0
@@ -874,7 +858,6 @@ function vsplit(grid::Grid, n::Integer)
 end
 
 """Cellwise matching of grids a and b. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`."""
-# MAKE EXCEPTION FREE
 cellwise(a, b, fallback) = [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)]
 
 
@@ -1064,6 +1047,15 @@ disjunct(f, g) = x -> f(x) || g(x)
     A "naive" primitive implementation
 
 =#
+
+# Define a struct to represent the grid
+struct Grid
+    width::Int
+    height::Int
+    data::Matrix{Int}
+end
+
+Grid(mat::Matrix{Int}) = Grid(size(mat)..., mat)
 
 """
 Returns a new `Grid` initialized from a one-dimensional vector of integers (`raw_grid`).
