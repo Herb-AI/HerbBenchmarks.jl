@@ -479,6 +479,8 @@ function shift(indices, directions)
     return [CartesianIndex(ind[1] + dx, ind[2] + dy) for ind in indices]
 end
 
+normalize(object::Matrix{Tuple{Int64, CartesianIndex{2}}}) = normalize([object...])
+
 """ Moves top left corner to origin"""
 function normalize(patch)
     if isempty(patch)
@@ -952,7 +954,7 @@ function occurrences(grid, object)
     isempty(object) && return []
 
     # Normalize and compute dimensions in one pass
-    norm = normalize([object...])
+    norm = normalize(object)
     oh, ow = shape(object).I
 
     # Unified grid access using indexing
