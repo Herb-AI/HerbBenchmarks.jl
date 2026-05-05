@@ -259,6 +259,7 @@ function ulcorner(indices)
 end
 
 ulcorner(object::Vector{<:Tuple}) = ulcorner(toindices(object))
+ulcorner(object::Matrix{<:Tuple}) = ulcorner(toindices(object))
 
 """Returns index of upper right corner."""
 function urcorner(indices)
@@ -273,6 +274,7 @@ function urcorner(indices)
 end
 
 urcorner(object::Vector{<:Tuple}) = urcorner(toindices(object))
+urcorner(object::Matrix{<:Tuple}) = urcorner(toindices(object))
 
 """Returns index of lower left corner"""
 function llcorner(indices)
@@ -287,6 +289,7 @@ function llcorner(indices)
 end
 
 llcorner(object::Vector{<:Tuple}) = llcorner(toindices(object))
+llcorner(object::Matrix{<:Tuple}) = llcorner(toindices(object))
 
 """Returns index of lower right corner."""
 function lrcorner(indices)
@@ -301,8 +304,10 @@ function lrcorner(indices)
 end
 
 lrcorner(object::Vector{<:Tuple}) = lrcorner(toindices(object))
+lrcorner(object::Matrix{<:Tuple}) = lrcorner(toindices(object))
 
 """Returns indices"""
+toindices(object::Matrix{<:Tuple}) = toindices([object...])
 toindices(object::Vector{<:Tuple}) = [i[2] for i in object]
 toindices(indices) = indices
 
@@ -837,7 +842,7 @@ hconcat(a, b) = size(a)[1] == size(b)[1] ? hcat(a, b) : nothing
 vconcat(a, b) = size(a)[2] == size(b)[2] ? vcat(a, b) : nothing
 
 """Upscale grid horizontally."""
-hupscale(grid, factor) = factor > 0 ? reduce(vcat, [repeat(row, inner=(factor,))' for row in eachrow(grid)]) : nothing
+hupscale(grid, factor) = factor > 0 ? reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)]) : nothing
 
 """Upscale grid vertically."""
 vupscale(grid, factor) = factor > 0 ? reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)]) : nothing
