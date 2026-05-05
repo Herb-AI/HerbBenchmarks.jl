@@ -1041,6 +1041,8 @@ Given predicates f and g, returns a predicate that is true when either f(x) or g
 """
 disjunct(f, g) = x -> f(x) || g(x)
 
+Grid(mat::Matrix{Int}) = mat
+
 #=
     ARC-AGI-1 basic primitives
     
