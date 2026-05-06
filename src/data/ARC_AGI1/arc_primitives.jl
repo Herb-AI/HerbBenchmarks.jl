@@ -499,21 +499,15 @@ function shift(object::Vector{<:Tuple}, directions)
 end
 
 function shift(indices, directions)
-    if isempty(indices)
-        return indices
-    end
+    isempty(indices) && indices
     dx = directions[1] # row
     dy = directions[2] # col
     return [CartesianIndex(ind[1] + dx, ind[2] + dy) for ind in indices]
 end
 
-normalize(object::Matrix{Tuple{Int64, CartesianIndex{2}}}) = normalize([object...])
-
 """ Moves top left corner to origin"""
 function normalize(patch)
-    if isempty(patch)
-        return patch
-    end
+    isempty(patch) && return patch
     return shift(patch, (-uppermost(patch), -leftmost(patch)))
 end
 
@@ -1054,6 +1048,7 @@ pair(a, b) = collect(CartesianIndex.(zip(a.I, b.I)))
 branch(condition, a, b) = condition ? a : b
 
 """Apply function to each element in container"""
+apply(func, container::Vector{Tuple{Int64, CartesianIndex{2}}}) = map(x -> func([x]), container)
 apply(func, container) = map(func, container)
 
 """Apply each function in container to a value"""
