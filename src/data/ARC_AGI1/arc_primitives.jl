@@ -876,7 +876,7 @@ function vsplit(grid::Matrix, n::Integer)
 end
 
 """Cellwise matching of grids a and b. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`."""
-cellwise(a, b, fallback) = [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)]
+cellwise(a, b, fallback) = (width(a) <= width(b) && height(a) <= height(b)) ? [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)] : nothing
 
 
 """Substituion of color value replacee with new color replacer."""
