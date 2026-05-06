@@ -365,6 +365,8 @@ cmirror(piece::AbstractVector) = vmirror(dmirror(vmirror(piece)))
 
 """ Upscales grid or object by given `factor`"""
 function upscale(grid::AbstractMatrix, factor)
+    factor < 0 && return nothing
+
     rows, cols = size(grid)
     upscaled = Matrix{eltype(grid)}(undef, rows * factor, cols * factor)
     for i in 1:rows
@@ -382,6 +384,7 @@ end
 
 function upscale(object, factor)
     isempty(object) && return []
+    factor < 0 && return nothing
 
     corner = ulcorner(object)
     di_inv, dj_inv = Tuple(corner)
