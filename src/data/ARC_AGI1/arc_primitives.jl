@@ -363,7 +363,7 @@ end
 
 function dmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
     isempty(object) && return object
-    
+
     corner = ulcorner(object)
     a = corner[1]
     b = corner[2]
@@ -663,7 +663,7 @@ asobject(grid) = [(grid[idx], idx) for idx in vec(asindices(grid))]
 function fill_loc(grid, value, patch) # fill() in original. Renamed due to name clash.
     grid_filled = copy(grid)
     indices = toindices(patch)
-    any(!checkbounds(Bool, grid, I) for I in indices) && return nothing
+    !checkbounds(Bool, grid, indices) && return nothing
     grid_filled[indices] .= value
     return grid_filled
 end
