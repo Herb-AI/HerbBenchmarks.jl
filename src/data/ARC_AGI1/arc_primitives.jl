@@ -315,12 +315,16 @@ toindices(indices) = indices
 vmirror(grid) = reverse(grid, dims=2)
 
 function vmirror(indices::AbstractVector)
+    isempty(indices) && return indices
+
     min_col, max_col = extrema(idx[2] for idx in indices)
     d = min_col + max_col
     return [CartesianIndex(idx[1], d - idx[2]) for idx in indices]
 end
 
 function vmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
+    isempty(object) && return object
+
     min_col, max_col = extrema(idx[2] for (_, idx) in object)
     d = min_col + max_col
     return [(val, CartesianIndex(idx[1], d - idx[2])) for (val, idx) in object]
@@ -330,12 +334,16 @@ end
 hmirror(grid) = reverse(grid, dims=1)
 
 function hmirror(indices::AbstractVector)
+    isempty(indices) && return indices
+
     min_row, max_row = extrema(idx[1] for idx in indices)
     d = min_row + max_row
     return [CartesianIndex(d - idx[1], idx[2]) for idx in indices]
 end
 
 function hmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
+    isempty(object) && return object
+
     min_row, max_row = extrema(idx[1] for (_, idx) in object)
     d = min_row + max_row
     return [(val, CartesianIndex(d - idx[1], idx[2])) for (val, idx) in object]
@@ -345,6 +353,8 @@ end
 dmirror(grid) = permutedims(grid)
 
 function dmirror(indices::AbstractVector)
+    isempty(indices) && return indices
+
     corner = ulcorner(indices)
     a = corner[1]
     b = corner[2]
@@ -352,6 +362,8 @@ function dmirror(indices::AbstractVector)
 end
 
 function dmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
+    isempty(object) && return object
+    
     corner = ulcorner(object)
     a = corner[1]
     b = corner[2]
