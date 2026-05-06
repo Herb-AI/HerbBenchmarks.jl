@@ -125,7 +125,7 @@ intersection(a, b) = intersect(a, b)
 difference(a, b) = setdiff(a, b)
 
 """Removes duplicate rows/elements from matrix/vector"""
-dedupe(grid::Matrix) = isempty(grid) ? grid : permutedims(stack(unique(eachrow(grid))))
+dedupe(grid::Matrix) = isempty(grid) ? [] : permutedims(stack(unique(eachrow(grid))))
 dedupe(a) = unique(a)
 
 """Order container"""
@@ -315,7 +315,7 @@ toindices(indices) = indices
 vmirror(grid) = reverse(grid, dims=2)
 
 function vmirror(indices::AbstractVector)
-    isempty(indices) && return indices
+    isempty(indices) && return []
 
     min_col, max_col = extrema(idx[2] for idx in indices)
     d = min_col + max_col
@@ -323,7 +323,7 @@ function vmirror(indices::AbstractVector)
 end
 
 function vmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
-    isempty(object) && return object
+    isempty(object) && return []
 
     min_col, max_col = extrema(idx[2] for (_, idx) in object)
     d = min_col + max_col
@@ -334,7 +334,7 @@ end
 hmirror(grid) = reverse(grid, dims=1)
 
 function hmirror(indices::AbstractVector)
-    isempty(indices) && return indices
+    isempty(indices) && return []
 
     min_row, max_row = extrema(idx[1] for idx in indices)
     d = min_row + max_row
@@ -342,7 +342,7 @@ function hmirror(indices::AbstractVector)
 end
 
 function hmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
-    isempty(object) && return object
+    isempty(object) && return []
 
     min_row, max_row = extrema(idx[1] for (_, idx) in object)
     d = min_row + max_row
@@ -353,7 +353,7 @@ end
 dmirror(grid) = permutedims(grid)
 
 function dmirror(indices::AbstractVector)
-    isempty(indices) && return indices
+    isempty(indices) && return []
 
     corner = ulcorner(indices)
     a = corner[1]
@@ -362,7 +362,7 @@ function dmirror(indices::AbstractVector)
 end
 
 function dmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
-    isempty(object) && return object
+    isempty(object) && return []
 
     corner = ulcorner(object)
     a = corner[1]
@@ -852,13 +852,13 @@ asindices(grid) = vcat(collect(CartesianIndices(grid))...)
 ofcolor(grid, value) = findall(x -> x == value, grid)
 
 """Rotates grid by 90 degrees clockwise"""
-rot90deg(grid) = isempty(grid) ? grid : rotr90(grid, 1)
+rot90deg(grid) = isempty(grid) ? [] : rotr90(grid, 1)
 
 """Rotates grid by 180 degrees"""
-rot180deg(grid) = isempty(grid) ? grid : Base.rot180(grid)
+rot180deg(grid) = isempty(grid) ? [] : Base.rot180(grid)
 
 """Rotates grid by 270 degrees (left-rotate by 90 degrees)"""
-rot270deg(grid) = isempty(grid) ? grid : Base.rotl90(grid)
+rot270deg(grid) = isempty(grid) ? [] : Base.rotl90(grid)
 
 """Downscale grid by given factor."""
 downscale(grid, factor) = factor > 0 ? grid[1:factor:end, 1:factor:end] : nothing
@@ -870,14 +870,15 @@ hconcat(a, b) = size(a, 1) == size(b, 1) ? hcat(a, b) : nothing
 vconcat(a, b) = size(a, 2) == size(b, 2) ? vcat(a, b) : nothing
 
 """Upscale grid horizontally."""
-hupscale(grid, factor) = factor > 0 ? (isempty(grid) ? grid : reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])) : nothing
+hupscale(grid, factor) = factor > 0 ? (isempty(grid) ? [] : reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])) : nothing
 
 """Upscale grid vertically."""
-vupscale(grid, factor) = factor > 0 ? (isempty(grid) ? grid : reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])) : nothing
+vupscale(grid, factor) = factor > 0 ? (isempty(grid) ? [] : reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])) : nothing
 
 
 """Split grid along horizontal into n parts."""
 function hsplit(grid::Matrix, n::Integer)
+    isempty(grid) && return []
     n <= 0 && return nothing
 
     _, w_total = size(grid)
@@ -890,6 +891,7 @@ end
 
 """Split grid along vertical into n parts"""
 function vsplit(grid::Matrix, n::Integer)
+    isempty(grid) && return []
     n <= 0 && return nothing
 
     h_total, _ = size(grid)
