@@ -966,7 +966,7 @@ index(grid, loc) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
 subgrid(patch, grid) = crop(grid, ulcorner(patch), shape(patch).I)
 
 """Remove an object from grid by filling with locations with background color."""
-cover(grid, patch) = fill_loc(grid, mostcolor(grid), patch)
+cover(grid, patch) = isempty(grid) ? grid : fill_loc(grid, mostcolor(grid), patch)
 
 """Moves object on grid by given offset"""
 function move(grid, object, offset)
