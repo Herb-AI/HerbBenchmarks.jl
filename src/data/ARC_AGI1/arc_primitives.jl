@@ -868,8 +868,8 @@ function hsplit(grid::Matrix, n::Integer)
     _, w_total = size(grid)
     w = w_total ÷ n
     offset = (w_total % n) / n
-    from = i -> Int(round(w*i+i*offset+1))
-    to = i -> Int(round(w*(i+1)+(i+1)*offset))
+    from = i -> w*i + 1 + Int(round(i*offset, RoundNearestTiesUp))
+    to = i -> from(i) + w - 1
     return [grid[:, from(i):to(i)] for i in 0:n-1]
 end
 
@@ -880,8 +880,8 @@ function vsplit(grid::Matrix, n::Integer)
     h_total, _ = size(grid)
     h = h_total ÷ n
     offset = (h_total % n) / n
-    from = i -> Int(round(h*i+i*offset+1))
-    to = i -> Int(round(h*(i+1)+(i+1)*offset))
+    from = i -> h*i + 1 + Int(round(i*offset, RoundNearestTiesUp))
+    to = i -> from(i) + h - 1
     return [grid[from(i):to(i), :] for i in 0:n-1]
 end
 
