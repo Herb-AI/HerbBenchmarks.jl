@@ -969,7 +969,7 @@ function frontiers(grid)
         [(grid[i, j], CartesianIndex(i, j)) for i in 1:h]
         for j in column_indices
     ]
-    return vcat(hfrontiers, vfrontiers)
+    return [hfrontiers... ; vfrontiers...]
 end
 
 """Constructs a grid of given dimensions and fills it with value"""
