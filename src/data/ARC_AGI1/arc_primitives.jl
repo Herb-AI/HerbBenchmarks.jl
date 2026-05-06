@@ -965,7 +965,11 @@ subgrid(patch, grid) = crop(grid, ulcorner(patch), shape(patch).I)
 cover(grid, patch) = fill_loc(grid, mostcolor(grid), patch)
 
 """Moves object on grid by given offset"""
-move(grid, object, offset) = paint(cover(grid, object), shift(object, offset))
+function move(grid, object, offset)
+    c = cover(grid, object)
+    isnothing(c) && return nothing
+    paint(c, shift(object, offset))
+end
 
 """Locations where object occurs in grid"""
 function occurrences(grid, object)
