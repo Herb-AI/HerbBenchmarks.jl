@@ -458,7 +458,13 @@ function crop(grid, start, dims)
     row = start[1]
     col = start[2]
     nrows, ncols = Tuple(dims)
-    return grid[row:row+nrows-1, col:col+ncols-1]
+
+    rows = row:row+nrows-1
+    cols = col:col+ncols-1
+
+    !checkbounds(Bool, grid, rows, cols) && return nothing
+
+    return grid[rows, cols]
 end
 
 """Recolor patch to given color value"""
