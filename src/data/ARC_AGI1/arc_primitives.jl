@@ -867,18 +867,22 @@ function hsplit(grid::Matrix, n::Integer)
 
     _, w_total = size(grid)
     w = w_total ÷ n
-    offset = w_total % n != 0 ? 1 : 0
-    return [grid[:, (w*i+i*offset+1):(w*(i+1)+i*offset)] for i in 0:n-1]
+    offset = (w_total % n) / n
+    from = i -> Int(round(w*i+i*offset+1))
+    to = i -> Int(round(w*(i+1)+(i+1)*offset))
+    return [grid[:, from(i):to(i)] for i in 0:n-1]
 end
 
-"""Split grid along vertica into n parts"""
+"""Split grid along vertical into n parts"""
 function vsplit(grid::Matrix, n::Integer)
     n <= 0 && return nothing
 
     h_total, _ = size(grid)
     h = h_total ÷ n
-    offset = h_total % n != 0 ? 1 : 0
-    return [grid[(h*i+i*offset+1):(h*(i+1)+i*offset), :] for i in 0:n-1]
+    offset = (h_total % n) / n
+    from = i -> Int(round(h*i+i*offset+1))
+    to = i -> Int(round(h*(i+1)+(i+1)*offset))
+    return [grid[from(i):to(i), :] for i in 0:n-1]
 end
 
 """Cellwise matching of grids a and b. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`."""
