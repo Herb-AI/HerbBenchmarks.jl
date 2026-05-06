@@ -852,10 +852,10 @@ rot270deg(grid) = isempty(grid) ? grid : Base.rotl90(grid)
 downscale(grid, factor) = factor > 0 ? grid[1:factor:end, 1:factor:end] : nothing
 
 """Concatenate grid a and grid b horizontally."""
-hconcat(a, b) = size(a)[1] == size(b)[1] ? hcat(a, b) : nothing
+hconcat(a, b) = size(a, 1) == size(b, 1) ? hcat(a, b) : nothing
 
 """Concatenate grid a and grid b vertically."""
-vconcat(a, b) = size(a)[2] == size(b)[2] ? vcat(a, b) : nothing
+vconcat(a, b) = size(a, 2) == size(b, 2) ? vcat(a, b) : nothing
 
 """Upscale grid horizontally."""
 hupscale(grid, factor) = factor > 0 ? (isempty(grid) ? grid : reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])) : nothing
