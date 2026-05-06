@@ -973,7 +973,7 @@ function frontiers(grid)
 end
 
 """Constructs a grid of given dimensions and fills it with value"""
-canvas(value::Integer, dimensions::CartesianIndex) = fill(value, dimensions[1], dimensions[2])
+canvas(value::Integer, dimensions::CartesianIndex) = (dimensions[1] >= 0 && dimensions[2] >= 0) ? fill(value, dimensions[1], dimensions[2]) : nothing
 
 
 """Get color of grid at given location loc"""
