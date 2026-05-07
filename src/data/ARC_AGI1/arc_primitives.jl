@@ -840,7 +840,7 @@ shoot(start, direction) = connect(start, (start[1] + 42 * direction[1], start[2]
 merge_containers(container) = !isempty(container) ? reduce(vcat, container) : nothing # also works with non-nested containers. We don't have `ContainerContainer` 
 
 """Returns all indices of a grid"""
-asindices(grid) = vcat(collect(CartesianIndices(grid))...)
+asindices(grid)::Vector{CartesianIndex{2}} = vcat(collect(CartesianIndices(grid))...)
 
 """Returns indices of all grid cells of given value (color)"""
 ofcolor(grid, value) = findall(x -> x == value, grid)
