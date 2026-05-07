@@ -741,6 +741,8 @@ end
 
 """Inbox for patch, i.e., inner rectangular border around patch"""
 function inbox(patch)
+    isempty(patch) && return nothing
+
     ai, aj = uppermost(patch) + 1, leftmost(patch) + 1
     bi, bj = lowermost(patch) - 1, rightmost(patch) - 1
     si, sj = min(ai, bi), min(aj, bj)
@@ -758,6 +760,8 @@ end
 
 """Outbox for patch, i.e., outer rectangular border around patch"""
 function outbox(patch)
+    isempty(patch) && return nothing
+
     ai, aj = uppermost(patch) - 1, leftmost(patch) - 1
     bi, bj = lowermost(patch) + 1, rightmost(patch) + 1
     si, sj = min(ai, bi), min(aj, bj)
