@@ -871,7 +871,7 @@ vupscale(grid, factor) = factor > 0 ? (isempty(grid) ? [] : reduce(hcat, [repeat
 
 
 """Split grid along horizontal into n parts."""
-function hsplit(grid::Matrix, n::Integer)
+function hsplit(grid, n::Integer)
     isempty(grid) && return []
     n <= 0 && return nothing
 
@@ -884,7 +884,7 @@ function hsplit(grid::Matrix, n::Integer)
 end
 
 """Split grid along vertical into n parts"""
-function vsplit(grid::Matrix, n::Integer)
+function vsplit(grid, n::Integer)
     isempty(grid) && return []
     n <= 0 && return nothing
 
