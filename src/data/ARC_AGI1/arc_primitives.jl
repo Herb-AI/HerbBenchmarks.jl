@@ -648,7 +648,7 @@ numcolors(element) = length(palette(element))
 color(object) = !isempty(object) ? first(object)[1] : nothing
 
 """Returns an object made from indices provided by patch and corresponding values in grid"""
-toobject(patch, grid) = [(grid[ind], ind) for ind in vec(toindices(patch))]
+toobject(patch, grid) = checkbounds(Bool, grid, toindices(patch)) ? [(grid[ind], ind) for ind in vec(toindices(patch))] : nothing
 
 """Converts grid into an object"""
 asobject(grid) = [(grid[idx], idx) for idx in vec(asindices(grid))]
