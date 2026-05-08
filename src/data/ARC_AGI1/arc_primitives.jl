@@ -1038,7 +1038,7 @@ remove(value, container) = filter(!=(value), container)
 other(value, container) = firstof(remove(value, container))
 
 """Returns range between start and stop with given step size"""
-interval(start, stop, step) = range(start, stop, step=step)
+interval(start, stop, step) = step != 0 ? range(start, stop, step=step) : nothing
 
 """Cartesian product of two containers a and b"""
 cartesian_product(a, b) = vec(collect(CartesianIndex.(Iterators.product(a, b))))
