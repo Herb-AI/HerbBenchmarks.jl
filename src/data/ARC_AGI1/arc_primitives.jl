@@ -309,7 +309,7 @@ lrcorner(object::Matrix{<:Tuple}) = lrcorner(toindices(object))
 """Returns indices"""
 toindices(object::Matrix{<:Tuple}) = toindices([object...])
 toindices(object::Vector{<:Tuple}) = Vector{CartesianIndex{2}}([i[2] for i in object])
-toindices(indices) = indices
+toindices(indices) = Vector{CartesianIndex{2}}(indices)
 
 """Mirrors along vertical"""
 vmirror(grid) = reverse(grid, dims=2)
