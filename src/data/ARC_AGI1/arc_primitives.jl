@@ -717,6 +717,8 @@ end
 
 """Direction in which to move until source patch is adjacent to destination."""
 function gravitate(source, destination)
+    (isempty(source) || isempty(destination)) && return nothing
+
     si, sj = center(source).I
     di, dj = center(destination).I
 
