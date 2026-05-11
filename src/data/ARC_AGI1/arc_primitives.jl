@@ -656,7 +656,7 @@ asobject(grid) = [(grid[idx], idx) for idx in vec(asindices(grid))]
 """Fill value in grid at locations given by patch indices"""
 function fill_loc(grid, value, patch) # fill() in original. Renamed due to name clash.
     grid_filled = copy(grid)
-    indices = toindices(patch)
+    indices = Vector{CartesianIndex{2}}(toindices(patch))
     !checkbounds(Bool, grid, indices) && return nothing
     grid_filled[indices] .= value
     return grid_filled
