@@ -308,7 +308,7 @@ lrcorner(object::Matrix{<:Tuple}) = lrcorner(toindices(object))
 
 """Returns indices"""
 toindices(object::Matrix{<:Tuple}) = toindices([object...])
-toindices(object::Vector{<:Tuple}) = [i[2] for i in object]
+toindices(object::Vector{<:Tuple}) = Vector{CartesianIndex{2}}([i[2] for i in object])
 toindices(indices) = indices
 
 """Mirrors along vertical"""
@@ -656,7 +656,7 @@ asobject(grid) = [(grid[idx], idx) for idx in vec(asindices(grid))]
 """Fill value in grid at locations given by patch indices"""
 function fill_loc(grid, value, patch) # fill() in original. Renamed due to name clash.
     grid_filled = copy(grid)
-    indices = Vector{CartesianIndex{2}}(toindices(patch))
+    indices = toindices(patch)
     !checkbounds(Bool, grid, indices) && return nothing
     grid_filled[indices] .= value
     return grid_filled
