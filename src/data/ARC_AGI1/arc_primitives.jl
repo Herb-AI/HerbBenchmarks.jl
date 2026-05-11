@@ -616,7 +616,7 @@ function vmatching(a, b)
 end
 
 """Min. manhattan distance between two patches a and b"""
-manhattan(a, b) = minimum(abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]) for ai in toindices(a), bi in toindices(b))
+manhattan(a, b) = (!isempty(a) && !isempty(b)) ? minimum(abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]) for ai in toindices(a), bi in toindices(b)) : nothing
 
 """Whether two patches a and b are adjacent"""
 adjacent(a, b) = manhattan(a, b) == 1
