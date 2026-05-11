@@ -572,10 +572,10 @@ function objects(grid, univalued, diagonal, without_bg)
             cands = setdiff(new_cands, occupied)
         end
         if !isempty(obj)
-            push!(objs, obj)
+            push!(objs, collect(obj))
         end
     end
-    return objs
+    return collect(objs)
 end
 
 """All color in object or grid"""
