@@ -421,6 +421,7 @@ end
 
 """Relative position between two patches a and b."""
 function rel_position(a, b)
+    (isempty(a) || isempty(b)) && return nothing
     # `position()` in Python implementation => renamed due to name clash
     ia, ja = center(a).I
     ib, jb = center(b).I
