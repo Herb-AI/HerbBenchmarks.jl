@@ -97,21 +97,26 @@ function visualize(problem::Problem; show_numbers::Bool=false, show_axes::Bool=f
     end
 end
 
-function hstack_with_padding(mats::Vector{<:AbstractMatrix{Int}})
+function hstack_with_padding(mats)
+    isempty(mats) && return Matrix{Int}(undef, 0, 0)
+
     heights = [size(m, 1) for m in mats]
     widths  = [size(m, 2) for m in mats]
 
     total_height = maximum(heights)
-    total_width  = sum(widths) + (length(mats) - 1) # 1-column padding
+    total_width  = sum(widths) + (length(mats) - 1)
 
-    # Fill everything with -1
     result = fill(-1, total_height, total_width)
 
     col = 1
     for m in mats
-        h, w = size(m)
+        h = size(m, 1)
+        w = size(m, 2)
 
-        result[1:h, col:col+w-1] = m
+        # Skip empty matrices
+        if h > 0 && w > 0
+            result[1:h, col:col+w-1] = m
+        end
 
         col += w + 1
     end
