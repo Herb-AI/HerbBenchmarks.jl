@@ -827,11 +827,11 @@ end
 
 
 """Returns a vertical frontier, i.e. all vertical indices (rows 1 to 30) of the column given by location"""
-vfrontier(location::IntegerTuple)::IntegerTuple = [CartesianIndex(i, location[2]) for i in 1:30]
+vfrontier(location::IntegerTuple)::Indices = [CartesianIndex(i, location[2]) for i in 1:30]
 # 30 is maximum grid size
 
 """Returns a horizontal frontier, i.e. all horizontal indices (cols 1 to 30) of the row given by location."""
-hfrontier(location::IntegerTuple)::IntegerTuple = [CartesianIndex(location[1], i) for i in 1:30]
+hfrontier(location::IntegerTuple)::Indices = [CartesianIndex(location[1], i) for i in 1:30]
 # 30 is maximum grid size
 
 """Returns all points (cells) on a line between two points (cells) if the line is horizontal, vertical or diagonal."""
