@@ -1009,10 +1009,10 @@ canvas(value::Integer, dimensions::IntegerTuple)::Unsafe(Grid) = (dimensions[1] 
 index(grid::Grid, loc::IntegerTuple)::Unsafe(Integer) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
 
 """Returns smalles subgrid that contains the patch"""
-subgrid(patch::Patch, grid::Grid)::Grid = crop(grid, ulcorner(patch), shape(patch))
+subgrid(patch::Patch, grid::Grid)::Unsafe(Grid) = crop(grid, ulcorner(patch), shape(patch))
 
 """Remove an object from grid by filling with locations with background color."""
-cover(grid::Grid, patch::Patch)::Grid = fill_loc(grid, mostcolor(grid), patch)
+cover(grid::Grid, patch::Patch)::Unsafe(Grid) = fill_loc(grid, mostcolor(grid), patch)
 
 """Moves object on grid by given offset"""
 function move(grid::Grid, object::Object, offset::IntegerTuple)::Unsafe(Grid)
