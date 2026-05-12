@@ -53,15 +53,19 @@ using StatsBase
 add(a::Integer, b::Integer)::Integer = a + b
 add(a::IntegerTuple, b::Integer)::IntegerTuple = a + CartesianIndex(b, b)
 add(a::Integer, b::IntegerTuple)::IntegerTuple = CartesianIndex(a, a) + b
+add(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = a + b
 
 
 """Subtracts b from a"""
 subtract(a::Integer, b::Integer)::Integer = a - b
 subtract(a::IntegerTuple, b::Integer)::IntegerTuple = a - CartesianIndex(b, b)
 subtract(a::Integer, b::IntegerTuple)::IntegerTuple = CartesianIndex(a, a) - b
+subtract(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = a - b
 
 """Returns the product of  a and b"""
 multiply(a::Integer, b::Integer)::Integer = a * b
+multiply(a::IntegerTuple, b::Integer)::IntegerTuple = CartesianIndex(a[1] * b, a[2] * b)
+multiply(a::Integer, b::IntegerTuple)::IntegerTuple = CartesianIndex(a * b[1], a * b[2])
 multiply(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = CartesianIndex(a[1] * b[1], a[2] * b[2])
 
 """ Returns the result of integer division of  a and b"""
