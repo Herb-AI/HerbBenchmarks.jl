@@ -1,9 +1,9 @@
 problem_007bbfb7 = Problem("problem_007bbfb7", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 7
         7 7 7
         0 7 7
-    ]), Int[
+    ]), Integer[
         0 0 0 0 7 7 0 7 7
         0 0 0 7 7 7 7 7 7
         0 0 0 0 7 7 0 7 7
@@ -14,11 +14,11 @@ problem_007bbfb7 = Problem("problem_007bbfb7", [
         0 0 0 7 7 7 7 7 7
         0 0 0 0 7 7 0 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 4
         0 0 0
         0 4 0
-    ]), Int[
+    ]), Integer[
         4 0 4 0 0 0 4 0 4
         0 0 0 0 0 0 0 0 0
         0 4 0 0 0 0 0 4 0
@@ -29,11 +29,11 @@ problem_007bbfb7 = Problem("problem_007bbfb7", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 4 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 0 2
         2 0 2
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -44,11 +44,11 @@ problem_007bbfb7 = Problem("problem_007bbfb7", [
         0 0 2 0 0 0 0 0 2
         2 0 2 0 0 0 2 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 0
         6 0 0
         0 6 6
-    ]), Int[
+    ]), Integer[
         6 6 0 6 6 0 0 0 0
         6 0 0 6 0 0 0 0 0
         0 6 6 0 6 6 0 0 0
@@ -59,11 +59,11 @@ problem_007bbfb7 = Problem("problem_007bbfb7", [
         0 0 0 6 0 0 6 0 0
         0 0 0 0 6 6 0 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2
         0 0 0
         0 2 2
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2
         0 0 0 0 0 0 0 0 0
         0 2 2 0 2 2 0 2 2
@@ -74,11 +74,11 @@ problem_007bbfb7 = Problem("problem_007bbfb7", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 2 2 0 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 0 7
         7 0 7
         7 7 0
-    ]), Int[
+    ]), Integer[
         7 0 7 0 0 0 7 0 7
         7 0 7 0 0 0 7 0 7
         7 7 0 0 0 0 7 7 0
@@ -92,14 +92,14 @@ problem_007bbfb7 = Problem("problem_007bbfb7", [
 ])
 
 problem_00d62c1b = Problem("problem_00d62c1b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 3 0 0 0
         0 3 0 3 0 0
         0 0 3 0 3 0
         0 0 0 3 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 0 3 0 0 0
         0 3 4 3 0 0
@@ -107,7 +107,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 3 0 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 3 0 3 0 0 0 0 0
         0 0 0 3 0 3 0 0 0 0
@@ -118,7 +118,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 3 0 3 0 0 0 0 0
         0 0 0 3 0 3 0 0 0 0
@@ -130,7 +130,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 3 0 0 0 0
         0 0 0 0 3 0 0 0 0 0
         0 3 3 0 3 3 0 3 0 0
@@ -141,7 +141,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 0 3 3 0 3 0 0
         0 0 0 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 3 0 0 0 0
         0 0 0 0 3 0 0 0 0 0
         0 3 3 0 3 3 0 3 0 0
@@ -153,7 +153,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 3 3 3 3 0 0 0 0
         0 0 3 0 0 3 0 0 0 0
@@ -164,7 +164,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 3 3 0 0 3 0 3
         0 0 0 3 0 3 0 0 3 0
         0 0 0 0 3 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 3 3 3 3 0 0 0 0
         0 0 3 4 4 3 0 0 0 0
@@ -176,7 +176,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 3 4 3 0 0 3 0
         0 0 0 0 3 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 3 3 3 3 0 3 3 0 0 0 0 0 0 0 0 0
@@ -197,7 +197,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 3 3 3 3 4 3 3 0 0 0 0 0 0 0 0 0
@@ -219,7 +219,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 3 0 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -240,7 +240,7 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
         0 0 0 0 0 0 0 3 0 0 0 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 3 3 3 3 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 3 4 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -265,14 +265,14 @@ problem_00d62c1b = Problem("problem_00d62c1b", [
 ])
 
 problem_017c7c7b = Problem("problem_017c7c7b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         1 1 0
         0 1 0
         0 1 1
         0 1 0
         1 1 0
-    ]), Int[
+    ]), Integer[
         0 2 0
         2 2 0
         0 2 0
@@ -283,14 +283,14 @@ problem_017c7c7b = Problem("problem_017c7c7b", [
         0 2 2
         0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         1 0 1
         0 1 0
         1 0 1
         0 1 0
         1 0 1
-    ]), Int[
+    ]), Integer[
         0 2 0
         2 0 2
         0 2 0
@@ -301,14 +301,14 @@ problem_017c7c7b = Problem("problem_017c7c7b", [
         2 0 2
         0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         1 1 0
         0 1 0
         0 1 0
         1 1 0
         0 1 0
-    ]), Int[
+    ]), Integer[
         0 2 0
         2 2 0
         0 2 0
@@ -319,14 +319,14 @@ problem_017c7c7b = Problem("problem_017c7c7b", [
         2 2 0
         0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1
         0 1 0
         0 1 0
         1 1 1
         0 1 0
         0 1 0
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 2 0
         0 2 0
@@ -340,7 +340,7 @@ problem_017c7c7b = Problem("problem_017c7c7b", [
 ])
 
 problem_025d127b = Problem("problem_025d127b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 6 6 6 0 0 0 0 0
         0 6 0 0 6 0 0 0 0
@@ -355,7 +355,7 @@ problem_025d127b = Problem("problem_025d127b", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 6 6 6 0 0 0 0
         0 0 6 0 0 6 0 0 0
@@ -371,7 +371,7 @@ problem_025d127b = Problem("problem_025d127b", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 8 8 8 8 8 0 0 0
         0 8 0 0 0 0 8 0 0
@@ -380,7 +380,7 @@ problem_025d127b = Problem("problem_025d127b", [
         0 0 0 0 8 8 8 8 8
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 8 8 8 8 8 0 0
         0 0 8 0 0 0 0 8 0
@@ -390,7 +390,7 @@ problem_025d127b = Problem("problem_025d127b", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 4 4 4 4 4 0 0 0
         0 4 0 0 0 0 0 4 0 0
@@ -401,7 +401,7 @@ problem_025d127b = Problem("problem_025d127b", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 4 4 4 4 4 4 0 0
         0 0 4 0 0 0 0 0 4 0
@@ -416,7 +416,7 @@ problem_025d127b = Problem("problem_025d127b", [
 ])
 
 problem_045e512c = Problem("problem_045e512c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -438,7 +438,7 @@ problem_045e512c = Problem("problem_045e512c", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -461,7 +461,7 @@ problem_045e512c = Problem("problem_045e512c", [
         0 0 0 0 0 0 2 0 2 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -483,7 +483,7 @@ problem_045e512c = Problem("problem_045e512c", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 4 4 4 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -506,7 +506,7 @@ problem_045e512c = Problem("problem_045e512c", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -528,7 +528,7 @@ problem_045e512c = Problem("problem_045e512c", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 0 6 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 6 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -551,7 +551,7 @@ problem_045e512c = Problem("problem_045e512c", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -573,7 +573,7 @@ problem_045e512c = Problem("problem_045e512c", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -599,38 +599,38 @@ problem_045e512c = Problem("problem_045e512c", [
 ])
 
 problem_0520fde7 = Problem("problem_0520fde7", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 5 0 1 0
         0 1 0 5 1 1 1
         1 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 2 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 5 0 1 0
         0 0 1 5 1 1 1
         1 1 0 5 0 1 0
-    ]), Int[
+    ]), Integer[
         0 2 0
         0 0 2
         0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 5 0 0 0
         1 1 0 5 1 0 1
         0 1 1 5 1 0 1
-    ]), Int[
+    ]), Integer[
         0 0 0
         2 0 0
         0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 1 5 1 0 1
         0 1 0 5 1 0 1
         1 0 1 5 0 1 0
-    ]), Int[
+    ]), Integer[
         2 0 2
         0 0 0
         0 0 0
@@ -638,7 +638,7 @@ problem_0520fde7 = Problem("problem_0520fde7", [
 ])
 
 problem_05269061 = Problem("problem_05269061", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 8 3 0 0 0 0
         8 3 0 0 0 0 0
         3 0 0 0 0 0 0
@@ -646,7 +646,7 @@ problem_05269061 = Problem("problem_05269061", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 8 3 2 8 3 2
         8 3 2 8 3 2 8
         3 2 8 3 2 8 3
@@ -655,7 +655,7 @@ problem_05269061 = Problem("problem_05269061", [
         3 2 8 3 2 8 3
         2 8 3 2 8 3 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 1
@@ -663,7 +663,7 @@ problem_05269061 = Problem("problem_05269061", [
         0 0 0 0 1 2 4
         0 0 0 1 2 4 0
         0 0 1 2 4 0 0
-    ]), Int[
+    ]), Integer[
         2 4 1 2 4 1 2
         4 1 2 4 1 2 4
         1 2 4 1 2 4 1
@@ -672,7 +672,7 @@ problem_05269061 = Problem("problem_05269061", [
         1 2 4 1 2 4 1
         2 4 1 2 4 1 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 3 0
         0 0 0 8 3 0 0
         0 0 8 3 0 0 0
@@ -680,7 +680,7 @@ problem_05269061 = Problem("problem_05269061", [
         8 3 0 0 0 4 0
         3 0 0 0 4 0 0
         0 0 0 4 0 0 0
-    ]), Int[
+    ]), Integer[
         4 8 3 4 8 3 4
         8 3 4 8 3 4 8
         3 4 8 3 4 8 3
@@ -689,7 +689,7 @@ problem_05269061 = Problem("problem_05269061", [
         3 4 8 3 4 8 3
         4 8 3 4 8 3 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 0 0 0 2
         1 0 0 0 0 2 0
         0 0 0 0 2 0 0
@@ -697,7 +697,7 @@ problem_05269061 = Problem("problem_05269061", [
         0 0 2 0 0 0 0
         0 2 0 0 0 0 4
         2 0 0 0 0 4 0
-    ]), Int[
+    ]), Integer[
         2 1 4 2 1 4 2
         1 4 2 1 4 2 1
         4 2 1 4 2 1 4
@@ -709,7 +709,7 @@ problem_05269061 = Problem("problem_05269061", [
 ])
 
 problem_05f2a901 = Problem("problem_05f2a901", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 2 2 2 0 0 0 0 0
@@ -724,7 +724,7 @@ problem_05f2a901 = Problem("problem_05f2a901", [
         0 0 0 8 8 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -740,7 +740,7 @@ problem_05f2a901 = Problem("problem_05f2a901", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 0 0 0 0 0 0 0
         0 2 2 0 0 0 0 0 0 0
@@ -750,7 +750,7 @@ problem_05f2a901 = Problem("problem_05f2a901", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 2 0 0 0 0
         0 0 0 0 2 2 0 0 0 0
@@ -761,7 +761,7 @@ problem_05f2a901 = Problem("problem_05f2a901", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0
@@ -773,7 +773,7 @@ problem_05f2a901 = Problem("problem_05f2a901", [
         0 0 2 2 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0
@@ -786,7 +786,7 @@ problem_05f2a901 = Problem("problem_05f2a901", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -798,7 +798,7 @@ problem_05f2a901 = Problem("problem_05f2a901", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -814,7 +814,7 @@ problem_05f2a901 = Problem("problem_05f2a901", [
 ])
 
 problem_06df4c85 = Problem("problem_06df4c85", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0
         0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -835,7 +835,7 @@ problem_06df4c85 = Problem("problem_06df4c85", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0
         0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0
         0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -857,7 +857,7 @@ problem_06df4c85 = Problem("problem_06df4c85", [
         0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0
         0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0 8 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -881,7 +881,7 @@ problem_06df4c85 = Problem("problem_06df4c85", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -906,7 +906,7 @@ problem_06df4c85 = Problem("problem_06df4c85", [
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -930,7 +930,7 @@ problem_06df4c85 = Problem("problem_06df4c85", [
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -955,7 +955,7 @@ problem_06df4c85 = Problem("problem_06df4c85", [
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -982,7 +982,7 @@ problem_06df4c85 = Problem("problem_06df4c85", [
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -1013,7 +1013,7 @@ problem_06df4c85 = Problem("problem_06df4c85", [
 ])
 
 problem_08ed6ac7 = Problem("problem_08ed6ac7", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 5 0 0 0
         0 5 0 0 0 5 0 0 0
         0 5 0 0 0 5 0 0 0
@@ -1023,7 +1023,7 @@ problem_08ed6ac7 = Problem("problem_08ed6ac7", [
         0 5 0 5 0 5 0 5 0
         0 5 0 5 0 5 0 5 0
         0 5 0 5 0 5 0 5 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 1 0 0 0
         0 2 0 0 0 1 0 0 0
         0 2 0 0 0 1 0 0 0
@@ -1034,7 +1034,7 @@ problem_08ed6ac7 = Problem("problem_08ed6ac7", [
         0 2 0 3 0 1 0 4 0
         0 2 0 3 0 1 0 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0
         0 0 0 0 0 0 0 5 0
@@ -1044,7 +1044,7 @@ problem_08ed6ac7 = Problem("problem_08ed6ac7", [
         0 0 0 5 0 5 0 5 0
         0 5 0 5 0 5 0 5 0
         0 5 0 5 0 5 0 5 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 1 0
         0 0 0 0 0 0 0 1 0
@@ -1055,7 +1055,7 @@ problem_08ed6ac7 = Problem("problem_08ed6ac7", [
         0 4 0 2 0 3 0 1 0
         0 4 0 2 0 3 0 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 5 0 0 0 0 0 0 0
         0 5 0 0 0 5 0 0 0
@@ -1065,7 +1065,7 @@ problem_08ed6ac7 = Problem("problem_08ed6ac7", [
         0 5 0 5 0 5 0 5 0
         0 5 0 5 0 5 0 5 0
         0 5 0 5 0 5 0 5 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 0 0
         0 1 0 0 0 2 0 0 0
@@ -1079,7 +1079,7 @@ problem_08ed6ac7 = Problem("problem_08ed6ac7", [
 ])
 
 problem_09629e4f = Problem("problem_09629e4f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 5 0 6 2 5 0 0 4
         0 4 3 5 4 0 8 5 3 0 6
         6 0 0 5 3 0 0 5 8 0 2
@@ -1091,7 +1091,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
         0 3 6 5 0 2 0 5 0 6 0
         2 0 0 5 4 0 8 5 0 0 8
         8 0 4 5 6 3 0 5 2 3 4
-    ]), Int[
+    ]), Integer[
         2 2 2 5 0 0 0 5 0 0 0
         2 2 2 5 0 0 0 5 0 0 0
         2 2 2 5 0 0 0 5 0 0 0
@@ -1104,7 +1104,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
         6 6 6 5 0 0 0 5 0 0 0
         6 6 6 5 0 0 0 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 3 5 4 6 0 5 0 6 0
         0 0 8 5 0 0 2 5 4 0 3
         4 6 0 5 3 8 0 5 2 0 8
@@ -1116,7 +1116,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
         3 6 0 5 0 8 4 5 2 0 0
         0 8 4 5 2 0 0 5 8 0 3
         2 0 0 5 0 3 6 5 6 4 0
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 5 2 2 2
         0 0 0 5 0 0 0 5 2 2 2
         0 0 0 5 0 0 0 5 2 2 2
@@ -1129,7 +1129,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
         4 4 4 5 0 0 0 5 6 6 6
         4 4 4 5 0 0 0 5 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 5 0 6 3 5 0 6 2
         6 0 4 5 2 8 0 5 0 0 8
         0 2 8 5 0 4 0 5 3 0 4
@@ -1141,7 +1141,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
         6 3 0 5 0 3 0 5 0 0 3
         0 0 2 5 0 6 4 5 2 8 0
         8 4 0 5 2 0 0 5 4 0 6
-    ]), Int[
+    ]), Integer[
         0 0 0 5 3 3 3 5 0 0 0
         0 0 0 5 3 3 3 5 0 0 0
         0 0 0 5 3 3 3 5 0 0 0
@@ -1154,7 +1154,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
         2 2 2 5 0 0 0 5 0 0 0
         2 2 2 5 0 0 0 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 8 4 5 4 6 0 5 2 0 8
         0 0 0 5 8 0 3 5 6 0 3
         6 2 0 5 0 2 0 5 4 0 0
@@ -1166,7 +1166,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
         0 6 0 5 6 2 0 5 3 6 0
         3 0 8 5 0 8 3 5 0 0 4
         4 2 0 5 0 0 4 5 2 0 8
-    ]), Int[
+    ]), Integer[
         0 0 0 5 4 4 4 5 0 0 0
         0 0 0 5 4 4 4 5 0 0 0
         0 0 0 5 4 4 4 5 0 0 0
@@ -1179,7 +1179,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
         0 0 0 5 3 3 3 5 0 0 0
         0 0 0 5 3 3 3 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 4 0 5 0 3 0 5 0 4 0
         0 0 3 5 2 8 6 5 8 0 2
         2 0 8 5 4 0 0 5 6 3 0
@@ -1191,7 +1191,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
         0 2 4 5 0 6 4 5 0 2 8
         0 6 3 5 0 0 3 5 4 0 6
         0 0 0 5 2 0 8 5 3 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 5 2 2 2 5 4 4 4
         0 0 0 5 2 2 2 5 4 4 4
         0 0 0 5 2 2 2 5 4 4 4
@@ -1207,7 +1207,7 @@ problem_09629e4f = Problem("problem_09629e4f", [
 ])
 
 problem_0962bcdd = Problem("problem_0962bcdd", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 7 0 0 0 0 0 0 0 0 0
@@ -1220,7 +1220,7 @@ problem_0962bcdd = Problem("problem_0962bcdd", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         2 0 7 0 2 0 0 0 0 0 0 0
         0 2 7 2 0 0 0 0 0 0 0 0
@@ -1234,7 +1234,7 @@ problem_0962bcdd = Problem("problem_0962bcdd", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0
@@ -1247,7 +1247,7 @@ problem_0962bcdd = Problem("problem_0962bcdd", [
         0 0 0 0 0 0 0 8 6 8 0 0
         0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 6 0 8 0 6 0 0 0 0 0 0
         0 0 6 8 6 0 0 0 0 0 0 0
@@ -1261,7 +1261,7 @@ problem_0962bcdd = Problem("problem_0962bcdd", [
         0 0 0 0 0 0 0 6 8 6 0 0
         0 0 0 0 0 0 6 0 8 0 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 3 0 0 0
         0 0 0 0 0 0 0 3 4 3 0 0
@@ -1274,7 +1274,7 @@ problem_0962bcdd = Problem("problem_0962bcdd", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 4 0 3 0 4 0
         0 0 0 0 0 0 0 4 3 4 0 0
         0 0 0 0 0 0 3 3 4 3 3 0
@@ -1291,7 +1291,7 @@ problem_0962bcdd = Problem("problem_0962bcdd", [
 ])
 
 problem_0a938d79 = Problem("problem_0a938d79", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1302,7 +1302,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0
         0 0 0 0 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0
         0 0 0 0 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0
@@ -1314,7 +1314,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
         0 0 0 0 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0
         0 0 0 0 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0 2 0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1322,7 +1322,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 1 0 0 3 0 0 1 0 0 3 0 0 1 0 0 3 0 0
         0 0 0 0 0 1 0 0 3 0 0 1 0 0 3 0 0 1 0 0 3 0 0
         0 0 0 0 0 1 0 0 3 0 0 1 0 0 3 0 0 1 0 0 3 0 0
@@ -1331,7 +1331,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
         0 0 0 0 0 1 0 0 3 0 0 1 0 0 3 0 0 1 0 0 3 0 0
         0 0 0 0 0 1 0 0 3 0 0 1 0 0 3 0 0 1 0 0 3 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -1354,7 +1354,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -1378,7 +1378,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
         0 0 0 0 0 0 0 0 0
         2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -1403,7 +1403,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -1429,7 +1429,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
         0 0 0 0 0 0 0 0
         4 4 4 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1441,7 +1441,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 3 0 0 0 0 4 0 0 0 0 3 0 0 0 0 4 0 0 0 0 3 0
         0 0 0 0 0 3 0 0 0 0 4 0 0 0 0 3 0 0 0 0 4 0 0 0 0 3 0
         0 0 0 0 0 3 0 0 0 0 4 0 0 0 0 3 0 0 0 0 4 0 0 0 0 3 0
@@ -1457,7 +1457,7 @@ problem_0a938d79 = Problem("problem_0a938d79", [
 ])
 
 problem_0b148d64 = Problem("problem_0b148d64", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 0 8 8 8 8 0 0 0 0 8 8 8 8 0 8 8
         8 0 0 8 0 8 0 8 8 8 0 0 0 0 8 8 8 0 0 0 8
         8 8 8 0 0 0 8 8 8 8 0 0 0 0 8 8 0 8 8 8 8
@@ -1479,7 +1479,7 @@ problem_0b148d64 = Problem("problem_0b148d64", [
         0 2 2 0 0 2 2 0 0 2 0 0 0 0 8 0 0 0 8 8 0
         2 2 2 2 2 2 2 2 2 2 0 0 0 0 0 8 8 0 0 8 8
         2 0 2 2 0 2 2 2 2 2 0 0 0 0 8 8 8 0 8 8 8
-    ]), Int[
+    ]), Integer[
         0 2 2 2 0 0 2 2 2 2
         2 0 2 2 2 0 0 2 2 2
         0 2 2 2 2 2 2 0 2 0
@@ -1491,7 +1491,7 @@ problem_0b148d64 = Problem("problem_0b148d64", [
         2 2 2 2 2 2 2 2 2 2
         2 0 2 2 0 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2 2 2 2 0 0 0 0 2 0 2 2 2 2 0 0 2
         2 2 2 2 0 2 2 0 0 0 0 2 2 2 2 2 0 0 0
         0 0 2 2 0 2 0 0 0 0 2 2 2 0 2 2 2 2 2
@@ -1510,7 +1510,7 @@ problem_0b148d64 = Problem("problem_0b148d64", [
         2 0 0 2 2 2 0 0 0 0 3 0 0 0 3 0 3 0 3
         2 0 2 0 0 0 2 0 0 0 0 3 3 0 3 3 3 0 3
         0 2 2 0 2 2 0 0 0 0 0 3 3 0 0 3 0 3 0
-    ]), Int[
+    ]), Integer[
         0 3 3 3 3 3 0 3 3
         3 3 3 0 0 0 3 3 0
         3 3 3 0 3 0 3 0 0
@@ -1519,7 +1519,7 @@ problem_0b148d64 = Problem("problem_0b148d64", [
         0 3 3 0 3 3 3 0 3
         0 3 3 0 0 3 0 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 1 1 1 0 0 1 1 0 1 0 0 0 0 0
         1 0 1 0 0 0 0 0 1 1 1 1 1 1 0 1 1
         1 1 0 1 1 0 0 0 1 1 1 1 1 1 0 1 1
@@ -1539,7 +1539,7 @@ problem_0b148d64 = Problem("problem_0b148d64", [
         0 4 4 4 0 4 0 0 0 1 0 1 0 1 1 1 0
         0 4 0 0 0 0 0 0 1 0 1 1 1 0 1 0 1
         4 4 0 4 0 4 0 0 1 1 1 0 0 1 1 1 0
-    ]), Int[
+    ]), Integer[
         4 0 0 4 0 4
         4 4 4 4 0 4
         4 0 4 0 0 4
@@ -1550,7 +1550,7 @@ problem_0b148d64 = Problem("problem_0b148d64", [
         0 4 0 0 0 0
         4 4 0 4 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 0 1 0 0 3 0 3 3 3 3 3 3 0
         1 0 1 0 1 1 0 0 0 3 0 3 3 3 0 0 0
         1 1 0 1 1 0 0 0 0 0 0 3 3 3 3 0 0
@@ -1566,7 +1566,7 @@ problem_0b148d64 = Problem("problem_0b148d64", [
         3 3 3 3 3 0 0 0 3 0 0 0 3 0 0 0 3
         3 0 3 0 3 0 0 0 0 3 3 3 3 3 3 0 3
         0 3 3 0 0 0 0 0 0 0 3 3 3 0 3 3 0
-    ]), Int[
+    ]), Integer[
         1 1 1 1 0 1
         1 0 1 0 1 1
         1 1 0 1 1 0
@@ -1577,7 +1577,7 @@ problem_0b148d64 = Problem("problem_0b148d64", [
 ])
 
 problem_0ca9ddb6 = Problem("problem_0ca9ddb6", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -1587,7 +1587,7 @@ problem_0ca9ddb6 = Problem("problem_0ca9ddb6", [
         0 0 0 0 0 0 1 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 4 0 4 0 0 0 0 0
@@ -1598,7 +1598,7 @@ problem_0ca9ddb6 = Problem("problem_0ca9ddb6", [
         0 0 0 0 0 0 7 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 0 0
@@ -1608,7 +1608,7 @@ problem_0ca9ddb6 = Problem("problem_0ca9ddb6", [
         0 0 0 0 0 0 1 0 0
         0 2 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 0 0 0 0
         0 0 0 0 0 4 0 4 0
         0 0 7 0 0 0 2 0 0
@@ -1619,7 +1619,7 @@ problem_0ca9ddb6 = Problem("problem_0ca9ddb6", [
         0 2 0 0 0 0 7 0 0
         4 0 4 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0
@@ -1629,7 +1629,7 @@ problem_0ca9ddb6 = Problem("problem_0ca9ddb6", [
         0 0 0 0 0 0 0 0 0
         0 0 0 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 4 0 4 0 0 0 0 0
         0 0 2 0 0 0 0 0 0
@@ -1640,7 +1640,7 @@ problem_0ca9ddb6 = Problem("problem_0ca9ddb6", [
         0 0 7 1 7 0 0 0 0
         0 0 0 7 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 0 0
@@ -1650,7 +1650,7 @@ problem_0ca9ddb6 = Problem("problem_0ca9ddb6", [
         0 0 0 0 0 0 0 0 0
         0 6 0 0 0 0 0 2 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 7 0 0
         0 4 0 4 0 7 1 7 0
@@ -1664,47 +1664,47 @@ problem_0ca9ddb6 = Problem("problem_0ca9ddb6", [
 ])
 
 problem_0d3d703e = Problem("problem_0d3d703e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 1 2
         3 1 2
         3 1 2
-    ]), Int[
+    ]), Integer[
         4 5 6
         4 5 6
         4 5 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 3 8
         2 3 8
         2 3 8
-    ]), Int[
+    ]), Integer[
         6 4 9
         6 4 9
         6 4 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 8 6
         5 8 6
         5 8 6
-    ]), Int[
+    ]), Integer[
         1 9 2
         1 9 2
         1 9 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 4 2
         9 4 2
         9 4 2
-    ]), Int[
+    ]), Integer[
         8 3 6
         8 3 6
         8 3 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 1 3
         8 1 3
         8 1 3
-    ]), Int[
+    ]), Integer[
         9 5 4
         9 5 4
         9 5 4
@@ -1712,7 +1712,7 @@ problem_0d3d703e = Problem("problem_0d3d703e", [
 ])
 
 problem_0dfd9992 = Problem("problem_0dfd9992", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 6 5 6 3 2 3 6 5 6 3 2 3 6 5 6 3 2 3 6 5
         6 3 2 3 6 5 6 3 2 3 6 5 6 3 2 3 6 5 6 3 2
         5 2 1 2 5 4 5 2 1 2 5 4 5 2 1 2 5 4 5 2 1
@@ -1734,7 +1734,7 @@ problem_0dfd9992 = Problem("problem_0dfd9992", [
         3 6 5 6 0 0 0 6 5 6 3 2 3 6 5 6 3 2 3 6 5
         6 3 2 3 6 5 6 3 2 3 6 5 6 3 2 3 6 5 6 3 2
         5 2 1 2 5 4 5 2 1 2 5 4 5 2 1 2 5 4 5 2 1
-    ]), Int[
+    ]), Integer[
         3 6 5 6 3 2 3 6 5 6 3 2 3 6 5 6 3 2 3 6 5
         6 3 2 3 6 5 6 3 2 3 6 5 6 3 2 3 6 5 6 3 2
         5 2 1 2 5 4 5 2 1 2 5 4 5 2 1 2 5 4 5 2 1
@@ -1757,7 +1757,7 @@ problem_0dfd9992 = Problem("problem_0dfd9992", [
         6 3 2 3 6 5 6 3 2 3 6 5 6 3 2 3 6 5 6 3 2
         5 2 1 2 5 4 5 2 1 2 5 4 5 2 1 2 5 4 5 2 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 7 7 2 6 5 6 2 7 7 2 6 5 6 2 7 7 2 6 5 6
         7 5 5 7 4 3 4 7 5 5 7 4 3 4 7 5 5 7 4 3 4
         7 5 5 7 4 3 4 7 5 5 7 4 3 4 7 5 5 7 4 3 4
@@ -1779,7 +1779,7 @@ problem_0dfd9992 = Problem("problem_0dfd9992", [
         6 4 4 6 3 2 3 6 4 4 6 3 2 3 6 4 4 6 3 2 3
         5 3 3 5 2 1 2 5 3 3 5 2 1 2 5 3 3 5 2 1 2
         6 4 4 6 3 2 3 6 4 4 6 3 2 3 6 4 4 6 3 2 3
-    ]), Int[
+    ]), Integer[
         2 7 7 2 6 5 6 2 7 7 2 6 5 6 2 7 7 2 6 5 6
         7 5 5 7 4 3 4 7 5 5 7 4 3 4 7 5 5 7 4 3 4
         7 5 5 7 4 3 4 7 5 5 7 4 3 4 7 5 5 7 4 3 4
@@ -1802,7 +1802,7 @@ problem_0dfd9992 = Problem("problem_0dfd9992", [
         5 3 3 5 2 1 2 5 3 3 5 2 1 2 5 3 3 5 2 1 2
         6 4 4 6 3 2 3 6 4 4 6 3 2 3 6 4 4 6 3 2 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3
         2 1 2 5 2 1 2 5 2 1 2 5 2 1 2 5 2 1 2 5 2
         0 0 0 0 0 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3
@@ -1824,7 +1824,7 @@ problem_0dfd9992 = Problem("problem_0dfd9992", [
         3 0 0 0 0 0 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3
         6 5 6 1 6 5 6 1 6 5 6 1 6 5 6 1 6 5 6 1 6
         3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3
-    ]), Int[
+    ]), Integer[
         3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3
         2 1 2 5 2 1 2 5 2 1 2 5 2 1 2 5 2 1 2 5 2
         3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3
@@ -1847,7 +1847,7 @@ problem_0dfd9992 = Problem("problem_0dfd9992", [
         6 5 6 1 6 5 6 1 6 5 6 1 6 5 6 1 6 5 6 1 6
         3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3 2 3 6 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 6 5 6 9 5 3 3 5 9 6 5 6 9 5 3 3 5 9 6 5
         6 3 2 3 6 2 9 9 2 0 0 0 0 0 2 9 9 2 6 3 2
         5 2 1 2 5 1 8 8 1 0 0 0 0 0 1 8 8 1 5 2 1
@@ -1869,7 +1869,7 @@ problem_0dfd9992 = Problem("problem_0dfd9992", [
         9 6 5 6 0 0 0 3 5 9 6 5 6 9 5 3 3 5 9 6 5
         6 3 2 3 0 0 0 9 2 6 3 2 3 6 2 9 9 2 6 3 2
         5 2 1 2 5 1 8 8 1 5 2 1 2 5 1 8 8 1 5 2 1
-    ]), Int[
+    ]), Integer[
         9 6 5 6 9 5 3 3 5 9 6 5 6 9 5 3 3 5 9 6 5
         6 3 2 3 6 2 9 9 2 6 3 2 3 6 2 9 9 2 6 3 2
         5 2 1 2 5 1 8 8 1 5 2 1 2 5 1 8 8 1 5 2 1
@@ -1895,7 +1895,7 @@ problem_0dfd9992 = Problem("problem_0dfd9992", [
 ])
 
 problem_0e206a2e = Problem("problem_0e206a2e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 8 1 0 0 0 0 0 0 0 0 0 0 4 0 0
@@ -1910,7 +1910,7 @@ problem_0e206a2e = Problem("problem_0e206a2e", [
         0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 4 8 0
@@ -1926,7 +1926,7 @@ problem_0e206a2e = Problem("problem_0e206a2e", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1941,7 +1941,7 @@ problem_0e206a2e = Problem("problem_0e206a2e", [
         0 0 0 0 0 0 0 0 0 1 0 0 0 0 2
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1957,7 +1957,7 @@ problem_0e206a2e = Problem("problem_0e206a2e", [
         0 0 0 0 0 0 0 0 0 3 0 0 0 3 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 4 0 0 0 0
@@ -1974,7 +1974,7 @@ problem_0e206a2e = Problem("problem_0e206a2e", [
         0 0 0 0 0 4 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1992,7 +1992,7 @@ problem_0e206a2e = Problem("problem_0e206a2e", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -2017,7 +2017,7 @@ problem_0e206a2e = Problem("problem_0e206a2e", [
         0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -2046,20 +2046,20 @@ problem_0e206a2e = Problem("problem_0e206a2e", [
 ])
 
 problem_10fcaaa3 = Problem("problem_10fcaaa3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0
         0 5 0 0
-    ]), Int[
+    ]), Integer[
         8 0 8 0 8 0 8 0
         0 5 0 0 0 5 0 0
         8 0 8 0 8 0 8 0
         0 5 0 0 0 5 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 6 0
         0 0 0 0
         0 6 0 0
-    ]), Int[
+    ]), Integer[
         0 0 6 0 0 0 6 0
         8 8 8 8 8 8 8 8
         0 6 0 8 0 6 0 8
@@ -2067,13 +2067,13 @@ problem_10fcaaa3 = Problem("problem_10fcaaa3", [
         8 8 8 8 8 8 8 8
         0 6 0 0 0 6 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 4 0
         0 0 0
         0 0 0
         4 0 0
-    ]), Int[
+    ]), Integer[
         8 0 8 8 0 8
         0 4 0 0 4 0
         8 0 8 8 0 8
@@ -2085,12 +2085,12 @@ problem_10fcaaa3 = Problem("problem_10fcaaa3", [
         0 8 8 0 8 0
         4 0 0 4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0
         0 2 0 0
         0 0 0 0
         0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 8 0 8 0 8 0
         0 2 0 0 0 2 0 0
         8 0 8 0 8 0 8 0
@@ -2100,14 +2100,14 @@ problem_10fcaaa3 = Problem("problem_10fcaaa3", [
         8 0 8 0 8 0 8 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 3 0
         0 0 0 0 0
         0 3 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 0 0 0 0 3 0 0 0
         8 0 8 0 0 8 0 8 0 0
         0 0 8 0 8 0 0 8 0 8
@@ -2124,7 +2124,7 @@ problem_10fcaaa3 = Problem("problem_10fcaaa3", [
 ])
 
 problem_11852cab = Problem("problem_11852cab", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 3 0 8 0 0 0 0 0
         0 0 0 2 0 2 0 0 0 0
@@ -2135,7 +2135,7 @@ problem_11852cab = Problem("problem_11852cab", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 3 0 8 0 3 0 0 0
         0 0 0 2 0 2 0 0 0 0
@@ -2147,7 +2147,7 @@ problem_11852cab = Problem("problem_11852cab", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 2 0 3 0 0 0 0 0
@@ -2158,7 +2158,7 @@ problem_11852cab = Problem("problem_11852cab", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 2 0 3 0 2 0 0 0
@@ -2170,7 +2170,7 @@ problem_11852cab = Problem("problem_11852cab", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 8 0 8 0 0
         0 0 0 0 4 0 0 0 0 0
@@ -2181,7 +2181,7 @@ problem_11852cab = Problem("problem_11852cab", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 8 0 8 0 0
         0 0 0 0 4 0 4 0 0 0
@@ -2193,7 +2193,7 @@ problem_11852cab = Problem("problem_11852cab", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 0 4 0 1 0 0 0 0
@@ -2204,7 +2204,7 @@ problem_11852cab = Problem("problem_11852cab", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 0 4 0 1 0 0 0 0
@@ -2219,7 +2219,7 @@ problem_11852cab = Problem("problem_11852cab", [
 ])
 
 problem_1190e5a7 = Problem("problem_1190e5a7", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 7 3 3 3 3 3 3 3 3 7 3 3 7 3
         3 7 3 3 3 3 3 3 3 3 7 3 3 7 3
         7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
@@ -2235,11 +2235,11 @@ problem_1190e5a7 = Problem("problem_1190e5a7", [
         3 7 3 3 3 3 3 3 3 3 7 3 3 7 3
         3 7 3 3 3 3 3 3 3 3 7 3 3 7 3
         3 7 3 3 3 3 3 3 3 3 7 3 3 7 3
-    ]), Int[
+    ]), Integer[
         3 3 3 3
         3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 8 1 1 1 1 1 1
         1 1 1 1 8 1 1 1 1 1 1
         1 1 1 1 8 1 1 1 1 1 1
@@ -2251,12 +2251,12 @@ problem_1190e5a7 = Problem("problem_1190e5a7", [
         1 1 1 1 8 1 1 1 1 1 1
         8 8 8 8 8 8 8 8 8 8 8
         1 1 1 1 8 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1
         1 1
         1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 3 3 1 3 1 3 1 3
         3 3 3 3 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 3 3 1 3 1 3 1 3
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -2284,7 +2284,7 @@ problem_1190e5a7 = Problem("problem_1190e5a7", [
         3 3 3 3 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 3 3 1 3 1 3 1 3
         3 3 3 3 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 3 3 1 3 1 3 1 3
         3 3 3 3 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 3 3 1 3 1 3 1 3
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3
         3 3 3 3 3
         3 3 3 3 3
@@ -2292,7 +2292,7 @@ problem_1190e5a7 = Problem("problem_1190e5a7", [
         3 3 3 3 3
         3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 1 1 1 1 5 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 1 1 1 1 5 1
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
@@ -2315,7 +2315,7 @@ problem_1190e5a7 = Problem("problem_1190e5a7", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 1 1 1 1 5 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 1 1 1 1 5 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 1 1 1 1 5 1
-    ]), Int[
+    ]), Integer[
         1 1 1
         1 1 1
         1 1 1
@@ -2325,7 +2325,7 @@ problem_1190e5a7 = Problem("problem_1190e5a7", [
 ])
 
 problem_137eaa0f = Problem("problem_137eaa0f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 6 6 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
@@ -2337,12 +2337,12 @@ problem_137eaa0f = Problem("problem_137eaa0f", [
         0 0 0 0 0 5 7 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 7
         0 5 7
         4 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 6 0 0 0 0 0 0 0 0 0
@@ -2354,12 +2354,12 @@ problem_137eaa0f = Problem("problem_137eaa0f", [
         0 0 2 2 0 0 3 3 3 0 0
         0 0 5 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 2 2
         7 5 7
         3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 1 1 0 0 0 0 0 0 0 0
@@ -2371,12 +2371,12 @@ problem_137eaa0f = Problem("problem_137eaa0f", [
         0 0 0 0 0 0 0 5 0 0 0
         0 0 0 0 0 0 9 9 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 1
         1 5 2
         9 9 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 9 0 0
         0 0 0 0 0 0 0 9 5 0 0
@@ -2388,7 +2388,7 @@ problem_137eaa0f = Problem("problem_137eaa0f", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 5 0 0 0 0 0 0 0
         0 0 0 2 2 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 9 8
         9 5 4
         9 2 2
@@ -2396,7 +2396,7 @@ problem_137eaa0f = Problem("problem_137eaa0f", [
 ])
 
 problem_150deff5 = Problem("problem_150deff5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 5 5 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 0 0 0 0
@@ -2406,7 +2406,7 @@ problem_150deff5 = Problem("problem_150deff5", [
         0 0 0 0 0 5 5 5 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 8 8 0 0 0 0 0 0 0
         0 0 8 8 2 2 2 0 0 0 0
@@ -2417,7 +2417,7 @@ problem_150deff5 = Problem("problem_150deff5", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 5 0 0 0
         0 5 5 5 5 5 5 0 0 0
@@ -2426,7 +2426,7 @@ problem_150deff5 = Problem("problem_150deff5", [
         0 0 0 0 5 5 5 0 0 0
         0 0 0 0 5 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 8 8 2 8 8 2 0 0 0
         0 8 8 2 8 8 2 0 0 0
@@ -2436,7 +2436,7 @@ problem_150deff5 = Problem("problem_150deff5", [
         0 0 0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 0 0 0
         0 0 0 0 5 5 0 0 0
@@ -2445,7 +2445,7 @@ problem_150deff5 = Problem("problem_150deff5", [
         0 0 0 5 5 5 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 2 2 2 8 8 0 0 0
         0 0 0 0 8 8 0 0 0
@@ -2455,7 +2455,7 @@ problem_150deff5 = Problem("problem_150deff5", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 5 0 5 5 5 0 0 0
         0 0 5 5 0 0 5 0 0 0 0
         0 5 5 5 5 5 5 0 0 0 0
@@ -2464,7 +2464,7 @@ problem_150deff5 = Problem("problem_150deff5", [
         0 0 0 0 0 5 5 0 0 0 0
         0 0 0 0 0 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 8 0 2 2 2 0 0 0
         0 0 8 8 0 0 2 0 0 0 0
         0 2 2 2 8 8 2 0 0 0 0
@@ -2477,7 +2477,7 @@ problem_150deff5 = Problem("problem_150deff5", [
 ])
 
 problem_178fcbfb = Problem("problem_178fcbfb", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0
@@ -2487,7 +2487,7 @@ problem_178fcbfb = Problem("problem_178fcbfb", [
         0 0 0 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 2 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0
@@ -2498,7 +2498,7 @@ problem_178fcbfb = Problem("problem_178fcbfb", [
         0 0 2 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -2509,7 +2509,7 @@ problem_178fcbfb = Problem("problem_178fcbfb", [
         0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 2 0 0
         3 3 3 3 3 3 3 3
         0 0 0 0 0 2 0 0
@@ -2521,7 +2521,7 @@ problem_178fcbfb = Problem("problem_178fcbfb", [
         0 0 0 0 0 2 0 0
         0 0 0 0 0 2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -2532,7 +2532,7 @@ problem_178fcbfb = Problem("problem_178fcbfb", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 2 0 0 0 0 0 2 0
         1 1 1 1 1 1 1 1 1 1 1
         0 0 0 2 0 0 0 0 0 2 0
@@ -2544,7 +2544,7 @@ problem_178fcbfb = Problem("problem_178fcbfb", [
         0 0 0 2 0 0 0 0 0 2 0
         0 0 0 2 0 0 0 0 0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 3 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 2 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -2557,7 +2557,7 @@ problem_178fcbfb = Problem("problem_178fcbfb", [
         0 0 0 0 0 0 0 0 1 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3
         0 0 0 0 2 0 0 0 0 2 0
         0 0 0 0 2 0 0 0 0 2 0
@@ -2574,7 +2574,7 @@ problem_178fcbfb = Problem("problem_178fcbfb", [
 ])
 
 problem_1a07d186 = Problem("problem_1a07d186", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
@@ -2593,7 +2593,7 @@ problem_1a07d186 = Problem("problem_1a07d186", [
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
@@ -2613,7 +2613,7 @@ problem_1a07d186 = Problem("problem_1a07d186", [
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 4 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -2629,7 +2629,7 @@ problem_1a07d186 = Problem("problem_1a07d186", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0 2 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0 0 0 0 0
@@ -2646,7 +2646,7 @@ problem_1a07d186 = Problem("problem_1a07d186", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 1 0 0 0 8 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -2662,7 +2662,7 @@ problem_1a07d186 = Problem("problem_1a07d186", [
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -2679,7 +2679,7 @@ problem_1a07d186 = Problem("problem_1a07d186", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 2 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 3 0 0 0 0 2 0 0 0 4 0 0 0 0 0
@@ -2699,7 +2699,7 @@ problem_1a07d186 = Problem("problem_1a07d186", [
         0 0 0 0 2 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 4 0 3 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 2 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0
         0 0 0 0 2 2 0 0 0 0 0 3 0 0 0 0 0 0 0 0 4 0 0 0 0 0
@@ -2723,78 +2723,78 @@ problem_1a07d186 = Problem("problem_1a07d186", [
 ])
 
 problem_1b2d62fb = Problem("problem_1b2d62fb", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 9 9 1 9 9 9
         0 0 9 1 9 9 0
         9 0 9 1 9 9 0
         0 0 0 1 9 0 0
         0 9 9 1 9 9 9
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 0
         0 0 0
         0 8 8
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 9 0 0
         9 0 9 1 9 9 9
         0 9 9 1 9 9 9
         0 0 0 1 9 9 9
         0 9 9 1 9 9 9
-    ]), Int[
+    ]), Integer[
         0 8 8
         0 0 0
         0 0 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 0 0 1 9 0 9
         9 0 0 1 0 9 0
         9 0 0 1 9 0 0
         0 9 9 1 0 9 9
         0 0 9 1 0 9 0
-    ]), Int[
+    ]), Integer[
         0 8 0
         0 0 8
         0 8 8
         8 0 0
         8 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 9 9 1 9 0 9
         9 0 0 1 9 0 0
         9 9 9 1 9 9 9
         0 9 0 1 0 0 0
         9 0 0 1 9 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 8 8
         0 0 0
         8 0 8
         0 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 9 9 1 9 0 9
         9 0 9 1 9 9 9
         9 9 9 1 0 0 9
         9 0 0 1 9 0 0
         9 9 9 1 0 0 9
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 0
         0 0 0
         0 8 8
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 0 1 0 9 0
         0 9 9 1 0 0 0
         9 9 0 1 0 9 0
         9 9 9 1 9 0 9
         0 9 9 1 0 9 9
-    ]), Int[
+    ]), Integer[
         0 0 8
         8 0 0
         0 0 8
@@ -2804,7 +2804,7 @@ problem_1b2d62fb = Problem("problem_1b2d62fb", [
 ])
 
 problem_1b60fb0c = Problem("problem_1b60fb0c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 1 1 1 0 0 0 0
         0 0 0 0 1 1 0 0 0 0
@@ -2815,7 +2815,7 @@ problem_1b60fb0c = Problem("problem_1b60fb0c", [
         0 0 0 0 1 1 0 0 0 0
         0 0 0 0 1 1 1 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 1 1 1 0 0 0 0
         0 0 0 0 1 1 0 0 0 0
@@ -2827,7 +2827,7 @@ problem_1b60fb0c = Problem("problem_1b60fb0c", [
         0 0 0 0 1 1 1 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 1 1 1 1 1 0 0
         0 0 0 1 1 1 1 1 0 0
@@ -2838,7 +2838,7 @@ problem_1b60fb0c = Problem("problem_1b60fb0c", [
         0 0 0 0 0 1 0 0 1 1
         0 0 0 1 1 1 1 1 0 0
         0 0 0 1 1 1 1 1 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 1 1 1 1 1 0 0
         0 0 0 1 1 1 1 1 0 0
@@ -2850,7 +2850,7 @@ problem_1b60fb0c = Problem("problem_1b60fb0c", [
         0 0 0 1 1 1 1 1 0 0
         0 0 0 1 1 1 1 1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 1 1 1 1 1 0 0
         0 0 0 0 0 1 0 0 0 0
@@ -2861,7 +2861,7 @@ problem_1b60fb0c = Problem("problem_1b60fb0c", [
         0 0 0 0 1 1 1 0 0 1
         0 0 0 0 0 1 0 0 0 0
         0 0 0 1 1 1 1 1 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 1 1 1 1 1 0 0
         0 0 0 0 0 1 0 0 0 0
@@ -2873,7 +2873,7 @@ problem_1b60fb0c = Problem("problem_1b60fb0c", [
         0 0 0 0 0 1 0 0 0 0
         0 0 0 1 1 1 1 1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 1 0 0 0 0 0
         0 0 1 1 1 1 1 0 0 0
         0 0 0 0 1 1 0 0 1 0
@@ -2884,7 +2884,7 @@ problem_1b60fb0c = Problem("problem_1b60fb0c", [
         0 0 0 0 1 1 0 0 0 0
         0 0 0 1 1 1 1 1 0 0
         0 0 0 0 0 1 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 1 0 0 0 0 0
         0 0 1 1 1 1 1 0 0 0
         0 0 0 0 1 1 0 0 1 0
@@ -2899,7 +2899,7 @@ problem_1b60fb0c = Problem("problem_1b60fb0c", [
 ])
 
 problem_1bfc4729 = Problem("problem_1bfc4729", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 6 0 0 0 0 0 0 0
@@ -2910,7 +2910,7 @@ problem_1bfc4729 = Problem("problem_1bfc4729", [
         0 0 0 0 0 0 0 7 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6 6 6 6 6 6 6 6
         6 0 0 0 0 0 0 0 0 6
         6 6 6 6 6 6 6 6 6 6
@@ -2922,7 +2922,7 @@ problem_1bfc4729 = Problem("problem_1bfc4729", [
         7 0 0 0 0 0 0 0 0 7
         7 7 7 7 7 7 7 7 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 0 0 0
@@ -2933,7 +2933,7 @@ problem_1bfc4729 = Problem("problem_1bfc4729", [
         0 0 0 0 0 4 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1
         1 0 0 0 0 0 0 0 0 1
         1 1 1 1 1 1 1 1 1 1
@@ -2945,7 +2945,7 @@ problem_1bfc4729 = Problem("problem_1bfc4729", [
         4 0 0 0 0 0 0 0 0 4
         4 4 4 4 4 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0
@@ -2956,7 +2956,7 @@ problem_1bfc4729 = Problem("problem_1bfc4729", [
         0 0 0 0 0 0 8 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 2
         2 0 0 0 0 0 0 0 0 2
         2 2 2 2 2 2 2 2 2 2
@@ -2971,7 +2971,7 @@ problem_1bfc4729 = Problem("problem_1bfc4729", [
 ])
 
 problem_1c786137 = Problem("problem_1c786137", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 8 8 0 3 8 8 0 8 0 3 1 1 1 8 8 0 3 8 3 8
         3 3 0 0 5 3 0 3 8 0 3 3 8 1 1 8 1 3 1 8 3
         1 5 1 3 1 1 8 3 0 0 3 8 3 0 1 0 8 8 5 5 0
@@ -2995,7 +2995,7 @@ problem_1c786137 = Problem("problem_1c786137", [
         1 3 0 1 3 3 1 0 0 1 5 8 3 5 3 8 0 3 8 3 8
         3 1 3 0 8 0 8 0 0 1 3 1 1 0 8 8 5 1 0 1 8
         3 3 1 0 3 1 8 8 0 0 5 1 8 8 1 3 3 5 3 5 8
-    ]), Int[
+    ]), Integer[
         0 0 8 0 3 3 3 3
         1 0 0 0 3 0 3 1
         3 3 0 3 3 0 8 1
@@ -3003,7 +3003,7 @@ problem_1c786137 = Problem("problem_1c786137", [
         5 1 3 0 1 3 1 1
         5 0 8 0 3 0 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 6 9 6 6 0 6 3 6 9 6 6 6 9 9 0
         9 9 0 6 6 0 0 9 3 6 6 6 9 9 0 6
         6 0 9 0 0 6 0 6 6 0 3 0 0 6 0 0
@@ -3017,14 +3017,14 @@ problem_1c786137 = Problem("problem_1c786137", [
         3 3 4 9 0 0 4 9 0 6 0 0 0 6 0 0
         0 0 4 6 3 9 4 6 0 9 0 9 0 0 0 0
         9 9 4 4 4 4 4 9 9 0 9 9 0 0 0 6
-    ]), Int[
+    ]), Integer[
         3 3 0
         9 3 9
         6 6 0
         9 0 0
         6 3 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 5 0 0 3 0 0 2 0 0 0 0 0 0 3 5 3 5
         2 0 0 2 0 2 2 2 2 2 2 5 3 0 3 2 0 5
         0 5 5 8 8 8 8 8 8 8 8 8 8 8 8 5 0 0
@@ -3042,7 +3042,7 @@ problem_1c786137 = Problem("problem_1c786137", [
         0 2 2 2 2 0 0 2 0 2 3 3 2 0 2 5 2 5
         3 0 0 0 0 5 3 0 0 0 2 2 5 0 2 3 2 0
         0 0 2 5 0 5 0 3 0 0 0 0 2 3 3 5 2 3
-    ]), Int[
+    ]), Integer[
         0 0 5 3 3 3 2 2 5 0
         3 0 0 5 5 5 5 2 0 5
         3 5 0 2 0 3 0 5 3 0
@@ -3052,7 +3052,7 @@ problem_1c786137 = Problem("problem_1c786137", [
         2 3 2 3 0 0 5 0 5 0
         3 2 5 0 5 0 0 0 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 1 1 8 0 0 8 0 8 0 0 0 8
         0 1 0 8 8 1 0 1 1 2 8 1 1 2 0 2
         0 0 8 8 1 1 8 8 1 1 8 0 8 0 0 1
@@ -3070,7 +3070,7 @@ problem_1c786137 = Problem("problem_1c786137", [
         8 1 0 0 0 0 8 8 0 1 2 8 8 8 1 8
         8 1 0 0 1 1 8 0 1 2 8 1 0 1 2 0
         8 0 8 2 8 0 8 2 0 1 8 1 8 1 8 8
-    ]), Int[
+    ]), Integer[
         2 0 8 1 1 1 0 1 0
         8 1 0 8 2 8 1 2 8
         8 2 0 2 0 1 1 8 1
@@ -3083,20 +3083,20 @@ problem_1c786137 = Problem("problem_1c786137", [
 ])
 
 problem_1caeab9d = Problem("problem_1caeab9d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 2 0 0 0 0 0 0 0
         0 2 2 0 0 0 0 1 1 0
         0 0 0 0 4 4 0 1 1 0
         0 0 0 0 4 4 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 0 4 4 0 1 1 0
         0 2 2 0 4 4 0 1 1 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 4 4 4
         0 0 0 0 0 0 0 4 4 4
         0 2 2 2 0 0 0 0 0 0
@@ -3107,7 +3107,7 @@ problem_1caeab9d = Problem("problem_1caeab9d", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3119,20 +3119,20 @@ problem_1caeab9d = Problem("problem_1caeab9d", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0
         0 1 0 2 0 0 0 0 0 0
         0 1 0 0 0 0 4 0 0 0
         0 0 0 0 0 0 4 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 0 2 0 0 4 0 0 0
         0 1 0 2 0 0 4 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 2 2
         0 0 0 0 0 0 0 0 2 2
         0 1 1 0 0 0 0 2 0 0
@@ -3143,7 +3143,7 @@ problem_1caeab9d = Problem("problem_1caeab9d", [
         0 0 0 4 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 1 0 4 4 0 0 2 2
@@ -3158,7 +3158,7 @@ problem_1caeab9d = Problem("problem_1caeab9d", [
 ])
 
 problem_1cf80156 = Problem("problem_1cf80156", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 2 2 0 0 0 0 0
@@ -3169,13 +3169,13 @@ problem_1cf80156 = Problem("problem_1cf80156", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 2 2
         0 0 2 0
         2 2 2 0
         2 0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0 0 0
         0 0 1 1 0 0 0 0 0 0 0 0
@@ -3187,14 +3187,14 @@ problem_1cf80156 = Problem("problem_1cf80156", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 0
         1 1 0
         0 1 0
         1 1 1
         0 0 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -3207,12 +3207,12 @@ problem_1cf80156 = Problem("problem_1cf80156", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 8 0 8 0
         8 8 8 8 0
         0 0 0 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -3225,7 +3225,7 @@ problem_1cf80156 = Problem("problem_1cf80156", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 6 6 6 6
         0 0 6 0 0 0
         6 0 6 0 0 0
@@ -3234,25 +3234,25 @@ problem_1cf80156 = Problem("problem_1cf80156", [
 ])
 
 problem_1e0a9b12 = Problem("problem_1e0a9b12", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0 9
         0 0 0 0
         0 4 6 0
         1 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         0 0 0 0
         0 4 0 0
         1 4 6 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 9
         0 0 0 8 0 0
         0 0 0 0 0 0
         4 0 0 0 0 0
         4 0 7 8 0 0
         4 0 7 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
@@ -3260,26 +3260,26 @@ problem_1e0a9b12 = Problem("problem_1e0a9b12", [
         4 0 7 8 0 0
         4 0 7 8 0 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 0
         0 3 0 0 0
         0 3 0 1 2
         6 0 0 0 0
         0 3 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 3 0 0 0
         0 3 0 1 0
         6 3 0 1 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 4 3
         5 0 0 0 0
         0 0 6 0 0
         5 2 0 4 0
         5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         5 0 0 0 0
@@ -3289,7 +3289,7 @@ problem_1e0a9b12 = Problem("problem_1e0a9b12", [
 ])
 
 problem_1e32b0e9 = Problem("problem_1e32b0e9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0 0
         0 0 2 0 0 8 0 0 0 0 0 8 0 0 0 0 0
         0 2 2 2 0 8 0 0 0 0 0 8 0 2 2 2 0
@@ -3307,7 +3307,7 @@ problem_1e32b0e9 = Problem("problem_1e32b0e9", [
         0 2 2 2 0 8 0 0 0 0 0 8 0 0 0 0 0
         0 0 2 0 0 8 0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0 0
         0 0 2 0 0 8 0 0 8 0 0 8 0 0 8 0 0
         0 2 2 2 0 8 0 8 8 8 0 8 0 2 2 2 0
@@ -3326,7 +3326,7 @@ problem_1e32b0e9 = Problem("problem_1e32b0e9", [
         0 0 2 0 0 8 0 0 8 0 0 8 0 0 8 0 0
         0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 2 0 0 0 0 0 2 0 0 0 0 0
         0 1 1 1 0 2 0 0 0 0 0 2 0 0 1 1 0
         0 1 1 1 0 2 0 1 1 0 0 2 0 0 0 0 0
@@ -3344,7 +3344,7 @@ problem_1e32b0e9 = Problem("problem_1e32b0e9", [
         0 0 0 0 0 2 0 1 0 1 0 2 0 0 0 0 0
         0 0 0 0 0 2 0 0 1 0 0 2 0 0 0 0 0
         0 0 0 0 0 2 0 0 0 0 0 2 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 2 0 0 0 0 0 2 0 0 0 0 0
         0 1 1 1 0 2 0 2 2 2 0 2 0 2 1 1 0
         0 1 1 1 0 2 0 1 1 2 0 2 0 2 2 2 0
@@ -3363,7 +3363,7 @@ problem_1e32b0e9 = Problem("problem_1e32b0e9", [
         0 2 2 2 0 2 0 2 1 2 0 2 0 2 2 2 0
         0 0 0 0 0 2 0 0 0 0 0 2 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
         0 0 3 0 0 1 0 0 0 0 0 1 0 0 0 0 0
         0 3 0 3 0 1 0 3 0 0 0 1 0 0 0 3 0
@@ -3381,7 +3381,7 @@ problem_1e32b0e9 = Problem("problem_1e32b0e9", [
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 3 0
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 3 0 0
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
         0 0 3 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         0 3 0 3 0 1 0 3 0 1 0 1 0 1 0 3 0
@@ -3400,7 +3400,7 @@ problem_1e32b0e9 = Problem("problem_1e32b0e9", [
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 3 0 0
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 9 0 0 0 0 0 9 0 0 0 0 0
         0 4 4 4 0 9 0 4 4 0 0 9 0 0 0 0 0
         0 4 0 4 0 9 0 0 0 0 0 9 0 0 0 0 0
@@ -3418,7 +3418,7 @@ problem_1e32b0e9 = Problem("problem_1e32b0e9", [
         0 0 0 0 0 9 0 4 0 4 0 9 0 0 0 0 0
         0 0 0 0 0 9 0 0 0 0 0 9 0 0 0 0 0
         0 0 0 0 0 9 0 0 0 0 0 9 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 9 0 0 0 0 0 9 0 0 0 0 0
         0 4 4 4 0 9 0 4 4 9 0 9 0 9 9 9 0
         0 4 0 4 0 9 0 9 0 9 0 9 0 9 0 9 0
@@ -3440,7 +3440,7 @@ problem_1e32b0e9 = Problem("problem_1e32b0e9", [
 ])
 
 problem_1f0c79e5 = Problem("problem_1f0c79e5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -3450,7 +3450,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 4 4 4
         0 0 0 0 0 4 4 4 0
         0 0 0 0 4 4 4 0 0
@@ -3461,7 +3461,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 3 3 0 0 0 0 0
         0 0 3 2 0 0 0 0 0
@@ -3471,7 +3471,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 3 3 0 0 0 0 0
         0 0 3 3 3 0 0 0 0
@@ -3482,7 +3482,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
         0 0 0 0 0 0 0 3 3
         0 0 0 0 0 0 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -3492,7 +3492,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 6 6 6
         0 0 0 0 0 6 6 6 0
         0 0 0 0 6 6 6 0 0
@@ -3503,7 +3503,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
         6 6 0 0 0 0 0 0 0
         6 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -3513,7 +3513,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         7 7 0 0 0 0 7 7 7
         7 7 7 0 0 7 7 7 0
         0 7 7 7 7 7 7 0 0
@@ -3524,7 +3524,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
         7 7 0 0 0 0 0 0 0
         7 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 2 2 0 0
@@ -3534,7 +3534,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 8 8 0 0 8 8
         0 0 0 8 8 8 8 8 8
         0 0 0 0 8 8 8 8 0
@@ -3548,7 +3548,7 @@ problem_1f0c79e5 = Problem("problem_1f0c79e5", [
 ])
 
 problem_1f642eb9 = Problem("problem_1f642eb9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 9 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3559,7 +3559,7 @@ problem_1f642eb9 = Problem("problem_1f642eb9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 9 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3571,7 +3571,7 @@ problem_1f642eb9 = Problem("problem_1f642eb9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 4 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 7 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3582,7 +3582,7 @@ problem_1f642eb9 = Problem("problem_1f642eb9", [
         3 0 0 8 8 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 1 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 7 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3594,7 +3594,7 @@ problem_1f642eb9 = Problem("problem_1f642eb9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 1 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 4 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3605,7 +3605,7 @@ problem_1f642eb9 = Problem("problem_1f642eb9", [
         0 0 0 8 8 8 0 0 0 2
         0 0 0 0 0 0 0 0 0 0
         0 0 0 7 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 4 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3617,7 +3617,7 @@ problem_1f642eb9 = Problem("problem_1f642eb9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 7 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 6 0 2 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3628,7 +3628,7 @@ problem_1f642eb9 = Problem("problem_1f642eb9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 6 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 6 0 2 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3643,7 +3643,7 @@ problem_1f642eb9 = Problem("problem_1f642eb9", [
 ])
 
 problem_1f85a75f = Problem("problem_1f85a75f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
@@ -3674,14 +3674,14 @@ problem_1f85a75f = Problem("problem_1f85a75f", [
         0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 0
         0 0 0 0 0 0 5 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 0
         3 3 3
         3 0 3
         3 3 3
         0 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0
         0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 2 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -3712,12 +3712,12 @@ problem_1f85a75f = Problem("problem_1f85a75f", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0 2 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0
         4 4 4
         0 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 0 3 0 8 0 0 0 0 0 0 0 0 0 0 0 0 3 0 8 0 0 0 0 0 0 0 0
         0 0 8 3 0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 8 0 0 0 0 0 0 1 1 0
         1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 8 8 1 3 0 0 0 0 0 0
@@ -3748,7 +3748,7 @@ problem_1f85a75f = Problem("problem_1f85a75f", [
         0 0 0 0 0 3 0 0 0 0 0 0 0 0 1 0 0 8 0 3 1 0 1 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 3 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 8 0 0 0 0 0 0 0 0 0 3 0 0 0 3 0 0 0 0 0 0 0 3
-    ]), Int[
+    ]), Integer[
         0 2 2 2
         2 2 0 2
         2 2 0 2
@@ -3757,7 +3757,7 @@ problem_1f85a75f = Problem("problem_1f85a75f", [
 ])
 
 problem_1f876c06 = Problem("problem_1f876c06", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 0 0 6 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0
@@ -3768,7 +3768,7 @@ problem_1f876c06 = Problem("problem_1f876c06", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 2 0 0 6 0 0 0 0
         0 2 0 0 0 0 6 0 0 0
         2 0 0 0 0 0 0 6 0 0
@@ -3780,7 +3780,7 @@ problem_1f876c06 = Problem("problem_1f876c06", [
         0 0 0 0 0 0 4 0 0 0
         0 0 0 0 0 0 0 4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 0 0 0 0 0 0 3 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 8 0 0 3
@@ -3791,7 +3791,7 @@ problem_1f876c06 = Problem("problem_1f876c06", [
         0 8 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 7
-    ]), Int[
+    ]), Integer[
         9 0 0 0 0 0 0 3 0 0
         0 9 0 0 0 0 0 0 3 0
         0 0 9 0 0 0 8 0 0 3
@@ -3803,7 +3803,7 @@ problem_1f876c06 = Problem("problem_1f876c06", [
         0 0 0 0 0 0 0 0 7 0
         0 0 0 0 0 0 0 0 0 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 6 0 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 0 0 0
@@ -3814,7 +3814,7 @@ problem_1f876c06 = Problem("problem_1f876c06", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         9 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 6 0 8 0 0 0 0
         0 0 6 0 0 0 8 0 0 0
         0 6 4 0 0 0 0 8 0 0
@@ -3826,7 +3826,7 @@ problem_1f876c06 = Problem("problem_1f876c06", [
         0 9 0 0 0 0 0 0 0 0
         9 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 3 0 0 9
         7 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -3837,7 +3837,7 @@ problem_1f876c06 = Problem("problem_1f876c06", [
         0 0 0 6 0 0 7 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 3 0 0 9
         7 0 0 0 0 3 0 0 9 0
         0 7 0 0 3 0 0 9 0 0
@@ -3852,7 +3852,7 @@ problem_1f876c06 = Problem("problem_1f876c06", [
 ])
 
 problem_1fad071e = Problem("problem_1fad071e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 2 2 0 0 1
         0 1 1 0 2 2 0 0 0
         0 1 1 0 0 0 0 2 2
@@ -3862,8 +3862,8 @@ problem_1fad071e = Problem("problem_1fad071e", [
         0 0 0 0 0 1 1 0 0
         0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 0 1
-    ]), Grid(reshape(Int[1, 1, 0, 0, 0], 1, 5))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1, 1, 0, 0, 0], 1, 5))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 2 0 0 0 0 2
         1 1 0 0 0 1 1 0 0
         0 0 0 2 0 1 1 0 0
@@ -3873,8 +3873,8 @@ problem_1fad071e = Problem("problem_1fad071e", [
         0 0 0 0 0 0 0 0 0
         0 0 0 2 2 0 1 1 0
         0 1 0 2 2 0 1 1 0
-    ]), Grid(reshape(Int[1, 1, 1, 1, 0], 1, 5))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1, 1, 1, 1, 0], 1, 5))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 1 1 0 0 0 0
         2 2 0 1 1 0 0 1 1
         1 0 0 0 0 0 0 1 1
@@ -3884,8 +3884,8 @@ problem_1fad071e = Problem("problem_1fad071e", [
         0 0 0 0 2 0 0 0 0
         0 1 1 0 0 0 0 2 2
         0 1 1 0 0 1 0 2 2
-    ]), Grid(reshape(Int[1, 1, 1, 1, 0], 1, 5))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1, 1, 1, 1, 0], 1, 5))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 2 2 0 1
         1 1 0 1 0 2 2 0 0
         1 1 0 0 0 0 0 0 0
@@ -3895,11 +3895,11 @@ problem_1fad071e = Problem("problem_1fad071e", [
         1 0 0 0 0 0 2 2 0
         2 2 0 1 1 0 2 2 0
         2 2 0 1 1 0 0 0 0
-    ]), Grid(reshape(Int[1, 1, 1, 0, 0], 1, 5)))
+    ]), Grid(reshape(Integer[1, 1, 1, 0, 0], 1, 5)))
 ])
 
 problem_2013d3e2 = Problem("problem_2013d3e2", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 7 7 0 0 0 0
@@ -3910,12 +3910,12 @@ problem_2013d3e2 = Problem("problem_2013d3e2", [
         0 0 0 0 7 7 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 7
         0 6 8
         7 8 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 1 0 0 0
         0 0 3 6 5 3 0 0 0 0
@@ -3926,12 +3926,12 @@ problem_2013d3e2 = Problem("problem_2013d3e2", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 0
         0 3 6
         0 5 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 8 0 0 0 0
@@ -3942,7 +3942,7 @@ problem_2013d3e2 = Problem("problem_2013d3e2", [
         0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 4 4
         8 8 3
@@ -3950,7 +3950,7 @@ problem_2013d3e2 = Problem("problem_2013d3e2", [
 ])
 
 problem_2204b7a8 = Problem("problem_2204b7a8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 0 0 0 0 0 0 2
         1 0 0 0 0 0 3 0 0 2
         1 0 0 0 0 0 0 0 0 2
@@ -3961,7 +3961,7 @@ problem_2204b7a8 = Problem("problem_2204b7a8", [
         1 0 0 0 0 0 0 0 0 2
         1 0 0 0 0 0 0 0 0 2
         1 0 0 0 0 0 0 0 0 2
-    ]), Int[
+    ]), Integer[
         1 0 0 0 0 0 0 0 0 2
         1 0 0 0 0 0 2 0 0 2
         1 0 0 0 0 0 0 0 0 2
@@ -3973,7 +3973,7 @@ problem_2204b7a8 = Problem("problem_2204b7a8", [
         1 0 0 0 0 0 0 0 0 2
         1 0 0 0 0 0 0 0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 4 4
         0 0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 3 0 0
@@ -3984,7 +3984,7 @@ problem_2204b7a8 = Problem("problem_2204b7a8", [
         0 0 0 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0 0 0
         7 7 7 7 7 7 7 7 7 7
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 4 4 4 4
         0 0 0 0 0 0 0 0 0 0
         0 4 0 0 0 0 0 4 0 0
@@ -3996,7 +3996,7 @@ problem_2204b7a8 = Problem("problem_2204b7a8", [
         0 0 0 0 0 0 0 0 0 0
         7 7 7 7 7 7 7 7 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 3 0 0 0 0 0
@@ -4007,7 +4007,7 @@ problem_2204b7a8 = Problem("problem_2204b7a8", [
         0 0 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         9 9 9 9 9 9 9 9 9 9
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0
@@ -4019,7 +4019,7 @@ problem_2204b7a8 = Problem("problem_2204b7a8", [
         0 0 0 0 0 0 0 0 0 0
         9 9 9 9 9 9 9 9 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 3 0 0 0 0 0 0 0 4
         5 0 0 0 0 3 0 0 3 4
         5 0 0 0 0 0 0 0 0 4
@@ -4030,7 +4030,7 @@ problem_2204b7a8 = Problem("problem_2204b7a8", [
         5 0 0 0 3 0 0 0 0 4
         5 0 3 0 0 0 3 0 0 4
         5 0 0 0 0 0 0 0 0 4
-    ]), Int[
+    ]), Integer[
         5 5 0 0 0 0 0 0 0 4
         5 0 0 0 0 4 0 0 4 4
         5 0 0 0 0 0 0 0 0 4
@@ -4045,7 +4045,7 @@ problem_2204b7a8 = Problem("problem_2204b7a8", [
 ])
 
 problem_22168020 = Problem("problem_22168020", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 0 3 0
         0 0 3 0 0 0 0 3 0 0
@@ -4056,7 +4056,7 @@ problem_22168020 = Problem("problem_22168020", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 3 3 3 3 3 3 3 3 0
         0 0 3 3 3 3 3 3 0 0
@@ -4068,7 +4068,7 @@ problem_22168020 = Problem("problem_22168020", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         1 0 0 0 0 1 0 0 0 0
@@ -4079,7 +4079,7 @@ problem_22168020 = Problem("problem_22168020", [
         0 0 0 0 0 4 0 0 4 0
         0 0 0 0 0 0 4 4 0 0
         0 0 0 0 0 0 4 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         1 1 1 1 1 1 0 0 0 0
@@ -4091,7 +4091,7 @@ problem_22168020 = Problem("problem_22168020", [
         0 0 0 0 0 0 4 4 0 0
         0 0 0 0 0 0 4 4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 0 0 0 0 6 0 0 0 0
         0 6 0 0 6 0 0 0 0 0
         0 0 6 6 0 0 0 0 0 0
@@ -4102,7 +4102,7 @@ problem_22168020 = Problem("problem_22168020", [
         0 0 0 8 0 0 8 0 0 0
         0 0 0 0 8 8 0 0 0 0
         0 0 0 0 8 8 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6 6 6 6 0 0 0 0
         0 6 6 6 6 0 0 0 0 0
         0 0 6 6 0 0 0 0 0 0
@@ -4114,7 +4114,7 @@ problem_22168020 = Problem("problem_22168020", [
         0 0 0 0 8 8 0 0 0 0
         0 0 0 0 8 8 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         4 0 0 4 0 0 0 0 0 0
         0 4 4 0 7 0 0 0 0 7
@@ -4125,7 +4125,7 @@ problem_22168020 = Problem("problem_22168020", [
         0 0 3 0 0 3 0 0 0 0
         0 0 0 3 3 0 0 0 0 0
         0 0 0 3 3 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         4 4 4 4 0 0 0 0 0 0
         0 4 4 0 7 7 7 7 7 7
@@ -4140,7 +4140,7 @@ problem_22168020 = Problem("problem_22168020", [
 ])
 
 problem_22233c11 = Problem("problem_22233c11", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -4151,7 +4151,7 @@ problem_22233c11 = Problem("problem_22233c11", [
         0 0 0 0 0 0 3 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0
@@ -4163,7 +4163,7 @@ problem_22233c11 = Problem("problem_22233c11", [
         0 0 0 0 0 0 0 0 8 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -4174,7 +4174,7 @@ problem_22233c11 = Problem("problem_22233c11", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0
@@ -4186,7 +4186,7 @@ problem_22233c11 = Problem("problem_22233c11", [
         0 0 0 0 0 8 8 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -4197,7 +4197,7 @@ problem_22233c11 = Problem("problem_22233c11", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 8 0 0 0 0
@@ -4209,7 +4209,7 @@ problem_22233c11 = Problem("problem_22233c11", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 3 3 3 0
@@ -4220,7 +4220,7 @@ problem_22233c11 = Problem("problem_22233c11", [
         0 0 0 3 3 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8 0 0 0 0 0 0 0
         8 8 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 3 3 3 0
@@ -4235,7 +4235,7 @@ problem_22233c11 = Problem("problem_22233c11", [
 ])
 
 problem_2281f1f4 = Problem("problem_2281f1f4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 0 5 0 0 0 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -4246,7 +4246,7 @@ problem_2281f1f4 = Problem("problem_2281f1f4", [
         0 0 0 0 0 0 0 0 0 5
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 0 0 5 0 0 0 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -4258,7 +4258,7 @@ problem_2281f1f4 = Problem("problem_2281f1f4", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 5 5 0 0 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 5
@@ -4269,7 +4269,7 @@ problem_2281f1f4 = Problem("problem_2281f1f4", [
         0 0 0 0 0 0 0 0 0 5
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 5 0 5 5 0 0 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 2 0 2 2 0 0 2 0 5
@@ -4281,7 +4281,7 @@ problem_2281f1f4 = Problem("problem_2281f1f4", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 5 0 5 0 5 5 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 5
@@ -4292,7 +4292,7 @@ problem_2281f1f4 = Problem("problem_2281f1f4", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 5
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 5 5 0 5 0 5 5 0
         0 0 0 0 0 0 0 0 0 0
         0 0 2 2 0 2 0 2 2 5
@@ -4304,7 +4304,7 @@ problem_2281f1f4 = Problem("problem_2281f1f4", [
         0 0 2 2 0 2 0 2 2 5
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 5 5 0 0 5 0 5 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 5
@@ -4315,7 +4315,7 @@ problem_2281f1f4 = Problem("problem_2281f1f4", [
         0 0 0 0 0 0 0 0 0 5
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 5
-    ]), Int[
+    ]), Integer[
         5 0 5 5 0 0 5 0 5 0
         0 0 0 0 0 0 0 0 0 0
         2 0 2 2 0 0 2 0 2 5
@@ -4330,7 +4330,7 @@ problem_2281f1f4 = Problem("problem_2281f1f4", [
 ])
 
 problem_228f6490 = Problem("problem_228f6490", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 0 0 0 0 0 0 0 7 7
         0 5 5 5 5 5 0 0 0 0
         0 5 0 0 5 5 0 6 6 0
@@ -4341,7 +4341,7 @@ problem_228f6490 = Problem("problem_228f6490", [
         0 0 0 0 7 5 5 5 5 5
         0 8 8 0 0 5 5 0 0 5
         0 8 8 0 0 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         7 0 0 0 0 0 0 0 7 7
         0 5 5 5 5 5 0 0 0 0
         0 5 8 8 5 5 0 0 0 0
@@ -4353,7 +4353,7 @@ problem_228f6490 = Problem("problem_228f6490", [
         0 0 0 0 0 5 5 6 6 5
         0 0 0 0 0 5 5 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 5 0 0 0 0 0
         5 0 0 0 5 0 9 9 9 9
         5 5 5 0 5 0 9 9 9 9
@@ -4364,7 +4364,7 @@ problem_228f6490 = Problem("problem_228f6490", [
         0 0 0 5 0 0 0 0 5 0
         6 6 0 5 0 0 0 0 5 0
         6 6 0 5 5 5 5 5 5 0
-    ]), Int[
+    ]), Integer[
         5 5 5 5 5 0 0 0 0 0
         5 3 3 3 5 0 0 0 0 0
         5 5 5 3 5 0 0 0 0 0
@@ -4376,7 +4376,7 @@ problem_228f6490 = Problem("problem_228f6490", [
         6 6 0 5 9 9 9 9 5 0
         6 6 0 5 5 5 5 5 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 0 5 5 5 5 5 5
         2 2 2 0 5 0 0 0 5 5
         0 0 0 0 5 5 5 0 0 5
@@ -4387,7 +4387,7 @@ problem_228f6490 = Problem("problem_228f6490", [
         5 0 0 5 5 0 0 0 0 4
         5 0 0 0 5 0 8 8 8 0
         5 5 5 5 5 0 0 0 8 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0 5 5 5 5 5 5
         0 0 0 0 5 8 8 8 5 5
         0 0 0 0 5 5 5 8 8 5
@@ -4399,7 +4399,7 @@ problem_228f6490 = Problem("problem_228f6490", [
         5 2 2 2 5 0 0 0 0 0
         5 5 5 5 5 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 5 5 5 5 0 0 2
         2 0 5 0 0 0 5 0 0 0
         0 0 5 5 0 5 5 4 4 4
@@ -4410,7 +4410,7 @@ problem_228f6490 = Problem("problem_228f6490", [
         0 0 0 5 5 5 5 5 5 5
         0 2 0 5 0 0 0 5 5 5
         2 0 0 5 5 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 0 5 5 5 5 5 0 0 2
         2 0 5 7 7 7 5 0 0 0
         0 0 5 5 7 5 5 0 0 0
@@ -4425,7 +4425,7 @@ problem_228f6490 = Problem("problem_228f6490", [
 ])
 
 problem_22eb0ac0 = Problem("problem_22eb0ac0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         9 0 0 0 0 0 0 0 0 6
         0 0 0 0 0 0 0 0 0 0
@@ -4436,7 +4436,7 @@ problem_22eb0ac0 = Problem("problem_22eb0ac0", [
         6 0 0 0 0 0 0 0 0 8
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         9 0 0 0 0 0 0 0 0 6
         0 0 0 0 0 0 0 0 0 0
@@ -4448,7 +4448,7 @@ problem_22eb0ac0 = Problem("problem_22eb0ac0", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 8
         0 0 0 0 0 0 0 0 0 0
@@ -4459,7 +4459,7 @@ problem_22eb0ac0 = Problem("problem_22eb0ac0", [
         1 0 0 0 0 0 0 0 0 1
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 3
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         8 8 8 8 8 8 8 8 8 8
         0 0 0 0 0 0 0 0 0 0
@@ -4471,7 +4471,7 @@ problem_22eb0ac0 = Problem("problem_22eb0ac0", [
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 8
         0 0 0 0 0 0 0 0 0 0
@@ -4482,7 +4482,7 @@ problem_22eb0ac0 = Problem("problem_22eb0ac0", [
         8 0 0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 8
         0 0 0 0 0 0 0 0 0 0
@@ -4494,7 +4494,7 @@ problem_22eb0ac0 = Problem("problem_22eb0ac0", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 0 0 0
@@ -4505,7 +4505,7 @@ problem_22eb0ac0 = Problem("problem_22eb0ac0", [
         6 0 0 0 0 0 0 0 0 6
         0 0 0 0 0 0 0 0 0 0
         9 0 0 0 0 0 0 0 0 4
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 0 0 0
@@ -4520,47 +4520,47 @@ problem_22eb0ac0 = Problem("problem_22eb0ac0", [
 ])
 
 problem_234bbc79 = Problem("problem_234bbc79", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 0 0 0 0 0 0
         2 2 0 5 1 0 5 2 2
         0 0 0 0 5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 1 1 0 0 0
         2 2 0 1 2 2 2
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 1 5 0 0 0 0 0
         2 2 0 0 0 0 0 0 3 3 3
         0 5 0 0 0 0 0 5 3 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         2 2 0 0 0 0 3 3 3
         0 2 1 1 1 3 3 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 5 0 0 0 0
         2 2 2 0 5 8 8 0 0 0 0
         0 0 5 0 0 0 0 0 5 6 6
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         2 2 2 0 0 8 6 6 6
         0 0 2 8 8 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 5 0 0 0 0 0 2 2 0
         1 1 0 0 5 2 0 5 2 0 0
         0 0 0 0 0 5 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 1 2 2 0 2 2
         1 1 0 0 2 2 2 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 5 1 0 0 5 0 5 8
         2 2 0 0 1 0 5 3 0 0 8
         0 0 0 0 5 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 1 1 0 0 0 0
         2 2 0 1 0 3 8 8
         0 0 0 1 3 3 0 8
@@ -4568,7 +4568,7 @@ problem_234bbc79 = Problem("problem_234bbc79", [
 ])
 
 problem_23581191 = Problem("problem_23581191", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0
@@ -4578,7 +4578,7 @@ problem_23581191 = Problem("problem_23581191", [
         0 0 0 0 0 0 7 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 0 0 0 7 0 0
         0 0 8 0 0 0 7 0 0
         8 8 8 8 8 8 2 8 8
@@ -4589,7 +4589,7 @@ problem_23581191 = Problem("problem_23581191", [
         0 0 8 0 0 0 7 0 0
         0 0 8 0 0 0 7 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -4599,7 +4599,7 @@ problem_23581191 = Problem("problem_23581191", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 7 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 0 7 0 0
         8 8 8 8 8 8 2 8 8
         0 0 0 8 0 0 7 0 0
@@ -4610,7 +4610,7 @@ problem_23581191 = Problem("problem_23581191", [
         7 7 7 2 7 7 7 7 7
         0 0 0 8 0 0 7 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -4620,7 +4620,7 @@ problem_23581191 = Problem("problem_23581191", [
         0 7 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 7 0 0 8 0 0 0 0
         8 2 8 8 8 8 8 8 8
         0 7 0 0 8 0 0 0 0
@@ -4634,53 +4634,53 @@ problem_23581191 = Problem("problem_23581191", [
 ])
 
 problem_239be575 = Problem("problem_239be575", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 8
         2 2 8 0 0
         2 2 0 0 8
         0 0 0 2 2
         8 8 0 2 2
-    ]), Grid(reshape(Int[0], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[0], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0 0 0 0 0
         2 2 0 8 8 8 0
         2 2 8 8 0 2 2
         0 0 8 0 0 2 2
         0 8 0 0 8 0 0
-    ]), Grid(reshape(Int[8], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 2 2 8 8 0 0
         0 2 2 0 0 0 8
         0 8 8 0 0 8 0
         0 0 8 0 0 0 8
         8 0 8 8 8 2 2
         8 0 0 0 0 2 2
-    ]), Grid(reshape(Int[8], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 0 0 2 2 0
         0 8 8 0 2 2 8
         0 0 0 8 0 8 0
         8 0 0 0 0 0 0
         0 2 2 0 8 0 8
         0 2 2 8 8 0 8
-    ]), Grid(reshape(Int[0], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[0], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 0 0 0 8 0
         0 0 2 2 0 8 0
         8 0 2 2 0 0 0
         0 0 8 0 0 8 0
         0 0 8 2 2 0 8
         8 0 0 2 2 8 0
-    ]), Grid(reshape(Int[8], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 0 2 2 8
         8 0 8 2 2 0
         0 0 0 0 8 0
         2 2 8 0 8 0
         2 2 0 0 0 8
         0 8 8 0 8 0
-    ]), Grid(reshape(Int[0], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[0], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 8 8 0 8
         2 2 0 8 0 0
         8 8 0 0 0 8
@@ -4689,8 +4689,8 @@ problem_239be575 = Problem("problem_239be575", [
         0 0 8 2 2 0
         8 0 0 2 2 0
         0 8 0 0 0 8
-    ]), Grid(reshape(Int[8], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0 0 0 0
         0 0 0 8 2 2
         0 8 8 8 2 2
@@ -4699,11 +4699,11 @@ problem_239be575 = Problem("problem_239be575", [
         8 2 2 0 0 8
         0 2 2 0 0 0
         0 8 0 8 8 0
-    ]), Grid(reshape(Int[0], 1, 1)))
+    ]), Grid(reshape(Integer[0], 1, 1)))
 ])
 
 problem_23b5c85d = Problem("problem_23b5c85d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 2 2 0 0 0
         0 2 2 2 2 2 2 0 0 0
@@ -4714,12 +4714,12 @@ problem_23b5c85d = Problem("problem_23b5c85d", [
         0 0 0 8 8 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8
         8 8 8
         8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 8 8 8 8 8 8 8 0
@@ -4740,11 +4740,11 @@ problem_23b5c85d = Problem("problem_23b5c85d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1
         1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 2 2 2 0 0 0
         0 0 3 3 3 3 0 0 0 2 2 2 0 0 0
         0 0 3 3 3 3 0 0 0 2 2 2 0 0 0
@@ -4755,12 +4755,12 @@ problem_23b5c85d = Problem("problem_23b5c85d", [
         0 0 3 3 3 6 6 0 0 0 0 0 0 0 0
         0 0 3 3 3 3 0 0 0 0 0 0 0 0 0
         0 0 3 3 3 3 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6
         6 6
         6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 2 2 2 2 2 2 2 2 2 0
@@ -4774,12 +4774,12 @@ problem_23b5c85d = Problem("problem_23b5c85d", [
         0 0 0 0 0 0 3 3 3 3 3 3 3 0 0
         0 0 0 0 0 0 3 3 3 3 3 3 3 0 0
         0 0 0 0 0 0 3 3 3 3 3 3 3 0 0
-    ]), Int[
+    ]), Integer[
         7 7 7 7
         7 7 7 7
         7 7 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 1 1 1 0 0 0 0 0 0
@@ -4798,11 +4798,11 @@ problem_23b5c85d = Problem("problem_23b5c85d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4
         4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0
@@ -4821,7 +4821,7 @@ problem_23b5c85d = Problem("problem_23b5c85d", [
         0 0 3 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6
         6 6 6
         6 6 6
@@ -4829,7 +4829,7 @@ problem_23b5c85d = Problem("problem_23b5c85d", [
 ])
 
 problem_253bf280 = Problem("problem_253bf280", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -4837,7 +4837,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -4846,7 +4846,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 8 0 0
@@ -4857,7 +4857,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 3 0 0 0 8 0 0
@@ -4869,7 +4869,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 8 0 0 0 0 0 0 0 8 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -4882,7 +4882,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 8 3 3 3 3 3 3 3 8 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -4896,7 +4896,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 8 0 0 0
         0 0 0 0 0 0
@@ -4906,7 +4906,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 0 0
         0 0 8 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 0 8 0 0 0
         0 0 3 0 0 0
@@ -4917,29 +4917,29 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 8 0 0 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 8 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 8 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 8 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 8 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 8 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 8 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 0 8 0 0
         0 0 0 0 0 0
@@ -4947,7 +4947,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 8 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 0 0 8 0 0
         0 0 0 3 0 0
@@ -4956,7 +4956,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 3 0 0
         0 0 0 8 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -4969,7 +4969,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0
@@ -4983,7 +4983,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0 8 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -4996,7 +4996,7 @@ problem_253bf280 = Problem("problem_253bf280", [
         0 0 0 0 0 0 0 0 8 0 0 0 0
         0 8 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 8 3 3 3 3 3 3 3 8 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -5013,7 +5013,7 @@ problem_253bf280 = Problem("problem_253bf280", [
 ])
 
 problem_25d487eb = Problem("problem_25d487eb", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
@@ -5024,7 +5024,7 @@ problem_25d487eb = Problem("problem_25d487eb", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
@@ -5036,7 +5036,7 @@ problem_25d487eb = Problem("problem_25d487eb", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -5049,7 +5049,7 @@ problem_25d487eb = Problem("problem_25d487eb", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 3 0 0 0 0 0
         0 0 0 0 0 0 3 0 0 0 0 0
         0 0 0 0 0 0 3 0 0 0 0 0
@@ -5063,7 +5063,7 @@ problem_25d487eb = Problem("problem_25d487eb", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 3 2 3 3 0 0 0 0 0
@@ -5079,7 +5079,7 @@ problem_25d487eb = Problem("problem_25d487eb", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 3 2 3 3 0 0 0 0 0
@@ -5096,7 +5096,7 @@ problem_25d487eb = Problem("problem_25d487eb", [
         0 0 0 0 2 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -5113,7 +5113,7 @@ problem_25d487eb = Problem("problem_25d487eb", [
         0 0 4 4 4 4 4 0 0 0 0
         0 4 4 4 8 4 4 4 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0
@@ -5134,47 +5134,47 @@ problem_25d487eb = Problem("problem_25d487eb", [
 ])
 
 problem_25d8a9c8 = Problem("problem_25d8a9c8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4
         2 3 2
         2 3 3
-    ]), Int[
+    ]), Integer[
         5 5 5
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 3 3
         6 6 6
         3 7 7
-    ]), Int[
+    ]), Integer[
         0 0 0
         5 5 5
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 9 2
         4 4 4
         9 9 9
-    ]), Int[
+    ]), Integer[
         0 0 0
         5 5 5
         5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 4
         2 2 4
         1 1 1
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 0
         5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4
         3 2 3
         8 8 8
-    ]), Int[
+    ]), Integer[
         5 5 5
         0 0 0
         5 5 5
@@ -5182,56 +5182,56 @@ problem_25d8a9c8 = Problem("problem_25d8a9c8", [
 ])
 
 problem_25ff71a9 = Problem("problem_25ff71a9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1
         0 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         1 1 1
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         1 1 1
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 0
         1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         1 1 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 1 0
         1 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 2
         0 0 2
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 2 2
         0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0
         2 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         2 0 0
         2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 1 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 0
         0 1 0
@@ -5239,7 +5239,7 @@ problem_25ff71a9 = Problem("problem_25ff71a9", [
 ])
 
 problem_264363fd = Problem("problem_264363fd", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 8 8 8 8 8 8 8 8 8 8 8
         8 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 8 8 8 8 8 8 2 8 8 8 8
@@ -5270,7 +5270,7 @@ problem_264363fd = Problem("problem_264363fd", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 8 8 8 8 8 8 8 8 8 8 8
         8 8 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 8 8 8 8 8 8 8 8 8 8 8
@@ -5302,7 +5302,7 @@ problem_264363fd = Problem("problem_264363fd", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -5333,7 +5333,7 @@ problem_264363fd = Problem("problem_264363fd", [
         1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -5365,7 +5365,7 @@ problem_264363fd = Problem("problem_264363fd", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 8 8 8
@@ -5396,7 +5396,7 @@ problem_264363fd = Problem("problem_264363fd", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 6 5 6 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 5 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 3 3 3 3 5 3 3 3 3 3 3 3 5 3 3 3 8 8 8
@@ -5428,7 +5428,7 @@ problem_264363fd = Problem("problem_264363fd", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 1 1 1 1 1 1 1 1 1 1 1 1 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -5459,7 +5459,7 @@ problem_264363fd = Problem("problem_264363fd", [
         4 4 4 4 4 4 4 4 4 4 4 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 1 1 1 1 1 1 1 1 1 1 1 1 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -5494,7 +5494,7 @@ problem_264363fd = Problem("problem_264363fd", [
 ])
 
 problem_272f95fa = Problem("problem_272f95fa", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 0 0 0 0 0 0 8 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0 8 0 0 0 0 0 0 0
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -5513,7 +5513,7 @@ problem_272f95fa = Problem("problem_272f95fa", [
         0 0 0 0 8 0 0 0 0 0 0 8 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0 8 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0 8 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 8 2 2 2 2 2 2 8 0 0 0 0 0 0 0
         0 0 0 0 8 2 2 2 2 2 2 8 0 0 0 0 0 0 0
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -5533,7 +5533,7 @@ problem_272f95fa = Problem("problem_272f95fa", [
         0 0 0 0 8 1 1 1 1 1 1 8 0 0 0 0 0 0 0
         0 0 0 0 8 1 1 1 1 1 1 8 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 0 0 0 0 0 8 0 0 0 0
         0 0 8 0 0 0 0 0 0 8 0 0 0 0
         0 0 8 0 0 0 0 0 0 8 0 0 0 0
@@ -5546,7 +5546,7 @@ problem_272f95fa = Problem("problem_272f95fa", [
         0 0 8 0 0 0 0 0 0 8 0 0 0 0
         0 0 8 0 0 0 0 0 0 8 0 0 0 0
         0 0 8 0 0 0 0 0 0 8 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 2 2 2 2 2 2 8 0 0 0 0
         0 0 8 2 2 2 2 2 2 8 0 0 0 0
         0 0 8 2 2 2 2 2 2 8 0 0 0 0
@@ -5560,7 +5560,7 @@ problem_272f95fa = Problem("problem_272f95fa", [
         0 0 8 1 1 1 1 1 1 8 0 0 0 0
         0 0 8 1 1 1 1 1 1 8 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 0 8 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 8 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 8 0 0 0 0 0 0
@@ -5578,7 +5578,7 @@ problem_272f95fa = Problem("problem_272f95fa", [
         0 0 0 8 0 0 0 0 8 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 8 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 8 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 2 2 2 2 8 0 0 0 0 0 0
         0 0 0 8 2 2 2 2 8 0 0 0 0 0 0
         0 0 0 8 2 2 2 2 8 0 0 0 0 0 0
@@ -5600,60 +5600,60 @@ problem_272f95fa = Problem("problem_272f95fa", [
 ])
 
 problem_27a28665 = Problem("problem_27a28665", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 0
         5 0 5
         0 5 0
-    ]), Grid(reshape(Int[1], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 8
         0 8 0
         8 0 8
-    ]), Grid(reshape(Int[2], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 5
         0 5 0
         5 0 5
-    ]), Grid(reshape(Int[2], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 1
         0 1 1
         1 0 0
-    ]), Grid(reshape(Int[3], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[3], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 8
         0 8 8
         8 0 0
-    ]), Grid(reshape(Int[3], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[3], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 0
         4 0 4
         0 4 0
-    ]), Grid(reshape(Int[1], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0
         5 5 5
         0 5 0
-    ]), Grid(reshape(Int[6], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[6], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0
         8 8 8
         0 8 0
-    ]), Grid(reshape(Int[6], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[6], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 0
         7 0 7
         0 7 0
-    ]), Grid(reshape(Int[1], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2
         0 2 0
         2 0 2
-    ]), Grid(reshape(Int[2], 1, 1)))
+    ]), Grid(reshape(Integer[2], 1, 1)))
 ])
 
 problem_28bf18c6 = Problem("problem_28bf18c6", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 8 8 0 0 0 0 0
         0 0 8 0 0 0 0 0
@@ -5662,12 +5662,12 @@ problem_28bf18c6 = Problem("problem_28bf18c6", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 0 8 8 0
         0 8 0 0 8 0
         8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -5676,12 +5676,12 @@ problem_28bf18c6 = Problem("problem_28bf18c6", [
         0 0 0 2 0 0 0 0
         0 0 2 2 2 0 0 0
         0 0 2 2 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0 0 2 0
         2 2 2 2 2 2
         2 2 0 2 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 1 1 0
         0 0 0 0 1 0 0 0
@@ -5690,12 +5690,12 @@ problem_28bf18c6 = Problem("problem_28bf18c6", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 1 0 1 1
         1 0 0 1 0 0
         0 1 0 0 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -5704,7 +5704,7 @@ problem_28bf18c6 = Problem("problem_28bf18c6", [
         0 3 3 3 0 0 0 0
         0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 3
         3 3 3 3 3 3
         3 0 0 3 0 0
@@ -5712,14 +5712,14 @@ problem_28bf18c6 = Problem("problem_28bf18c6", [
 ])
 
 problem_28e73c20 = Problem("problem_28e73c20", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3
         0 0 0 0 0 3
         3 3 3 3 0 3
@@ -5727,7 +5727,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         3 0 0 0 0 3
         3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -5736,7 +5736,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3
         0 0 0 0 0 0 0 3
         3 3 3 3 3 3 0 3
@@ -5746,7 +5746,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         3 0 0 0 0 0 0 3
         3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -5762,7 +5762,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 0 3
@@ -5779,7 +5779,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         3 0 0 0 0 0 0 0 0 0 0 0 0 0 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -5793,7 +5793,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3
         0 0 0 0 0 0 0 0 0 0 0 0 3
         3 3 3 3 3 3 3 3 3 3 3 0 3
@@ -5808,7 +5808,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         3 0 0 0 0 0 0 0 0 0 0 0 3
         3 3 3 3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -5819,7 +5819,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3
         0 0 0 0 0 0 0 0 0 3
         3 3 3 3 3 3 3 3 0 3
@@ -5831,7 +5831,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         3 0 0 0 0 0 0 0 0 3
         3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -5850,7 +5850,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 3
@@ -5873,7 +5873,7 @@ problem_28e73c20 = Problem("problem_28e73c20", [
 ])
 
 problem_29623171 = Problem("problem_29623171", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 5 0 0 0
         1 0 0 5 0 0 0 5 0 1 0
         0 0 0 5 0 0 1 5 0 0 0
@@ -5885,7 +5885,7 @@ problem_29623171 = Problem("problem_29623171", [
         0 0 0 5 0 0 0 5 1 0 0
         0 1 0 5 0 0 0 5 0 0 1
         0 0 0 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
@@ -5898,7 +5898,7 @@ problem_29623171 = Problem("problem_29623171", [
         0 0 0 5 0 0 0 5 1 1 1
         0 0 0 5 0 0 0 5 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 2 0 5 2 0 0
         2 0 0 5 0 0 0 5 0 0 2
         0 0 0 5 0 0 0 5 0 0 0
@@ -5910,7 +5910,7 @@ problem_29623171 = Problem("problem_29623171", [
         0 0 0 5 0 0 0 5 0 0 0
         2 0 0 5 0 0 2 5 0 0 2
         0 0 0 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 5 2 2 2
         0 0 0 5 0 0 0 5 2 2 2
         0 0 0 5 0 0 0 5 2 2 2
@@ -5923,7 +5923,7 @@ problem_29623171 = Problem("problem_29623171", [
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 3 0
         0 0 0 5 0 0 0 5 0 0 0
@@ -5935,7 +5935,7 @@ problem_29623171 = Problem("problem_29623171", [
         0 0 0 5 0 0 0 5 0 0 0
         0 3 0 5 3 0 0 5 3 3 0
         0 0 0 5 0 0 0 5 0 0 3
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
@@ -5948,7 +5948,7 @@ problem_29623171 = Problem("problem_29623171", [
         0 0 0 5 0 0 0 5 3 3 3
         0 0 0 5 0 0 0 5 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 0 5 0 0 0 5 0 0 0
         0 4 0 5 0 0 4 5 4 4 0
         4 0 0 5 0 0 0 5 0 4 0
@@ -5960,7 +5960,7 @@ problem_29623171 = Problem("problem_29623171", [
         0 0 0 5 0 4 0 5 0 0 4
         4 0 0 5 0 0 4 5 0 4 0
         0 0 0 5 4 4 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4 4 5 0 0 0 5 0 0 0
         4 4 4 5 0 0 0 5 0 0 0
         4 4 4 5 0 0 0 5 0 0 0
@@ -5976,39 +5976,39 @@ problem_29623171 = Problem("problem_29623171", [
 ])
 
 problem_29c11459 = Problem("problem_29c11459", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         1 0 0 0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         1 1 1 1 1 5 2 2 2 2 2
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         3 0 0 0 0 0 0 0 0 0 7
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         3 3 3 3 3 5 7 7 7 7 7
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 0 0 0 0 0 8
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         6 0 0 0 0 0 0 0 0 0 9
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         4 4 4 4 4 5 8 8 8 8 8
         0 0 0 0 0 0 0 0 0 0 0
@@ -6018,7 +6018,7 @@ problem_29c11459 = Problem("problem_29c11459", [
 ])
 
 problem_29ec7d0e = Problem("problem_29ec7d0e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 0 0 1 2 3 4 5 1 2 3 4 5 1 2 3
         1 3 5 0 0 1 3 5 2 4 0 0 5 2 4 1 3 5
@@ -6037,7 +6037,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3
         1 3 5 2 4 1 3 5 2 4 1 3 5 2 4 1 3 5
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3
         1 3 5 2 4 1 3 5 2 4 1 3 5 2 4 1 3 5
@@ -6057,7 +6057,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
         1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3
         1 3 5 2 4 1 3 5 2 4 1 3 5 2 4 1 3 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 1
         1 2 3 4 5 6 1 0 0 0 5 6 1 2 3 4 5 6
         1 3 5 1 3 5 1 0 0 0 3 5 1 3 5 1 3 5
@@ -6076,7 +6076,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
         1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4
         1 5 3 1 5 3 1 5 3 1 5 3 1 5 3 1 5 3
         1 6 5 4 3 2 1 6 5 4 3 2 1 6 5 4 3 2
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 6 1 2 3 4 5 6 1 2 3 4 5 6
         1 3 5 1 3 5 1 3 5 1 3 5 1 3 5 1 3 5
@@ -6096,7 +6096,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
         1 5 3 1 5 3 1 5 3 1 5 3 1 5 3 1 5 3
         1 6 5 4 3 2 1 6 5 4 3 2 1 6 5 4 3 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 6 7 1 2 3 4 5 6 7 1 2 3 4
         1 3 5 7 2 4 6 1 3 5 7 2 0 0 0 0 5 7
@@ -6115,7 +6115,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
         1 2 3 4 5 6 7 1 2 3 4 5 6 7 1 2 3 4
         1 3 5 7 2 4 6 1 3 5 7 2 4 6 1 3 5 7
         1 4 7 3 6 2 5 1 4 7 3 6 2 5 1 4 7 3
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 6 7 1 2 3 4 5 6 7 1 2 3 4
         1 3 5 7 2 4 6 1 3 5 7 2 4 6 1 3 5 7
@@ -6135,7 +6135,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
         1 3 5 7 2 4 6 1 3 5 7 2 4 6 1 3 5 7
         1 4 7 3 6 2 5 1 4 7 3 6 2 5 1 4 7 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 1 2
         1 3 5 7 1 3 5 7 1 3 5 7 1 3 5 7 1 3
@@ -6154,7 +6154,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
         1 8 7 6 0 0 3 2 1 8 7 6 5 4 3 2 1 8
         1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 1 2
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 1 2
         1 3 5 7 1 3 5 7 1 3 5 7 1 3 5 7 1 3
@@ -6174,7 +6174,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 1 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 1 1
         1 2 3 4 5 6 7 8 9 1 2 3 4 0 0 0 8 9
         1 3 5 7 9 2 4 6 8 1 3 5 7 0 0 0 6 8
@@ -6193,7 +6193,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
         1 0 0 0 7 4 1 7 4 1 7 4 1 7 4 1 7 4
         1 0 0 0 2 9 7 5 3 1 8 6 4 2 9 7 5 3
         1 9 8 7 6 5 4 3 2 1 9 8 7 6 5 4 3 2
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9
         1 3 5 7 9 2 4 6 8 1 3 5 7 9 2 4 6 8
@@ -6216,7 +6216,7 @@ problem_29ec7d0e = Problem("problem_29ec7d0e", [
 ])
 
 problem_2bcee788 = Problem("problem_2bcee788", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -6227,7 +6227,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
@@ -6239,7 +6239,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -6250,7 +6250,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 6 6 3 3 3 3
         3 3 3 3 6 3 3 3 3 3
@@ -6262,7 +6262,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -6273,7 +6273,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
@@ -6285,7 +6285,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -6296,7 +6296,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
@@ -6308,7 +6308,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -6319,7 +6319,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
@@ -6334,7 +6334,7 @@ problem_2bcee788 = Problem("problem_2bcee788", [
 ])
 
 problem_2bee17df = Problem("problem_2bee17df", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2 2 2 2 2 2
         8 0 0 0 2 2 0 2 2 2 2 2
         8 0 0 0 0 2 0 0 2 2 0 2
@@ -6347,7 +6347,7 @@ problem_2bee17df = Problem("problem_2bee17df", [
         8 8 0 0 0 0 8 8 0 0 0 8
         8 8 8 0 0 8 8 8 0 0 8 8
         8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 2 2 2
         8 0 0 3 2 2 0 2 2 2 2 2
         8 0 0 3 0 2 0 0 2 2 0 2
@@ -6361,7 +6361,7 @@ problem_2bee17df = Problem("problem_2bee17df", [
         8 8 8 3 0 8 8 8 0 0 8 8
         8 8 8 8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8
         2 0 0 0 0 0 8 8 8 8 8 8
         2 2 0 0 0 0 0 8 8 0 0 8
@@ -6374,7 +6374,7 @@ problem_2bee17df = Problem("problem_2bee17df", [
         2 0 0 0 0 0 0 0 0 0 2 2
         2 2 0 2 0 0 2 0 0 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8
         2 0 0 0 3 3 8 8 8 8 8 8
         2 2 0 0 3 3 0 8 8 0 0 8
@@ -6388,7 +6388,7 @@ problem_2bee17df = Problem("problem_2bee17df", [
         2 2 0 2 3 3 2 0 0 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 2
         8 8 8 0 8 8 0 8 0 2
         8 8 0 0 8 0 0 0 0 2
@@ -6399,7 +6399,7 @@ problem_2bee17df = Problem("problem_2bee17df", [
         8 0 0 0 0 0 2 2 0 2
         8 2 0 0 0 2 2 2 2 2
         8 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 2
         8 8 8 3 8 8 0 8 0 2
         8 8 0 3 8 0 0 0 0 2
@@ -6411,7 +6411,7 @@ problem_2bee17df = Problem("problem_2bee17df", [
         8 2 0 3 0 2 2 2 2 2
         8 2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 0 0 8 8 8 0 0 8 2 2
         8 8 8 0 0 0 0 0 0 0 0 0 0 2
@@ -6426,7 +6426,7 @@ problem_2bee17df = Problem("problem_2bee17df", [
         8 8 0 0 0 0 0 0 0 0 0 0 2 2
         8 8 0 2 0 2 2 0 0 0 0 2 2 2
         8 2 2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 3 0 8 8 8 3 3 8 2 2
         8 8 8 0 3 0 0 0 0 3 3 0 0 2
@@ -6445,7 +6445,7 @@ problem_2bee17df = Problem("problem_2bee17df", [
 ])
 
 problem_2c608aff = Problem("problem_2c608aff", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8
         8 8 3 3 3 8 8 8 8 8 8 8
         8 8 3 3 3 8 8 8 8 8 8 8
@@ -6455,7 +6455,7 @@ problem_2c608aff = Problem("problem_2c608aff", [
         8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 4 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8
         8 8 3 3 3 8 8 8 8 8 8 8
         8 8 3 3 3 8 8 8 8 8 8 8
@@ -6466,7 +6466,7 @@ problem_2c608aff = Problem("problem_2c608aff", [
         8 8 8 8 8 8 8 4 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 1 1 1 2 2 2 2 2 2
@@ -6477,7 +6477,7 @@ problem_2c608aff = Problem("problem_2c608aff", [
         2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 8 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 1 1 1 2 2 2 2 2 2
@@ -6489,7 +6489,7 @@ problem_2c608aff = Problem("problem_2c608aff", [
         2 2 2 8 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 2 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1
@@ -6504,7 +6504,7 @@ problem_2c608aff = Problem("problem_2c608aff", [
         1 2 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1 1 1 2 1 1 1 1 1 1 1
         1 1 1 1 2 1 1 1 1 1 1 1
         1 1 1 1 2 1 1 1 1 1 1 1
@@ -6520,7 +6520,7 @@ problem_2c608aff = Problem("problem_2c608aff", [
         1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 4 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -6535,7 +6535,7 @@ problem_2c608aff = Problem("problem_2c608aff", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 4 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 4 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 4 1 1 1 1 1 1 1 1 1
@@ -6551,7 +6551,7 @@ problem_2c608aff = Problem("problem_2c608aff", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2
         2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 2 2
@@ -6571,7 +6571,7 @@ problem_2c608aff = Problem("problem_2c608aff", [
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 1 2 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2
         2 2 1 2 2 2 2 2 2 1 2 2 2 2 2 2 2 1 2 2 2
@@ -6595,17 +6595,17 @@ problem_2c608aff = Problem("problem_2c608aff", [
 ])
 
 problem_2dc579da = Problem("problem_2dc579da", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 3 8 8
         8 8 3 8 8
         3 3 3 3 3
         8 8 3 8 8
         4 8 3 8 8
-    ]), Int[
+    ]), Integer[
         8 8
         4 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 2 4 4 4
         4 4 4 2 4 1 4
         4 4 4 2 4 4 4
@@ -6613,12 +6613,12 @@ problem_2dc579da = Problem("problem_2dc579da", [
         4 4 4 2 4 4 4
         4 4 4 2 4 4 4
         4 4 4 2 4 4 4
-    ]), Int[
+    ]), Integer[
         4 4 4
         4 1 4
         4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 1 3 3 3 3 3
         3 3 3 3 3 1 3 3 3 3 3
         3 8 3 3 3 1 3 3 3 3 3
@@ -6630,14 +6630,14 @@ problem_2dc579da = Problem("problem_2dc579da", [
         3 3 3 3 3 1 3 3 3 3 3
         3 3 3 3 3 1 3 3 3 3 3
         3 3 3 3 3 1 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3
         3 3 3 3 3
         3 8 3 3 3
         3 3 3 3 3
         3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 0 1 1 1 1 1 1
         1 1 1 1 1 1 0 1 1 1 1 1 1
         1 1 1 1 1 1 0 1 1 1 1 1 1
@@ -6651,7 +6651,7 @@ problem_2dc579da = Problem("problem_2dc579da", [
         1 1 1 1 1 1 0 1 1 1 1 1 1
         1 1 1 1 1 1 0 1 1 1 1 1 1
         1 1 1 1 1 1 0 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1
         1 1 1 1 1 1
         1 1 1 1 1 1
@@ -6662,7 +6662,7 @@ problem_2dc579da = Problem("problem_2dc579da", [
 ])
 
 problem_2dd70a9a = Problem("problem_2dd70a9a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 8 8 8 8 0 0 8 0 8 8 8 0 8 0 8
         0 8 0 0 0 0 0 8 0 0 0 0 0 8 0 8 0 0 0 0
         8 8 8 8 8 0 8 0 8 0 0 0 8 8 8 0 0 2 0 0
@@ -6683,7 +6683,7 @@ problem_2dd70a9a = Problem("problem_2dd70a9a", [
         0 0 0 0 0 0 0 8 0 0 0 8 0 0 0 0 0 8 8 0
         0 0 0 8 0 0 0 8 0 8 0 0 8 8 8 0 0 0 0 8
         0 0 0 0 8 8 8 8 0 0 8 0 0 0 0 8 8 8 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 8 8 8 8 8 0 0 8 0 8 8 8 0 8 0 8
         0 8 0 0 0 0 0 8 0 0 0 0 0 8 0 8 0 0 0 0
         8 8 8 8 8 0 8 0 8 0 0 0 8 8 8 0 0 2 0 0
@@ -6705,7 +6705,7 @@ problem_2dd70a9a = Problem("problem_2dd70a9a", [
         0 0 0 8 0 0 0 8 0 8 0 0 8 8 8 0 0 0 0 8
         0 0 0 0 8 8 8 8 0 0 8 0 0 0 0 8 8 8 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 8
         0 3 8 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 8 0 0
@@ -6716,7 +6716,7 @@ problem_2dd70a9a = Problem("problem_2dd70a9a", [
         0 0 8 0 0 2 0 0 0 0
         0 0 8 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 8
         0 3 8 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 8 0 0
@@ -6728,7 +6728,7 @@ problem_2dd70a9a = Problem("problem_2dd70a9a", [
         0 0 8 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 8 0 8 0 0 8 0 0 8 0
         0 0 0 8 0 0 8 0 0 0 0 8 0 8 8
         8 0 0 0 8 8 8 0 0 0 0 8 8 8 0
@@ -6744,7 +6744,7 @@ problem_2dd70a9a = Problem("problem_2dd70a9a", [
         0 0 0 0 0 8 0 8 0 0 0 0 0 0 0
         0 0 0 0 0 8 8 0 8 0 0 8 0 0 8
         0 8 0 0 8 8 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 8 0 8 0 0 8 0 0 8 0
         0 0 0 8 0 0 8 0 0 0 0 8 0 8 8
         8 0 0 0 8 8 8 0 0 0 0 8 8 8 0
@@ -6761,7 +6761,7 @@ problem_2dd70a9a = Problem("problem_2dd70a9a", [
         0 0 0 0 0 8 8 0 8 0 0 8 0 0 8
         0 8 0 0 8 8 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 0 0 0 0 0 8 8 0 0
         8 0 0 0 0 8 2 2 0 0 0 0 0
         0 8 0 0 8 8 0 0 0 0 0 0 0
@@ -6775,7 +6775,7 @@ problem_2dd70a9a = Problem("problem_2dd70a9a", [
         0 8 8 0 0 0 8 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 8 0
-    ]), Int[
+    ]), Integer[
         8 8 8 8 0 0 0 0 0 8 8 0 0
         8 0 0 0 0 8 2 2 3 3 0 0 0
         0 8 0 0 8 8 0 0 0 3 0 0 0
@@ -6793,40 +6793,40 @@ problem_2dd70a9a = Problem("problem_2dd70a9a", [
 ])
 
 problem_2dee498d = Problem("problem_2dee498d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 5 1 1 5 4 4 5 1
         5 5 5 5 5 5 5 5 5
         1 5 4 4 5 1 1 5 4
-    ]), Int[
+    ]), Integer[
         4 5 1
         5 5 5
         1 5 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 1 2 0 0 1 2 0 0 1
         4 2 1 4 4 2 1 4 4 2 1 4
         4 1 2 4 4 1 2 4 4 1 2 4
         1 0 0 2 1 0 0 2 1 0 0 2
-    ]), Int[
+    ]), Integer[
         2 0 0 1
         4 2 1 4
         4 1 2 4
         1 0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1 2 1 2 1
         2 3 2 3 2 3
-    ]), Int[
+    ]), Integer[
         2 1
         2 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 4 4 0 2 0 4 4 0 2 0 4 4
         2 2 0 4 4 2 2 0 4 4 2 2 0 4 4
         0 2 2 2 0 0 2 2 2 0 0 2 2 2 0
         1 1 0 2 2 1 1 0 2 2 1 1 0 2 2
         1 1 0 2 0 1 1 0 2 0 1 1 0 2 0
-    ]), Int[
+    ]), Integer[
         0 2 0 4 4
         2 2 0 4 4
         0 2 2 2 0
@@ -6836,7 +6836,7 @@ problem_2dee498d = Problem("problem_2dee498d", [
 ])
 
 problem_31aa019c = Problem("problem_31aa019c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 0 0 0 5 0 0
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 2 0 0 0 1
@@ -6847,7 +6847,7 @@ problem_31aa019c = Problem("problem_31aa019c", [
         0 5 1 0 1 0 0 0 0 0
         0 8 1 0 0 0 1 0 3 0
         0 0 0 0 0 0 0 3 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -6859,7 +6859,7 @@ problem_31aa019c = Problem("problem_31aa019c", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 7 7 1 0 3 0 0 0 3
         0 0 0 9 0 0 0 0 3 7
         0 0 0 1 0 0 0 6 0 9
@@ -6870,7 +6870,7 @@ problem_31aa019c = Problem("problem_31aa019c", [
         4 4 0 0 0 1 0 0 0 5
         0 0 0 0 0 0 0 5 3 0
         0 0 0 0 4 5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 2 2 0
         0 0 0 0 0 0 2 6 2 0
@@ -6882,7 +6882,7 @@ problem_31aa019c = Problem("problem_31aa019c", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 2 8
         0 7 0 0 2 0 5 0 2 0
@@ -6893,7 +6893,7 @@ problem_31aa019c = Problem("problem_31aa019c", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 3 0 0 0
         0 0 5 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -6905,7 +6905,7 @@ problem_31aa019c = Problem("problem_31aa019c", [
         0 0 0 0 0 2 3 2 0 0
         0 0 0 0 0 2 2 2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 2 5 7 0 0 0
         0 0 0 5 6 0 2 0 0 0
         0 0 0 0 0 0 3 0 0 0
@@ -6916,7 +6916,7 @@ problem_31aa019c = Problem("problem_31aa019c", [
         5 5 0 3 0 0 6 7 0 7
         0 0 3 0 0 0 0 0 0 2
         1 0 1 0 0 0 0 0 6 7
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -6931,7 +6931,7 @@ problem_31aa019c = Problem("problem_31aa019c", [
 ])
 
 problem_321b1fc6 = Problem("problem_321b1fc6", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 7 6 0 0 0 0 0 0 0
         0 9 4 0 0 0 0 0 0 0
@@ -6942,7 +6942,7 @@ problem_321b1fc6 = Problem("problem_321b1fc6", [
         0 0 8 8 0 0 0 0 0 0
         0 0 8 8 0 0 0 0 8 8
         0 0 0 0 0 0 0 0 8 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -6954,7 +6954,7 @@ problem_321b1fc6 = Problem("problem_321b1fc6", [
         0 0 9 4 0 0 0 0 7 6
         0 0 0 0 0 0 0 0 9 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 8 8 0 0 0 0 0 0 0
         0 8 8 8 0 0 8 8 0 0
@@ -6965,7 +6965,7 @@ problem_321b1fc6 = Problem("problem_321b1fc6", [
         0 0 0 8 8 0 0 0 0 0
         0 0 0 8 8 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 7 7 0 0 0 0 0 0 0
         0 6 6 6 0 0 7 7 0 0
@@ -6977,7 +6977,7 @@ problem_321b1fc6 = Problem("problem_321b1fc6", [
         0 0 0 6 6 6 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 8 8 0 0 0 8 8 0 0
         8 8 8 8 0 8 8 8 8 0
@@ -6988,7 +6988,7 @@ problem_321b1fc6 = Problem("problem_321b1fc6", [
         0 0 3 0 0 8 8 8 8 0
         0 0 0 0 0 0 0 8 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 4 0 0 0 4 4 0 0
         3 4 3 3 0 3 4 3 3 0
@@ -7003,7 +7003,7 @@ problem_321b1fc6 = Problem("problem_321b1fc6", [
 ])
 
 problem_32597951 = Problem("problem_32597951", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1
         0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 0 0
@@ -7021,7 +7021,7 @@ problem_32597951 = Problem("problem_32597951", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 1
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1
         0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 0 0
@@ -7040,7 +7040,7 @@ problem_32597951 = Problem("problem_32597951", [
         1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 1
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 0 1 0 0 0 0 0 0 0 1 0 1 0 1
         1 1 0 1 0 1 0 1 1 1 1 1 0 0 1 1 0
         0 0 0 1 0 0 0 1 0 0 1 1 0 0 0 0 1
@@ -7058,7 +7058,7 @@ problem_32597951 = Problem("problem_32597951", [
         0 0 1 1 0 1 1 1 1 1 1 0 0 0 0 0 1
         0 1 1 0 1 1 0 0 0 0 0 1 0 1 0 0 0
         0 0 1 0 0 0 0 0 0 1 0 1 0 0 0 1 1
-    ]), Int[
+    ]), Integer[
         1 0 0 0 1 0 0 0 0 0 0 0 1 0 1 0 1
         1 1 0 1 0 1 0 1 1 1 1 1 0 0 1 1 0
         0 0 0 1 0 0 0 1 0 0 1 1 0 0 0 0 1
@@ -7077,7 +7077,7 @@ problem_32597951 = Problem("problem_32597951", [
         0 1 1 0 1 1 0 0 0 0 0 1 0 1 0 0 0
         0 0 1 0 0 0 0 0 0 1 0 1 0 0 0 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
         1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
@@ -7095,7 +7095,7 @@ problem_32597951 = Problem("problem_32597951", [
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
         1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
-    ]), Int[
+    ]), Integer[
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
         1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
@@ -7114,7 +7114,7 @@ problem_32597951 = Problem("problem_32597951", [
         1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
@@ -7132,7 +7132,7 @@ problem_32597951 = Problem("problem_32597951", [
         0 0 1 0 0 1 0 8 1 8 8 1 8 0 1 0 0
         1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
-    ]), Int[
+    ]), Integer[
         1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
         0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
@@ -7154,7 +7154,7 @@ problem_32597951 = Problem("problem_32597951", [
 ])
 
 problem_3345333e = Problem("problem_3345333e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 6 6 0 0 6 6 0 0 0 0 0 0 0
@@ -7171,7 +7171,7 @@ problem_3345333e = Problem("problem_3345333e", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 6 6 0 0 6 6 0 0 0 0 0 0 0
@@ -7189,7 +7189,7 @@ problem_3345333e = Problem("problem_3345333e", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -7206,7 +7206,7 @@ problem_3345333e = Problem("problem_3345333e", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -7224,7 +7224,7 @@ problem_3345333e = Problem("problem_3345333e", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -7241,7 +7241,7 @@ problem_3345333e = Problem("problem_3345333e", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -7262,7 +7262,7 @@ problem_3345333e = Problem("problem_3345333e", [
 ])
 
 problem_3428a4f5 = Problem("problem_3428a4f5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 2
         0 0 2 0 2
         2 0 0 2 2
@@ -7276,7 +7276,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         0 0 2 0 0
         0 0 0 2 2
         2 0 0 2 0
-    ]), Int[
+    ]), Integer[
         3 0 0 3 3
         3 3 3 0 3
         0 0 3 3 3
@@ -7284,7 +7284,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         0 0 0 3 0
         3 3 0 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 2 2 2
         0 0 0 0 2
         2 0 2 2 2
@@ -7298,7 +7298,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         0 0 0 2 0
         0 2 0 2 0
         0 2 2 2 0
-    ]), Int[
+    ]), Integer[
         0 3 3 3 3
         0 0 3 0 3
         0 0 3 3 0
@@ -7306,7 +7306,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         3 0 3 0 0
         3 0 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 2 2
         2 0 2 2 2
         2 0 0 0 0
@@ -7320,7 +7320,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         0 0 2 0 2
         0 2 0 2 2
         0 2 2 0 2
-    ]), Int[
+    ]), Integer[
         0 3 0 0 0
         3 0 0 3 0
         0 3 0 0 0
@@ -7328,7 +7328,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         3 0 3 3 0
         3 3 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 2 0
         2 2 0 2 2
         0 2 2 2 0
@@ -7342,7 +7342,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         2 0 0 0 2
         2 2 0 2 0
         2 0 2 2 0
-    ]), Int[
+    ]), Integer[
         3 3 3 0 3
         3 0 3 3 3
         3 3 0 3 3
@@ -7350,7 +7350,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         3 0 3 0 3
         0 0 0 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2 2 0
         2 0 0 2 2
         2 2 2 0 0
@@ -7364,7 +7364,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         0 2 2 0 0
         2 0 2 2 0
         2 0 2 2 2
-    ]), Int[
+    ]), Integer[
         3 0 3 0 3
         0 0 0 3 0
         0 0 0 0 3
@@ -7372,7 +7372,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         3 3 0 3 0
         0 3 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2 0 2
         2 0 2 0 2
         0 0 0 2 0
@@ -7386,7 +7386,7 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
         0 2 0 0 0
         0 2 2 0 2
         2 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 3 0 3
         3 3 0 3 0
         0 0 3 0 0
@@ -7397,52 +7397,52 @@ problem_3428a4f5 = Problem("problem_3428a4f5", [
 ])
 
 problem_3618c87e = Problem("problem_3618c87e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 1 0 0
         0 0 5 0 0
         5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 0 5 0 0
         5 5 1 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 1 0 1 0
         0 5 0 5 0
         5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 5 0 5 0
         5 1 5 1 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 1 0 0 1
         0 5 0 0 5
         5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 5 0 0 5
         5 1 5 5 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 1 0 1
         0 0 5 0 5
         5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
@@ -7452,7 +7452,7 @@ problem_3618c87e = Problem("problem_3618c87e", [
 ])
 
 problem_3631a71a = Problem("problem_3631a71a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 6 6 5 5 0 1 0 0 0 0 1 0 5 5 6 6 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 6 6 5 0 1 0 0 7 7 0 0 1 0 5 6 6 0 0 5 0 0 0
         0 0 7 7 0 0 0 7 5 5 4 0 0 0 0 0 0 0 0 0 0 4 5 5 7 0 0 0 7 7
@@ -7483,7 +7483,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
         0 0 0 0 0 0 0 0 0 1 0 0 7 0 4 0 0 4 0 7 0 0 1 0 0 0 0 0 0 0
         0 0 7 7 0 0 7 0 5 0 0 4 0 7 0 2 2 0 7 0 4 0 0 5 0 7 0 0 7 7
         0 0 7 7 0 0 0 7 5 5 4 0 0 0 0 0 0 0 0 0 0 4 5 5 7 0 0 0 7 7
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 6 6 5 5 0 1 0 0 0 0 1 0 5 5 6 6 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 6 6 5 0 1 0 0 7 7 0 0 1 0 5 6 6 0 0 5 0 0 0
         0 0 7 7 0 0 0 7 5 5 4 0 0 0 0 0 0 0 0 0 0 4 5 5 7 0 0 0 7 7
@@ -7515,7 +7515,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
         0 0 7 7 0 0 7 0 5 0 0 4 0 7 0 2 2 0 7 0 4 0 0 5 0 7 0 0 7 7
         0 0 7 7 0 0 0 7 5 5 4 0 0 0 0 0 0 0 0 0 0 4 5 5 7 0 0 0 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 0 0 0 0 0 0 8 3 3 1 0 8 0 0 8 0 1 3 3 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 3 8 0 3 0 0 1 0 0 0 0 1 0 0 9 9 9 9 9 0 0 0 0
         0 0 7 7 0 0 4 0 3 3 4 4 8 0 6 6 6 6 0 8 4 9 9 9 9 9 0 0 7 7
@@ -7546,7 +7546,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
         0 0 0 0 0 0 1 1 1 0 8 0 3 0 8 0 0 8 0 3 0 8 0 1 1 1 0 0 0 0
         0 0 7 0 0 3 0 0 3 0 4 0 0 0 6 6 6 9 9 9 9 9 9 9 0 0 3 0 0 7
         0 0 7 7 0 0 4 0 3 3 4 4 8 0 6 6 6 9 9 9 9 9 9 9 0 4 0 0 7 7
-    ]), Int[
+    ]), Integer[
         3 0 0 0 0 0 0 0 0 8 3 3 1 0 8 0 0 8 0 1 3 3 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 3 8 0 3 0 0 1 0 0 0 0 1 0 0 3 0 8 3 0 0 0 0 0
         0 0 7 7 0 0 4 0 3 3 4 4 8 0 6 6 6 6 0 8 4 4 3 3 0 4 0 0 7 7
@@ -7578,7 +7578,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
         0 0 7 0 0 3 0 0 3 0 4 0 0 0 6 6 6 6 0 0 0 4 0 3 0 0 3 0 0 7
         0 0 7 7 0 0 4 0 3 3 4 4 8 0 6 6 6 6 0 8 4 4 3 3 0 4 0 0 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 0 0 5 0 0 8 8 0 4 4 4 0 0 0 9 9 9 9 0 8 8 0 0 5 0 0 0
         5 0 0 0 5 0 0 0 8 0 4 4 4 4 0 3 3 9 9 9 9 4 0 8 0 0 0 5 0 0
         0 0 0 1 0 0 4 4 0 4 2 0 0 0 8 8 8 9 9 9 9 2 4 0 4 4 0 0 1 0
@@ -7609,7 +7609,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
         0 5 0 0 1 0 0 0 4 4 0 0 8 8 0 7 7 0 8 8 0 0 4 4 0 0 0 1 0 0
         0 0 1 1 0 0 4 0 4 4 0 0 0 3 8 0 0 8 3 0 0 0 4 4 0 4 0 0 1 1
         0 0 0 1 0 0 4 4 0 4 2 0 0 0 8 8 8 8 0 0 0 2 4 0 4 4 0 0 1 0
-    ]), Int[
+    ]), Integer[
         0 5 0 0 0 5 0 0 8 8 0 4 4 4 0 0 0 0 4 4 4 0 8 8 0 0 5 0 0 0
         5 0 0 0 5 0 0 0 8 0 4 4 4 4 0 3 3 0 4 4 4 4 0 8 0 0 0 5 0 0
         0 0 0 1 0 0 4 4 0 4 2 0 0 0 8 8 8 8 0 0 0 2 4 0 4 4 0 0 1 0
@@ -7641,7 +7641,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
         0 0 1 1 0 0 4 0 4 4 0 0 0 3 8 0 0 8 3 0 0 0 4 4 0 4 0 0 1 1
         0 0 0 1 0 0 4 4 0 4 2 0 0 0 8 8 8 8 0 0 0 2 4 0 4 4 0 0 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 7 0 6 0 0 0 0 6 3 3 0 2 2 0 3 3 6 0 0 0 0 6 0 7 1 0
         0 7 1 0 0 7 0 0 0 4 6 6 3 0 2 0 0 2 0 3 6 6 4 0 0 0 7 0 0 1
         0 1 5 0 6 0 0 0 0 6 3 3 0 2 7 7 7 7 2 0 3 3 6 0 0 0 0 6 0 5
@@ -7672,7 +7672,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
         7 0 6 0 8 8 6 0 3 9 9 2 4 4 1 0 0 1 4 4 2 0 3 3 0 6 8 8 0 6
         1 0 0 5 0 0 0 0 6 9 9 3 2 0 7 0 0 7 0 2 3 3 6 6 0 0 0 0 5 0
         0 1 5 0 6 0 0 0 0 9 9 3 0 2 7 7 7 7 2 0 3 3 6 0 0 0 0 6 0 5
-    ]), Int[
+    ]), Integer[
         0 0 0 1 7 0 6 0 0 0 0 6 3 3 0 2 2 0 3 3 6 0 0 0 0 6 0 7 1 0
         0 7 1 0 0 7 0 0 0 4 6 6 3 0 2 0 0 2 0 3 6 6 4 0 0 0 7 0 0 1
         0 1 5 0 6 0 0 0 0 6 3 3 0 2 7 7 7 7 2 0 3 3 6 0 0 0 0 6 0 5
@@ -7704,7 +7704,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
         1 0 0 5 0 0 0 0 6 6 3 3 2 0 7 0 0 7 0 2 3 3 6 6 0 0 0 0 5 0
         0 1 5 0 6 0 0 0 0 6 3 3 0 2 7 7 7 7 2 0 3 3 6 0 0 0 0 6 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 7 0 7 7 1 1 0 3 0 6 0 8 0 0 0 0 8 0 6 0 3 0 1 1 7 7 0 7
         0 8 0 0 7 7 1 1 3 3 6 6 8 8 0 0 0 0 8 8 6 6 3 3 1 1 7 7 0 0
         9 9 9 9 9 9 9 8 0 6 7 7 0 0 0 6 6 0 0 0 7 7 6 0 8 0 1 1 0 2
@@ -7735,7 +7735,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
         7 7 1 1 0 0 0 6 0 8 0 0 6 6 0 0 0 0 9 9 9 9 9 9 9 0 0 0 1 1
         0 0 0 0 1 1 8 0 6 6 7 7 0 0 6 0 0 6 9 9 9 9 9 9 9 8 1 1 0 0
         7 0 2 0 1 1 0 8 0 6 7 7 0 0 0 6 6 0 0 0 7 7 6 0 8 0 1 1 0 2
-    ]), Int[
+    ]), Integer[
         8 0 7 0 7 7 1 1 0 3 0 6 0 8 0 0 0 0 8 0 6 0 3 0 1 1 7 7 0 7
         0 8 0 0 7 7 1 1 3 3 6 6 8 8 0 0 0 0 8 8 6 6 3 3 1 1 7 7 0 0
         7 0 2 0 1 1 0 8 0 6 7 7 0 0 0 6 6 0 0 0 7 7 6 0 8 0 1 1 0 2
@@ -7770,7 +7770,7 @@ problem_3631a71a = Problem("problem_3631a71a", [
 ])
 
 problem_363442ee = Problem("problem_363442ee", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 2 2 5 0 0 0 0 0 0 0 0 0
         2 6 2 5 0 1 0 0 0 0 0 0 0
         6 4 4 5 0 0 0 0 0 0 0 0 0
@@ -7780,7 +7780,7 @@ problem_363442ee = Problem("problem_363442ee", [
         0 0 0 5 0 0 0 0 0 0 0 0 0
         0 0 0 5 0 0 0 0 1 0 0 0 0
         0 0 0 5 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 2 2 5 4 2 2 0 0 0 0 0 0
         2 6 2 5 2 6 2 0 0 0 0 0 0
         6 4 4 5 6 4 4 0 0 0 0 0 0
@@ -7791,7 +7791,7 @@ problem_363442ee = Problem("problem_363442ee", [
         0 0 0 5 0 0 0 2 6 2 0 0 0
         0 0 0 5 0 0 0 6 4 4 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 7 3 5 0 0 0 0 0 0 0 0 0
         2 3 3 5 0 0 0 0 1 0 0 0 0
         3 7 7 5 0 0 0 0 0 0 0 0 0
@@ -7801,7 +7801,7 @@ problem_363442ee = Problem("problem_363442ee", [
         0 0 0 5 0 0 0 0 0 0 0 0 0
         0 0 0 5 0 1 0 0 1 0 0 0 0
         0 0 0 5 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 7 3 5 0 0 0 2 7 3 0 0 0
         2 3 3 5 0 0 0 2 3 3 0 0 0
         3 7 7 5 0 0 0 3 7 7 0 0 0
@@ -7812,7 +7812,7 @@ problem_363442ee = Problem("problem_363442ee", [
         0 0 0 5 2 3 3 2 3 3 0 0 0
         0 0 0 5 3 7 7 3 7 7 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 8 6 5 0 0 0 0 0 0 0 0 0
         9 8 2 5 0 1 0 0 0 0 0 1 0
         9 9 9 5 0 0 0 0 0 0 0 0 0
@@ -7822,7 +7822,7 @@ problem_363442ee = Problem("problem_363442ee", [
         0 0 0 5 0 0 0 0 0 0 0 0 0
         0 0 0 5 0 0 0 0 1 0 0 1 0
         0 0 0 5 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 8 6 5 3 8 6 0 0 0 3 8 6
         9 8 2 5 9 8 2 0 0 0 9 8 2
         9 9 9 5 9 9 9 0 0 0 9 9 9
@@ -7833,7 +7833,7 @@ problem_363442ee = Problem("problem_363442ee", [
         0 0 0 5 0 0 0 9 8 2 9 8 2
         0 0 0 5 0 0 0 9 9 9 9 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 9 5 0 0 0 0 0 0 0 0 0
         8 4 4 5 0 0 0 0 1 0 0 1 0
         8 9 8 5 0 0 0 0 0 0 0 0 0
@@ -7843,7 +7843,7 @@ problem_363442ee = Problem("problem_363442ee", [
         0 0 0 5 0 0 0 0 0 0 0 0 0
         0 0 0 5 0 1 0 0 1 0 0 0 0
         0 0 0 5 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 9 5 0 0 0 3 3 9 3 3 9
         8 4 4 5 0 0 0 8 4 4 8 4 4
         8 9 8 5 0 0 0 8 9 8 8 9 8
@@ -7857,7 +7857,7 @@ problem_363442ee = Problem("problem_363442ee", [
 ])
 
 problem_36d67576 = Problem("problem_36d67576", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 1 2 0 0 0 0 0 0 0
         0 4 4 4 4 4 0 0 0 0 4 0 0
@@ -7871,7 +7871,7 @@ problem_36d67576 = Problem("problem_36d67576", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 1 2 0 0 0 0 0 0 0
         0 4 4 4 4 4 0 0 0 3 4 0 0
@@ -7886,7 +7886,7 @@ problem_36d67576 = Problem("problem_36d67576", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 4 4 4 1 0 0 0 0 0 0 0
@@ -7900,7 +7900,7 @@ problem_36d67576 = Problem("problem_36d67576", [
         0 0 0 0 0 4 0 0 0 0 0 0 0
         0 0 0 4 4 4 2 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 4 4 4 1 0 0 0 0 0 0 0
@@ -7915,7 +7915,7 @@ problem_36d67576 = Problem("problem_36d67576", [
         0 0 0 4 4 4 2 0 0 0 0 0 0
         0 0 0 3 0 1 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 4 2 0 0 0 0 0 0 0 0
         0 1 4 4 4 0 0 0 0 0 0 0 0
@@ -7929,7 +7929,7 @@ problem_36d67576 = Problem("problem_36d67576", [
         0 0 0 4 4 4 0 0 0 0 0 0 0
         0 0 0 2 4 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 4 2 0 0 0 0 0 0 0 0
         0 1 4 4 4 0 0 0 0 0 0 0 0
@@ -7944,7 +7944,7 @@ problem_36d67576 = Problem("problem_36d67576", [
         0 0 0 2 4 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 3 0 0 0 0 0 0 0 0 0 0 0
@@ -7959,7 +7959,7 @@ problem_36d67576 = Problem("problem_36d67576", [
         0 2 4 4 0 0 0 0 4 4 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 3 0 0 0 0 0 0 0 0 0 0 0
@@ -7978,7 +7978,7 @@ problem_36d67576 = Problem("problem_36d67576", [
 ])
 
 problem_36fdfd69 = Problem("problem_36fdfd69", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 1
         1 1 2 1 1 1 1 1 1 0 0 1 0 1 1 1 0 0
         1 1 1 2 1 2 2 2 2 0 1 1 1 0 0 1 1 0
@@ -7996,7 +7996,7 @@ problem_36fdfd69 = Problem("problem_36fdfd69", [
         0 0 1 0 0 0 1 0 0 1 0 0 0 0 0 1 1 0
         0 0 0 0 0 0 1 1 1 0 1 0 1 0 0 1 1 1
         1 0 0 1 0 0 1 1 1 0 1 1 0 0 0 0 0 1
-    ]), Int[
+    ]), Integer[
         1 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 1
         1 1 2 4 4 4 4 4 4 0 0 1 0 1 1 1 0 0
         1 1 4 2 4 2 2 2 2 0 1 1 1 0 0 1 1 0
@@ -8015,7 +8015,7 @@ problem_36fdfd69 = Problem("problem_36fdfd69", [
         0 0 0 0 0 0 1 1 1 0 1 0 1 0 0 1 1 1
         1 0 0 1 0 0 1 1 1 0 1 1 0 0 0 0 0 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 0 0 0 8 0 0 8 8 8 8 8 0 0 0
         0 8 0 0 0 0 0 0 0 8 0 8 0 8 0 0
         0 0 8 8 8 0 8 8 8 8 8 8 0 8 0 8
@@ -8031,7 +8031,7 @@ problem_36fdfd69 = Problem("problem_36fdfd69", [
         8 0 0 8 8 8 8 0 0 2 8 2 0 0 0 8
         0 8 8 0 8 8 8 0 0 0 8 0 8 8 8 8
         8 8 8 0 8 0 8 0 0 0 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 0 0 0 0 8 0 0 8 8 8 8 8 0 0 0
         0 8 0 0 0 0 0 0 0 8 0 8 0 8 0 0
         0 0 8 8 8 0 8 8 8 8 8 8 0 8 0 8
@@ -8048,7 +8048,7 @@ problem_36fdfd69 = Problem("problem_36fdfd69", [
         0 8 8 0 8 8 8 0 0 0 8 0 8 8 8 8
         8 8 8 0 8 0 8 0 0 0 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 0 0 0 0 0 3 0 3 3 0 0 0
         0 0 3 0 0 3 3 0 3 0 0 0 3 0
         0 0 3 3 0 0 0 3 3 3 0 0 0 0
@@ -8064,7 +8064,7 @@ problem_36fdfd69 = Problem("problem_36fdfd69", [
         0 0 3 0 3 3 0 0 3 0 3 3 0 3
         0 3 3 0 3 0 3 0 3 0 0 0 0 0
         3 0 0 3 0 0 0 0 0 3 3 0 3 3
-    ]), Int[
+    ]), Integer[
         3 3 0 0 0 0 0 3 0 3 3 0 0 0
         0 0 3 0 0 3 3 0 3 0 0 0 3 0
         0 0 3 3 0 0 0 3 3 3 0 0 0 0
@@ -8081,7 +8081,7 @@ problem_36fdfd69 = Problem("problem_36fdfd69", [
         0 3 3 0 3 0 3 0 3 0 0 0 0 0
         3 0 0 3 0 0 0 0 0 3 3 0 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 9 9 9 0 0 9 9 0 0 0 0 0 0 9 0
         9 2 9 2 2 9 0 0 0 9 0 0 9 0 0 0 0 0
         0 2 2 9 9 2 0 0 9 9 9 0 0 9 0 0 9 0
@@ -8099,7 +8099,7 @@ problem_36fdfd69 = Problem("problem_36fdfd69", [
         0 9 9 9 9 9 9 0 9 0 0 2 9 2 9 9 2 9
         0 9 0 9 0 0 9 9 0 9 0 2 2 9 2 2 9 0
         9 0 0 0 0 0 0 0 0 0 0 0 9 0 9 9 9 0
-    ]), Int[
+    ]), Integer[
         0 0 0 9 9 9 0 0 9 9 0 0 0 0 0 0 9 0
         9 2 4 2 2 4 0 0 0 9 0 0 9 0 0 0 0 0
         0 2 2 4 4 2 0 0 9 9 9 0 0 9 0 0 9 0
@@ -8121,7 +8121,7 @@ problem_36fdfd69 = Problem("problem_36fdfd69", [
 ])
 
 problem_3906de3d = Problem("problem_3906de3d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 1 1 1 1 0 0 0
         0 0 1 1 1 1 1 0 0 0
         0 0 1 1 0 1 1 0 0 0
@@ -8132,7 +8132,7 @@ problem_3906de3d = Problem("problem_3906de3d", [
         0 0 0 0 2 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1 1 1 1 1 0 0 0
         0 0 1 1 1 1 1 0 0 0
         0 0 1 1 2 1 1 0 0 0
@@ -8144,7 +8144,7 @@ problem_3906de3d = Problem("problem_3906de3d", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 1 1 1 1 1 1 0
         0 0 1 1 0 1 1 1 1 0
         0 0 1 1 0 1 0 1 1 0
@@ -8155,7 +8155,7 @@ problem_3906de3d = Problem("problem_3906de3d", [
         0 0 0 0 0 0 2 0 0 0
         0 0 0 0 0 0 2 0 0 0
         0 0 0 0 2 0 2 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1 1 1 1 1 1 1 0
         0 0 1 1 2 1 1 1 1 0
         0 0 1 1 0 1 2 1 1 0
@@ -8167,7 +8167,7 @@ problem_3906de3d = Problem("problem_3906de3d", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 1 1 1 1 1 1 1 1
         0 1 1 0 1 1 1 1 1 1
         0 1 1 0 1 1 1 1 0 1
@@ -8178,7 +8178,7 @@ problem_3906de3d = Problem("problem_3906de3d", [
         0 0 0 2 0 0 2 0 2 0
         0 0 0 2 2 0 2 0 2 0
         0 0 0 2 2 0 2 0 2 0
-    ]), Int[
+    ]), Integer[
         0 1 1 1 1 1 1 1 1 1
         0 1 1 2 1 1 1 1 1 1
         0 1 1 2 1 1 1 1 2 1
@@ -8190,7 +8190,7 @@ problem_3906de3d = Problem("problem_3906de3d", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 1 1 1 1 1 1 1 1
         0 1 0 1 1 1 1 1 0 1
         0 1 0 1 0 1 0 1 0 1
@@ -8201,7 +8201,7 @@ problem_3906de3d = Problem("problem_3906de3d", [
         0 0 2 0 0 2 0 0 2 0
         0 0 2 0 2 2 0 0 2 0
         0 0 2 0 2 2 2 0 2 0
-    ]), Int[
+    ]), Integer[
         0 1 1 1 1 1 1 1 1 1
         0 1 2 1 1 1 1 1 2 1
         0 1 2 1 2 1 2 1 2 1
@@ -8216,7 +8216,7 @@ problem_3906de3d = Problem("problem_3906de3d", [
 ])
 
 problem_39a8645d = Problem("problem_39a8645d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 8 0 8 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0 8 0 8 0
@@ -8231,12 +8231,12 @@ problem_39a8645d = Problem("problem_39a8645d", [
         0 2 0 2 0 0 0 0 0 0 0 0 0 0
         0 2 0 2 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 8
         0 8 0
         8 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 1 0 1 0 0 0 0
         0 0 4 0 0 0 0 1 1 1 0 0 0 0
         0 0 0 4 4 0 0 0 1 0 0 0 0 0
@@ -8251,12 +8251,12 @@ problem_39a8645d = Problem("problem_39a8645d", [
         0 0 0 4 4 0 0 0 0 0 0 1 0 1
         0 0 4 0 0 0 0 0 0 0 0 1 1 1
         0 0 0 0 0 0 0 0 0 0 0 0 1 0
-    ]), Int[
+    ]), Integer[
         4 0 0
         0 4 4
         4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 6 6 0 0 0
@@ -8271,12 +8271,12 @@ problem_39a8645d = Problem("problem_39a8645d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 8 0
         8 8 8
         0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 3 0 0 0 0 2 0 0 0
@@ -8291,7 +8291,7 @@ problem_39a8645d = Problem("problem_39a8645d", [
         0 0 0 0 0 2 0 0 0 3 0 3 0 0
         0 0 0 0 2 2 2 0 0 0 3 3 0 0
         0 0 0 0 2 2 0 0 0 3 0 3 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0
         2 2 2
         2 2 0
@@ -8299,7 +8299,7 @@ problem_39a8645d = Problem("problem_39a8645d", [
 ])
 
 problem_39e1d7f9 = Problem("problem_39e1d7f9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 3 3 3 3 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 3 3 3 3 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 3 3 3 3 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
@@ -8324,7 +8324,7 @@ problem_39e1d7f9 = Problem("problem_39e1d7f9", [
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 6 6 6 6 8 0 0 0 0
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 6 6 6 6 8 0 0 0 0
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 6 6 6 6 8 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 8 3 3 3 3 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 3 3 3 3 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 3 3 3 3 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
@@ -8350,7 +8350,7 @@ problem_39e1d7f9 = Problem("problem_39e1d7f9", [
         0 0 0 0 8 0 0 0 0 8 3 3 3 3 8 6 6 6 6 8 3 3 3 3
         0 0 0 0 8 0 0 0 0 8 3 3 3 3 8 6 6 6 6 8 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 4 4 4
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 4 4 4
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 4 4 4
@@ -8378,7 +8378,7 @@ problem_39e1d7f9 = Problem("problem_39e1d7f9", [
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 6 6 6 3 4 4 4
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 6 6 6 3 4 4 4
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 6 6 6 3 4 4 4
@@ -8407,7 +8407,7 @@ problem_39e1d7f9 = Problem("problem_39e1d7f9", [
         0 0 0 3 0 0 0 3 0 0 0 3 6 6 6 3 0 0 0 3 0 0 0 3 0 0 0
         0 0 0 3 0 0 0 3 0 0 0 3 6 6 6 3 0 0 0 3 0 0 0 3 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 2 2 2
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 2 2 2
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 2 2 2
@@ -8435,7 +8435,7 @@ problem_39e1d7f9 = Problem("problem_39e1d7f9", [
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4 4 8 4 4 4 8 4 4 4 8 0 0 0 8 0 0 0 8 4 4 4 8 2 2 2
         4 4 4 8 4 4 4 8 4 4 4 8 0 0 0 8 0 0 0 8 4 4 4 8 2 2 2
         4 4 4 8 4 4 4 8 4 4 4 8 0 0 0 8 0 0 0 8 4 4 4 8 2 2 2
@@ -8464,7 +8464,7 @@ problem_39e1d7f9 = Problem("problem_39e1d7f9", [
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -8494,7 +8494,7 @@ problem_39e1d7f9 = Problem("problem_39e1d7f9", [
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 8 8 4 3 3 4 8 8 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 8 8 4 3 3 4 8 8 4 0 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -8528,7 +8528,7 @@ problem_39e1d7f9 = Problem("problem_39e1d7f9", [
 ])
 
 problem_3aa6fb7a = Problem("problem_3aa6fb7a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 8 0 0 0 0 0
         0 8 8 0 0 0 0
@@ -8536,7 +8536,7 @@ problem_3aa6fb7a = Problem("problem_3aa6fb7a", [
         0 0 0 0 0 8 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 8 1 0 0 0 0
         0 8 8 0 0 0 0
@@ -8545,7 +8545,7 @@ problem_3aa6fb7a = Problem("problem_3aa6fb7a", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 8 0
         0 0 0 0 0 8 0
         0 0 8 0 0 0 0
@@ -8553,7 +8553,7 @@ problem_3aa6fb7a = Problem("problem_3aa6fb7a", [
         0 0 0 0 0 0 0
         0 0 0 0 8 0 0
         0 0 0 8 8 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 8 8 0
         0 0 0 0 1 8 0
         0 0 8 1 0 0 0
@@ -8562,7 +8562,7 @@ problem_3aa6fb7a = Problem("problem_3aa6fb7a", [
         0 0 0 1 8 0 0
         0 0 0 8 8 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 8 8
         8 8 0 0 0 0 8
         8 0 0 0 0 0 0
@@ -8570,7 +8570,7 @@ problem_3aa6fb7a = Problem("problem_3aa6fb7a", [
         0 0 0 8 8 0 0
         0 8 0 0 0 0 0
         8 8 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 8 8
         8 8 0 0 0 1 8
         8 1 0 0 0 0 0
@@ -8582,14 +8582,14 @@ problem_3aa6fb7a = Problem("problem_3aa6fb7a", [
 ])
 
 problem_3ac3eb23 = Problem("problem_3ac3eb23", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 0 0 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0 0 0 8 0 0 0 0
         2 0 2 0 8 0 8 0 0 0
         0 2 0 0 0 8 0 0 0 0
@@ -8597,14 +8597,14 @@ problem_3ac3eb23 = Problem("problem_3ac3eb23", [
         0 2 0 0 0 8 0 0 0 0
         2 0 2 0 8 0 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0 0 0 0 0
         4 0 4 0 0 0 0
         0 4 0 0 0 0 0
@@ -8612,14 +8612,14 @@ problem_3ac3eb23 = Problem("problem_3ac3eb23", [
         0 4 0 0 0 0 0
         4 0 4 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 0 0 0 6 0 0 7 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 0 6 0 0 7 0 0
         0 3 0 3 0 6 0 6 7 0 7 0
         0 0 3 0 0 0 6 0 0 7 0 0
@@ -8630,11 +8630,11 @@ problem_3ac3eb23 = Problem("problem_3ac3eb23", [
 ])
 
 problem_3af2c5a8 = Problem("problem_3af2c5a8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0
         0 8 0 8
         0 0 8 0
-    ]), Int[
+    ]), Integer[
         0 0 8 0 0 8 0 0
         0 8 0 8 8 0 8 0
         0 0 8 0 0 8 0 0
@@ -8642,11 +8642,11 @@ problem_3af2c5a8 = Problem("problem_3af2c5a8", [
         0 8 0 8 8 0 8 0
         0 0 8 0 0 8 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 3
         0 3 0 3
         3 3 3 0
-    ]), Int[
+    ]), Integer[
         0 0 3 3 3 3 0 0
         0 3 0 3 3 0 3 0
         3 3 3 0 0 3 3 3
@@ -8654,11 +8654,11 @@ problem_3af2c5a8 = Problem("problem_3af2c5a8", [
         0 3 0 3 3 0 3 0
         0 0 3 3 3 3 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3
         3 0 0 0
         3 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3
         3 0 0 0 0 0 0 3
         3 0 0 0 0 0 0 3
@@ -8666,11 +8666,11 @@ problem_3af2c5a8 = Problem("problem_3af2c5a8", [
         3 0 0 0 0 0 0 3
         3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0 0
         0 0 0 4
         4 4 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 4
         0 0 0 4 4 0 0 0
         4 4 0 0 0 0 4 4
@@ -8681,7 +8681,7 @@ problem_3af2c5a8 = Problem("problem_3af2c5a8", [
 ])
 
 problem_3bd67248 = Problem("problem_3bd67248", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         6 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         6 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -8697,7 +8697,7 @@ problem_3bd67248 = Problem("problem_3bd67248", [
         6 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         6 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         6 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 0 0 0 0 0 0 0 0 0 0 0 0 0 2
         6 0 0 0 0 0 0 0 0 0 0 0 0 2 0
         6 0 0 0 0 0 0 0 0 0 0 0 2 0 0
@@ -8714,16 +8714,16 @@ problem_3bd67248 = Problem("problem_3bd67248", [
         6 2 0 0 0 0 0 0 0 0 0 0 0 0 0
         6 4 4 4 4 4 4 4 4 4 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 0
         5 0 0
         5 0 0
-    ]), Int[
+    ]), Integer[
         5 0 2
         5 2 0
         5 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 0 0 0 0 0
         8 0 0 0 0 0 0
         8 0 0 0 0 0 0
@@ -8731,7 +8731,7 @@ problem_3bd67248 = Problem("problem_3bd67248", [
         8 0 0 0 0 0 0
         8 0 0 0 0 0 0
         8 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 0 0 0 0 2
         8 0 0 0 0 2 0
         8 0 0 0 2 0 0
@@ -8740,7 +8740,7 @@ problem_3bd67248 = Problem("problem_3bd67248", [
         8 2 0 0 0 0 0
         8 4 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 0 0 0 0 0 0 0
         3 0 0 0 0 0 0 0 0 0
         3 0 0 0 0 0 0 0 0 0
@@ -8751,7 +8751,7 @@ problem_3bd67248 = Problem("problem_3bd67248", [
         3 0 0 0 0 0 0 0 0 0
         3 0 0 0 0 0 0 0 0 0
         3 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 0 0 0 0 0 0 0 0 2
         3 0 0 0 0 0 0 0 2 0
         3 0 0 0 0 0 0 2 0 0
@@ -8766,7 +8766,7 @@ problem_3bd67248 = Problem("problem_3bd67248", [
 ])
 
 problem_3bdb4ada = Problem("problem_3bdb4ada", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 0
@@ -8775,7 +8775,7 @@ problem_3bdb4ada = Problem("problem_3bdb4ada", [
         0 0 0 0 0 0 0 0 0 0 0 0 8 8 8 8 8 8 8 8 8 8 8 8 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 8 8 8 8 8 8 8 8 8 8 8 8 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 8 8 8 8 8 8 8 8 8 8 8 8 8 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 0
         4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0
@@ -8785,7 +8785,7 @@ problem_3bdb4ada = Problem("problem_3bdb4ada", [
         0 0 0 0 0 0 0 0 0 0 0 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 8 8 8 8 8 8 8 8 8 8 8 8 8 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0
@@ -8794,7 +8794,7 @@ problem_3bdb4ada = Problem("problem_3bdb4ada", [
         0 0 0 0 0 0 0 7 7 7 7 7 7 7 7 7 7 7 0 0
         0 0 0 0 0 0 0 7 7 7 7 7 7 7 7 7 7 7 0 0
         0 0 0 0 0 0 0 7 7 7 7 7 7 7 7 7 7 7 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0
         0 1 0 1 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0
@@ -8804,7 +8804,7 @@ problem_3bdb4ada = Problem("problem_3bdb4ada", [
         0 0 0 0 0 0 0 7 0 7 0 7 0 7 0 7 0 7 0 0
         0 0 0 0 0 0 0 7 7 7 7 7 7 7 7 7 7 7 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0 0
@@ -8816,7 +8816,7 @@ problem_3bdb4ada = Problem("problem_3bdb4ada", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 8 8 8 8
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 8 8 8 8
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0 0
         0 0 5 0 5 0 5 0 5 0 0 0 0 0 0 0 0 0 0 0
@@ -8832,7 +8832,7 @@ problem_3bdb4ada = Problem("problem_3bdb4ada", [
 ])
 
 problem_3befdf3e = Problem("problem_3befdf3e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -8843,7 +8843,7 @@ problem_3befdf3e = Problem("problem_3befdf3e", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 4 4 4 0 0 0 0
@@ -8855,7 +8855,7 @@ problem_3befdf3e = Problem("problem_3befdf3e", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -8866,7 +8866,7 @@ problem_3befdf3e = Problem("problem_3befdf3e", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 2 2 2 2 0 0 0
         0 0 0 2 2 2 2 0 0 0
@@ -8878,7 +8878,7 @@ problem_3befdf3e = Problem("problem_3befdf3e", [
         0 0 0 2 2 2 2 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -8889,7 +8889,7 @@ problem_3befdf3e = Problem("problem_3befdf3e", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 3 3 3 3 0 0 0 0
         0 0 3 3 3 3 0 0 0 0
@@ -8901,7 +8901,7 @@ problem_3befdf3e = Problem("problem_3befdf3e", [
         0 0 3 3 3 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 0 0 0 0
         0 8 3 8 0 0 0 0 0 0 0 0
@@ -8914,7 +8914,7 @@ problem_3befdf3e = Problem("problem_3befdf3e", [
         0 0 0 0 0 0 8 8 8 8 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 8 8 8 0 0 0 0 0 0 0 0
         8 3 3 3 8 0 0 0 0 0 0 0
         8 3 8 3 8 0 0 0 0 0 0 0
@@ -8931,47 +8931,47 @@ problem_3befdf3e = Problem("problem_3befdf3e", [
 ])
 
 problem_3c9b0459 = Problem("problem_3c9b0459", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 1
         2 1 2
         2 8 1
-    ]), Int[
+    ]), Integer[
         1 8 2
         2 1 2
         1 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 2 4
         2 4 4
         2 9 2
-    ]), Int[
+    ]), Integer[
         2 9 2
         4 4 2
         4 2 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8
         5 5 8
         8 5 5
-    ]), Int[
+    ]), Integer[
         5 5 8
         8 5 5
         8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 2 9
         9 9 9
         2 3 3
-    ]), Int[
+    ]), Integer[
         3 3 2
         9 9 9
         9 2 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 4 4
         6 6 4
         4 6 7
-    ]), Int[
+    ]), Integer[
         7 6 4
         4 6 6
         4 4 6
@@ -8979,7 +8979,7 @@ problem_3c9b0459 = Problem("problem_3c9b0459", [
 ])
 
 problem_3de23699 = Problem("problem_3de23699", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 4 0 0 0 4 0
         0 0 0 2 0 0 0
@@ -8987,12 +8987,12 @@ problem_3de23699 = Problem("problem_3de23699", [
         0 0 0 2 2 0 0
         0 4 0 0 0 4 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0
         4 4 4
         0 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 3 0
         0 0 0 2 2 0 0 0 0
@@ -9005,12 +9005,12 @@ problem_3de23699 = Problem("problem_3de23699", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 3 0 0
         0 3 3 0 3
         3 0 0 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -9023,13 +9023,13 @@ problem_3de23699 = Problem("problem_3de23699", [
         0 0 0 0 0 8 8 0 0 0 0 0 0 0
         0 0 0 6 0 0 0 0 6 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 6 0 0
         0 6 0 0
         6 6 6 0
         0 6 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 0 0 4 4 0 0 0 0 0 0 0 0 0 0
@@ -9042,13 +9042,13 @@ problem_3de23699 = Problem("problem_3de23699", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 8 0 0 0
         0 0 8 8 0 0 0 0
         0 0 0 0 0 0 8 0
         0 0 0 0 8 0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0
@@ -9067,7 +9067,7 @@ problem_3de23699 = Problem("problem_3de23699", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 2 2 0 0
         0 2 0 0 0 0 0 0 0 0
@@ -9080,7 +9080,7 @@ problem_3de23699 = Problem("problem_3de23699", [
 ])
 
 problem_3e980e27 = Problem("problem_3e980e27", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -9094,7 +9094,7 @@ problem_3e980e27 = Problem("problem_3e980e27", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -9109,7 +9109,7 @@ problem_3e980e27 = Problem("problem_3e980e27", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 4 0 0 0 0 0 0
         0 0 0 0 0 4 3 4 0 0 0 0 0
@@ -9123,7 +9123,7 @@ problem_3e980e27 = Problem("problem_3e980e27", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 4 0 0 0 0 0 0
         0 0 0 0 0 4 3 4 0 0 0 0 0
@@ -9138,7 +9138,7 @@ problem_3e980e27 = Problem("problem_3e980e27", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 2 0 0
         0 0 3 8 8 0 0 0 0 0 0 0 0
@@ -9152,7 +9152,7 @@ problem_3e980e27 = Problem("problem_3e980e27", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 2 4 0
         0 0 3 8 8 0 0 0 0 4 4 0 0
@@ -9167,7 +9167,7 @@ problem_3e980e27 = Problem("problem_3e980e27", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 4 4 4 0 0 0
         0 0 0 2 0 0 0 0 2 4 0 0 0
@@ -9181,7 +9181,7 @@ problem_3e980e27 = Problem("problem_3e980e27", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 2 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 4 4 4 0 0 4 4 4 0 0 0
         0 0 4 2 0 0 0 0 2 4 0 0 0
@@ -9196,7 +9196,7 @@ problem_3e980e27 = Problem("problem_3e980e27", [
         0 0 0 0 0 0 0 4 2 0 0 0 0
         0 0 0 0 0 0 0 4 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 3 0 0 0 2 0 0 0
         0 1 2 0 0 0 0 0 0 0 0 0 0
@@ -9210,7 +9210,7 @@ problem_3e980e27 = Problem("problem_3e980e27", [
         0 0 0 0 0 0 0 3 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 8 8 8 0 0 1 0 0 0
         0 0 1 0 0 3 8 0 0 2 1 0 0
         0 1 2 0 0 8 0 0 0 1 1 0 0
@@ -9228,50 +9228,50 @@ problem_3e980e27 = Problem("problem_3e980e27", [
 ])
 
 problem_3eda0437 = Problem("problem_3eda0437", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 1 1 1 1 1 5 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 0 1 0 0 0 0 1 0
         0 1 0 1 0 0 0 1 1 1 1 0 1 1 1 0 0 0 0 1 1 1 0 1 0 1 1 1 1 1
         1 1 0 0 0 1 0 1 0 1 1 1 0 1 1 0 0 0 0 1 0 0 1 1 0 0 1 0 0 0
-    ]), Int[
+    ]), Integer[
         5 1 1 1 1 1 5 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 0 1 0 0 0 0 1 0
         0 1 0 1 0 0 0 1 1 1 1 0 1 1 1 6 6 6 6 1 1 1 0 1 0 1 1 1 1 1
         1 1 0 0 0 1 0 1 0 1 1 1 0 1 1 6 6 6 6 1 0 0 1 1 0 0 1 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 0 0 1 1 0 1 1 1 1 0 0 0 0 0 1 0 1
         1 1 1 0 1 1 0 0 1 0 1 0 1 1 0 0 0 1 1 1
         0 0 1 1 1 0 0 1 0 1 0 1 1 0 1 0 1 1 1 0
         0 1 0 1 0 0 0 1 1 0 1 1 1 0 0 0 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1 1 0 0 1 1 0 1 1 1 1 0 0 6 6 6 1 0 1
         1 1 1 0 1 1 0 0 1 0 1 0 1 1 6 6 6 1 1 1
         0 0 1 1 1 0 0 1 0 1 0 1 1 0 1 0 1 1 1 0
         0 1 0 1 0 0 0 1 1 0 1 1 1 0 0 0 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 0 0 0 0 0 0 1 0 0 1 0 0 1 0 1 0 1
         0 1 0 0 0 0 0 1 1 1 1 0 0 1 1 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 6 6 6 6 6 0 0 1 0 0 1 0 0 1 0 1 0 1
         0 1 6 6 6 6 6 1 1 1 1 0 0 1 1 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 0 0 1 0 0 0 1 1 1 1 1 0 0 0 0 0 0
         1 0 0 0 0 1 1 0 0 1 0 0 0 0 0 1 0 0 0 0
         1 0 1 1 0 0 1 0 1 0 1 0 1 0 0 0 1 0 0 0
         0 0 1 0 0 0 1 1 0 0 1 1 1 1 1 1 1 0 0 1
-    ]), Int[
+    ]), Integer[
         0 0 1 0 0 1 0 0 0 1 1 1 1 1 0 0 0 6 6 6
         1 0 0 0 0 1 1 0 0 1 0 0 0 0 0 1 0 6 6 6
         1 0 1 1 0 0 1 0 1 0 1 0 1 0 0 0 1 6 6 6
         0 0 1 0 0 0 1 1 0 0 1 1 1 1 1 1 1 0 0 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 1 0 1 0 1 0 0 0 0 0 1 0 0 0 0 1 1 0 1 0
         1 0 0 0 1 1 1 1 0 0 0 0 1 1 0 1 1 0 1 1 1 1 1 0
         0 0 0 0 0 1 1 1 0 1 1 0 1 0 0 0 1 1 0 0 1 1 1 1
         0 0 1 1 0 0 0 0 0 1 1 1 1 1 0 1 1 0 1 1 0 0 0 1
-    ]), Int[
+    ]), Integer[
         0 6 6 6 1 0 1 0 1 0 0 0 0 0 1 0 0 0 0 1 1 0 1 0
         1 6 6 6 1 1 1 1 0 0 0 0 1 1 0 1 1 0 1 1 1 1 1 0
         0 6 6 6 0 1 1 1 0 1 1 0 1 0 0 0 1 1 0 0 1 1 1 1
@@ -9280,7 +9280,7 @@ problem_3eda0437 = Problem("problem_3eda0437", [
 ])
 
 problem_3f7978a0 = Problem("problem_3f7978a0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 8 0 0 0 8 0 0 8
         0 5 0 0 0 5 0 0 0
@@ -9290,14 +9290,14 @@ problem_3f7978a0 = Problem("problem_3f7978a0", [
         0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 8 0
         0 8 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 0 0 8
         5 0 0 0 5
         5 0 8 0 5
         5 0 0 0 5
         8 0 0 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 8 0 0 0 8
         0 0 0 0 0 0 0 0 0 8 8
@@ -9307,14 +9307,14 @@ problem_3f7978a0 = Problem("problem_3f7978a0", [
         0 0 5 0 0 0 0 0 5 0 0
         0 0 8 0 8 0 0 0 8 0 0
         0 8 0 0 0 0 0 0 8 8 0
-    ]), Int[
+    ]), Integer[
         8 0 0 0 0 0 8
         5 0 0 0 0 0 5
         5 0 0 8 8 0 5
         5 0 0 0 0 0 5
         8 0 8 0 0 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 8 8 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 8 0 0 0 0 0
@@ -9326,7 +9326,7 @@ problem_3f7978a0 = Problem("problem_3f7978a0", [
         0 0 0 0 0 0 0 0 0 0 8 0 0
         0 0 8 8 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 8 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 0 0 8
         5 0 0 0 5
         5 0 8 0 5
@@ -9334,7 +9334,7 @@ problem_3f7978a0 = Problem("problem_3f7978a0", [
         5 0 8 0 5
         8 0 0 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 8 0 0 0 0
@@ -9349,7 +9349,7 @@ problem_3f7978a0 = Problem("problem_3f7978a0", [
         5 0 0 5 0 0 0 8 0 0 0 0 0
         8 0 0 8 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 8
-    ]), Int[
+    ]), Integer[
         8 0 0 8
         5 8 0 5
         5 0 0 5
@@ -9364,7 +9364,7 @@ problem_3f7978a0 = Problem("problem_3f7978a0", [
 ])
 
 problem_40853293 = Problem("problem_40853293", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -9395,7 +9395,7 @@ problem_40853293 = Problem("problem_40853293", [
         0 0 0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -9427,7 +9427,7 @@ problem_40853293 = Problem("problem_40853293", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 4 0 0 0 0 0 0
@@ -9448,7 +9448,7 @@ problem_40853293 = Problem("problem_40853293", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 9 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 4 0 0 0 0 0 0
@@ -9470,7 +9470,7 @@ problem_40853293 = Problem("problem_40853293", [
         0 0 0 0 0 9 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
@@ -9491,7 +9491,7 @@ problem_40853293 = Problem("problem_40853293", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
@@ -9516,7 +9516,7 @@ problem_40853293 = Problem("problem_40853293", [
 ])
 
 problem_4093f84a = Problem("problem_4093f84a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0 0
@@ -9531,7 +9531,7 @@ problem_4093f84a = Problem("problem_4093f84a", [
         0 0 0 0 2 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -9547,7 +9547,7 @@ problem_4093f84a = Problem("problem_4093f84a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 5 5 5 5 5 0 0 0 3 0
         0 0 0 0 5 5 5 5 5 3 0 0 0 0
         0 0 0 3 5 5 5 5 5 0 0 3 0 0
@@ -9562,7 +9562,7 @@ problem_4093f84a = Problem("problem_4093f84a", [
         0 0 0 0 5 5 5 5 5 0 0 0 0 0
         0 0 0 0 5 5 5 5 5 0 3 0 0 0
         0 0 0 0 5 5 5 5 5 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 5 5 5 5 5 5 0 0 0 0
         0 0 0 0 5 5 5 5 5 5 0 0 0 0
         0 0 0 5 5 5 5 5 5 5 0 0 0 0
@@ -9578,7 +9578,7 @@ problem_4093f84a = Problem("problem_4093f84a", [
         0 0 0 0 5 5 5 5 5 5 0 0 0 0
         0 0 0 0 5 5 5 5 5 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -9593,7 +9593,7 @@ problem_4093f84a = Problem("problem_4093f84a", [
         0 0 0 1 0 0 0 0 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -9609,7 +9609,7 @@ problem_4093f84a = Problem("problem_4093f84a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 5 5 0 0 0 0 0 0 0
         0 0 4 0 0 5 5 0 0 4 0 0 0 0
         0 0 0 0 0 5 5 0 0 0 0 0 0 0
@@ -9624,7 +9624,7 @@ problem_4093f84a = Problem("problem_4093f84a", [
         0 4 0 4 0 5 5 0 0 0 4 0 0 0
         0 0 0 0 0 5 5 0 0 0 0 0 0 0
         0 0 0 0 0 5 5 0 0 0 0 0 4 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 5 5 0 0 0 0 0 0 0
         0 0 0 0 5 5 5 5 0 0 0 0 0 0
         0 0 0 0 0 5 5 0 0 0 0 0 0 0
@@ -9643,7 +9643,7 @@ problem_4093f84a = Problem("problem_4093f84a", [
 ])
 
 problem_41e4d17e = Problem("problem_41e4d17e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 1 1 1 1 1 8 8 8 8 8 8 8
         8 8 8 1 8 8 8 1 8 8 8 8 8 8 8
@@ -9659,7 +9659,7 @@ problem_41e4d17e = Problem("problem_41e4d17e", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 6 8 8 8 8 8 8 8 8 8
         8 8 8 1 1 1 1 1 8 8 8 8 8 8 8
         8 8 8 1 8 6 8 1 8 8 8 8 8 8 8
@@ -9676,7 +9676,7 @@ problem_41e4d17e = Problem("problem_41e4d17e", [
         8 8 8 8 8 6 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 6 8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -9692,7 +9692,7 @@ problem_41e4d17e = Problem("problem_41e4d17e", [
         8 8 8 8 8 8 8 8 1 8 8 8 1 8 8
         8 8 8 8 8 8 8 8 1 1 1 1 1 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 6 8 8 8 8 6 8 8 8 8
         8 8 8 8 8 6 8 8 8 8 6 8 8 8 8
         8 8 8 8 8 6 8 8 8 8 6 8 8 8 8
@@ -9709,7 +9709,7 @@ problem_41e4d17e = Problem("problem_41e4d17e", [
         8 8 8 8 8 6 8 8 1 1 1 1 1 8 8
         8 8 8 8 8 6 8 8 8 8 6 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 1 1 1 1 1 8 8 8 8
         8 8 8 8 8 8 1 8 8 8 1 8 8 8 8
@@ -9725,7 +9725,7 @@ problem_41e4d17e = Problem("problem_41e4d17e", [
         8 8 8 1 8 8 8 1 8 8 8 8 8 8 8
         8 8 8 1 1 1 1 1 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 6 8 8 6 8 8 8 8 8 8
         8 8 8 8 8 6 1 1 1 1 1 8 8 8 8
         8 8 8 8 8 6 1 8 6 8 1 8 8 8 8
@@ -9745,7 +9745,7 @@ problem_41e4d17e = Problem("problem_41e4d17e", [
 ])
 
 problem_4258a5f9 = Problem("problem_4258a5f9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 5 0 0
         0 0 0 0 0 0 0 0 0
@@ -9755,7 +9755,7 @@ problem_4258a5f9 = Problem("problem_4258a5f9", [
         0 0 0 0 0 0 0 0 0
         0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 1 1 1 0
         0 0 0 0 0 1 5 1 0
         0 0 0 0 0 1 1 1 0
@@ -9766,7 +9766,7 @@ problem_4258a5f9 = Problem("problem_4258a5f9", [
         1 5 1 0 0 0 0 0 0
         1 1 1 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0
         0 0 0 5 0 0 0 0 0
@@ -9776,7 +9776,7 @@ problem_4258a5f9 = Problem("problem_4258a5f9", [
         0 0 0 0 0 0 0 0 0
         0 0 0 5 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 1 1 1
         0 0 1 1 1 0 1 5 1
         0 0 1 5 1 0 1 1 1
@@ -9787,7 +9787,7 @@ problem_4258a5f9 = Problem("problem_4258a5f9", [
         0 0 1 5 1 0 0 0 0
         0 0 1 1 1 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0
@@ -9797,7 +9797,7 @@ problem_4258a5f9 = Problem("problem_4258a5f9", [
         0 0 0 0 0 0 0 0 0
         0 5 0 0 0 5 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 0 0 0 0 0 0
         1 5 1 0 0 0 1 1 1
         1 1 1 0 0 0 1 5 1
@@ -9811,7 +9811,7 @@ problem_4258a5f9 = Problem("problem_4258a5f9", [
 ])
 
 problem_4290ef0e = Problem("problem_4290ef0e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 3 3 3 4 4
         4 4 4 1 1 4 1 1 4 4 4 4 3 4 3 4 4
@@ -9825,7 +9825,7 @@ problem_4290ef0e = Problem("problem_4290ef0e", [
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 6 4 4 4 4 4 6
-    ]), Int[
+    ]), Integer[
         6 6 4 4 4 6 6
         6 1 1 4 1 1 6
         4 1 3 3 3 1 4
@@ -9834,7 +9834,7 @@ problem_4290ef0e = Problem("problem_4290ef0e", [
         6 1 1 4 1 1 6
         6 6 4 4 4 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 1 1 1 8 1 1 1 8 8 8 8 8 8 8 8 8
@@ -9853,7 +9853,7 @@ problem_4290ef0e = Problem("problem_4290ef0e", [
         8 8 8 8 8 8 8 2 8 8 8 2 8 8 8 8 8 8
         8 8 8 8 8 8 8 2 2 8 2 2 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         1 1 1 8 1 1 1
         1 2 2 8 2 2 1
         1 2 4 4 4 2 1
@@ -9862,7 +9862,7 @@ problem_4290ef0e = Problem("problem_4290ef0e", [
         1 2 2 8 2 2 1
         1 1 1 8 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 2 3 3 1 1 1 3 3 3 1 1 1 3 8 8 3
@@ -9881,7 +9881,7 @@ problem_4290ef0e = Problem("problem_4290ef0e", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 6 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         4 4 3 3 3 3 3 3 3 4 4
         4 1 1 1 3 3 3 1 1 1 4
         3 1 2 2 2 3 2 2 2 1 3
@@ -9894,7 +9894,7 @@ problem_4290ef0e = Problem("problem_4290ef0e", [
         4 1 1 1 3 3 3 1 1 1 4
         4 4 3 3 3 3 3 3 3 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 4 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 4 1 1 1 1 1
@@ -9914,7 +9914,7 @@ problem_4290ef0e = Problem("problem_4290ef0e", [
         1 1 1 1 2 1 1 1 1 1 1 1 2 1 1 1 1 1 1
         1 1 1 1 2 1 1 1 1 1 1 1 2 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 6 1 1 1 1
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 1 4 4 4 4 4
         4 2 2 2 1 1 1 2 2 2 4
         4 2 6 6 1 1 1 6 6 2 4
@@ -9930,7 +9930,7 @@ problem_4290ef0e = Problem("problem_4290ef0e", [
 ])
 
 problem_42a50994 = Problem("problem_42a50994", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 8 0 8 0
@@ -9947,7 +9947,7 @@ problem_42a50994 = Problem("problem_42a50994", [
         0 0 0 0 0 0 8 0 0 8 0
         0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 8 0 0
-    ]), Int[
+    ]), Integer[
         0 8 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0
@@ -9965,7 +9965,7 @@ problem_42a50994 = Problem("problem_42a50994", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0
         0 6 0 0 0 6 0 0 6 0 6 0 0 0 6 0 0 0
         0 0 6 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0
@@ -9978,7 +9978,7 @@ problem_42a50994 = Problem("problem_42a50994", [
         0 0 6 0 0 0 0 0 0 0 0 6 0 6 0 0 0 0
         0 0 0 0 0 0 0 6 0 0 0 6 0 0 0 0 0 0
         0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 0 6 6
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0
         0 6 0 0 0 0 0 0 0 0 6 0 0 0 6 0 0 0
         0 0 6 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0
@@ -9992,7 +9992,7 @@ problem_42a50994 = Problem("problem_42a50994", [
         0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 5 0 0 0
         0 0 0 0 5 0 0 0 0 5 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0 5 0 0 0 0 0 5 0 0
@@ -10004,7 +10004,7 @@ problem_42a50994 = Problem("problem_42a50994", [
         5 0 0 5 0 0 0 0 0 0 0 5 0 5 0 0 5 0 0
         5 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 5 5 0
         0 5 0 0 0 0 0 0 0 0 5 0 0 5 0 0 0 0 5
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 5 0 0
@@ -10017,7 +10017,7 @@ problem_42a50994 = Problem("problem_42a50994", [
         5 0 0 0 0 0 0 0 0 5 0 5 0 0 0 0 5 5 0
         0 5 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 4 0 4 0
         0 0 0 0 4 0 0 0 0
         0 4 0 0 0 0 4 0 0
@@ -10035,7 +10035,7 @@ problem_42a50994 = Problem("problem_42a50994", [
         0 0 0 0 4 4 0 0 0
         4 0 4 0 4 0 0 4 4
         0 0 4 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 4 0 0 0
         0 0 0 0 4 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -10054,7 +10054,7 @@ problem_42a50994 = Problem("problem_42a50994", [
         0 0 4 0 4 0 0 4 4
         0 0 4 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 0 3 0 0 0 0 0 3 0 0 3
         3 0 0 0 0 0 0 3 3 3 3 0 0 3
         3 0 0 0 0 0 3 0 0 0 0 0 0 0
@@ -10072,7 +10072,7 @@ problem_42a50994 = Problem("problem_42a50994", [
         3 0 3 0 0 0 0 0 3 0 0 3 0 0
         3 0 0 0 0 3 0 0 0 0 0 0 0 0
         0 0 3 3 0 0 3 0 0 0 0 0 3 3
-    ]), Int[
+    ]), Integer[
         0 3 0 0 0 0 0 0 0 0 3 0 0 3
         3 0 0 0 0 0 0 3 3 3 3 0 0 3
         3 0 0 0 0 0 3 0 0 0 0 0 0 0
@@ -10094,7 +10094,7 @@ problem_42a50994 = Problem("problem_42a50994", [
 ])
 
 problem_4347f46a = Problem("problem_4347f46a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 8 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 8 0 0 0 0 0 0 0 0 0 0 0
@@ -10113,7 +10113,7 @@ problem_4347f46a = Problem("problem_4347f46a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 8 0 0 0 0 0 0 0 0 0 0 0
         0 8 0 0 8 0 0 0 0 0 0 0 0 0 0 0
@@ -10133,7 +10133,7 @@ problem_4347f46a = Problem("problem_4347f46a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 2 2 2 2 2 0
         0 2 2 2 2 2 0
@@ -10142,7 +10142,7 @@ problem_4347f46a = Problem("problem_4347f46a", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 2 2 2 2 2 0
         0 2 0 0 0 2 0
@@ -10152,7 +10152,7 @@ problem_4347f46a = Problem("problem_4347f46a", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 5 5 5 0 0
         0 0 5 5 5 5 5 5 5 5 0 0
@@ -10164,7 +10164,7 @@ problem_4347f46a = Problem("problem_4347f46a", [
         0 4 4 4 4 4 4 0 0 0 0 0
         0 4 4 4 4 4 4 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 5 5 5 0 0
         0 0 5 0 0 0 0 0 0 5 0 0
@@ -10177,7 +10177,7 @@ problem_4347f46a = Problem("problem_4347f46a", [
         0 4 4 4 4 4 4 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 8 8 8 0 0 0 0 6 6 6 6 0 0 0 0
         0 8 8 8 8 8 8 0 0 0 0 6 6 6 6 0 0 0 0
@@ -10195,7 +10195,7 @@ problem_4347f46a = Problem("problem_4347f46a", [
         0 0 0 0 0 3 3 3 3 3 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 3 3 3 3 3 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 8 8 8 0 0 0 0 6 6 6 6 0 0 0 0
         0 8 0 0 0 0 8 0 0 0 0 6 0 0 6 0 0 0 0
@@ -10217,7 +10217,7 @@ problem_4347f46a = Problem("problem_4347f46a", [
 ])
 
 problem_444801d8 = Problem("problem_444801d8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 1 0 1 1 0 0 0 0
         0 1 0 0 0 1 0 0 0 0
@@ -10228,7 +10228,7 @@ problem_444801d8 = Problem("problem_444801d8", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 2 2 2 2 0 0 0 0
         0 1 1 2 1 1 0 0 0 0
         0 1 2 2 2 1 0 0 0 0
@@ -10240,7 +10240,7 @@ problem_444801d8 = Problem("problem_444801d8", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 1 0 1 1 0 0 0 0
@@ -10251,7 +10251,7 @@ problem_444801d8 = Problem("problem_444801d8", [
         0 0 0 0 1 1 0 1 1 0
         0 0 0 0 1 0 3 0 1 0
         0 0 0 0 1 1 1 1 1 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 2 0 0 0 0
         0 1 1 2 1 1 0 0 0 0
@@ -10263,7 +10263,7 @@ problem_444801d8 = Problem("problem_444801d8", [
         0 0 0 0 1 3 3 3 1 0
         0 0 0 0 1 1 1 1 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 1 0 1 1 0 0 0 0
         0 1 0 6 0 1 0 0 0 0
@@ -10274,7 +10274,7 @@ problem_444801d8 = Problem("problem_444801d8", [
         0 0 0 0 1 1 0 1 1 0
         0 0 0 0 1 0 8 0 1 0
         0 0 0 0 1 1 1 1 1 0
-    ]), Int[
+    ]), Integer[
         0 6 6 6 6 6 0 0 0 0
         0 1 1 6 1 1 0 0 0 0
         0 1 6 6 6 1 0 0 0 0
@@ -10286,7 +10286,7 @@ problem_444801d8 = Problem("problem_444801d8", [
         0 0 0 0 1 8 8 8 1 0
         0 0 0 0 1 1 1 1 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         1 1 0 1 1 0 0 0 0 0
         1 0 4 0 1 0 0 0 0 0
@@ -10297,7 +10297,7 @@ problem_444801d8 = Problem("problem_444801d8", [
         0 0 0 0 1 0 7 0 1 0
         0 0 0 0 1 0 0 0 1 0
         0 0 0 0 1 1 1 1 1 0
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 0 0 0 0 0
         1 1 4 1 1 0 0 0 0 0
         1 4 4 4 1 0 0 0 0 0
@@ -10312,7 +10312,7 @@ problem_444801d8 = Problem("problem_444801d8", [
 ])
 
 problem_445eab21 = Problem("problem_445eab21", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 7 7 7 0 0 0 0 0
         0 7 0 0 7 0 0 0 0 0
         0 7 0 0 7 0 0 0 0 0
@@ -10323,11 +10323,11 @@ problem_445eab21 = Problem("problem_445eab21", [
         0 0 0 8 0 0 0 8 0 0
         0 0 0 8 8 8 8 8 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8
         8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 6 6 6 0 0 0 0 0
         6 0 0 0 6 0 0 0 0 0
         6 0 0 0 6 0 0 0 0 0
@@ -10338,11 +10338,11 @@ problem_445eab21 = Problem("problem_445eab21", [
         0 0 7 0 0 0 0 7 0 0
         0 0 7 7 7 7 7 7 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         7 7
         7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 4 4 4 4 4 0 0 0
         0 4 0 0 0 0 4 0 0 0
         0 4 0 0 0 0 4 0 0 0
@@ -10353,11 +10353,11 @@ problem_445eab21 = Problem("problem_445eab21", [
         0 0 0 0 0 0 0 2 2 2
         0 0 0 0 0 0 0 2 0 2
         0 0 0 0 0 0 0 2 2 2
-    ]), Int[
+    ]), Integer[
         4 4
         4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 0 9 9 9 9
         3 0 0 0 3 0 9 0 0 9
         3 0 0 0 3 0 9 0 0 9
@@ -10368,14 +10368,14 @@ problem_445eab21 = Problem("problem_445eab21", [
         3 0 0 0 3 0 9 0 0 9
         3 3 3 3 3 0 9 0 0 9
         0 0 0 0 0 0 9 9 9 9
-    ]), Int[
+    ]), Integer[
         3 3
         3 3
     ])
 ])
 
 problem_447fd412 = Problem("problem_447fd412", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 2 1 1 2 0 0 0 0 0 0 0
@@ -10390,7 +10390,7 @@ problem_447fd412 = Problem("problem_447fd412", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 2 1 1 2 0 0 0 0 0 0 0
@@ -10406,7 +10406,7 @@ problem_447fd412 = Problem("problem_447fd412", [
         0 0 0 0 0 1 1 1 1 1 1 0
         0 0 0 0 0 1 1 1 1 1 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -10421,7 +10421,7 @@ problem_447fd412 = Problem("problem_447fd412", [
         0 0 2 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -10437,7 +10437,7 @@ problem_447fd412 = Problem("problem_447fd412", [
         0 0 0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 2 0 0 0 0 0 0 0
@@ -10452,7 +10452,7 @@ problem_447fd412 = Problem("problem_447fd412", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 2 0 0 0 0 0 0 0
@@ -10468,7 +10468,7 @@ problem_447fd412 = Problem("problem_447fd412", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0
@@ -10486,7 +10486,7 @@ problem_447fd412 = Problem("problem_447fd412", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0 1 0 2 0 0 0 0 0 0 0 0
@@ -10508,7 +10508,7 @@ problem_447fd412 = Problem("problem_447fd412", [
 ])
 
 problem_44d8ac46 = Problem("problem_44d8ac46", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0 0 0
@@ -10521,7 +10521,7 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
         0 0 5 5 5 5 0 0 0 0 0 0
         0 0 5 0 5 5 0 0 0 0 0 0
         0 0 5 5 5 5 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0 0 0
@@ -10535,7 +10535,7 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
         0 0 5 2 5 5 0 0 0 0 0 0
         0 0 5 5 5 5 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0 0 0
         0 5 5 0 5 0 0 0 0 0 0 0
@@ -10548,7 +10548,7 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
         5 0 0 5 5 0 0 0 0 0 0 0
         5 0 0 5 5 0 0 0 0 0 0 0
         5 5 5 5 5 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0 0 0
         0 5 5 2 5 0 0 0 0 0 0 0
@@ -10562,7 +10562,7 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
         5 2 2 5 5 0 0 0 0 0 0 0
         5 5 5 5 5 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 0 0 0 0 0 0
         0 5 0 0 0 5 0 0 0 0 0 0
@@ -10575,7 +10575,7 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
         0 0 0 5 0 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 0 5 0 0 0
         0 0 0 5 5 5 5 5 5 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 0 0 0 0 0 0
         0 5 0 0 0 5 0 0 0 0 0 0
@@ -10589,7 +10589,7 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
         0 0 0 5 0 0 0 0 5 0 0 0
         0 0 0 5 5 5 5 5 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0 0 0
         0 5 0 0 5 0 0 0 0 0 0 0
@@ -10602,7 +10602,7 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
         0 0 0 5 0 0 0 5 0 0 0 0
         0 0 0 5 5 5 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0 0 0
         0 5 0 0 5 0 0 0 0 0 0 0
@@ -10616,7 +10616,7 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
         0 0 0 5 5 5 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         5 5 5 5 5 0 0 5 5 5 5 0
         5 0 0 0 5 0 0 5 5 0 5 0
@@ -10629,7 +10629,7 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
         0 0 5 0 0 0 0 5 0 0 0 0
         0 0 5 0 0 0 0 5 0 0 0 0
         0 0 5 5 5 5 5 5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         5 5 5 5 5 0 0 5 5 5 5 0
         5 2 2 2 5 0 0 5 5 0 5 0
@@ -10646,54 +10646,54 @@ problem_44d8ac46 = Problem("problem_44d8ac46", [
 ])
 
 problem_44f52bb0 = Problem("problem_44f52bb0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2
         0 2 0
         2 0 2
-    ]), Grid(reshape(Int[1], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0
         2 0 0
         0 2 0
-    ]), Grid(reshape(Int[7], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[7], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2
         2 0 2
         2 0 2
-    ]), Grid(reshape(Int[1], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         2 0 2
         0 0 0
-    ]), Grid(reshape(Int[1], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0
         0 2 2
         0 0 0
-    ]), Grid(reshape(Int[7], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[7], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0
         0 2 0
         0 0 0
-    ]), Grid(reshape(Int[7], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[7], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2
         2 2 2
         2 0 2
-    ]), Grid(reshape(Int[1], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         2 0 0
         2 0 0
-    ]), Grid(reshape(Int[7], 1, 1)))
+    ]), Grid(reshape(Integer[7], 1, 1)))
 ])
 
 problem_4522001f = Problem("problem_4522001f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 0
         3 2 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 0 0 0 0 0
         3 3 3 3 0 0 0 0 0
         3 3 3 3 0 0 0 0 0
@@ -10704,11 +10704,11 @@ problem_4522001f = Problem("problem_4522001f", [
         0 0 0 0 3 3 3 3 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 2 3
         0 3 3
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 3 3 3 3 0 0 0 0
         0 3 3 3 3 0 0 0 0
@@ -10719,11 +10719,11 @@ problem_4522001f = Problem("problem_4522001f", [
         0 0 0 0 0 3 3 3 3
         0 0 0 0 0 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 3
         0 2 3
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 3 3 3 3
         0 0 0 0 0 3 3 3 3
         0 0 0 0 0 3 3 3 3
@@ -10737,7 +10737,7 @@ problem_4522001f = Problem("problem_4522001f", [
 ])
 
 problem_4612dd53 = Problem("problem_4612dd53", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 1 0 0 1 1 0 1 0 0
         0 0 1 0 0 0 0 0 0 0 0 0 0
@@ -10747,7 +10747,7 @@ problem_4612dd53 = Problem("problem_4612dd53", [
         0 0 1 0 0 0 0 0 0 0 1 0 0
         0 0 1 1 0 0 1 1 0 1 1 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 2 1 2 2 1 1 2 1 0 0
         0 0 1 0 0 0 0 0 0 0 2 0 0
@@ -10758,7 +10758,7 @@ problem_4612dd53 = Problem("problem_4612dd53", [
         0 0 1 1 2 2 1 1 2 1 1 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 0 0 1 1 0 0 0 0
@@ -10770,7 +10770,7 @@ problem_4612dd53 = Problem("problem_4612dd53", [
         0 0 1 1 1 1 0 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 2 2 1 1 0 0 0 0
@@ -10783,7 +10783,7 @@ problem_4612dd53 = Problem("problem_4612dd53", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -10797,7 +10797,7 @@ problem_4612dd53 = Problem("problem_4612dd53", [
         0 0 1 1 0 1 1 0 0 1 1 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -10812,7 +10812,7 @@ problem_4612dd53 = Problem("problem_4612dd53", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 1 1 0 1 0 1 1 0 0
@@ -10826,7 +10826,7 @@ problem_4612dd53 = Problem("problem_4612dd53", [
         0 0 1 0 1 1 0 1 0 1 1 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 2 1 1 2 1 2 1 1 0 0
@@ -10844,20 +10844,20 @@ problem_4612dd53 = Problem("problem_4612dd53", [
 ])
 
 problem_46442a0e = Problem("problem_46442a0e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 6
         6 8
-    ]), Int[
+    ]), Integer[
         8 6 6 8
         6 8 8 6
         6 8 8 6
         8 6 6 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 8
         7 7 8
         8 8 8
-    ]), Int[
+    ]), Integer[
         7 7 8 8 7 7
         7 7 8 8 7 7
         8 8 8 8 8 8
@@ -10865,11 +10865,11 @@ problem_46442a0e = Problem("problem_46442a0e", [
         7 7 8 8 7 7
         7 7 8 8 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 9 9
         6 4 4
         6 4 4
-    ]), Int[
+    ]), Integer[
         6 9 9 6 6 6
         6 4 4 4 4 9
         6 4 4 4 4 9
@@ -10877,11 +10877,11 @@ problem_46442a0e = Problem("problem_46442a0e", [
         9 4 4 4 4 6
         6 6 6 9 9 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 4 1
         4 9 4
         9 1 9
-    ]), Int[
+    ]), Integer[
         1 4 1 9 4 1
         4 9 4 1 9 4
         9 1 9 9 4 1
@@ -10892,13 +10892,13 @@ problem_46442a0e = Problem("problem_46442a0e", [
 ])
 
 problem_469497ad = Problem("problem_469497ad", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 3
         0 8 8 0 3
         0 8 8 0 3
         0 0 0 0 3
         3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         2 0 0 0 0 0 0 2 3 3
         0 2 0 0 0 0 2 0 3 3
         0 0 8 8 8 8 0 0 3 3
@@ -10910,13 +10910,13 @@ problem_469497ad = Problem("problem_469497ad", [
         3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 7
         4 4 0 0 7
         4 4 0 0 6
         0 0 0 0 6
         7 7 6 6 6
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 2 0 0 0 7 7 7
         0 0 0 0 0 0 0 2 0 0 0 0 7 7 7
         0 0 0 0 0 0 2 0 0 0 0 0 7 7 7
@@ -10933,13 +10933,13 @@ problem_469497ad = Problem("problem_469497ad", [
         7 7 7 7 7 7 6 6 6 6 6 6 6 6 6
         7 7 7 7 7 7 6 6 6 6 6 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 9
         0 1 1 0 9
         0 1 1 0 3
         0 0 0 0 3
         9 9 3 3 4
-    ]), Int[
+    ]), Integer[
         2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 9 9 9 9
         0 2 0 0 0 0 0 0 0 0 0 0 0 0 2 0 9 9 9 9
         0 0 2 0 0 0 0 0 0 0 0 0 0 2 0 0 9 9 9 9
@@ -10961,13 +10961,13 @@ problem_469497ad = Problem("problem_469497ad", [
         9 9 9 9 9 9 9 9 3 3 3 3 3 3 3 3 4 4 4 4
         9 9 9 9 9 9 9 9 3 3 3 3 3 3 3 3 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 6 6 0 8
         0 6 6 0 8
         0 0 0 0 1
         0 0 0 0 7
         8 8 1 7 9
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 6 6 6 6 6 6 6 6 6 6 0 0 0 0 0 8 8 8 8 8
         0 0 0 0 0 6 6 6 6 6 6 6 6 6 6 0 0 0 0 0 8 8 8 8 8
         0 0 0 0 0 6 6 6 6 6 6 6 6 6 6 0 0 0 0 0 8 8 8 8 8
@@ -10997,7 +10997,7 @@ problem_469497ad = Problem("problem_469497ad", [
 ])
 
 problem_46f33fce = Problem("problem_46f33fce", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -11008,7 +11008,7 @@ problem_46f33fce = Problem("problem_46f33fce", [
         0 0 0 0 0 0 0 4 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 3
-    ]), Int[
+    ]), Integer[
         2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11030,7 +11030,7 @@ problem_46f33fce = Problem("problem_46f33fce", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 3 3 3
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -11041,7 +11041,7 @@ problem_46f33fce = Problem("problem_46f33fce", [
         0 0 0 0 0 0 0 0 0 8
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 2 0 2
-    ]), Int[
+    ]), Integer[
         1 1 1 1 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0
         1 1 1 1 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0
         1 1 1 1 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11063,7 +11063,7 @@ problem_46f33fce = Problem("problem_46f33fce", [
         0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2
         0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 3 0 2 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -11074,7 +11074,7 @@ problem_46f33fce = Problem("problem_46f33fce", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 0 1 0 0 0 0 0 4
-    ]), Int[
+    ]), Integer[
         3 3 3 3 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0
         3 3 3 3 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0
         3 3 3 3 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11096,7 +11096,7 @@ problem_46f33fce = Problem("problem_46f33fce", [
         1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 4 4 4 4
         1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -11107,7 +11107,7 @@ problem_46f33fce = Problem("problem_46f33fce", [
         0 0 0 3 0 0 0 4 0 0
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11132,7 +11132,7 @@ problem_46f33fce = Problem("problem_46f33fce", [
 ])
 
 problem_47c1f68c = Problem("problem_47c1f68c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 2 0 0 0 0 0
         0 1 0 0 0 2 0 0 0 0 0
         1 1 0 0 0 2 0 0 0 0 0
@@ -11144,7 +11144,7 @@ problem_47c1f68c = Problem("problem_47c1f68c", [
         0 0 0 0 0 2 0 0 0 0 0
         0 0 0 0 0 2 0 0 0 0 0
         0 0 0 0 0 2 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 2 0
         2 2 0 0 0 0 0 0 2 2
@@ -11156,7 +11156,7 @@ problem_47c1f68c = Problem("problem_47c1f68c", [
         0 2 0 0 0 0 0 0 2 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 3 0 8 0 0 0 0
         3 3 0 0 8 0 0 0 0
         3 0 0 0 8 0 0 0 0
@@ -11166,7 +11166,7 @@ problem_47c1f68c = Problem("problem_47c1f68c", [
         0 0 0 0 8 0 0 0 0
         0 0 0 0 8 0 0 0 0
         0 0 0 0 8 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 8 0 0 8 0 8
         8 8 0 0 0 0 8 8
         8 0 0 0 0 0 0 8
@@ -11176,7 +11176,7 @@ problem_47c1f68c = Problem("problem_47c1f68c", [
         8 8 0 0 0 0 8 8
         8 0 8 0 0 8 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 4 0 0 0
         0 2 2 4 0 0 0
         0 2 0 4 0 0 0
@@ -11184,7 +11184,7 @@ problem_47c1f68c = Problem("problem_47c1f68c", [
         0 0 0 4 0 0 0
         0 0 0 4 0 0 0
         0 0 0 4 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 4
         0 4 4 4 4 0
         0 4 0 0 4 0
@@ -11192,7 +11192,7 @@ problem_47c1f68c = Problem("problem_47c1f68c", [
         0 4 4 4 4 0
         4 0 0 0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 0 0 3 0 0 0 0 0 0
         0 8 0 0 0 0 3 0 0 0 0 0 0
         8 0 8 0 0 0 3 0 0 0 0 0 0
@@ -11206,7 +11206,7 @@ problem_47c1f68c = Problem("problem_47c1f68c", [
         0 0 0 0 0 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 3 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 0 0 0 0 3 0 0
         0 3 0 0 0 0 0 0 0 0 3 0
         3 0 3 0 0 0 0 0 0 3 0 3
@@ -11223,7 +11223,7 @@ problem_47c1f68c = Problem("problem_47c1f68c", [
 ])
 
 problem_484b58aa = Problem("problem_484b58aa", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1
         4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2
         5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5
@@ -11253,7 +11253,7 @@ problem_484b58aa = Problem("problem_484b58aa", [
         5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5
         2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4
         1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5
-    ]), Int[
+    ]), Integer[
         5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1
         4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2
         5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5
@@ -11284,7 +11284,7 @@ problem_484b58aa = Problem("problem_484b58aa", [
         2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4 5 2 1 2 3 4
         1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5 6 1 2 5 4 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 4 2 1 2 2 5 3 2 7 1 2 3 6 2 6 2 1 2 5 2 5 5 7 1 2 2 4 3
         0 0 0 0 5 7 5 4 2 1 2 2 5 3 2 7 1 2 3 6 2 6 2 1 2 5 2 5 5
         0 0 0 0 3 2 3 7 1 2 5 7 5 4 2 1 2 2 5 3 2 7 1 2 3 6 2 6 2
@@ -11314,7 +11314,7 @@ problem_484b58aa = Problem("problem_484b58aa", [
         3 6 2 6 2 1 2 5 2 5 5 7 1 2 2 4 3 7 2 1 2 3 3 2 3 7 1 2 5
         5 3 2 7 1 2 3 6 2 6 2 1 2 5 2 5 5 7 1 2 2 4 3 7 2 1 2 3 3
         5 4 2 1 2 2 5 3 2 7 1 2 3 6 2 6 2 1 2 5 2 5 5 7 1 2 2 4 3
-    ]), Int[
+    ]), Integer[
         5 4 2 1 2 2 5 3 2 7 1 2 3 6 2 6 2 1 2 5 2 5 5 7 1 2 2 4 3
         3 7 1 2 5 7 5 4 2 1 2 2 5 3 2 7 1 2 3 6 2 6 2 1 2 5 2 5 5
         2 1 2 3 3 2 3 7 1 2 5 7 5 4 2 1 2 2 5 3 2 7 1 2 3 6 2 6 2
@@ -11345,7 +11345,7 @@ problem_484b58aa = Problem("problem_484b58aa", [
         5 3 2 7 1 2 3 6 2 6 2 1 2 5 2 5 5 7 1 2 2 4 3 7 2 1 2 3 3
         5 4 2 1 2 2 5 3 2 7 1 2 3 6 2 6 2 1 2 5 2 5 5 7 1 2 2 4 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1
         2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2
         1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1
@@ -11375,7 +11375,7 @@ problem_484b58aa = Problem("problem_484b58aa", [
         1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1
         2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2
         1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1
-    ]), Int[
+    ]), Integer[
         1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1
         2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2
         1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1
@@ -11406,7 +11406,7 @@ problem_484b58aa = Problem("problem_484b58aa", [
         2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2
         1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1 2 1 4 1 6 1 8 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 1 2 6 1 2 0 0 0 0 1 2 5 1 2 9 1 2 8 1 2 6 1 2 2 1 2 3 1
         1 8 2 1 5 9 0 0 0 0 8 9 1 5 0 0 0 9 1 8 2 1 5 9 1 2 2 1 8
         5 3 1 8 2 1 0 0 0 0 8 1 8 9 0 0 0 1 5 3 1 8 2 1 2 6 1 5 8
@@ -11436,7 +11436,7 @@ problem_484b58aa = Problem("problem_484b58aa", [
         2 6 1 5 8 1 8 9 1 2 5 1 5 3 1 8 2 1 2 6 1 5 8 1 8 9 1 2 5
         8 1 2 6 1 2 2 1 2 3 1 2 5 1 2 9 1 2 8 1 2 6 1 2 2 1 2 3 1
         1 8 2 1 5 9 1 2 2 1 8 9 1 5 2 1 2 9 1 8 2 1 5 9 1 2 2 1 8
-    ]), Int[
+    ]), Integer[
         8 1 2 6 1 2 2 1 2 3 1 2 5 1 2 9 1 2 8 1 2 6 1 2 2 1 2 3 1
         1 8 2 1 5 9 1 2 2 1 8 9 1 5 2 1 2 9 1 8 2 1 5 9 1 2 2 1 8
         5 3 1 8 2 1 2 6 1 5 8 1 8 9 1 2 5 1 5 3 1 8 2 1 2 6 1 5 8
@@ -11470,7 +11470,7 @@ problem_484b58aa = Problem("problem_484b58aa", [
 ])
 
 problem_48d8fb45 = Problem("problem_48d8fb45", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 1 1
         0 0 0 5 0 0 0 1 1 0
@@ -11481,12 +11481,12 @@ problem_48d8fb45 = Problem("problem_48d8fb45", [
         0 0 0 0 0 0 1 1 0 0
         0 0 0 0 0 1 1 1 0 0
         0 0 0 0 0 0 1 1 0 0
-    ]), Int[
+    ]), Integer[
         0 1 0
         1 1 1
         0 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0
         0 0 0 0 0 0 4 4 0 0
@@ -11497,12 +11497,12 @@ problem_48d8fb45 = Problem("problem_48d8fb45", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4 0
         0 0 4
         0 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 2 2 0 0 0 0 0 0
@@ -11513,12 +11513,12 @@ problem_48d8fb45 = Problem("problem_48d8fb45", [
         0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 2
         2 2 0
         0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 5 0 0 0
         0 0 0 0 0 0 3 0 0 0
         0 0 0 0 0 3 3 0 0 0
@@ -11529,7 +11529,7 @@ problem_48d8fb45 = Problem("problem_48d8fb45", [
         0 0 0 0 0 3 3 3 0 0
         0 0 0 0 0 0 3 3 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 0
         3 3 0
         0 3 3
@@ -11537,7 +11537,7 @@ problem_48d8fb45 = Problem("problem_48d8fb45", [
 ])
 
 problem_4938f0c2 = Problem("problem_4938f0c2", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11558,7 +11558,7 @@ problem_4938f0c2 = Problem("problem_4938f0c2", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11580,7 +11580,7 @@ problem_4938f0c2 = Problem("problem_4938f0c2", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 2 0 0 0 0 0 0 0
         0 2 0 2 0 0 0 0 0 0
         0 0 2 2 0 0 0 0 0 0
@@ -11591,7 +11591,7 @@ problem_4938f0c2 = Problem("problem_4938f0c2", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 2 0 0 0 0 2 2 0
         0 2 0 2 0 0 2 0 2 0
         0 0 2 2 0 0 2 2 0 0
@@ -11603,7 +11603,7 @@ problem_4938f0c2 = Problem("problem_4938f0c2", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 2 0 0 2 0 2 0 0 0 0
         0 0 2 0 0 0 0 0 0 2 0 0 0 0
@@ -11616,7 +11616,7 @@ problem_4938f0c2 = Problem("problem_4938f0c2", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 2 0 0 2 0 2 0 0 0 0
         0 0 2 0 0 0 0 0 0 2 0 0 0 0
@@ -11630,7 +11630,7 @@ problem_4938f0c2 = Problem("problem_4938f0c2", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 2 0 0 0 0 0 0 0 0
@@ -11649,7 +11649,7 @@ problem_4938f0c2 = Problem("problem_4938f0c2", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 2 0 0 2 2 2 2 0 0
@@ -11672,7 +11672,7 @@ problem_4938f0c2 = Problem("problem_4938f0c2", [
 ])
 
 problem_496994bd = Problem("problem_496994bd", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2
         2 2 2
         3 3 3
@@ -11683,7 +11683,7 @@ problem_496994bd = Problem("problem_496994bd", [
         0 0 0
         0 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2
         2 2 2
         3 3 3
@@ -11695,7 +11695,7 @@ problem_496994bd = Problem("problem_496994bd", [
         2 2 2
         2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2
         8 8 8 8 8
         0 0 0 0 0
@@ -11706,7 +11706,7 @@ problem_496994bd = Problem("problem_496994bd", [
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2
         8 8 8 8 8
         0 0 0 0 0
@@ -11718,7 +11718,7 @@ problem_496994bd = Problem("problem_496994bd", [
         8 8 8 8 8
         2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3
         5 5 5 5 5 5
         5 5 5 5 5 5
@@ -11729,7 +11729,7 @@ problem_496994bd = Problem("problem_496994bd", [
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3
         5 5 5 5 5 5
         5 5 5 5 5 5
@@ -11744,40 +11744,40 @@ problem_496994bd = Problem("problem_496994bd", [
 ])
 
 problem_49d1d64f = Problem("problem_49d1d64f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2
         3 8
-    ]), Int[
+    ]), Integer[
         0 1 2 0
         1 1 2 2
         3 3 8 8
         0 3 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 8 4
         8 3 8
-    ]), Int[
+    ]), Integer[
         0 1 8 4 0
         1 1 8 4 4
         8 8 3 8 8
         0 8 3 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1 4
         8 0 2
         3 2 8
-    ]), Int[
+    ]), Integer[
         0 2 1 4 0
         2 2 1 4 4
         8 8 0 2 2
         3 3 2 8 8
         0 3 2 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 8
         1 4
         3 4
-    ]), Int[
+    ]), Integer[
         0 2 8 0
         2 2 8 8
         1 1 4 4
@@ -11787,7 +11787,7 @@ problem_49d1d64f = Problem("problem_49d1d64f", [
 ])
 
 problem_4be741c5 = Problem("problem_4be741c5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 2 2 2 2 2 2 2 8 8
         4 4 4 4 4 4 4 4 2 2 2 2 8 8 8 8
         4 4 4 4 4 4 4 4 2 2 2 2 8 8 8 8
@@ -11802,8 +11802,8 @@ problem_4be741c5 = Problem("problem_4be741c5", [
         4 4 4 4 2 2 2 2 2 2 2 2 8 8 8 8
         4 4 4 4 4 2 2 2 2 2 2 2 8 8 8 8
         4 4 4 4 4 4 2 2 2 2 2 2 2 8 8 8
-    ]), Grid(reshape(Int[4, 2, 8], 1, 3))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[4, 2, 8], 1, 3))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2
         2 2 2 2 2 2 2
         2 2 2 2 2 2 2
@@ -11813,8 +11813,8 @@ problem_4be741c5 = Problem("problem_4be741c5", [
         8 8 8 5 5 8 8
         5 8 5 5 5 5 5
         5 5 5 5 5 5 5
-    ]), Grid(reshape(Int[2, 8, 5], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2, 8, 5], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 6 6 6 6 6 6 6
         6 6 4 4 6 6 6 6 6
         6 4 4 4 6 4 6 4 4
@@ -11826,8 +11826,8 @@ problem_4be741c5 = Problem("problem_4be741c5", [
         2 3 2 2 2 2 2 3 3
         3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3
-    ]), Grid(reshape(Int[6, 4, 2, 3], 4, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[6, 4, 2, 3], 4, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 2 2 2 2 2 1 1 1 8 8
         3 3 3 2 2 2 2 2 1 1 1 8 8 8
         3 3 3 3 3 2 2 1 1 1 8 8 8 8
@@ -11842,15 +11842,15 @@ problem_4be741c5 = Problem("problem_4be741c5", [
         3 3 3 3 2 2 2 2 1 1 1 1 8 8
         3 3 3 3 3 2 2 2 1 1 1 1 8 8
         3 3 3 3 3 3 2 2 2 1 1 1 8 8
-    ]), Grid(reshape(Int[3, 2, 1, 8], 1, 4)))
+    ]), Grid(reshape(Integer[3, 2, 1, 8], 1, 4)))
 ])
 
 problem_4c4377d9 = Problem("problem_4c4377d9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 5 9
         5 5 9 9
         9 5 9 9
-    ]), Int[
+    ]), Integer[
         9 5 9 9
         5 5 9 9
         9 9 5 9
@@ -11858,11 +11858,11 @@ problem_4c4377d9 = Problem("problem_4c4377d9", [
         5 5 9 9
         9 5 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 1 1 4
         1 1 1 1
         4 4 4 1
-    ]), Int[
+    ]), Integer[
         4 4 4 1
         1 1 1 1
         4 1 1 4
@@ -11870,11 +11870,11 @@ problem_4c4377d9 = Problem("problem_4c4377d9", [
         1 1 1 1
         4 4 4 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 4 9 4
         9 9 4 4
         4 4 4 4
-    ]), Int[
+    ]), Integer[
         4 4 4 4
         9 9 4 4
         9 4 9 4
@@ -11882,11 +11882,11 @@ problem_4c4377d9 = Problem("problem_4c4377d9", [
         9 9 4 4
         4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 5 5
         3 5 5 3
         5 5 3 3
-    ]), Int[
+    ]), Integer[
         5 5 3 3
         3 5 5 3
         3 3 5 5
@@ -11894,11 +11894,11 @@ problem_4c4377d9 = Problem("problem_4c4377d9", [
         3 5 5 3
         5 5 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 9 9
         4 4 4 4
         4 4 9 9
-    ]), Int[
+    ]), Integer[
         4 4 9 9
         4 4 4 4
         4 4 9 9
@@ -11909,7 +11909,7 @@ problem_4c4377d9 = Problem("problem_4c4377d9", [
 ])
 
 problem_4c5c2cf0 = Problem("problem_4c5c2cf0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11924,7 +11924,7 @@ problem_4c5c2cf0 = Problem("problem_4c5c2cf0", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11940,7 +11940,7 @@ problem_4c5c2cf0 = Problem("problem_4c5c2cf0", [
         0 0 0 2 2 0 2 0 2 0 2 2 0 0
         0 0 0 2 0 0 2 0 2 0 0 2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11955,7 +11955,7 @@ problem_4c5c2cf0 = Problem("problem_4c5c2cf0", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -11971,7 +11971,7 @@ problem_4c5c2cf0 = Problem("problem_4c5c2cf0", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -11984,7 +11984,7 @@ problem_4c5c2cf0 = Problem("problem_4c5c2cf0", [
         0 0 1 1 0 0 0 0 0 0 0 0
         0 1 0 1 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -11998,7 +11998,7 @@ problem_4c5c2cf0 = Problem("problem_4c5c2cf0", [
         0 1 0 1 0 0 0 1 0 1 0 0
         0 0 1 0 0 0 0 0 1 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -12014,7 +12014,7 @@ problem_4c5c2cf0 = Problem("problem_4c5c2cf0", [
         0 0 0 0 0 0 0 4 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 4 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 4 0 4 0 0 0 0 0 0 0
         0 0 0 0 0 4 0 4 0 0 0 0 0 0 0
@@ -12034,7 +12034,7 @@ problem_4c5c2cf0 = Problem("problem_4c5c2cf0", [
 ])
 
 problem_50846271 = Problem("problem_50846271", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 5 0 0 5 5 5 5 5 5 0 0 5 0 0 0
         0 5 0 0 5 5 5 5 0 0 5 0 5 0 5 0 0 5 0 0 5 5
         5 0 5 5 0 5 5 5 0 0 5 5 2 0 0 0 0 0 0 0 5 0
@@ -12055,7 +12055,7 @@ problem_50846271 = Problem("problem_50846271", [
         0 0 5 5 0 2 5 0 0 0 5 0 0 0 5 5 0 0 0 5 5 5
         0 5 5 5 0 0 0 5 5 5 5 0 0 5 5 0 5 0 0 0 5 5
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 5 0 0 0 5
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 5 0 0 5 5 5 5 5 5 0 0 5 0 0 0
         0 5 0 0 5 5 5 5 0 0 5 0 5 0 5 0 0 5 0 0 5 5
         5 0 5 5 0 5 5 5 0 0 5 5 2 0 0 0 0 0 0 0 5 0
@@ -12077,7 +12077,7 @@ problem_50846271 = Problem("problem_50846271", [
         0 5 5 5 0 0 0 5 5 5 5 0 0 5 5 0 5 0 0 0 5 5
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 5 0 5 0 0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 5 0 0 0 5 5 0 5 5 0 0 0 5 5 0 5 5
         5 5 0 5 5 5 0 5 5 0 5 0 0 5 0 0 0 5 5 0
         0 5 0 5 5 0 5 5 0 5 0 0 5 0 0 5 0 0 5 5
@@ -12098,7 +12098,7 @@ problem_50846271 = Problem("problem_50846271", [
         0 0 5 0 5 0 5 5 0 5 5 5 0 0 5 0 0 0 5 0
         0 0 5 0 5 5 0 5 5 5 0 5 5 5 0 5 0 0 5 5
         5 5 5 0 5 0 5 0 5 5 0 0 5 5 0 0 0 0 0 5
-    ]), Int[
+    ]), Integer[
         0 5 0 5 0 0 0 5 5 0 5 5 0 0 0 5 5 0 5 5
         5 5 0 5 5 5 0 5 5 0 5 0 0 5 0 0 0 5 5 0
         0 5 0 5 5 0 8 5 0 5 0 0 5 0 0 5 0 0 5 5
@@ -12120,7 +12120,7 @@ problem_50846271 = Problem("problem_50846271", [
         0 0 5 0 5 5 0 5 5 5 0 5 5 5 0 5 0 0 5 5
         5 5 5 0 5 0 5 0 5 5 0 0 5 5 0 0 0 0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 0 5 0 5 5 5 5 0 5 5 0 0 0 5 5 0
         0 0 5 5 5 0 5 5 5 5 0 0 5 5 5 5 5 0 5
         0 5 5 5 0 5 0 5 5 0 0 0 5 5 5 0 5 0 0
@@ -12139,7 +12139,7 @@ problem_50846271 = Problem("problem_50846271", [
         5 5 0 0 5 5 5 5 0 5 5 0 5 0 5 0 0 0 0
         5 0 5 0 5 0 0 0 0 0 0 5 0 0 5 0 5 0 5
         0 5 5 0 5 0 0 0 0 0 5 0 0 5 0 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 0 5 0 5 0 5 5 5 5 0 5 5 0 0 0 5 5 0
         0 0 5 5 5 0 5 5 5 5 0 0 5 5 5 5 5 0 5
         0 5 5 5 0 5 0 5 5 0 0 0 5 5 5 0 5 0 0
@@ -12159,7 +12159,7 @@ problem_50846271 = Problem("problem_50846271", [
         5 0 5 0 5 0 0 0 0 0 0 5 0 0 5 0 5 0 5
         0 5 5 0 5 0 0 0 0 0 5 0 0 5 0 5 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 0 0 0 5 0 0 0 0 5
         5 0 5 0 0 0 0 0 5 0 0 5
         5 0 5 0 0 5 5 0 2 0 5 0
@@ -12171,7 +12171,7 @@ problem_50846271 = Problem("problem_50846271", [
         0 5 5 0 5 0 0 0 0 5 0 0
         5 0 0 0 5 5 5 5 5 0 0 0
         5 0 0 0 0 5 0 0 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 5 0 0 0 0 5 0 0 0 0 5
         5 0 5 0 0 0 0 0 5 0 0 5
         5 0 5 0 0 5 5 0 2 0 5 0
@@ -12184,7 +12184,7 @@ problem_50846271 = Problem("problem_50846271", [
         5 0 0 0 5 5 5 5 5 0 0 0
         5 0 0 0 0 5 0 0 5 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 5 0 0 5 5 0 5 0 0 0 5 0 5 0 0 0 5 5 0
         0 5 0 5 5 0 0 0 5 5 0 0 5 5 0 0 0 0 0 5 5 5
         0 0 0 0 5 5 5 0 0 0 0 5 5 0 0 5 5 0 0 5 5 5
@@ -12204,7 +12204,7 @@ problem_50846271 = Problem("problem_50846271", [
         5 5 5 0 0 2 0 5 5 0 0 2 2 2 2 2 5 0 5 0 5 5
         5 0 5 0 0 5 0 5 0 0 0 0 0 5 0 5 5 5 0 5 5 0
         5 5 5 5 5 0 5 0 5 5 5 5 0 5 0 0 5 5 0 5 0 5
-    ]), Int[
+    ]), Integer[
         0 5 0 5 0 0 5 5 0 5 0 0 0 5 0 5 0 0 0 5 5 0
         0 5 0 5 5 0 0 0 5 5 0 0 5 5 0 0 0 0 0 5 5 5
         0 0 0 0 5 5 8 0 0 0 0 5 5 0 0 5 5 0 0 5 5 5
@@ -12228,7 +12228,7 @@ problem_50846271 = Problem("problem_50846271", [
 ])
 
 problem_508bd3b6 = Problem("problem_508bd3b6", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 2 2
         0 0 0 0 0 0 0 0 0 0 2 2
         0 0 0 0 0 0 0 0 0 0 2 2
@@ -12241,7 +12241,7 @@ problem_508bd3b6 = Problem("problem_508bd3b6", [
         0 0 0 0 0 0 0 0 0 0 2 2
         0 0 0 8 0 0 0 0 0 0 2 2
         0 0 8 0 0 0 0 0 0 0 2 2
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 3 0 0 0 0 2 2
         0 0 0 0 0 0 3 0 0 0 2 2
         0 0 0 0 0 0 0 3 0 0 2 2
@@ -12255,7 +12255,7 @@ problem_508bd3b6 = Problem("problem_508bd3b6", [
         0 0 0 8 0 0 0 0 0 0 2 2
         0 0 8 0 0 0 0 0 0 0 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0 0 0
@@ -12268,7 +12268,7 @@ problem_508bd3b6 = Problem("problem_508bd3b6", [
         2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0 0 0
@@ -12282,7 +12282,7 @@ problem_508bd3b6 = Problem("problem_508bd3b6", [
         2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 0 0 0 0 0 0 0 0 0
         2 2 0 0 0 0 0 0 0 0 0 0
         2 2 0 0 0 0 0 0 0 0 0 0
@@ -12295,7 +12295,7 @@ problem_508bd3b6 = Problem("problem_508bd3b6", [
         2 2 0 0 0 0 8 0 0 0 0 0
         2 2 0 0 0 0 0 8 0 0 0 0
         2 2 0 0 0 0 0 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 0 0 0 0 0 3 0 0 0 0
         2 2 0 0 0 0 3 0 0 0 0 0
         2 2 0 0 0 3 0 0 0 0 0 0
@@ -12309,7 +12309,7 @@ problem_508bd3b6 = Problem("problem_508bd3b6", [
         2 2 0 0 0 0 0 8 0 0 0 0
         2 2 0 0 0 0 0 0 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 0 2 2 2 2
         0 0 0 0 8 0 0 0 2 2 2 2
         0 0 0 0 0 0 0 0 2 2 2 2
@@ -12322,7 +12322,7 @@ problem_508bd3b6 = Problem("problem_508bd3b6", [
         0 0 0 0 0 0 0 0 2 2 2 2
         0 0 0 0 0 0 0 0 2 2 2 2
         0 0 0 0 0 0 0 0 2 2 2 2
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 0 0 0 2 2 2 2
         0 0 0 0 8 0 0 0 2 2 2 2
         0 0 0 0 0 3 0 0 2 2 2 2
@@ -12339,7 +12339,7 @@ problem_508bd3b6 = Problem("problem_508bd3b6", [
 ])
 
 problem_50cb2852 = Problem("problem_50cb2852", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 2 2 0 0 0 1 1 1 0 0
         0 0 2 2 2 2 2 0 0 0 1 1 1 0 0
@@ -12353,7 +12353,7 @@ problem_50cb2852 = Problem("problem_50cb2852", [
         0 0 0 0 0 0 0 0 3 3 3 3 3 3 3
         0 0 0 0 0 0 0 0 3 3 3 3 3 3 3
         0 0 0 0 0 0 0 0 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 2 2 0 0 0 1 1 1 0 0
         0 0 2 8 8 8 2 0 0 0 1 8 1 0 0
@@ -12368,7 +12368,7 @@ problem_50cb2852 = Problem("problem_50cb2852", [
         0 0 0 0 0 0 0 0 3 8 8 8 8 8 3
         0 0 0 0 0 0 0 0 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0 0
@@ -12381,7 +12381,7 @@ problem_50cb2852 = Problem("problem_50cb2852", [
         0 0 1 1 1 1 1 1 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0 0
         0 2 8 8 2 0 0 0 0 0 0
@@ -12395,7 +12395,7 @@ problem_50cb2852 = Problem("problem_50cb2852", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 2 2 2 0 0 0
         3 3 3 3 0 0 2 2 2 2 0 0 0
@@ -12408,7 +12408,7 @@ problem_50cb2852 = Problem("problem_50cb2852", [
         0 0 1 1 1 1 1 1 1 1 0 0 0
         0 0 1 1 1 1 1 1 1 1 0 0 0
         0 0 1 1 1 1 1 1 1 1 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 2 2 2 0 0 0
         3 3 3 3 0 0 2 8 8 2 0 0 0
@@ -12422,7 +12422,7 @@ problem_50cb2852 = Problem("problem_50cb2852", [
         0 0 1 8 8 8 8 8 8 1 0 0 0
         0 0 1 1 1 1 1 1 1 1 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 1 1 1 1 0 0 0 0 0 0 0
         0 1 1 1 1 1 0 0 1 1 1 0 0
         0 1 1 1 1 1 0 0 1 1 1 0 0
@@ -12437,7 +12437,7 @@ problem_50cb2852 = Problem("problem_50cb2852", [
         0 0 0 0 0 0 0 0 0 3 3 3 3
         0 0 0 0 0 0 0 0 0 3 3 3 3
         0 0 0 0 0 0 0 0 0 3 3 3 3
-    ]), Int[
+    ]), Integer[
         0 1 1 1 1 1 0 0 0 0 0 0 0
         0 1 8 8 8 1 0 0 1 1 1 0 0
         0 1 8 8 8 1 0 0 1 8 1 0 0
@@ -12456,7 +12456,7 @@ problem_50cb2852 = Problem("problem_50cb2852", [
 ])
 
 problem_5117e062 = Problem("problem_5117e062", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 0 0 0 0 0 0 0 4 0 0
         0 3 3 3 0 0 0 0 0 4 8 4 0
         0 3 3 0 0 0 0 0 0 0 4 0 0
@@ -12470,12 +12470,12 @@ problem_5117e062 = Problem("problem_5117e062", [
         0 0 0 0 0 0 0 0 6 0 6 0 0
         0 0 0 0 0 0 0 0 6 6 6 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0
         4 4 4
         0 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 2 0 0 0 0
         0 0 0 0 0 0 0 2 2 2 0 0 0
         0 0 0 0 0 0 0 0 2 0 0 0 0
@@ -12489,12 +12489,12 @@ problem_5117e062 = Problem("problem_5117e062", [
         0 0 0 0 0 0 0 1 1 1 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 3
         3 3 0
         0 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 0 0 0 0 0 0 0 0 0
@@ -12508,12 +12508,12 @@ problem_5117e062 = Problem("problem_5117e062", [
         0 0 0 0 1 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 2 0
         2 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 1 1 1 0 0 0 0 0
         0 0 0 0 0 0 1 1 0 0 0 0 0
@@ -12527,7 +12527,7 @@ problem_5117e062 = Problem("problem_5117e062", [
         0 0 0 0 0 0 0 0 3 0 0 0 0
         0 0 0 0 0 0 0 3 3 3 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 7 7
         7 7 7
         0 7 0
@@ -12535,7 +12535,7 @@ problem_5117e062 = Problem("problem_5117e062", [
 ])
 
 problem_5168d44c = Problem("problem_5168d44c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         2 2 2 0 0 0 0 0 0 0 0 0 0
@@ -12543,7 +12543,7 @@ problem_5168d44c = Problem("problem_5168d44c", [
         2 2 2 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 0 0 0 0 0 0 0 0
@@ -12552,7 +12552,7 @@ problem_5168d44c = Problem("problem_5168d44c", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 3 0 0
         0 0 0 0 0 0 0
         0 0 0 0 3 0 0
@@ -12566,7 +12566,7 @@ problem_5168d44c = Problem("problem_5168d44c", [
         0 0 0 0 3 0 0
         0 0 0 0 0 0 0
         0 0 0 0 3 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 3 0 0
         0 0 0 0 0 0 0
         0 0 0 0 3 0 0
@@ -12581,7 +12581,7 @@ problem_5168d44c = Problem("problem_5168d44c", [
         0 0 0 0 0 0 0
         0 0 0 0 3 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 0 0 0 0
         0 2 2 2 0 0 0
         0 2 3 2 0 0 0
@@ -12589,7 +12589,7 @@ problem_5168d44c = Problem("problem_5168d44c", [
         0 0 3 0 0 0 0
         0 0 0 0 0 0 0
         0 0 3 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 0 0
         0 0 0 0 0 0 0
         0 0 3 0 0 0 0
@@ -12598,7 +12598,7 @@ problem_5168d44c = Problem("problem_5168d44c", [
         0 2 2 2 0 0 0
         0 0 3 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -12606,7 +12606,7 @@ problem_5168d44c = Problem("problem_5168d44c", [
         3 0 3 0 3 0 3 2 3 2 3 0 3 0 3 0 3
         0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -12618,13 +12618,13 @@ problem_5168d44c = Problem("problem_5168d44c", [
 ])
 
 problem_539a4f51 = Problem("problem_539a4f51", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 3 0
         2 2 2 3 0
         2 2 2 3 0
         3 3 3 3 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 3 2 2 2 3 2 2
         2 2 2 3 2 2 2 3 2 2
         2 2 2 3 2 2 2 3 2 2
@@ -12636,13 +12636,13 @@ problem_539a4f51 = Problem("problem_539a4f51", [
         2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 4 6 0
         1 1 4 6 0
         4 4 4 6 0
         6 6 6 6 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 4 6 1 1 4 6 1 1
         1 1 4 6 1 1 4 6 1 1
         4 4 4 6 1 1 4 6 1 1
@@ -12654,13 +12654,13 @@ problem_539a4f51 = Problem("problem_539a4f51", [
         1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 3 4 1 6
         3 3 4 1 6
         4 4 4 1 6
         1 1 1 1 6
         6 6 6 6 6
-    ]), Int[
+    ]), Integer[
         2 3 4 1 6 2 3 4 1 6
         3 3 4 1 6 2 3 4 1 6
         4 4 4 1 6 2 3 4 1 6
@@ -12672,13 +12672,13 @@ problem_539a4f51 = Problem("problem_539a4f51", [
         1 1 1 1 1 1 1 1 1 6
         6 6 6 6 6 6 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 3 2 2
         7 7 3 2 2
         3 3 3 2 2
         2 2 2 2 2
         2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         7 7 3 2 2 7 7 3 2 2
         7 7 3 2 2 7 7 3 2 2
         3 3 3 2 2 7 7 3 2 2
@@ -12693,14 +12693,14 @@ problem_539a4f51 = Problem("problem_539a4f51", [
 ])
 
 problem_53b68214 = Problem("problem_53b68214", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0
         0 0 1 1 1 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0
         0 0 0 0 1 1 1 0 0 0
         0 0 0 0 0 0 1 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0
         0 0 1 1 1 0 0 0 0 0
@@ -12712,13 +12712,13 @@ problem_53b68214 = Problem("problem_53b68214", [
         0 0 0 0 0 0 0 0 1 1
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0
@@ -12730,7 +12730,7 @@ problem_53b68214 = Problem("problem_53b68214", [
         0 0 3 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
         2 0 2 0 0 0 0 0 0 0
@@ -12739,7 +12739,7 @@ problem_53b68214 = Problem("problem_53b68214", [
         2 0 2 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
         2 0 2 0 0 0 0 0 0 0
@@ -12751,7 +12751,7 @@ problem_53b68214 = Problem("problem_53b68214", [
         2 0 2 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 6 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0
         0 0 0 0 6 0 0 0 0 0
@@ -12760,7 +12760,7 @@ problem_53b68214 = Problem("problem_53b68214", [
         0 0 0 6 0 0 0 0 0 0
         0 0 0 0 6 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 6 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0
         0 0 0 0 6 0 0 0 0 0
@@ -12772,13 +12772,13 @@ problem_53b68214 = Problem("problem_53b68214", [
         0 0 0 0 6 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 8 8 0 0 0 0 0 0
         0 8 0 8 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 0 0
         0 8 0 8 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 8 8 8 0 0 0 0 0 0
         0 8 0 8 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 0 0
@@ -12793,7 +12793,7 @@ problem_53b68214 = Problem("problem_53b68214", [
 ])
 
 problem_543a7ed5 = Problem("problem_543a7ed5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 6 6 6 6 8 8 8
@@ -12809,7 +12809,7 @@ problem_543a7ed5 = Problem("problem_543a7ed5", [
         8 8 8 8 8 6 6 6 6 8 8 8 8 8 8
         8 8 8 8 8 6 6 6 6 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 3 3 3 3 3 3 8 8
         8 8 8 8 8 8 8 3 6 6 6 6 3 8 8
@@ -12826,7 +12826,7 @@ problem_543a7ed5 = Problem("problem_543a7ed5", [
         8 8 8 8 3 6 6 6 6 3 8 8 8 8 8
         8 8 8 8 3 3 3 3 3 3 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 6 6 6 8 8 8 8
         8 8 8 8 8 8 8 8 6 6 6 8 8 8 8
@@ -12842,7 +12842,7 @@ problem_543a7ed5 = Problem("problem_543a7ed5", [
         8 8 8 8 8 8 8 8 6 8 8 8 8 6 8
         8 8 8 8 8 8 8 8 6 6 6 6 6 6 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 3 3 3 3 3 8 8 8
         8 8 8 8 8 8 8 3 6 6 6 3 8 8 8
         8 3 3 3 3 3 3 3 6 6 6 3 8 8 8
@@ -12859,7 +12859,7 @@ problem_543a7ed5 = Problem("problem_543a7ed5", [
         8 8 8 8 8 8 8 3 6 6 6 6 6 6 3
         8 8 8 8 8 8 8 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 6 6 6 8 8 8
@@ -12875,7 +12875,7 @@ problem_543a7ed5 = Problem("problem_543a7ed5", [
         8 8 8 8 6 6 8 8 6 6 6 8 8 8 8
         8 8 8 8 6 6 6 6 6 6 6 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 3 3 3 3 3 8 8
         8 3 3 3 3 3 3 8 3 6 6 6 3 8 8
@@ -12895,7 +12895,7 @@ problem_543a7ed5 = Problem("problem_543a7ed5", [
 ])
 
 problem_54d82841 = Problem("problem_54d82841", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 6 6 6 0 0 0 0
         0 6 0 6 0 0 0 0
         0 0 0 0 0 6 6 6
@@ -12904,7 +12904,7 @@ problem_54d82841 = Problem("problem_54d82841", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 6 6 6 0 0 0 0
         0 6 0 6 0 0 0 0
         0 0 0 0 0 6 6 6
@@ -12914,33 +12914,33 @@ problem_54d82841 = Problem("problem_54d82841", [
         0 0 0 0 0 0 0 0
         0 0 4 0 0 0 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 3 3 0
         0 3 0 3 0
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 3 3 0
         0 3 0 3 0
         0 0 0 0 0
         0 0 0 0 0
         0 0 4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 8 8 8 0 0 0
         0 8 0 8 6 6 6
         0 0 0 0 6 0 6
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 8 8 8 0 0 0
         0 8 0 8 6 6 6
         0 0 0 0 6 0 6
         0 0 4 0 0 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 5 5 0 0 0 0 0 0 0
         0 5 0 5 0 8 8 8 0 0 0
         0 0 0 0 0 8 0 8 3 3 3
@@ -12948,7 +12948,7 @@ problem_54d82841 = Problem("problem_54d82841", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 5 5 5 0 0 0 0 0 0 0
         0 5 0 5 0 8 8 8 0 0 0
         0 0 0 0 0 8 0 8 3 3 3
@@ -12960,34 +12960,34 @@ problem_54d82841 = Problem("problem_54d82841", [
 ])
 
 problem_54d9e175 = Problem("problem_54d9e175", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 5 0 0 0
         0 1 0 5 0 2 0 5 0 1 0
         0 0 0 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6 5 7 7 7 5 6 6 6
         6 6 6 5 7 7 7 5 6 6 6
         6 6 6 5 7 7 7 5 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 5 0 0 0
         0 2 0 5 0 3 0 5 0 1 0
         0 0 0 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         7 7 7 5 8 8 8 5 6 6 6
         7 7 7 5 8 8 8 5 6 6 6
         7 7 7 5 8 8 8 5 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 5 0 0 0
         0 3 0 5 0 1 0 5 0 4 0
         0 0 0 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8 5 6 6 6 5 9 9 9
         8 8 8 5 6 6 6 5 9 9 9
         8 8 8 5 6 6 6 5 9 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 5 0 0 0
         0 4 0 5 0 1 0 5 0 2 0
         0 0 0 5 0 0 0 5 0 0 0
@@ -12995,7 +12995,7 @@ problem_54d9e175 = Problem("problem_54d9e175", [
         0 0 0 5 0 0 0 5 0 0 0
         0 2 0 5 0 3 0 5 0 4 0
         0 0 0 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         9 9 9 5 6 6 6 5 7 7 7
         9 9 9 5 6 6 6 5 7 7 7
         9 9 9 5 6 6 6 5 7 7 7
@@ -13004,7 +13004,7 @@ problem_54d9e175 = Problem("problem_54d9e175", [
         7 7 7 5 8 8 8 5 9 9 9
         7 7 7 5 8 8 8 5 9 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 5 0 0 0
         0 2 0 5 0 3 0 5 0 4 0
         0 0 0 5 0 0 0 5 0 0 0
@@ -13012,7 +13012,7 @@ problem_54d9e175 = Problem("problem_54d9e175", [
         0 0 0 5 0 0 0 5 0 0 0
         0 1 0 5 0 1 0 5 0 3 0
         0 0 0 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         7 7 7 5 8 8 8 5 9 9 9
         7 7 7 5 8 8 8 5 9 9 9
         7 7 7 5 8 8 8 5 9 9 9
@@ -13024,7 +13024,7 @@ problem_54d9e175 = Problem("problem_54d9e175", [
 ])
 
 problem_5521c0d9 = Problem("problem_5521c0d9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13040,7 +13040,7 @@ problem_5521c0d9 = Problem("problem_5521c0d9", [
         0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
         0 1 1 0 2 2 2 2 0 4 4 4 4 0 0
         0 1 1 0 2 2 2 2 0 4 4 4 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13057,7 +13057,7 @@ problem_5521c0d9 = Problem("problem_5521c0d9", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13073,7 +13073,7 @@ problem_5521c0d9 = Problem("problem_5521c0d9", [
         0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
         0 4 4 4 4 0 0 1 1 0 0 2 2 0 0
         0 4 4 4 4 0 0 1 1 0 0 2 2 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13090,7 +13090,7 @@ problem_5521c0d9 = Problem("problem_5521c0d9", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13106,7 +13106,7 @@ problem_5521c0d9 = Problem("problem_5521c0d9", [
         0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
         0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
         0 2 2 2 2 0 0 1 0 0 0 4 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13123,7 +13123,7 @@ problem_5521c0d9 = Problem("problem_5521c0d9", [
         0 2 2 2 2 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13139,7 +13139,7 @@ problem_5521c0d9 = Problem("problem_5521c0d9", [
         2 2 2 2 0 4 4 4 0 0 1 1 1 1 1
         2 2 2 2 0 4 4 4 0 0 1 1 1 1 1
         2 2 2 2 0 4 4 4 0 0 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 2 2 2 0 0 0 0 0 0 0 0 0 0 0
         2 2 2 2 0 0 0 0 0 0 0 0 0 0 0
@@ -13159,38 +13159,38 @@ problem_5521c0d9 = Problem("problem_5521c0d9", [
 ])
 
 problem_5582e5ca = Problem("problem_5582e5ca", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 8
         6 4 3
         6 3 0
-    ]), Int[
+    ]), Integer[
         4 4 4
         4 4 4
         4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 8 9
         1 8 1
         9 4 9
-    ]), Int[
+    ]), Integer[
         9 9 9
         9 9 9
         9 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 6 9
         6 4 1
         8 8 6
-    ]), Int[
+    ]), Integer[
         6 6 6
         6 6 6
         6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 6
         4 6 9
         8 3 0
-    ]), Int[
+    ]), Integer[
         8 8 8
         8 8 8
         8 8 8
@@ -13198,7 +13198,7 @@ problem_5582e5ca = Problem("problem_5582e5ca", [
 ])
 
 problem_5614dbcf = Problem("problem_5614dbcf", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 0 0 0 8 8 8
         3 3 3 0 0 0 8 5 8
         3 3 3 0 0 0 8 8 8
@@ -13208,12 +13208,12 @@ problem_5614dbcf = Problem("problem_5614dbcf", [
         6 6 6 0 0 5 9 9 9
         6 6 6 0 0 0 9 9 9
         6 5 6 0 5 0 9 9 5
-    ]), Int[
+    ]), Integer[
         3 0 8
         0 7 0
         6 0 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 2 2 0 0 0
         0 5 0 2 2 2 0 0 0
         0 0 0 2 2 2 0 0 0
@@ -13223,12 +13223,12 @@ problem_5614dbcf = Problem("problem_5614dbcf", [
         0 5 0 7 7 7 0 0 0
         0 0 0 7 7 5 0 0 0
         0 0 0 7 7 7 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0
         0 0 0
         0 7 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 0 0 0 0 5 0
         5 4 4 0 0 0 0 0 0
         4 4 4 0 5 0 0 0 0
@@ -13238,7 +13238,7 @@ problem_5614dbcf = Problem("problem_5614dbcf", [
         0 0 5 9 9 9 0 0 0
         0 0 0 9 5 9 0 0 0
         0 0 0 9 9 9 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0
         0 3 0
         0 9 0
@@ -13246,18 +13246,18 @@ problem_5614dbcf = Problem("problem_5614dbcf", [
 ])
 
 problem_56dc2b01 = Problem("problem_56dc2b01", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 0 0 0 0 0 0 0 2 0 0 0 0 0
         0 3 3 3 0 0 0 0 0 0 2 0 0 0 0 0
         3 3 0 0 0 0 0 0 0 0 2 0 0 0 0 0
         0 3 3 3 0 0 0 0 0 0 2 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 8 0 3 0 0 2 0 0 0 0 0
         0 0 0 0 0 8 0 3 3 3 2 0 0 0 0 0
         0 0 0 0 0 8 3 3 0 0 2 0 0 0 0 0
         0 0 0 0 0 8 0 3 3 3 2 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         3 3 0 0 0
         3 0 0 0 0
@@ -13275,7 +13275,7 @@ problem_56dc2b01 = Problem("problem_56dc2b01", [
         0 0 0 0 0
         2 2 2 2 2
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
@@ -13294,7 +13294,7 @@ problem_56dc2b01 = Problem("problem_56dc2b01", [
         2 2 2 2 2
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
@@ -13312,7 +13312,7 @@ problem_56dc2b01 = Problem("problem_56dc2b01", [
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
@@ -13331,12 +13331,12 @@ problem_56dc2b01 = Problem("problem_56dc2b01", [
         0 0 0 0 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 2 0 0 0 0 0 0 0 3 3 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 3 0 3 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 3 3 3 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 3 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 2 0 3 3 8 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 3 0 3 8 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 3 3 3 8 0 0 0 0 0 0 0 0 0
@@ -13345,7 +13345,7 @@ problem_56dc2b01 = Problem("problem_56dc2b01", [
 ])
 
 problem_56ff96f3 = Problem("problem_56ff96f3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -13356,7 +13356,7 @@ problem_56ff96f3 = Problem("problem_56ff96f3", [
         0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 1 0 0 0
         0 1 1 1 1 1 1 0 0 0
@@ -13368,7 +13368,7 @@ problem_56ff96f3 = Problem("problem_56ff96f3", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -13376,7 +13376,7 @@ problem_56ff96f3 = Problem("problem_56ff96f3", [
         0 0 3 0 7 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 3 3 0 0 0 0 0
         0 3 3 0 0 0 0 0
@@ -13385,7 +13385,7 @@ problem_56ff96f3 = Problem("problem_56ff96f3", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 4 0 0 0 0 0 0 0 0
@@ -13396,7 +13396,7 @@ problem_56ff96f3 = Problem("problem_56ff96f3", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 4 4 4 4 4 0 0 0 0
@@ -13408,14 +13408,14 @@ problem_56ff96f3 = Problem("problem_56ff96f3", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 7 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 7 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 7 7 7 7 7 7 7 0 0 0
         0 7 7 7 7 7 7 7 0 0 0
@@ -13423,7 +13423,7 @@ problem_56ff96f3 = Problem("problem_56ff96f3", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -13433,7 +13433,7 @@ problem_56ff96f3 = Problem("problem_56ff96f3", [
         0 0 0 0 0 0 0 0
         0 6 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8 0 0 0 0 0
         8 8 8 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -13447,7 +13447,7 @@ problem_56ff96f3 = Problem("problem_56ff96f3", [
 ])
 
 problem_57aa92db = Problem("problem_57aa92db", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0
         0 0 3 3 1 0 0 0 0 0 0 0
@@ -13464,7 +13464,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0 0
         0 0 3 3 1 0 0 0 0 0 0 0
@@ -13482,7 +13482,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 8 8 8 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13499,7 +13499,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 8 8 8 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13517,7 +13517,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13535,7 +13535,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13554,7 +13554,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
         0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 3 2 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13570,7 +13570,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 3 2 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13587,7 +13587,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13607,7 +13607,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 4 4 4 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 4 4 4 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 8 0 0 0 0 0 0 0 4 4 4 4 4 4 0 0 0 0 0 0 0 0 0 0 0
@@ -13631,7 +13631,7 @@ problem_57aa92db = Problem("problem_57aa92db", [
 ])
 
 problem_5ad4f10b = Problem("problem_5ad4f10b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 8 8 0 0 0 0 0 0 0 0 0 0 0 0 8
         0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0
         0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 8 0 0 0
@@ -13652,12 +13652,12 @@ problem_5ad4f10b = Problem("problem_5ad4f10b", [
         0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0 8 0 0 0 8 0 8 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         8 8 0 8 0 8 0 0 0 0 8 0 0 0 0 0 0 0 8 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 8
         0 8 0
         8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 2 0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 2 0
         0 0 0 0 0 2 0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 0 0
@@ -13680,12 +13680,12 @@ problem_5ad4f10b = Problem("problem_5ad4f10b", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 2 0 0 2 0 0 2 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 2
         0 2 0
         2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0
         3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13710,12 +13710,12 @@ problem_5ad4f10b = Problem("problem_5ad4f10b", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0
-    ]), Int[
+    ]), Integer[
         0 3 0
         0 3 3
         3 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0
         0 0 0 4 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0
         0 0 0 0 0 0 0 0 4 0 0 0 0 4 0 0 0 0 4 4 4 4 0 0 0 0
@@ -13738,7 +13738,7 @@ problem_5ad4f10b = Problem("problem_5ad4f10b", [
         0 0 0 0 0 0 0 0 4 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 4 0 0 4 4 0 0 0 0 4 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 4
         0 4 4
         0 0 4
@@ -13746,7 +13746,7 @@ problem_5ad4f10b = Problem("problem_5ad4f10b", [
 ])
 
 problem_5bd6f4ac = Problem("problem_5bd6f4ac", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 7 0 0 9 7 0
         8 4 0 6 6 0 4 8 4
         1 7 0 0 0 0 4 0 0
@@ -13756,12 +13756,12 @@ problem_5bd6f4ac = Problem("problem_5bd6f4ac", [
         0 7 0 9 9 2 1 0 0
         0 0 0 0 0 0 5 0 0
         0 0 0 2 4 0 8 0 0
-    ]), Int[
+    ]), Integer[
         9 7 0
         4 8 4
         4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 0 0 0 0 0 0 6 0
         0 4 0 7 0 5 0 8 1
         0 2 0 0 7 1 4 4 5
@@ -13771,12 +13771,12 @@ problem_5bd6f4ac = Problem("problem_5bd6f4ac", [
         4 0 4 0 3 4 7 0 7
         7 1 0 0 0 0 3 0 0
         3 2 0 0 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 6 0
         0 8 1
         4 4 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 5 0 0 6 0 0 0 0
         2 5 5 7 0 0 6 0 1
         0 3 0 0 0 1 9 4 0
@@ -13786,12 +13786,12 @@ problem_5bd6f4ac = Problem("problem_5bd6f4ac", [
         0 0 4 0 0 0 0 0 0
         0 0 0 1 0 0 0 0 4
         0 5 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         6 0 1
         9 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 0 8 0 0 0 4
         0 0 0 0 0 0 3 0 0
         0 0 0 0 2 1 0 0 3
@@ -13801,12 +13801,12 @@ problem_5bd6f4ac = Problem("problem_5bd6f4ac", [
         0 0 0 0 0 0 0 0 0
         0 0 9 4 0 0 0 0 0
         3 0 7 0 0 2 0 0 6
-    ]), Int[
+    ]), Integer[
         0 0 4
         3 0 0
         0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 9 0 0 1 0 5 8 9
         2 9 0 6 0 8 0 9 0
         0 0 0 0 0 9 9 2 0
@@ -13816,7 +13816,7 @@ problem_5bd6f4ac = Problem("problem_5bd6f4ac", [
         4 1 0 0 7 5 0 0 9
         9 9 0 0 0 0 1 0 0
         4 9 2 0 0 0 8 4 0
-    ]), Int[
+    ]), Integer[
         5 8 9
         0 9 0
         9 2 0
@@ -13824,7 +13824,7 @@ problem_5bd6f4ac = Problem("problem_5bd6f4ac", [
 ])
 
 problem_5c0a986e = Problem("problem_5c0a986e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 1 1 0 0 0 0 0 0
@@ -13835,7 +13835,7 @@ problem_5c0a986e = Problem("problem_5c0a986e", [
         0 0 0 0 2 2 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 0 0 0
         0 0 1 1 0 0 0 0 0 0
@@ -13847,7 +13847,7 @@ problem_5c0a986e = Problem("problem_5c0a986e", [
         0 0 0 0 0 0 2 0 0 0
         0 0 0 0 0 0 0 2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 2 0 0 0 0 0 0
         0 0 2 2 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -13858,7 +13858,7 @@ problem_5c0a986e = Problem("problem_5c0a986e", [
         0 0 0 0 0 0 1 1 0 0
         0 0 0 0 0 0 1 1 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 2 2 0 0 0 0 0 0
         1 0 2 2 0 0 0 0 0 0
         0 1 0 0 2 0 0 0 0 0
@@ -13870,7 +13870,7 @@ problem_5c0a986e = Problem("problem_5c0a986e", [
         0 0 0 0 0 0 1 1 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 2 2 0 0 0
@@ -13881,7 +13881,7 @@ problem_5c0a986e = Problem("problem_5c0a986e", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         1 0 0 0 0 2 2 0 0 0
@@ -13893,7 +13893,7 @@ problem_5c0a986e = Problem("problem_5c0a986e", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -13904,7 +13904,7 @@ problem_5c0a986e = Problem("problem_5c0a986e", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 1 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0
         0 0 0 0 0 1 0 0 0 0
@@ -13919,7 +13919,7 @@ problem_5c0a986e = Problem("problem_5c0a986e", [
 ])
 
 problem_5c2c9af4 = Problem("problem_5c2c9af4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0
@@ -13943,7 +13943,7 @@ problem_5c2c9af4 = Problem("problem_5c2c9af4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 0 0 8 0 0 8 0 0 0 0 0 0 0 0 0 0 0 8 0 0
         0 0 8 0 0 8 0 0 8 0 0 0 0 0 0 0 0 0 0 0 8 0 0
         0 0 8 0 0 8 0 0 8 0 0 8 8 8 8 8 8 8 0 0 8 0 0
@@ -13968,7 +13968,7 @@ problem_5c2c9af4 = Problem("problem_5c2c9af4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -13992,7 +13992,7 @@ problem_5c2c9af4 = Problem("problem_5c2c9af4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -14017,7 +14017,7 @@ problem_5c2c9af4 = Problem("problem_5c2c9af4", [
         0 2 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 2 0
         0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -14041,7 +14041,7 @@ problem_5c2c9af4 = Problem("problem_5c2c9af4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 3 0 0
         3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 3 0 0
         3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 3 0 0
@@ -14066,7 +14066,7 @@ problem_5c2c9af4 = Problem("problem_5c2c9af4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -14095,7 +14095,7 @@ problem_5c2c9af4 = Problem("problem_5c2c9af4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -14128,7 +14128,7 @@ problem_5c2c9af4 = Problem("problem_5c2c9af4", [
 ])
 
 problem_5daaa586 = Problem("problem_5daaa586", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 3 0 0 0 2 0 0 0 0 0 0 8 0 0 0 0 0
         1 1 1 1 1 3 1 1 1 1 1 1 1 1 1 1 8 1 1 1 1 1
         0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0
@@ -14151,7 +14151,7 @@ problem_5daaa586 = Problem("problem_5daaa586", [
         0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0
         2 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 8 0 0 0 2 0
-    ]), Int[
+    ]), Integer[
         3 1 1 1 1 1 1 1 1 1 1 8
         3 0 0 0 0 0 0 0 0 0 0 8
         3 0 0 0 0 0 0 0 0 0 0 8
@@ -14168,7 +14168,7 @@ problem_5daaa586 = Problem("problem_5daaa586", [
         3 2 2 0 2 0 0 0 0 2 2 8
         3 2 2 2 2 2 2 2 2 2 2 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 0 0 0 0 0 1 0 0
         0 0 4 0 0 0 0 0 0 1 0 0
         8 8 4 8 8 8 8 8 8 1 8 8
@@ -14181,7 +14181,7 @@ problem_5daaa586 = Problem("problem_5daaa586", [
         6 6 6 6 6 6 6 6 6 1 6 6
         0 0 4 0 0 0 8 0 0 1 0 0
         0 8 4 0 0 0 0 8 0 1 0 0
-    ]), Int[
+    ]), Integer[
         4 8 8 8 8 8 8 1
         4 8 0 0 8 8 0 1
         4 8 0 0 8 8 0 1
@@ -14191,7 +14191,7 @@ problem_5daaa586 = Problem("problem_5daaa586", [
         4 0 0 0 0 8 0 1
         6 6 6 6 6 6 6 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 3 0 0 0 4 0 0 0 4 0 0 0
         0 0 0 3 0 4 0 0 0 0 0 4 0 0 0
         0 0 0 3 0 0 4 0 0 0 0 4 0 0 0
@@ -14206,7 +14206,7 @@ problem_5daaa586 = Problem("problem_5daaa586", [
         0 0 0 3 0 0 0 0 0 0 4 4 0 0 4
         0 0 0 3 4 0 0 4 0 0 0 4 0 0 0
         0 0 4 3 0 0 0 0 0 4 0 4 0 0 0
-    ]), Int[
+    ]), Integer[
         3 2 2 2 2 2 2 2 4
         3 4 4 4 4 4 4 4 4
         3 0 0 0 0 0 0 0 4
@@ -14214,7 +14214,7 @@ problem_5daaa586 = Problem("problem_5daaa586", [
         3 0 0 4 4 4 4 4 4
         3 8 8 8 8 8 8 8 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 0 1 0 0 0 1 0 0 2 0 0
         0 0 0 1 0 0 0 1 0 0 0 0 2 0 0
         3 3 3 1 3 3 3 3 3 3 3 3 2 3 3
@@ -14231,7 +14231,7 @@ problem_5daaa586 = Problem("problem_5daaa586", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         0 0 0 1 1 0 0 0 0 0 0 0 2 0 0
         0 0 0 1 0 0 1 0 0 0 0 0 2 0 0
-    ]), Int[
+    ]), Integer[
         1 3 3 3 3 3 3 3 3 2
         1 0 0 0 0 0 0 0 0 2
         1 1 1 1 1 1 1 1 0 2
@@ -14248,7 +14248,7 @@ problem_5daaa586 = Problem("problem_5daaa586", [
 ])
 
 problem_60b61512 = Problem("problem_60b61512", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         4 4 4 0 0 0 0 0 0
         4 0 4 0 0 0 0 0 0
@@ -14258,7 +14258,7 @@ problem_60b61512 = Problem("problem_60b61512", [
         0 0 0 0 0 4 0 4 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         4 4 4 0 0 0 0 0 0
         4 7 4 0 0 0 0 0 0
@@ -14269,7 +14269,7 @@ problem_60b61512 = Problem("problem_60b61512", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         4 4 4 0 0 0 0 0 0
         0 4 4 0 0 0 0 0 0
@@ -14279,7 +14279,7 @@ problem_60b61512 = Problem("problem_60b61512", [
         0 0 0 0 0 0 4 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         4 4 4 0 0 0 0 0 0
         7 4 4 0 0 0 0 0 0
@@ -14290,7 +14290,7 @@ problem_60b61512 = Problem("problem_60b61512", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 4 0 0 0 0
         0 0 4 4 0 0 0 0 0
@@ -14300,7 +14300,7 @@ problem_60b61512 = Problem("problem_60b61512", [
         0 0 0 0 0 4 0 0 0
         0 0 0 0 0 4 4 4 0
         0 0 0 0 0 0 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 7 7 4 0 0 0 0
         0 0 4 4 7 0 0 0 0
@@ -14314,29 +14314,29 @@ problem_60b61512 = Problem("problem_60b61512", [
 ])
 
 problem_6150a2bd = Problem("problem_6150a2bd", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 8
         3 7 0
         5 0 0
-    ]), Int[
+    ]), Integer[
         0 0 5
         0 7 3
         8 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 2
         1 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 1
         2 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 3 5
         6 8 0
         4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 4
         0 8 6
         5 3 6
@@ -14344,7 +14344,7 @@ problem_6150a2bd = Problem("problem_6150a2bd", [
 ])
 
 problem_623ea044 = Problem("problem_623ea044", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -14360,7 +14360,7 @@ problem_623ea044 = Problem("problem_623ea044", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 0 0 0 0 2 0 0 0 0 0 0 0 0
         0 2 0 0 0 2 0 0 0 0 0 0 0 0 0
         0 0 2 0 2 0 0 0 0 0 0 0 0 0 0
@@ -14377,7 +14377,7 @@ problem_623ea044 = Problem("problem_623ea044", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 2 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -14393,7 +14393,7 @@ problem_623ea044 = Problem("problem_623ea044", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 7 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 7 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 7 0 0 0 0 0 7
@@ -14410,7 +14410,7 @@ problem_623ea044 = Problem("problem_623ea044", [
         0 0 0 7 0 0 0 0 0 0 0 0 0 0 0
         0 0 7 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
@@ -14418,7 +14418,7 @@ problem_623ea044 = Problem("problem_623ea044", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 8 0
         8 0 0 0 8 0 0
         0 8 0 8 0 0 0
@@ -14427,7 +14427,7 @@ problem_623ea044 = Problem("problem_623ea044", [
         8 0 0 0 8 0 0
         0 0 0 0 0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -14445,7 +14445,7 @@ problem_623ea044 = Problem("problem_623ea044", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 6 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 6 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 6 0 0 0 0 0 0 0 0 0
@@ -14467,11 +14467,11 @@ problem_623ea044 = Problem("problem_623ea044", [
 ])
 
 problem_62c24649 = Problem("problem_62c24649", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3
         0 2 2
         1 1 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3
         0 2 2 2 2 0
         1 1 0 0 1 1
@@ -14479,11 +14479,11 @@ problem_62c24649 = Problem("problem_62c24649", [
         0 2 2 2 2 0
         3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 1
         1 3 0
         0 2 2
-    ]), Int[
+    ]), Integer[
         3 3 1 1 3 3
         1 3 0 0 3 1
         0 2 2 2 2 0
@@ -14491,11 +14491,11 @@ problem_62c24649 = Problem("problem_62c24649", [
         1 3 0 0 3 1
         3 3 1 1 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1 0
         0 2 3
         0 3 0
-    ]), Int[
+    ]), Integer[
         2 1 0 0 1 2
         0 2 3 3 2 0
         0 3 0 0 3 0
@@ -14503,11 +14503,11 @@ problem_62c24649 = Problem("problem_62c24649", [
         0 2 3 3 2 0
         2 1 0 0 1 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0
         0 3 2
         3 3 0
-    ]), Int[
+    ]), Integer[
         1 1 0 0 1 1
         0 3 2 2 3 0
         3 3 0 0 3 3
@@ -14518,7 +14518,7 @@ problem_62c24649 = Problem("problem_62c24649", [
 ])
 
 problem_63613498 = Problem("problem_63613498", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 5 0 0 0 7 0 0
         0 1 1 5 0 0 7 7 7 0
         0 0 1 5 0 0 0 7 0 0
@@ -14529,7 +14529,7 @@ problem_63613498 = Problem("problem_63613498", [
         0 0 7 0 0 0 0 6 0 0
         0 0 0 0 8 0 0 0 0 0
         0 0 0 8 8 8 8 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 0 5 0 0 0 7 0 0
         0 1 1 5 0 0 7 7 7 0
         0 0 1 5 0 0 0 7 0 0
@@ -14541,7 +14541,7 @@ problem_63613498 = Problem("problem_63613498", [
         0 0 0 0 8 0 0 0 0 0
         0 0 0 8 8 8 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 5 0 0 0 0 0 0
         3 3 0 5 0 0 0 0 0 0
         0 0 0 5 0 0 4 4 0 0
@@ -14552,7 +14552,7 @@ problem_63613498 = Problem("problem_63613498", [
         0 0 0 0 0 0 0 0 9 0
         8 8 0 0 0 0 0 9 9 0
         8 8 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 0 5 0 0 0 0 0 0
         3 3 0 5 0 0 0 0 0 0
         0 0 0 5 0 0 4 4 0 0
@@ -14564,7 +14564,7 @@ problem_63613498 = Problem("problem_63613498", [
         8 8 0 0 0 0 0 5 5 0
         8 8 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0 5 0 0 0 1 0 0
         4 4 4 5 0 0 1 1 1 0
         0 0 0 5 0 0 0 0 0 0
@@ -14575,7 +14575,7 @@ problem_63613498 = Problem("problem_63613498", [
         0 6 6 6 0 0 0 0 0 0
         0 0 6 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0 5 0 0 0 5 0 0
         4 4 4 5 0 0 5 5 5 0
         0 0 0 5 0 0 0 0 0 0
@@ -14587,7 +14587,7 @@ problem_63613498 = Problem("problem_63613498", [
         0 0 6 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 6 0 0
         2 2 2 5 0 0 0 6 6 0
         0 0 2 5 0 0 0 6 0 0
@@ -14598,7 +14598,7 @@ problem_63613498 = Problem("problem_63613498", [
         8 0 0 0 0 0 0 0 4 0
         0 0 0 0 7 7 7 0 4 0
         0 0 0 0 0 0 7 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 6 0 0
         2 2 2 5 0 0 0 6 6 0
         0 0 2 5 0 0 0 6 0 0
@@ -14613,7 +14613,7 @@ problem_63613498 = Problem("problem_63613498", [
 ])
 
 problem_6430c8c4 = Problem("problem_6430c8c4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 0 7
         0 7 7 0
         0 7 7 7
@@ -14623,13 +14623,13 @@ problem_6430c8c4 = Problem("problem_6430c8c4", [
         0 2 0 2
         2 2 2 0
         2 0 0 2
-    ]), Int[
+    ]), Integer[
         0 0 3 0
         3 0 0 0
         0 0 0 0
         0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 7 7
         0 0 7 7
         0 7 7 0
@@ -14639,13 +14639,13 @@ problem_6430c8c4 = Problem("problem_6430c8c4", [
         0 2 0 2
         0 2 2 0
         0 0 2 0
-    ]), Int[
+    ]), Integer[
         0 3 0 0
         3 0 0 0
         3 0 0 3
         0 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 7
         0 7 7 7
         0 7 0 0
@@ -14655,13 +14655,13 @@ problem_6430c8c4 = Problem("problem_6430c8c4", [
         0 2 2 2
         2 2 0 0
         0 2 0 2
-    ]), Int[
+    ]), Integer[
         3 3 0 0
         3 0 0 0
         0 0 3 3
         3 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 0 7 0
         0 0 7 7
         7 0 7 7
@@ -14671,13 +14671,13 @@ problem_6430c8c4 = Problem("problem_6430c8c4", [
         0 0 0 0
         2 0 0 2
         0 2 0 2
-    ]), Int[
+    ]), Integer[
         0 3 0 0
         3 3 0 0
         0 3 0 0
         0 0 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 7 7
         0 7 7 7
         7 0 0 0
@@ -14687,7 +14687,7 @@ problem_6430c8c4 = Problem("problem_6430c8c4", [
         0 0 0 0
         2 0 2 2
         0 2 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         3 0 0 0
         0 3 0 0
@@ -14696,7 +14696,7 @@ problem_6430c8c4 = Problem("problem_6430c8c4", [
 ])
 
 problem_6455b5f5 = Problem("problem_6455b5f5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 0 0 0 2 0 0 0 0 0 0
         2 2 0 0 0 0 2 0 0 0 0 0 0
         0 2 0 0 0 0 2 0 0 0 0 0 0
@@ -14715,7 +14715,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
         0 0 2 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 2 0 0 0 0 2 0 0 0 0 0 0
         2 2 0 0 0 0 2 0 0 0 0 0 0
         0 2 0 0 0 0 2 0 0 0 0 0 0
@@ -14735,7 +14735,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
         0 0 2 1 1 1 1 1 1 1 1 1 1
         0 0 2 1 1 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 0 0 2 2 2 2 2 2 2 2 2
         0 0 0 0 2 0 0 0 0 0 0 0 0
@@ -14747,7 +14747,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
         0 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 2 8 8 8 8 8 8 8 8
         0 0 0 0 2 2 2 2 2 2 2 2 2
         0 0 0 0 2 1 1 1 1 1 1 1 1
@@ -14760,7 +14760,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
         0 0 0 0 2 1 1 1 1 1 1 1 1
         0 0 0 0 2 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 0 2 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 0 2 2 2 2 2 0 0 0 0 0 0 0 0
@@ -14772,7 +14772,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
         0 0 0 0 0 0 0 2 0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 2 0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 2 0 0 2 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 2 8 8 8 2 1 1 1 1 1 1 1 1
         0 0 0 2 8 8 8 2 1 1 1 1 1 1 1 1
         0 0 0 2 2 2 2 2 1 1 1 1 1 1 1 1
@@ -14785,7 +14785,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
         0 0 0 0 0 0 0 2 8 8 2 0 0 0 0 0
         0 0 0 0 0 0 0 2 8 8 2 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 0 0 0 0 0 0 0 0 2 0 0 0
         0 0 0 2 0 0 0 0 0 0 0 0 2 0 0 0
         0 0 0 2 0 0 0 0 0 0 0 0 2 2 2 2
@@ -14801,7 +14801,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
         0 0 2 0 0 0 0 0 0 0 0 0 2 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 2 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 2 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 2 0 0 0 0 0 0 0 0 2 8 8 8
         0 0 0 2 0 0 0 0 0 0 0 0 2 8 8 8
         0 0 0 2 0 0 0 0 0 0 0 0 2 2 2 2
@@ -14818,7 +14818,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
         0 0 2 1 1 1 1 1 1 1 1 1 2 0 0 0
         0 0 2 1 1 1 1 1 1 1 1 1 2 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0
         2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0
@@ -14832,7 +14832,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
         0 0 0 2 0 0 0 0 0 0 2 0 2 0 0 0
         2 2 2 2 0 0 0 0 0 0 2 0 2 0 0 0
         0 0 0 2 0 0 0 0 0 0 2 0 2 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0
         2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0
@@ -14850,7 +14850,7 @@ problem_6455b5f5 = Problem("problem_6455b5f5", [
 ])
 
 problem_662c240a = Problem("problem_662c240a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 9 8
         9 8 8
         8 8 8
@@ -14860,12 +14860,12 @@ problem_662c240a = Problem("problem_662c240a", [
         4 4 4
         4 4 3
         3 3 3
-    ]), Int[
+    ]), Integer[
         4 4 4
         4 4 3
         3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 5 5
         5 1 1
         5 1 1
@@ -14875,12 +14875,12 @@ problem_662c240a = Problem("problem_662c240a", [
         7 7 7
         7 2 2
         7 2 2
-    ]), Int[
+    ]), Integer[
         3 3 3
         3 6 3
         3 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2
         2 2 3
         2 3 3
@@ -14890,12 +14890,12 @@ problem_662c240a = Problem("problem_662c240a", [
         8 8 1
         1 8 1
         1 8 1
-    ]), Int[
+    ]), Integer[
         8 8 1
         1 8 1
         1 8 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 4
         4 4 4
         4 4 8
@@ -14905,12 +14905,12 @@ problem_662c240a = Problem("problem_662c240a", [
         6 2 2
         2 2 2
         2 2 6
-    ]), Int[
+    ]), Integer[
         8 8 4
         4 4 4
         4 4 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 4 4
         4 5 4
         4 5 4
@@ -14920,7 +14920,7 @@ problem_662c240a = Problem("problem_662c240a", [
         1 1 1
         1 8 8
         1 8 8
-    ]), Int[
+    ]), Integer[
         5 4 4
         4 5 4
         4 5 4
@@ -14928,57 +14928,57 @@ problem_662c240a = Problem("problem_662c240a", [
 ])
 
 problem_67385a82 = Problem("problem_67385a82", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 0
         0 3 0
         3 0 3
-    ]), Int[
+    ]), Integer[
         8 8 0
         0 8 0
         3 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 0 0 3
         0 3 3 3 0 0
         0 0 0 0 3 0
         0 3 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 8 0 0 0 3
         0 8 8 8 0 0
         0 0 0 0 3 0
         0 3 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 0 3
         3 3 0 0
         3 0 0 3
         0 0 3 3
-    ]), Int[
+    ]), Integer[
         8 8 0 3
         8 8 0 0
         8 0 0 8
         0 0 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 0 0 0 0
         0 3 0 0 3 0
         3 0 0 0 0 0
         0 3 3 0 0 0
         0 3 3 0 0 3
-    ]), Int[
+    ]), Integer[
         8 8 0 0 0 0
         0 8 0 0 3 0
         3 0 0 0 0 0
         0 8 8 0 0 0
         0 8 8 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 3 0 3
         3 3 3 0 0
         0 0 0 0 3
         0 3 3 0 0
         0 3 3 0 0
-    ]), Int[
+    ]), Integer[
         8 0 8 0 3
         8 8 8 0 0
         0 0 0 0 3
@@ -14988,7 +14988,7 @@ problem_67385a82 = Problem("problem_67385a82", [
 ])
 
 problem_673ef223 = Problem("problem_673ef223", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0
@@ -15008,7 +15008,7 @@ problem_673ef223 = Problem("problem_673ef223", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0
@@ -15029,7 +15029,7 @@ problem_673ef223 = Problem("problem_673ef223", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 8 0 0
@@ -15050,7 +15050,7 @@ problem_673ef223 = Problem("problem_673ef223", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0
         2 8 8 8 8 8 8 4 0 0
@@ -15072,7 +15072,7 @@ problem_673ef223 = Problem("problem_673ef223", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -15093,7 +15093,7 @@ problem_673ef223 = Problem("problem_673ef223", [
         2 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -15115,7 +15115,7 @@ problem_673ef223 = Problem("problem_673ef223", [
         2 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 8 0 0 0
@@ -15137,7 +15137,7 @@ problem_673ef223 = Problem("problem_673ef223", [
         0 0 0 0 0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0 0 0
         2 8 8 8 8 8 8 8 4 0 0 0
@@ -15163,7 +15163,7 @@ problem_673ef223 = Problem("problem_673ef223", [
 ])
 
 problem_6773b310 = Problem("problem_6773b310", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 8 0 0 0
         6 0 0 8 0 6 0 8 0 0 6
         0 0 6 8 0 0 0 8 0 6 0
@@ -15175,12 +15175,12 @@ problem_6773b310 = Problem("problem_6773b310", [
         0 0 6 8 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 8 0 6 0
         0 0 0 8 6 0 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1
         1 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 0 0 8 0 0 0 8 0 0 0
         0 0 0 8 0 0 6 8 0 0 6
         0 0 0 8 0 0 0 8 0 0 0
@@ -15192,12 +15192,12 @@ problem_6773b310 = Problem("problem_6773b310", [
         0 0 0 8 0 0 0 8 0 0 0
         6 0 0 8 0 0 0 8 0 0 0
         0 6 0 8 0 6 0 8 0 0 6
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 1
         1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 6 0 8 0 0 6
         0 0 0 8 0 0 0 8 0 6 0
         0 6 0 8 0 6 0 8 0 0 0
@@ -15209,12 +15209,12 @@ problem_6773b310 = Problem("problem_6773b310", [
         0 0 0 8 0 0 0 8 6 0 0
         0 6 0 8 0 0 0 8 0 0 6
         0 0 0 8 6 0 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 1
         0 0 0
         0 0 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 8 0 0 6
         0 0 6 8 0 0 0 8 6 0 0
         0 0 0 8 0 6 0 8 0 0 0
@@ -15226,12 +15226,12 @@ problem_6773b310 = Problem("problem_6773b310", [
         0 0 0 8 0 0 0 8 0 0 0
         0 0 6 8 0 0 0 8 6 0 0
         0 0 0 8 0 6 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1
         0 1 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 8 6 0 6
         0 6 0 8 0 0 6 8 0 0 0
         0 0 0 8 0 0 0 8 0 0 0
@@ -15243,7 +15243,7 @@ problem_6773b310 = Problem("problem_6773b310", [
         0 0 6 8 0 0 0 8 0 0 0
         6 0 0 8 0 0 0 8 0 6 0
         0 0 0 8 0 6 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1
         0 1 1
         1 0 0
@@ -15251,18 +15251,18 @@ problem_6773b310 = Problem("problem_6773b310", [
 ])
 
 problem_67a3c6ac = Problem("problem_67a3c6ac", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 6 2
         6 1 6 2
         7 2 7 2
         1 7 2 2
-    ]), Int[
+    ]), Integer[
         2 6 6 6
         2 6 1 6
         2 7 2 7
         2 2 7 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 7 6 6 6 2
         6 7 1 1 7 7 1
         7 7 2 1 2 6 6
@@ -15270,7 +15270,7 @@ problem_67a3c6ac = Problem("problem_67a3c6ac", [
         7 2 7 1 2 7 2
         6 6 6 2 2 1 1
         6 2 6 6 6 6 6
-    ]), Int[
+    ]), Integer[
         2 6 6 6 7 7 7
         1 7 7 1 1 7 6
         6 6 2 1 2 7 7
@@ -15279,14 +15279,14 @@ problem_67a3c6ac = Problem("problem_67a3c6ac", [
         1 1 2 2 6 6 6
         6 6 6 6 6 2 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 7 1 1 1
         2 1 7 7 2 6
         2 1 2 6 2 1
         1 2 1 7 6 2
         2 7 1 2 7 1
         2 1 6 2 7 7
-    ]), Int[
+    ]), Integer[
         1 1 1 7 2 1
         6 2 7 7 1 2
         1 2 6 2 1 2
@@ -15294,11 +15294,11 @@ problem_67a3c6ac = Problem("problem_67a3c6ac", [
         1 7 2 1 7 2
         7 7 2 6 1 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 6 1
         6 7 6
         6 2 2
-    ]), Int[
+    ]), Integer[
         1 6 7
         6 7 6
         2 2 6
@@ -15306,18 +15306,18 @@ problem_67a3c6ac = Problem("problem_67a3c6ac", [
 ])
 
 problem_67a423a3 = Problem("problem_67a423a3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 0
         2 2 2 2
         0 3 0 0
         0 3 0 0
-    ]), Int[
+    ]), Integer[
         4 4 4 0
         4 2 4 2
         4 4 4 0
         0 3 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 6 0 0 0
         0 0 0 0 6 0 0 0
         0 0 0 0 6 0 0 0
@@ -15326,7 +15326,7 @@ problem_67a423a3 = Problem("problem_67a423a3", [
         0 0 0 0 6 0 0 0
         0 0 0 0 6 0 0 0
         0 0 0 0 6 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 6 0 0 0
         0 0 0 0 6 0 0 0
         0 0 0 0 6 0 0 0
@@ -15336,14 +15336,14 @@ problem_67a423a3 = Problem("problem_67a423a3", [
         0 0 0 0 6 0 0 0
         0 0 0 0 6 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 0 0 0
         0 0 1 0 0 0
         9 9 1 9 9 9
         0 0 1 0 0 0
         0 0 1 0 0 0
         0 0 1 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1 0 0 0
         0 4 4 4 0 0
         9 4 1 4 9 9
@@ -15351,7 +15351,7 @@ problem_67a423a3 = Problem("problem_67a423a3", [
         0 0 1 0 0 0
         0 0 1 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 5 0 0 0
         0 0 0 0 0 0 0 0 5 0 0 0
         0 0 0 0 0 0 0 0 5 0 0 0
@@ -15364,7 +15364,7 @@ problem_67a423a3 = Problem("problem_67a423a3", [
         0 0 0 0 0 0 0 0 5 0 0 0
         0 0 0 0 0 0 0 0 5 0 0 0
         0 0 0 0 0 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 5 0 0 0
         0 0 0 0 0 0 0 0 5 0 0 0
         0 0 0 0 0 0 0 0 5 0 0 0
@@ -15381,11 +15381,11 @@ problem_67a423a3 = Problem("problem_67a423a3", [
 ])
 
 problem_67e8384a = Problem("problem_67e8384a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 3 4
         3 4 5
         3 4 4
-    ]), Int[
+    ]), Integer[
         5 3 4 4 3 5
         3 4 5 5 4 3
         3 4 4 4 4 3
@@ -15393,11 +15393,11 @@ problem_67e8384a = Problem("problem_67e8384a", [
         3 4 5 5 4 3
         5 3 4 4 3 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 1 5
         7 7 1
         5 3 1
-    ]), Int[
+    ]), Integer[
         7 1 5 5 1 7
         7 7 1 1 7 7
         5 3 1 1 3 5
@@ -15405,11 +15405,11 @@ problem_67e8384a = Problem("problem_67e8384a", [
         7 7 1 1 7 7
         7 1 5 5 1 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 5 2
         2 6 4
         2 2 2
-    ]), Int[
+    ]), Integer[
         2 5 2 2 5 2
         2 6 4 4 6 2
         2 2 2 2 2 2
@@ -15417,11 +15417,11 @@ problem_67e8384a = Problem("problem_67e8384a", [
         2 6 4 4 6 2
         2 5 2 2 5 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 1
         2 8 1
         8 1 6
-    ]), Int[
+    ]), Integer[
         1 2 1 1 2 1
         2 8 1 1 8 2
         8 1 6 6 1 8
@@ -15429,11 +15429,11 @@ problem_67e8384a = Problem("problem_67e8384a", [
         2 8 1 1 8 2
         1 2 1 1 2 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 6 6
         5 2 2
         2 2 2
-    ]), Int[
+    ]), Integer[
         1 6 6 6 6 1
         5 2 2 2 2 5
         2 2 2 2 2 2
@@ -15444,7 +15444,7 @@ problem_67e8384a = Problem("problem_67e8384a", [
 ])
 
 problem_681b3aeb = Problem("problem_681b3aeb", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 3 3 0 0 0 0 0 0 0
@@ -15455,12 +15455,12 @@ problem_681b3aeb = Problem("problem_681b3aeb", [
         0 0 0 0 0 0 0 0 0 7
         0 0 0 0 0 0 0 0 7 7
         0 0 0 0 0 0 0 0 7 7
-    ]), Int[
+    ]), Integer[
         3 3 7
         3 7 7
         3 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 4 0
         0 0 0 0 0 0 0 0 4 4
         0 0 0 6 6 6 0 0 0 0
@@ -15471,12 +15471,12 @@ problem_681b3aeb = Problem("problem_681b3aeb", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6
         4 6 6
         4 4 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -15487,12 +15487,12 @@ problem_681b3aeb = Problem("problem_681b3aeb", [
         0 0 0 0 0 0 0 0 0 0
         0 1 1 1 0 0 0 0 0 0
         0 1 0 1 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1
         1 3 1
         3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0
@@ -15503,7 +15503,7 @@ problem_681b3aeb = Problem("problem_681b3aeb", [
         0 0 0 0 0 0 0 8 0 0
         0 0 0 0 0 0 0 8 8 8
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 2
         8 2 2
         8 8 8
@@ -15511,7 +15511,7 @@ problem_681b3aeb = Problem("problem_681b3aeb", [
 ])
 
 problem_6855a6e4 = Problem("problem_6855a6e4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -15527,7 +15527,7 @@ problem_6855a6e4 = Problem("problem_6855a6e4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 5 5 5 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -15544,7 +15544,7 @@ problem_6855a6e4 = Problem("problem_6855a6e4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -15560,7 +15560,7 @@ problem_6855a6e4 = Problem("problem_6855a6e4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -15577,7 +15577,7 @@ problem_6855a6e4 = Problem("problem_6855a6e4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -15593,7 +15593,7 @@ problem_6855a6e4 = Problem("problem_6855a6e4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -15610,7 +15610,7 @@ problem_6855a6e4 = Problem("problem_6855a6e4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 5 5 5 0 0 0 0 0 0 0
         0 0 0 0 5 5 0 5 5 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -15626,7 +15626,7 @@ problem_6855a6e4 = Problem("problem_6855a6e4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 5 0 0 0 0 0 0 0 0
         0 0 0 0 5 5 5 5 5 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -15646,33 +15646,33 @@ problem_6855a6e4 = Problem("problem_6855a6e4", [
 ])
 
 problem_68b16354 = Problem("problem_68b16354", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 1 2 1 4
         4 4 2 4 8
         3 7 2 4 8
         2 7 7 8 7
         8 7 7 4 8
-    ]), Int[
+    ]), Integer[
         8 7 7 4 8
         2 7 7 8 7
         3 7 2 4 8
         4 4 2 4 8
         8 1 2 1 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 3 3 1 2
         1 8 2 4 1
         2 7 8 7 2
         7 7 4 1 8
         8 1 7 7 1
-    ]), Int[
+    ]), Integer[
         8 1 7 7 1
         7 7 4 1 8
         2 7 8 7 2
         1 8 2 4 1
         7 3 3 1 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 7 4 3 4 8 3
         2 3 7 1 2 3 3
         8 7 4 3 2 2 4
@@ -15680,7 +15680,7 @@ problem_68b16354 = Problem("problem_68b16354", [
         2 4 3 1 1 4 1
         4 8 7 4 4 8 2
         7 3 8 4 3 2 8
-    ]), Int[
+    ]), Integer[
         7 3 8 4 3 2 8
         4 8 7 4 4 8 2
         2 4 3 1 1 4 1
@@ -15689,7 +15689,7 @@ problem_68b16354 = Problem("problem_68b16354", [
         2 3 7 1 2 3 3
         2 7 4 3 4 8 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 8 1 3 2 4 1
         4 4 1 1 4 3 4
         1 1 1 1 4 7 3
@@ -15697,7 +15697,7 @@ problem_68b16354 = Problem("problem_68b16354", [
         4 1 1 1 7 8 4
         3 2 8 4 1 8 4
         1 4 7 1 2 3 4
-    ]), Int[
+    ]), Integer[
         1 4 7 1 2 3 4
         3 2 8 4 1 8 4
         4 1 1 1 7 8 4
@@ -15709,7 +15709,7 @@ problem_68b16354 = Problem("problem_68b16354", [
 ])
 
 problem_694f12f3 = Problem("problem_694f12f3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 4 4 4 0 0 0 0 0
         0 4 4 4 4 0 0 0 0 0
@@ -15720,7 +15720,7 @@ problem_694f12f3 = Problem("problem_694f12f3", [
         0 0 0 4 4 4 4 4 4 0
         0 0 0 4 4 4 4 4 4 0
         0 0 0 4 4 4 4 4 4 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 4 4 4 0 0 0 0 0
         0 4 1 1 4 0 0 0 0 0
@@ -15732,7 +15732,7 @@ problem_694f12f3 = Problem("problem_694f12f3", [
         0 0 0 4 2 2 2 2 4 0
         0 0 0 4 4 4 4 4 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 4 4 4 4 0 0 0 0
         0 4 4 4 4 4 0 0 0 0
@@ -15743,7 +15743,7 @@ problem_694f12f3 = Problem("problem_694f12f3", [
         0 0 0 0 0 4 4 4 4 0
         0 0 0 0 0 4 4 4 4 0
         0 0 0 0 0 4 4 4 4 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 4 4 4 4 0 0 0 0
         0 4 2 2 2 4 0 0 0 0
@@ -15755,7 +15755,7 @@ problem_694f12f3 = Problem("problem_694f12f3", [
         0 0 0 0 0 4 1 1 4 0
         0 0 0 0 0 4 4 4 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 0 0 0 0
         4 4 4 4 4 4 0 0 0 0
         4 4 4 4 4 4 0 0 0 0
@@ -15766,7 +15766,7 @@ problem_694f12f3 = Problem("problem_694f12f3", [
         0 0 0 0 4 4 4 4 4 4
         0 0 0 0 4 4 4 4 4 4
         0 0 0 0 4 4 4 4 4 4
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 0 0 0 0
         4 2 2 2 2 4 0 0 0 0
         4 2 2 2 2 4 0 0 0 0
@@ -15781,7 +15781,7 @@ problem_694f12f3 = Problem("problem_694f12f3", [
 ])
 
 problem_6a1e5592 = Problem("problem_6a1e5592", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 0 2 2 2 2 2 2 2 2 2 2 2 2 0
         2 0 0 2 2 2 0 0 0 2 2 2 2 2 0
@@ -15792,7 +15792,7 @@ problem_6a1e5592 = Problem("problem_6a1e5592", [
         0 0 0 0 0 0 5 0 0 0 0 0 0 5 0
         0 5 5 5 0 0 5 5 0 0 0 0 0 5 0
         0 5 5 5 0 0 5 5 5 0 0 0 0 5 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 1 2 2 2 2 2 2 2 2 2 2 2 2 1
         2 1 1 2 2 2 1 1 1 2 2 2 2 2 1
@@ -15804,7 +15804,7 @@ problem_6a1e5592 = Problem("problem_6a1e5592", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 0 2 2 2 0 2 2 0 0 2 2
         2 0 0 2 0 2 2 0 0 0 2 0 0 2 2
@@ -15815,7 +15815,7 @@ problem_6a1e5592 = Problem("problem_6a1e5592", [
         0 5 5 0 0 0 0 0 0 0 5 0 0 0 0
         5 5 5 5 0 0 0 5 0 0 5 0 0 5 5
         0 5 5 0 0 0 5 5 5 0 5 0 5 5 5
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 1 2 2 2 1 2 2 1 1 2 2
         2 1 1 2 1 2 2 1 1 1 2 1 1 2 2
@@ -15827,7 +15827,7 @@ problem_6a1e5592 = Problem("problem_6a1e5592", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 0 2 2 2 2 0 2 0 2 2 0 2 2 2
         2 0 0 2 2 2 0 0 0 2 2 0 0 0 2
@@ -15838,7 +15838,7 @@ problem_6a1e5592 = Problem("problem_6a1e5592", [
         0 5 0 0 0 0 0 5 5 0 0 5 5 5 0
         0 5 5 5 0 0 0 5 0 0 0 5 5 5 0
         0 5 5 5 5 0 0 5 5 0 0 5 5 5 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 1 2 2 2 2 1 2 1 2 2 1 2 2 2
         2 1 1 2 2 2 1 1 1 2 2 1 1 1 2
@@ -15853,7 +15853,7 @@ problem_6a1e5592 = Problem("problem_6a1e5592", [
 ])
 
 problem_6aa20dc0 = Problem("problem_6aa20dc0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -15874,7 +15874,7 @@ problem_6aa20dc0 = Problem("problem_6aa20dc0", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 2 8 8 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 8 8 1 1 1 1
@@ -15896,7 +15896,7 @@ problem_6aa20dc0 = Problem("problem_6aa20dc0", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 1 1 6 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -15917,7 +15917,7 @@ problem_6aa20dc0 = Problem("problem_6aa20dc0", [
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 1 1 6 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -15939,7 +15939,7 @@ problem_6aa20dc0 = Problem("problem_6aa20dc0", [
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -15961,7 +15961,7 @@ problem_6aa20dc0 = Problem("problem_6aa20dc0", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -15984,7 +15984,7 @@ problem_6aa20dc0 = Problem("problem_6aa20dc0", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 4 4 4 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 4 4 4 3 3 3 3 3 3 3 3 3
@@ -16007,7 +16007,7 @@ problem_6aa20dc0 = Problem("problem_6aa20dc0", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 4 4 4 8 8 8 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 4 4 4 8 8 8 3 3 3 3 3 3
@@ -16034,7 +16034,7 @@ problem_6aa20dc0 = Problem("problem_6aa20dc0", [
 ])
 
 problem_6b9890af = Problem("problem_6b9890af", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -16053,7 +16053,7 @@ problem_6b9890af = Problem("problem_6b9890af", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2
         2 0 0 8 8 0 0 2
         2 0 0 8 8 0 0 2
@@ -16063,7 +16063,7 @@ problem_6b9890af = Problem("problem_6b9890af", [
         2 0 0 8 8 0 0 2
         2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -16083,14 +16083,14 @@ problem_6b9890af = Problem("problem_6b9890af", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2
         2 0 1 1 2
         2 1 0 0 2
         2 0 1 1 2
         2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
@@ -16112,7 +16112,7 @@ problem_6b9890af = Problem("problem_6b9890af", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 2 2
         2 0 0 0 4 4 4 4 4 4 2
         2 0 0 0 4 4 4 4 4 4 2
@@ -16125,7 +16125,7 @@ problem_6b9890af = Problem("problem_6b9890af", [
         2 0 0 0 0 0 0 4 4 4 2
         2 2 2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -16150,7 +16150,7 @@ problem_6b9890af = Problem("problem_6b9890af", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 0 0 0 0 3 3 3 3 0 0 0 0 2
         2 0 0 0 0 3 3 3 3 0 0 0 0 2
@@ -16169,7 +16169,7 @@ problem_6b9890af = Problem("problem_6b9890af", [
 ])
 
 problem_6c434453 = Problem("problem_6c434453", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 0 0 0 0 0 0 0
         1 0 1 0 0 0 0 1 0 0
         1 1 1 0 0 0 1 1 1 0
@@ -16180,7 +16180,7 @@ problem_6c434453 = Problem("problem_6c434453", [
         0 0 0 1 0 1 0 0 1 1
         0 0 0 1 1 1 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0 0 0 0 0 0 0 0
         2 2 2 0 0 0 0 1 0 0
         0 2 0 0 0 0 1 1 1 0
@@ -16192,7 +16192,7 @@ problem_6c434453 = Problem("problem_6c434453", [
         0 0 0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 1 1 1 0 0 0
         1 1 0 0 1 0 1 0 0 0
         1 1 0 0 1 1 1 0 0 0
@@ -16203,7 +16203,7 @@ problem_6c434453 = Problem("problem_6c434453", [
         0 1 1 1 0 0 1 0 0 0
         0 0 0 0 0 0 1 1 1 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 2 0 0 0 0
         1 1 0 0 2 2 2 0 0 0
         1 1 0 0 0 2 0 0 0 0
@@ -16215,7 +16215,7 @@ problem_6c434453 = Problem("problem_6c434453", [
         0 0 0 0 0 0 1 1 1 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 1 0
         0 0 0 0 0 0 0 1 1 1
         0 1 1 1 0 0 0 0 1 0
@@ -16226,7 +16226,7 @@ problem_6c434453 = Problem("problem_6c434453", [
         0 1 1 1 0 0 0 0 0 0
         0 1 0 1 0 0 0 0 1 1
         0 1 1 1 0 0 0 0 1 1
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 1 0
         0 0 0 0 0 0 0 1 1 1
         0 0 2 0 0 0 0 0 1 0
@@ -16241,7 +16241,7 @@ problem_6c434453 = Problem("problem_6c434453", [
 ])
 
 problem_6cdd2623 = Problem("problem_6cdd2623", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 2 2 0 0 0 0 3 0 0 0 0 0 2 0 0 0 0
         2 0 0 0 0 0 2 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 5 2 0 5 2 0 5 0 0 0 0 0 2 0 0 0
@@ -16253,7 +16253,7 @@ problem_6cdd2623 = Problem("problem_6cdd2623", [
         3 0 0 5 5 0 2 5 0 0 0 0 0 0 0 0 0 0 0 0 2 3
         0 0 0 0 0 0 0 0 0 2 0 2 5 0 5 0 0 0 2 0 0 0
         0 0 2 0 0 0 0 0 5 0 0 3 0 0 0 0 0 5 0 5 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0
@@ -16266,7 +16266,7 @@ problem_6cdd2623 = Problem("problem_6cdd2623", [
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 8 0 1 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0
@@ -16280,7 +16280,7 @@ problem_6cdd2623 = Problem("problem_6cdd2623", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 8 0 0 1 0 0 0 0 0 0 0 2
         8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -16295,7 +16295,7 @@ problem_6cdd2623 = Problem("problem_6cdd2623", [
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 4 0 0 0 0 4 0 0 0 0 0 8 0 4 0
         0 0 4 0 4 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 5
@@ -16311,7 +16311,7 @@ problem_6cdd2623 = Problem("problem_6cdd2623", [
         0 5 0 0 0 0 0 0 0 0 0 0 4 0 0 4 0
         0 0 0 0 0 0 4 0 4 0 0 0 0 0 0 4 0
         4 0 4 0 4 0 0 0 4 5 0 0 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0
@@ -16328,7 +16328,7 @@ problem_6cdd2623 = Problem("problem_6cdd2623", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 6 0 0 0 0 0 0 0 0 7 0 0 0 7 8 0
         7 0 0 0 0 0 8 0 0 8 0 0 0 0 0 7 0 0 0
         0 7 0 0 0 0 8 0 0 0 0 0 0 0 0 8 8 0 0
@@ -16345,7 +16345,7 @@ problem_6cdd2623 = Problem("problem_6cdd2623", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 7 8 0 0 0 0 0
         7 0 0 6 7 0 8 7 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -16366,7 +16366,7 @@ problem_6cdd2623 = Problem("problem_6cdd2623", [
 ])
 
 problem_6cf79266 = Problem("problem_6cf79266", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 0 5 0 0 5 5 5 5 5 5 0 0 5 5 5 5 0 0
         5 0 5 5 5 5 5 5 0 0 5 5 5 5 0 5 5 0 5 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 0 0 5 5
@@ -16387,7 +16387,7 @@ problem_6cf79266 = Problem("problem_6cf79266", [
         5 5 5 5 5 0 5 5 5 5 5 0 0 0 5 0 5 5 0 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 0 0 5 5 0 5 5
         5 5 5 0 0 5 5 5 5 0 5 5 0 5 0 5 0 0 0 5
-    ]), Int[
+    ]), Integer[
         5 0 0 5 0 0 5 5 5 5 5 5 0 0 5 5 5 5 0 0
         5 0 5 5 5 5 5 5 0 0 5 5 5 5 0 5 5 0 5 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 0 0 5 5
@@ -16409,7 +16409,7 @@ problem_6cf79266 = Problem("problem_6cf79266", [
         5 5 5 5 5 5 5 5 5 5 5 5 5 0 0 5 5 0 5 5
         5 5 5 0 0 5 5 5 5 0 5 5 0 5 0 5 0 0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 0 3 0 3 0 3 3 0 0 3 3 3 0 3 0 0
         0 0 3 3 0 0 3 0 3 3 0 3 0 3 3 0 0 3 3 0
         3 3 3 3 3 0 0 3 0 0 0 3 0 3 3 0 3 3 3 3
@@ -16430,7 +16430,7 @@ problem_6cf79266 = Problem("problem_6cf79266", [
         0 3 0 3 0 0 3 3 3 0 3 3 3 0 0 3 3 0 0 0
         3 0 0 3 0 3 3 0 3 0 0 3 0 0 3 3 3 3 3 3
         3 0 3 3 0 3 3 3 0 0 0 3 0 3 0 3 3 3 0 3
-    ]), Int[
+    ]), Integer[
         3 3 3 3 0 3 0 3 0 3 3 0 0 3 3 3 0 3 0 0
         0 0 3 3 0 0 3 0 3 3 0 3 0 3 3 0 0 3 3 0
         3 3 3 3 3 0 0 3 0 0 0 3 0 3 3 0 3 3 3 3
@@ -16452,7 +16452,7 @@ problem_6cf79266 = Problem("problem_6cf79266", [
         3 0 0 3 0 3 3 0 3 0 0 3 0 0 3 3 3 3 3 3
         3 0 3 3 0 3 3 3 0 0 0 3 0 3 0 3 3 3 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 0 7 7 7 7 0 7 7 0 0 7 7 0 0 7 0 7 7 7
         0 0 7 0 7 0 7 0 7 7 7 0 0 0 0 7 7 0 0 7
         0 0 0 0 0 7 0 0 7 7 7 7 0 7 0 0 0 0 7 0
@@ -16473,7 +16473,7 @@ problem_6cf79266 = Problem("problem_6cf79266", [
         7 7 7 0 0 0 7 0 7 7 0 7 0 0 7 0 0 0 0 0
         7 0 0 0 0 0 7 7 0 7 0 0 0 7 0 7 7 7 0 7
         0 7 7 0 7 7 0 7 0 0 7 7 7 7 0 0 7 0 7 7
-    ]), Int[
+    ]), Integer[
         7 0 7 7 7 7 0 7 7 0 0 7 7 0 0 7 0 7 7 7
         0 0 7 0 7 0 7 0 7 7 7 0 0 0 0 7 7 0 0 7
         0 0 0 0 0 7 0 0 7 7 7 7 0 7 0 0 0 0 7 0
@@ -16495,7 +16495,7 @@ problem_6cf79266 = Problem("problem_6cf79266", [
         7 0 0 1 1 1 7 7 0 7 0 0 0 7 0 7 7 7 0 7
         0 7 7 0 7 7 0 7 0 0 7 7 7 7 0 0 7 0 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0 4 4 0 4 4 4 0 0 0 4 0 4 4 4 4 4 0
         0 0 4 4 0 0 4 0 4 4 0 0 0 0 4 4 4 4 4 0
         4 4 4 0 0 4 0 4 0 4 0 4 4 4 4 4 4 0 4 0
@@ -16516,7 +16516,7 @@ problem_6cf79266 = Problem("problem_6cf79266", [
         4 0 0 0 0 4 4 0 4 4 0 4 0 4 0 0 0 4 4 4
         0 0 0 0 0 4 4 4 4 0 4 0 0 4 0 0 0 0 0 0
         4 4 0 0 0 0 0 4 4 0 0 0 4 0 4 0 4 0 4 4
-    ]), Int[
+    ]), Integer[
         0 4 0 4 4 0 4 4 4 0 0 0 4 0 4 4 4 4 4 0
         0 0 4 4 0 0 4 0 4 4 0 0 0 0 4 4 4 4 4 0
         4 4 4 0 0 4 0 4 0 4 0 4 4 4 4 4 4 0 4 0
@@ -16541,7 +16541,7 @@ problem_6cf79266 = Problem("problem_6cf79266", [
 ])
 
 problem_6d0160f0 = Problem("problem_6d0160f0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 5 7 0 6 5 8 0 7
         0 0 9 5 0 3 0 5 0 6 0
         7 2 0 5 0 0 2 5 0 3 0
@@ -16553,7 +16553,7 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
         0 3 4 5 0 2 0 5 2 0 7
         7 0 0 5 7 0 3 5 0 0 1
         0 0 2 5 0 6 0 5 0 3 0
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 5 0 3 4
         0 0 0 5 0 0 0 5 7 0 0
         0 0 0 5 0 0 0 5 0 0 2
@@ -16566,7 +16566,7 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 5 0 2 0 5 0 6 0
         0 0 7 5 0 0 0 5 0 0 9
         0 6 0 5 0 1 0 5 0 0 0
@@ -16578,7 +16578,7 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
         9 0 0 5 0 9 0 5 0 9 0
         0 6 0 5 0 0 4 5 0 0 1
         0 0 0 5 7 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
@@ -16591,7 +16591,7 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 0 5 0 6 0 5 7 0 0
         8 3 6 5 0 0 0 5 0 8 0
         0 0 0 5 0 3 0 5 0 0 0
@@ -16603,7 +16603,7 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
         0 6 0 5 0 8 0 5 0 0 0
         8 0 0 5 3 0 0 5 4 0 8
         0 7 0 5 0 6 0 5 0 6 7
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
@@ -16616,7 +16616,7 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 5 0 1 0 5 0 0 2
         0 2 0 5 0 3 0 5 0 6 0
         0 0 0 5 0 0 0 5 0 0 0
@@ -16628,7 +16628,7 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
         7 0 0 5 0 4 0 5 0 0 3
         0 0 0 5 0 7 0 5 2 0 0
         0 3 0 5 0 3 0 5 0 0 6
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 4 0 5 0 0 0
         0 0 0 5 0 7 0 5 0 0 0
         0 0 0 5 0 3 0 5 0 0 0
@@ -16641,7 +16641,7 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
         0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 3 5 2 0 0 5 0 3 0
         7 6 0 5 0 7 0 5 6 7 0
         0 0 0 5 6 0 3 5 0 0 2
@@ -16653,7 +16653,7 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
         7 0 0 5 0 6 0 5 2 3 0
         0 0 6 5 0 2 0 5 0 0 0
         2 0 0 5 0 7 0 5 0 6 7
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 5 6 0 4
         0 0 0 5 0 0 0 5 0 2 0
         0 0 0 5 0 0 0 5 0 7 0
@@ -16669,47 +16669,47 @@ problem_6d0160f0 = Problem("problem_6d0160f0", [
 ])
 
 problem_6d0aefbc = Problem("problem_6d0aefbc", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 6
         1 6 1
         8 8 6
-    ]), Int[
+    ]), Integer[
         6 6 6 6 6 6
         1 6 1 1 6 1
         8 8 6 6 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 8 1
         6 1 1
         1 1 6
-    ]), Int[
+    ]), Integer[
         6 8 1 1 8 6
         6 1 1 1 1 6
         1 1 6 6 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1
         8 1 6
         6 8 8
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1
         8 1 6 6 1 8
         6 8 8 8 8 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1
         1 6 6
         6 6 6
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1
         1 6 6 6 6 1
         6 6 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 8 6
         8 6 8
         1 6 1
-    ]), Int[
+    ]), Integer[
         6 8 6 6 8 6
         8 6 8 8 6 8
         1 6 1 1 6 1
@@ -16717,7 +16717,7 @@ problem_6d0aefbc = Problem("problem_6d0aefbc", [
 ])
 
 problem_6d58a25d = Problem("problem_6d58a25d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -16738,7 +16738,7 @@ problem_6d58a25d = Problem("problem_6d58a25d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0
         0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -16760,7 +16760,7 @@ problem_6d58a25d = Problem("problem_6d58a25d", [
         0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0
         0 8 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -16781,7 +16781,7 @@ problem_6d58a25d = Problem("problem_6d58a25d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -16803,7 +16803,7 @@ problem_6d58a25d = Problem("problem_6d58a25d", [
         0 2 0 0 0 0 2 0 0 2 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 0 0 2 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0
         0 0 0 0 0 3 0 0 0 0 3 0 0 0 0 0 0 0 0 0
@@ -16824,7 +16824,7 @@ problem_6d58a25d = Problem("problem_6d58a25d", [
         0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0
         0 0 0 0 0 0 0 3 0 0 0 0 0 3 0 0 0 0 0 3
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0
         0 0 0 0 0 3 0 0 0 0 3 0 0 0 0 0 0 0 0 0
@@ -16846,7 +16846,7 @@ problem_6d58a25d = Problem("problem_6d58a25d", [
         0 0 0 0 0 0 0 3 0 0 3 0 3 3 0 0 0 0 0 3
         0 0 0 0 0 0 0 0 0 0 3 0 3 3 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 6 0 0 0 0 0 6 0 0 0 0 0 0 0 6 0
         0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0 0 0
@@ -16867,7 +16867,7 @@ problem_6d58a25d = Problem("problem_6d58a25d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 0 0
         0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 6 0 0 0 0 0 6 0 0 0 0 0 0 0 6 0
         0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0 0 0
@@ -16892,7 +16892,7 @@ problem_6d58a25d = Problem("problem_6d58a25d", [
 ])
 
 problem_6d75e8bb = Problem("problem_6d75e8bb", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 0 0
@@ -16907,7 +16907,7 @@ problem_6d75e8bb = Problem("problem_6d75e8bb", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 8 8 8 2 0 0 0 0 0
@@ -16923,7 +16923,7 @@ problem_6d75e8bb = Problem("problem_6d75e8bb", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 8 8 8 8 8 8 0
         0 8 0 8 8 0 8 0
@@ -16931,7 +16931,7 @@ problem_6d75e8bb = Problem("problem_6d75e8bb", [
         0 0 0 8 0 8 8 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 8 8 8 8 8 8 0
         0 8 2 8 8 2 8 0
@@ -16940,7 +16940,7 @@ problem_6d75e8bb = Problem("problem_6d75e8bb", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 8 8 8 8 8 0 0
         0 0 0 8 0 8 0 0
@@ -16950,7 +16950,7 @@ problem_6d75e8bb = Problem("problem_6d75e8bb", [
         0 0 0 8 8 8 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 8 8 8 8 8 0 0
         0 2 2 8 2 8 0 0
@@ -16961,7 +16961,7 @@ problem_6d75e8bb = Problem("problem_6d75e8bb", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0 0
@@ -16971,7 +16971,7 @@ problem_6d75e8bb = Problem("problem_6d75e8bb", [
         0 0 8 8 8 8 0 8 8 0 0
         0 0 8 8 8 8 8 8 8 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 8 2 2 2 2 2 2 0 0
@@ -16985,56 +16985,56 @@ problem_6d75e8bb = Problem("problem_6d75e8bb", [
 ])
 
 problem_6e02f1e3 = Problem("problem_6e02f1e3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2
         3 2 3
         3 3 3
-    ]), Int[
+    ]), Integer[
         5 0 0
         0 5 0
         0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3
         4 2 2
         4 4 2
-    ]), Int[
+    ]), Integer[
         0 0 5
         0 5 0
         5 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4
         4 4 4
         4 4 4
-    ]), Int[
+    ]), Integer[
         5 5 5
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3
         3 3 3
         3 3 3
-    ]), Int[
+    ]), Integer[
         5 5 5
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4
         4 4 4
         3 3 3
-    ]), Int[
+    ]), Integer[
         5 0 0
         0 5 0
         0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4
         2 3 2
         3 2 3
-    ]), Int[
+    ]), Integer[
         0 0 5
         0 5 0
         5 0 0
@@ -17042,7 +17042,7 @@ problem_6e02f1e3 = Problem("problem_6e02f1e3", [
 ])
 
 problem_6e19193c = Problem("problem_6e19193c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 7 0 0 0 0 0 0 0 0
@@ -17053,7 +17053,7 @@ problem_6e19193c = Problem("problem_6e19193c", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 7 0 0 0 0 0
         0 0 0 7 0 0 0 0 0 0
         0 7 0 0 0 0 0 0 0 0
@@ -17065,7 +17065,7 @@ problem_6e19193c = Problem("problem_6e19193c", [
         0 0 0 7 0 0 0 0 0 0
         0 0 7 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 9 9 0 0 0 0 0
         0 0 0 0 9 0 0 0 0 0
@@ -17076,7 +17076,7 @@ problem_6e19193c = Problem("problem_6e19193c", [
         0 0 0 9 9 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 9 9 0 0 0 0 9
         0 0 0 0 9 0 0 0 9 0
@@ -17088,7 +17088,7 @@ problem_6e19193c = Problem("problem_6e19193c", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0
@@ -17099,7 +17099,7 @@ problem_6e19193c = Problem("problem_6e19193c", [
         0 0 0 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 8 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0
@@ -17114,7 +17114,7 @@ problem_6e19193c = Problem("problem_6e19193c", [
 ])
 
 problem_6e82a1ae = Problem("problem_6e82a1ae", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 5 0
         0 5 5 0 0 0 0 5 5 0
@@ -17125,7 +17125,7 @@ problem_6e82a1ae = Problem("problem_6e82a1ae", [
         0 5 0 0 0 0 0 0 0 5
         0 5 0 0 5 0 0 0 0 0
         0 0 0 5 5 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 1 1 0
         0 1 1 0 0 0 0 1 1 0
@@ -17137,7 +17137,7 @@ problem_6e82a1ae = Problem("problem_6e82a1ae", [
         0 3 0 0 2 0 0 0 0 0
         0 0 0 2 2 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 5 5 5 0 0 0 5 0 0
@@ -17148,7 +17148,7 @@ problem_6e82a1ae = Problem("problem_6e82a1ae", [
         0 0 0 0 0 0 0 5 0 0
         0 5 5 0 0 0 5 5 5 0
         0 5 5 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 2 2 2 0 0 0 3 0 0
@@ -17160,7 +17160,7 @@ problem_6e82a1ae = Problem("problem_6e82a1ae", [
         0 1 1 0 0 0 1 1 1 0
         0 1 1 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 5 5 0 0
         0 0 5 0 0 0 0 5 0 0
@@ -17171,7 +17171,7 @@ problem_6e82a1ae = Problem("problem_6e82a1ae", [
         5 5 0 0 0 0 0 0 0 0
         5 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 3 0 0 0 2 2 0 0
         0 0 3 0 0 0 0 2 0 0
@@ -17183,7 +17183,7 @@ problem_6e82a1ae = Problem("problem_6e82a1ae", [
         1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 5
         0 0 0 0 0 0 0 0 0 5
         0 0 5 5 0 5 5 0 0 5
@@ -17194,7 +17194,7 @@ problem_6e82a1ae = Problem("problem_6e82a1ae", [
         5 0 0 5 5 0 0 5 0 0
         5 0 0 0 0 0 0 5 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 1
         0 0 0 0 0 0 0 0 0 1
         0 0 1 1 0 2 2 0 0 1
@@ -17209,7 +17209,7 @@ problem_6e82a1ae = Problem("problem_6e82a1ae", [
 ])
 
 problem_6ecd11f4 = Problem("problem_6ecd11f4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
         0 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
@@ -17237,12 +17237,12 @@ problem_6ecd11f4 = Problem("problem_6ecd11f4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 0 7
         0 8 0
         3 0 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -17270,12 +17270,12 @@ problem_6ecd11f4 = Problem("problem_6ecd11f4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 7
         4 8 0
         0 6 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 8 8 8 8 0 0 0 0 8 8 8 8 8 8 8 8 0 0 0 0
         0 0 8 8 8 8 0 0 0 0 8 8 8 8 8 8 8 8 0 0 0 0
@@ -17298,13 +17298,13 @@ problem_6ecd11f4 = Problem("problem_6ecd11f4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 4 2 7 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 9 4
         6 0 6 0
         3 0 0 5
         2 4 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 0 0 0 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 0 0 0 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0
@@ -17326,7 +17326,7 @@ problem_6ecd11f4 = Problem("problem_6ecd11f4", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 5 8 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 6 3
         0 3 3 0
         6 7 7 4
@@ -17335,53 +17335,53 @@ problem_6ecd11f4 = Problem("problem_6ecd11f4", [
 ])
 
 problem_6f8cd79b = Problem("problem_6f8cd79b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8
         8 0 8
         8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 0 0
         0 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8
         8 0 8
         8 0 8
         8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0
         0 0 0 0
         0 0 0 0
         0 0 0 0
         0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8 8
         8 0 0 8
         8 0 0 8
         8 0 0 8
         8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8
         8 0 0 0 0 8
         8 0 0 0 0 8
         8 0 0 0 0 8
         8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
@@ -17389,7 +17389,7 @@ problem_6f8cd79b = Problem("problem_6f8cd79b", [
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8
         8 0 0 0 0 8
         8 0 0 0 0 8
@@ -17401,11 +17401,11 @@ problem_6f8cd79b = Problem("problem_6f8cd79b", [
 ])
 
 problem_6fa7a44f = Problem("problem_6fa7a44f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 1 4
         9 1 4
         2 1 1
-    ]), Int[
+    ]), Integer[
         9 1 4
         9 1 4
         2 1 1
@@ -17413,11 +17413,11 @@ problem_6fa7a44f = Problem("problem_6fa7a44f", [
         9 1 4
         9 1 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 8 4
         7 6 7
         8 7 8
-    ]), Int[
+    ]), Integer[
         4 8 4
         7 6 7
         8 7 8
@@ -17425,11 +17425,11 @@ problem_6fa7a44f = Problem("problem_6fa7a44f", [
         7 6 7
         4 8 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 7
         9 5 5
         5 1 7
-    ]), Int[
+    ]), Integer[
         7 7 7
         9 5 5
         5 1 7
@@ -17437,11 +17437,11 @@ problem_6fa7a44f = Problem("problem_6fa7a44f", [
         9 5 5
         7 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 6 9
         2 6 9
         2 9 2
-    ]), Int[
+    ]), Integer[
         2 6 9
         2 6 9
         2 9 2
@@ -17449,11 +17449,11 @@ problem_6fa7a44f = Problem("problem_6fa7a44f", [
         2 6 9
         2 6 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 9 2
         8 5 2
         2 2 8
-    ]), Int[
+    ]), Integer[
         2 9 2
         8 5 2
         2 2 8
@@ -17464,7 +17464,7 @@ problem_6fa7a44f = Problem("problem_6fa7a44f", [
 ])
 
 problem_72322fa7 = Problem("problem_72322fa7", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -17478,7 +17478,7 @@ problem_72322fa7 = Problem("problem_72322fa7", [
         0 0 3 0 0 0 0 0 0 6 0 0 0 0 0 8 0 8 0 0 0 0
         0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0
@@ -17493,7 +17493,7 @@ problem_72322fa7 = Problem("problem_72322fa7", [
         0 1 0 1 0 0 0 0 0 8 0 0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -17507,7 +17507,7 @@ problem_72322fa7 = Problem("problem_72322fa7", [
         0 0 0 0 0 0 0 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -17522,7 +17522,7 @@ problem_72322fa7 = Problem("problem_72322fa7", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 2 8 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -17537,7 +17537,7 @@ problem_72322fa7 = Problem("problem_72322fa7", [
         0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 2 8 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -17553,7 +17553,7 @@ problem_72322fa7 = Problem("problem_72322fa7", [
         0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 3 7 3 0 0 0 0
         0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0
@@ -17573,7 +17573,7 @@ problem_72322fa7 = Problem("problem_72322fa7", [
         0 0 0 0 0 4 0 0 0 0 0 2 0 0 0 0 0 8 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 1 0 0 0 3 7 3 0 0 0 0
         0 0 0 2 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0
@@ -17597,7 +17597,7 @@ problem_72322fa7 = Problem("problem_72322fa7", [
 ])
 
 problem_72ca375d = Problem("problem_72ca375d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 0 0 0 0 0 0 0
         0 0 2 2 2 0 0 7 7 0
@@ -17608,11 +17608,11 @@ problem_72ca375d = Problem("problem_72ca375d", [
         0 0 0 0 6 6 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6 6
         0 6 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 4 4 0 0 0 0 0 0
         0 0 4 4 0 0 8 8 8 0
@@ -17623,11 +17623,11 @@ problem_72ca375d = Problem("problem_72ca375d", [
         0 0 2 2 2 2 0 0 0 0
         0 2 2 2 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4
         4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 3 3 0 0 0 0 0 0 0
         0 0 3 0 0 5 0 0 5 0
@@ -17638,11 +17638,11 @@ problem_72ca375d = Problem("problem_72ca375d", [
         0 0 0 8 8 8 0 0 0 0
         8 8 8 8 0 8 8 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 0 0 5
         5 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 3 0 0 3 0
         0 9 9 0 0 3 3 3 3 0
@@ -17653,7 +17653,7 @@ problem_72ca375d = Problem("problem_72ca375d", [
         0 0 0 0 4 4 4 4 4 0
         0 0 0 0 4 0 0 4 4 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 9 9 0
         0 9 9 0
         9 9 9 9
@@ -17661,7 +17661,7 @@ problem_72ca375d = Problem("problem_72ca375d", [
 ])
 
 problem_73251a56 = Problem("problem_73251a56", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 6 1 1 2 2 3 3 4 4 5 5 6 6 1 1 2 2 3 3 4
         6 1 6 6 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5 6 6
         1 6 1 6 6 6 1 1 1 1 2 2 2 2 3 3 3 3 4 4 4
@@ -17683,7 +17683,7 @@ problem_73251a56 = Problem("problem_73251a56", [
         3 5 4 3 2 1 1 1 1 6 0 0 0 0 6 6 6 6 1 6 6
         3 6 4 3 2 2 1 1 1 6 0 0 0 0 6 6 6 6 6 1 6
         4 6 4 3 2 2 1 1 1 1 6 6 6 6 6 6 6 6 6 6 1
-    ]), Int[
+    ]), Integer[
         1 6 1 1 2 2 3 3 4 4 5 5 6 6 1 1 2 2 3 3 4
         6 1 6 6 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5 6 6
         1 6 1 6 6 6 1 1 1 1 2 2 2 2 3 3 3 3 4 4 4
@@ -17706,7 +17706,7 @@ problem_73251a56 = Problem("problem_73251a56", [
         3 6 4 3 2 2 1 1 1 6 6 6 6 6 6 6 6 6 6 1 6
         4 6 4 3 2 2 1 1 1 1 6 6 6 6 6 6 6 6 6 6 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 5 6 6 7 7 1 1 2 2 3 3 4 4 5 5 6 6 7 7 1
         5 6 5 5 6 6 6 7 7 7 1 1 1 2 2 2 3 3 3 4 4
         6 5 6 5 5 5 6 6 6 6 7 7 7 7 1 1 1 1 2 2 2
@@ -17728,7 +17728,7 @@ problem_73251a56 = Problem("problem_73251a56", [
         7 3 2 1 7 6 6 6 0 0 0 0 5 5 5 5 5 5 6 5 5
         7 4 2 1 7 7 6 6 6 5 5 5 5 5 5 5 5 5 5 6 5
         1 4 2 1 7 7 6 6 6 6 5 5 5 5 5 5 5 5 5 5 6
-    ]), Int[
+    ]), Integer[
         6 5 6 6 7 7 1 1 2 2 3 3 4 4 5 5 6 6 7 7 1
         5 6 5 5 6 6 6 7 7 7 1 1 1 2 2 2 3 3 3 4 4
         6 5 6 5 5 5 6 6 6 6 7 7 7 7 1 1 1 1 2 2 2
@@ -17751,7 +17751,7 @@ problem_73251a56 = Problem("problem_73251a56", [
         7 4 2 1 7 7 6 6 6 5 5 5 5 5 5 5 5 5 5 6 5
         1 4 2 1 7 7 6 6 6 6 5 5 5 5 5 5 5 5 5 5 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 4 5 5 6 6 7 7 8 8 1 1 2 2 3 3 4 4 5 5 6
         4 5 4 4 5 5 5 6 6 6 7 7 7 8 8 8 1 1 1 2 2
         5 4 5 4 4 4 5 5 5 5 6 6 6 6 7 7 0 0 8 8 8
@@ -17773,7 +17773,7 @@ problem_73251a56 = Problem("problem_73251a56", [
         5 1 8 7 6 5 5 5 5 0 0 0 4 4 4 4 4 4 5 4 4
         5 2 8 7 6 6 5 5 5 4 4 4 4 4 4 4 4 4 4 5 4
         6 2 8 7 6 6 5 5 5 5 4 4 4 4 4 4 4 4 4 4 5
-    ]), Int[
+    ]), Integer[
         5 4 5 5 6 6 7 7 8 8 1 1 2 2 3 3 4 4 5 5 6
         4 5 4 4 5 5 5 6 6 6 7 7 7 8 8 8 1 1 1 2 2
         5 4 5 4 4 4 5 5 5 5 6 6 6 6 7 7 7 7 8 8 8
@@ -17796,7 +17796,7 @@ problem_73251a56 = Problem("problem_73251a56", [
         5 2 8 7 6 6 5 5 5 4 4 4 4 4 4 4 4 4 4 5 4
         6 2 8 7 6 6 5 5 5 5 4 4 4 4 4 4 4 4 4 4 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 3 4 4 5 5 6 6 7 7 8 8 9 9 1 1 2 2 3 3 4
         3 4 3 3 4 4 4 5 5 5 0 0 6 7 7 7 8 8 8 9 9
         4 3 4 3 3 3 4 4 4 4 0 0 5 5 6 6 6 6 7 7 7
@@ -17818,7 +17818,7 @@ problem_73251a56 = Problem("problem_73251a56", [
         3 8 7 6 5 4 4 4 4 3 3 3 0 0 0 0 0 3 4 3 3
         3 9 7 6 5 5 4 4 4 3 3 3 0 0 0 0 0 3 3 4 3
         4 9 7 6 5 5 4 4 4 4 3 3 3 3 3 3 3 3 3 3 4
-    ]), Int[
+    ]), Integer[
         4 3 4 4 5 5 6 6 7 7 8 8 9 9 1 1 2 2 3 3 4
         3 4 3 3 4 4 4 5 5 5 6 6 6 7 7 7 8 8 8 9 9
         4 3 4 3 3 3 4 4 4 4 5 5 5 5 6 6 6 6 7 7 7
@@ -17844,38 +17844,38 @@ problem_73251a56 = Problem("problem_73251a56", [
 ])
 
 problem_7447852a = Problem("problem_7447852a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 0 2 0 0 0 2 0
         0 2 0 2 0 2 0 2 0 2
         0 0 2 0 0 0 2 0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 0 0 2 4 4 4 2 0
         4 2 0 2 0 2 4 2 0 2
         4 4 2 0 0 0 2 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 0 2 0 0 0 2 0 0 0 2 0 0
         0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
         0 0 2 0 0 0 2 0 0 0 2 0 0 0 2
-    ]), Int[
+    ]), Integer[
         2 0 0 0 2 4 4 4 2 0 0 0 2 0 0
         4 2 0 2 0 2 4 2 0 2 0 2 4 2 0
         4 4 2 0 0 0 2 0 0 0 2 4 4 4 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0
         0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
         0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 0 0 2 4 4 4 2 0 0 0 2 0 0 0 2 4
         4 2 0 2 0 2 4 2 0 2 0 2 4 2 0 2 0 2
         4 4 2 0 0 0 2 0 0 0 2 4 4 4 2 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2
         0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
         0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0
-    ]), Int[
+    ]), Integer[
         2 0 0 0 2 4 4 4 2 0 0 0 2 0 0 0 2 4 4 4 2 0 0 0 2
         4 2 0 2 0 2 4 2 0 2 0 2 4 2 0 2 0 2 4 2 0 2 0 2 4
         4 4 2 0 0 0 2 0 0 0 2 4 4 4 2 0 0 0 2 0 0 0 2 4 4
@@ -17883,7 +17883,7 @@ problem_7447852a = Problem("problem_7447852a", [
 ])
 
 problem_7468f01a = Problem("problem_7468f01a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -17894,13 +17894,13 @@ problem_7468f01a = Problem("problem_7468f01a", [
         0 0 8 8 2 2 8 8 8 8 0 0 0 0 0
         0 0 8 8 8 8 8 8 8 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 2 8 8 8 8 8 8
         8 8 8 8 8 2 2 8
         8 8 8 8 2 2 8 8
         8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 4 4 4 4 4 0 0 0 0 0 0 0 0
         0 0 0 4 4 4 4 4 0 0 0 0 0 0 0 0
@@ -17913,14 +17913,14 @@ problem_7468f01a = Problem("problem_7468f01a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4
         4 4 4 4 4
         4 4 1 1 4
         4 1 1 4 4
         4 4 1 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -17936,13 +17936,13 @@ problem_7468f01a = Problem("problem_7468f01a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 3 6 6 6
         6 6 3 3 3 6
         6 3 6 6 6 6
         6 3 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -17960,7 +17960,7 @@ problem_7468f01a = Problem("problem_7468f01a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 8 1 1 1 1
         1 8 8 1 1 1 1 1
         1 1 1 1 1 1 1 1
@@ -17972,85 +17972,85 @@ problem_7468f01a = Problem("problem_7468f01a", [
 ])
 
 problem_746b3537 = Problem("problem_746b3537", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1
         2 2 2
         1 1 1
-    ]), Grid(reshape(Int[1, 2, 1], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1, 2, 1], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 4 6
         3 4 6
         3 4 6
-    ]), Grid(reshape(Int[3, 4, 6], 1, 3))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[3, 4, 6], 1, 3))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 3 3 8 1
         2 3 3 8 1
         2 3 3 8 1
-    ]), Grid(reshape(Int[2, 3, 8, 1], 1, 4))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2, 3, 8, 1], 1, 4))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2
         6 6
         8 8
         8 8
-    ]), Grid(reshape(Int[2, 6, 8], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2, 6, 8], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4
         4 4 4 4
         2 2 2 2
         2 2 2 2
         8 8 8 8
         3 3 3 3
-    ]), Grid(reshape(Int[4, 2, 8, 3], 4, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[4, 2, 8, 3], 4, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 2 3 3 3 8 8 4
         1 1 2 3 3 3 8 8 4
         1 1 2 3 3 3 8 8 4
         1 1 2 3 3 3 8 8 4
-    ]), Grid(reshape(Int[1, 2, 3, 8, 4], 1, 5)))
+    ]), Grid(reshape(Integer[1, 2, 3, 8, 4], 1, 5)))
 ])
 
 problem_74dd1130 = Problem("problem_74dd1130", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 1
         1 5 1
         5 2 2
-    ]), Int[
+    ]), Integer[
         2 1 5
         2 5 2
         1 1 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 5
         6 2 2
         5 5 5
-    ]), Int[
+    ]), Integer[
         2 6 5
         2 2 5
         5 2 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 5
         5 5 8
         5 8 9
-    ]), Int[
+    ]), Integer[
         9 5 5
         9 5 8
         5 8 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 6 6
         2 1 1
         2 6 2
-    ]), Int[
+    ]), Integer[
         2 2 2
         6 1 6
         6 1 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 3 4
         9 4 4
         9 3 4
-    ]), Int[
+    ]), Integer[
         9 9 9
         3 4 3
         4 4 4
@@ -18058,7 +18058,7 @@ problem_74dd1130 = Problem("problem_74dd1130", [
 ])
 
 problem_75b8110e = Problem("problem_75b8110e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 0 0 0 0 5 0
         4 4 0 0 0 0 0 0
         0 0 4 0 0 0 5 0
@@ -18067,13 +18067,13 @@ problem_75b8110e = Problem("problem_75b8110e", [
         6 6 6 0 0 0 0 9
         6 0 6 6 9 9 0 0
         0 6 6 0 9 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4 5 0
         6 6 6 9
         6 9 5 6
         5 5 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0 4 5 5 0 0
         0 0 0 0 0 0 5 5
         4 4 0 4 0 5 0 0
@@ -18082,13 +18082,13 @@ problem_75b8110e = Problem("problem_75b8110e", [
         0 0 6 0 0 9 0 0
         6 0 0 6 0 9 0 9
         0 0 6 6 0 0 0 9
-    ]), Int[
+    ]), Integer[
         5 5 0 6
         0 9 5 5
         6 5 0 6
         4 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 4 5 0 0 0
         4 0 0 0 0 5 0 0
         0 0 0 4 0 0 5 0
@@ -18097,13 +18097,13 @@ problem_75b8110e = Problem("problem_75b8110e", [
         6 0 0 0 0 9 0 9
         6 0 6 0 9 9 9 0
         6 0 6 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 9 9 4
         6 5 0 9
         6 9 5 4
         6 4 5 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0 4 0 5 0 5
         0 0 4 0 5 0 0 5
         0 0 4 4 0 0 5 5
@@ -18112,13 +18112,13 @@ problem_75b8110e = Problem("problem_75b8110e", [
         6 6 6 0 0 9 9 9
         6 0 0 6 9 9 0 9
         6 6 0 6 9 0 9 9
-    ]), Int[
+    ]), Integer[
         6 5 6 5
         5 6 6 5
         6 9 5 5
         5 6 9 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 4 4 0 5 5 5
         0 0 4 0 5 5 0 5
         0 0 0 0 5 0 0 0
@@ -18127,13 +18127,13 @@ problem_75b8110e = Problem("problem_75b8110e", [
         0 0 0 6 9 0 9 0
         0 0 0 6 9 0 9 9
         6 6 0 6 0 9 0 9
-    ]), Int[
+    ]), Integer[
         6 5 5 5
         5 5 9 5
         5 0 9 6
         5 6 0 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0 4 5 0 0 0
         0 4 4 4 5 0 5 5
         4 4 4 0 0 5 5 5
@@ -18142,7 +18142,7 @@ problem_75b8110e = Problem("problem_75b8110e", [
         0 0 0 6 0 9 0 0
         0 6 0 0 0 0 9 9
         6 0 0 0 0 9 0 0
-    ]), Int[
+    ]), Integer[
         5 9 6 6
         5 9 5 5
         4 5 5 5
@@ -18151,14 +18151,14 @@ problem_75b8110e = Problem("problem_75b8110e", [
 ])
 
 problem_760b3cac = Problem("problem_760b3cac", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 8 0 0 0
         0 0 0 0 8 8 0 0 0
         0 0 0 0 0 8 0 0 0
         0 0 0 4 0 0 0 0 0
         0 0 0 4 4 4 0 0 0
         0 0 0 0 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 8 8 0 8 0 0 0
         8 8 0 0 8 8 0 0 0
         8 0 0 0 0 8 0 0 0
@@ -18166,14 +18166,14 @@ problem_760b3cac = Problem("problem_760b3cac", [
         0 0 0 4 4 4 0 0 0
         0 0 0 0 4 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 8 0 0 0
         0 0 0 8 8 8 0 0 0
         0 0 0 8 8 0 0 0 0
         0 0 0 0 0 4 0 0 0
         0 0 0 4 4 4 0 0 0
         0 0 0 0 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 8 8 0 8
         0 0 0 8 8 8 8 8 8
         0 0 0 8 8 0 0 8 8
@@ -18181,14 +18181,14 @@ problem_760b3cac = Problem("problem_760b3cac", [
         0 0 0 4 4 4 0 0 0
         0 0 0 0 4 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 0 0
         0 0 0 0 8 8 0 0 0
         0 0 0 8 0 0 0 0 0
         0 0 0 4 0 0 0 0 0
         0 0 0 4 4 4 0 0 0
         0 0 0 0 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 8 0 0 0 0 0
         8 8 0 0 8 8 0 0 0
         0 0 8 8 0 0 0 0 0
@@ -18196,14 +18196,14 @@ problem_760b3cac = Problem("problem_760b3cac", [
         0 0 0 4 4 4 0 0 0
         0 0 0 0 4 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 8 0 0 0
         0 0 0 0 8 8 0 0 0
         0 0 0 8 0 0 0 0 0
         0 0 0 0 0 4 0 0 0
         0 0 0 4 4 4 0 0 0
         0 0 0 0 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 8 8 0 8
         0 0 0 0 8 8 8 8 0
         0 0 0 8 0 0 0 0 8
@@ -18214,7 +18214,7 @@ problem_760b3cac = Problem("problem_760b3cac", [
 ])
 
 problem_776ffc46 = Problem("problem_776ffc46", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0 0 0 0
         5 0 0 0 0 0 5 0 0 0 0 0 0 1 1 1 0 0 0 0
         5 0 0 2 0 0 5 0 0 0 0 0 0 1 1 1 0 0 0 0
@@ -18235,7 +18235,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0 0 0 0
         5 0 0 0 0 0 5 0 0 0 0 0 0 1 1 1 0 0 0 0
         5 0 0 2 0 0 5 0 0 0 0 0 0 1 1 1 0 0 0 0
@@ -18257,7 +18257,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 5 5 5 5 5 5 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 5 0 0 0 0 0 0 0 0
@@ -18278,7 +18278,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
         0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 5 5 5 5 5 5 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 5 0 0 0 0 0 0 0 0
@@ -18300,7 +18300,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
         0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 5 0 0 0 0 0 0 0 5 5 5 5 5 5 5
         0 0 2 0 0 5 0 0 0 0 0 0 0 5 0 0 0 0 0 5
         0 0 2 0 0 5 0 0 0 0 0 0 0 5 0 2 2 2 0 5
@@ -18321,7 +18321,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
         0 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 5 0 0 0 0 0 0 0 5 5 5 5 5 5 5
         0 0 2 0 0 5 0 0 0 0 0 0 0 5 0 0 0 0 0 5
         0 0 2 0 0 5 0 0 0 0 0 0 0 5 0 2 2 2 0 5
@@ -18343,7 +18343,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 3 3 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 3 3 0 0
@@ -18364,7 +18364,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
         0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 3 3 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 3 3 0 0
@@ -18386,7 +18386,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 2 2 2 0 0
         0 0 0 0 0 0 0 1 1 1 0 0 5 0 0 2 2 2 0 0
@@ -18407,7 +18407,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
         0 2 2 2 2 0 5 0 0 0 0 0 5 0 0 2 0 0 5 0
         0 0 2 2 0 0 5 0 0 0 0 0 5 0 0 0 0 0 5 0
         0 0 0 0 0 0 5 0 0 0 0 0 5 5 5 5 5 5 5 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 2 2 2 0 0
         0 0 0 0 0 0 0 1 1 1 0 0 5 0 0 2 2 2 0 0
@@ -18432,7 +18432,7 @@ problem_776ffc46 = Problem("problem_776ffc46", [
 ])
 
 problem_77fdfe62 = Problem("problem_77fdfe62", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1 0 0 0 0 1 3
         1 1 1 1 1 1 1 1
         0 1 0 8 0 0 1 0
@@ -18441,24 +18441,24 @@ problem_77fdfe62 = Problem("problem_77fdfe62", [
         0 1 8 0 8 8 1 0
         1 1 1 1 1 1 1 1
         4 1 0 0 0 0 1 6
-    ]), Int[
+    ]), Integer[
         0 2 0 0
         2 2 0 3
         0 0 6 0
         4 0 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 1 0 0 1 4
         1 1 1 1 1 1
         0 1 8 8 1 0
         0 1 8 0 1 0
         1 1 1 1 1 1
         2 1 0 0 1 3
-    ]), Int[
+    ]), Integer[
         9 4
         2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 1 0 0 0 0 1 2
         1 1 1 1 1 1 1 1
         0 1 0 8 0 8 1 0
@@ -18467,13 +18467,13 @@ problem_77fdfe62 = Problem("problem_77fdfe62", [
         0 1 8 8 8 0 1 0
         1 1 1 1 1 1 1 1
         7 1 0 0 0 0 1 4
-    ]), Int[
+    ]), Integer[
         0 6 0 2
         6 6 2 0
         7 0 4 4
         7 7 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 1 0 0 0 0 0 0 1 4
         1 1 1 1 1 1 1 1 1 1
         0 1 0 8 8 0 0 0 1 0
@@ -18484,7 +18484,7 @@ problem_77fdfe62 = Problem("problem_77fdfe62", [
         0 1 0 8 0 0 8 0 1 0
         1 1 1 1 1 1 1 1 1 1
         7 1 0 0 0 0 0 0 1 5
-    ]), Int[
+    ]), Integer[
         0 3 3 0 0 0
         3 3 3 0 4 0
         0 0 3 0 4 0
@@ -18495,7 +18495,7 @@ problem_77fdfe62 = Problem("problem_77fdfe62", [
 ])
 
 problem_780d0b14 = Problem("problem_780d0b14", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 0 0 1 1 0 0 0 8 8 8 8 8 0 8 8 8
         1 1 1 0 1 0 1 1 0 0 0 8 8 8 8 8 8 8 8 8
         1 1 0 1 1 1 0 1 0 0 8 8 8 8 8 8 8 8 8 8
@@ -18516,11 +18516,11 @@ problem_780d0b14 = Problem("problem_780d0b14", [
         0 6 6 6 0 0 6 0 0 0 0 1 1 0 1 1 1 1 1 0
         6 0 0 0 6 0 6 0 0 1 1 1 1 1 0 1 1 1 1 1
         6 6 0 6 0 6 6 6 0 1 0 1 0 1 0 1 1 1 1 0
-    ]), Int[
+    ]), Integer[
         1 8
         6 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 0 0 8 0 8 8 8 0 0 3 3 3 0 0 3 3 3
         4 4 4 0 0 4 0 8 8 8 8 8 0 0 3 3 3 3 0 3 3 0
         4 4 4 4 0 0 0 8 8 0 0 8 0 0 3 3 3 0 3 0 3 3
@@ -18539,11 +18539,11 @@ problem_780d0b14 = Problem("problem_780d0b14", [
         1 0 0 1 0 1 0 2 2 0 2 2 0 0 8 0 8 8 0 0 0 8
         1 1 1 1 0 1 0 0 2 2 2 0 2 0 0 8 8 0 0 0 8 0
         1 1 0 1 1 1 0 2 2 2 0 2 0 0 8 0 8 8 0 0 8 8
-    ]), Int[
+    ]), Integer[
         4 8 3
         1 2 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 0 0 0 0 0 0 7 0 0 7 0 0
         2 2 0 0 2 0 2 0 7 0 7 0 7 7 7 7 0
         2 2 2 2 0 2 2 0 0 7 7 0 0 7 7 0 7
@@ -18567,12 +18567,12 @@ problem_780d0b14 = Problem("problem_780d0b14", [
         1 0 0 0 1 1 1 0 6 6 6 0 6 6 6 6 6
         1 0 1 1 1 0 0 0 6 6 6 6 6 0 0 6 6
         1 1 1 1 1 1 1 0 6 6 6 6 6 6 6 6 6
-    ]), Int[
+    ]), Integer[
         2 7
         4 8
         1 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 0 3 3 3 0 2 2 2 2 2 2 2 0 0 0 4 4 4 4 0 4 4 4 4 4
         3 3 3 3 3 3 3 0 2 2 0 2 2 2 2 0 4 0 4 4 4 4 4 4 4 4 4 4
         0 3 0 0 3 3 0 0 2 2 0 0 2 2 2 0 4 4 4 4 4 4 4 4 4 4 4 4
@@ -18596,7 +18596,7 @@ problem_780d0b14 = Problem("problem_780d0b14", [
         7 7 0 7 7 0 7 0 3 3 0 0 3 3 3 0 2 0 2 2 2 2 0 2 2 0 2 2
         7 7 7 0 7 7 7 0 0 3 3 0 3 0 0 0 2 2 2 2 2 0 2 2 2 2 2 0
         7 7 7 7 7 7 7 0 3 3 3 3 3 3 3 0 2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         3 2 4
         1 1 8
         7 3 2
@@ -18604,7 +18604,7 @@ problem_780d0b14 = Problem("problem_780d0b14", [
 ])
 
 problem_7837ac64 = Problem("problem_7837ac64", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -18634,12 +18634,12 @@ problem_7837ac64 = Problem("problem_7837ac64", [
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
         0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0 4 0 0
-    ]), Int[
+    ]), Integer[
         1 0 3
         1 0 0
         1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0
@@ -18667,12 +18667,12 @@ problem_7837ac64 = Problem("problem_7837ac64", [
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0
         0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0
         2 0 0
         0 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -18702,12 +18702,12 @@ problem_7837ac64 = Problem("problem_7837ac64", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
         0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
-    ]), Int[
+    ]), Integer[
         6 6 0
         0 0 0
         3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
@@ -18735,12 +18735,12 @@ problem_7837ac64 = Problem("problem_7837ac64", [
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 2
         0 0 2
         2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0
         0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0
         0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0
@@ -18770,7 +18770,7 @@ problem_7837ac64 = Problem("problem_7837ac64", [
         0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0
         0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0
         0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 4
         0 0 0
         8 8 8
@@ -18778,110 +18778,110 @@ problem_7837ac64 = Problem("problem_7837ac64", [
 ])
 
 problem_794b24be = Problem("problem_794b24be", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         1 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         1 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1
         0 0 0
         1 0 0
-    ]), Int[
+    ]), Integer[
         2 2 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         0 0 1
         0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1
         0 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0
         0 0 0
         1 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         1 1 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0
         0 0 0
         1 0 1
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 2 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         1 1 0
         1 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 2 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0
         0 0 1
         0 1 1
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 2 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         0 0 0
         0 1 0
-    ]), Int[
+    ]), Integer[
         2 2 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         0 1 1
         1 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 2 0
         0 0 0
@@ -18889,7 +18889,7 @@ problem_794b24be = Problem("problem_794b24be", [
 ])
 
 problem_7b6016b9 = Problem("problem_7b6016b9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0 0 0
@@ -18913,7 +18913,7 @@ problem_7b6016b9 = Problem("problem_7b6016b9", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 8 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 8 3 3 3 3 3 8 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 8 3 3 3 3 3 8 3 3 3 3 3 3
@@ -18938,7 +18938,7 @@ problem_7b6016b9 = Problem("problem_7b6016b9", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 8 3 3 8 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
@@ -18961,7 +18961,7 @@ problem_7b6016b9 = Problem("problem_7b6016b9", [
         0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 1 3 3 3 3 3 3 3 3 3 3 3 1 3 3 3 3 3 3 3 3
         3 3 3 3 1 3 3 3 3 3 3 3 3 3 3 3 1 3 3 3 3 3 3 3 3
@@ -18985,7 +18985,7 @@ problem_7b6016b9 = Problem("problem_7b6016b9", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 4 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0
@@ -19010,7 +19010,7 @@ problem_7b6016b9 = Problem("problem_7b6016b9", [
         0 0 0 0 4 0 0 4 0 0 0 0 0 4 0 0 0 0 4 0 0
         0 0 0 0 4 0 0 4 0 0 0 0 0 4 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 4 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 4 3 3 3 3 3 3 3 3 4 3 3 3 3 3 3 3
@@ -19036,7 +19036,7 @@ problem_7b6016b9 = Problem("problem_7b6016b9", [
         3 3 3 3 4 3 3 4 3 3 3 3 3 4 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 7 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0 0 0
         0 0 0 0 0 7 0 0 0 0 0 7 0 0 0 0 7 0 0 0 0 0 7 0 0
@@ -19059,7 +19059,7 @@ problem_7b6016b9 = Problem("problem_7b6016b9", [
         0 0 0 0 0 7 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0 0 0
         0 0 0 0 0 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 7 3 3 3 3 3 3 3 3 3 3 7 3 3 3 3 3 3 3 3
         3 3 3 3 3 7 3 3 3 3 3 7 3 3 3 3 7 3 3 3 3 3 7 3 3
@@ -19086,39 +19086,39 @@ problem_7b6016b9 = Problem("problem_7b6016b9", [
 ])
 
 problem_7b7f7511 = Problem("problem_7b7f7511", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 3 2 1 1 3 2
         1 1 3 3 1 1 3 3
         3 3 1 1 3 3 1 1
         2 3 1 1 2 3 1 1
-    ]), Int[
+    ]), Integer[
         1 1 3 2
         1 1 3 3
         3 3 1 1
         2 3 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4
         6 4 8 6 4 8
         6 6 8 6 6 8
-    ]), Int[
+    ]), Integer[
         4 4 4
         6 4 8
         6 6 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 3
         3 2
         4 4
         2 3
         3 2
         4 4
-    ]), Int[
+    ]), Integer[
         2 3
         3 2
         4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 4 5
         4 5 4
         6 6 4
@@ -19127,7 +19127,7 @@ problem_7b7f7511 = Problem("problem_7b7f7511", [
         4 5 4
         6 6 4
         2 6 2
-    ]), Int[
+    ]), Integer[
         5 4 5
         4 5 4
         6 6 4
@@ -19136,7 +19136,7 @@ problem_7b7f7511 = Problem("problem_7b7f7511", [
 ])
 
 problem_7c008303 = Problem("problem_7c008303", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 4 8 0 0 0 0 0 0
         1 6 8 0 0 0 0 0 0
         8 8 8 8 8 8 8 8 8
@@ -19146,7 +19146,7 @@ problem_7c008303 = Problem("problem_7c008303", [
         0 0 8 0 3 0 0 3 0
         0 0 8 3 3 3 3 3 3
         0 0 8 0 3 0 0 3 0
-    ]), Int[
+    ]), Integer[
         0 2 0 0 4 0
         2 2 2 4 4 4
         0 2 0 0 4 0
@@ -19154,7 +19154,7 @@ problem_7c008303 = Problem("problem_7c008303", [
         1 1 1 6 6 6
         0 1 0 0 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 8 1 2
         0 0 0 0 0 0 8 4 1
         8 8 8 8 8 8 8 8 8
@@ -19164,7 +19164,7 @@ problem_7c008303 = Problem("problem_7c008303", [
         0 0 0 0 3 0 8 0 0
         3 3 3 3 3 3 8 0 0
         0 0 0 0 3 0 8 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1 2 0 2
         1 1 0 0 0 0
         1 1 0 2 0 2
@@ -19172,7 +19172,7 @@ problem_7c008303 = Problem("problem_7c008303", [
         4 4 4 1 1 1
         0 0 0 0 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 0 3 0 0 3
         0 0 8 0 0 3 0 0 3
         0 0 8 3 3 0 3 3 0
@@ -19182,7 +19182,7 @@ problem_7c008303 = Problem("problem_7c008303", [
         8 8 8 8 8 8 8 8 8
         2 4 8 0 0 0 0 0 0
         6 5 8 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 2 0 0 4
         0 0 2 0 0 4
         2 2 0 4 4 0
@@ -19190,7 +19190,7 @@ problem_7c008303 = Problem("problem_7c008303", [
         0 6 0 5 0 0
         0 6 0 0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 3 0 0 8 0 0
         3 3 0 3 0 3 8 0 0
         0 3 0 3 0 3 8 0 0
@@ -19200,7 +19200,7 @@ problem_7c008303 = Problem("problem_7c008303", [
         8 8 8 8 8 8 8 8 8
         0 0 0 0 0 0 8 2 1
         0 0 0 0 0 0 8 4 7
-    ]), Int[
+    ]), Integer[
         0 0 0 1 0 0
         2 2 0 1 0 1
         0 2 0 1 0 1
@@ -19211,7 +19211,7 @@ problem_7c008303 = Problem("problem_7c008303", [
 ])
 
 problem_7ddcd7ec = Problem("problem_7ddcd7ec", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 3 3 0 0 0 0 0 0
@@ -19222,7 +19222,7 @@ problem_7ddcd7ec = Problem("problem_7ddcd7ec", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 3 3 0 0 0 0 0 0
@@ -19234,7 +19234,7 @@ problem_7ddcd7ec = Problem("problem_7ddcd7ec", [
         0 0 0 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 4 0 0 0
         0 0 0 0 4 4 0 0 0 0
@@ -19245,7 +19245,7 @@ problem_7ddcd7ec = Problem("problem_7ddcd7ec", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 4 0 0
         0 0 0 0 0 0 4 0 0 0
         0 0 0 0 4 4 0 0 0 0
@@ -19257,7 +19257,7 @@ problem_7ddcd7ec = Problem("problem_7ddcd7ec", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 7 0 0 0
@@ -19268,7 +19268,7 @@ problem_7ddcd7ec = Problem("problem_7ddcd7ec", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 7 0
         0 0 0 0 0 0 0 7 0 0
         0 0 0 0 0 0 7 0 0 0
@@ -19280,7 +19280,7 @@ problem_7ddcd7ec = Problem("problem_7ddcd7ec", [
         7 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -19291,7 +19291,7 @@ problem_7ddcd7ec = Problem("problem_7ddcd7ec", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 8 0
         0 0 0 0 0 0 0 8 0 0
         0 0 0 0 0 0 8 0 0 0
@@ -19306,7 +19306,7 @@ problem_7ddcd7ec = Problem("problem_7ddcd7ec", [
 ])
 
 problem_7df24a62 = Problem("problem_7df24a62", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 1 1 1 1 1 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 1 4 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19330,7 +19330,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
         0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 1 1 1 1 1 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 1 4 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19355,7 +19355,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
         0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19379,7 +19379,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0
         0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0
         4 0 0 4 0 0 0 0 0 4 0 4 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19404,7 +19404,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
         0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0
         4 0 0 4 0 0 0 0 0 4 0 4 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0
@@ -19428,7 +19428,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 0 0 0 4 0 0 0 4 0 0 0 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 4 1 1 1 0 0 0 0 0 0 0
@@ -19453,7 +19453,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 0 0 0 4 0 0 0 4 0 0 0 4 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 4 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19477,7 +19477,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
         0 4 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 4 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 4 1 4 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0
         0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19502,7 +19502,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
         0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 4 0 0 0 1 4 1 1 1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
@@ -19526,7 +19526,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
         0 0 0 0 0 0 4 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0
         0 4 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 4 0 0 0 1 4 1 1 1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
@@ -19554,7 +19554,7 @@ problem_7df24a62 = Problem("problem_7df24a62", [
 ])
 
 problem_7e0986d6 = Problem("problem_7e0986d6", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 0 0 8 0 3 3 3 3 3 8 0 0
         0 0 0 0 0 0 3 3 3 3 3 0 0 0
         0 0 0 0 0 0 3 3 8 3 8 0 0 0
@@ -19568,7 +19568,7 @@ problem_7e0986d6 = Problem("problem_7e0986d6", [
         3 3 3 3 8 3 3 3 8 0 0 0 0 0
         3 3 3 0 0 0 0 0 0 0 0 0 0 0
         3 8 3 0 8 0 0 0 0 0 0 0 0 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 3 3 3 3 3 0 0 0
         0 0 0 0 0 0 3 3 3 3 3 0 0 0
         0 0 0 0 0 0 3 3 3 3 3 0 0 0
@@ -19583,7 +19583,7 @@ problem_7e0986d6 = Problem("problem_7e0986d6", [
         3 3 3 0 0 0 0 0 0 0 0 0 0 0
         3 3 3 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 1 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 2 1 2 2 2 2 2
@@ -19597,7 +19597,7 @@ problem_7e0986d6 = Problem("problem_7e0986d6", [
         0 0 0 1 2 2 2 2 2 2 2 2 2 0 0 1
         0 0 0 2 2 2 2 2 2 1 2 2 1 0 0 0
         0 0 0 2 2 2 2 2 2 2 2 2 2 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 2 2 2 2 2 2 2
@@ -19612,7 +19612,7 @@ problem_7e0986d6 = Problem("problem_7e0986d6", [
         0 0 0 2 2 2 2 2 2 2 2 2 2 0 0 0
         0 0 0 2 2 2 2 2 2 2 2 2 2 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 5 5 4 5 0
         0 4 0 0 0 0 4 0 0 0 0 0 5 5 5 5 0
         0 5 4 5 5 5 5 5 5 0 0 0 5 5 5 5 0
@@ -19625,7 +19625,7 @@ problem_7e0986d6 = Problem("problem_7e0986d6", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0
         0 0 0 0 0 0 5 5 5 5 5 4 0 0 0 0 0
         0 0 0 4 0 0 5 5 5 4 5 5 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 5 5 5 5 0
         0 0 0 0 0 0 0 0 0 0 0 0 5 5 5 5 0
         0 5 5 5 5 5 5 5 5 0 0 0 5 5 5 5 0
@@ -19642,7 +19642,7 @@ problem_7e0986d6 = Problem("problem_7e0986d6", [
 ])
 
 problem_7f4411dc = Problem("problem_7f4411dc", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 0 0 0 0 0 0 7 7 7 7 7
         0 0 0 0 0 0 0 0 7 7 7 7 7
         0 0 0 0 7 0 0 0 7 7 7 7 7
@@ -19656,7 +19656,7 @@ problem_7f4411dc = Problem("problem_7f4411dc", [
         0 0 0 0 0 0 0 0 0 0 0 7 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 7 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 7 7 7 7 7
         0 0 0 0 0 0 0 0 7 7 7 7 7
         0 0 0 0 0 0 0 0 7 7 7 7 7
@@ -19671,7 +19671,7 @@ problem_7f4411dc = Problem("problem_7f4411dc", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0
         0 6 0 0 0 0 6 0 0 0 0 6 6 6 0 0 0
@@ -19689,7 +19689,7 @@ problem_7f4411dc = Problem("problem_7f4411dc", [
         0 0 6 6 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0
         0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 6 6 6 0 0 0
@@ -19708,7 +19708,7 @@ problem_7f4411dc = Problem("problem_7f4411dc", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 0 0 0 0
         0 0 0 0 0 0 5
         0 5 5 5 5 0 0
@@ -19716,7 +19716,7 @@ problem_7f4411dc = Problem("problem_7f4411dc", [
         0 5 5 5 5 5 0
         5 0 0 0 0 0 0
         0 0 0 0 0 5 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 5 5 5 5 0 0
@@ -19725,7 +19725,7 @@ problem_7f4411dc = Problem("problem_7f4411dc", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 8
         0 8 0 0 0 0 0 8 0 0
         0 8 8 8 0 0 0 0 0 0
@@ -19736,7 +19736,7 @@ problem_7f4411dc = Problem("problem_7f4411dc", [
         8 0 0 0 8 8 8 8 8 0
         0 0 8 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 0 0
@@ -19751,11 +19751,11 @@ problem_7f4411dc = Problem("problem_7f4411dc", [
 ])
 
 problem_7fe24cdd = Problem("problem_7fe24cdd", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 5 0
         8 5 3
         0 3 2
-    ]), Int[
+    ]), Integer[
         8 5 0 0 8 8
         8 5 3 3 5 5
         0 3 2 2 3 0
@@ -19763,11 +19763,11 @@ problem_7fe24cdd = Problem("problem_7fe24cdd", [
         5 5 3 3 5 8
         8 8 0 0 5 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 8 2
         3 2 2
         8 5 2
-    ]), Int[
+    ]), Integer[
         3 8 2 8 3 3
         3 2 2 5 2 8
         8 5 2 2 2 2
@@ -19775,11 +19775,11 @@ problem_7fe24cdd = Problem("problem_7fe24cdd", [
         8 2 5 2 2 3
         3 3 8 2 8 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0
         6 6 6
         0 3 0
-    ]), Int[
+    ]), Integer[
         0 3 0 0 6 0
         6 6 6 3 6 3
         0 3 0 0 6 0
@@ -19787,11 +19787,11 @@ problem_7fe24cdd = Problem("problem_7fe24cdd", [
         3 6 3 6 6 6
         0 6 0 0 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 5 0
         2 5 1
         3 1 1
-    ]), Int[
+    ]), Integer[
         2 5 0 3 2 2
         2 5 1 1 5 5
         3 1 1 1 1 0
@@ -19802,7 +19802,7 @@ problem_7fe24cdd = Problem("problem_7fe24cdd", [
 ])
 
 problem_80af3007 = Problem("problem_80af3007", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 0 0 0 5 5 5 0 0 0 0 0 0 0 0
         0 5 5 5 0 0 0 5 5 5 0 0 0 0 0 0 0 0
@@ -19819,7 +19819,7 @@ problem_80af3007 = Problem("problem_80af3007", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 0 5 0 0 0 5 0 5
         0 5 0 0 0 0 0 5 0
         5 0 5 0 0 0 5 0 5
@@ -19830,7 +19830,7 @@ problem_80af3007 = Problem("problem_80af3007", [
         0 5 0 0 0 0 0 5 0
         5 0 5 0 0 0 5 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 5 5 5 5 5 0 0 0 0 0
         0 0 0 0 0 0 0 5 5 5 5 5 5 0 0 0 0 0
@@ -19847,7 +19847,7 @@ problem_80af3007 = Problem("problem_80af3007", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 5 0 5 5 0 0 0 0
         0 0 5 0 0 5 0 0 0
         5 5 0 5 5 0 0 0 0
@@ -19858,7 +19858,7 @@ problem_80af3007 = Problem("problem_80af3007", [
         0 0 5 0 0 5 0 0 0
         5 5 0 5 5 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19875,7 +19875,7 @@ problem_80af3007 = Problem("problem_80af3007", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 5 5 5 5 5 5 5 5
         0 5 5 0 5 5 0 5 5
         5 0 5 5 0 5 5 0 5
@@ -19886,7 +19886,7 @@ problem_80af3007 = Problem("problem_80af3007", [
         0 5 5 0 0 0 0 5 5
         5 0 5 0 0 0 5 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19904,7 +19904,7 @@ problem_80af3007 = Problem("problem_80af3007", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 5 5 5 5 5 5 5 5
         0 5 0 0 5 0 0 5 0
         5 0 5 5 0 5 5 0 5
@@ -19918,7 +19918,7 @@ problem_80af3007 = Problem("problem_80af3007", [
 ])
 
 problem_810b9b61 = Problem("problem_810b9b61", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 1 1 1 0 0
         0 0 1 1 1 1 0 0 0 0 1 0 1 0 0
@@ -19934,7 +19934,7 @@ problem_810b9b61 = Problem("problem_810b9b61", [
         1 0 1 0 0 0 0 0 0 0 1 1 1 1 0
         1 1 1 0 0 1 1 0 0 0 1 0 0 1 0
         0 0 0 0 0 0 0 0 0 0 1 1 1 1 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 1 1 1 0 0
         0 0 3 3 3 3 0 0 0 0 1 0 1 0 0
@@ -19951,7 +19951,7 @@ problem_810b9b61 = Problem("problem_810b9b61", [
         3 3 3 0 0 1 1 0 0 0 3 0 0 3 0
         0 0 0 0 0 0 0 0 0 0 3 3 3 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19967,7 +19967,7 @@ problem_810b9b61 = Problem("problem_810b9b61", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19984,7 +19984,7 @@ problem_810b9b61 = Problem("problem_810b9b61", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 0 0 0
@@ -19994,7 +19994,7 @@ problem_810b9b61 = Problem("problem_810b9b61", [
         1 1 0 0 0 0 0 0 0
         0 1 0 0 1 1 0 0 0
         0 1 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 3 3 3 3 3 0 0 0
@@ -20005,7 +20005,7 @@ problem_810b9b61 = Problem("problem_810b9b61", [
         0 1 0 0 1 1 0 0 0
         0 1 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 1 1 1 1 1
         0 1 1 1 1 0 0 1 0 0 0 1
         0 1 0 0 1 0 0 1 0 0 0 1
@@ -20018,7 +20018,7 @@ problem_810b9b61 = Problem("problem_810b9b61", [
         0 0 0 0 1 0 0 0 1 0 0 0
         0 0 0 0 1 1 1 1 1 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 1 1 1 1 1
         0 3 3 3 3 0 0 1 0 0 0 1
         0 3 0 0 3 0 0 1 0 0 0 1
@@ -20035,7 +20035,7 @@ problem_810b9b61 = Problem("problem_810b9b61", [
 ])
 
 problem_82819916 = Problem("problem_82819916", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         3 3 2 3 3 2 3 3
         0 0 0 0 0 0 0 0
@@ -20046,7 +20046,7 @@ problem_82819916 = Problem("problem_82819916", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         3 3 2 3 3 2 3 3
         0 0 0 0 0 0 0 0
@@ -20058,7 +20058,7 @@ problem_82819916 = Problem("problem_82819916", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         2 2 1 2 1 2 1 1
         0 0 0 0 0 0 0 0
@@ -20069,7 +20069,7 @@ problem_82819916 = Problem("problem_82819916", [
         8 8 2 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         2 2 1 2 1 2 1 1
         0 0 0 0 0 0 0 0
@@ -20081,7 +20081,7 @@ problem_82819916 = Problem("problem_82819916", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         1 4 1 4 4 1 4 1
         0 0 0 0 0 0 0 0
@@ -20094,7 +20094,7 @@ problem_82819916 = Problem("problem_82819916", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         1 4 1 4 4 1 4 1
         0 0 0 0 0 0 0 0
@@ -20108,14 +20108,14 @@ problem_82819916 = Problem("problem_82819916", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         3 3 4 4 4 3 4 3
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         8 8 2 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         3 3 4 4 4 3 4 3
         0 0 0 0 0 0 0 0
@@ -20123,7 +20123,7 @@ problem_82819916 = Problem("problem_82819916", [
         8 8 2 2 2 8 2 8
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         2 2 1 2 1 2 1 1 2 1
         0 0 0 0 0 0 0 0 0 0
@@ -20138,7 +20138,7 @@ problem_82819916 = Problem("problem_82819916", [
         1 1 6 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         2 2 1 2 1 2 1 1 2 1
         0 0 0 0 0 0 0 0 0 0
@@ -20157,7 +20157,7 @@ problem_82819916 = Problem("problem_82819916", [
 ])
 
 problem_83302e8f = Problem("problem_83302e8f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
@@ -20182,7 +20182,7 @@ problem_83302e8f = Problem("problem_83302e8f", [
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 8 3 3 3 3 8 3 3 3 3 8 4 4 4 4 8 3 3 3 3
         3 3 3 3 8 3 3 3 3 8 3 3 3 3 8 4 4 4 4 8 3 3 3 3
         3 3 3 3 8 3 3 3 3 8 3 3 3 3 8 4 4 4 4 8 3 3 3 3
@@ -20208,7 +20208,7 @@ problem_83302e8f = Problem("problem_83302e8f", [
         3 3 3 3 8 3 3 3 3 8 3 3 3 3 8 3 3 3 3 8 3 3 3 3
         3 3 3 3 8 3 3 3 3 8 3 3 3 3 8 3 3 3 3 8 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
@@ -20238,7 +20238,7 @@ problem_83302e8f = Problem("problem_83302e8f", [
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
         0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3
         3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3
         3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3
@@ -20269,7 +20269,7 @@ problem_83302e8f = Problem("problem_83302e8f", [
         4 4 4 4 4 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3
         4 4 4 4 4 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3 1 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 9 0 0 0 0 9 0 0 0 0 9 0 0 0 0
         0 0 0 0 9 0 0 0 0 9 0 0 0 0 9 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 0 0 0 0
@@ -20289,7 +20289,7 @@ problem_83302e8f = Problem("problem_83302e8f", [
         0 0 0 0 9 0 0 0 0 9 0 0 0 0 9 0 0 0 0
         0 0 0 0 0 0 0 0 0 9 0 0 0 0 9 0 0 0 0
         0 0 0 0 9 0 0 0 0 9 0 0 0 0 9 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4 4 4 9 4 4 4 4 9 4 4 4 4 9 3 3 3 3
         4 4 4 4 9 4 4 4 4 9 4 4 4 4 9 3 3 3 3
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 9 3 3 3 3
@@ -20310,7 +20310,7 @@ problem_83302e8f = Problem("problem_83302e8f", [
         4 4 4 4 4 4 4 4 4 9 4 4 4 4 9 4 4 4 4
         4 4 4 4 9 4 4 4 4 9 4 4 4 4 9 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 0 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0
@@ -20338,7 +20338,7 @@ problem_83302e8f = Problem("problem_83302e8f", [
         0 0 0 5 0 0 0 5 0 0 0 0 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0
         0 0 0 0 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0 5 0 0 0
         0 0 0 5 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 5 4 4 4 5 4 4 4 5 3 3 3 5 3 3 3 5 3 3 3 5 4 4 4
         3 3 3 5 4 4 4 5 4 4 4 5 3 3 3 5 3 3 3 5 3 3 3 5 4 4 4
         3 3 3 5 4 4 4 4 4 4 4 5 3 3 3 5 3 3 3 5 3 3 3 5 4 4 4
@@ -20370,29 +20370,29 @@ problem_83302e8f = Problem("problem_83302e8f", [
 ])
 
 problem_834ec97d = Problem("problem_834ec97d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0
         0 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0
         0 2 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 6 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 4 0 4
         4 0 4 0 4
         4 0 4 0 4
         0 0 6 0 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -20402,7 +20402,7 @@ problem_834ec97d = Problem("problem_834ec97d", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 4 0 4 0 4 0 4
         4 0 4 0 4 0 4 0 4
         4 0 4 0 4 0 4 0 4
@@ -20413,7 +20413,7 @@ problem_834ec97d = Problem("problem_834ec97d", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -20426,7 +20426,7 @@ problem_834ec97d = Problem("problem_834ec97d", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0 4 0 4 0 4 0 4 0 4
         0 4 0 4 0 4 0 4 0 4 0 4
         0 4 0 4 0 4 0 4 0 4 0 4
@@ -20443,7 +20443,7 @@ problem_834ec97d = Problem("problem_834ec97d", [
 ])
 
 problem_8403a5d5 = Problem("problem_8403a5d5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -20454,7 +20454,7 @@ problem_8403a5d5 = Problem("problem_8403a5d5", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 5 2 0 2 5 2 0 2
         0 2 0 2 0 2 0 2 0 2
         0 2 0 2 0 2 0 2 0 2
@@ -20466,7 +20466,7 @@ problem_8403a5d5 = Problem("problem_8403a5d5", [
         0 2 0 2 0 2 0 2 0 2
         0 2 0 2 5 2 0 2 5 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -20477,7 +20477,7 @@ problem_8403a5d5 = Problem("problem_8403a5d5", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 3 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 3 5 3 0 3
         0 0 0 0 0 3 0 3 0 3
         0 0 0 0 0 3 0 3 0 3
@@ -20489,7 +20489,7 @@ problem_8403a5d5 = Problem("problem_8403a5d5", [
         0 0 0 0 0 3 0 3 0 3
         0 0 0 0 0 3 0 3 5 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -20500,7 +20500,7 @@ problem_8403a5d5 = Problem("problem_8403a5d5", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 4 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 4 5 4 0 4 5
         0 0 0 0 4 0 4 0 4 0
         0 0 0 0 4 0 4 0 4 0
@@ -20512,7 +20512,7 @@ problem_8403a5d5 = Problem("problem_8403a5d5", [
         0 0 0 0 4 0 4 0 4 0
         0 0 0 0 4 0 4 5 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -20523,7 +20523,7 @@ problem_8403a5d5 = Problem("problem_8403a5d5", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1 5 1 0 1 5 1 0
         0 0 1 0 1 0 1 0 1 0
         0 0 1 0 1 0 1 0 1 0
@@ -20538,7 +20538,7 @@ problem_8403a5d5 = Problem("problem_8403a5d5", [
 ])
 
 problem_846bdb03 = Problem("problem_846bdb03", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -20552,7 +20552,7 @@ problem_846bdb03 = Problem("problem_846bdb03", [
         0 0 0 0 0 2 0 0 0 0 0 0 1
         0 0 0 0 0 2 0 0 0 0 0 0 1
         0 0 0 0 0 4 0 0 0 0 0 0 4
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 4
         2 2 2 0 1 0 0 1
         2 0 2 0 1 1 1 1
@@ -20560,7 +20560,7 @@ problem_846bdb03 = Problem("problem_846bdb03", [
         2 0 0 2 0 0 0 1
         4 0 0 0 0 0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 3 0 8 0 8 0 0 0
         0 0 0 0 3 3 3 8 8 8 0 0 0
@@ -20574,7 +20574,7 @@ problem_846bdb03 = Problem("problem_846bdb03", [
         0 8 0 0 0 0 0 0 3 0 0 0 0
         0 8 0 0 0 0 0 0 3 0 0 0 0
         0 4 0 0 0 0 0 0 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 4
         8 8 0 8 0 3 0 3
         8 8 8 8 3 3 3 3
@@ -20583,7 +20583,7 @@ problem_846bdb03 = Problem("problem_846bdb03", [
         8 8 0 8 0 0 0 3
         4 0 0 0 0 0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 4 0 0 0 0 0
         0 0 2 0 0 0 0 1 0 0 0 0 0
@@ -20597,13 +20597,13 @@ problem_846bdb03 = Problem("problem_846bdb03", [
         0 0 0 0 1 2 2 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 4
         2 0 2 1 1 1
         2 2 2 1 0 1
         4 0 0 0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 4 0 0 0 0 4 0 0
         0 0 0 0 0 7 0 0 0 0 3 0 0
@@ -20617,14 +20617,14 @@ problem_846bdb03 = Problem("problem_846bdb03", [
         0 0 0 0 0 7 7 3 3 0 0 0 0
         0 0 0 0 0 0 7 0 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 4
         7 7 7 0 3 3
         7 7 7 3 3 3
         7 0 7 0 3 3
         4 0 0 0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 4 0 0 0 0 0 0 4 0 0 0 0
         0 2 0 0 0 0 0 0 8 0 0 0 0
@@ -20638,7 +20638,7 @@ problem_846bdb03 = Problem("problem_846bdb03", [
         0 8 8 8 2 2 2 0 0 0 0 0 0
         0 8 0 0 0 2 0 0 0 0 0 0 0
         0 8 0 0 0 2 2 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 4
         2 0 0 2 8 0 8 8
         2 2 2 2 8 8 8 8
@@ -20649,7 +20649,7 @@ problem_846bdb03 = Problem("problem_846bdb03", [
 ])
 
 problem_855e0971 = Problem("problem_855e0971", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -20665,7 +20665,7 @@ problem_855e0971 = Problem("problem_855e0971", [
         8 8 8 8 8 8 8 8 8 0 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
         4 4 4 4 0 4 4 4 4 4 4 4 4 0 4 4 4 4 4
@@ -20682,7 +20682,7 @@ problem_855e0971 = Problem("problem_855e0971", [
         8 8 8 8 8 8 8 8 8 0 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 0 8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 1 1 1 1 1 1 1 1
         2 2 2 2 2 1 1 1 1 1 1 1 1
         2 2 2 2 2 1 1 1 1 1 1 1 1
@@ -20697,7 +20697,7 @@ problem_855e0971 = Problem("problem_855e0971", [
         2 2 2 2 2 1 1 1 0 1 1 1 1
         2 2 2 2 2 1 1 1 1 1 1 1 1
         2 2 2 2 2 1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 1 1 1 1 1 1 1 1
         2 2 2 2 2 1 1 1 1 1 1 1 1
         2 2 2 2 2 1 1 1 1 1 1 1 1
@@ -20713,7 +20713,7 @@ problem_855e0971 = Problem("problem_855e0971", [
         2 2 2 2 2 1 1 1 1 1 1 1 1
         2 2 2 2 2 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 0 8 8 8 8 8 8 8 8 8 8 8
@@ -20727,7 +20727,7 @@ problem_855e0971 = Problem("problem_855e0971", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 0 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         8 8 8 0 8 8 8 8 8 8 8 0 8 8 8
         8 8 8 0 8 8 8 8 8 8 8 0 8 8 8
         8 8 8 0 8 8 8 8 8 8 8 0 8 8 8
@@ -20742,7 +20742,7 @@ problem_855e0971 = Problem("problem_855e0971", [
         3 3 3 3 3 3 3 0 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 0 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 5 5 5 5 5 4 4 4 4 4 4
         2 2 2 2 5 5 5 5 5 4 4 4 4 4 4
         2 2 2 2 5 5 5 5 5 4 4 4 0 4 4
@@ -20757,7 +20757,7 @@ problem_855e0971 = Problem("problem_855e0971", [
         2 2 2 2 5 5 5 5 5 4 4 4 4 4 4
         2 2 2 2 5 5 5 5 5 4 0 4 4 4 4
         2 2 2 2 5 5 5 5 5 4 4 4 4 4 4
-    ]), Int[
+    ]), Integer[
         2 2 2 2 5 5 5 5 5 4 4 4 4 4 4
         2 2 2 2 5 5 5 5 5 4 4 4 4 4 4
         2 2 2 2 5 5 5 5 5 0 0 0 0 0 0
@@ -20773,7 +20773,7 @@ problem_855e0971 = Problem("problem_855e0971", [
         2 2 2 2 5 5 5 5 5 0 0 0 0 0 0
         2 2 2 2 5 5 5 5 5 4 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 0 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 0 8 8
@@ -20791,7 +20791,7 @@ problem_855e0971 = Problem("problem_855e0971", [
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 0 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         8 8 8 8 0 8 8 8 8 8 8 8 0 8 8
         8 8 8 8 0 8 8 8 8 8 8 8 0 8 8
         8 8 8 8 0 8 8 8 8 8 8 8 0 8 8
@@ -20813,7 +20813,7 @@ problem_855e0971 = Problem("problem_855e0971", [
 ])
 
 problem_85c4e7cd = Problem("problem_85c4e7cd", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 4 4 4 4
         4 2 2 2 2 2 2 2 2 2 2 4
         4 2 1 1 1 1 1 1 1 1 2 4
@@ -20826,7 +20826,7 @@ problem_85c4e7cd = Problem("problem_85c4e7cd", [
         4 2 1 1 1 1 1 1 1 1 2 4
         4 2 2 2 2 2 2 2 2 2 2 4
         4 4 4 4 4 4 4 4 4 4 4 4
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8
         8 5 5 5 5 5 5 5 5 5 5 8
         8 5 3 3 3 3 3 3 3 3 5 8
@@ -20840,14 +20840,14 @@ problem_85c4e7cd = Problem("problem_85c4e7cd", [
         8 5 5 5 5 5 5 5 5 5 5 8
         8 8 8 8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2
         2 1 1 1 1 2
         2 1 6 6 1 2
         2 1 6 6 1 2
         2 1 1 1 1 2
         2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         6 6 6 6 6 6
         6 1 1 1 1 6
         6 1 2 2 1 6
@@ -20855,7 +20855,7 @@ problem_85c4e7cd = Problem("problem_85c4e7cd", [
         6 1 1 1 1 6
         6 6 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8
         8 1 1 1 1 1 1 8
         8 1 2 2 2 2 1 8
@@ -20864,7 +20864,7 @@ problem_85c4e7cd = Problem("problem_85c4e7cd", [
         8 1 2 2 2 2 1 8
         8 1 1 1 1 1 1 8
         8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 4 4
         4 2 2 2 2 2 2 4
         4 2 1 1 1 1 2 4
@@ -20874,7 +20874,7 @@ problem_85c4e7cd = Problem("problem_85c4e7cd", [
         4 2 2 2 2 2 2 4
         4 4 4 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 7 7 7 7 7 7 7 7
         7 2 2 2 2 2 2 2 2 7
         7 2 4 4 4 4 4 4 2 7
@@ -20885,7 +20885,7 @@ problem_85c4e7cd = Problem("problem_85c4e7cd", [
         7 2 4 4 4 4 4 4 2 7
         7 2 2 2 2 2 2 2 2 7
         7 7 7 7 7 7 7 7 7 7
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3
         3 1 1 1 1 1 1 1 1 3
         3 1 4 4 4 4 4 4 1 3
@@ -20897,7 +20897,7 @@ problem_85c4e7cd = Problem("problem_85c4e7cd", [
         3 1 1 1 1 1 1 1 1 3
         3 3 3 3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 2 2 2 2 2 2 2 2 2 2 2 2 8
         8 2 4 4 4 4 4 4 4 4 4 4 2 8
@@ -20912,7 +20912,7 @@ problem_85c4e7cd = Problem("problem_85c4e7cd", [
         8 2 4 4 4 4 4 4 4 4 4 4 2 8
         8 2 2 2 2 2 2 2 2 2 2 2 2 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         5 5 5 5 5 5 5 5 5 5 5 5 5 5
         5 6 6 6 6 6 6 6 6 6 6 6 6 5
         5 6 7 7 7 7 7 7 7 7 7 7 6 5
@@ -20931,7 +20931,7 @@ problem_85c4e7cd = Problem("problem_85c4e7cd", [
 ])
 
 problem_868de0fa = Problem("problem_868de0fa", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 0 0 0 0 0 0
         1 0 0 1 0 0 0 0 0 0
         1 0 0 1 0 0 1 1 1 0
@@ -20942,7 +20942,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         1 0 0 0 1 0 0 0 0 0
         1 0 0 0 1 0 0 0 0 0
         1 1 1 1 1 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 1 0 0 0 0 0 0
         1 2 2 1 0 0 0 0 0 0
         1 2 2 1 0 0 1 1 1 0
@@ -20954,7 +20954,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         1 7 7 7 1 0 0 0 0 0
         1 1 1 1 1 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 0 1 1 1 1 1 1
         1 0 1 0 1 0 0 0 0 1
         1 1 1 0 1 0 0 0 0 1
@@ -20965,7 +20965,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 0 1 1 1 1 1 1
         1 7 1 0 1 2 2 2 2 1
         1 1 1 0 1 2 2 2 2 1
@@ -20977,7 +20977,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         1 0 0 0 1 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0
         1 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0
@@ -20998,7 +20998,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1
         0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1
         0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         1 7 7 7 1 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0
         1 7 7 7 1 0 1 2 2 1 0 0 0 0 0 0 0 0 0 0
@@ -21020,7 +21020,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         0 0 0 0 0 0 0 0 0 0 0 0 1 2 2 2 2 2 2 1
         0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 0 0 0 0 0 0 0
         0 1 0 1 0 1 1 1 1 0 0
@@ -21032,7 +21032,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         1 0 0 0 1 0 0 0 0 0 0
         1 0 0 0 1 0 0 0 0 0 0
         1 1 1 1 1 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 0 0 0 0 0 0 0
         0 1 7 1 0 1 1 1 1 0 0
@@ -21045,7 +21045,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         1 7 7 7 1 0 0 0 0 0 0
         1 1 1 1 1 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 1 1 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 1 0 0 0 0 0 0 0
@@ -21061,7 +21061,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         0 0 0 0 0 0 1 0 0 0 0 1 0 0 0
         0 0 0 0 0 0 1 0 0 0 0 1 0 0 0
         0 0 0 0 0 0 1 1 1 1 1 1 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 1 1 0 0 0 0 0 0 0
         0 1 7 7 7 7 7 1 0 0 0 0 0 0 0
@@ -21078,7 +21078,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         0 0 0 0 0 0 1 2 2 2 2 1 0 0 0
         0 0 0 0 0 0 1 1 1 1 1 1 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0
         0 1 1 1 1 1 1 1 1 0 0 0 1 0 0 0 1 0 0 0
@@ -21099,7 +21099,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
         0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 1 7 7 7 1 0 0 0
         0 1 1 1 1 1 1 1 1 0 0 0 1 7 7 7 1 0 0 0
@@ -21124,7 +21124,7 @@ problem_868de0fa = Problem("problem_868de0fa", [
 ])
 
 problem_8731374e = Problem("problem_8731374e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 1 2 4 8 3 7 2 6 5 7 7 4 9 2 5 9 4 5 9 3 8 7
         6 0 1 0 4 8 6 1 1 2 1 2 6 6 6 5 8 7 4 1 7 5 6
         6 8 3 1 9 8 7 1 2 3 9 2 6 2 1 0 5 7 7 7 8 1 3
@@ -21142,7 +21142,7 @@ problem_8731374e = Problem("problem_8731374e", [
         9 4 2 5 1 7 4 8 1 8 5 5 7 9 1 8 5 3 1 8 0 2 0
         2 9 2 7 1 5 2 2 8 6 9 3 9 6 6 3 6 2 2 6 1 4 6
         6 5 3 7 0 9 1 3 2 6 5 0 6 1 0 5 2 7 1 4 8 4 1
-    ]), Int[
+    ]), Integer[
         1 2 1 1 2 1
         1 2 1 1 2 1
         2 2 2 2 2 2
@@ -21151,7 +21151,7 @@ problem_8731374e = Problem("problem_8731374e", [
         1 2 1 1 2 1
         1 2 1 1 2 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 1 8 2 5 1 9 5 0 5 1 2 4 2 9 7 4 4 5 8 6 7 6
         5 6 8 3 9 8 4 1 2 1 5 3 2 4 6 1 8 7 6 6 9 9 0
         6 8 6 0 2 0 2 5 2 8 0 2 1 9 5 8 1 2 9 4 7 4 4
@@ -21179,7 +21179,7 @@ problem_8731374e = Problem("problem_8731374e", [
         4 1 7 6 6 7 4 3 0 2 0 7 1 7 3 0 2 0 3 8 6 2 7
         2 5 4 4 0 8 2 8 9 8 9 7 8 5 3 3 2 5 7 4 0 3 7
         2 5 5 0 0 4 2 4 9 9 3 1 6 1 1 6 5 9 8 3 7 4 2
-    ]), Int[
+    ]), Integer[
         4 4 1 4 1 4 1 4 4
         4 4 1 4 1 4 1 4 4
         1 1 1 1 1 1 1 1 1
@@ -21191,7 +21191,7 @@ problem_8731374e = Problem("problem_8731374e", [
         4 4 1 4 1 4 1 4 4
         4 4 1 4 1 4 1 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 7 9 8 8 0 8 9 9 3 1 4 5 2 7 6
         6 0 9 2 7 2 8 4 3 3 2 7 7 5 9 4 0
         1 9 4 5 4 8 8 8 8 8 8 8 8 2 0 7 9
@@ -21208,7 +21208,7 @@ problem_8731374e = Problem("problem_8731374e", [
         3 9 9 9 1 6 1 9 4 7 5 5 3 2 9 3 0
         5 8 2 5 4 2 2 4 0 9 2 8 1 3 5 7 3
         8 0 9 5 3 8 4 5 0 2 5 2 9 6 0 1 0
-    ]), Int[
+    ]), Integer[
         8 8 8 2 8 8 8 8
         8 8 8 2 8 8 8 8
         8 8 8 2 8 8 8 8
@@ -21216,7 +21216,7 @@ problem_8731374e = Problem("problem_8731374e", [
         8 8 8 2 8 8 8 8
         8 8 8 2 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 7 2 0 2 6 3 0 3 9 1 3 5 3 0 4 5
         4 4 8 7 0 7 9 1 4 9 5 2 0 8 5 3 2
         8 7 9 8 8 8 8 8 8 8 8 7 6 1 5 2 1
@@ -21236,7 +21236,7 @@ problem_8731374e = Problem("problem_8731374e", [
         2 1 2 4 9 2 1 5 1 7 0 7 9 3 8 2 1
         7 1 9 4 2 8 4 3 6 2 8 0 8 5 3 5 9
         1 2 5 7 8 7 1 6 5 8 0 9 2 8 9 1 5
-    ]), Int[
+    ]), Integer[
         8 8 1 8 8 8 1 8
         8 8 1 8 8 8 1 8
         1 1 1 1 1 1 1 1
@@ -21251,7 +21251,7 @@ problem_8731374e = Problem("problem_8731374e", [
 ])
 
 problem_88a10436 = Problem("problem_88a10436", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 0 0 0 0 0 0
         2 2 1 0 0 0 0 0 0
         0 1 3 0 0 0 0 0 0
@@ -21261,7 +21261,7 @@ problem_88a10436 = Problem("problem_88a10436", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0 0 0 0 0 0 0
         2 2 1 0 0 0 0 0 0
         0 1 3 0 0 0 0 0 0
@@ -21272,7 +21272,7 @@ problem_88a10436 = Problem("problem_88a10436", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 6 0 0
         0 0 0 0 1 1 0
         0 0 0 0 2 2 2
@@ -21281,7 +21281,7 @@ problem_88a10436 = Problem("problem_88a10436", [
         0 5 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 6 0 0
         0 0 0 0 1 1 0
         0 0 0 0 2 2 2
@@ -21291,7 +21291,7 @@ problem_88a10436 = Problem("problem_88a10436", [
         2 2 2 0 0 0 0
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 5 0 0 0
@@ -21302,7 +21302,7 @@ problem_88a10436 = Problem("problem_88a10436", [
         0 0 3 1 0 0 0 0
         0 3 3 1 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 0 0 2 2 0 0 0
         0 0 0 0 3 1 0 0
@@ -21314,7 +21314,7 @@ problem_88a10436 = Problem("problem_88a10436", [
         0 3 3 1 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 2 2 0 0 0 0 0 0
@@ -21325,7 +21325,7 @@ problem_88a10436 = Problem("problem_88a10436", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 2 2 0 0 0 0 0 0
@@ -21340,50 +21340,50 @@ problem_88a10436 = Problem("problem_88a10436", [
 ])
 
 problem_88a62173 = Problem("problem_88a62173", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 0 2
         2 2 0 2 2
         0 0 0 0 0
         0 2 0 2 2
         2 2 0 2 0
-    ]), Int[
+    ]), Integer[
         2 2
         2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 1 0
         0 1 0 0 1
         0 0 0 0 0
         1 0 0 1 0
         1 1 0 0 1
-    ]), Int[
+    ]), Integer[
         1 0
         1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 0 0 8
         8 0 0 8 0
         0 0 0 0 0
         8 8 0 8 8
         8 0 0 8 0
-    ]), Int[
+    ]), Integer[
         0 8
         8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 0 5 0
         0 5 0 0 5
         0 0 0 0 0
         5 5 0 5 5
         0 5 0 0 5
-    ]), Int[
+    ]), Integer[
         5 0
         0 5
     ])
 ])
 
 problem_890034e9 = Problem("problem_890034e9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 1 1 0 1 1 1 1 0 1 0 1 0 1 1 1 1 1 1 1
         1 1 0 8 1 1 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1
         1 0 0 1 0 0 2 2 2 2 1 1 1 1 1 8 1 1 1 1 0
@@ -21405,7 +21405,7 @@ problem_890034e9 = Problem("problem_890034e9", [
         1 1 8 0 1 0 1 1 0 1 1 1 1 1 1 0 1 0 0 1 1
         1 1 0 0 8 1 0 1 0 0 0 0 1 1 1 0 8 0 0 0 0
         1 0 0 1 0 0 1 0 0 1 1 1 1 0 1 1 0 8 1 8 0
-    ]), Int[
+    ]), Integer[
         0 8 1 1 0 1 1 1 1 0 1 0 1 0 1 1 1 1 1 1 1
         1 1 0 8 1 1 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1
         1 0 0 1 0 0 2 2 2 2 1 1 1 1 1 8 1 1 1 1 0
@@ -21428,7 +21428,7 @@ problem_890034e9 = Problem("problem_890034e9", [
         1 1 0 0 8 1 0 1 0 0 0 0 1 1 1 0 8 0 0 0 0
         1 0 0 1 0 0 1 0 0 1 1 1 1 0 1 1 0 8 1 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 3 4 3 3 3 3 0 3 3 4 0 3 0 4 3 4 4 0 0
         3 3 0 0 3 3 3 4 0 0 4 4 4 3 0 0 3 3 4 0 3
         4 4 4 3 4 3 0 3 0 0 4 3 0 3 3 4 3 0 0 3 0
@@ -21450,7 +21450,7 @@ problem_890034e9 = Problem("problem_890034e9", [
         0 0 0 0 0 3 0 3 3 4 0 3 3 3 4 0 4 0 3 4 0
         3 3 3 0 4 0 4 3 0 0 0 3 0 0 3 3 0 0 4 3 0
         0 4 3 3 3 0 4 4 3 4 3 4 0 4 3 4 4 0 0 4 0
-    ]), Int[
+    ]), Integer[
         3 0 3 4 3 3 3 3 0 3 3 4 0 3 0 4 3 4 4 0 0
         3 3 0 0 3 3 3 4 0 0 4 4 4 3 0 0 3 3 4 0 3
         4 4 4 3 4 3 0 3 0 0 4 3 0 3 3 4 3 0 0 3 0
@@ -21473,7 +21473,7 @@ problem_890034e9 = Problem("problem_890034e9", [
         3 3 3 0 4 0 4 3 0 0 0 3 0 0 3 3 0 0 4 3 0
         0 4 3 3 3 0 4 4 3 4 3 4 0 4 3 4 4 0 0 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 0 3 2 0 2 0 3 3 2 2 2 2 2 2 2 2 3 3
         3 2 2 0 3 2 0 2 2 2 2 2 2 2 2 3 2 2 0 3 2
         3 3 0 3 0 0 3 2 2 2 2 3 2 2 2 2 3 0 0 3 2
@@ -21495,7 +21495,7 @@ problem_890034e9 = Problem("problem_890034e9", [
         2 2 0 0 0 0 0 0 0 3 2 3 2 2 3 0 0 2 2 0 0
         0 3 0 2 2 2 0 0 0 2 2 2 2 3 0 2 0 0 0 3 2
         2 3 2 2 2 0 0 3 2 0 3 2 0 2 2 2 3 0 0 2 2
-    ]), Int[
+    ]), Integer[
         0 0 3 0 3 2 0 2 0 3 3 2 2 2 2 2 2 2 2 3 3
         3 2 2 0 3 2 0 2 2 2 2 2 2 2 2 3 2 2 0 3 2
         3 3 0 3 0 0 3 2 2 2 2 3 2 2 2 2 3 0 0 3 2
@@ -21518,7 +21518,7 @@ problem_890034e9 = Problem("problem_890034e9", [
         0 3 0 2 2 2 0 0 0 2 2 2 2 3 0 2 0 0 0 3 2
         2 3 2 2 2 0 0 3 2 0 3 2 0 2 2 2 3 0 0 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 1 0 1 1 1 1 0 0 1 0 1 2 0 1 1 1 0 1 2
         1 1 1 0 2 1 2 1 0 1 1 1 1 0 1 1 1 0 2 1 1
         1 1 1 0 2 2 1 1 1 1 1 0 1 1 1 0 1 1 2 1 1
@@ -21540,7 +21540,7 @@ problem_890034e9 = Problem("problem_890034e9", [
         0 3 0 0 3 1 0 2 0 1 1 1 1 0 1 1 0 2 1 1 1
         1 3 3 3 3 1 1 1 1 1 1 1 1 1 1 1 0 0 1 1 0
         1 1 1 2 1 0 1 0 1 0 1 1 1 1 1 1 0 1 1 1 1
-    ]), Int[
+    ]), Integer[
         0 2 1 0 1 1 1 1 0 0 1 0 1 2 0 1 1 1 0 1 2
         1 1 1 0 2 1 2 1 0 1 1 1 1 0 1 1 1 0 2 1 1
         1 1 1 0 2 2 1 1 1 1 1 0 1 1 1 0 1 1 2 1 1
@@ -21566,7 +21566,7 @@ problem_890034e9 = Problem("problem_890034e9", [
 ])
 
 problem_8a004b2b = Problem("problem_8a004b2b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 4 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 3 0 0 0 0 0 0 2 2 0 0 0 0
@@ -21584,7 +21584,7 @@ problem_8a004b2b = Problem("problem_8a004b2b", [
         0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 0 0 0 0 0 0 4
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 3 3 0 0 0 0 0 0 2 2 0 0 0
@@ -21595,7 +21595,7 @@ problem_8a004b2b = Problem("problem_8a004b2b", [
         0 0 0 1 1 1 1 1 1 0 0 0 0 0
         4 0 0 0 0 0 0 0 0 0 0 0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -21613,7 +21613,7 @@ problem_8a004b2b = Problem("problem_8a004b2b", [
         0 0 0 0 0 0 0 0 0 0 3 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 4
         0 2 2 3 3 0 0
         0 2 2 3 3 0 0
@@ -21622,7 +21622,7 @@ problem_8a004b2b = Problem("problem_8a004b2b", [
         0 0 0 0 0 0 0
         4 0 0 0 0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 4 0 0 0 0 0 0 0 0 0 4 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -21639,7 +21639,7 @@ problem_8a004b2b = Problem("problem_8a004b2b", [
         0 0 0 0 0 0 2 1 1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 3 1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 0 0 0 4
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -21652,7 +21652,7 @@ problem_8a004b2b = Problem("problem_8a004b2b", [
         0 0 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 0 0 0 0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 8 8 8 0 0 0 0 3 3 3 3 0 0
@@ -21672,7 +21672,7 @@ problem_8a004b2b = Problem("problem_8a004b2b", [
         0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 8 8 8 0 0 0 0 3 3 3 3 0 0
@@ -21691,11 +21691,11 @@ problem_8a004b2b = Problem("problem_8a004b2b", [
 ])
 
 problem_8be77c9e = Problem("problem_8be77c9e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0
         1 1 1
         0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 0
         1 1 1
         0 0 0
@@ -21703,11 +21703,11 @@ problem_8be77c9e = Problem("problem_8be77c9e", [
         1 1 1
         1 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         1 0 1
         1 1 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         1 0 1
         1 1 0
@@ -21715,11 +21715,11 @@ problem_8be77c9e = Problem("problem_8be77c9e", [
         1 0 1
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 0 1
         0 0 1
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 1
         0 0 1
@@ -21727,11 +21727,11 @@ problem_8be77c9e = Problem("problem_8be77c9e", [
         0 0 1
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 0 1
         1 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 1
         1 0 0
@@ -21742,11 +21742,11 @@ problem_8be77c9e = Problem("problem_8be77c9e", [
 ])
 
 problem_8d5021e8 = Problem("problem_8d5021e8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8
         0 0
         0 8
-    ]), Int[
+    ]), Integer[
         8 0 0 8
         0 0 0 0
         8 0 0 8
@@ -21757,11 +21757,11 @@ problem_8d5021e8 = Problem("problem_8d5021e8", [
         0 0 0 0
         8 0 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0
         2 2
         2 0
-    ]), Int[
+    ]), Integer[
         0 2 2 0
         2 2 2 2
         0 2 2 0
@@ -21772,11 +21772,11 @@ problem_8d5021e8 = Problem("problem_8d5021e8", [
         2 2 2 2
         0 2 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0
         0 5
         5 0
-    ]), Int[
+    ]), Integer[
         0 5 5 0
         5 0 0 5
         0 0 0 0
@@ -21787,11 +21787,11 @@ problem_8d5021e8 = Problem("problem_8d5021e8", [
         5 0 0 5
         0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3
         3 0
         3 3
-    ]), Int[
+    ]), Integer[
         3 3 3 3
         0 3 3 0
         3 3 3 3
@@ -21805,7 +21805,7 @@ problem_8d5021e8 = Problem("problem_8d5021e8", [
 ])
 
 problem_8d510a79 = Problem("problem_8d510a79", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 0 0 0
         0 2 0 0 0 0 0 0 0 2
@@ -21816,7 +21816,7 @@ problem_8d510a79 = Problem("problem_8d510a79", [
         0 0 0 0 0 0 0 0 0 0
         0 1 0 0 0 2 0 0 1 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1 0 0 0 1 0 0 0
         0 0 0 0 0 0 1 0 0 0
         0 2 0 0 0 0 0 0 0 2
@@ -21828,7 +21828,7 @@ problem_8d510a79 = Problem("problem_8d510a79", [
         0 1 0 0 0 2 0 0 1 0
         0 1 0 0 0 0 0 0 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 1 0 0 0 0 0 0
         0 0 0 0 0 2 0 1 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -21839,7 +21839,7 @@ problem_8d510a79 = Problem("problem_8d510a79", [
         0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 2 0 1 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0 1 0 0 0 1 0 0
         0 2 0 0 0 2 0 1 0 0
         0 2 0 0 0 2 0 0 0 0
@@ -21851,7 +21851,7 @@ problem_8d510a79 = Problem("problem_8d510a79", [
         0 0 1 0 1 0 2 0 1 0
         0 0 1 0 1 0 0 0 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 0 1 0 0 0 0 2 0
         0 0 0 0 0 0 1 0 0 0
@@ -21862,7 +21862,7 @@ problem_8d510a79 = Problem("problem_8d510a79", [
         0 0 1 0 0 2 0 0 0 0
         2 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 1 0
-    ]), Int[
+    ]), Integer[
         0 0 0 1 0 0 1 0 0 0
         0 2 0 1 0 0 1 0 2 0
         0 2 0 0 0 0 1 0 2 0
@@ -21877,7 +21877,7 @@ problem_8d510a79 = Problem("problem_8d510a79", [
 ])
 
 problem_8e1813be = Problem("problem_8e1813be", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
@@ -21896,7 +21896,7 @@ problem_8e1813be = Problem("problem_8e1813be", [
         0 5 5 5 5 5 5 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2
         1 1 1 1 1 1
         3 3 3 3 3 3
@@ -21904,7 +21904,7 @@ problem_8e1813be = Problem("problem_8e1813be", [
         8 8 8 8 8 8
         6 6 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 2 0 0 4 0
         0 5 5 5 0 2 0 0 4 0
         0 5 5 5 0 2 0 0 4 0
@@ -21917,12 +21917,12 @@ problem_8e1813be = Problem("problem_8e1813be", [
         0 0 1 0 0 2 0 0 4 0
         0 0 1 0 0 2 0 0 4 0
         0 0 1 0 0 2 0 0 4 0
-    ]), Int[
+    ]), Integer[
         1 2 4
         1 2 4
         1 2 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         2 2 2 2 2 0 5 5 5 5 0 2
         0 0 0 0 0 0 5 5 5 5 0 0
@@ -21935,13 +21935,13 @@ problem_8e1813be = Problem("problem_8e1813be", [
         0 0 0 0 0 0 0 0 0 0 0 0
         1 1 1 1 1 1 1 1 1 1 1 1
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2
         8 8 8 8
         4 4 4 4
         1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 2 2 2
         0 0 0 0 0 0 0 0 5 5 5 5 5 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 5 5 5 5 5 5 5 0 0 0 0
@@ -21961,7 +21961,7 @@ problem_8e1813be = Problem("problem_8e1813be", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2
         3 3 3 3 3 3 3
         8 8 8 8 8 8 8
@@ -21973,38 +21973,38 @@ problem_8e1813be = Problem("problem_8e1813be", [
 ])
 
 problem_8e5a5113 = Problem("problem_8e5a5113", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 2 5 0 0 0 5 0 0 0
         4 1 1 5 0 0 0 5 0 0 0
         4 4 1 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 2 5 4 4 1 5 1 4 4
         4 1 1 5 4 1 1 5 1 1 4
         4 4 1 5 1 1 2 5 2 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 3 3 5 0 0 0 5 0 0 0
         6 3 3 5 0 0 0 5 0 0 0
         6 3 2 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         6 3 3 5 6 6 6 5 2 3 6
         6 3 3 5 3 3 3 5 3 3 6
         6 3 2 5 2 3 3 5 3 3 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 7 8 5 0 0 0 5 0 0 0
         7 7 8 5 0 0 0 5 0 0 0
         8 8 8 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         2 7 8 5 8 7 2 5 8 8 8
         7 7 8 5 8 7 7 5 8 7 7
         8 8 8 5 8 8 8 5 8 7 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 9 5 0 0 0 5 0 0 0
         9 9 9 5 0 0 0 5 0 0 0
         2 9 9 5 0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 9 5 2 9 3 5 9 9 2
         9 9 9 5 9 9 3 5 9 9 9
         2 9 9 5 9 9 9 5 9 3 3
@@ -22012,7 +22012,7 @@ problem_8e5a5113 = Problem("problem_8e5a5113", [
 ])
 
 problem_8eb1be9a = Problem("problem_8eb1be9a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22028,7 +22028,7 @@ problem_8eb1be9a = Problem("problem_8eb1be9a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0 0 8 0
         0 0 8 0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -22045,7 +22045,7 @@ problem_8eb1be9a = Problem("problem_8eb1be9a", [
         0 0 8 0 0 0 0 0 8 0 0 0 0 0 8 0 0 0 0
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -22056,7 +22056,7 @@ problem_8eb1be9a = Problem("problem_8eb1be9a", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 2 0 2 0 2 0 2 0 2 0
         2 2 2 2 2 2 2 2 2 2 2 2
         2 0 2 0 2 0 2 0 2 0 2 0
@@ -22068,7 +22068,7 @@ problem_8eb1be9a = Problem("problem_8eb1be9a", [
         2 0 2 0 2 0 2 0 2 0 2 0
         2 0 2 0 2 0 2 0 2 0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22083,7 +22083,7 @@ problem_8eb1be9a = Problem("problem_8eb1be9a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 0 0 1 0 0 1 0 0 1 0 0
         1 0 1 1 0 1 1 0 1 1 0 1 1
         1 0 1 1 0 1 1 0 1 1 0 1 1
@@ -22102,7 +22102,7 @@ problem_8eb1be9a = Problem("problem_8eb1be9a", [
 ])
 
 problem_8efcae92 = Problem("problem_8efcae92", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0
         0 0 0 0 0 0 0 0 0 0 1 1 1 1 2 1 1 1 0 0
@@ -22123,14 +22123,14 @@ problem_8efcae92 = Problem("problem_8efcae92", [
         0 0 0 0 0 0 1 1 1 2 1 1 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1
         1 2 1 2 1 1
         1 1 2 1 2 1
         1 2 1 1 1 1
         1 1 1 2 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 1 2 1 1 1 1 0 0 0 0 0 0 0 0 0
@@ -22151,7 +22151,7 @@ problem_8efcae92 = Problem("problem_8efcae92", [
         1 1 1 1 1 1 2 1 1 0 0 1 2 1 1 1 1 0 0 0
         1 1 2 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0 0 0
         1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 1 2 1 1 1 1
         1 2 1 1 1 1 1 1 2
         1 1 1 1 1 2 1 1 1
@@ -22162,7 +22162,7 @@ problem_8efcae92 = Problem("problem_8efcae92", [
         1 2 1 1 1 1 1 1 1
         1 1 1 2 1 1 1 1 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 2 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 2 1 1 1 0 0 1 1 1 1 1 1 1 1 1 0 0
@@ -22183,14 +22183,14 @@ problem_8efcae92 = Problem("problem_8efcae92", [
         0 0 1 1 1 2 1 1 1 1 1 2 1 1 1 1 1 1 1 0
         0 0 1 2 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 0
         0 0 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 0
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 2 1 1 1 1 1 2 1 1 1
         1 1 1 2 1 1 1 1 1 2 1 1 1 1 1 1 1
         1 2 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 1 0 0 0
         0 1 1 1 1 1 0 0 0 1 1 1 1 1 2 1 1 0 0 0
@@ -22211,7 +22211,7 @@ problem_8efcae92 = Problem("problem_8efcae92", [
         0 1 2 1 1 1 0 0 0 0 0 1 1 1 1 1 1 1 1 1
         0 1 1 1 1 1 0 0 0 0 0 1 1 2 1 1 1 2 1 1
         0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 2 1 1 2 1
-    ]), Int[
+    ]), Integer[
         1 1 1 1 2 1 1 2 1 1
         1 1 1 1 1 1 1 1 1 1
         1 1 2 1 1 1 1 1 1 1
@@ -22225,7 +22225,7 @@ problem_8efcae92 = Problem("problem_8efcae92", [
 ])
 
 problem_8f2ea7aa = Problem("problem_8f2ea7aa", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0
@@ -22235,7 +22235,7 @@ problem_8f2ea7aa = Problem("problem_8f2ea7aa", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 0 8 8 0 0 0 0
         0 0 8 0 0 8 0 0 0
         8 0 0 8 0 0 0 0 0
@@ -22246,7 +22246,7 @@ problem_8f2ea7aa = Problem("problem_8f2ea7aa", [
         0 0 8 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -22256,7 +22256,7 @@ problem_8f2ea7aa = Problem("problem_8f2ea7aa", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 7
         0 0 0 0 0 0 0 7 7
         0 0 0 0 0 0 7 0 0
@@ -22267,7 +22267,7 @@ problem_8f2ea7aa = Problem("problem_8f2ea7aa", [
         0 7 7 0 0 0 0 0 0
         7 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 6 0 0 0 0
         0 0 0 6 0 6 0 0 0
         0 0 0 6 6 0 0 0 0
@@ -22277,7 +22277,7 @@ problem_8f2ea7aa = Problem("problem_8f2ea7aa", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 6 0 0 0 0
         0 0 0 6 0 6 0 0 0
         0 0 0 6 6 0 0 0 0
@@ -22288,7 +22288,7 @@ problem_8f2ea7aa = Problem("problem_8f2ea7aa", [
         6 0 6 6 0 6 0 0 0
         6 6 0 6 6 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -22298,7 +22298,7 @@ problem_8f2ea7aa = Problem("problem_8f2ea7aa", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 0 0 0 0 0 0 0
         2 2 0 0 0 0 0 0 0
         0 2 2 0 0 0 0 0 0
@@ -22312,7 +22312,7 @@ problem_8f2ea7aa = Problem("problem_8f2ea7aa", [
 ])
 
 problem_90c28cc7 = Problem("problem_90c28cc7", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 8 8 8 8 8 7 7 7 7 7 7 7 7 7 7 7 7
         0 8 8 8 8 8 8 8 8 7 7 7 7 7 7 7 7 7 7 7 7
@@ -22334,12 +22334,12 @@ problem_90c28cc7 = Problem("problem_90c28cc7", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 7 7
         3 4 1
         2 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 2 2 2 8 8 8 8 8 8 8 8 0 0 0 0 0
         0 2 2 2 2 2 2 2 8 8 8 8 8 8 8 8 0 0 0 0 0
@@ -22361,11 +22361,11 @@ problem_90c28cc7 = Problem("problem_90c28cc7", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 8
         1 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 8 8 8 8 8 8 2 2 2 2 2 2 0 0 0 0 0 0 0
@@ -22387,12 +22387,12 @@ problem_90c28cc7 = Problem("problem_90c28cc7", [
         0 0 4 4 4 4 4 4 1 1 1 1 1 1 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 2
         3 3
         4 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 2 4 4 4 4 4 4 4 4 1 1 1 1 1 0 0
         0 2 2 2 2 2 4 4 4 4 4 4 4 4 1 1 1 1 1 0 0
@@ -22414,7 +22414,7 @@ problem_90c28cc7 = Problem("problem_90c28cc7", [
         0 2 2 2 2 2 4 4 4 4 4 4 4 4 2 2 2 2 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 4 1
         8 3 8
         2 4 2
@@ -22422,7 +22422,7 @@ problem_90c28cc7 = Problem("problem_90c28cc7", [
 ])
 
 problem_90f3ed37 = Problem("problem_90f3ed37", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         8 8 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0
@@ -22438,7 +22438,7 @@ problem_90f3ed37 = Problem("problem_90f3ed37", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         8 8 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0
@@ -22455,7 +22455,7 @@ problem_90f3ed37 = Problem("problem_90f3ed37", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         8 8 8 8 8 8 8 8 8 8
@@ -22471,7 +22471,7 @@ problem_90f3ed37 = Problem("problem_90f3ed37", [
         0 0 0 0 0 0 0 0 0 0
         8 8 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         8 8 8 8 8 8 8 8 8 8
@@ -22488,7 +22488,7 @@ problem_90f3ed37 = Problem("problem_90f3ed37", [
         8 8 1 1 1 1 1 1 1 1
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         8 0 8 0 8 0 8 0 8 0
         0 8 0 8 0 8 0 8 0 8
@@ -22504,7 +22504,7 @@ problem_90f3ed37 = Problem("problem_90f3ed37", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         8 0 8 0 8 0 8 0 8 0
         0 8 0 8 0 8 0 8 0 8
@@ -22521,7 +22521,7 @@ problem_90f3ed37 = Problem("problem_90f3ed37", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 8 8 8 8 8 8 8 8
         8 8 0 0 0 0 0 0 0 0
@@ -22537,7 +22537,7 @@ problem_90f3ed37 = Problem("problem_90f3ed37", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 8 8 8 8 8 8 8 8
         8 8 0 0 0 0 0 0 0 0
@@ -22557,7 +22557,7 @@ problem_90f3ed37 = Problem("problem_90f3ed37", [
 ])
 
 problem_913fb3ed = Problem("problem_913fb3ed", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -22570,7 +22570,7 @@ problem_913fb3ed = Problem("problem_913fb3ed", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -22584,14 +22584,14 @@ problem_913fb3ed = Problem("problem_913fb3ed", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 0 3 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 6 6 6 0
         0 0 6 3 6 0
         0 0 6 6 6 0
@@ -22599,7 +22599,7 @@ problem_913fb3ed = Problem("problem_913fb3ed", [
         0 0 0 0 0 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22616,7 +22616,7 @@ problem_913fb3ed = Problem("problem_913fb3ed", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 6 6 6 0 0
@@ -22634,14 +22634,14 @@ problem_913fb3ed = Problem("problem_913fb3ed", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 8 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 4 4 4 0 0
         0 4 8 4 0 0
@@ -22649,7 +22649,7 @@ problem_913fb3ed = Problem("problem_913fb3ed", [
         0 0 0 0 0 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22666,7 +22666,7 @@ problem_913fb3ed = Problem("problem_913fb3ed", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6 0 0 0 0 0 0 0 0 0 0 0 0 0
         6 3 6 0 0 0 0 0 0 0 0 0 0 0 0 0
         6 6 6 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22687,11 +22687,11 @@ problem_913fb3ed = Problem("problem_913fb3ed", [
 ])
 
 problem_91413438 = Problem("problem_91413438", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 0
         0 6 6
         0 0 6
-    ]), Int[
+    ]), Integer[
         6 6 0 6 6 0 6 6 0 6 6 0
         0 6 6 0 6 6 0 6 6 0 6 6
         0 0 6 0 0 6 0 0 6 0 0 6
@@ -22705,11 +22705,11 @@ problem_91413438 = Problem("problem_91413438", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0
         0 4 4
         4 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0 0 4 0 0 4 0 0 4 0 0 0 0
         0 4 4 0 4 4 0 4 4 0 4 4 0 0 0
         4 0 0 4 0 0 4 0 0 4 0 0 0 0 0
@@ -22726,11 +22726,11 @@ problem_91413438 = Problem("problem_91413438", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 3
         3 0 3
         0 3 3
-    ]), Int[
+    ]), Integer[
         3 0 3 3 0 3 3 0 3
         3 0 3 3 0 3 3 0 3
         0 3 3 0 3 3 0 3 3
@@ -22741,11 +22741,11 @@ problem_91413438 = Problem("problem_91413438", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2
         0 2 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 2 2 0 2 2 0 2 0 0 0 0 0 0 0 0 0
         0 2 0 0 2 0 0 2 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22765,11 +22765,11 @@ problem_91413438 = Problem("problem_91413438", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8
         0 8 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22795,7 +22795,7 @@ problem_91413438 = Problem("problem_91413438", [
 ])
 
 problem_91714a58 = Problem("problem_91714a58", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 1 1 4 0 2 0 0 0 0 2 0 5
         0 0 0 3 5 0 0 0 9 9 8 0 4 0 5 8
         1 0 8 2 8 0 0 6 0 8 5 0 0 0 8 0
@@ -22812,7 +22812,7 @@ problem_91714a58 = Problem("problem_91714a58", [
         0 3 0 0 7 0 2 0 7 9 0 0 0 0 0 0
         0 0 5 0 7 0 0 0 0 0 0 0 6 5 3 0
         1 0 0 9 0 0 0 2 0 0 0 1 0 0 9 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22830,7 +22830,7 @@ problem_91714a58 = Problem("problem_91714a58", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 7 0 0 6 0 6 0 0 0 7 3 0 0 0
         0 0 3 0 0 1 0 0 8 0 0 2 0 0 0 0
         0 0 0 0 3 9 0 0 0 0 0 0 0 8 0 8
@@ -22847,7 +22847,7 @@ problem_91714a58 = Problem("problem_91714a58", [
         0 5 0 0 0 0 4 5 3 0 8 0 0 0 6 9
         0 0 9 7 5 0 0 0 0 0 0 0 1 0 7 1
         0 8 0 0 0 0 0 1 0 3 0 0 3 8 7 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22865,7 +22865,7 @@ problem_91714a58 = Problem("problem_91714a58", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 0 0 0 6 2 0 0 0 5 0 0 0 3
         0 7 0 0 0 0 9 0 0 0 0 0 0 0 5 0
         0 0 0 0 0 8 8 0 7 7 7 0 0 0 0 4
@@ -22882,7 +22882,7 @@ problem_91714a58 = Problem("problem_91714a58", [
         0 0 0 0 0 1 7 2 0 0 5 0 0 1 0 4
         0 0 0 0 0 0 0 3 0 0 2 0 0 0 0 0
         0 2 0 0 0 7 9 0 0 0 5 0 2 0 3 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 7 7 7 0 0 0 0 0
@@ -22900,7 +22900,7 @@ problem_91714a58 = Problem("problem_91714a58", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 7 3 0 0 0 0 0 1 2 0 4 7 0
         0 0 0 3 0 0 6 8 0 0 0 0 0 0 0 0
         6 0 0 8 0 1 0 0 1 0 0 0 7 0 4 8
@@ -22917,7 +22917,7 @@ problem_91714a58 = Problem("problem_91714a58", [
         0 7 0 0 0 0 1 6 0 7 0 3 0 6 0 0
         0 0 9 0 0 3 7 7 0 6 0 0 8 0 0 0
         5 0 0 0 0 0 8 0 0 0 0 0 0 0 0 9
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22938,11 +22938,11 @@ problem_91714a58 = Problem("problem_91714a58", [
 ])
 
 problem_9172f3a0 = Problem("problem_9172f3a0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 0
         7 4 0
         0 0 4
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 0 0 0
         3 3 3 3 3 3 0 0 0
         3 3 3 3 3 3 0 0 0
@@ -22953,11 +22953,11 @@ problem_9172f3a0 = Problem("problem_9172f3a0", [
         0 0 0 0 0 0 4 4 4
         0 0 0 0 0 0 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 2
         0 2 2
         0 0 3
-    ]), Int[
+    ]), Integer[
         3 3 3 0 0 0 2 2 2
         3 3 3 0 0 0 2 2 2
         3 3 3 0 0 0 2 2 2
@@ -22968,11 +22968,11 @@ problem_9172f3a0 = Problem("problem_9172f3a0", [
         0 0 0 0 0 0 3 3 3
         0 0 0 0 0 0 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         0 0 6
         6 1 0
-    ]), Int[
+    ]), Integer[
         0 0 0 1 1 1 0 0 0
         0 0 0 1 1 1 0 0 0
         0 0 0 1 1 1 0 0 0
@@ -22986,7 +22986,7 @@ problem_9172f3a0 = Problem("problem_9172f3a0", [
 ])
 
 problem_928ad970 = Problem("problem_928ad970", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 5 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22999,7 +22999,7 @@ problem_928ad970 = Problem("problem_928ad970", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 5 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 5 0 0 0 0 0 0 0 0
         0 0 1 1 1 1 1 1 1 1 1 0 0
@@ -23013,7 +23013,7 @@ problem_928ad970 = Problem("problem_928ad970", [
         0 0 1 1 1 1 1 1 1 1 1 0 0
         0 0 0 0 5 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -23029,7 +23029,7 @@ problem_928ad970 = Problem("problem_928ad970", [
         0 0 0 0 0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 0 0
         0 0 3 3 3 3 3 3 3 3 0 0 0
@@ -23046,7 +23046,7 @@ problem_928ad970 = Problem("problem_928ad970", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 5 0 0 0 0 0 0 0
@@ -23062,7 +23062,7 @@ problem_928ad970 = Problem("problem_928ad970", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 5 0 0 0 0 0 0 0
@@ -23079,7 +23079,7 @@ problem_928ad970 = Problem("problem_928ad970", [
         0 0 0 0 0 0 0 5 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -23095,7 +23095,7 @@ problem_928ad970 = Problem("problem_928ad970", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0 0 0 0 0 0
         0 0 0 8 8 8 8 8 8 8 8 8 0 0 0
@@ -23115,14 +23115,14 @@ problem_928ad970 = Problem("problem_928ad970", [
 ])
 
 problem_93b581b8 = Problem("problem_93b581b8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 9 3 0 0
         0 0 7 8 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 0 0 7 7
         8 8 0 0 7 7
         0 0 9 3 0 0
@@ -23130,14 +23130,14 @@ problem_93b581b8 = Problem("problem_93b581b8", [
         3 3 0 0 9 9
         3 3 0 0 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 4 6 0 0 0
         0 2 1 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 0 2 2 0
         0 4 6 0 0 0
         0 2 1 0 0 0
@@ -23145,14 +23145,14 @@ problem_93b581b8 = Problem("problem_93b581b8", [
         6 0 0 4 4 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 3 6 0 0
         0 0 5 2 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 0 0 5 5
         2 2 0 0 5 5
         0 0 3 6 0 0
@@ -23160,14 +23160,14 @@ problem_93b581b8 = Problem("problem_93b581b8", [
         6 6 0 0 3 3
         6 6 0 0 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 3 1 0 0
         0 0 2 5 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         5 5 0 0 2 2
         5 5 0 0 2 2
@@ -23178,7 +23178,7 @@ problem_93b581b8 = Problem("problem_93b581b8", [
 ])
 
 problem_941d9a10 = Problem("problem_941d9a10", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 0 0 0 0 5 0 0
         0 0 5 0 0 0 0 5 0 0
         0 0 5 0 0 0 0 5 0 0
@@ -23189,7 +23189,7 @@ problem_941d9a10 = Problem("problem_941d9a10", [
         5 5 5 5 5 5 5 5 5 5
         0 0 5 0 0 0 0 5 0 0
         0 0 5 0 0 0 0 5 0 0
-    ]), Int[
+    ]), Integer[
         1 1 5 0 0 0 0 5 0 0
         1 1 5 0 0 0 0 5 0 0
         1 1 5 0 0 0 0 5 0 0
@@ -23201,7 +23201,7 @@ problem_941d9a10 = Problem("problem_941d9a10", [
         0 0 5 0 0 0 0 5 3 3
         0 0 5 0 0 0 0 5 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 0 5 0
         5 5 5 5 5 5 5 5 5 5
         0 0 0 5 0 0 0 0 5 0
@@ -23212,7 +23212,7 @@ problem_941d9a10 = Problem("problem_941d9a10", [
         0 0 0 5 0 0 0 0 5 0
         5 5 5 5 5 5 5 5 5 5
         0 0 0 5 0 0 0 0 5 0
-    ]), Int[
+    ]), Integer[
         1 1 1 5 0 0 0 0 5 0
         5 5 5 5 5 5 5 5 5 5
         0 0 0 5 0 0 0 0 5 0
@@ -23224,7 +23224,7 @@ problem_941d9a10 = Problem("problem_941d9a10", [
         5 5 5 5 5 5 5 5 5 5
         0 0 0 5 0 0 0 0 5 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 0 5 0 5 0 5 0
         0 5 0 0 5 0 5 0 5 0
         0 5 0 0 5 0 5 0 5 0
@@ -23235,7 +23235,7 @@ problem_941d9a10 = Problem("problem_941d9a10", [
         0 5 0 0 5 0 5 0 5 0
         0 5 0 0 5 0 5 0 5 0
         0 5 0 0 5 0 5 0 5 0
-    ]), Int[
+    ]), Integer[
         1 5 0 0 5 0 5 0 5 0
         1 5 0 0 5 0 5 0 5 0
         1 5 0 0 5 0 5 0 5 0
@@ -23247,7 +23247,7 @@ problem_941d9a10 = Problem("problem_941d9a10", [
         0 5 0 0 5 0 5 0 5 3
         0 5 0 0 5 0 5 0 5 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 5 0 0 5 0 5 0
         5 5 5 5 5 5 5 5 5 5
         0 5 0 5 0 0 5 0 5 0
@@ -23258,7 +23258,7 @@ problem_941d9a10 = Problem("problem_941d9a10", [
         0 5 0 5 0 0 5 0 5 0
         5 5 5 5 5 5 5 5 5 5
         0 5 0 5 0 0 5 0 5 0
-    ]), Int[
+    ]), Integer[
         1 5 0 5 0 0 5 0 5 0
         5 5 5 5 5 5 5 5 5 5
         0 5 0 5 0 0 5 0 5 0
@@ -23273,7 +23273,7 @@ problem_941d9a10 = Problem("problem_941d9a10", [
 ])
 
 problem_94f9d214 = Problem("problem_94f9d214", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0
         0 3 3 0
         0 0 0 0
@@ -23282,13 +23282,13 @@ problem_94f9d214 = Problem("problem_94f9d214", [
         1 0 1 1
         1 1 1 1
         0 1 0 1
-    ]), Int[
+    ]), Integer[
         2 2 2 0
         0 0 0 0
         0 0 0 0
         0 0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3
         0 3 3 0
         0 0 3 3
@@ -23297,13 +23297,13 @@ problem_94f9d214 = Problem("problem_94f9d214", [
         0 0 0 1
         0 1 0 0
         1 0 0 1
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         2 0 0 0
         2 0 0 0
         0 2 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 3 0
         0 3 0 3
         0 0 3 0
@@ -23312,13 +23312,13 @@ problem_94f9d214 = Problem("problem_94f9d214", [
         1 1 0 0
         1 1 0 0
         0 1 1 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         0 0 2 0
         0 0 0 2
         0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3
         3 0 0 0
         3 0 3 3
@@ -23327,13 +23327,13 @@ problem_94f9d214 = Problem("problem_94f9d214", [
         0 1 1 1
         1 0 1 1
         0 1 1 1
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         0 0 0 0
         0 2 0 0
         0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 3
         3 3 3 0
         0 0 0 3
@@ -23342,7 +23342,7 @@ problem_94f9d214 = Problem("problem_94f9d214", [
         0 0 1 1
         0 1 0 0
         1 1 0 0
-    ]), Int[
+    ]), Integer[
         2 0 0 0
         0 0 0 0
         2 0 2 0
@@ -23351,7 +23351,7 @@ problem_94f9d214 = Problem("problem_94f9d214", [
 ])
 
 problem_952a094c = Problem("problem_952a094c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 8 8 8 8 0 0 0
@@ -23362,7 +23362,7 @@ problem_952a094c = Problem("problem_952a094c", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 6 0 0 0 0 2 0 0
         0 0 0 8 8 8 8 0 0 0
@@ -23374,7 +23374,7 @@ problem_952a094c = Problem("problem_952a094c", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 7 7 7 7 7 7 0 0
@@ -23385,7 +23385,7 @@ problem_952a094c = Problem("problem_952a094c", [
         0 0 7 7 7 7 7 7 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 0 9 0
         0 0 7 7 7 7 7 7 0 0
@@ -23397,7 +23397,7 @@ problem_952a094c = Problem("problem_952a094c", [
         0 8 0 0 0 0 0 0 2 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 1 1 1 1 1 0 0 0
         0 1 2 0 0 5 1 0 0 0
@@ -23408,7 +23408,7 @@ problem_952a094c = Problem("problem_952a094c", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 0 0 0 0 0 0 6 0 0
         0 1 1 1 1 1 1 0 0 0
         0 1 0 0 0 0 1 0 0 0
@@ -23420,7 +23420,7 @@ problem_952a094c = Problem("problem_952a094c", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -23431,7 +23431,7 @@ problem_952a094c = Problem("problem_952a094c", [
         0 0 3 3 3 3 3 3 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 8 0
@@ -23446,47 +23446,47 @@ problem_952a094c = Problem("problem_952a094c", [
 ])
 
 problem_9565186b = Problem("problem_9565186b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2
         2 1 8
         2 8 8
-    ]), Int[
+    ]), Integer[
         2 2 2
         2 5 5
         2 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1
         8 1 3
         8 2 2
-    ]), Int[
+    ]), Integer[
         1 1 1
         5 1 5
         5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2
         8 8 2
         2 2 2
-    ]), Int[
+    ]), Integer[
         2 2 2
         5 5 2
         2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 8
         4 4 4
         8 1 1
-    ]), Int[
+    ]), Integer[
         5 5 5
         4 4 4
         5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 3 2
         3 3 2
         1 3 2
-    ]), Int[
+    ]), Integer[
         5 3 5
         3 3 5
         5 3 5
@@ -23494,7 +23494,7 @@ problem_9565186b = Problem("problem_9565186b", [
 ])
 
 problem_95990924 = Problem("problem_95990924", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -23505,7 +23505,7 @@ problem_95990924 = Problem("problem_95990924", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 1 0 0 2 0 0 0
@@ -23517,7 +23517,7 @@ problem_95990924 = Problem("problem_95990924", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 5 5 0 0 0 0 0 0
@@ -23528,7 +23528,7 @@ problem_95990924 = Problem("problem_95990924", [
         0 0 0 0 0 0 5 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 0 0 2 0 0 0 0 0
         0 0 5 5 0 0 0 0 0 0
@@ -23540,7 +23540,7 @@ problem_95990924 = Problem("problem_95990924", [
         0 0 0 0 0 3 0 0 4 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 5 5 0 0 0 0 0 0 0 0 0 0
@@ -23556,7 +23556,7 @@ problem_95990924 = Problem("problem_95990924", [
         0 0 0 0 0 0 0 0 0 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 2 0 0 0 0 0 0 0 0 0
         0 0 0 5 5 0 0 0 0 0 0 0 0 0 0
@@ -23573,7 +23573,7 @@ problem_95990924 = Problem("problem_95990924", [
         0 0 0 0 0 0 0 0 3 0 0 4 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 0 0 0 0 0 0 0 0 5 5 0 0
         0 5 5 0 0 0 0 0 0 0 0 5 5 0 0
@@ -23589,7 +23589,7 @@ problem_95990924 = Problem("problem_95990924", [
         0 0 0 0 0 0 0 0 0 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 0 2 0 0 0 0 0 0 1 0 0 2 0
         0 5 5 0 0 0 0 0 0 0 0 5 5 0 0
         0 5 5 0 0 0 0 0 0 0 0 5 5 0 0
@@ -23609,52 +23609,52 @@ problem_95990924 = Problem("problem_95990924", [
 ])
 
 problem_963e52fc = Problem("problem_963e52fc", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         2 8 2 8 2 8
         2 8 2 8 2 8
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         2 8 2 8 2 8 2 8 2 8 2 8
         2 8 2 8 2 8 2 8 2 8 2 8
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         2 3 3 2 3 3 2
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 3 3 2 3 3 2 3 3 2 3 3 2 3
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         1 2 2 1 2 2 1 2
         2 1 2 2 1 2 2 1
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         1 2 2 1 2 2 1 2 2 1 2 2 1 2 2 1
         2 1 2 2 1 2 2 1 2 2 1 2 2 1 2 2
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         3 1 1 3 1 1 3 1 1
         3 1 1 3 1 1 3 1 1
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         3 1 1 3 1 1 3 1 1 3 1 1 3 1 1 3 1 1
         3 1 1 3 1 1 3 1 1 3 1 1 3 1 1 3 1 1
@@ -23664,7 +23664,7 @@ problem_963e52fc = Problem("problem_963e52fc", [
 ])
 
 problem_97999447 = Problem("problem_97999447", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0
@@ -23675,7 +23675,7 @@ problem_97999447 = Problem("problem_97999447", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 2 5 2 5 2 5
@@ -23687,7 +23687,7 @@ problem_97999447 = Problem("problem_97999447", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -23698,7 +23698,7 @@ problem_97999447 = Problem("problem_97999447", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 5 2 5 2 5 2 5 2 5
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -23710,7 +23710,7 @@ problem_97999447 = Problem("problem_97999447", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -23718,7 +23718,7 @@ problem_97999447 = Problem("problem_97999447", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -23727,7 +23727,7 @@ problem_97999447 = Problem("problem_97999447", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0
         0 0 4 0 0 0 0 0
@@ -23737,7 +23737,7 @@ problem_97999447 = Problem("problem_97999447", [
         0 0 0 2 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 0 0 3 5 3 5 3
         0 0 4 5 4 5 4 5
@@ -23751,7 +23751,7 @@ problem_97999447 = Problem("problem_97999447", [
 ])
 
 problem_97a05b5b = Problem("problem_97a05b5b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 2 2 2 2 2 2 0 0 0 0 0 0 0 0
         0 0 2 0 2 2 2 2 2 0 2 0 0 1 2 1 0 0 0
@@ -23776,7 +23776,7 @@ problem_97a05b5b = Problem("problem_97a05b5b", [
         0 0 0 4 2 4 0 0 2 2 2 0 0 0 0 0 0 0 0
         0 0 0 2 2 4 0 0 5 5 2 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2
         2 2 4 4 2 2 3 2 3
         2 2 2 4 2 2 3 2 3
@@ -23795,7 +23795,7 @@ problem_97a05b5b = Problem("problem_97a05b5b", [
         8 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 2 2 2 2 0
         0 2 2 0 2 2 2 2 2 0
@@ -23816,7 +23816,7 @@ problem_97a05b5b = Problem("problem_97a05b5b", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2
         2 4 2 4 2 2 2 2
         2 2 2 2 2 2 2 2
@@ -23826,7 +23826,7 @@ problem_97a05b5b = Problem("problem_97a05b5b", [
         2 2 2 2 3 2 2 2
         2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 8 2 8 0 0 0 0
         0 0 0 0 0 2 2 2 0 0 0 0
@@ -23843,7 +23843,7 @@ problem_97a05b5b = Problem("problem_97a05b5b", [
         0 2 2 2 2 2 2 2 2 2 0 0
         0 2 2 2 2 2 2 2 2 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2
         2 2 8 2 8 2 2 2 2
@@ -23854,7 +23854,7 @@ problem_97a05b5b = Problem("problem_97a05b5b", [
         2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 2 2 2 2 2 2 2 2 2 0
         0 0 2 0 2 2 2 2 0 2 2 2 0 2 0
@@ -23874,7 +23874,7 @@ problem_97a05b5b = Problem("problem_97a05b5b", [
         0 0 0 4 2 4 0 0 0 0 0 8 2 2 0
         0 0 0 4 2 4 0 0 0 0 0 2 2 8 0
         0 0 0 4 2 4 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2 1 1 1
         2 2 8 8 3 3 2 2 2 1 2 1
         2 2 2 8 3 2 2 2 2 1 1 1
@@ -23887,7 +23887,7 @@ problem_97a05b5b = Problem("problem_97a05b5b", [
 ])
 
 problem_98cf29f8 = Problem("problem_98cf29f8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 4 4 4 4 4 4 4 0 0 0 0 0 0
         0 4 4 4 4 4 4 4 0 0 0 0 0 0
@@ -23905,7 +23905,7 @@ problem_98cf29f8 = Problem("problem_98cf29f8", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 4 4 4 4 4 4 4 0 0 0 0 0 0
         0 4 4 4 4 4 4 4 0 0 0 0 0 0
@@ -23924,7 +23924,7 @@ problem_98cf29f8 = Problem("problem_98cf29f8", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -23938,7 +23938,7 @@ problem_98cf29f8 = Problem("problem_98cf29f8", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -23953,7 +23953,7 @@ problem_98cf29f8 = Problem("problem_98cf29f8", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 2 2 2 2 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 2 2 2 2 0 0 0 0 0 0 0 0
@@ -23969,7 +23969,7 @@ problem_98cf29f8 = Problem("problem_98cf29f8", [
         0 0 0 3 3 3 3 3 3 3 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 2 2 2 2 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 2 2 2 2 0 0 0 0 0 0 0 0
@@ -23986,7 +23986,7 @@ problem_98cf29f8 = Problem("problem_98cf29f8", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -23999,7 +23999,7 @@ problem_98cf29f8 = Problem("problem_98cf29f8", [
         0 3 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0
         0 3 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24016,52 +24016,52 @@ problem_98cf29f8 = Problem("problem_98cf29f8", [
 ])
 
 problem_995c5fa3 = Problem("problem_995c5fa3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 0 5 5 5 5 0 5 5 5 5
         5 5 5 5 0 5 0 0 5 0 0 5 5 0
         5 5 5 5 0 5 0 0 5 0 0 5 5 0
         5 5 5 5 0 5 5 5 5 0 5 5 5 5
-    ]), Int[
+    ]), Integer[
         2 2 2
         8 8 8
         3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 0 5 5 5 5 0 5 5 5 5
         0 5 5 0 0 5 5 5 5 0 5 5 5 5
         0 5 5 0 0 5 0 0 5 0 5 5 5 5
         5 5 5 5 0 5 0 0 5 0 5 5 5 5
-    ]), Int[
+    ]), Integer[
         3 3 3
         4 4 4
         2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 0 5 5 5 5 0 5 5 5 5
         5 0 0 5 0 5 5 5 5 0 5 5 5 5
         5 0 0 5 0 5 5 5 5 0 5 0 0 5
         5 5 5 5 0 5 5 5 5 0 5 0 0 5
-    ]), Int[
+    ]), Integer[
         8 8 8
         2 2 2
         4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 0 5 5 5 5 0 5 5 5 5
         5 5 5 5 0 5 5 5 5 0 5 5 5 5
         5 5 5 5 0 5 0 0 5 0 5 5 5 5
         5 5 5 5 0 5 0 0 5 0 5 5 5 5
-    ]), Int[
+    ]), Integer[
         2 2 2
         4 4 4
         2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 0 5 5 5 5 0 5 5 5 5
         5 5 5 5 0 0 5 5 0 0 5 0 0 5
         5 0 0 5 0 0 5 5 0 0 5 0 0 5
         5 0 0 5 0 5 5 5 5 0 5 5 5 5
-    ]), Int[
+    ]), Integer[
         4 4 4
         3 3 3
         8 8 8
@@ -24069,7 +24069,7 @@ problem_995c5fa3 = Problem("problem_995c5fa3", [
 ])
 
 problem_99b1bc43 = Problem("problem_99b1bc43", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 1
         0 0 0 1
         1 0 1 0
@@ -24079,13 +24079,13 @@ problem_99b1bc43 = Problem("problem_99b1bc43", [
         0 0 0 2
         2 0 0 2
         2 2 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         0 0 0 0
         0 0 3 3
         3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 0
         1 0 1 0
         1 1 0 1
@@ -24095,13 +24095,13 @@ problem_99b1bc43 = Problem("problem_99b1bc43", [
         2 0 2 0
         2 2 2 2
         2 2 2 2
-    ]), Int[
+    ]), Integer[
         3 0 3 3
         0 0 0 0
         0 0 3 0
         3 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 0
         1 0 1 1
         1 1 1 0
@@ -24111,13 +24111,13 @@ problem_99b1bc43 = Problem("problem_99b1bc43", [
         0 2 0 2
         2 2 0 2
         0 2 0 0
-    ]), Int[
+    ]), Integer[
         0 3 0 0
         3 3 3 0
         0 0 3 3
         3 0 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 1 1
         0 0 0 1
         1 1 0 0
@@ -24127,13 +24127,13 @@ problem_99b1bc43 = Problem("problem_99b1bc43", [
         0 2 2 2
         2 0 2 2
         2 2 2 2
-    ]), Int[
+    ]), Integer[
         3 3 0 0
         0 3 3 0
         0 3 3 3
         3 3 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 1 1
         0 1 1 1
         0 0 1 0
@@ -24143,7 +24143,7 @@ problem_99b1bc43 = Problem("problem_99b1bc43", [
         0 0 2 0
         2 0 0 2
         0 2 0 2
-    ]), Int[
+    ]), Integer[
         0 3 3 0
         0 3 0 3
         3 0 3 3
@@ -24152,14 +24152,14 @@ problem_99b1bc43 = Problem("problem_99b1bc43", [
 ])
 
 problem_99fa7670 = Problem("problem_99fa7670", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 0 2 0 0 0
         0 0 0 0 0 0
         0 3 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 0 2 2 2 2
         0 0 0 0 0 2
@@ -24167,23 +24167,23 @@ problem_99fa7670 = Problem("problem_99fa7670", [
         0 0 0 0 0 3
         0 0 0 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 6 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 6 6
         0 0 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 8 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 5 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 8 8 8 8 8
         0 0 0 0 0 8
@@ -24191,7 +24191,7 @@ problem_99fa7670 = Problem("problem_99fa7670", [
         0 0 0 5 5 5
         0 0 0 0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 8 0 0
         0 0 0 0 0
@@ -24199,7 +24199,7 @@ problem_99fa7670 = Problem("problem_99fa7670", [
         0 0 0 0 0
         0 0 6 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 8 8 8
         0 0 0 0 8
@@ -24208,7 +24208,7 @@ problem_99fa7670 = Problem("problem_99fa7670", [
         0 0 6 6 6
         0 0 0 0 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 7 0 0 0 0 0
@@ -24216,7 +24216,7 @@ problem_99fa7670 = Problem("problem_99fa7670", [
         0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 8 8 8 8
         0 0 0 0 0 0 0 8
         0 0 7 7 7 7 7 7
@@ -24228,7 +24228,7 @@ problem_99fa7670 = Problem("problem_99fa7670", [
 ])
 
 problem_9aec4887 = Problem("problem_9aec4887", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 0 0 8 0 0 0 0 0 0 0 0 0 0 0
         0 0 8 0 8 0 0 0 0 0 0 0 0 0 0 0
@@ -24244,7 +24244,7 @@ problem_9aec4887 = Problem("problem_9aec4887", [
         0 0 0 0 0 0 0 3 3 3 3 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 4 4 4 4 0
         2 8 0 0 8 1
         2 0 8 0 1 1
@@ -24252,7 +24252,7 @@ problem_9aec4887 = Problem("problem_9aec4887", [
         2 0 3 0 8 1
         0 3 3 3 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0
@@ -24267,14 +24267,14 @@ problem_9aec4887 = Problem("problem_9aec4887", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 3 3 0
         6 0 3 0 4
         6 6 8 4 4
         6 0 2 8 4
         0 2 2 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 7 7 7 7 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 6 0 0 0 0 0 0 0
@@ -24290,7 +24290,7 @@ problem_9aec4887 = Problem("problem_9aec4887", [
         0 0 0 0 0 0 8 8 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 7 7 7 7 0
         4 8 7 0 8 6
         4 0 8 8 0 6
@@ -24298,7 +24298,7 @@ problem_9aec4887 = Problem("problem_9aec4887", [
         4 8 1 0 8 6
         0 1 1 1 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
         0 0 0 0 0 2 0 0 0 0 0 4 0 0 0 0
         0 0 0 0 0 2 0 0 0 0 0 4 0 0 0 0
@@ -24315,7 +24315,7 @@ problem_9aec4887 = Problem("problem_9aec4887", [
         0 0 8 8 0 8 8 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 1 1 1 1 0
         2 8 1 0 1 8 4
         2 2 0 1 8 0 4
@@ -24327,22 +24327,22 @@ problem_9aec4887 = Problem("problem_9aec4887", [
 ])
 
 problem_9af7a82c = Problem("problem_9af7a82c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 1
         2 3 1
         1 1 1
-    ]), Int[
+    ]), Integer[
         1 2 3
         1 2 0
         1 2 0
         1 0 0
         1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 1 1 4
         2 2 2 4
         4 4 4 4
-    ]), Int[
+    ]), Integer[
         4 2 1 3
         4 2 1 0
         4 2 0 0
@@ -24350,24 +24350,24 @@ problem_9af7a82c = Problem("problem_9af7a82c", [
         4 0 0 0
         4 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 2
         3 8 8
         3 3 4
         3 3 4
-    ]), Int[
+    ]), Integer[
         3 8 4 2
         3 8 4 0
         3 8 0 0
         3 8 0 0
         3 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1
         2 2 1
         2 8 1
         2 8 1
-    ]), Int[
+    ]), Integer[
         1 2 8
         1 2 8
         1 2 0
@@ -24375,12 +24375,12 @@ problem_9af7a82c = Problem("problem_9af7a82c", [
         1 0 0
         1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 2 2
         1 8 8 2
         1 3 3 4
         1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 8 2 3 4
         1 8 2 3 0
         1 8 2 0 0
@@ -24391,7 +24391,7 @@ problem_9af7a82c = Problem("problem_9af7a82c", [
 ])
 
 problem_9d9215db = Problem("problem_9d9215db", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24411,7 +24411,7 @@ problem_9d9215db = Problem("problem_9d9215db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 8 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24432,7 +24432,7 @@ problem_9d9215db = Problem("problem_9d9215db", [
         0 8 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 8 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24452,7 +24452,7 @@ problem_9d9215db = Problem("problem_9d9215db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24473,7 +24473,7 @@ problem_9d9215db = Problem("problem_9d9215db", [
         0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 4 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24493,7 +24493,7 @@ problem_9d9215db = Problem("problem_9d9215db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 4 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 4 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24514,7 +24514,7 @@ problem_9d9215db = Problem("problem_9d9215db", [
         0 4 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 4 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24534,7 +24534,7 @@ problem_9d9215db = Problem("problem_9d9215db", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 1 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24558,47 +24558,47 @@ problem_9d9215db = Problem("problem_9d9215db", [
 ])
 
 problem_9dfd6313 = Problem("problem_9dfd6313", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 0
         3 5 0
         0 0 5
-    ]), Int[
+    ]), Integer[
         5 3 0
         0 5 0
         0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 0 0
         0 5 0 0
         6 0 5 0
         6 0 4 5
-    ]), Int[
+    ]), Integer[
         5 0 6 6
         0 5 0 0
         0 0 5 4
         0 0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 0 0 0
         0 5 0 0 0
         8 8 5 0 0
         0 2 0 5 0
         0 2 0 1 5
-    ]), Int[
+    ]), Integer[
         5 0 8 0 0
         0 5 8 2 2
         0 0 5 0 0
         0 0 0 5 1
         0 0 0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 0 0 0 0
         0 5 0 0 0 0
         3 3 5 0 0 0
         0 0 0 5 0 0
         2 0 8 8 5 0
         2 0 6 0 0 5
-    ]), Int[
+    ]), Integer[
         5 0 3 0 2 2
         0 5 3 0 0 0
         0 0 5 0 8 6
@@ -24609,7 +24609,7 @@ problem_9dfd6313 = Problem("problem_9dfd6313", [
 ])
 
 problem_9ecd008a = Problem("problem_9ecd008a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1 3 5 1 1 1 8 8 1 1 1 5 3 1 2
         1 2 5 7 1 7 8 8 8 8 7 1 7 5 2 1
         3 5 4 4 1 8 2 9 9 2 8 1 4 4 5 3
@@ -24626,12 +24626,12 @@ problem_9ecd008a = Problem("problem_9ecd008a", [
         3 5 4 4 1 8 2 9 9 2 8 1 4 4 5 3
         1 2 5 7 1 7 8 8 8 8 7 1 7 5 2 1
         2 1 3 5 1 1 1 8 8 1 1 1 5 3 1 2
-    ]), Int[
+    ]), Integer[
         4 7 1
         1 1 1
         1 9 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 1 7 7 6 6 6 6 7 7 1 3 3 3
         3 3 1 3 7 7 6 1 1 6 7 7 3 1 3 3
         3 1 8 8 6 6 9 7 7 9 6 6 8 8 1 3
@@ -24648,12 +24648,12 @@ problem_9ecd008a = Problem("problem_9ecd008a", [
         3 1 8 8 6 6 9 7 7 9 6 6 8 8 1 3
         3 3 1 3 7 7 6 1 1 6 7 7 3 1 3 3
         3 3 3 1 7 7 6 6 6 6 7 7 1 3 3 3
-    ]), Int[
+    ]), Integer[
         1 1 1
         5 1 6
         3 3 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 3 5 3 3 9 5 5 5 5 9 3 3 5 3 9
         3 9 3 6 9 5 5 8 8 5 5 9 6 3 9 3
         5 3 3 3 5 5 6 6 6 6 5 5 3 3 3 5
@@ -24670,12 +24670,12 @@ problem_9ecd008a = Problem("problem_9ecd008a", [
         5 3 3 3 5 5 6 6 6 6 5 5 3 3 3 5
         3 9 3 6 9 5 5 8 8 5 5 9 6 3 9 3
         9 3 5 3 3 9 5 5 5 5 9 3 3 5 3 9
-    ]), Int[
+    ]), Integer[
         6 1 6
         6 1 6
         1 2 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 8 9 9 6 6 5 1 1 5 6 6 9 9 8 4
         8 6 9 9 6 7 1 5 5 1 7 6 9 9 6 8
         9 9 5 2 5 1 5 5 5 5 1 5 2 5 9 9
@@ -24692,7 +24692,7 @@ problem_9ecd008a = Problem("problem_9ecd008a", [
         9 9 5 2 5 1 5 5 5 5 1 5 2 5 9 9
         8 6 9 9 6 7 1 5 5 1 7 6 9 9 6 8
         4 8 9 9 6 6 5 1 1 5 6 6 9 9 8 4
-    ]), Int[
+    ]), Integer[
         7 1 5
         1 5 5
         5 5 9
@@ -24700,7 +24700,7 @@ problem_9ecd008a = Problem("problem_9ecd008a", [
 ])
 
 problem_9edfc990 = Problem("problem_9edfc990", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 0 0 0 0 2 8 0 9 0 2 0 9
         1 0 0 6 0 0 0 0 0 0 0 9 5
         9 0 4 9 3 0 0 5 7 0 8 0 8
@@ -24714,7 +24714,7 @@ problem_9edfc990 = Problem("problem_9edfc990", [
         4 0 0 6 0 7 9 9 8 0 5 7 3
         0 0 0 0 0 0 0 7 2 0 0 0 8
         0 0 0 7 5 0 5 0 0 0 0 0 3
-    ]), Int[
+    ]), Integer[
         9 1 1 1 1 2 8 1 9 1 2 0 9
         1 1 1 6 1 1 1 1 1 1 1 9 5
         9 1 4 9 3 1 1 5 7 1 8 0 8
@@ -24729,7 +24729,7 @@ problem_9edfc990 = Problem("problem_9edfc990", [
         1 1 1 1 1 1 1 7 2 1 1 1 8
         1 1 1 7 5 1 5 1 1 1 1 1 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 0 9 6 5 5 5 0 2 1 0 0 0
         3 0 4 4 9 0 0 0 3 9 0 0 0 5 0
         8 9 2 0 1 0 6 8 0 0 0 8 0 8 0
@@ -24745,7 +24745,7 @@ problem_9edfc990 = Problem("problem_9edfc990", [
         0 0 0 0 9 6 3 1 3 3 9 0 0 0 5
         0 5 0 4 0 7 9 9 0 0 0 0 9 4 0
         0 9 8 8 0 6 8 0 0 0 8 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 2 0 9 6 5 5 5 0 2 1 1 1 1
         3 0 4 4 9 1 1 1 3 9 1 1 1 5 1
         8 9 2 1 1 1 6 8 1 1 1 8 1 8 1
@@ -24762,7 +24762,7 @@ problem_9edfc990 = Problem("problem_9edfc990", [
         1 5 1 4 0 7 9 9 1 1 1 1 9 4 1
         1 9 8 8 0 6 8 1 1 1 8 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 4 4 0 4 0 0 6 1 1 1 0 0 6 0 5
         1 1 3 3 4 0 3 8 5 3 4 5 0 8 2 8
         8 0 4 8 8 5 0 9 0 0 0 5 5 8 5 8
@@ -24779,7 +24779,7 @@ problem_9edfc990 = Problem("problem_9edfc990", [
         0 4 0 0 0 0 1 0 0 0 6 0 4 4 5 6
         0 5 0 8 3 2 1 0 5 9 1 8 7 0 2 7
         0 9 0 1 8 6 0 9 9 8 0 9 0 0 3 0
-    ]), Int[
+    ]), Integer[
         7 4 4 0 4 0 0 6 1 1 1 1 1 6 0 5
         1 1 3 3 4 0 3 8 5 3 4 5 1 8 2 8
         8 1 4 8 8 5 1 9 1 1 1 5 5 8 5 8
@@ -24797,7 +24797,7 @@ problem_9edfc990 = Problem("problem_9edfc990", [
         0 5 1 8 3 2 1 1 5 9 1 8 7 0 2 7
         0 9 1 1 8 6 1 9 9 8 1 9 0 0 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 5 0 0 9 0 6 0 0 0 0 5
         6 7 6 0 4 0 2 0 0 8 3 6 2 0 0 0
         0 0 0 7 0 0 5 4 1 0 1 7 6 0 0 0
@@ -24814,7 +24814,7 @@ problem_9edfc990 = Problem("problem_9edfc990", [
         1 0 0 2 4 0 0 0 1 7 0 0 0 0 5 0
         6 9 0 0 7 7 1 0 2 0 0 9 1 0 3 0
         1 8 3 0 0 9 7 0 2 7 2 0 8 9 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 5 1 1 9 0 6 0 0 0 0 5
         6 7 6 0 4 0 2 1 1 8 3 6 2 0 0 0
         0 0 0 7 0 0 5 4 1 1 1 7 6 0 0 0
@@ -24835,7 +24835,7 @@ problem_9edfc990 = Problem("problem_9edfc990", [
 ])
 
 problem_9f236235 = Problem("problem_9f236235", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0
         3 3 3 3 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0
         3 3 3 3 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0
@@ -24855,13 +24855,13 @@ problem_9f236235 = Problem("problem_9f236235", [
         3 3 3 3 2 3 3 3 3 2 3 3 3 3 2 0 0 0 0
         3 3 3 3 2 3 3 3 3 2 3 3 3 3 2 0 0 0 0
         3 3 3 3 2 3 3 3 3 2 3 3 3 3 2 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 3
         0 0 3 0
         0 3 0 0
         0 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 2 2 2 2 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 2 2 2 2 8 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 2 2 2 2 8 0 0 0 0 8 0 0 0 0
@@ -24881,13 +24881,13 @@ problem_9f236235 = Problem("problem_9f236235", [
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 3 3 3 3
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 3 3 3 3
         0 0 0 0 8 0 0 0 0 8 0 0 0 0 8 3 3 3 3
-    ]), Int[
+    ]), Integer[
         0 0 2 0
         0 0 1 2
         0 1 0 0
         3 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 8 8 8 2 0 0 0
         0 0 0 2 8 8 8 2 0 0 0
         0 0 0 2 8 8 8 2 0 0 0
@@ -24899,12 +24899,12 @@ problem_9f236235 = Problem("problem_9f236235", [
         0 0 0 2 0 0 0 2 4 4 4
         0 0 0 2 0 0 0 2 4 4 4
         0 0 0 2 0 0 0 2 4 4 4
-    ]), Int[
+    ]), Integer[
         0 8 0
         0 8 8
         4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 8 3 3 3 3 3 8 1 1 1 1 1 8 1 1 1 1 1
         1 1 1 1 1 8 3 3 3 3 3 8 1 1 1 1 1 8 1 1 1 1 1
         1 1 1 1 1 8 3 3 3 3 3 8 1 1 1 1 1 8 1 1 1 1 1
@@ -24928,7 +24928,7 @@ problem_9f236235 = Problem("problem_9f236235", [
         0 0 0 0 0 8 3 3 3 3 3 8 0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 8 3 3 3 3 3 8 0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 8 3 3 3 3 3 8 0 0 0 0 0 8 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 3 1
         0 0 3 0
         2 0 3 2
@@ -24937,7 +24937,7 @@ problem_9f236235 = Problem("problem_9f236235", [
 ])
 
 problem_a1570a43 = Problem("problem_a1570a43", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 2 0 0 0 3
         0 2 2 0 0 0 0
         2 2 2 2 2 0 0
@@ -24945,7 +24945,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
         0 2 2 0 0 0 0
         0 0 0 0 0 0 0
         3 0 0 0 0 0 3
-    ]), Int[
+    ]), Integer[
         3 0 0 0 0 0 3
         0 0 0 2 0 0 0
         0 0 2 2 0 0 0
@@ -24954,7 +24954,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
         0 0 2 2 0 0 0
         3 0 0 0 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 3 0
         0 0 2 2 2 0 0 0 0
@@ -24964,7 +24964,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
         0 0 0 2 0 0 0 0 0
         0 3 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 3 0
         0 0 0 0 2 2 2 0 0
@@ -24975,7 +24975,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
         0 3 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 2 0 0 0 0 0
         0 3 2 2 2 2 0 3 0 0
         0 0 0 0 2 2 2 0 0 0
@@ -24985,7 +24985,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
         0 0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 3 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 3 0 0
         0 0 0 2 2 0 0 0 0 0
@@ -24996,7 +24996,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
         0 3 0 0 0 0 0 3 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 0 0 0 3 0
         0 0 0 2 0 0 0 0
         0 2 2 2 0 0 0 0
@@ -25006,7 +25006,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
         3 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 0 0 0 0 0 3 0
         0 0 0 0 2 0 0 0
         0 0 2 2 2 0 0 0
@@ -25017,7 +25017,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         3 0 0 0 0 0 3 0
         2 0 0 0 0 0 0 0
@@ -25028,7 +25028,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
         3 0 0 0 0 0 3 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         3 0 0 0 0 0 3 0
         0 2 0 0 0 0 0 0
@@ -25043,7 +25043,7 @@ problem_a1570a43 = Problem("problem_a1570a43", [
 ])
 
 problem_a2fd1cf0 = Problem("problem_a2fd1cf0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -25059,7 +25059,7 @@ problem_a2fd1cf0 = Problem("problem_a2fd1cf0", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 8 8 8 8 8 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 8 0 0 0 0
@@ -25076,7 +25076,7 @@ problem_a2fd1cf0 = Problem("problem_a2fd1cf0", [
         0 0 0 0 0 0 0 0 0 0 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -25087,7 +25087,7 @@ problem_a2fd1cf0 = Problem("problem_a2fd1cf0", [
         0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0
@@ -25099,7 +25099,7 @@ problem_a2fd1cf0 = Problem("problem_a2fd1cf0", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -25112,7 +25112,7 @@ problem_a2fd1cf0 = Problem("problem_a2fd1cf0", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 3 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 8 8 8 8 8 8 2 0 0
         0 0 0 0 8 0 0 0 0 0 0 0 0 0
@@ -25126,7 +25126,7 @@ problem_a2fd1cf0 = Problem("problem_a2fd1cf0", [
         0 0 0 0 3 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0 0 0 0 0
@@ -25139,7 +25139,7 @@ problem_a2fd1cf0 = Problem("problem_a2fd1cf0", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 3 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 8 8 8 8 8 8 8 8 8 0 0 0
@@ -25156,7 +25156,7 @@ problem_a2fd1cf0 = Problem("problem_a2fd1cf0", [
 ])
 
 problem_a3325580 = Problem("problem_a3325580", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 8 8 8
         0 0 4 0 0 0 0 0 0 8
@@ -25167,14 +25167,14 @@ problem_a3325580 = Problem("problem_a3325580", [
         0 3 3 0 0 0 0 0 0 0
         3 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 6 8
         4 6 8
         4 6 8
         4 6 8
         4 6 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 4 4 4
         0 0 0 0 0 0 0 4 0 4
         0 0 0 0 0 0 0 0 0 4
@@ -25185,7 +25185,7 @@ problem_a3325580 = Problem("problem_a3325580", [
         0 9 9 0 0 0 0 0 0 0
         0 9 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         9 4
         9 4
         9 4
@@ -25196,7 +25196,7 @@ problem_a3325580 = Problem("problem_a3325580", [
         9 4
         9 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 1
         7 7 7 0 0 2 2 0 0 1
         0 0 7 0 0 0 2 2 0 1
@@ -25207,8 +25207,8 @@ problem_a3325580 = Problem("problem_a3325580", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[2, 2, 2, 2, 2], 5, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2, 2, 2, 2, 2], 5, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -25219,8 +25219,8 @@ problem_a3325580 = Problem("problem_a3325580", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 4 4 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[8, 8, 8], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8, 8, 8], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 3 3 0 0 0
@@ -25231,12 +25231,12 @@ problem_a3325580 = Problem("problem_a3325580", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 3
         2 3
         2 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 0 0 0
@@ -25247,12 +25247,12 @@ problem_a3325580 = Problem("problem_a3325580", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 4 8
         1 4 8
         1 4 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 1 0
         0 0 5 0 0 0 0 1 1 1
         0 5 5 0 0 0 0 0 0 0
@@ -25263,7 +25263,7 @@ problem_a3325580 = Problem("problem_a3325580", [
         8 0 0 2 2 0 0 0 0 0
         8 0 0 2 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 2 1
         5 2 1
         5 2 1
@@ -25272,7 +25272,7 @@ problem_a3325580 = Problem("problem_a3325580", [
 ])
 
 problem_a3df8b1e = Problem("problem_a3df8b1e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0
         0 0
         0 0
@@ -25283,7 +25283,7 @@ problem_a3df8b1e = Problem("problem_a3df8b1e", [
         0 0
         0 0
         1 0
-    ]), Int[
+    ]), Integer[
         0 1
         1 0
         0 1
@@ -25295,7 +25295,7 @@ problem_a3df8b1e = Problem("problem_a3df8b1e", [
         0 1
         1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 0 0
         0 0 0
@@ -25306,7 +25306,7 @@ problem_a3df8b1e = Problem("problem_a3df8b1e", [
         0 0 0
         0 0 0
         1 0 0
-    ]), Int[
+    ]), Integer[
         0 1 0
         1 0 0
         0 1 0
@@ -25318,7 +25318,7 @@ problem_a3df8b1e = Problem("problem_a3df8b1e", [
         0 1 0
         1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0
         0 0 0 0
         0 0 0 0
@@ -25329,7 +25329,7 @@ problem_a3df8b1e = Problem("problem_a3df8b1e", [
         0 0 0 0
         0 0 0 0
         1 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 1
         0 0 1 0
         0 1 0 0
@@ -25341,7 +25341,7 @@ problem_a3df8b1e = Problem("problem_a3df8b1e", [
         0 1 0 0
         1 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
@@ -25352,7 +25352,7 @@ problem_a3df8b1e = Problem("problem_a3df8b1e", [
         0 0 0 0 0
         0 0 0 0 0
         1 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 0 0 0
         1 0 0 0 0
         0 1 0 0 0
@@ -25367,44 +25367,44 @@ problem_a3df8b1e = Problem("problem_a3df8b1e", [
 ])
 
 problem_a416b8f3 = Problem("problem_a416b8f3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0
         5 5 2
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 5 0 0 5 0
         5 5 2 5 5 2
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0
         2 3 0
         2 1 8
         0 1 0
-    ]), Int[
+    ]), Integer[
         3 0 0 3 0 0
         2 3 0 2 3 0
         2 1 8 2 1 8
         0 1 0 0 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 2 3 0
         2 5 3 0
         5 2 8 8
         0 0 6 0
-    ]), Int[
+    ]), Integer[
         5 2 3 0 5 2 3 0
         2 5 3 0 2 5 3 0
         5 2 8 8 5 2 8 8
         0 0 6 0 0 0 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0 0
         4 5 0 0
         0 5 6 0
         6 6 1 0
         0 0 0 1
-    ]), Int[
+    ]), Integer[
         4 0 0 0 4 0 0 0
         4 5 0 0 4 5 0 0
         0 5 6 0 0 5 6 0
@@ -25414,7 +25414,7 @@ problem_a416b8f3 = Problem("problem_a416b8f3", [
 ])
 
 problem_a48eeaf7 = Problem("problem_a48eeaf7", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -25425,7 +25425,7 @@ problem_a48eeaf7 = Problem("problem_a48eeaf7", [
         0 0 0 0 0 0 0 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 5 0 0 0 0 0 0
@@ -25437,7 +25437,7 @@ problem_a48eeaf7 = Problem("problem_a48eeaf7", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 5 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 2 2 0 0 0
@@ -25448,7 +25448,7 @@ problem_a48eeaf7 = Problem("problem_a48eeaf7", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0
         0 0 0 0 0 2 2 0 0 0
@@ -25460,7 +25460,7 @@ problem_a48eeaf7 = Problem("problem_a48eeaf7", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 5 0
         0 0 0 0 0 0 0 0 0 0
@@ -25471,7 +25471,7 @@ problem_a48eeaf7 = Problem("problem_a48eeaf7", [
         0 0 2 2 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -25486,7 +25486,7 @@ problem_a48eeaf7 = Problem("problem_a48eeaf7", [
 ])
 
 problem_a5313dff = Problem("problem_a5313dff", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0
         0 2 2 2 2 2 0 0
         0 2 0 0 0 2 0 0
@@ -25495,7 +25495,7 @@ problem_a5313dff = Problem("problem_a5313dff", [
         0 2 2 2 2 2 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 2 2 2 2 2 0 0
         0 2 1 1 1 2 0 0
@@ -25505,7 +25505,7 @@ problem_a5313dff = Problem("problem_a5313dff", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 0 0 0 0
         0 2 0 2 0 0 0 0
         0 0 0 2 0 0 0 0
@@ -25514,7 +25514,7 @@ problem_a5313dff = Problem("problem_a5313dff", [
         0 0 2 0 2 0 2 0
         0 0 2 0 0 0 2 0
         0 0 2 2 2 2 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 2 0 0 0 0
         0 2 0 2 0 0 0 0
         0 0 0 2 0 0 0 0
@@ -25524,7 +25524,7 @@ problem_a5313dff = Problem("problem_a5313dff", [
         0 0 2 1 1 1 2 0
         0 0 2 2 2 2 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 2 2 2 2 0 0 0 0
         0 0 0 2 0 0 0 2 0 0 0 0
         0 0 0 2 0 2 0 2 2 2 2 0
@@ -25537,7 +25537,7 @@ problem_a5313dff = Problem("problem_a5313dff", [
         0 0 0 0 0 0 0 2 2 2 2 2
         0 0 0 0 0 0 0 2 0 0 0 2
         0 0 0 0 0 0 0 2 0 2 0 2
-    ]), Int[
+    ]), Integer[
         0 0 0 2 2 2 2 2 0 0 0 0
         0 0 0 2 1 1 1 2 0 0 0 0
         0 0 0 2 1 2 1 2 2 2 2 0
@@ -25551,7 +25551,7 @@ problem_a5313dff = Problem("problem_a5313dff", [
         0 0 0 0 0 0 0 2 0 0 0 2
         0 0 0 0 0 0 0 2 0 2 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 2 2 2 2 0 0
         0 0 2 0 0 0 2 0 0
         0 0 2 0 0 0 2 0 0
@@ -25561,7 +25561,7 @@ problem_a5313dff = Problem("problem_a5313dff", [
         2 0 0 0 2 2 2 2 2
         2 2 2 2 2 0 0 0 0
         0 0 0 0 2 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 2 2 2 2 2 0 0
         0 0 2 1 1 1 2 0 0
         0 0 2 1 1 1 2 0 0
@@ -25575,16 +25575,16 @@ problem_a5313dff = Problem("problem_a5313dff", [
 ])
 
 problem_a5f85a15 = Problem("problem_a5f85a15", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0
         0 2 0
         0 0 2
-    ]), Int[
+    ]), Integer[
         2 0 0
         0 4 0
         0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 9 0 0 0 0 0
         0 0 0 9 0 0 0 0
         0 0 0 0 9 0 0 0
@@ -25593,7 +25593,7 @@ problem_a5f85a15 = Problem("problem_a5f85a15", [
         0 9 0 0 0 0 0 9
         0 0 9 0 0 0 0 0
         0 0 0 9 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 9 0 0 0 0 0
         0 0 0 4 0 0 0 0
         0 0 0 0 9 0 0 0
@@ -25603,14 +25603,14 @@ problem_a5f85a15 = Problem("problem_a5f85a15", [
         0 0 9 0 0 0 0 0
         0 0 0 4 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 0 0 0
         0 0 0 3 0 0
         0 0 0 0 3 0
         3 0 0 0 0 3
         0 3 0 0 0 0
         0 0 3 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 0
         0 0 0 4 0 0
         0 0 0 0 3 0
@@ -25618,7 +25618,7 @@ problem_a5f85a15 = Problem("problem_a5f85a15", [
         0 4 0 0 0 0
         0 0 3 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 6 0 0 0 0 0 0 0
         6 0 0 0 0 6 0 0 0 0 0 0
         0 6 0 0 0 0 6 0 0 0 0 0
@@ -25631,7 +25631,7 @@ problem_a5f85a15 = Problem("problem_a5f85a15", [
         0 6 0 0 0 0 0 0 6 0 0 0
         0 0 6 0 0 0 0 0 0 6 0 0
         0 0 0 6 0 0 0 0 0 0 6 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 6 0 0 0 0 0 0 0
         6 0 0 0 0 4 0 0 0 0 0 0
         0 4 0 0 0 0 6 0 0 0 0 0
@@ -25648,7 +25648,7 @@ problem_a5f85a15 = Problem("problem_a5f85a15", [
 ])
 
 problem_a61ba2ce = Problem("problem_a61ba2ce", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 8 8 0 0 0 0 0
         0 0 0 0 0 0 8 0 0 0 0 0 0
@@ -25662,13 +25662,13 @@ problem_a61ba2ce = Problem("problem_a61ba2ce", [
         0 0 0 3 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 2 2
         8 0 0 2
         3 0 0 1
         3 3 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 8 8 0 0 0
         0 0 0 0 0 0 0 0 0 8 0 0 0
@@ -25682,13 +25682,13 @@ problem_a61ba2ce = Problem("problem_a61ba2ce", [
         0 0 0 0 4 4 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 8 8
         1 0 0 8
         4 0 0 2
         4 4 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0 8 8 0
@@ -25702,7 +25702,7 @@ problem_a61ba2ce = Problem("problem_a61ba2ce", [
         0 0 3 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 8 8
         3 0 0 8
         1 0 0 6
@@ -25711,7 +25711,7 @@ problem_a61ba2ce = Problem("problem_a61ba2ce", [
 ])
 
 problem_a61f2674 = Problem("problem_a61f2674", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 0 0 0
         0 0 5 0 0 0 5 0 0
@@ -25721,7 +25721,7 @@ problem_a61f2674 = Problem("problem_a61f2674", [
         5 0 5 0 5 0 5 0 5
         5 0 5 0 5 0 5 0 5
         5 0 5 0 5 0 5 0 5
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0
@@ -25732,7 +25732,7 @@ problem_a61f2674 = Problem("problem_a61f2674", [
         0 0 1 0 0 0 0 0 2
         0 0 1 0 0 0 0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 5 0 0 0 0
         0 0 0 0 5 0 0 0 0
         5 0 0 0 5 0 0 0 0
@@ -25742,7 +25742,7 @@ problem_a61f2674 = Problem("problem_a61f2674", [
         5 0 0 0 5 0 5 0 0
         5 0 5 0 5 0 5 0 0
         5 0 5 0 5 0 5 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 1 0 0 0 0
         0 0 0 0 1 0 0 0 0
         0 0 0 0 1 0 0 0 0
@@ -25753,7 +25753,7 @@ problem_a61f2674 = Problem("problem_a61f2674", [
         0 0 2 0 1 0 0 0 0
         0 0 2 0 1 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0
         0 0 0 5 0 0 0 5 0
@@ -25763,7 +25763,7 @@ problem_a61f2674 = Problem("problem_a61f2674", [
         0 0 0 5 0 5 0 5 0
         0 0 0 5 0 5 0 5 0
         0 5 0 5 0 5 0 5 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 1 0
         0 0 0 0 0 0 0 1 0
@@ -25777,7 +25777,7 @@ problem_a61f2674 = Problem("problem_a61f2674", [
 ])
 
 problem_a64e4611 = Problem("problem_a64e4611", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 0 8 0 8 0 8 8 8 8 8 0 8 8 8 0 8 0 0 8 0 8 0 0 0 8 8 0 8
         0 0 0 8 8 8 8 0 0 8 0 8 0 0 8 8 0 0 8 0 0 0 0 0 8 8 8 8 0 8
         8 0 0 0 8 8 0 0 8 0 8 8 0 8 8 0 8 0 8 0 8 8 8 8 0 0 8 0 0 0
@@ -25808,7 +25808,7 @@ problem_a64e4611 = Problem("problem_a64e4611", [
         8 0 8 0 8 0 8 0 0 0 0 0 0 0 0 0 0 8 0 8 8 0 8 8 0 8 0 0 8 0
         0 8 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 8 8 0 8 8 8 0 0 0
         8 8 8 0 8 0 0 8 0 0 0 0 0 0 0 0 0 8 8 0 8 0 8 8 0 8 0 8 8 0
-    ]), Int[
+    ]), Integer[
         8 8 0 8 0 8 0 8 8 8 8 8 0 8 8 8 0 8 0 0 8 0 8 0 0 0 8 8 0 8
         0 0 0 8 8 8 8 0 0 8 0 8 0 0 8 8 0 0 8 0 0 0 0 0 8 8 8 8 0 8
         8 0 0 0 8 8 0 0 8 0 8 8 0 8 8 0 8 0 8 0 8 8 8 8 0 0 8 0 0 0
@@ -25840,7 +25840,7 @@ problem_a64e4611 = Problem("problem_a64e4611", [
         0 8 8 0 0 0 0 0 0 3 3 3 3 3 3 3 0 0 8 0 0 8 8 0 8 8 8 0 0 0
         8 8 8 0 8 0 0 8 0 3 3 3 3 3 3 3 0 8 8 0 8 0 8 8 0 8 0 8 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1 0
         0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 1 0 1 1 0 0 1 1 1 0 0
         0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 1 0 1 0 1 0 0 1 0 1 0
@@ -25871,7 +25871,7 @@ problem_a64e4611 = Problem("problem_a64e4611", [
         0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 1 0 0 0 1 1 1
         1 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 1 1 0 0 1
         1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 1 0 1 1 0 1 1 1 0
-    ]), Int[
+    ]), Integer[
         1 1 1 0 0 0 3 3 3 3 3 3 3 0 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1 0
         0 0 1 0 1 0 3 3 3 3 3 3 3 0 1 1 1 1 0 1 0 1 1 0 0 1 1 1 0 0
         0 0 1 1 0 0 3 3 3 3 3 3 3 0 1 1 1 0 0 1 0 1 0 1 0 0 1 0 1 0
@@ -25903,7 +25903,7 @@ problem_a64e4611 = Problem("problem_a64e4611", [
         1 0 1 0 1 0 3 3 3 3 3 3 3 0 1 0 0 0 0 0 0 1 1 0 0 1 1 0 0 1
         1 0 1 1 0 0 3 3 3 3 3 3 3 0 0 0 1 1 1 0 0 1 0 1 1 0 1 1 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 2 2 2 2 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 2 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 2 2 0
         0 2 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 2 0 2 0 0 0 0 2 0 2 0 2 0
@@ -25934,7 +25934,7 @@ problem_a64e4611 = Problem("problem_a64e4611", [
         0 2 0 2 0 0 2 0 0 0 0 0 0 0 0 0 0 2 0 0 2 0 2 0 0 0 2 0 2 2
         2 0 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 2 2 0 0 0 2 0 2 0
         2 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 0 2 2 2 2 2 2 0 2 2
-    ]), Int[
+    ]), Integer[
         0 2 0 2 2 2 2 0 3 3 3 3 3 3 3 3 0 2 0 0 0 0 0 0 0 2 2 0 0 0
         0 0 2 0 0 0 0 0 3 3 3 3 3 3 3 3 0 0 0 0 0 2 2 2 0 0 0 2 2 0
         0 2 0 0 0 2 2 0 3 3 3 3 3 3 3 3 0 2 0 2 0 0 0 0 2 0 2 0 2 0
@@ -25966,7 +25966,7 @@ problem_a64e4611 = Problem("problem_a64e4611", [
         2 0 2 2 0 0 0 0 3 3 3 3 3 3 3 3 0 2 0 0 0 2 2 0 0 0 2 0 2 0
         2 0 0 2 2 0 0 0 3 3 3 3 3 3 3 3 0 2 2 2 0 2 2 2 2 2 2 0 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 4 0 4 0 4 4 0 0 0 0 0 0 4 4 4 4 4 0 0 0 4 0 4 4 4 0 0 0
         4 4 4 0 0 4 4 0 0 0 0 0 0 0 0 4 4 0 4 0 0 0 0 0 0 4 4 0 4 4
         0 0 0 4 0 0 0 0 4 4 0 0 0 0 0 4 0 4 4 0 0 0 4 4 0 0 4 0 0 4
@@ -25997,7 +25997,7 @@ problem_a64e4611 = Problem("problem_a64e4611", [
         0 0 4 0 4 0 4 4 0 0 0 0 0 0 0 0 4 0 4 0 0 0 0 0 0 4 0 0 4 4
         4 0 0 0 0 0 4 4 4 0 0 0 0 0 0 0 0 0 0 0 4 0 4 0 4 4 4 0 4 4
         0 0 0 4 4 4 4 4 4 0 0 0 0 0 0 4 0 0 4 0 0 0 0 4 0 4 4 0 0 0
-    ]), Int[
+    ]), Integer[
         0 4 4 0 4 0 4 4 0 0 0 3 3 0 4 4 4 4 4 0 3 0 4 0 4 4 4 0 0 0
         4 4 4 0 0 4 4 0 0 0 0 3 3 0 0 4 4 0 4 0 3 0 0 0 0 4 4 0 4 4
         0 0 0 4 0 0 0 0 4 4 0 3 3 0 0 4 0 4 4 0 3 0 4 4 0 0 4 0 0 4
@@ -26032,7 +26032,7 @@ problem_a64e4611 = Problem("problem_a64e4611", [
 ])
 
 problem_a65b410d = Problem("problem_a65b410d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
@@ -26040,7 +26040,7 @@ problem_a65b410d = Problem("problem_a65b410d", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 0 0
         3 3 3 3 0 0 0
         3 3 3 0 0 0 0
@@ -26049,7 +26049,7 @@ problem_a65b410d = Problem("problem_a65b410d", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -26058,7 +26058,7 @@ problem_a65b410d = Problem("problem_a65b410d", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 0 0 0
         3 3 3 3 3 0 0 0 0
         3 3 3 3 0 0 0 0 0
@@ -26068,7 +26068,7 @@ problem_a65b410d = Problem("problem_a65b410d", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         2 2 2 2 0 0 0 0 0
@@ -26076,7 +26076,7 @@ problem_a65b410d = Problem("problem_a65b410d", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 0 0 0
         3 3 3 3 3 0 0 0 0
         2 2 2 2 0 0 0 0 0
@@ -26085,7 +26085,7 @@ problem_a65b410d = Problem("problem_a65b410d", [
         1 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         2 2 2 2 2 0 0 0 0
@@ -26095,7 +26095,7 @@ problem_a65b410d = Problem("problem_a65b410d", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 0 0
         3 3 3 3 3 3 0 0 0
         2 2 2 2 2 0 0 0 0
@@ -26109,7 +26109,7 @@ problem_a65b410d = Problem("problem_a65b410d", [
 ])
 
 problem_a68b268e = Problem("problem_a68b268e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 7 7 1 0 4 0 4
         7 7 7 0 1 4 4 0 0
         0 0 0 0 1 0 0 0 4
@@ -26119,13 +26119,13 @@ problem_a68b268e = Problem("problem_a68b268e", [
         0 0 8 8 1 0 0 0 0
         8 0 8 0 1 6 0 0 6
         0 0 0 8 1 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 7 7 7
         7 7 7 8
         8 0 8 4
         7 0 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 7 0 1 0 4 0 0
         7 0 7 0 1 4 0 4 4
         0 7 0 7 1 4 0 4 4
@@ -26135,13 +26135,13 @@ problem_a68b268e = Problem("problem_a68b268e", [
         0 0 0 0 1 6 0 0 0
         0 0 0 0 1 6 6 0 6
         8 8 8 0 1 6 0 6 6
-    ]), Int[
+    ]), Integer[
         7 7 7 6
         7 0 7 4
         4 7 4 7
         8 8 8 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 7 7 1 0 4 4 0
         0 0 0 7 1 0 0 4 4
         7 7 7 7 1 0 0 0 4
@@ -26151,13 +26151,13 @@ problem_a68b268e = Problem("problem_a68b268e", [
         0 0 0 0 1 0 0 6 0
         0 0 0 8 1 6 0 6 0
         8 0 0 0 1 6 6 0 0
-    ]), Int[
+    ]), Integer[
         0 4 7 7
         0 0 4 7
         7 7 7 7
         8 7 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 0 0 1 4 4 0 4
         7 0 7 0 1 4 0 0 0
         7 0 0 7 1 4 4 4 0
@@ -26167,13 +26167,13 @@ problem_a68b268e = Problem("problem_a68b268e", [
         0 0 8 0 1 6 6 0 0
         0 0 8 0 1 0 6 6 6
         0 8 0 8 1 0 6 6 0
-    ]), Int[
+    ]), Integer[
         7 7 8 4
         7 6 7 0
         7 4 4 7
         7 8 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 0 0 1 0 0 0 4
         7 0 0 0 1 4 4 4 4
         7 0 7 0 1 4 0 0 0
@@ -26183,13 +26183,13 @@ problem_a68b268e = Problem("problem_a68b268e", [
         0 0 8 8 1 0 0 6 0
         0 0 0 0 1 0 6 0 6
         8 8 8 8 1 0 0 0 6
-    ]), Int[
+    ]), Integer[
         7 7 8 4
         7 4 4 4
         7 6 7 6
         4 7 7 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 0 0 7 1 4 4 4 0
         0 7 7 7 1 4 4 0 4
         7 7 7 0 1 4 4 0 4
@@ -26199,13 +26199,13 @@ problem_a68b268e = Problem("problem_a68b268e", [
         0 8 8 8 1 0 0 0 6
         0 8 0 8 1 0 0 6 0
         8 8 0 8 1 0 6 0 0
-    ]), Int[
+    ]), Integer[
         7 4 4 7
         4 7 7 7
         7 7 7 4
         7 7 7 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 7 0 1 0 0 4 0
         0 7 7 0 1 4 4 0 4
         7 7 7 7 1 0 4 0 4
@@ -26215,7 +26215,7 @@ problem_a68b268e = Problem("problem_a68b268e", [
         8 0 0 8 1 6 0 0 6
         8 0 8 0 1 6 6 6 6
         0 8 0 8 1 0 6 0 0
-    ]), Int[
+    ]), Integer[
         7 7 7 8
         4 7 7 4
         7 7 7 7
@@ -26224,20 +26224,20 @@ problem_a68b268e = Problem("problem_a68b268e", [
 ])
 
 problem_a699fb00 = Problem("problem_a699fb00", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 1 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 1 0 1 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 2 1 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 1 2 1 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 0 1 0 1 0 1 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -26248,7 +26248,7 @@ problem_a699fb00 = Problem("problem_a699fb00", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 1 0 1 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 2 1 2 1 2 1 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -26260,7 +26260,7 @@ problem_a699fb00 = Problem("problem_a699fb00", [
         0 0 0 1 2 1 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 0 1 0
         0 1 0 1 0 0 0 0 0 0
@@ -26271,7 +26271,7 @@ problem_a699fb00 = Problem("problem_a699fb00", [
         0 0 0 0 1 0 1 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 0 1 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 2 1 0
         0 1 2 1 0 0 0 0 0 0
@@ -26283,7 +26283,7 @@ problem_a699fb00 = Problem("problem_a699fb00", [
         0 0 0 0 0 0 0 0 0 0
         0 1 2 1 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 1 0 1 0 1 0 1 0
@@ -26294,7 +26294,7 @@ problem_a699fb00 = Problem("problem_a699fb00", [
         0 0 0 1 0 1 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 2 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 1 2 1 2 1 2 1 0
@@ -26309,18 +26309,18 @@ problem_a699fb00 = Problem("problem_a699fb00", [
 ])
 
 problem_a740d043 = Problem("problem_a740d043", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1
         1 2 2 1 1 1 1
         1 2 2 3 1 1 1
         1 1 1 2 1 1 1
         1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         2 2 0
         2 2 3
         0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1
         1 1 3 1 2 1 1
         1 1 3 1 2 1 1
@@ -26328,11 +26328,11 @@ problem_a740d043 = Problem("problem_a740d043", [
         1 1 1 1 1 1 1
         1 1 1 1 1 1 1
         1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         3 0 2
         3 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1
         1 1 1 1 1 1
         1 5 5 1 1 1
@@ -26340,26 +26340,26 @@ problem_a740d043 = Problem("problem_a740d043", [
         1 6 6 1 1 1
         1 1 1 1 1 1
         1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         5 5
         5 5
         6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1
         1 1 1 1 1 1
         1 1 1 2 1 1
         1 1 2 3 1 1
         1 1 1 1 1 1
         1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         0 2
         2 3
     ])
 ])
 
 problem_a78176bb = Problem("problem_a78176bb", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 0 0 0 0 0 0 0 0 0
         0 7 0 0 0 0 0 0 0 0
         0 0 7 0 0 0 0 0 0 0
@@ -26370,7 +26370,7 @@ problem_a78176bb = Problem("problem_a78176bb", [
         0 0 0 0 0 0 0 7 0 0
         0 0 0 0 0 0 0 0 7 0
         0 0 0 0 0 0 0 0 0 7
-    ]), Int[
+    ]), Integer[
         7 0 0 0 7 0 0 0 0 0
         0 7 0 0 0 7 0 0 0 0
         0 0 7 0 0 0 7 0 0 0
@@ -26382,7 +26382,7 @@ problem_a78176bb = Problem("problem_a78176bb", [
         0 0 0 0 0 0 0 0 7 0
         0 0 0 0 0 0 0 0 0 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 9 0 0 0 0
         0 0 0 0 0 5 9 0 0 0
         0 0 0 0 0 5 5 9 0 0
@@ -26393,7 +26393,7 @@ problem_a78176bb = Problem("problem_a78176bb", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 9 0 0 0 0
         9 0 0 0 0 0 9 0 0 0
         0 9 0 0 0 0 0 9 0 0
@@ -26405,7 +26405,7 @@ problem_a78176bb = Problem("problem_a78176bb", [
         0 0 0 0 0 0 0 9 0 0
         0 0 0 0 0 0 0 0 9 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
@@ -26416,7 +26416,7 @@ problem_a78176bb = Problem("problem_a78176bb", [
         0 0 0 5 5 5 2 0 0 0
         0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 2 0 0 0 0 0 0
         2 0 0 0 2 0 0 0 0 0
         0 2 0 0 0 2 0 0 0 0
@@ -26428,7 +26428,7 @@ problem_a78176bb = Problem("problem_a78176bb", [
         0 0 2 0 0 0 0 2 0 0
         0 0 0 2 0 0 0 0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 0 0 0 0 0 0 0
         0 0 1 5 5 0 0 0 0 0
         0 0 0 1 5 0 0 0 0 0
@@ -26439,7 +26439,7 @@ problem_a78176bb = Problem("problem_a78176bb", [
         0 0 0 0 5 5 5 5 1 0
         0 0 0 0 5 5 5 5 5 1
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 0 0 0 1 0 0 0 0
         0 0 1 0 0 0 1 0 0 0
         0 0 0 1 0 0 0 1 0 0
@@ -26454,48 +26454,48 @@ problem_a78176bb = Problem("problem_a78176bb", [
 ])
 
 problem_a79310a0 = Problem("problem_a79310a0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 0 0 0
         8 8 0 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         2 2 0 0 0
         2 2 0 0 0
         0 0 0 0 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0
         0 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 2 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 8 8 8 0
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 2 2 2 0
         0 0 0 0 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 0
         0 8 8 0 0
         0 0 8 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 2 0 0
         0 2 2 0 0
@@ -26505,47 +26505,47 @@ problem_a79310a0 = Problem("problem_a79310a0", [
 ])
 
 problem_a85d4709 = Problem("problem_a85d4709", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5
         0 5 0
         5 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3
         4 4 4
         2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5
         0 0 5
         0 0 5
-    ]), Int[
+    ]), Integer[
         3 3 3
         3 3 3
         3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 0
         0 5 0
         5 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2
         4 4 4
         2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0
         0 0 5
         0 5 0
-    ]), Int[
+    ]), Integer[
         4 4 4
         3 3 3
         4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5
         5 0 0
         0 5 0
-    ]), Int[
+    ]), Integer[
         3 3 3
         2 2 2
         4 4 4
@@ -26553,7 +26553,7 @@ problem_a85d4709 = Problem("problem_a85d4709", [
 ])
 
 problem_a87f7484 = Problem("problem_a87f7484", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 0 6
         0 6 6
         6 0 6
@@ -26563,30 +26563,30 @@ problem_a87f7484 = Problem("problem_a87f7484", [
         8 8 8
         8 0 8
         8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8
         8 0 8
         8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 3 0 0 7 0 7 1 0 0
         2 0 0 3 0 0 0 7 0 1 0 0
         0 2 2 0 3 3 7 0 7 0 1 1
-    ]), Int[
+    ]), Integer[
         7 0 7
         0 7 0
         7 0 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 4 0 4 2 0 0 8 0 0 1 0 0
         0 3 3 4 4 4 0 2 2 0 8 8 0 1 1
         0 3 0 4 0 4 0 2 0 0 8 0 0 1 0
-    ]), Int[
+    ]), Integer[
         4 0 4
         4 4 4
         4 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 7
         7 7 0
         7 0 7
@@ -26599,12 +26599,12 @@ problem_a87f7484 = Problem("problem_a87f7484", [
         8 0 0
         0 8 8
         8 0 0
-    ]), Int[
+    ]), Integer[
         0 7 7
         7 7 0
         7 0 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0
         5 0 5
         0 5 0
@@ -26620,7 +26620,7 @@ problem_a87f7484 = Problem("problem_a87f7484", [
         0 8 0
         8 0 8
         0 8 0
-    ]), Int[
+    ]), Integer[
         6 0 6
         6 6 0
         6 0 6
@@ -26628,7 +26628,7 @@ problem_a87f7484 = Problem("problem_a87f7484", [
 ])
 
 problem_a8c38be5 = Problem("problem_a8c38be5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 0 0 0 0 0 0 0 0 0 0 0
         8 5 5 0 0 0 0 0 2 2 2 0 0 0
         8 8 5 0 0 0 0 0 5 2 5 0 0 0
@@ -26643,7 +26643,7 @@ problem_a8c38be5 = Problem("problem_a8c38be5", [
         5 5 5 0 0 0 5 5 3 0 6 6 5 0
         5 5 9 0 0 0 0 0 0 0 6 5 5 0
         5 9 9 0 0 0 0 0 0 0 5 5 5 0
-    ]), Int[
+    ]), Integer[
         6 6 5 2 2 2 5 1 1
         6 5 5 5 2 5 5 5 1
         5 5 5 5 5 5 5 5 5
@@ -26654,7 +26654,7 @@ problem_a8c38be5 = Problem("problem_a8c38be5", [
         8 5 5 5 4 5 5 5 9
         8 8 5 4 4 4 5 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 5 5 4
         0 5 5 5 0 0 0 0 0 0 0 5 4 4
         0 3 5 5 0 5 8 8 0 0 0 5 5 4
@@ -26671,7 +26671,7 @@ problem_a8c38be5 = Problem("problem_a8c38be5", [
         0 0 0 0 7 5 5 0 0 5 5 5 0 0
         0 0 0 0 5 5 5 0 0 5 2 5 0 0
         0 0 0 0 0 0 0 0 0 2 2 2 0 0
-    ]), Int[
+    ]), Integer[
         7 7 5 1 1 1 5 8 8
         7 5 5 5 1 5 5 5 8
         5 5 5 5 5 5 5 5 5
@@ -26682,7 +26682,7 @@ problem_a8c38be5 = Problem("problem_a8c38be5", [
         3 5 5 5 2 5 5 5 9
         3 3 5 2 2 2 5 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 5 5 5 0 0
         0 1 5 5 0 0 0 0 0 0 6 5 5 0 0
         0 1 1 5 0 2 2 2 0 0 6 6 5 0 0
@@ -26699,7 +26699,7 @@ problem_a8c38be5 = Problem("problem_a8c38be5", [
         0 0 0 0 0 0 5 5 7 0 0 0 0 0 0
         0 0 0 0 0 0 5 7 7 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 5 2 2 2 5 4 4
         3 5 5 5 2 5 5 5 4
         5 5 5 5 5 5 5 5 5
@@ -26713,7 +26713,7 @@ problem_a8c38be5 = Problem("problem_a8c38be5", [
 ])
 
 problem_a8d7556c = Problem("problem_a8d7556c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 0 5 0 0 5 5 5 5 5 5 5 0 5 5 5
         5 5 0 0 0 5 0 5 0 5 5 0 0 5 0 5 0 5
         0 5 5 0 5 5 0 0 5 5 0 5 5 5 5 5 0 5
@@ -26732,7 +26732,7 @@ problem_a8d7556c = Problem("problem_a8d7556c", [
         5 0 5 0 0 0 5 5 5 5 5 5 5 0 0 5 0 5
         5 0 5 5 0 0 0 5 5 5 0 0 0 0 0 5 0 0
         5 5 0 5 0 0 5 0 0 5 5 0 5 0 5 0 5 5
-    ]), Int[
+    ]), Integer[
         5 5 5 0 5 0 0 5 5 5 5 5 5 5 0 5 5 5
         5 5 0 0 0 5 0 5 0 5 5 0 0 5 0 5 0 5
         0 5 5 0 5 5 0 0 5 5 0 5 5 5 5 5 0 5
@@ -26752,7 +26752,7 @@ problem_a8d7556c = Problem("problem_a8d7556c", [
         5 0 5 5 2 2 0 5 5 5 0 0 0 2 2 5 0 0
         5 5 0 5 2 2 5 0 0 5 5 0 5 0 5 0 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 0 5 0 5 0 5 5 5 0 0 5 0 5 5
         5 5 5 5 0 0 5 5 0 5 0 0 5 0 0 5 5 0
         5 5 5 5 5 5 0 5 5 5 5 0 0 0 0 5 5 0
@@ -26771,7 +26771,7 @@ problem_a8d7556c = Problem("problem_a8d7556c", [
         5 0 5 5 5 5 0 0 5 5 0 5 0 5 5 0 5 0
         0 0 0 0 0 0 0 0 5 5 5 0 0 0 0 5 0 0
         5 5 0 0 5 5 0 5 0 5 5 5 0 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         5 5 5 5 0 5 0 5 0 5 5 5 0 0 5 0 5 5
         5 5 5 5 0 0 5 5 0 5 0 0 5 2 2 5 5 0
         5 5 5 5 5 5 0 5 5 5 5 0 0 2 2 5 5 0
@@ -26791,7 +26791,7 @@ problem_a8d7556c = Problem("problem_a8d7556c", [
         0 0 2 2 0 0 2 2 5 5 5 0 0 0 0 5 0 0
         5 5 2 2 5 5 0 5 0 5 5 5 0 5 5 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 5 5 5 5 5 5 0 0 5 5 5 0 5 5 0
         5 0 0 0 5 5 0 0 0 0 5 0 5 5 0 5 5 5
         0 0 5 5 5 5 0 0 5 5 5 5 0 0 0 5 5 5
@@ -26810,7 +26810,7 @@ problem_a8d7556c = Problem("problem_a8d7556c", [
         0 5 5 5 5 5 0 5 5 5 0 5 0 5 5 0 0 5
         0 5 5 0 0 5 5 5 0 0 0 5 5 0 5 5 5 5
         5 0 0 5 5 0 5 5 5 5 5 0 5 5 0 0 5 0
-    ]), Int[
+    ]), Integer[
         0 0 5 5 5 5 5 5 5 0 0 5 5 5 0 5 5 0
         5 0 0 0 5 5 2 2 0 0 5 0 5 5 0 5 5 5
         0 0 5 5 5 5 2 2 5 5 5 5 0 0 0 5 5 5
@@ -26830,7 +26830,7 @@ problem_a8d7556c = Problem("problem_a8d7556c", [
         0 5 5 0 0 5 5 5 0 0 0 5 5 0 5 5 5 5
         5 0 0 5 5 0 5 5 5 5 5 0 5 5 0 0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 5 0 0 5 5 0 5 5 5 5 5 0 0
         0 0 5 5 0 5 0 5 0 0 0 5 5 5 5 0 5 5
         5 0 0 0 5 5 0 5 0 0 5 0 5 0 5 5 0 5
@@ -26849,7 +26849,7 @@ problem_a8d7556c = Problem("problem_a8d7556c", [
         5 0 5 5 5 5 0 5 5 0 0 0 5 5 5 5 0 5
         0 5 0 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5
         5 0 0 0 0 0 0 5 0 5 0 5 5 0 5 5 0 0
-    ]), Int[
+    ]), Integer[
         2 2 0 5 0 5 0 0 5 5 0 5 5 5 5 5 0 0
         2 2 5 5 0 5 0 5 2 2 0 5 5 5 5 0 5 5
         5 0 0 0 5 5 0 5 2 2 5 0 5 0 5 5 0 5
@@ -26872,47 +26872,47 @@ problem_a8d7556c = Problem("problem_a8d7556c", [
 ])
 
 problem_a9f96cdd = Problem("problem_a9f96cdd", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 2 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 0 6 0 0
         0 0 0 0 0
         8 0 7 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 2
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 3 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 8 0 7 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 2 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 6
         0 0 0 0 0
         0 0 8 0 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 2
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 3 0
         0 0 0 0 0
         0 0 0 8 0
@@ -26920,7 +26920,7 @@ problem_a9f96cdd = Problem("problem_a9f96cdd", [
 ])
 
 problem_aabf363d = Problem("problem_aabf363d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 2 2 2 0 0 0
         0 0 2 0 0 0 0
@@ -26928,7 +26928,7 @@ problem_aabf363d = Problem("problem_aabf363d", [
         0 0 2 2 2 0 0
         0 0 0 2 0 0 0
         4 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 4 4 4 0 0 0
         0 0 4 0 0 0 0
@@ -26937,7 +26937,7 @@ problem_aabf363d = Problem("problem_aabf363d", [
         0 0 0 4 0 0 0
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 0 0 3 0 0 0
         0 0 3 3 3 0 0
@@ -26945,7 +26945,7 @@ problem_aabf363d = Problem("problem_aabf363d", [
         0 3 3 0 0 0 0
         0 0 3 3 0 0 0
         6 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 0 0 6 0 0 0
         0 0 6 6 6 0 0
@@ -26954,7 +26954,7 @@ problem_aabf363d = Problem("problem_aabf363d", [
         0 0 6 6 0 0 0
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 8 8 8 0 0 0
         0 8 8 8 8 8 0
@@ -26962,7 +26962,7 @@ problem_aabf363d = Problem("problem_aabf363d", [
         0 0 8 8 0 0 0
         0 0 8 8 8 0 0
         2 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 2 2 2 0 0 0
         0 2 2 2 2 2 0
@@ -26974,7 +26974,7 @@ problem_aabf363d = Problem("problem_aabf363d", [
 ])
 
 problem_aba27056 = Problem("problem_aba27056", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
@@ -26982,7 +26982,7 @@ problem_aba27056 = Problem("problem_aba27056", [
         0 6 6 0 6 6 0
         0 6 0 0 0 6 0
         0 6 6 6 6 6 0
-    ]), Int[
+    ]), Integer[
         0 0 0 4 0 0 0
         4 0 0 4 0 0 4
         0 4 0 4 0 4 0
@@ -26991,7 +26991,7 @@ problem_aba27056 = Problem("problem_aba27056", [
         0 6 4 4 4 6 0
         0 6 6 6 6 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 7 7 7 7 7
@@ -27001,7 +27001,7 @@ problem_aba27056 = Problem("problem_aba27056", [
         0 0 0 0 0 0 0 0 7
         0 0 0 0 7 0 0 0 7
         0 0 0 0 7 7 7 7 7
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 0 0
         0 4 0 0 0 0 0 0 0
         0 0 4 0 7 7 7 7 7
@@ -27012,14 +27012,14 @@ problem_aba27056 = Problem("problem_aba27056", [
         0 0 0 4 7 4 4 4 7
         0 0 4 0 7 7 7 7 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3
         3 0 0 0 0 3
         3 0 0 0 0 3
         3 3 0 0 3 3
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3
         3 4 4 4 4 3
         3 4 4 4 4 3
@@ -27027,7 +27027,7 @@ problem_aba27056 = Problem("problem_aba27056", [
         0 4 4 4 4 0
         4 0 4 4 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 2 2 2 0 0 0 0 0
         0 2 0 0 2 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
@@ -27038,7 +27038,7 @@ problem_aba27056 = Problem("problem_aba27056", [
         0 2 0 0 2 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 2 2 2 0 4 0 0 0
         0 2 4 4 2 4 0 0 0 0
         0 2 4 4 4 4 4 4 4 4
@@ -27053,11 +27053,11 @@ problem_aba27056 = Problem("problem_aba27056", [
 ])
 
 problem_ac0a08a4 = Problem("problem_ac0a08a4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0
         0 0 7
         0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 0 0 0 0
         2 2 0 0 0 0
         0 0 0 0 7 7
@@ -27065,11 +27065,11 @@ problem_ac0a08a4 = Problem("problem_ac0a08a4", [
         0 0 0 0 0 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0
         0 0 8
         6 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 4 4 4 0 0 0
         0 0 0 4 4 4 0 0 0
         0 0 0 4 4 4 0 0 0
@@ -27080,11 +27080,11 @@ problem_ac0a08a4 = Problem("problem_ac0a08a4", [
         6 6 6 0 0 0 0 0 0
         6 6 6 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 6 9
         3 0 2
         0 7 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 6 6 6 6 6 9 9 9 9 9
         0 0 0 0 0 6 6 6 6 6 9 9 9 9 9
         0 0 0 0 0 6 6 6 6 6 9 9 9 9 9
@@ -27101,11 +27101,11 @@ problem_ac0a08a4 = Problem("problem_ac0a08a4", [
         0 0 0 0 0 7 7 7 7 7 0 0 0 0 0
         0 0 0 0 0 7 7 7 7 7 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0
         0 9 6
         8 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 1 0 0 0 0 0 0 0 0
         1 1 1 1 0 0 0 0 0 0 0 0
         1 1 1 1 0 0 0 0 0 0 0 0
@@ -27122,7 +27122,7 @@ problem_ac0a08a4 = Problem("problem_ac0a08a4", [
 ])
 
 problem_ae3edfdc = Problem("problem_ae3edfdc", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 3 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27138,7 +27138,7 @@ problem_ae3edfdc = Problem("problem_ae3edfdc", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 7 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27155,7 +27155,7 @@ problem_ae3edfdc = Problem("problem_ae3edfdc", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 7 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         7 0 0 1 0 0 0 0 0 7 0 0 0 0 0
@@ -27171,7 +27171,7 @@ problem_ae3edfdc = Problem("problem_ae3edfdc", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 7 0 0 0 0 0 0 0 0 0 0 0
         0 0 7 1 7 0 0 0 0 0 0 0 0 0 0
@@ -27188,7 +27188,7 @@ problem_ae3edfdc = Problem("problem_ae3edfdc", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27204,7 +27204,7 @@ problem_ae3edfdc = Problem("problem_ae3edfdc", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 3 0 0 0 7 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27221,7 +27221,7 @@ problem_ae3edfdc = Problem("problem_ae3edfdc", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27237,7 +27237,7 @@ problem_ae3edfdc = Problem("problem_ae3edfdc", [
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0
@@ -27257,7 +27257,7 @@ problem_ae3edfdc = Problem("problem_ae3edfdc", [
 ])
 
 problem_ae4f1146 = Problem("problem_ae4f1146", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 0 0 0 0 0 0
         1 8 8 0 8 1 8 0 0
         8 8 8 0 1 1 8 0 0
@@ -27267,12 +27267,12 @@ problem_ae4f1146 = Problem("problem_ae4f1146", [
         0 8 1 8 0 0 1 8 1
         0 0 0 0 0 0 1 8 1
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 1 8
         1 8 1
         1 8 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 8 1 0 0 0 0 0
         0 8 1 8 0 8 1 8 0
         0 8 8 8 0 1 8 8 0
@@ -27282,12 +27282,12 @@ problem_ae4f1146 = Problem("problem_ae4f1146", [
         0 0 8 8 1 0 8 8 8
         0 0 0 0 0 0 8 8 8
         0 0 0 0 0 0 1 8 8
-    ]), Int[
+    ]), Integer[
         8 1 8
         1 1 8
         8 8 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 8 8 0 0
         8 8 8 0 8 8 8 0 0
         8 8 8 0 1 8 8 0 0
@@ -27297,12 +27297,12 @@ problem_ae4f1146 = Problem("problem_ae4f1146", [
         8 8 1 0 0 0 1 8 1
         1 8 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 1 8
         1 1 8
         1 8 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 1 8 0 0 0 0
         0 0 8 8 1 0 8 1 1
         0 0 1 1 8 0 1 1 1
@@ -27312,12 +27312,12 @@ problem_ae4f1146 = Problem("problem_ae4f1146", [
         1 8 8 0 1 8 8 0 0
         0 0 0 0 8 8 1 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 1 1
         1 1 1
         8 1 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 0 0 0 8 1 8
         8 8 8 0 0 0 1 8 1
         1 8 8 0 0 0 8 1 8
@@ -27327,7 +27327,7 @@ problem_ae4f1146 = Problem("problem_ae4f1146", [
         0 0 0 0 0 0 1 1 8
         0 0 0 0 0 0 8 1 1
         0 0 0 0 0 0 1 1 8
-    ]), Int[
+    ]), Integer[
         1 1 8
         8 1 1
         1 1 8
@@ -27335,55 +27335,55 @@ problem_ae4f1146 = Problem("problem_ae4f1146", [
 ])
 
 problem_aedd82e4 = Problem("problem_aedd82e4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 2
         0 2 2
         2 0 0
-    ]), Int[
+    ]), Integer[
         0 2 2
         0 2 2
         1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 0
         0 2 0 0
         0 0 0 2
         0 2 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 0
         0 2 0 0
         0 0 0 1
         0 1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 0
         0 2 0 0
         2 2 0 2
         0 0 0 0
         0 2 2 2
-    ]), Int[
+    ]), Integer[
         2 2 0 0
         0 2 0 0
         2 2 0 1
         0 0 0 0
         0 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0
         2 0 2
         0 2 0
-    ]), Int[
+    ]), Integer[
         2 2 0
         2 0 1
         0 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 2
         0 2 0 0
         0 0 2 0
         2 0 0 0
         0 0 2 2
-    ]), Int[
+    ]), Integer[
         2 2 0 1
         0 2 0 0
         0 0 1 0
@@ -27393,7 +27393,7 @@ problem_aedd82e4 = Problem("problem_aedd82e4", [
 ])
 
 problem_af902bf9 = Problem("problem_af902bf9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -27404,7 +27404,7 @@ problem_af902bf9 = Problem("problem_af902bf9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -27416,7 +27416,7 @@ problem_af902bf9 = Problem("problem_af902bf9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 0 0 0 0 4 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -27427,7 +27427,7 @@ problem_af902bf9 = Problem("problem_af902bf9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 0 0 0 0 4 0 0 0
         0 0 2 2 2 2 0 0 0 0
@@ -27439,7 +27439,7 @@ problem_af902bf9 = Problem("problem_af902bf9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 0 4 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -27450,7 +27450,7 @@ problem_af902bf9 = Problem("problem_af902bf9", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 4 0 0 0 0 4
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 0 4 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0
@@ -27462,7 +27462,7 @@ problem_af902bf9 = Problem("problem_af902bf9", [
         0 0 0 0 0 2 2 2 2 0
         0 0 0 0 4 0 0 0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 4 0 0 0 4
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -27473,7 +27473,7 @@ problem_af902bf9 = Problem("problem_af902bf9", [
         0 0 0 0 0 0 0 0 0 0
         4 0 0 4 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 4 0 0 0 4
         0 0 0 0 0 0 2 2 2 0
         0 0 0 0 0 0 2 2 2 0
@@ -27488,19 +27488,19 @@ problem_af902bf9 = Problem("problem_af902bf9", [
 ])
 
 problem_b0c4d837 = Problem("problem_b0c4d837", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 5 0 0 5 0
         0 5 0 0 5 0
         0 5 0 0 5 0
         0 5 8 8 5 0
         0 5 5 5 5 0
-    ]), Int[
+    ]), Integer[
         8 8 8
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 5 0 0
         0 0 5 0 0 0 5 0 0
@@ -27510,12 +27510,12 @@ problem_b0c4d837 = Problem("problem_b0c4d837", [
         0 0 5 8 8 8 5 0 0
         0 0 5 8 8 8 5 0 0
         0 0 5 5 5 5 5 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8
         0 0 8
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 5 0 0 0 0 0 5 0
@@ -27525,12 +27525,12 @@ problem_b0c4d837 = Problem("problem_b0c4d837", [
         0 5 8 8 8 8 8 5 0
         0 5 8 8 8 8 8 5 0
         0 5 5 5 5 5 5 5 0
-    ]), Int[
+    ]), Integer[
         8 8 8
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 5 0 0
@@ -27540,23 +27540,23 @@ problem_b0c4d837 = Problem("problem_b0c4d837", [
         0 0 5 8 8 8 5 0 0
         0 0 5 8 8 8 5 0 0
         0 0 5 5 5 5 5 0 0
-    ]), Int[
+    ]), Integer[
         8 8 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 5 0 0 5 0
         0 5 8 8 5 0
         0 5 8 8 5 0
         0 5 5 5 5 0
-    ]), Int[
+    ]), Integer[
         8 0 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 5 0 0 0 5 0
@@ -27564,12 +27564,12 @@ problem_b0c4d837 = Problem("problem_b0c4d837", [
         0 5 8 8 8 5 0
         0 5 8 8 8 5 0
         0 5 5 5 5 5 0
-    ]), Int[
+    ]), Integer[
         8 8 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 5 0 0
         0 0 5 8 8 8 5 0 0
@@ -27579,7 +27579,7 @@ problem_b0c4d837 = Problem("problem_b0c4d837", [
         0 0 5 8 8 8 5 0 0
         0 0 5 8 8 8 5 0 0
         0 0 5 5 5 5 5 0 0
-    ]), Int[
+    ]), Integer[
         8 0 0
         0 0 0
         0 0 0
@@ -27587,11 +27587,11 @@ problem_b0c4d837 = Problem("problem_b0c4d837", [
 ])
 
 problem_b190f7f5 = Problem("problem_b190f7f5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 4 0 8 0
         0 3 0 8 8 8
         0 0 0 0 8 0
-    ]), Int[
+    ]), Integer[
         0 2 0 0 0 0 0 4 0
         2 2 2 0 0 0 4 4 4
         0 2 0 0 0 0 0 4 0
@@ -27602,11 +27602,11 @@ problem_b190f7f5 = Problem("problem_b190f7f5", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 4 0
         8 0 0 1 2 4
         8 8 0 0 1 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 4 0 0 0
         0 0 0 4 0 0 0 0 0
         0 0 0 4 4 0 0 0 0
@@ -27617,12 +27617,12 @@ problem_b190f7f5 = Problem("problem_b190f7f5", [
         0 0 0 1 0 0 0 0 0
         0 0 0 1 1 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 4 0 0 8 0
         0 2 4 0 8 8 8 8
         0 4 2 0 0 0 8 0
         4 0 0 2 0 0 8 0
-    ]), Int[
+    ]), Integer[
         0 0 2 0 0 0 0 0 0 0 0 0 0 0 4 0
         2 2 2 2 0 0 0 0 0 0 0 0 4 4 4 4
         0 0 2 0 0 0 0 0 0 0 0 0 0 0 4 0
@@ -27640,7 +27640,7 @@ problem_b190f7f5 = Problem("problem_b190f7f5", [
         0 0 4 0 0 0 0 0 0 0 0 0 0 0 2 0
         0 0 4 0 0 0 0 0 0 0 0 0 0 0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 1
         0 2 2 0
         0 2 2 0
@@ -27649,7 +27649,7 @@ problem_b190f7f5 = Problem("problem_b190f7f5", [
         8 8 8 8
         8 0 0 8
         8 8 8 8
-    ]), Int[
+    ]), Integer[
         0 3 3 0 0 0 0 0 0 0 0 0 0 1 1 0
         3 3 3 3 0 0 0 0 0 0 0 0 1 1 1 1
         3 0 0 3 0 0 0 0 0 0 0 0 1 0 0 1
@@ -27670,23 +27670,23 @@ problem_b190f7f5 = Problem("problem_b190f7f5", [
 ])
 
 problem_b1948b0a = Problem("problem_b1948b0a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 7 6
         6 6 7 7
         7 7 6 7
-    ]), Int[
+    ]), Integer[
         2 2 7 2
         2 2 7 7
         7 7 2 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 7 6
         6 6 7 6
         7 7 6 7
         7 6 7 7
         7 6 7 6
         6 6 6 7
-    ]), Int[
+    ]), Integer[
         7 7 7 2
         2 2 7 2
         7 7 2 7
@@ -27694,21 +27694,21 @@ problem_b1948b0a = Problem("problem_b1948b0a", [
         7 2 7 2
         2 2 2 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 6 6 6 6
         6 7 6 7 7 7
         7 6 7 7 6 7
-    ]), Int[
+    ]), Integer[
         7 7 2 2 2 2
         2 7 2 7 7 7
         7 2 7 7 2 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 7 7 6
         6 7 6 7
         7 7 7 6
         7 6 7 6
-    ]), Int[
+    ]), Integer[
         2 7 7 2
         2 7 2 7
         7 7 7 2
@@ -27717,7 +27717,7 @@ problem_b1948b0a = Problem("problem_b1948b0a", [
 ])
 
 problem_b230c067 = Problem("problem_b230c067", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 8 8 8
         0 8 8 8 8 0 0 8 0 8
@@ -27728,7 +27728,7 @@ problem_b230c067 = Problem("problem_b230c067", [
         0 0 0 0 0 8 8 8 8 0
         0 0 0 0 0 8 0 0 8 0
         0 0 0 0 0 8 8 8 8 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 2 2 2
         0 1 1 1 1 0 0 2 0 2
@@ -27740,7 +27740,7 @@ problem_b230c067 = Problem("problem_b230c067", [
         0 0 0 0 0 1 0 0 1 0
         0 0 0 0 0 1 1 1 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 8 8 8 8
         0 8 8 8 8 0 0 0 8 8
@@ -27751,7 +27751,7 @@ problem_b230c067 = Problem("problem_b230c067", [
         0 0 0 0 0 8 8 0 0 0
         0 0 0 0 0 8 8 8 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 2 2 2
         0 1 1 1 1 0 0 0 2 2
@@ -27763,7 +27763,7 @@ problem_b230c067 = Problem("problem_b230c067", [
         0 0 0 0 0 1 1 1 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 0 0
         0 8 0 8 0 0 0 0 0 0
@@ -27774,7 +27774,7 @@ problem_b230c067 = Problem("problem_b230c067", [
         0 0 0 8 0 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 1 1 0 0 0 0 0 0
         0 1 0 1 0 0 0 0 0 0
@@ -27786,7 +27786,7 @@ problem_b230c067 = Problem("problem_b230c067", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 8 8 0 0 0 8 8 8 0
         0 0 8 0 0 0 0 0 8 0
@@ -27797,7 +27797,7 @@ problem_b230c067 = Problem("problem_b230c067", [
         0 0 0 0 0 8 0 0 0 0
         0 0 0 0 8 0 0 0 0 0
         0 0 0 8 8 8 8 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 0 0 0 1 1 1 0
         0 0 2 0 0 0 0 0 1 0
@@ -27812,7 +27812,7 @@ problem_b230c067 = Problem("problem_b230c067", [
 ])
 
 problem_b27ca6d3 = Problem("problem_b27ca6d3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0
@@ -27828,7 +27828,7 @@ problem_b27ca6d3 = Problem("problem_b27ca6d3", [
         2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 3 2 3 0 0 0 0 0 0 0 0 0
@@ -27845,7 +27845,7 @@ problem_b27ca6d3 = Problem("problem_b27ca6d3", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 2 2 0 0 0 2 0 0
         2 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27861,7 +27861,7 @@ problem_b27ca6d3 = Problem("problem_b27ca6d3", [
         0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0
         0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 3 2 2 3 0 3 2 3 0
         2 0 0 0 0 0 0 3 3 3 3 0 3 2 3 0
         0 0 0 0 0 0 0 0 0 0 0 0 3 3 3 0
@@ -27878,7 +27878,7 @@ problem_b27ca6d3 = Problem("problem_b27ca6d3", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0
         0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
         0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27896,7 +27896,7 @@ problem_b27ca6d3 = Problem("problem_b27ca6d3", [
         0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
         0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27918,7 +27918,7 @@ problem_b27ca6d3 = Problem("problem_b27ca6d3", [
 ])
 
 problem_b2862040 = Problem("problem_b2862040", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 9 9 9 9 9 9 9 9 9
         9 9 9 9 9 9 9 9 9 9 9
         9 1 1 1 9 9 9 1 9 9 9
@@ -27928,7 +27928,7 @@ problem_b2862040 = Problem("problem_b2862040", [
         9 9 9 9 9 9 9 1 9 9 9
         9 9 9 9 9 9 9 9 9 9 9
         9 9 9 9 9 9 9 9 9 9 9
-    ]), Int[
+    ]), Integer[
         9 9 9 9 9 9 9 9 9 9 9
         9 9 9 9 9 9 9 9 9 9 9
         9 8 8 8 9 9 9 1 9 9 9
@@ -27939,7 +27939,7 @@ problem_b2862040 = Problem("problem_b2862040", [
         9 9 9 9 9 9 9 9 9 9 9
         9 9 9 9 9 9 9 9 9 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 9 9 9 9 9 9 9 9 9
         9 1 1 1 1 1 9 9 1 9 9
         9 1 9 9 9 1 9 9 1 9 1
@@ -27952,7 +27952,7 @@ problem_b2862040 = Problem("problem_b2862040", [
         9 9 9 1 1 1 9 9 1 1 1
         9 9 9 9 9 9 9 9 1 9 1
         1 1 9 9 9 9 9 9 1 1 1
-    ]), Int[
+    ]), Integer[
         9 9 9 9 9 9 9 9 9 9 9
         9 8 8 8 8 8 9 9 1 9 9
         9 8 9 9 9 8 9 9 1 9 1
@@ -27966,7 +27966,7 @@ problem_b2862040 = Problem("problem_b2862040", [
         9 9 9 9 9 9 9 9 8 9 8
         1 1 9 9 9 9 9 9 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 9 9 9 1 9 9 9 9 9 9 9
         9 9 9 9 9 9 9 9 1 9 9 9 9
         9 9 1 9 9 9 9 1 1 1 1 9 9
@@ -27979,7 +27979,7 @@ problem_b2862040 = Problem("problem_b2862040", [
         1 1 1 9 9 9 9 9 9 1 9 9 9
         9 1 9 9 9 9 1 9 1 1 9 9 9
         1 1 9 9 9 9 1 1 1 9 9 9 9
-    ]), Int[
+    ]), Integer[
         9 9 9 9 9 1 9 9 9 9 9 9 9
         9 9 9 9 9 9 9 9 1 9 9 9 9
         9 9 8 9 9 9 9 1 1 1 1 9 9
@@ -27993,7 +27993,7 @@ problem_b2862040 = Problem("problem_b2862040", [
         9 1 9 9 9 9 1 9 1 1 9 9 9
         1 1 9 9 9 9 1 1 1 9 9 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
         9 1 1 1 1 1 1 9 9 9 9 1 1 1 1
         9 9 1 9 9 9 1 9 9 9 9 1 9 9 1
@@ -28008,7 +28008,7 @@ problem_b2862040 = Problem("problem_b2862040", [
         1 9 9 9 9 9 9 9 9 1 9 9 9 9 9
         9 9 9 9 9 1 9 9 9 9 9 9 9 9 9
         9 9 9 9 1 1 9 9 9 9 9 9 1 1 9
-    ]), Int[
+    ]), Integer[
         9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
         9 8 8 8 8 8 8 9 9 9 9 1 1 1 1
         9 9 8 9 9 9 8 9 9 9 9 1 9 9 1
@@ -28024,7 +28024,7 @@ problem_b2862040 = Problem("problem_b2862040", [
         9 9 9 9 9 1 9 9 9 9 9 9 9 9 9
         9 9 9 9 1 1 9 9 9 9 9 9 1 1 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 9 9 9 9 9 9 9 9 9 9 9 9 9
         9 9 9 9 9 9 9 9 9 9 9 1 9 9 9
         9 9 9 1 1 1 1 1 9 9 9 1 9 9 9
@@ -28041,7 +28041,7 @@ problem_b2862040 = Problem("problem_b2862040", [
         9 9 9 1 9 9 9 9 1 9 9 9 9 1 9
         9 9 9 1 9 9 9 9 1 9 9 9 9 1 9
         9 9 9 1 1 1 1 1 1 1 9 9 9 1 9
-    ]), Int[
+    ]), Integer[
         1 1 9 9 9 9 9 9 9 9 9 9 9 9 9
         9 9 9 9 9 9 9 9 9 9 9 1 9 9 9
         9 9 9 8 8 8 8 8 9 9 9 1 9 9 9
@@ -28062,7 +28062,7 @@ problem_b2862040 = Problem("problem_b2862040", [
 ])
 
 problem_b527c5c6 = Problem("problem_b527c5c6", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 3 3 0 0 0 0 0
@@ -28073,7 +28073,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
         0 0 0 3 3 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 3 3 0 0 0 0 0
@@ -28085,7 +28085,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
         0 0 0 0 0 0 0 3 2 3
         0 0 0 0 0 0 0 3 2 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28106,7 +28106,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
         0 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 3 2 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 3 2 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 3 2 3 0 0 0 0
@@ -28128,7 +28128,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
         0 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28149,7 +28149,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
         0 0 0 0 0 0 0 0 0 0 3 3 3 3 3 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 3 3 3 3 3 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 3 3 3 3 3 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 3 3 2 3 3 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 3 2 3 3 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 3 2 3 3 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28171,7 +28171,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 3 3 3 3 3 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 0 0
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 0 0
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 0 0
@@ -28192,7 +28192,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 0 0
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 0 0
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 0 0
@@ -28214,7 +28214,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
         3 3 3 3 2 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0
         3 3 3 3 2 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28235,7 +28235,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
         0 0 0 0 0 0 0 3 3 3 3 3 3 3 3 3 3 3 3 3
         0 0 0 0 0 0 0 3 3 3 3 3 3 3 3 3 3 3 3 3
         0 0 0 0 0 0 0 3 3 3 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         0 0 0 0 3 3 3 0 3 3 3 3 3 2 3 3 3 3 3 0
         0 0 0 0 3 3 3 0 3 3 3 3 3 2 3 3 3 3 3 0
         0 0 0 0 3 3 3 0 3 3 3 3 3 2 3 3 3 3 3 0
@@ -28260,7 +28260,7 @@ problem_b527c5c6 = Problem("problem_b527c5c6", [
 ])
 
 problem_b548a754 = Problem("problem_b548a754", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0 0
         0 2 1 1 2 0 0 0 0 0 0
@@ -28272,7 +28272,7 @@ problem_b548a754 = Problem("problem_b548a754", [
         0 0 0 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0 0
         0 2 1 1 2 0 0 0 0 0 0
@@ -28285,7 +28285,7 @@ problem_b548a754 = Problem("problem_b548a754", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 3 3 3 3 3 0 0 0 0 0
         0 3 2 2 2 3 0 0 0 0 8
@@ -28297,7 +28297,7 @@ problem_b548a754 = Problem("problem_b548a754", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 3 3 3 3 3 3 3 3 3 3
         0 3 2 2 2 2 2 2 2 2 3
@@ -28310,7 +28310,7 @@ problem_b548a754 = Problem("problem_b548a754", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 0 0 0 0 0 0 0
         0 0 1 6 1 0 0 0 0 0 0 0
@@ -28324,7 +28324,7 @@ problem_b548a754 = Problem("problem_b548a754", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 1 1 1 1 1 1 0
         0 0 1 6 6 6 6 6 6 6 1 0
@@ -28339,7 +28339,7 @@ problem_b548a754 = Problem("problem_b548a754", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28353,7 +28353,7 @@ problem_b548a754 = Problem("problem_b548a754", [
         0 0 0 6 4 4 4 6 0 0 0 0 0
         0 0 0 6 4 4 4 6 0 0 0 0 0
         0 0 0 6 6 6 6 6 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 6 6 6 6 6 0 0 0 0 0
         0 0 0 6 4 4 4 6 0 0 0 0 0
@@ -28371,7 +28371,7 @@ problem_b548a754 = Problem("problem_b548a754", [
 ])
 
 problem_b60334d2 = Problem("problem_b60334d2", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 5 0 0 0 0 0
@@ -28381,7 +28381,7 @@ problem_b60334d2 = Problem("problem_b60334d2", [
         0 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 5 1 5 0 0 0 0
         0 0 1 0 1 0 0 0 0
@@ -28392,7 +28392,7 @@ problem_b60334d2 = Problem("problem_b60334d2", [
         0 1 0 1 0 0 0 0 0
         0 5 1 5 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 0 5 0
         0 0 0 0 0 0 0 0 0
@@ -28402,7 +28402,7 @@ problem_b60334d2 = Problem("problem_b60334d2", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 5 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 5 1 5 0 0 5 1 5
         0 1 0 1 0 0 1 0 1
         0 5 1 5 0 0 5 1 5
@@ -28413,7 +28413,7 @@ problem_b60334d2 = Problem("problem_b60334d2", [
         0 0 0 0 0 1 0 1 0
         0 0 0 0 0 5 1 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -28423,7 +28423,7 @@ problem_b60334d2 = Problem("problem_b60334d2", [
         0 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 1 5 0 0 0 0 0 0
         1 0 1 0 0 0 0 0 0
         5 1 5 5 1 5 0 0 0
@@ -28437,7 +28437,7 @@ problem_b60334d2 = Problem("problem_b60334d2", [
 ])
 
 problem_b6afb2da = Problem("problem_b6afb2da", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0
@@ -28448,7 +28448,7 @@ problem_b6afb2da = Problem("problem_b6afb2da", [
         0 0 0 0 0 0 5 5 5 5
         0 0 0 0 0 0 5 5 5 5
         0 0 0 0 0 0 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 4 4 1 0 0 0 0 0
@@ -28460,7 +28460,7 @@ problem_b6afb2da = Problem("problem_b6afb2da", [
         0 0 0 0 0 0 4 2 2 4
         0 0 0 0 0 0 1 4 4 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 5 5 0 0 0 0
         5 5 5 5 5 5 0 0 0 0
         5 5 5 5 5 5 0 0 0 0
@@ -28471,7 +28471,7 @@ problem_b6afb2da = Problem("problem_b6afb2da", [
         0 0 0 0 5 5 5 5 5 5
         0 0 0 0 5 5 5 5 5 5
         0 0 0 0 5 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         1 4 4 4 4 1 0 0 0 0
         4 2 2 2 2 4 0 0 0 0
         4 2 2 2 2 4 0 0 0 0
@@ -28483,7 +28483,7 @@ problem_b6afb2da = Problem("problem_b6afb2da", [
         0 0 0 0 4 2 2 2 2 4
         0 0 0 0 1 4 4 4 4 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 5 5 5 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0
@@ -28494,7 +28494,7 @@ problem_b6afb2da = Problem("problem_b6afb2da", [
         0 0 0 0 5 5 5 5 5 5
         0 0 0 0 5 5 5 5 5 5
         0 0 0 0 5 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 1 4 4 1 0 0 0 0 0
         0 4 2 2 4 0 0 0 0 0
         0 4 2 2 4 0 0 0 0 0
@@ -28509,7 +28509,7 @@ problem_b6afb2da = Problem("problem_b6afb2da", [
 ])
 
 problem_b7249182 = Problem("problem_b7249182", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -28524,7 +28524,7 @@ problem_b7249182 = Problem("problem_b7249182", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0
@@ -28540,7 +28540,7 @@ problem_b7249182 = Problem("problem_b7249182", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28551,7 +28551,7 @@ problem_b7249182 = Problem("problem_b7249182", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28563,7 +28563,7 @@ problem_b7249182 = Problem("problem_b7249182", [
         0 0 0 0 0 3 3 1 1 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28574,7 +28574,7 @@ problem_b7249182 = Problem("problem_b7249182", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28586,7 +28586,7 @@ problem_b7249182 = Problem("problem_b7249182", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 7 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -28606,7 +28606,7 @@ problem_b7249182 = Problem("problem_b7249182", [
         0 0 0 6 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 7 0 0 0 0 0
         0 0 0 7 0 0 0 0 0
@@ -28630,7 +28630,7 @@ problem_b7249182 = Problem("problem_b7249182", [
 ])
 
 problem_b775ac94 = Problem("problem_b775ac94", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28661,7 +28661,7 @@ problem_b775ac94 = Problem("problem_b775ac94", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28693,7 +28693,7 @@ problem_b775ac94 = Problem("problem_b775ac94", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28714,7 +28714,7 @@ problem_b775ac94 = Problem("problem_b775ac94", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28736,7 +28736,7 @@ problem_b775ac94 = Problem("problem_b775ac94", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 8 8 0 0 0 0 0
         0 0 0 0 0 0 0 8 8 0 0 0 0 0
@@ -28751,7 +28751,7 @@ problem_b775ac94 = Problem("problem_b775ac94", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 8 8 0 0 4 4 0
         0 0 0 0 0 0 0 8 8 0 0 4 4 0
@@ -28767,7 +28767,7 @@ problem_b775ac94 = Problem("problem_b775ac94", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28792,7 +28792,7 @@ problem_b775ac94 = Problem("problem_b775ac94", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -28821,7 +28821,7 @@ problem_b775ac94 = Problem("problem_b775ac94", [
 ])
 
 problem_b782dc8a = Problem("problem_b782dc8a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 0 0 0 0 8 8 8 8 8 8 0 8 8 8 0 8 8 0 8 8 8 0
         0 0 8 8 8 0 0 0 0 0 0 8 0 0 0 8 0 8 0 0 8 0 8 0
         8 8 8 0 8 0 8 8 8 8 0 8 8 8 0 8 0 8 8 8 8 0 8 0
@@ -28833,7 +28833,7 @@ problem_b782dc8a = Problem("problem_b782dc8a", [
         8 8 0 8 8 8 0 8 8 8 0 8 8 8 8 8 8 3 8 8 8 0 8 0
         0 8 0 8 0 8 0 8 0 0 0 8 0 0 0 0 8 0 8 0 8 0 8 0
         0 8 8 8 0 8 8 8 0 8 8 8 0 8 8 0 8 8 8 0 8 8 8 0
-    ]), Int[
+    ]), Integer[
         8 3 2 3 2 3 8 8 8 8 8 8 0 8 8 8 2 8 8 0 8 8 8 0
         3 2 8 8 8 2 3 2 3 2 3 8 0 0 0 8 3 8 0 0 8 2 8 0
         8 8 8 0 8 3 8 8 8 8 2 8 8 8 0 8 2 8 8 8 8 3 8 0
@@ -28846,7 +28846,7 @@ problem_b782dc8a = Problem("problem_b782dc8a", [
         0 8 0 8 0 8 0 8 3 2 3 8 0 0 0 0 8 2 8 0 8 2 8 0
         0 8 8 8 0 8 8 8 2 8 8 8 0 8 8 0 8 8 8 0 8 8 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 8 0 0 0 0 0 8
         8 8 0 8 8 8 0 8 0 8 8 8 0 8
         0 8 0 0 0 8 0 8 0 8 0 8 8 8
@@ -28860,7 +28860,7 @@ problem_b782dc8a = Problem("problem_b782dc8a", [
         0 8 0 8 1 8 8 8 8 8 8 8 8 0
         0 8 8 8 0 8 0 0 0 0 0 0 0 0
         0 0 0 0 0 8 0 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 0 0 8 1 4 1 4 1 8
         8 8 0 8 8 8 0 8 4 8 8 8 4 8
         0 8 0 0 0 8 0 8 1 8 0 8 8 8
@@ -28875,7 +28875,7 @@ problem_b782dc8a = Problem("problem_b782dc8a", [
         4 8 8 8 4 8 0 0 0 0 0 0 0 0
         1 4 1 4 1 8 0 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 0 8 0 0 8 0 0 0 0 0 0 0 0
         0 8 0 8 8 8 8 4 8 8 8 8 8 8 8
         0 8 0 0 0 0 4 3 8 0 0 0 0 0 8
@@ -28891,7 +28891,7 @@ problem_b782dc8a = Problem("problem_b782dc8a", [
         0 0 8 0 8 0 8 0 0 0 0 0 0 0 8
         8 0 8 8 8 0 8 0 8 8 8 8 8 8 8
         8 0 0 0 0 0 8 0 8 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 4 8 0 0 8 3 4 3 4 3 4 3 4
         0 8 3 8 8 8 8 4 8 8 8 8 8 8 8
         0 8 4 3 4 3 4 3 8 0 0 0 0 0 8
@@ -28911,7 +28911,7 @@ problem_b782dc8a = Problem("problem_b782dc8a", [
 ])
 
 problem_b8825c91 = Problem("problem_b8825c91", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 6 5 9 6 7 7 7 7 6 9 5 6 9 9
         9 1 5 5 6 1 7 9 9 7 1 6 5 5 1 9
         6 5 1 9 7 7 3 3 3 3 7 7 9 1 5 6
@@ -28928,7 +28928,7 @@ problem_b8825c91 = Problem("problem_b8825c91", [
         6 5 1 9 7 7 3 3 3 3 4 4 4 1 5 6
         9 1 5 5 6 1 7 9 9 7 1 6 5 5 1 9
         9 9 6 5 9 6 7 7 7 7 6 9 5 6 9 9
-    ]), Int[
+    ]), Integer[
         9 9 6 5 9 6 7 7 7 7 6 9 5 6 9 9
         9 1 5 5 6 1 7 9 9 7 1 6 5 5 1 9
         6 5 1 9 7 7 3 3 3 3 7 7 9 1 5 6
@@ -28946,7 +28946,7 @@ problem_b8825c91 = Problem("problem_b8825c91", [
         9 1 5 5 6 1 7 9 9 7 1 6 5 5 1 9
         9 9 6 5 9 6 7 7 7 7 6 9 5 6 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 6 1 8 9 6 6 6 6 9 8 1 6 9 9
         9 6 1 3 9 6 6 1 1 6 6 9 3 1 6 9
         6 4 4 2 6 6 8 8 8 8 6 6 2 5 1 6
@@ -28963,7 +28963,7 @@ problem_b8825c91 = Problem("problem_b8825c91", [
         6 1 5 2 6 6 8 8 8 8 6 6 2 5 1 6
         9 6 1 3 9 6 6 1 1 6 6 9 3 1 6 9
         9 9 6 1 8 9 6 6 6 6 9 8 1 6 9 9
-    ]), Int[
+    ]), Integer[
         9 9 6 1 8 9 6 6 6 6 9 8 1 6 9 9
         9 6 1 3 9 6 6 1 1 6 6 9 3 1 6 9
         6 1 5 2 6 6 8 8 8 8 6 6 2 5 1 6
@@ -28981,7 +28981,7 @@ problem_b8825c91 = Problem("problem_b8825c91", [
         9 6 1 3 9 6 6 1 1 6 6 9 3 1 6 9
         9 9 6 1 8 9 6 6 6 6 9 8 1 6 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 3 9 9 2 8 7 8 8 7 8 2 9 9 3 9
         3 9 9 3 8 8 8 5 5 8 8 8 3 9 9 3
         9 9 2 8 7 8 2 2 2 2 8 7 8 2 9 9
@@ -28998,7 +28998,7 @@ problem_b8825c91 = Problem("problem_b8825c91", [
         9 9 4 4 4 4 2 2 2 2 8 7 8 2 9 9
         3 9 4 4 4 4 8 5 5 8 8 8 3 9 9 3
         9 3 9 9 2 8 7 8 8 7 8 2 9 9 3 9
-    ]), Int[
+    ]), Integer[
         9 3 9 9 2 8 7 8 8 7 8 2 9 9 3 9
         3 9 9 3 8 8 8 5 5 8 8 8 3 9 9 3
         9 9 2 8 7 8 2 2 2 2 8 7 8 2 9 9
@@ -29016,7 +29016,7 @@ problem_b8825c91 = Problem("problem_b8825c91", [
         3 9 9 3 8 8 8 5 5 8 8 8 3 9 9 3
         9 3 9 9 2 8 7 8 8 7 8 2 9 9 3 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 7 6 8 9 9 1 1 9 9 8 6 7 2 2
         2 1 6 2 9 5 1 1 1 1 4 4 4 4 1 2
         7 6 3 3 9 1 6 6 6 6 4 4 4 4 6 7
@@ -29033,7 +29033,7 @@ problem_b8825c91 = Problem("problem_b8825c91", [
         7 6 3 3 9 1 6 6 6 6 1 9 3 3 6 7
         2 1 6 2 9 5 1 1 1 1 5 9 2 6 1 2
         2 2 7 6 8 9 9 1 1 9 9 8 6 7 2 2
-    ]), Int[
+    ]), Integer[
         2 2 7 6 8 9 9 1 1 9 9 8 6 7 2 2
         2 1 6 2 9 5 1 1 1 1 5 9 2 6 1 2
         7 6 3 3 9 1 6 6 6 6 1 9 3 3 6 7
@@ -29051,7 +29051,7 @@ problem_b8825c91 = Problem("problem_b8825c91", [
         2 1 6 2 9 5 1 1 1 1 5 9 2 6 1 2
         2 2 7 6 8 9 9 1 1 9 9 8 6 7 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 8 1 9 8 2 6 6 2 8 9 1 8 7 7
         7 1 1 8 8 8 6 6 6 6 8 8 8 1 1 7
         8 1 6 9 2 6 4 4 4 6 6 2 9 6 1 8
@@ -29068,7 +29068,7 @@ problem_b8825c91 = Problem("problem_b8825c91", [
         8 1 6 9 2 6 6 1 1 6 6 2 9 6 1 8
         7 1 1 8 8 8 6 6 6 6 8 8 8 1 1 7
         7 7 8 1 9 8 2 6 6 2 8 9 1 8 7 7
-    ]), Int[
+    ]), Integer[
         7 7 8 1 9 8 2 6 6 2 8 9 1 8 7 7
         7 1 1 8 8 8 6 6 6 6 8 8 8 1 1 7
         8 1 6 9 2 6 6 1 1 6 6 2 9 6 1 8
@@ -29089,42 +29089,42 @@ problem_b8825c91 = Problem("problem_b8825c91", [
 ])
 
 problem_b8cdaf2b = Problem("problem_b8cdaf2b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 2 0
         2 4 2
-    ]), Int[
+    ]), Integer[
         4 0 4
         0 2 0
         2 4 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 0 8 0 0
         8 8 3 8 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         3 0 0 0 3
         0 3 0 3 0
         0 0 8 0 0
         8 8 3 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 6 6 6 0
         6 1 1 1 6
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         1 0 0 0 1
         0 6 6 6 0
         6 1 1 1 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
@@ -29132,7 +29132,7 @@ problem_b8cdaf2b = Problem("problem_b8cdaf2b", [
         0 0 0 0 0 0 0
         0 0 2 2 2 0 0
         2 2 4 4 4 2 2
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
@@ -29141,7 +29141,7 @@ problem_b8cdaf2b = Problem("problem_b8cdaf2b", [
         0 0 2 2 2 0 0
         2 2 4 4 4 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -29151,7 +29151,7 @@ problem_b8cdaf2b = Problem("problem_b8cdaf2b", [
         0 0 0 0 0 0 0 0 0
         0 0 0 8 8 8 0 0 0
         8 8 8 2 2 2 8 8 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -29165,11 +29165,11 @@ problem_b8cdaf2b = Problem("problem_b8cdaf2b", [
 ])
 
 problem_b91ae062 = Problem("problem_b91ae062", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 7 0
         0 6 6
         0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 7 7 0 0
         6 6 7 7 0 0
         0 0 6 6 6 6
@@ -29177,11 +29177,11 @@ problem_b91ae062 = Problem("problem_b91ae062", [
         0 0 0 0 0 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 4
         0 4 0
         0 1 0
-    ]), Int[
+    ]), Integer[
         1 1 0 0 4 4
         1 1 0 0 4 4
         0 0 4 4 0 0
@@ -29189,11 +29189,11 @@ problem_b91ae062 = Problem("problem_b91ae062", [
         0 0 1 1 0 0
         0 0 1 1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 2 0
         0 7 3
         0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 2 2 2 0 0 0
         3 3 3 2 2 2 0 0 0
         3 3 3 2 2 2 0 0 0
@@ -29204,11 +29204,11 @@ problem_b91ae062 = Problem("problem_b91ae062", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0
         0 6 6
         9 8 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 8 8 0 0 0
         0 0 0 8 8 8 0 0 0
         0 0 0 8 8 8 0 0 0
@@ -29219,11 +29219,11 @@ problem_b91ae062 = Problem("problem_b91ae062", [
         9 9 9 8 8 8 0 0 0
         9 9 9 8 8 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 3
         2 2 0
         0 0 8
-    ]), Int[
+    ]), Integer[
         4 4 4 4 0 0 0 0 3 3 3 3
         4 4 4 4 0 0 0 0 3 3 3 3
         4 4 4 4 0 0 0 0 3 3 3 3
@@ -29237,11 +29237,11 @@ problem_b91ae062 = Problem("problem_b91ae062", [
         0 0 0 0 0 0 0 0 8 8 8 8
         0 0 0 0 0 0 0 0 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0
         0 8 7
         9 9 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 1 1 1 1 0 0 0 0
         0 0 0 0 1 1 1 1 0 0 0 0
         0 0 0 0 1 1 1 1 0 0 0 0
@@ -29258,7 +29258,7 @@ problem_b91ae062 = Problem("problem_b91ae062", [
 ])
 
 problem_b94a9452 = Problem("problem_b94a9452", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 2 2 2 2 0 0 0 0 0 0
         0 0 0 2 4 4 2 0 0 0 0 0 0
@@ -29271,13 +29271,13 @@ problem_b94a9452 = Problem("problem_b94a9452", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4 4 4
         4 2 2 4
         4 2 2 4
         4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 1 1 1 0 0 0 0
@@ -29290,12 +29290,12 @@ problem_b94a9452 = Problem("problem_b94a9452", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3
         3 1 3
         3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -29308,14 +29308,14 @@ problem_b94a9452 = Problem("problem_b94a9452", [
         0 0 4 4 4 4 4 0 0 0 0 0 0
         0 0 4 4 4 4 4 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6 6 6
         6 6 6 6 6
         6 6 4 6 6
         6 6 6 6 6
         6 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 3 3 3 3 3 0 0 0 0 0
         0 0 3 3 3 3 3 3 0 0 0 0 0
@@ -29330,7 +29330,7 @@ problem_b94a9452 = Problem("problem_b94a9452", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8
         8 8 8 8 8 8
         8 8 3 3 8 8
@@ -29341,7 +29341,7 @@ problem_b94a9452 = Problem("problem_b94a9452", [
 ])
 
 problem_b9b7f026 = Problem("problem_b9b7f026", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 6 6 6 0 0 0 0 3 3 3 0 0
         0 6 0 6 0 0 0 0 3 3 3 0 0
@@ -29357,8 +29357,8 @@ problem_b9b7f026 = Problem("problem_b9b7f026", [
         4 4 4 0 0 0 0 0 8 8 8 8 0
         0 0 0 0 0 0 0 0 8 8 8 8 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[6], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[6], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 7 7 7 7
         0 0 0 0 0 0 0 0 0 0 0 0 0 7 7 7 7
         8 8 8 8 8 0 0 0 0 0 0 0 0 7 7 7 7
@@ -29374,8 +29374,8 @@ problem_b9b7f026 = Problem("problem_b9b7f026", [
         0 0 0 0 0 0 0 0 0 0 4 4 4 4 4 0 0
         0 0 0 0 0 0 0 0 0 0 4 4 4 4 4 0 0
         0 0 0 0 0 0 0 0 0 0 4 4 4 4 4 0 0
-    ]), Grid(reshape(Int[5], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[5], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0
         0 0 1 1 1 1 1 1 0 0 3 3 3 3 3 0 0
@@ -29392,8 +29392,8 @@ problem_b9b7f026 = Problem("problem_b9b7f026", [
         0 0 2 2 2 2 2 2 2 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[2], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 3 3 3 3 0
         2 2 2 2 2 2 2 2 0 0 3 3 3 3 0
         2 2 2 2 2 2 2 2 0 0 3 3 3 3 0
@@ -29408,60 +29408,60 @@ problem_b9b7f026 = Problem("problem_b9b7f026", [
         0 0 0 0 8 8 8 8 0 0 7 7 7 7 0
         0 0 0 0 8 8 8 8 0 0 7 0 0 7 0
         0 0 0 0 0 0 0 0 0 0 7 7 7 7 0
-    ]), Grid(reshape(Int[7], 1, 1)))
+    ]), Grid(reshape(Integer[7], 1, 1)))
 ])
 
 problem_ba26e723 = Problem("problem_ba26e723", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 4 0 4 0 4 0 4 0
         4 4 4 4 4 4 4 4 4 4
         0 4 0 4 0 4 0 4 0 4
-    ]), Int[
+    ]), Integer[
         6 0 4 0 4 0 6 0 4 0
         6 4 4 6 4 4 6 4 4 6
         0 4 0 6 0 4 0 4 0 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0 4 0 4 0 4 0 4 0
         4 4 4 4 4 4 4 4 4 4 4
         4 0 4 0 4 0 4 0 4 0 4
-    ]), Int[
+    ]), Integer[
         0 4 0 6 0 4 0 4 0 6 0
         6 4 4 6 4 4 6 4 4 6 4
         6 0 4 0 4 0 6 0 4 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 4 0 4 0 4 0 4 0 4
         4 4 4 4 4 4 4 4 4 4 4
         0 4 0 4 0 4 0 4 0 4 0
-    ]), Int[
+    ]), Integer[
         6 0 4 0 4 0 6 0 4 0 4
         6 4 4 6 4 4 6 4 4 6 4
         0 4 0 6 0 4 0 4 0 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 4 0 4 0 4 0 4 0 4 0 4
         4 4 4 4 4 4 4 4 4 4 4 4 4
         0 4 0 4 0 4 0 4 0 4 0 4 0
-    ]), Int[
+    ]), Integer[
         6 0 4 0 4 0 6 0 4 0 4 0 6
         6 4 4 6 4 4 6 4 4 6 4 4 6
         0 4 0 6 0 4 0 4 0 6 0 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0 4 0 4 0 4 0 4 0 4 0 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 0 4 0 4 0 4 0 4 0 4 0 4 0
-    ]), Int[
+    ]), Integer[
         0 4 0 6 0 4 0 4 0 6 0 4 0 4
         6 4 4 6 4 4 6 4 4 6 4 4 6 4
         6 0 4 0 4 0 6 0 4 0 4 0 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4
-    ]), Int[
+    ]), Integer[
         0 4 0 6 0 4 0 4 0 6 0 4 0 4 0 6 0
         6 4 4 6 4 4 6 4 4 6 4 4 6 4 4 6 4
         6 0 4 0 4 0 6 0 4 0 4 0 6 0 4 0 4
@@ -29469,7 +29469,7 @@ problem_ba26e723 = Problem("problem_ba26e723", [
 ])
 
 problem_ba97ae07 = Problem("problem_ba97ae07", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 8 0 0 0 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0 0 0 0
@@ -29483,7 +29483,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
         0 0 0 8 8 0 0 0 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 8 0 0 0 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0 0 0 0
@@ -29498,7 +29498,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
         0 0 0 8 8 0 0 0 0 0 0 0 0
         0 0 0 8 8 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 6 6 0 0 0 0 0
         0 0 6 6 0 0 0 0 0
         0 0 6 6 0 0 0 0 0
@@ -29506,7 +29506,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
         0 0 6 6 0 0 0 0 0
         0 0 6 6 0 0 0 0 0
         0 0 6 6 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 6 6 0 0 0 0 0
         0 0 6 6 0 0 0 0 0
         0 0 6 6 0 0 0 0 0
@@ -29515,7 +29515,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
         0 0 6 6 0 0 0 0 0
         0 0 6 6 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 0 0 0 0
         0 0 1 0 0 0 0
         0 0 1 0 0 0 0
@@ -29524,7 +29524,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
         0 0 1 0 0 0 0
         0 0 1 0 0 0 0
         0 0 1 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 1 0 0 0 0
         0 0 1 0 0 0 0
         0 0 1 0 0 0 0
@@ -29534,7 +29534,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
         0 0 1 0 0 0 0
         0 0 1 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 0 0 0
         0 3 0 0 0 0
         0 3 0 0 0 0
@@ -29543,7 +29543,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
         0 3 0 0 0 0
         0 3 0 0 0 0
         0 3 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 0 0 0 0
         0 3 0 0 0 0
         0 3 0 0 0 0
@@ -29553,7 +29553,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
         0 3 0 0 0 0
         0 3 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 4 0 0
         0 0 4 4 0 0
         5 5 4 4 5 5
@@ -29565,7 +29565,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
         0 0 4 4 0 0
         0 0 4 4 0 0
         0 0 4 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 4 4 0 0
         0 0 4 4 0 0
         5 5 5 5 5 5
@@ -29581,7 +29581,7 @@ problem_ba97ae07 = Problem("problem_ba97ae07", [
 ])
 
 problem_bb43febb = Problem("problem_bb43febb", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         5 5 5 5 5 0 0 0 0 0
@@ -29592,7 +29592,7 @@ problem_bb43febb = Problem("problem_bb43febb", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         5 5 5 5 5 0 0 0 0 0
@@ -29604,7 +29604,7 @@ problem_bb43febb = Problem("problem_bb43febb", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 5 0 0 0
         0 5 5 5 5 5 5 0 0 0
@@ -29615,7 +29615,7 @@ problem_bb43febb = Problem("problem_bb43febb", [
         0 0 0 0 5 5 5 5 5 0
         0 0 0 0 5 5 5 5 5 0
         0 0 0 0 5 5 5 5 5 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 5 0 0 0
         0 5 2 2 2 2 5 0 0 0
@@ -29627,7 +29627,7 @@ problem_bb43febb = Problem("problem_bb43febb", [
         0 0 0 0 5 2 2 2 5 0
         0 0 0 0 5 5 5 5 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 5 5 0 0 0 0
         5 5 5 5 5 5 0 0 0 0
         5 5 5 5 5 5 0 0 0 0
@@ -29638,7 +29638,7 @@ problem_bb43febb = Problem("problem_bb43febb", [
         0 0 0 5 5 5 5 5 5 5
         0 0 0 5 5 5 5 5 5 5
         0 0 0 5 5 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         5 5 5 5 5 5 0 0 0 0
         5 2 2 2 2 5 0 0 0 0
         5 5 5 5 5 5 0 0 0 0
@@ -29653,35 +29653,35 @@ problem_bb43febb = Problem("problem_bb43febb", [
 ])
 
 problem_bbc9ae5d = Problem("problem_bbc9ae5d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[1, 1, 0, 0, 0, 0], 1, 6))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[1, 1, 0, 0, 0, 0], 1, 6))), Integer[
         1 1 0 0 0 0
         1 1 1 0 0 0
         1 1 1 1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[2, 0, 0, 0, 0, 0, 0, 0], 1, 8))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[2, 0, 0, 0, 0, 0, 0, 0], 1, 8))), Integer[
         2 0 0 0 0 0 0 0
         2 2 0 0 0 0 0 0
         2 2 2 0 0 0 0 0
         2 2 2 2 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[5, 5, 5, 0, 0, 0, 0, 0, 0, 0], 1, 10))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[5, 5, 5, 0, 0, 0, 0, 0, 0, 0], 1, 10))), Integer[
         5 5 5 0 0 0 0 0 0 0
         5 5 5 5 0 0 0 0 0 0
         5 5 5 5 5 0 0 0 0 0
         5 5 5 5 5 5 0 0 0 0
         5 5 5 5 5 5 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[8, 8, 8, 8, 0, 0], 1, 6))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[8, 8, 8, 8, 0, 0], 1, 6))), Integer[
         8 8 8 8 0 0
         8 8 8 8 8 0
         8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[7, 0, 0, 0, 0, 0], 1, 6))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[7, 0, 0, 0, 0, 0], 1, 6))), Integer[
         7 0 0 0 0 0
         7 7 0 0 0 0
         7 7 7 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], 1, 12))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], 1, 12))), Integer[
         1 1 1 0 0 0 0 0 0 0 0 0
         1 1 1 1 0 0 0 0 0 0 0 0
         1 1 1 1 1 0 0 0 0 0 0 0
@@ -29692,68 +29692,68 @@ problem_bbc9ae5d = Problem("problem_bbc9ae5d", [
 ])
 
 problem_bc1d5164 = Problem("problem_bc1d5164", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0 0 0 8 0
         8 8 0 0 0 8 8
         0 0 0 0 0 0 0
         8 8 0 0 0 8 8
         0 8 0 0 0 8 0
-    ]), Int[
+    ]), Integer[
         0 8 0
         8 8 8
         0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 0 0 2 2
         0 0 0 0 0 0 2
         0 0 0 0 0 0 0
         0 2 0 0 0 2 0
         2 0 0 0 0 0 2
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 2 2
         2 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 0 0 0 4 0
         0 0 0 0 0 4 4
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         4 0 0 0 0 0 4
-    ]), Int[
+    ]), Integer[
         4 4 0
         0 4 4
         4 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0 0 0 0 4
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         4 0 0 0 0 4 4
-    ]), Int[
+    ]), Integer[
         4 0 4
         0 0 0
         4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 0 0 3 0
         3 0 0 0 0 0 3
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 3
-    ]), Int[
+    ]), Integer[
         0 3 0
         3 0 3
         0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 1 1
         1 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 1 0 0 0 0 1
-    ]), Int[
+    ]), Integer[
         0 1 1
         1 0 0
         0 1 1
@@ -29761,7 +29761,7 @@ problem_bc1d5164 = Problem("problem_bc1d5164", [
 ])
 
 problem_bd4472b8 = Problem("problem_bd4472b8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1 4
         5 5 5
         0 0 0
@@ -29770,7 +29770,7 @@ problem_bd4472b8 = Problem("problem_bd4472b8", [
         0 0 0
         0 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         2 1 4
         5 5 5
         2 2 2
@@ -29780,7 +29780,7 @@ problem_bd4472b8 = Problem("problem_bd4472b8", [
         1 1 1
         4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 2 1 4
         5 5 5 5
         0 0 0 0
@@ -29791,7 +29791,7 @@ problem_bd4472b8 = Problem("problem_bd4472b8", [
         0 0 0 0
         0 0 0 0
         0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 2 1 4
         5 5 5 5
         3 3 3 3
@@ -29803,14 +29803,14 @@ problem_bd4472b8 = Problem("problem_bd4472b8", [
         1 1 1 1
         4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 3
         5 5
         0 0
         0 0
         0 0
         0 0
-    ]), Int[
+    ]), Integer[
         8 3
         5 5
         8 8
@@ -29818,7 +29818,7 @@ problem_bd4472b8 = Problem("problem_bd4472b8", [
         8 8
         3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 3 4 8
         5 5 5 5 5
         0 0 0 0 0
@@ -29831,7 +29831,7 @@ problem_bd4472b8 = Problem("problem_bd4472b8", [
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 2 3 4 8
         5 5 5 5 5
         1 1 1 1 1
@@ -29848,14 +29848,14 @@ problem_bd4472b8 = Problem("problem_bd4472b8", [
 ])
 
 problem_bda2d7a6 = Problem("problem_bda2d7a6", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3
         3 2 2 2 2 3
         3 2 0 0 2 3
         3 2 0 0 2 3
         3 2 2 2 2 3
         3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 3 3 3 3 0
         0 3 2 2 3 0
@@ -29863,14 +29863,14 @@ problem_bda2d7a6 = Problem("problem_bda2d7a6", [
         0 3 3 3 3 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 7 7 7 7 0
         0 7 6 6 7 0
         0 7 6 6 7 0
         0 7 7 7 7 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6 6 6 6
         6 0 0 0 0 6
         6 0 7 7 0 6
@@ -29878,7 +29878,7 @@ problem_bda2d7a6 = Problem("problem_bda2d7a6", [
         6 0 0 0 0 6
         6 6 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8
         8 0 0 0 0 0 0 8
         8 0 5 5 5 5 0 8
@@ -29887,7 +29887,7 @@ problem_bda2d7a6 = Problem("problem_bda2d7a6", [
         8 0 5 5 5 5 0 8
         8 0 0 0 0 0 0 8
         8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         5 5 5 5 5 5 5 5
         5 8 8 8 8 8 8 5
         5 8 0 0 0 0 8 5
@@ -29897,14 +29897,14 @@ problem_bda2d7a6 = Problem("problem_bda2d7a6", [
         5 8 8 8 8 8 8 5
         5 5 5 5 5 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 9 9 9 9 9
         9 0 0 0 0 9
         9 0 1 1 0 9
         9 0 1 1 0 9
         9 0 0 0 0 9
         9 9 9 9 9 9
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1
         1 9 9 9 9 1
         1 9 0 0 9 1
@@ -29912,7 +29912,7 @@ problem_bda2d7a6 = Problem("problem_bda2d7a6", [
         1 9 9 9 9 1
         1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 3
         3 7 7 7 7 7 7 3
         3 7 6 6 6 6 7 3
@@ -29921,7 +29921,7 @@ problem_bda2d7a6 = Problem("problem_bda2d7a6", [
         3 7 6 6 6 6 7 3
         3 7 7 7 7 7 7 3
         3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         6 6 6 6 6 6 6 6
         6 3 3 3 3 3 3 6
         6 3 7 7 7 7 3 6
@@ -29934,14 +29934,14 @@ problem_bda2d7a6 = Problem("problem_bda2d7a6", [
 ])
 
 problem_bdad9b1f = Problem("problem_bdad9b1f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 0
         0 0 0 0 8 0
         2 2 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 8 0
         0 0 0 0 8 0
         2 2 2 2 4 2
@@ -29949,14 +29949,14 @@ problem_bdad9b1f = Problem("problem_bdad9b1f", [
         0 0 0 0 8 0
         0 0 0 0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0 0 0 0
         0 8 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 2 2
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 8 0 0 0 0
         0 8 0 0 0 0
         0 8 0 0 0 0
@@ -29964,14 +29964,14 @@ problem_bdad9b1f = Problem("problem_bdad9b1f", [
         0 8 0 0 0 0
         0 8 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0
         0 0 0 8 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         2 2 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 0
         0 0 0 8 0 0
         0 0 0 8 0 0
@@ -29982,7 +29982,7 @@ problem_bdad9b1f = Problem("problem_bdad9b1f", [
 ])
 
 problem_be94b721 = Problem("problem_be94b721", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 0 0 3 3 0 0 0 0 0 0
         0 0 2 0 0 0 3 0 0 1 0 0 0
@@ -29990,37 +29990,37 @@ problem_be94b721 = Problem("problem_be94b721", [
         0 2 2 2 0 0 0 0 1 1 1 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 0
         0 2 0
         0 2 2
         2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 6 6 0
         0 3 0 0 4 4 0 0 6 0
         3 3 3 0 4 4 0 0 0 0
         0 3 0 0 4 4 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4
         4 4
         4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 7 7 0
         0 0 8 0 0 0 2 0 0 7 0
         0 8 8 0 0 2 2 0 0 7 0
         0 8 8 0 0 0 2 0 0 7 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8
         0 8 0
         8 8 0
         8 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 7 0 0 2 2 2
         0 0 0 7 7 0 0 2 0
@@ -30028,12 +30028,12 @@ problem_be94b721 = Problem("problem_be94b721", [
         8 8 8 0 0 0 0 0 0
         0 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 2 0
         2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         4 0 0 0 0 0 0 0 0
         4 4 0 3 3 3 0 0 0
@@ -30043,7 +30043,7 @@ problem_be94b721 = Problem("problem_be94b721", [
         0 0 0 0 0 0 0 6 6
         0 5 5 5 0 0 6 6 6
         0 5 5 0 0 0 6 6 0
-    ]), Int[
+    ]), Integer[
         3 3 3
         3 3 3
         3 0 3
@@ -30052,7 +30052,7 @@ problem_be94b721 = Problem("problem_be94b721", [
 ])
 
 problem_beb8660c = Problem("problem_beb8660c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 2 0 0 0 0
         0 0 0 0 3 0 0
         1 1 1 0 0 0 0
@@ -30063,7 +30063,7 @@ problem_beb8660c = Problem("problem_beb8660c", [
         0 0 0 4 4 4 4
         0 0 0 0 0 0 0
         8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
@@ -30075,7 +30075,7 @@ problem_beb8660c = Problem("problem_beb8660c", [
         0 5 5 5 5 5 5
         8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1
         0 0 0 0
         2 2 2 0
@@ -30083,7 +30083,7 @@ problem_beb8660c = Problem("problem_beb8660c", [
         0 3 3 0
         0 0 0 0
         8 8 8 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         0 0 0 0
         0 0 0 0
@@ -30092,16 +30092,16 @@ problem_beb8660c = Problem("problem_beb8660c", [
         0 2 2 2
         8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0
         0 4 0
         8 8 8
-    ]), Int[
+    ]), Integer[
         0 0 4
         0 2 2
         8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 6 0 0 0 0 0
         0 0 0 0 1 1 1 1
         0 0 0 0 0 0 0 0
@@ -30113,7 +30113,7 @@ problem_beb8660c = Problem("problem_beb8660c", [
         0 9 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
@@ -30129,7 +30129,7 @@ problem_beb8660c = Problem("problem_beb8660c", [
 ])
 
 problem_c0f76784 = Problem("problem_c0f76784", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 5 5 5 5 5
         0 0 0 0 0 0 0 5 0 0 0 5
         0 0 5 5 5 0 0 5 0 0 0 5
@@ -30142,7 +30142,7 @@ problem_c0f76784 = Problem("problem_c0f76784", [
         0 0 0 0 0 0 5 5 5 5 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 5 5 5 5 5
         0 0 0 0 0 0 0 5 8 8 8 5
         0 0 5 5 5 0 0 5 8 8 8 5
@@ -30156,7 +30156,7 @@ problem_c0f76784 = Problem("problem_c0f76784", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 5 5 5 0 0 0 0 0 0 0
         0 5 0 0 5 0 0 0 0 0 0 0
         0 5 0 0 5 0 0 0 0 0 0 0
@@ -30169,7 +30169,7 @@ problem_c0f76784 = Problem("problem_c0f76784", [
         0 5 5 5 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 5 5 5 5 0 0 0 0 0 0 0
         0 5 7 7 5 0 0 0 0 0 0 0
         0 5 7 7 5 0 0 0 0 0 0 0
@@ -30183,7 +30183,7 @@ problem_c0f76784 = Problem("problem_c0f76784", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 0 0 0 0 0 0
         0 5 0 0 0 5 0 0 0 0 0 0
@@ -30196,7 +30196,7 @@ problem_c0f76784 = Problem("problem_c0f76784", [
         0 0 0 0 5 0 0 5 0 0 0 0
         0 0 0 0 5 5 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 0 0 0 0 0 0
         0 5 8 8 8 5 0 0 0 0 0 0
@@ -30210,7 +30210,7 @@ problem_c0f76784 = Problem("problem_c0f76784", [
         0 0 0 0 5 5 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 0 0 0 0 0 0
         0 5 0 0 0 5 0 0 0 0 0 0
@@ -30223,7 +30223,7 @@ problem_c0f76784 = Problem("problem_c0f76784", [
         0 0 0 0 5 0 0 5 0 0 0 0
         0 0 0 0 5 0 0 5 0 0 0 0
         0 0 0 0 5 5 5 5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 5 5 5 5 5 0 0 0 0 0 0
         0 5 8 8 8 5 0 0 0 0 0 0
@@ -30240,7 +30240,7 @@ problem_c0f76784 = Problem("problem_c0f76784", [
 ])
 
 problem_c1d99e64 = Problem("problem_c1d99e64", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 0 1 1 1 1 0 1 1 0 1 0 1 0 1 1 1
         1 0 1 0 1 1 1 1 0 0 1 1 1 1 1 1 0 1 1
         1 1 1 1 0 0 1 1 0 1 0 0 0 1 0 1 0 1 0
@@ -30253,7 +30253,7 @@ problem_c1d99e64 = Problem("problem_c1d99e64", [
         1 1 1 0 0 1 1 1 0 1 0 0 1 1 1 1 1 1 1
         1 1 0 0 1 1 0 0 0 1 1 0 0 0 1 0 1 0 1
         1 0 1 0 1 0 0 1 0 1 1 1 1 0 0 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 0 0 0 1 1 1 1 2 1 1 0 1 0 1 0 1 1 1
         1 0 1 0 1 1 1 1 2 0 1 1 1 1 1 1 0 1 1
         1 1 1 1 0 0 1 1 2 1 0 0 0 1 0 1 0 1 0
@@ -30267,7 +30267,7 @@ problem_c1d99e64 = Problem("problem_c1d99e64", [
         1 1 0 0 1 1 0 0 2 1 1 0 0 0 1 0 1 0 1
         1 0 1 0 1 0 0 1 2 1 1 1 1 0 0 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 0 8 8 8 8 8 0 0 8 8
         0 8 0 0 0 0 8 8 8 8 0 8 8 8
         8 8 0 8 0 8 8 8 8 8 0 0 8 8
@@ -30280,7 +30280,7 @@ problem_c1d99e64 = Problem("problem_c1d99e64", [
         8 8 0 8 0 8 8 8 8 8 0 0 8 0
         0 8 0 8 0 0 0 0 0 0 0 8 0 8
         8 8 8 8 0 8 8 8 8 8 0 0 8 0
-    ]), Int[
+    ]), Integer[
         8 8 8 8 2 8 8 8 8 8 2 0 8 8
         0 8 0 0 2 0 8 8 8 8 2 8 8 8
         8 8 0 8 2 8 8 8 8 8 2 0 8 8
@@ -30294,7 +30294,7 @@ problem_c1d99e64 = Problem("problem_c1d99e64", [
         0 8 0 8 2 0 0 0 0 0 2 8 0 8
         8 8 8 8 2 8 8 8 8 8 2 0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 3 3 3 3 3 0 3 3 3 0 3 0 3
         3 0 3 0 3 3 3 0 3 0 3 0 0 3 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -30312,7 +30312,7 @@ problem_c1d99e64 = Problem("problem_c1d99e64", [
         3 0 0 3 0 3 3 0 3 0 3 3 0 0 3
         3 0 0 3 3 3 3 3 0 3 3 0 0 3 3
         0 0 3 3 0 3 3 0 0 3 0 3 0 3 0
-    ]), Int[
+    ]), Integer[
         3 2 3 3 3 3 3 0 3 3 3 0 3 0 3
         3 2 3 0 3 3 3 0 3 0 3 0 0 3 0
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
@@ -30331,7 +30331,7 @@ problem_c1d99e64 = Problem("problem_c1d99e64", [
         3 2 0 3 3 3 3 3 0 3 3 0 0 3 3
         0 2 3 3 0 3 3 0 0 3 0 3 0 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 4 0 4 4 0 0 4 4 4 4 0 4 4 4 4 4 0 4 4 0 4 0 0
         4 4 4 0 0 4 0 4 4 0 4 4 4 4 4 4 0 4 4 4 4 0 4 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -30359,7 +30359,7 @@ problem_c1d99e64 = Problem("problem_c1d99e64", [
         4 0 4 0 4 4 0 4 0 0 0 4 4 4 4 4 0 4 0 4 4 0 0 4 0
         4 4 0 4 0 4 0 0 4 0 4 4 0 4 4 0 0 0 4 0 4 0 4 4 4
         4 0 0 4 4 4 0 4 0 4 4 4 4 4 0 4 4 4 4 0 0 0 4 4 4
-    ]), Int[
+    ]), Integer[
         4 0 4 0 4 4 2 0 4 4 4 4 0 4 4 4 4 4 0 4 4 2 4 0 0
         4 4 4 0 0 4 2 4 4 0 4 4 4 4 4 4 0 4 4 4 4 2 4 0 0
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
@@ -30391,11 +30391,11 @@ problem_c1d99e64 = Problem("problem_c1d99e64", [
 ])
 
 problem_c3e719e8 = Problem("problem_c3e719e8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 8 7
         9 3 8
         7 9 3
-    ]), Int[
+    ]), Integer[
         3 8 7 0 0 0 0 0 0
         9 3 8 0 0 0 0 0 0
         7 9 3 0 0 0 0 0 0
@@ -30406,11 +30406,11 @@ problem_c3e719e8 = Problem("problem_c3e719e8", [
         0 0 0 0 0 0 9 3 8
         0 0 0 0 0 0 7 9 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 6 8
         3 3 8
         8 8 8
-    ]), Int[
+    ]), Integer[
         8 6 8 0 0 0 8 6 8
         3 3 8 0 0 0 3 3 8
         8 8 8 0 0 0 8 8 8
@@ -30421,11 +30421,11 @@ problem_c3e719e8 = Problem("problem_c3e719e8", [
         3 3 8 3 3 8 3 3 8
         8 8 8 8 8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 9 9
         4 6 8
         9 9 8
-    ]), Int[
+    ]), Integer[
         0 0 0 6 9 9 6 9 9
         0 0 0 4 6 8 4 6 8
         0 0 0 9 9 8 9 9 8
@@ -30436,11 +30436,11 @@ problem_c3e719e8 = Problem("problem_c3e719e8", [
         4 6 8 4 6 8 0 0 0
         9 9 8 9 9 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 7
         7 4 1
         5 1 7
-    ]), Int[
+    ]), Integer[
         1 1 7 1 1 7 0 0 0
         7 4 1 7 4 1 0 0 0
         5 1 7 5 1 7 0 0 0
@@ -30454,7 +30454,7 @@ problem_c3e719e8 = Problem("problem_c3e719e8", [
 ])
 
 problem_c3f564a4 = Problem("problem_c3f564a4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1
         2 0 0 0 1 2 3 4 5 1 2 3 4 5 1 2
         3 0 0 0 2 3 4 5 1 2 3 4 5 1 2 3
@@ -30471,7 +30471,7 @@ problem_c3f564a4 = Problem("problem_c3f564a4", [
         4 5 1 2 3 4 0 0 0 0 4 5 1 2 3 4
         5 1 2 3 4 5 0 0 0 0 5 1 2 3 4 5
         1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1
-    ]), Int[
+    ]), Integer[
         1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1
         2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2
         3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3
@@ -30489,7 +30489,7 @@ problem_c3f564a4 = Problem("problem_c3f564a4", [
         5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
         1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 3 4 5 6 1 2 3 4 5 6 1 2 3 4
         2 3 4 5 6 1 2 3 4 5 6 1 2 3 4 5
         3 4 5 6 1 2 0 0 5 6 1 2 3 4 5 6
@@ -30506,7 +30506,7 @@ problem_c3f564a4 = Problem("problem_c3f564a4", [
         2 3 4 5 6 1 2 3 4 5 6 1 2 3 4 5
         3 4 5 6 1 2 3 4 5 6 1 2 3 4 5 6
         4 5 6 1 2 3 4 5 6 1 2 3 4 5 6 1
-    ]), Int[
+    ]), Integer[
         1 2 3 4 5 6 1 2 3 4 5 6 1 2 3 4
         2 3 4 5 6 1 2 3 4 5 6 1 2 3 4 5
         3 4 5 6 1 2 3 4 5 6 1 2 3 4 5 6
@@ -30524,7 +30524,7 @@ problem_c3f564a4 = Problem("problem_c3f564a4", [
         3 4 5 6 1 2 3 4 5 6 1 2 3 4 5 6
         4 5 6 1 2 3 4 5 6 1 2 3 4 5 6 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 3 4 5 6 7 1 2 3 4 5 6 7 1 2
         2 3 4 5 6 7 1 2 3 4 5 6 7 1 2 3
         3 0 0 0 0 1 2 3 4 5 6 7 1 2 3 4
@@ -30541,7 +30541,7 @@ problem_c3f564a4 = Problem("problem_c3f564a4", [
         7 1 2 3 4 5 6 7 1 2 3 0 0 0 0 1
         1 2 3 4 5 6 7 1 2 3 4 0 0 0 0 2
         2 3 4 5 6 7 1 2 3 4 5 6 7 1 2 3
-    ]), Int[
+    ]), Integer[
         1 2 3 4 5 6 7 1 2 3 4 5 6 7 1 2
         2 3 4 5 6 7 1 2 3 4 5 6 7 1 2 3
         3 4 5 6 7 1 2 3 4 5 6 7 1 2 3 4
@@ -30559,7 +30559,7 @@ problem_c3f564a4 = Problem("problem_c3f564a4", [
         1 2 3 4 5 6 7 1 2 3 4 5 6 7 1 2
         2 3 4 5 6 7 1 2 3 4 5 6 7 1 2 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 3 4 5 6 7 0 0 0 3 4 5 6 7 8
         2 3 4 5 6 7 8 0 0 0 4 5 6 7 8 1
         3 4 5 6 7 8 1 2 3 4 5 6 7 8 1 2
@@ -30576,7 +30576,7 @@ problem_c3f564a4 = Problem("problem_c3f564a4", [
         6 7 8 1 2 3 4 0 0 7 8 1 2 3 4 5
         7 8 1 2 3 4 5 6 7 8 1 2 3 4 5 6
         8 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7
-    ]), Int[
+    ]), Integer[
         1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8
         2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 1
         3 4 5 6 7 8 1 2 3 4 5 6 7 8 1 2
@@ -30597,7 +30597,7 @@ problem_c3f564a4 = Problem("problem_c3f564a4", [
 ])
 
 problem_c444b776 = Problem("problem_c444b776", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
@@ -30617,7 +30617,7 @@ problem_c444b776 = Problem("problem_c444b776", [
         0 0 0 8 7 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 3 0 4 0 0 0 0 0 0 0 0 0
         0 7 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 7 0 0 0 4 0 0 0 0 0 7 0 0 0
         0 0 0 2 0 0 0 0 0 4 0 0 0 2 0 0 0 0 0
@@ -30638,7 +30638,7 @@ problem_c444b776 = Problem("problem_c444b776", [
         0 0 0 0 8 0 0 3 0 4 0 0 0 0 8 0 0 3 0
         0 7 0 0 0 0 0 0 0 4 0 7 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 2 0
         0 0 1 0 0 0 0 0 0
@@ -30658,7 +30658,7 @@ problem_c444b776 = Problem("problem_c444b776", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 2 0
         0 0 1 0 0 0 0 0 0
@@ -30679,7 +30679,7 @@ problem_c444b776 = Problem("problem_c444b776", [
         0 2 0 0 0 5 5 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 3 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 4 0 2 0 0 0 0 0 2 0 4 0 0 0 0 0 0 0 0 0
@@ -30699,7 +30699,7 @@ problem_c444b776 = Problem("problem_c444b776", [
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0
         0 0 0 0 3 0 0 0 0 4 0 0 0 0 3 0 0 0 0 4 0 0 0 0 3 0 0 0 0
         0 2 0 0 0 0 0 2 0 4 0 2 0 0 0 0 0 2 0 4 0 2 0 0 0 0 0 2 0
@@ -30723,11 +30723,11 @@ problem_c444b776 = Problem("problem_c444b776", [
 ])
 
 problem_c59eb873 = Problem("problem_c59eb873", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 1
         5 5 5
         2 5 0
-    ]), Int[
+    ]), Integer[
         0 0 5 5 1 1
         0 0 5 5 1 1
         5 5 5 5 5 5
@@ -30735,21 +30735,21 @@ problem_c59eb873 = Problem("problem_c59eb873", [
         2 2 5 5 0 0
         2 2 5 5 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1
         3 1
-    ]), Int[
+    ]), Integer[
         2 2 1 1
         2 2 1 1
         3 3 1 1
         3 3 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 3 0
         2 1 3 0
         0 0 3 3
         0 0 3 5
-    ]), Int[
+    ]), Integer[
         2 2 0 0 3 3 0 0
         2 2 0 0 3 3 0 0
         2 2 1 1 3 3 0 0
@@ -30759,13 +30759,13 @@ problem_c59eb873 = Problem("problem_c59eb873", [
         0 0 0 0 3 3 5 5
         0 0 0 0 3 3 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 7 8
         2 1 1 0 0
         0 5 6 6 0
         3 5 6 0 0
         0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 0 0 0 0 7 7 8 8
         2 2 0 0 0 0 7 7 8 8
         2 2 1 1 1 1 0 0 0 0
@@ -30780,7 +30780,7 @@ problem_c59eb873 = Problem("problem_c59eb873", [
 ])
 
 problem_c8cbb738 = Problem("problem_c8cbb738", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 4 3 4 3
         3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 1 3 3 3 3 3 3
@@ -30793,14 +30793,14 @@ problem_c8cbb738 = Problem("problem_c8cbb738", [
         3 3 3 3 3 3 3 3 3 3 3
         8 3 3 3 8 3 2 3 3 3 2
         3 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         2 4 1 4 2
         8 3 3 3 8
         1 3 3 3 1
         8 3 3 3 8
         2 4 1 4 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1
         1 8 1 8 1 1 1 1
         1 1 1 1 1 1 1 1
@@ -30811,12 +30811,12 @@ problem_c8cbb738 = Problem("problem_c8cbb738", [
         1 1 1 1 3 1 1 1
         1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         8 3 8
         3 1 3
         8 3 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 1 4 4 4 1 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -30829,14 +30829,14 @@ problem_c8cbb738 = Problem("problem_c8cbb738", [
         4 4 4 4 4 4 4 4 4 7 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    ]), Int[
+    ]), Integer[
         1 4 7 4 1
         4 4 4 4 4
         7 4 4 4 7
         4 4 4 4 4
         1 4 7 4 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 1 8 8 8 8 8 8 8 8 8 8 8 8
@@ -30855,7 +30855,7 @@ problem_c8cbb738 = Problem("problem_c8cbb738", [
         8 8 8 3 8 8 8 8 8 3 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 6 8 6 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         3 8 6 1 6 8 3
         8 8 8 8 8 8 8
         2 8 8 8 8 8 2
@@ -30867,38 +30867,38 @@ problem_c8cbb738 = Problem("problem_c8cbb738", [
 ])
 
 problem_c8f0f002 = Problem("problem_c8f0f002", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 8 8 7 7 8
         1 1 7 7 1 8
         7 1 1 7 7 8
-    ]), Int[
+    ]), Integer[
         1 8 8 5 5 8
         1 1 5 5 1 8
         5 1 1 5 5 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 7 1
         1 8 1 7
         7 1 1 7
-    ]), Int[
+    ]), Integer[
         5 5 5 1
         1 8 1 5
         5 1 1 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 8 1 7 1
         7 8 8 1 1
         7 1 8 8 7
-    ]), Int[
+    ]), Integer[
         1 8 1 5 1
         5 8 8 1 1
         5 1 8 8 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 7 7 1 7
         8 1 7 7 7
         8 7 1 7 8
-    ]), Int[
+    ]), Integer[
         1 5 5 1 5
         8 1 5 5 5
         8 5 1 5 8
@@ -30906,7 +30906,7 @@ problem_c8f0f002 = Problem("problem_c8f0f002", [
 ])
 
 problem_c909285e = Problem("problem_c909285e", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 4 8 5 0 4 2 8 0 5 0 0 2 4 0 5 0 4 2 0 0 5
         0 0 2 4 8 5 0 4 2 8 0 5 0 0 2 4 0 5 0 4 2 0 0 5
         2 2 2 4 2 5 2 4 2 2 2 5 2 2 2 4 2 5 2 4 2 2 2 5
@@ -30931,7 +30931,7 @@ problem_c909285e = Problem("problem_c909285e", [
         0 0 2 4 8 5 0 4 2 8 0 5 0 0 2 4 0 5 0 4 2 0 0 5
         0 0 2 4 8 5 0 4 2 8 0 5 0 0 2 4 0 5 0 4 2 0 0 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3
         3 0 4 2 8 0 3
         3 4 4 4 4 4 3
@@ -30940,7 +30940,7 @@ problem_c909285e = Problem("problem_c909285e", [
         3 0 4 2 8 0 3
         3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 3 1 8 0 3 8 1 0 8 0 0 8 3 0 8 0 3 8 0 0 8 1 0
         0 0 8 3 1 8 0 3 8 1 0 8 0 0 8 3 0 8 0 3 8 0 0 8 1 0
         8 8 2 2 2 2 2 2 2 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -30967,7 +30967,7 @@ problem_c909285e = Problem("problem_c909285e", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         1 1 8 3 1 8 1 3 8 1 1 8 1 1 8 3 1 8 1 3 8 1 1 8 1 1
         0 0 8 3 1 8 0 3 8 1 0 8 0 0 8 3 0 8 0 3 8 0 0 8 1 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2
         2 3 3 8 3 3 2
         2 3 1 8 1 3 2
@@ -30976,7 +30976,7 @@ problem_c909285e = Problem("problem_c909285e", [
         2 3 3 8 3 3 2
         2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 1 8 5 0 1 3 8 0 5 0 0 3 1 0 5 0 8 3 0 0 5 8 0 3 1
         0 0 3 1 8 5 0 1 3 8 0 5 0 0 3 1 0 5 0 8 3 0 0 5 8 0 3 1
         3 3 3 3 3 5 3 3 3 3 3 5 3 3 3 3 3 5 3 3 3 3 3 5 3 3 3 3
@@ -31005,7 +31005,7 @@ problem_c909285e = Problem("problem_c909285e", [
         0 0 3 1 8 5 0 1 3 8 0 5 0 0 3 1 0 5 0 8 3 0 0 5 8 0 3 1
         3 3 3 3 3 5 3 3 3 3 3 5 3 3 3 3 3 5 3 3 3 3 3 5 3 3 3 3
         1 1 3 1 8 5 1 1 3 8 1 5 1 1 3 1 1 5 1 8 3 1 1 5 8 1 3 1
-    ]), Int[
+    ]), Integer[
         6 6 6 6 6 6 6
         6 0 1 3 8 0 6
         6 8 8 3 8 8 6
@@ -31014,7 +31014,7 @@ problem_c909285e = Problem("problem_c909285e", [
         6 0 1 3 8 0 6
         6 6 6 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 1 2 3 4 0 2 1 3 0 4 0 0 3 2 0 4 0 3 1 0 0 4
         0 0 1 2 3 4 0 2 1 3 0 4 0 0 3 2 0 4 0 3 1 0 0 4
         1 1 1 2 3 4 1 2 1 3 1 4 1 1 3 2 1 4 1 3 1 1 1 4
@@ -31039,7 +31039,7 @@ problem_c909285e = Problem("problem_c909285e", [
         0 0 1 2 3 4 0 2 1 3 0 4 0 0 3 2 0 4 0 3 1 0 0 4
         0 0 1 2 3 4 0 2 1 3 0 4 0 0 3 2 0 4 0 3 1 0 0 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8
         8 2 2 4 2 8
         8 2 0 4 0 8
@@ -31050,38 +31050,38 @@ problem_c909285e = Problem("problem_c909285e", [
 ])
 
 problem_c9e6f938 = Problem("problem_c9e6f938", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 0
         0 0 7
         0 7 7
-    ]), Int[
+    ]), Integer[
         0 7 0 0 7 0
         0 0 7 7 0 0
         0 7 7 7 7 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 7 7
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         0 7 7 7 7 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         7 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0
         7 0 0 0 0 7
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 0
         0 7 0
         0 0 7
-    ]), Int[
+    ]), Integer[
         7 7 0 0 7 7
         0 7 0 0 7 0
         0 0 7 7 0 0
@@ -31089,7 +31089,7 @@ problem_c9e6f938 = Problem("problem_c9e6f938", [
 ])
 
 problem_c9f8e694 = Problem("problem_c9f8e694", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         1 0 5 5 0 0 0 0 0 0 0 0
         2 0 5 5 0 0 0 0 0 0 0 0
@@ -31102,7 +31102,7 @@ problem_c9f8e694 = Problem("problem_c9f8e694", [
         1 0 0 0 5 5 5 0 5 5 0 0
         1 0 0 0 5 5 5 0 5 5 0 0
         2 0 0 0 5 5 5 0 5 5 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         1 0 1 1 0 0 0 0 0 0 0 0
         2 0 2 2 0 0 0 0 0 0 0 0
@@ -31116,7 +31116,7 @@ problem_c9f8e694 = Problem("problem_c9f8e694", [
         1 0 0 0 1 1 1 0 1 1 0 0
         2 0 0 0 2 2 2 0 2 2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         3 5 5 5 5 0 0 0 0 0 0 0
         3 5 5 5 5 0 0 5 5 5 5 5
@@ -31129,7 +31129,7 @@ problem_c9f8e694 = Problem("problem_c9f8e694", [
         3 0 0 0 5 5 5 5 5 5 5 5
         4 0 0 0 5 5 5 0 0 0 0 0
         4 0 0 0 5 5 5 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         3 3 3 3 3 0 0 0 0 0 0 0
         3 3 3 3 3 0 0 3 3 3 3 3
@@ -31143,7 +31143,7 @@ problem_c9f8e694 = Problem("problem_c9f8e694", [
         4 0 0 0 4 4 4 0 0 0 0 0
         4 0 0 0 4 4 4 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 5 5 5 5 5 5 0 0 0 0
         8 0 5 5 5 5 5 5 0 0 0 0
         1 0 5 5 5 5 5 5 0 0 0 0
@@ -31156,7 +31156,7 @@ problem_c9f8e694 = Problem("problem_c9f8e694", [
         8 0 5 5 5 0 5 5 5 0 0 0
         8 0 5 5 5 0 5 5 5 0 0 0
         8 0 5 5 5 0 5 5 5 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1 1 1 1 1 1 0 0 0 0
         8 0 8 8 8 8 8 8 0 0 0 0
         1 0 1 1 1 1 1 1 0 0 0 0
@@ -31173,7 +31173,7 @@ problem_c9f8e694 = Problem("problem_c9f8e694", [
 ])
 
 problem_caa06a1f = Problem("problem_caa06a1f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 7 6 7 6 7 6 3 3 3 3
         7 6 7 6 7 6 7 3 3 3 3
         6 7 6 7 6 7 6 3 3 3 3
@@ -31185,7 +31185,7 @@ problem_caa06a1f = Problem("problem_caa06a1f", [
         3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         7 6 7 6 7 6 7 6 7 6 7
         6 7 6 7 6 7 6 7 6 7 6
         7 6 7 6 7 6 7 6 7 6 7
@@ -31198,7 +31198,7 @@ problem_caa06a1f = Problem("problem_caa06a1f", [
         6 7 6 7 6 7 6 7 6 7 6
         7 6 7 6 7 6 7 6 7 6 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 3 6 3 6 3 6 1
         3 6 3 6 3 6 3 1
         6 3 6 3 6 3 6 1
@@ -31207,7 +31207,7 @@ problem_caa06a1f = Problem("problem_caa06a1f", [
         3 6 3 6 3 6 3 1
         6 3 6 3 6 3 6 1
         1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         3 6 3 6 3 6 3 6
         6 3 6 3 6 3 6 3
         3 6 3 6 3 6 3 6
@@ -31217,14 +31217,14 @@ problem_caa06a1f = Problem("problem_caa06a1f", [
         3 6 3 6 3 6 3 6
         6 3 6 3 6 3 6 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 4 5 4 5 6
         4 5 4 5 4 6
         5 4 5 4 5 6
         4 5 4 5 4 6
         5 4 5 4 5 6
         6 6 6 6 6 6
-    ]), Int[
+    ]), Integer[
         4 5 4 5 4 5
         5 4 5 4 5 4
         4 5 4 5 4 5
@@ -31232,7 +31232,7 @@ problem_caa06a1f = Problem("problem_caa06a1f", [
         4 5 4 5 4 5
         5 4 5 4 5 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 5 7 8 5 7 8 5 7 8 5 7 3 3 3 3 3 3
         5 7 8 5 7 8 5 7 8 5 7 8 3 3 3 3 3 3
         8 5 7 8 5 7 8 5 7 8 5 7 3 3 3 3 3 3
@@ -31251,7 +31251,7 @@ problem_caa06a1f = Problem("problem_caa06a1f", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8
         7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5
         5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8
@@ -31274,7 +31274,7 @@ problem_caa06a1f = Problem("problem_caa06a1f", [
 ])
 
 problem_cbded52d = Problem("problem_cbded52d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 4 0 1 1 0 1 4
         1 1 0 1 1 0 1 1
         0 0 0 0 0 0 0 0
@@ -31283,7 +31283,7 @@ problem_cbded52d = Problem("problem_cbded52d", [
         0 0 0 0 0 0 0 0
         1 4 0 1 1 0 1 1
         1 1 0 1 1 0 1 1
-    ]), Int[
+    ]), Integer[
         1 4 0 1 4 0 1 4
         1 1 0 1 1 0 1 1
         0 0 0 0 0 0 0 0
@@ -31293,7 +31293,7 @@ problem_cbded52d = Problem("problem_cbded52d", [
         1 4 0 1 1 0 1 1
         1 1 0 1 1 0 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 7 1 0 1 1
         1 3 0 1 1 0 1 3
         0 0 0 0 0 0 0 0
@@ -31302,7 +31302,7 @@ problem_cbded52d = Problem("problem_cbded52d", [
         0 0 0 0 0 0 0 0
         1 1 0 7 1 0 1 1
         1 1 0 1 1 0 1 3
-    ]), Int[
+    ]), Integer[
         1 1 0 7 1 0 1 1
         1 3 0 1 3 0 1 3
         0 0 0 0 0 0 0 0
@@ -31312,7 +31312,7 @@ problem_cbded52d = Problem("problem_cbded52d", [
         1 1 0 7 1 0 1 1
         1 1 0 1 1 0 1 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 1 1 0 1 1
         1 1 0 1 1 0 1 1
         0 0 0 0 0 0 0 0
@@ -31321,7 +31321,7 @@ problem_cbded52d = Problem("problem_cbded52d", [
         0 0 0 0 0 0 0 0
         1 1 0 1 1 0 1 1
         1 1 0 1 1 0 1 1
-    ]), Int[
+    ]), Integer[
         1 1 0 1 1 0 1 1
         1 1 0 1 1 0 1 1
         0 0 0 0 0 0 0 0
@@ -31331,7 +31331,7 @@ problem_cbded52d = Problem("problem_cbded52d", [
         1 1 0 1 1 0 1 1
         1 1 0 1 1 0 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 1 1 0 1 1
         1 8 0 1 1 0 1 8
         0 0 0 0 0 0 0 0
@@ -31340,7 +31340,7 @@ problem_cbded52d = Problem("problem_cbded52d", [
         0 0 0 0 0 0 0 0
         6 1 0 1 1 0 6 1
         1 1 0 1 1 0 1 8
-    ]), Int[
+    ]), Integer[
         1 1 0 1 1 0 1 1
         1 8 0 1 8 0 1 8
         0 0 0 0 0 0 0 0
@@ -31353,11 +31353,11 @@ problem_cbded52d = Problem("problem_cbded52d", [
 ])
 
 problem_cce03e0d = Problem("problem_cce03e0d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0
         2 1 0
         0 0 1
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -31368,11 +31368,11 @@ problem_cce03e0d = Problem("problem_cce03e0d", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 2
         1 1 0
         2 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 1 2
         0 0 0 0 0 0 1 1 0
         0 0 0 0 0 0 2 0 0
@@ -31383,11 +31383,11 @@ problem_cce03e0d = Problem("problem_cce03e0d", [
         1 1 0 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1 2
         0 2 1
         2 1 0
-    ]), Int[
+    ]), Integer[
         2 1 2 0 0 0 2 1 2
         0 2 1 0 0 0 0 2 1
         2 1 0 0 0 0 2 1 0
@@ -31398,11 +31398,11 @@ problem_cce03e0d = Problem("problem_cce03e0d", [
         0 2 1 0 0 0 0 0 0
         2 1 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 2
         2 0 1
         1 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 1 2 2 1 2 2
         0 0 0 2 0 1 2 0 1
         0 0 0 1 2 0 1 2 0
@@ -31416,7 +31416,7 @@ problem_cce03e0d = Problem("problem_cce03e0d", [
 ])
 
 problem_cdecee7f = Problem("problem_cdecee7f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 0 0 6 0 0 0 0 0
@@ -31427,12 +31427,12 @@ problem_cdecee7f = Problem("problem_cdecee7f", [
         0 0 0 0 0 0 0 0 0 9
         0 0 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 1 8
         9 7 6
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 0 0 2
         0 0 0 0 0 0 8 0 0 0
@@ -31443,12 +31443,12 @@ problem_cdecee7f = Problem("problem_cdecee7f", [
         0 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         9 3 4
         5 8 6
         2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 3
         0 0 5 0 0 9 0 0 0 0
         0 0 0 0 0 0 0 0 1 0
@@ -31459,12 +31459,12 @@ problem_cdecee7f = Problem("problem_cdecee7f", [
         0 0 0 0 0 0 0 0 0 0
         2 0 0 0 0 0 1 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 4 5
         1 9 3
         5 1 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 5 0 9 0 0 0
         0 0 0 0 0 0 0 0 0 1
@@ -31475,7 +31475,7 @@ problem_cdecee7f = Problem("problem_cdecee7f", [
         5 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 4 0 0 0 0
         0 0 9 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 2 9
         4 5 3
         9 6 1
@@ -31483,7 +31483,7 @@ problem_cdecee7f = Problem("problem_cdecee7f", [
 ])
 
 problem_ce22a75a = Problem("problem_ce22a75a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -31493,7 +31493,7 @@ problem_ce22a75a = Problem("problem_ce22a75a", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 0 0 0 0 0 0
         1 1 1 0 0 0 0 0 0
         1 1 1 0 0 0 0 0 0
@@ -31504,7 +31504,7 @@ problem_ce22a75a = Problem("problem_ce22a75a", [
         0 0 0 0 0 0 1 1 1
         0 0 0 0 0 0 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 5 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -31514,7 +31514,7 @@ problem_ce22a75a = Problem("problem_ce22a75a", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 5 0 0 5 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 1 1 1 0 0 0
         0 0 0 1 1 1 0 0 0
         0 0 0 1 1 1 0 0 0
@@ -31525,7 +31525,7 @@ problem_ce22a75a = Problem("problem_ce22a75a", [
         0 0 0 1 1 1 1 1 1
         0 0 0 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0
         0 0 0 0 0 0 0 0 0
@@ -31535,7 +31535,7 @@ problem_ce22a75a = Problem("problem_ce22a75a", [
         0 0 0 0 0 0 0 0 0
         0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 1 1 1
         0 0 0 0 0 0 1 1 1
         0 0 0 0 0 0 1 1 1
@@ -31549,7 +31549,7 @@ problem_ce22a75a = Problem("problem_ce22a75a", [
 ])
 
 problem_ce4f8723 = Problem("problem_ce4f8723", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 0
         0 1 0 1
         0 1 0 0
@@ -31559,13 +31559,13 @@ problem_ce4f8723 = Problem("problem_ce4f8723", [
         0 0 2 2
         2 2 0 0
         0 0 2 2
-    ]), Int[
+    ]), Integer[
         3 3 3 3
         0 3 3 3
         3 3 0 0
         3 0 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 0
         0 1 0 1
         0 0 1 1
@@ -31575,13 +31575,13 @@ problem_ce4f8723 = Problem("problem_ce4f8723", [
         0 0 0 2
         2 2 2 2
         2 2 0 2
-    ]), Int[
+    ]), Integer[
         3 3 3 3
         0 3 0 3
         3 3 3 3
         3 3 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 0 0
         1 0 1 0
         1 1 0 1
@@ -31591,13 +31591,13 @@ problem_ce4f8723 = Problem("problem_ce4f8723", [
         0 0 2 0
         0 2 0 0
         2 0 2 0
-    ]), Int[
+    ]), Integer[
         3 3 0 3
         3 0 3 0
         3 3 0 3
         3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 1 0
         1 1 0 1
         1 0 1 1
@@ -31607,13 +31607,13 @@ problem_ce4f8723 = Problem("problem_ce4f8723", [
         0 0 2 0
         2 2 0 0
         0 0 2 0
-    ]), Int[
+    ]), Integer[
         3 3 3 0
         3 3 3 3
         3 3 3 3
         0 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 1 0
         1 0 1 0
         0 1 0 0
@@ -31623,7 +31623,7 @@ problem_ce4f8723 = Problem("problem_ce4f8723", [
         0 0 2 0
         0 2 0 2
         2 2 2 0
-    ]), Int[
+    ]), Integer[
         3 3 3 0
         3 0 3 0
         0 3 0 3
@@ -31632,7 +31632,7 @@ problem_ce4f8723 = Problem("problem_ce4f8723", [
 ])
 
 problem_ce602527 = Problem("problem_ce602527", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 3 3 1 3 3 1
@@ -31650,14 +31650,14 @@ problem_ce602527 = Problem("problem_ce602527", [
         1 1 1 1 1 1 1 1 1 1 1 8 8 1 1 1 1
         1 1 1 8 8 1 1 8 8 1 1 8 8 1 1 1 1
         1 1 1 8 8 1 1 8 8 1 1 8 8 1 1 1 1
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2
         2 1 2 1 2
         1 1 1 1 2
         2 1 2 1 2
         2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -31676,14 +31676,14 @@ problem_ce602527 = Problem("problem_ce602527", [
         8 6 6 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         6 6 6 6 6 8 8 8 8 8 8 8 8 8 8 8 8 8
         6 6 6 6 6 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 4 8
         4 4 4
         8 4 8
         4 4 4
         8 4 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 8 8 8 2 2 2 2 2 2 2 2 2 2
@@ -31703,14 +31703,14 @@ problem_ce602527 = Problem("problem_ce602527", [
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
         1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         8 8 8
         8 2 2
         8 8 8
         2 2 8
         8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 8 1 1 8 1 1 1 1 1 1 1 1
@@ -31726,12 +31726,12 @@ problem_ce602527 = Problem("problem_ce602527", [
         2 1 1 2 2 2 2 1 1 1 1 1 1 1 1 1 1
         2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
         2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 3 3 3 1
         3 3 1 3 3
         1 3 3 3 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 1 3 1 1 3 3 3 3 3
@@ -31750,7 +31750,7 @@ problem_ce602527 = Problem("problem_ce602527", [
         3 3 3 3 3 3 8 8 8 8 8 8 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 8 8 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 8 8 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         3 6 3
         6 6 6
         3 6 3
@@ -31759,7 +31759,7 @@ problem_ce602527 = Problem("problem_ce602527", [
 ])
 
 problem_ce9e57f2 = Problem("problem_ce9e57f2", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0
         0 2 0 2 0 0 0 0 0
@@ -31767,7 +31767,7 @@ problem_ce9e57f2 = Problem("problem_ce9e57f2", [
         0 2 0 2 0 2 0 2 0
         0 2 0 2 0 2 0 2 0
         0 2 0 2 0 2 0 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0
         0 2 0 2 0 0 0 0 0
@@ -31776,7 +31776,7 @@ problem_ce9e57f2 = Problem("problem_ce9e57f2", [
         0 8 0 8 0 8 0 2 0
         0 8 0 8 0 8 0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 2 0
@@ -31785,7 +31785,7 @@ problem_ce9e57f2 = Problem("problem_ce9e57f2", [
         0 2 0 2 0 2 0 2 0
         0 2 0 2 0 2 0 2 0
         0 2 0 2 0 2 0 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 2 0
@@ -31795,7 +31795,7 @@ problem_ce9e57f2 = Problem("problem_ce9e57f2", [
         0 8 0 8 0 2 0 8 0
         0 8 0 8 0 8 0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 2 0
         0 2 0 0 0 0 0 2 0
@@ -31805,7 +31805,7 @@ problem_ce9e57f2 = Problem("problem_ce9e57f2", [
         0 2 0 2 0 2 0 2 0
         0 2 0 2 0 2 0 2 0
         0 2 0 2 0 2 0 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 2 0
         0 2 0 0 0 0 0 2 0
@@ -31816,7 +31816,7 @@ problem_ce9e57f2 = Problem("problem_ce9e57f2", [
         0 8 0 2 0 8 0 8 0
         0 8 0 8 0 8 0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0
         0 2 0 2 0 0 0 0 0
@@ -31828,7 +31828,7 @@ problem_ce9e57f2 = Problem("problem_ce9e57f2", [
         0 2 0 2 0 0 0 2 0
         0 2 0 2 0 2 0 2 0
         0 2 0 2 0 2 0 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0
         0 2 0 2 0 0 0 0 0
@@ -31844,67 +31844,67 @@ problem_ce9e57f2 = Problem("problem_ce9e57f2", [
 ])
 
 problem_cf98881b = Problem("problem_cf98881b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0 4 2 9 9 0 0 2 0 0 0 0
         0 4 0 0 2 0 0 9 9 2 0 1 0 0
         4 0 0 0 2 0 0 0 0 2 1 1 1 0
         4 4 4 4 2 9 0 9 0 2 1 1 0 1
-    ]), Int[
+    ]), Integer[
         9 4 0 4
         0 4 9 9
         4 1 1 0
         4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 2 9 0 9 0 2 0 0 0 1
         4 4 0 0 2 9 9 0 0 2 1 0 0 0
         4 0 4 4 2 0 0 0 9 2 0 1 0 1
         0 0 0 0 2 0 0 9 0 2 1 0 1 0
-    ]), Int[
+    ]), Integer[
         4 4 4 4
         4 4 0 0
         4 1 4 4
         1 0 9 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 0 2 9 9 0 9 2 0 1 0 1
         0 4 0 4 2 0 0 9 0 2 0 1 0 0
         0 4 0 4 2 0 0 9 9 2 1 0 0 1
         4 0 4 4 2 9 9 9 0 2 0 0 0 1
-    ]), Int[
+    ]), Integer[
         4 4 4 9
         0 4 9 4
         1 4 9 4
         4 9 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 4 2 0 0 0 9 2 0 0 0 0
         4 4 0 4 2 9 0 9 0 2 0 0 0 0
         4 0 4 4 2 0 9 9 0 2 1 1 0 1
         0 4 4 4 2 0 9 0 0 2 1 1 1 1
-    ]), Int[
+    ]), Integer[
         0 0 0 4
         4 4 9 4
         4 9 4 4
         1 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 4 0 2 0 0 0 0 2 0 0 0 1
         4 4 4 4 2 0 0 0 9 2 1 1 0 0
         0 4 4 4 2 0 9 9 0 2 1 1 0 1
         0 4 4 0 2 0 0 9 0 2 0 1 0 1
-    ]), Int[
+    ]), Integer[
         4 0 4 1
         4 4 4 4
         1 4 4 4
         0 4 4 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 2 9 0 9 0 2 1 1 0 0
         4 4 0 4 2 9 9 9 0 2 1 1 1 0
         0 0 0 0 2 0 9 9 9 2 1 1 0 1
         0 4 4 0 2 9 0 9 9 2 1 0 0 0
-    ]), Int[
+    ]), Integer[
         9 1 4 0
         4 4 9 4
         1 9 9 9
@@ -31913,38 +31913,38 @@ problem_cf98881b = Problem("problem_cf98881b", [
 ])
 
 problem_d037b0a7 = Problem("problem_d037b0a7", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 6
         0 4 0
         3 0 0
-    ]), Int[
+    ]), Integer[
         0 0 6
         0 4 6
         3 4 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0
         7 0 8
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0
         7 2 8
         7 2 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0
         0 2 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0
         4 2 0
         4 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 8
         0 0 0
         0 7 0
-    ]), Int[
+    ]), Integer[
         4 0 8
         4 0 8
         4 7 8
@@ -31952,7 +31952,7 @@ problem_d037b0a7 = Problem("problem_d037b0a7", [
 ])
 
 problem_d06dbe63 = Problem("problem_d06dbe63", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -31966,7 +31966,7 @@ problem_d06dbe63 = Problem("problem_d06dbe63", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 5 0 0 0 0 0 0
         0 0 0 0 5 5 5 0 0 0 0 0 0
         0 0 0 0 5 0 0 0 0 0 0 0 0
@@ -31981,7 +31981,7 @@ problem_d06dbe63 = Problem("problem_d06dbe63", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -31995,7 +31995,7 @@ problem_d06dbe63 = Problem("problem_d06dbe63", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 5
         0 0 0 0 0 0 0 0 0 0 5 5 5
         0 0 0 0 0 0 0 0 0 0 5 0 0
@@ -32010,7 +32010,7 @@ problem_d06dbe63 = Problem("problem_d06dbe63", [
         0 0 5 5 5 0 0 0 0 0 0 0 0
         0 0 5 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -32024,7 +32024,7 @@ problem_d06dbe63 = Problem("problem_d06dbe63", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 5 0 0 0
         0 0 0 0 0 0 0 5 5 5 0 0 0
         0 0 0 0 0 0 0 5 0 0 0 0 0
@@ -32042,7 +32042,7 @@ problem_d06dbe63 = Problem("problem_d06dbe63", [
 ])
 
 problem_d07ae81c = Problem("problem_d07ae81c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 2 2 2 2 8 8 8 8 8
         8 8 8 2 2 2 2 8 8 8 8 8
         2 2 2 2 2 2 2 2 2 2 2 2
@@ -32062,7 +32062,7 @@ problem_d07ae81c = Problem("problem_d07ae81c", [
         8 8 8 2 2 2 2 8 8 8 8 8
         8 8 8 2 2 2 2 8 8 8 8 8
         8 8 8 2 2 2 2 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 2 2 2 2 8 8 1 8 8
         1 8 8 2 2 2 2 8 1 8 8 8
         2 4 2 2 2 2 2 4 2 2 2 2
@@ -32083,7 +32083,7 @@ problem_d07ae81c = Problem("problem_d07ae81c", [
         8 8 8 2 2 2 2 8 8 8 1 8
         8 8 8 2 2 2 2 8 8 8 8 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 1 1 1 1 1 1 3 3 3 3 3
         3 3 3 1 1 1 1 1 1 3 3 3 3 3
         3 3 3 1 1 1 1 1 1 3 3 3 3 3
@@ -32096,7 +32096,7 @@ problem_d07ae81c = Problem("problem_d07ae81c", [
         3 3 3 1 1 1 1 1 1 3 3 3 3 3
         3 3 3 1 1 1 1 1 1 3 3 3 3 3
         3 3 3 1 1 1 1 1 1 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         3 3 3 2 1 1 1 1 1 8 3 3 3 3
         3 3 3 1 2 1 1 1 2 3 3 3 3 3
         3 3 3 1 1 2 1 2 1 3 3 3 3 3
@@ -32110,7 +32110,7 @@ problem_d07ae81c = Problem("problem_d07ae81c", [
         3 3 3 1 1 1 1 1 1 8 3 3 3 8
         3 3 3 1 1 1 1 1 2 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 6 6 6 6 1 1 1 1 6 6 6 6 6
         1 1 6 6 6 6 1 1 1 1 6 6 6 6 6
         1 1 6 6 6 6 1 1 1 1 6 6 6 6 6
@@ -32126,7 +32126,7 @@ problem_d07ae81c = Problem("problem_d07ae81c", [
         1 1 6 6 6 6 1 1 1 1 6 6 6 6 6
         1 1 6 6 6 6 1 1 1 1 6 6 6 6 6
         1 1 6 6 6 6 1 1 1 1 6 6 6 6 6
-    ]), Int[
+    ]), Integer[
         1 1 3 6 6 6 1 1 1 1 6 6 3 6 6
         1 1 6 3 6 6 1 1 1 1 6 3 6 6 6
         1 1 6 6 3 6 1 1 1 1 3 6 6 6 6
@@ -32143,7 +32143,7 @@ problem_d07ae81c = Problem("problem_d07ae81c", [
         1 1 6 6 6 6 1 1 1 8 6 6 6 6 6
         1 1 6 6 6 6 1 1 8 1 3 6 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 3 3 3 3 3 3 8 4 8 8 8 8 8 8 8 8
         8 8 8 3 3 3 3 3 3 8 8 8 8 8 8 8 8 8 8
         8 8 8 3 3 3 3 3 3 8 8 8 8 8 8 8 8 8 8
@@ -32161,7 +32161,7 @@ problem_d07ae81c = Problem("problem_d07ae81c", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         8 8 8 3 3 3 3 3 3 8 8 8 8 8 8 8 8 8 8
         8 8 8 3 3 3 3 3 3 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 4 3 3 3 3 3 3 8 4 8 8 8 8 8 8 8 8
         8 8 8 1 3 3 3 3 3 4 8 4 8 8 8 8 8 8 8
         8 8 8 3 1 3 3 3 1 8 8 8 4 8 8 8 8 8 8
@@ -32183,7 +32183,7 @@ problem_d07ae81c = Problem("problem_d07ae81c", [
 ])
 
 problem_d0f5fe59 = Problem("problem_d0f5fe59", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 8 8 0 0 0 0 0 0
         0 0 8 8 0 0 0 0 0 0
@@ -32200,13 +32200,13 @@ problem_d0f5fe59 = Problem("problem_d0f5fe59", [
         0 0 0 0 0 0 0 8 8 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 0 0
         0 8 0 0
         0 0 8 0
         0 0 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 0 0 0 0
@@ -32219,12 +32219,12 @@ problem_d0f5fe59 = Problem("problem_d0f5fe59", [
         0 0 0 8 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 0
         0 8 0
         0 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 8 8 0 0 0 0 0 0 0 0
@@ -32233,11 +32233,11 @@ problem_d0f5fe59 = Problem("problem_d0f5fe59", [
         0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0
         0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 8 0 0
         0 0 0 0 0 8 0 0 8 8 0 0
@@ -32253,7 +32253,7 @@ problem_d0f5fe59 = Problem("problem_d0f5fe59", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 8 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 0 0 0
         0 8 0 0 0
         0 0 8 0 0
@@ -32263,18 +32263,18 @@ problem_d0f5fe59 = Problem("problem_d0f5fe59", [
 ])
 
 problem_d10ecb37 = Problem("problem_d10ecb37", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 3 6 4 0 6
         6 0 0 3 3 4
         6 4 4 3 3 0
         0 3 6 0 4 6
         0 6 3 0 4 3
         3 4 4 6 6 0
-    ]), Int[
+    ]), Integer[
         4 3
         6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 4 2 2 5 2 4 5
         2 5 5 4 4 2 2 2
         4 5 5 2 2 2 2 4
@@ -32283,11 +32283,11 @@ problem_d10ecb37 = Problem("problem_d10ecb37", [
         2 5 5 4 4 2 2 2
         4 5 5 2 2 2 2 4
         2 2 4 2 5 4 2 5
-    ]), Int[
+    ]), Integer[
         2 4
         2 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 2 1 3 4 1
         1 4 4 2 2 3
         1 3 3 2 2 4
@@ -32300,27 +32300,27 @@ problem_d10ecb37 = Problem("problem_d10ecb37", [
         1 4 4 2 2 3
         1 3 3 2 2 4
         4 2 1 4 3 1
-    ]), Int[
+    ]), Integer[
         3 2
         1 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 6 2 9 9 2 6 9
         2 9 9 6 6 9 9 2
         6 9 9 2 2 9 9 6
         9 2 6 9 9 6 2 9
-    ]), Int[
+    ]), Integer[
         9 6
         2 9
     ])
 ])
 
 problem_d13f3404 = Problem("problem_d13f3404", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 1 0
         3 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         6 1 0 0 0 0
         3 6 1 0 0 0
         0 3 6 1 0 0
@@ -32328,11 +32328,11 @@ problem_d13f3404 = Problem("problem_d13f3404", [
         0 0 0 3 6 1
         0 0 0 0 3 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 0
         0 8 0
         2 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0 0 0 0
         0 8 4 0 0 0
         2 0 8 4 0 0
@@ -32340,11 +32340,11 @@ problem_d13f3404 = Problem("problem_d13f3404", [
         0 0 2 0 8 4
         0 0 0 2 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 6
         1 3 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 6 0 0 0
         1 3 0 6 0 0
         0 1 3 0 6 0
@@ -32352,11 +32352,11 @@ problem_d13f3404 = Problem("problem_d13f3404", [
         0 0 0 1 3 0
         0 0 0 0 1 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3
         0 0 0
         0 4 9
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 0
         0 0 0 3 0 0
         0 4 9 0 3 0
@@ -32367,7 +32367,7 @@ problem_d13f3404 = Problem("problem_d13f3404", [
 ])
 
 problem_d22278a0 = Problem("problem_d22278a0", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -32378,7 +32378,7 @@ problem_d22278a0 = Problem("problem_d22278a0", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1 0 1 2 0 2 0 2
         0 0 1 0 1 2 0 2 0 0
         1 1 1 0 1 2 0 2 2 2
@@ -32390,7 +32390,7 @@ problem_d22278a0 = Problem("problem_d22278a0", [
         1 1 1 1 1 2 2 2 2 2
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 3
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -32403,7 +32403,7 @@ problem_d22278a0 = Problem("problem_d22278a0", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 3 0 3 0 3 0 3 0 3 0 3
         8 0 0 3 0 3 0 3 0 3 0 0
         0 0 0 3 0 3 0 3 0 3 3 3
@@ -32417,7 +32417,7 @@ problem_d22278a0 = Problem("problem_d22278a0", [
         0 0 8 0 8 0 8 0 8 0 0 3
         8 0 8 0 8 0 8 0 8 0 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -32431,7 +32431,7 @@ problem_d22278a0 = Problem("problem_d22278a0", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 0 2 0 2 0 2 0 2 0 2 0 2
         0 0 2 0 2 0 2 0 2 0 2 0 2
         2 2 2 0 2 0 2 0 2 0 2 0 2
@@ -32446,7 +32446,7 @@ problem_d22278a0 = Problem("problem_d22278a0", [
         0 0 4 0 4 0 4 0 4 0 4 0 4
         4 0 4 0 4 0 4 0 4 0 4 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 0 0 0 2
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
@@ -32454,7 +32454,7 @@ problem_d22278a0 = Problem("problem_d22278a0", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         8 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1 0 2 0 2
         0 0 1 0 2 0 0
         1 1 1 0 2 2 2
@@ -32463,7 +32463,7 @@ problem_d22278a0 = Problem("problem_d22278a0", [
         0 0 8 0 8 0 0
         8 0 8 0 8 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -32481,7 +32481,7 @@ problem_d22278a0 = Problem("problem_d22278a0", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
-    ]), Int[
+    ]), Integer[
         4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 0
         0 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 0
         4 4 4 0 4 0 4 0 4 0 4 0 4 0 0 1 1
@@ -32503,42 +32503,42 @@ problem_d22278a0 = Problem("problem_d22278a0", [
 ])
 
 problem_d23f8c26 = Problem("problem_d23f8c26", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 4 0
         0 3 9
         1 0 0
-    ]), Int[
+    ]), Integer[
         0 4 0
         0 3 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 3 0 0
         8 6 5 6 0
         3 6 3 0 0
         0 0 0 5 9
         5 0 9 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0
         0 0 5 0 0
         0 0 3 0 0
         0 0 0 0 0
         0 0 9 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 4 0 0
         3 0 4 7 0
         0 6 0 0 7
         0 0 8 0 0
         0 8 0 2 2
-    ]), Int[
+    ]), Integer[
         0 0 4 0 0
         0 0 4 0 0
         0 0 0 0 0
         0 0 8 0 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 0 0 0 7
         8 1 0 8 0 0 0
         0 0 3 0 8 0 3
@@ -32546,7 +32546,7 @@ problem_d23f8c26 = Problem("problem_d23f8c26", [
         0 0 0 0 0 0 0
         1 0 8 6 0 0 0
         0 8 0 6 0 1 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 0 0 8 0 0 0
         0 0 0 0 0 0 0
@@ -32558,7 +32558,7 @@ problem_d23f8c26 = Problem("problem_d23f8c26", [
 ])
 
 problem_d2abd087 = Problem("problem_d2abd087", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 0 0 0 0 0
@@ -32569,7 +32569,7 @@ problem_d2abd087 = Problem("problem_d2abd087", [
         0 5 5 0 0 0 5 0 0 0
         0 5 5 5 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 2 2 2 0 0 0 0 0
@@ -32581,7 +32581,7 @@ problem_d2abd087 = Problem("problem_d2abd087", [
         0 1 1 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 5 0
         0 5 5 0 0 0 5 5 5 0
         5 5 5 5 0 0 0 0 5 0
@@ -32592,7 +32592,7 @@ problem_d2abd087 = Problem("problem_d2abd087", [
         0 5 5 0 0 5 5 0 0 0
         0 5 5 0 0 5 5 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 1 0
         0 2 2 0 0 0 1 1 1 0
         2 2 2 2 0 0 0 0 1 0
@@ -32604,7 +32604,7 @@ problem_d2abd087 = Problem("problem_d2abd087", [
         0 1 1 0 0 2 2 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 0 0 0 0 5 5 5
         0 5 5 0 5 5 0 5 0 0
         0 0 5 0 5 5 0 5 0 0
@@ -32615,7 +32615,7 @@ problem_d2abd087 = Problem("problem_d2abd087", [
         0 0 5 0 0 0 0 0 0 0
         0 5 5 5 5 0 0 0 0 0
         0 0 5 5 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 0 0 0 0 2 2 2
         0 1 1 0 1 1 0 2 0 0
         0 0 1 0 1 1 0 2 0 0
@@ -32627,7 +32627,7 @@ problem_d2abd087 = Problem("problem_d2abd087", [
         0 1 1 1 1 0 0 0 0 0
         0 0 1 1 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 5 0 0 0 5 5 0 0
         0 5 5 0 0 0 5 5 0 0
         5 5 5 5 0 5 5 0 0 0
@@ -32638,7 +32638,7 @@ problem_d2abd087 = Problem("problem_d2abd087", [
         0 0 0 0 0 0 0 5 0 0
         0 5 5 5 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 1 0 0 0 2 2 0 0
         0 1 1 0 0 0 2 2 0 0
         1 1 1 1 0 2 2 0 0 0
@@ -32653,7 +32653,7 @@ problem_d2abd087 = Problem("problem_d2abd087", [
 ])
 
 problem_d364b489 = Problem("problem_d364b489", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -32664,7 +32664,7 @@ problem_d364b489 = Problem("problem_d364b489", [
         0 0 0 0 0 0 0 1 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 2 0 0 0
         0 0 0 0 0 7 1 6 0 0
         0 0 0 0 0 0 8 0 0 2
@@ -32676,7 +32676,7 @@ problem_d364b489 = Problem("problem_d364b489", [
         0 2 0 0 0 0 0 8 0 0
         7 1 6 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 1 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         1 0 0 0 0 0 0 0 0 0
@@ -32687,7 +32687,7 @@ problem_d364b489 = Problem("problem_d364b489", [
         0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 1
-    ]), Int[
+    ]), Integer[
         0 0 0 0 7 1 6 0 0 0
         2 0 0 0 0 8 0 0 0 0
         1 6 0 0 0 0 0 0 0 2
@@ -32699,7 +32699,7 @@ problem_d364b489 = Problem("problem_d364b489", [
         0 7 1 6 0 0 0 0 0 2
         0 0 8 0 0 0 0 0 7 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 0 0 0 0 0 0 1
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 1 0 0
@@ -32710,7 +32710,7 @@ problem_d364b489 = Problem("problem_d364b489", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         7 1 6 0 0 0 0 0 7 1
         0 8 0 0 0 0 0 2 0 8
         0 0 0 2 0 0 7 1 6 0
@@ -32725,47 +32725,47 @@ problem_d364b489 = Problem("problem_d364b489", [
 ])
 
 problem_d406998b = Problem("problem_d406998b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 5 0 0 5 0 0 0 5
         0 5 0 0 5 0 0 5 0 0
         0 0 0 5 0 0 5 0 5 0
-    ]), Int[
+    ]), Integer[
         5 0 5 0 0 3 0 0 0 3
         0 3 0 0 5 0 0 3 0 0
         0 0 0 3 0 0 5 0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 5 0 0 5 0 5 0 0 0
         5 0 0 0 5 0 0 5 0 0 5 0
         0 0 5 0 0 5 0 0 0 5 0 5
-    ]), Int[
+    ]), Integer[
         0 3 0 3 0 0 5 0 5 0 0 0
         5 0 0 0 5 0 0 3 0 0 5 0
         0 0 5 0 0 3 0 0 0 3 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 0 0 5 0 5 0 0 0 5 0
         5 0 0 0 5 0 5 0 0 5 0 0 5
         0 5 0 5 0 0 0 0 5 0 5 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 5 0 5 0 0 0 5 0
         3 0 0 0 3 0 3 0 0 5 0 0 3
         0 5 0 5 0 0 0 0 3 0 3 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 0 0 5 0 5 0 5 0 5 0 0
         5 0 0 0 5 0 0 0 5 0 5 0 0 5
         0 5 0 5 0 0 5 0 0 0 0 0 5 0
-    ]), Int[
+    ]), Integer[
         0 0 5 0 0 3 0 3 0 3 0 3 0 0
         5 0 0 0 5 0 0 0 5 0 5 0 0 3
         0 3 0 3 0 0 5 0 0 0 0 0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 5 0 0 0 5 0 5 0 0 5 0 5 0 0
         5 0 5 0 0 5 0 0 5 0 0 5 0 0 0 5 0
         0 5 0 0 5 0 5 0 0 0 5 0 0 5 0 0 5
-    ]), Int[
+    ]), Integer[
         0 0 0 5 0 0 0 5 0 5 0 0 3 0 3 0 0
         3 0 3 0 0 5 0 0 3 0 0 5 0 0 0 5 0
         0 5 0 0 3 0 3 0 0 0 3 0 0 5 0 0 3
@@ -32773,7 +32773,7 @@ problem_d406998b = Problem("problem_d406998b", [
 ])
 
 problem_d43fd935 = Problem("problem_d43fd935", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 6 0
         0 0 0 0 0 0 0 0 0 0
@@ -32784,7 +32784,7 @@ problem_d43fd935 = Problem("problem_d43fd935", [
         0 0 0 0 0 0 6 0 0 0
         0 0 6 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 6 0
         0 0 0 0 0 0 0 0 0 0
@@ -32796,7 +32796,7 @@ problem_d43fd935 = Problem("problem_d43fd935", [
         0 0 6 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 0 0 0 0 8 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 7 0 3 3 0 0 8
@@ -32807,7 +32807,7 @@ problem_d43fd935 = Problem("problem_d43fd935", [
         0 0 0 8 0 0 0 0 0 0
         0 7 0 0 0 0 0 0 0 0
         0 0 0 0 0 7 0 0 0 7
-    ]), Int[
+    ]), Integer[
         0 7 0 0 0 0 8 0 0 0
         0 0 0 0 0 0 8 0 0 0
         0 0 0 7 7 3 3 8 8 8
@@ -32819,7 +32819,7 @@ problem_d43fd935 = Problem("problem_d43fd935", [
         0 7 0 0 0 7 0 0 0 0
         0 0 0 0 0 7 0 0 0 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0
         0 1 0 0 0 0 0 0 0 0
@@ -32830,7 +32830,7 @@ problem_d43fd935 = Problem("problem_d43fd935", [
         0 0 0 0 3 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0
         0 1 0 0 1 0 0 0 0 0
@@ -32842,7 +32842,7 @@ problem_d43fd935 = Problem("problem_d43fd935", [
         0 0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 0 0 0 0 0 0
         2 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 2 0 0
@@ -32853,7 +32853,7 @@ problem_d43fd935 = Problem("problem_d43fd935", [
         0 0 3 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 2 0 0
         0 0 0 6 0 6 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 2 0 0 0 0 0 0
         2 0 0 2 0 0 0 0 0 0
         0 0 0 2 0 0 0 2 0 0
@@ -32868,101 +32868,101 @@ problem_d43fd935 = Problem("problem_d43fd935", [
 ])
 
 problem_d4469b4b = Problem("problem_d4469b4b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 0 0
         0 2 0 0 2
         2 0 0 2 0
         0 0 0 2 2
         0 0 2 2 0
-    ]), Int[
+    ]), Integer[
         5 5 5
         0 5 0
         0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 1 1 1
         0 1 0 1 1
         0 1 0 1 0
         0 0 0 0 1
-    ]), Int[
+    ]), Integer[
         0 5 0
         5 5 5
         0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 0 0
         0 0 0 3 3
         0 3 3 0 0
         0 3 0 3 0
         3 0 3 3 0
-    ]), Int[
+    ]), Integer[
         0 0 5
         0 0 5
         5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 0 1 0 0
         1 0 0 1 1
         1 1 0 1 0
         0 1 0 1 0
         1 0 0 0 1
-    ]), Int[
+    ]), Integer[
         0 5 0
         5 5 5
         0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2 0 2
         2 0 0 0 2
         2 2 0 0 0
         2 0 0 2 2
         2 2 2 0 2
-    ]), Int[
+    ]), Integer[
         5 5 5
         0 5 0
         0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 2 0
         0 2 2 2 0
         0 2 2 0 2
         2 2 2 0 0
         0 0 2 0 2
-    ]), Int[
+    ]), Integer[
         5 5 5
         0 5 0
         0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 3 0
         3 3 0 0 0
         0 3 0 0 0
         0 0 3 0 0
         3 3 3 0 0
-    ]), Int[
+    ]), Integer[
         0 0 5
         0 0 5
         5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 0
         0 0 1 0 1
         0 1 0 0 0
         0 1 0 0 1
         0 0 1 0 0
-    ]), Int[
+    ]), Integer[
         0 5 0
         5 5 5
         0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 3 3
         0 0 3 0 0
         3 0 0 0 0
         0 0 3 0 3
         0 0 0 0 3
-    ]), Int[
+    ]), Integer[
         0 0 5
         0 0 5
         5 5 5
@@ -32970,7 +32970,7 @@ problem_d4469b4b = Problem("problem_d4469b4b", [
 ])
 
 problem_d4a91cb9 = Problem("problem_d4a91cb9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 8 0 0 0 0 0 0 0 0 0 0
@@ -32981,7 +32981,7 @@ problem_d4a91cb9 = Problem("problem_d4a91cb9", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 8 0 0 0 0 0 0 0 0 0 0
@@ -32993,7 +32993,7 @@ problem_d4a91cb9 = Problem("problem_d4a91cb9", [
         0 4 4 4 4 4 4 4 4 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 8 0 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -33002,7 +33002,7 @@ problem_d4a91cb9 = Problem("problem_d4a91cb9", [
         0 2 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 8 0 0
         0 0 0 0 0 0 0 0 4 0 0
@@ -33012,7 +33012,7 @@ problem_d4a91cb9 = Problem("problem_d4a91cb9", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 2 0 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -33025,7 +33025,7 @@ problem_d4a91cb9 = Problem("problem_d4a91cb9", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 4 4 4 4 4 4 2 0 0
         0 0 4 0 0 0 0 0 0 0 0
@@ -33039,7 +33039,7 @@ problem_d4a91cb9 = Problem("problem_d4a91cb9", [
         0 0 8 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 2 0
@@ -33052,7 +33052,7 @@ problem_d4a91cb9 = Problem("problem_d4a91cb9", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 4 4 4 4 4 4 4 4 2 0
@@ -33069,7 +33069,7 @@ problem_d4a91cb9 = Problem("problem_d4a91cb9", [
 ])
 
 problem_d4f3cd78 = Problem("problem_d4f3cd78", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 5 0 0
@@ -33080,7 +33080,7 @@ problem_d4f3cd78 = Problem("problem_d4f3cd78", [
         0 0 5 5 5 0 5 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 5 0 0
@@ -33092,7 +33092,7 @@ problem_d4f3cd78 = Problem("problem_d4f3cd78", [
         0 0 0 0 0 8 0 0 0 0
         0 0 0 0 0 8 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -33103,7 +33103,7 @@ problem_d4f3cd78 = Problem("problem_d4f3cd78", [
         0 0 5 0 0 0 0 5 0 0
         0 0 5 0 0 0 0 5 0 0
         0 0 5 5 5 5 5 5 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 8 0 0 0 0
         0 0 0 0 0 8 0 0 0 0
         0 0 0 0 0 8 0 0 0 0
@@ -33115,7 +33115,7 @@ problem_d4f3cd78 = Problem("problem_d4f3cd78", [
         0 0 5 8 8 8 8 5 0 0
         0 0 5 5 5 5 5 5 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 0 0 0
@@ -33126,7 +33126,7 @@ problem_d4f3cd78 = Problem("problem_d4f3cd78", [
         0 0 5 5 5 5 5 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 0 0 0
@@ -33141,43 +33141,43 @@ problem_d4f3cd78 = Problem("problem_d4f3cd78", [
 ])
 
 problem_d511f180 = Problem("problem_d511f180", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 7 8 8 8
         5 5 6 5 4
         8 5 5 5 2
         8 8 4 3 6
         6 5 1 9 3
-    ]), Int[
+    ]), Integer[
         2 7 5 5 5
         8 8 6 8 4
         5 8 8 8 2
         5 5 4 3 6
         6 8 1 9 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 5 1
         4 5 8
         2 4 9
-    ]), Int[
+    ]), Integer[
         3 8 1
         4 8 5
         2 4 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 5 3
         5 7 5
         8 8 2
-    ]), Int[
+    ]), Integer[
         6 8 3
         8 7 8
         5 5 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 4 5
         3 8 7 5
         3 7 1 9
         6 4 8 8
-    ]), Int[
+    ]), Integer[
         5 5 4 8
         3 5 7 8
         3 7 1 9
@@ -33186,7 +33186,7 @@ problem_d511f180 = Problem("problem_d511f180", [
 ])
 
 problem_d5d6de2d = Problem("problem_d5d6de2d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 2 0 0 0 0 0 0
         0 2 0 2 0 0 0 0 0 0
@@ -33197,7 +33197,7 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
         0 0 0 0 2 0 0 2 0 0
         0 0 0 0 2 0 0 2 0 0
         0 0 0 0 2 2 2 2 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0
@@ -33209,7 +33209,7 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
         0 0 0 0 0 3 3 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 2 2 0 0 0
         0 0 0 0 2 0 2 0 0 0
@@ -33220,7 +33220,7 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 3 0 0 0 0
@@ -33232,7 +33232,7 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 2 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 2 0 0 0 0 0 0 0 0 0
@@ -33248,7 +33248,7 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 3 3 0 0 0 0 0 0 0 0 0 0
@@ -33265,7 +33265,7 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 0 0 0 0 0 0 0
         2 0 2 0 0 0 0 0 0 0
         2 2 2 0 0 0 0 0 0 0
@@ -33276,7 +33276,7 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
         0 2 0 0 0 0 0 0 2 0
         0 2 0 0 0 0 0 0 2 0
         0 2 2 2 2 2 2 2 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -33288,7 +33288,7 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
         0 0 3 3 3 3 3 3 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -33314,7 +33314,7 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
         0 2 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -33344,35 +33344,35 @@ problem_d5d6de2d = Problem("problem_d5d6de2d", [
 ])
 
 problem_d631b094 = Problem("problem_d631b094", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         1 0 0
         0 1 0
-    ]), Grid(reshape(Int[1, 1], 1, 2))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1, 1], 1, 2))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0
         2 0 0
         0 2 0
-    ]), Grid(reshape(Int[2, 2, 2], 1, 3))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2, 2, 2], 1, 3))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 0
         0 0 0
         0 0 0
-    ]), Grid(reshape(Int[7], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[7], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0
         8 8 0
         8 0 0
-    ]), Grid(reshape(Int[8, 8, 8, 8], 1, 4))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8, 8, 8, 8], 1, 4))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 0
         4 0 4
         0 0 4
-    ]), Grid(reshape(Int[4, 4, 4, 4, 4], 1, 5)))
+    ]), Grid(reshape(Integer[4, 4, 4, 4, 4], 1, 5)))
 ])
 
 problem_d687bc17 = Problem("problem_d687bc17", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 4 4 4 4 4 4 4 4 4 4 4 4 0
         2 0 0 0 0 0 0 0 0 0 0 0 0 0 3
         2 0 0 0 0 0 0 0 0 0 3 0 0 0 3
@@ -33383,7 +33383,7 @@ problem_d687bc17 = Problem("problem_d687bc17", [
         2 0 0 0 0 0 0 0 0 4 0 2 0 0 3
         2 0 0 0 0 0 0 0 0 0 0 0 0 0 3
         0 8 8 8 8 8 8 8 8 8 8 8 8 8 0
-    ]), Int[
+    ]), Integer[
         0 4 4 4 4 4 4 4 4 4 4 4 4 4 0
         2 0 0 0 0 0 0 0 0 4 0 0 0 0 3
         2 0 0 0 0 0 0 0 0 0 0 0 0 3 3
@@ -33395,7 +33395,7 @@ problem_d687bc17 = Problem("problem_d687bc17", [
         2 0 0 0 0 8 0 0 0 0 0 0 0 0 3
         0 8 8 8 8 8 8 8 8 8 8 8 8 8 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 1 1 1 1 1 1 1 1 1 0
         2 0 0 0 0 0 0 0 0 0 0 4
         2 0 0 0 0 0 0 0 0 7 0 4
@@ -33408,7 +33408,7 @@ problem_d687bc17 = Problem("problem_d687bc17", [
         2 0 0 0 0 1 0 0 7 0 0 4
         2 0 0 0 0 0 0 0 0 0 0 4
         0 7 7 7 7 7 7 7 7 7 7 0
-    ]), Int[
+    ]), Integer[
         0 1 1 1 1 1 1 1 1 1 1 0
         2 0 0 0 0 1 0 0 0 0 0 4
         2 0 0 0 0 0 0 0 0 0 0 4
@@ -33422,7 +33422,7 @@ problem_d687bc17 = Problem("problem_d687bc17", [
         2 0 0 0 0 0 0 0 7 7 0 4
         0 7 7 7 7 7 7 7 7 7 7 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 6 6 6 6 6 6 6 6 6 0
         4 0 0 0 0 0 0 0 0 0 8
         4 0 2 0 0 0 0 0 0 0 8
@@ -33437,7 +33437,7 @@ problem_d687bc17 = Problem("problem_d687bc17", [
         4 0 0 0 0 0 0 0 0 0 8
         4 0 0 0 0 0 0 0 0 0 8
         0 3 3 3 3 3 3 3 3 3 0
-    ]), Int[
+    ]), Integer[
         0 6 6 6 6 6 6 6 6 6 0
         4 0 0 0 0 0 0 0 6 0 8
         4 0 0 0 0 0 0 0 0 0 8
@@ -33453,7 +33453,7 @@ problem_d687bc17 = Problem("problem_d687bc17", [
         4 0 0 0 0 0 0 0 0 0 8
         0 3 3 3 3 3 3 3 3 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 0
         1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
         1 0 0 0 0 0 0 8 0 0 0 0 1 0 0 0 2
@@ -33468,7 +33468,7 @@ problem_d687bc17 = Problem("problem_d687bc17", [
         1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
         1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
         0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 0
-    ]), Int[
+    ]), Integer[
         0 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 0
         1 0 0 0 0 0 0 0 4 0 0 0 0 0 4 0 2
         1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
@@ -33487,7 +33487,7 @@ problem_d687bc17 = Problem("problem_d687bc17", [
 ])
 
 problem_d6ad076f = Problem("problem_d6ad076f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0
@@ -33498,7 +33498,7 @@ problem_d6ad076f = Problem("problem_d6ad076f", [
         7 7 7 7 7 7 0 0 0 0
         7 7 7 7 7 7 0 0 0 0
         7 7 7 7 7 7 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0
         0 2 2 2 2 0 0 0 0 0
@@ -33510,7 +33510,7 @@ problem_d6ad076f = Problem("problem_d6ad076f", [
         7 7 7 7 7 7 0 0 0 0
         7 7 7 7 7 7 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 4 4 0 0 0 0 0 0
         0 4 4 4 0 0 0 0 0 0
@@ -33521,7 +33521,7 @@ problem_d6ad076f = Problem("problem_d6ad076f", [
         0 4 4 4 0 0 0 6 6 6
         0 4 4 4 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 4 4 4 0 0 0 0 0 0
         0 4 4 4 0 0 0 0 0 0
@@ -33533,7 +33533,7 @@ problem_d6ad076f = Problem("problem_d6ad076f", [
         0 4 4 4 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 3 3 0
         3 3 3 3 3 3 3 3 3 0
         3 3 3 3 3 3 3 3 3 0
@@ -33544,7 +33544,7 @@ problem_d6ad076f = Problem("problem_d6ad076f", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 9 9 9 9 9 9 0
         0 0 0 9 9 9 9 9 9 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 0
         3 3 3 3 3 3 3 3 3 0
         3 3 3 3 3 3 3 3 3 0
@@ -33556,7 +33556,7 @@ problem_d6ad076f = Problem("problem_d6ad076f", [
         0 0 0 9 9 9 9 9 9 0
         0 0 0 9 9 9 9 9 9 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 0 0 0 0 0 0
         1 1 1 1 0 0 0 2 2 2
         1 1 1 1 0 0 0 2 2 2
@@ -33567,7 +33567,7 @@ problem_d6ad076f = Problem("problem_d6ad076f", [
         1 1 1 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 1 0 0 0 0 0 0
         1 1 1 1 0 0 0 2 2 2
         1 1 1 1 8 8 8 2 2 2
@@ -33582,7 +33582,7 @@ problem_d6ad076f = Problem("problem_d6ad076f", [
 ])
 
 problem_d89b689b = Problem("problem_d89b689b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 7 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -33593,7 +33593,7 @@ problem_d89b689b = Problem("problem_d89b689b", [
         0 0 0 0 0 0 0 0 0 0
         0 4 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 9
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -33605,7 +33605,7 @@ problem_d89b689b = Problem("problem_d89b689b", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 9 0
         0 0 0 0 0 0 0 0 0 0
@@ -33616,7 +33616,7 @@ problem_d89b689b = Problem("problem_d89b689b", [
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -33628,7 +33628,7 @@ problem_d89b689b = Problem("problem_d89b689b", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 0 0 0 0 0 4
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 8 8 0 0 0
@@ -33639,7 +33639,7 @@ problem_d89b689b = Problem("problem_d89b689b", [
         0 0 3 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 1 4 0 0 0
@@ -33651,7 +33651,7 @@ problem_d89b689b = Problem("problem_d89b689b", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 4 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -33662,7 +33662,7 @@ problem_d89b689b = Problem("problem_d89b689b", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 7 0
         0 0 6 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -33677,52 +33677,52 @@ problem_d89b689b = Problem("problem_d89b689b", [
 ])
 
 problem_d8c310e9 = Problem("problem_d8c310e9", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 0 2 2 0 0 0 0 0 0 0 0 0
         1 2 2 1 2 2 1 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 0 2 2 0 2 2 0 2 2 0 2 2
         1 2 2 1 2 2 1 2 2 1 2 2 1 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 2 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 2 0 0 0 0 0 0 0 0
         3 3 2 1 3 3 2 1 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 2 0 0 0 2 0 0 0 2
         0 0 2 0 0 0 2 0 0 0 2 0 0 0 2
         3 3 2 1 3 3 2 1 3 3 2 1 3 3 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 4 4 0 0 0 0 0 0 0 0
         4 3 0 0 3 4 4 3 0 0 0 0 0 0 0
         4 3 2 2 3 4 4 3 2 2 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 4 4 0 0 0 0 4 4 0 0
         4 3 0 0 3 4 4 3 0 0 3 4 4 3 0
         4 3 2 2 3 4 4 3 2 2 3 4 4 3 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 2 0 0 0 0 0 0 0 0
         6 2 2 0 6 2 2 0 6 2 0 0 0 0 0
         6 6 2 3 6 6 2 3 6 6 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 2 0 0 0 2 0 0 0 2
@@ -33732,16 +33732,16 @@ problem_d8c310e9 = Problem("problem_d8c310e9", [
 ])
 
 problem_d90796e8 = Problem("problem_d90796e8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 2 0
         0 0 0
         0 5 0
-    ]), Int[
+    ]), Integer[
         8 0 0
         0 0 0
         0 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 0 0 0 0 0
         0 0 3 2 0 0
         0 0 0 0 0 0
@@ -33749,7 +33749,7 @@ problem_d90796e8 = Problem("problem_d90796e8", [
         0 2 0 0 0 0
         5 0 0 3 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 0 0 0 0 0
         0 0 8 0 0 0
         0 0 0 0 0 0
@@ -33758,7 +33758,7 @@ problem_d90796e8 = Problem("problem_d90796e8", [
         5 0 0 3 0 0
         0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 2 0
         3 0 0 0 0 0 3
         5 0 2 3 0 0 0
@@ -33766,7 +33766,7 @@ problem_d90796e8 = Problem("problem_d90796e8", [
         0 0 0 0 0 2 0
         3 2 0 0 0 3 0
         0 0 0 5 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 2 0
         3 0 0 0 0 0 3
         5 0 0 8 0 0 0
@@ -33775,7 +33775,7 @@ problem_d90796e8 = Problem("problem_d90796e8", [
         8 0 0 0 0 8 0
         0 0 0 5 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 2 0 0 0 5
         0 2 0 0 0 0 3 2 0
         0 3 0 0 0 0 0 0 0
@@ -33783,7 +33783,7 @@ problem_d90796e8 = Problem("problem_d90796e8", [
         5 0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 3 0
         5 3 0 0 0 5 0 2 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 2 0 0 0 5
         0 0 0 0 0 0 8 0 0
         0 8 0 0 0 0 0 0 0
@@ -33795,7 +33795,7 @@ problem_d90796e8 = Problem("problem_d90796e8", [
 ])
 
 problem_d9f24cd1 = Problem("problem_d9f24cd1", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -33806,7 +33806,7 @@ problem_d9f24cd1 = Problem("problem_d9f24cd1", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 2 0 2 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0 0 2 0 0 2 0 0
         0 2 0 0 2 0 0 2 0 0
         0 2 0 0 2 0 0 2 0 0
@@ -33818,7 +33818,7 @@ problem_d9f24cd1 = Problem("problem_d9f24cd1", [
         0 2 0 0 2 0 2 0 0 0
         0 2 0 0 2 0 2 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -33829,7 +33829,7 @@ problem_d9f24cd1 = Problem("problem_d9f24cd1", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 2 0 0 2 0 0
-    ]), Int[
+    ]), Integer[
         0 0 2 0 2 0 0 2 0 0
         0 0 2 0 2 0 0 2 0 0
         0 0 2 0 2 0 0 2 0 0
@@ -33841,7 +33841,7 @@ problem_d9f24cd1 = Problem("problem_d9f24cd1", [
         0 2 0 0 2 0 0 2 0 0
         0 2 0 0 2 0 0 2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0
@@ -33852,7 +33852,7 @@ problem_d9f24cd1 = Problem("problem_d9f24cd1", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 2 0 0 2 0 0 0 2 0
-    ]), Int[
+    ]), Integer[
         0 0 2 0 0 2 0 0 2 0
         0 0 2 0 0 2 0 0 2 0
         0 0 2 0 0 2 0 5 2 0
@@ -33867,14 +33867,14 @@ problem_d9f24cd1 = Problem("problem_d9f24cd1", [
 ])
 
 problem_d9fac9be = Problem("problem_d9fac9be", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 0 0 2 0 0 2
         0 4 4 4 0 0 0 0 0
         0 4 2 4 0 0 2 0 0
         0 4 4 4 0 0 0 2 0
         2 0 0 0 0 2 0 0 0
-    ]), Grid(reshape(Int[2], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 0 8 0 0 0 0 0 8
         0 0 0 0 8 0 0 0 0
         0 0 8 0 0 3 3 3 0
@@ -33882,8 +33882,8 @@ problem_d9fac9be = Problem("problem_d9fac9be", [
         0 0 0 0 0 3 3 3 0
         0 0 8 0 0 0 0 0 0
         3 0 0 8 0 0 0 8 0
-    ]), Grid(reshape(Int[8], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 2 0 0 0 2 0 0 0
         0 0 2 0 0 0 0 0 0
         2 0 1 2 0 2 0 1 1
@@ -33895,8 +33895,8 @@ problem_d9fac9be = Problem("problem_d9fac9be", [
         0 2 2 2 0 0 0 0 2
         0 0 1 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0
-    ]), Grid(reshape(Int[1], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0 0 0 0 0 0 0 0 3 8
         3 0 0 0 0 0 0 8 0 3 0 0
         0 3 3 8 0 0 0 0 0 0 0 8
@@ -33908,8 +33908,8 @@ problem_d9fac9be = Problem("problem_d9fac9be", [
         0 0 3 3 8 3 0 0 0 0 0 0
         0 0 0 3 3 3 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[8], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 1 0 0
         1 0 0 0 0 0 4 0 0 1 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -33922,69 +33922,69 @@ problem_d9fac9be = Problem("problem_d9fac9be", [
         4 0 0 0 1 4 1 1 0 0 0 0
         0 0 0 0 1 1 1 0 0 0 0 4
         0 0 4 4 0 0 0 1 0 0 0 0
-    ]), Grid(reshape(Int[4], 1, 1)))
+    ]), Grid(reshape(Integer[4], 1, 1)))
 ])
 
 problem_dae9d2b5 = Problem("problem_dae9d2b5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 0 3 3 0
         4 0 0 3 0 0
         0 0 0 0 0 3
-    ]), Int[
+    ]), Integer[
         6 6 0
         6 0 0
         0 0 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 4 3 3 0
         4 0 0 3 0 0
         0 0 4 3 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6
         6 0 0
         6 0 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 3 0
         0 4 4 3 0 3
         4 4 0 0 0 3
-    ]), Int[
+    ]), Integer[
         0 6 6
         6 6 6
         6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 0 3 0 0
         0 0 0 0 0 3
         4 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 6 0
         0 0 6
         6 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 3 0
         4 0 0 0 0 0
         0 0 4 3 3 0
-    ]), Int[
+    ]), Integer[
         0 6 0
         6 0 0
         6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 4 3 0 0
         4 0 0 3 3 0
         0 4 0 3 0 0
-    ]), Int[
+    ]), Integer[
         6 6 6
         6 6 0
         6 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 4 0 3 0
         0 4 0 3 3 3
         4 0 0 3 0 0
-    ]), Int[
+    ]), Integer[
         0 6 6
         6 6 6
         6 0 0
@@ -33992,20 +33992,20 @@ problem_dae9d2b5 = Problem("problem_dae9d2b5", [
 ])
 
 problem_db3e9e38 = Problem("problem_db3e9e38", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 7 0 0 0
         0 0 0 7 0 0 0
         0 0 0 7 0 0 0
         0 0 0 7 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 7 8 7 8 7 8
         0 7 8 7 8 7 0
         0 0 8 7 8 0 0
         0 0 0 7 0 0 0
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 7 0 0 0 0 0
         0 0 7 0 0 0 0 0
         0 0 7 0 0 0 0 0
@@ -34013,7 +34013,7 @@ problem_db3e9e38 = Problem("problem_db3e9e38", [
         0 0 7 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         7 8 7 8 7 8 7 0
         7 8 7 8 7 8 0 0
         7 8 7 8 7 0 0 0
@@ -34022,7 +34022,7 @@ problem_db3e9e38 = Problem("problem_db3e9e38", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 7 0 0 0
         0 0 0 0 0 7 0 0 0
         0 0 0 0 0 7 0 0 0
@@ -34032,7 +34032,7 @@ problem_db3e9e38 = Problem("problem_db3e9e38", [
         0 0 0 0 0 7 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 7 8 7 8 7 8 7 8
         8 7 8 7 8 7 8 7 8
         0 7 8 7 8 7 8 7 8
@@ -34046,7 +34046,7 @@ problem_db3e9e38 = Problem("problem_db3e9e38", [
 ])
 
 problem_db93a21d = Problem("problem_db93a21d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 9 9 0 0
         0 0 0 0 0 0 9 9 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -34057,7 +34057,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
         0 9 9 0 0 0 0 0 0 0
         0 9 9 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 3 9 9 3 0
         0 0 0 0 0 3 9 9 3 0
         0 0 0 0 0 3 3 3 3 0
@@ -34069,7 +34069,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
         3 9 9 3 0 0 1 1 0 0
         3 3 3 3 0 0 1 1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 9 9 9 9 0 0 0
@@ -34085,7 +34085,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 3 3 3 3 3 3 3 3 0
         0 0 0 0 0 0 3 3 3 3 3 3 3 3 0
         0 0 0 0 0 0 3 3 9 9 9 9 3 3 0
@@ -34102,7 +34102,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
         0 0 0 1 1 0 0 0 1 1 1 1 0 1 1
         0 0 0 1 1 0 0 0 1 1 1 1 0 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -34123,7 +34123,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
         0 0 0 0 0 0 9 9 9 9 9 9 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -34145,7 +34145,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
         0 0 1 3 3 3 3 3 3 3 3 3 3 3 3 1 1 1 1 0
         0 0 1 3 3 3 3 3 3 3 3 3 3 3 3 1 1 1 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 9 9 9 9 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 9 9 9 9 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -34166,7 +34166,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 3 3 9 9 9 9 3 3 0 0 0 0 0 0 0
         0 0 0 0 0 3 3 9 9 9 9 3 3 0 0 0 0 0 0 0
         0 0 0 0 0 3 3 3 3 3 3 3 3 0 0 0 0 0 0 0
@@ -34188,7 +34188,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
         0 0 1 1 1 1 0 1 1 1 1 0 0 0 1 1 1 1 1 1
         0 0 1 1 1 1 0 1 1 1 1 0 0 0 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 9 9 9 0 0 0 0 0 0 0 0 0 0
@@ -34219,7 +34219,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 3 3 3 3 3 3 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 3 3 3 3 3 3 3 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 3 9 9 9 9 3 3 0 0 0 0 0 0 0 0
@@ -34254,7 +34254,7 @@ problem_db93a21d = Problem("problem_db93a21d", [
 ])
 
 problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 1
         0 0 0 0 0 0 0 0 0
@@ -34265,7 +34265,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 0 0
         0 0 0 1 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 1 0 0 0 0 0
         0 0 0 8 0 0 0 0 1
         0 0 0 8 0 0 0 0 0
@@ -34277,7 +34277,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
         0 0 0 8 0 0 1 0 0
         0 0 0 1 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 1 0 0 0 0 1 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 1 0 0
@@ -34288,7 +34288,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
         1 0 0 0 0 0 0 1 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 1 8 8 8 8 1 0
         0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 1 8 8 8 1 0 0
@@ -34300,7 +34300,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 1 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 1 0 0 0 0 1
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 1 0
@@ -34313,7 +34313,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
         0 0 0 0 1 0 0 0 1 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 1 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 1 8 8 8 8 1
         0 0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 8 0 0 0 1 0
@@ -34327,7 +34327,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
         0 0 0 0 8 0 0 0 8 0 0 0
         0 0 0 0 1 8 8 8 1 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 0 1 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 1 0 1 0 0
@@ -34336,7 +34336,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
         0 0 1 0 0 0 0 1 0
         0 0 0 0 0 0 0 0 0
         1 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 8 8 1 0 0 0 0
         0 0 0 0 8 0 0 0 0
         0 0 0 0 1 8 1 0 0
@@ -34346,7 +34346,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
         8 0 0 0 0 0 0 0 0
         1 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 1 0 0 1 0 0 0 1 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
@@ -34366,7 +34366,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
         0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 1 8 8 1 8 8 8 1 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0 8 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 1 0 0 0 8 0 0 0 0 0 0
@@ -34390,7 +34390,7 @@ problem_dbc1a6ce = Problem("problem_dbc1a6ce", [
 ])
 
 problem_dc0a314f = Problem("problem_dc0a314f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1 2 2 6 5 5 6 6 5 5 6 2 2 1 2
         1 6 6 1 5 6 5 2 2 5 6 5 1 6 6 1
         2 6 1 6 5 5 5 2 2 5 5 5 6 1 6 2
@@ -34407,14 +34407,14 @@ problem_dc0a314f = Problem("problem_dc0a314f", [
         2 6 1 6 5 5 5 2 2 5 5 5 6 1 6 2
         1 6 6 1 5 6 5 2 2 5 6 5 1 6 6 1
         2 1 2 2 6 5 5 6 6 5 5 6 2 2 1 2
-    ]), Int[
+    ]), Integer[
         5 8 8 2 5
         5 5 5 2 5
         8 8 7 2 2
         8 8 7 2 2
         5 5 5 2 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 9 9 3 3 3 3 3 2 2 7 7 8 9 9 8
         9 8 9 3 3 3 3 3 2 7 1 7 9 9 8 9
         9 9 8 3 3 3 3 3 7 2 7 2 2 8 9 9
@@ -34431,14 +34431,14 @@ problem_dc0a314f = Problem("problem_dc0a314f", [
         9 9 8 2 2 7 2 7 7 2 7 2 2 8 9 9
         9 8 9 9 7 1 7 2 2 7 1 7 9 9 8 9
         8 9 9 8 7 7 2 2 2 2 7 7 8 9 9 8
-    ]), Int[
+    ]), Integer[
         8 7 7 2 2
         9 7 1 7 2
         2 2 7 2 7
         9 2 2 7 1
         2 2 7 8 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 5 2 9 9 9 3 3 3 3 3 2 5 2 2
         2 5 4 4 9 5 2 3 3 3 3 3 4 4 5 2
         5 4 5 4 9 2 5 3 3 3 3 3 4 5 4 5
@@ -34455,14 +34455,14 @@ problem_dc0a314f = Problem("problem_dc0a314f", [
         5 4 5 4 9 2 5 5 5 5 2 9 4 5 4 5
         2 5 4 4 9 5 2 9 9 2 5 9 4 4 5 2
         2 2 5 2 9 9 9 5 5 9 9 9 2 5 2 2
-    ]), Int[
+    ]), Integer[
         5 5 9 9 9
         9 9 2 5 9
         5 5 5 2 9
         2 2 5 9 5
         9 9 9 6 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 2 5 2 5 5 5 5 5 5 2 5 2 5 5
         5 2 2 5 5 5 2 2 2 2 5 5 5 2 2 5
         2 2 5 8 5 2 2 5 5 2 2 5 8 5 2 2
@@ -34479,7 +34479,7 @@ problem_dc0a314f = Problem("problem_dc0a314f", [
         2 2 5 8 5 2 2 5 5 2 2 5 8 5 2 2
         5 2 2 5 5 5 2 2 2 2 5 5 5 2 2 5
         5 5 2 5 2 5 5 5 5 5 5 2 5 2 5 5
-    ]), Int[
+    ]), Integer[
         9 6 6 4 5
         9 9 6 6 2
         9 6 9 6 5
@@ -34489,20 +34489,20 @@ problem_dc0a314f = Problem("problem_dc0a314f", [
 ])
 
 problem_dc1df850 = Problem("problem_dc1df850", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0 0 0
         0 0 0 2 0
         0 0 0 0 0
         0 6 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 1 1 1 1
         1 1 1 2 1
         0 0 1 1 1
         0 6 0 0 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0
@@ -34511,7 +34511,7 @@ problem_dc1df850 = Problem("problem_dc1df850", [
         0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 1 2
         0 0 0 0 0 0 1 1
         0 0 0 3 0 0 0 0
@@ -34521,18 +34521,18 @@ problem_dc1df850 = Problem("problem_dc1df850", [
         0 1 2 1 0 0 0 0
         0 1 1 1 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 2 0 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 0 0
         1 2 1 0 0
         1 1 1 0 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 7 0
         0 0 2 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -34543,7 +34543,7 @@ problem_dc1df850 = Problem("problem_dc1df850", [
         0 0 0 0 0 2 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 5
-    ]), Int[
+    ]), Integer[
         0 1 1 1 0 0 0 0 7 0
         0 1 2 1 0 0 0 0 0 0
         0 1 1 1 0 0 1 1 1 0
@@ -34558,42 +34558,42 @@ problem_dc1df850 = Problem("problem_dc1df850", [
 ])
 
 problem_dc433765 = Problem("problem_dc433765", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0
         0 0 0
         0 0 4
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 3 0
         0 0 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         3 0 4
         0 0 0
         0 0 0
         0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 3 4
         0 0 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 3 0 0 4
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 3 0 4
         0 0 0 0 0
         0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 3 0 0 0 0 0
         0 0 0 0 0 0 0
@@ -34601,7 +34601,7 @@ problem_dc433765 = Problem("problem_dc433765", [
         0 0 0 0 4 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
         0 0 3 0 0 0 0
@@ -34610,7 +34610,7 @@ problem_dc433765 = Problem("problem_dc433765", [
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 0 0 0
@@ -34621,7 +34621,7 @@ problem_dc433765 = Problem("problem_dc433765", [
         0 0 3 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 4 0 0 0 0 0 0 0
@@ -34633,7 +34633,7 @@ problem_dc433765 = Problem("problem_dc433765", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0
@@ -34645,7 +34645,7 @@ problem_dc433765 = Problem("problem_dc433765", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 4 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -34658,16 +34658,16 @@ problem_dc433765 = Problem("problem_dc433765", [
         0 0 0 4 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3
         0 0 0
         4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 3 0
         4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0 0
@@ -34679,7 +34679,7 @@ problem_dc433765 = Problem("problem_dc433765", [
         0 0 0 4 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
@@ -34692,11 +34692,11 @@ problem_dc433765 = Problem("problem_dc433765", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 0 0
         0 0 0
         0 0 3
-    ]), Int[
+    ]), Integer[
         4 0 0
         0 3 0
         0 0 0
@@ -34704,7 +34704,7 @@ problem_dc433765 = Problem("problem_dc433765", [
 ])
 
 problem_ddf7fa4f = Problem("problem_ddf7fa4f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 0 0 6 0 0 0 8
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 5 5 5 5 0 0
@@ -34715,7 +34715,7 @@ problem_ddf7fa4f = Problem("problem_ddf7fa4f", [
         0 5 5 0 0 0 0 5 5 5
         0 5 5 0 0 0 0 5 5 5
         0 0 0 0 0 0 0 5 5 5
-    ]), Int[
+    ]), Integer[
         0 0 2 0 0 6 0 0 0 8
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 6 6 6 6 0 0
@@ -34727,7 +34727,7 @@ problem_ddf7fa4f = Problem("problem_ddf7fa4f", [
         0 2 2 0 0 0 0 8 8 8
         0 0 0 0 0 0 0 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 0 0 4 0 0 7 0
         0 0 0 0 0 0 0 0 0 0
         5 5 5 5 0 0 0 5 5 5
@@ -34738,7 +34738,7 @@ problem_ddf7fa4f = Problem("problem_ddf7fa4f", [
         0 0 0 5 5 5 5 0 0 0
         0 0 0 5 5 5 5 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 0 0 0 4 0 0 7 0
         0 0 0 0 0 0 0 0 0 0
         1 1 1 1 0 0 0 7 7 7
@@ -34750,7 +34750,7 @@ problem_ddf7fa4f = Problem("problem_ddf7fa4f", [
         0 0 0 4 4 4 4 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 1 0 0 0 6 0 0 7 0
         0 0 0 0 0 0 0 0 0 0
         0 5 5 0 0 0 0 0 0 0
@@ -34761,7 +34761,7 @@ problem_ddf7fa4f = Problem("problem_ddf7fa4f", [
         0 0 0 5 5 5 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 1 0 0 0 6 0 0 7 0
         0 0 0 0 0 0 0 0 0 0
         0 1 1 0 0 0 0 0 0 0
@@ -34773,7 +34773,7 @@ problem_ddf7fa4f = Problem("problem_ddf7fa4f", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 0 0 0 6 0 0 0 9 0
         0 0 0 0 0 0 0 0 0 0
         0 0 5 5 5 5 5 0 5 5
@@ -34784,7 +34784,7 @@ problem_ddf7fa4f = Problem("problem_ddf7fa4f", [
         5 5 5 5 0 0 0 0 5 5
         5 5 5 5 0 0 0 0 5 5
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 0 0 0 6 0 0 0 9 0
         0 0 0 0 0 0 0 0 0 0
         0 0 6 6 6 6 6 0 9 9
@@ -34799,7 +34799,7 @@ problem_ddf7fa4f = Problem("problem_ddf7fa4f", [
 ])
 
 problem_de1cd16c = Problem("problem_de1cd16c", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 0 0 0 0 0
         4 4 4 4 4 4 4 4 0 0 0 0 0
         4 4 4 6 4 4 4 4 0 0 6 0 0
@@ -34817,8 +34817,8 @@ problem_de1cd16c = Problem("problem_de1cd16c", [
         8 8 8 8 8 8 8 8 1 1 1 1 1
         8 8 8 8 8 6 8 8 1 1 1 1 1
         8 8 8 8 8 8 8 8 1 1 1 1 1
-    ]), Grid(reshape(Int[8], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 2 2 2 2 2 2 2 2
         3 3 3 3 3 3 3 2 2 2 1 2 2 1 2
         3 3 3 3 3 3 3 2 2 2 2 2 2 2 2
@@ -34835,8 +34835,8 @@ problem_de1cd16c = Problem("problem_de1cd16c", [
         8 8 8 8 8 8 1 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Grid(reshape(Int[2], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 5 5 5 5 5 5 5 5 5 5
         1 4 1 1 1 1 1 5 5 5 5 5 5 5 5 5 5
         1 1 1 1 1 1 1 5 5 5 5 5 5 5 5 5 5
@@ -34853,8 +34853,8 @@ problem_de1cd16c = Problem("problem_de1cd16c", [
         0 0 0 0 0 0 0 6 6 6 6 6 6 6 6 6 6
         0 0 0 0 0 0 0 6 6 6 6 6 6 4 6 6 6
         0 0 0 0 0 0 0 6 6 6 6 6 6 6 6 6 6
-    ]), Grid(reshape(Int[6], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[6], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 8 8 8 8 8 8 8 8 8 8 8 8
         1 1 1 1 1 1 1 8 8 8 8 8 8 8 8 8 8 8 8
         1 1 1 1 1 1 1 8 8 8 8 8 8 8 8 8 8 8 8
@@ -34871,8 +34871,8 @@ problem_de1cd16c = Problem("problem_de1cd16c", [
         1 1 1 1 1 1 1 4 4 2 4 4 4 4 4 4 4 4 4
         1 1 1 1 1 1 1 4 4 4 4 4 2 4 4 4 4 4 4
         1 1 1 1 1 1 1 4 4 4 4 4 4 4 4 4 4 4 4
-    ]), Grid(reshape(Int[4], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[4], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 4 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
@@ -34891,11 +34891,11 @@ problem_de1cd16c = Problem("problem_de1cd16c", [
         1 1 1 1 4 1 1 1 1 8 8 8 8 8 8 8 8 8 8
         1 4 1 1 1 1 1 1 1 8 8 8 8 8 8 8 8 8 8
         1 1 1 1 1 1 1 1 1 8 8 8 8 8 8 8 8 8 8
-    ]), Grid(reshape(Int[2], 1, 1)))
+    ]), Grid(reshape(Integer[2], 1, 1)))
 ])
 
 problem_ded97339 = Problem("problem_ded97339", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -34906,7 +34906,7 @@ problem_ded97339 = Problem("problem_ded97339", [
         0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -34918,7 +34918,7 @@ problem_ded97339 = Problem("problem_ded97339", [
         0 0 0 0 0 0 8 0 0 0
         0 0 0 0 0 0 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 8 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -34929,7 +34929,7 @@ problem_ded97339 = Problem("problem_ded97339", [
         0 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 8 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -34941,7 +34941,7 @@ problem_ded97339 = Problem("problem_ded97339", [
         0 0 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 8 0 0 0 8 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -34952,7 +34952,7 @@ problem_ded97339 = Problem("problem_ded97339", [
         0 0 0 0 0 8 0 0 0 8
         0 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 8 8 8 8 8 0 0 0 0
         0 8 0 0 0 8 0 0 0 0
@@ -34964,7 +34964,7 @@ problem_ded97339 = Problem("problem_ded97339", [
         0 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 8 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0
@@ -34975,7 +34975,7 @@ problem_ded97339 = Problem("problem_ded97339", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 8 0 0 8 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 8 0 0 0 0 0 0 0 0
         0 8 0 8 0 0 0 0 0 0
@@ -34990,7 +34990,7 @@ problem_ded97339 = Problem("problem_ded97339", [
 ])
 
 problem_e179c5f4 = Problem("problem_e179c5f4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0
         0 0
         0 0
@@ -35001,7 +35001,7 @@ problem_e179c5f4 = Problem("problem_e179c5f4", [
         0 0
         0 0
         1 0
-    ]), Int[
+    ]), Integer[
         8 1
         1 8
         8 1
@@ -35013,7 +35013,7 @@ problem_e179c5f4 = Problem("problem_e179c5f4", [
         8 1
         1 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 0 0
         0 0 0
@@ -35024,7 +35024,7 @@ problem_e179c5f4 = Problem("problem_e179c5f4", [
         0 0 0
         0 0 0
         1 0 0
-    ]), Int[
+    ]), Integer[
         8 1 8
         1 8 8
         8 1 8
@@ -35036,7 +35036,7 @@ problem_e179c5f4 = Problem("problem_e179c5f4", [
         8 1 8
         1 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0
         0 0 0 0
         0 0 0 0
@@ -35047,7 +35047,7 @@ problem_e179c5f4 = Problem("problem_e179c5f4", [
         0 0 0 0
         0 0 0 0
         1 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8 1
         8 8 1 8
         8 1 8 8
@@ -35059,7 +35059,7 @@ problem_e179c5f4 = Problem("problem_e179c5f4", [
         8 1 8 8
         1 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
@@ -35070,7 +35070,7 @@ problem_e179c5f4 = Problem("problem_e179c5f4", [
         0 0 0 0 0
         0 0 0 0 0
         1 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 1 8 8 8
         1 8 8 8 8
         8 1 8 8 8
@@ -35085,7 +35085,7 @@ problem_e179c5f4 = Problem("problem_e179c5f4", [
 ])
 
 problem_e21d9049 = Problem("problem_e21d9049", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0 0
@@ -35098,7 +35098,7 @@ problem_e21d9049 = Problem("problem_e21d9049", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0 0
@@ -35112,7 +35112,7 @@ problem_e21d9049 = Problem("problem_e21d9049", [
         0 0 2 0 0 0 0 0 0 0 0
         0 0 8 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -35128,7 +35128,7 @@ problem_e21d9049 = Problem("problem_e21d9049", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 4 0 0 0 0 0
         0 0 0 0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 3 0 0 0 0 0
@@ -35145,7 +35145,7 @@ problem_e21d9049 = Problem("problem_e21d9049", [
         0 0 0 0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 3 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -35166,7 +35166,7 @@ problem_e21d9049 = Problem("problem_e21d9049", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -35191,7 +35191,7 @@ problem_e21d9049 = Problem("problem_e21d9049", [
 ])
 
 problem_e26a3af2 = Problem("problem_e26a3af2", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 8 8 8 3 3 3 3 2 2 2 8 2
         9 5 1 5 1 8 8 8 3 3 3 3 2 2 2 2 2
         4 1 1 2 1 8 8 5 3 3 8 3 2 8 2 2 7
@@ -35205,7 +35205,7 @@ problem_e26a3af2 = Problem("problem_e26a3af2", [
         1 1 1 1 1 8 8 8 3 3 3 3 2 2 6 2 2
         1 1 1 1 1 8 8 8 3 3 7 3 2 2 2 2 2
         1 2 1 4 1 8 8 8 3 3 3 3 2 9 2 1 2
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 8 8 8 3 3 3 3 2 2 2 2 2
         1 1 1 1 1 8 8 8 3 3 3 3 2 2 2 2 2
         1 1 1 1 1 8 8 8 3 3 3 3 2 2 2 2 2
@@ -35220,7 +35220,7 @@ problem_e26a3af2 = Problem("problem_e26a3af2", [
         1 1 1 1 1 8 8 8 3 3 3 3 2 2 2 2 2
         1 1 1 1 1 8 8 8 3 3 3 3 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 8 8 1 8 8 8 1 1 1
         2 2 8 2 2 8 8 8 8 8 8 1 1 1
         2 2 2 2 2 8 8 9 8 8 8 1 1 1
@@ -35234,7 +35234,7 @@ problem_e26a3af2 = Problem("problem_e26a3af2", [
         2 2 2 2 5 8 2 8 5 8 8 1 1 1
         2 2 2 2 2 8 8 8 8 8 8 8 1 3
         2 8 2 2 2 8 8 8 8 3 8 9 1 1
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 8 8 8 8 8 8 1 1 1
         2 2 2 2 2 8 8 8 8 8 8 1 1 1
         2 2 2 2 2 8 8 8 8 8 8 1 1 1
@@ -35249,7 +35249,7 @@ problem_e26a3af2 = Problem("problem_e26a3af2", [
         2 2 2 2 2 8 8 8 8 8 8 1 1 1
         2 2 2 2 2 8 8 8 8 8 8 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 4 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 2 3 3 2 3 3 3 3 3
         3 3 3 9 3 3 3 2 3 3 3 9 3 3
@@ -35265,7 +35265,7 @@ problem_e26a3af2 = Problem("problem_e26a3af2", [
         8 8 8 4 8 8 8 7 9 8 8 8 8 8
         1 1 1 5 1 1 1 1 1 1 9 1 1 1
         1 1 1 1 1 1 1 1 1 1 9 1 1 1
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3
@@ -35282,7 +35282,7 @@ problem_e26a3af2 = Problem("problem_e26a3af2", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 1 1 5 1 1 1 1 1 1 1 1 1 1 1
         1 4 1 1 9 1 1 1 1 5 1 1 1 1 1
         5 1 1 1 4 1 1 1 1 1 1 1 1 1 1
@@ -35298,7 +35298,7 @@ problem_e26a3af2 = Problem("problem_e26a3af2", [
         4 4 7 4 4 4 4 4 4 4 8 4 4 4 4
         3 3 1 9 3 3 3 3 3 3 3 3 3 3 3
         8 6 3 3 8 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -35318,7 +35318,7 @@ problem_e26a3af2 = Problem("problem_e26a3af2", [
 ])
 
 problem_e3497940 = Problem("problem_e3497940", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 5 0 0 0 0
         0 0 0 0 5 0 0 0 0
         0 0 0 4 5 0 0 0 0
@@ -35329,7 +35329,7 @@ problem_e3497940 = Problem("problem_e3497940", [
         0 0 0 3 5 0 0 0 0
         0 0 0 0 5 0 0 0 0
         0 0 0 0 5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         0 0 0 0
         0 0 0 4
@@ -35341,7 +35341,7 @@ problem_e3497940 = Problem("problem_e3497940", [
         0 0 0 0
         0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 5 0 0 0 0
         0 0 0 2 5 0 0 0 0
         0 0 0 2 5 2 6 0 0
@@ -35352,7 +35352,7 @@ problem_e3497940 = Problem("problem_e3497940", [
         0 2 2 0 5 2 0 0 0
         0 0 0 2 5 0 0 0 0
         0 0 0 0 5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         0 0 0 2
         0 0 6 2
@@ -35364,7 +35364,7 @@ problem_e3497940 = Problem("problem_e3497940", [
         0 0 0 2
         0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 5 0 0 0 0
         0 0 0 0 5 7 0 0 0
         0 0 0 8 5 0 0 0 0
@@ -35375,7 +35375,7 @@ problem_e3497940 = Problem("problem_e3497940", [
         0 0 0 8 5 0 0 0 0
         0 0 0 0 5 8 7 0 0
         0 0 0 0 5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         0 0 0 7
         0 0 0 8
@@ -35387,7 +35387,7 @@ problem_e3497940 = Problem("problem_e3497940", [
         0 0 7 8
         0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 5 0 0 0 0
         0 0 0 1 5 0 0 0 0
         0 0 0 1 5 1 0 0 0
@@ -35398,7 +35398,7 @@ problem_e3497940 = Problem("problem_e3497940", [
         0 0 0 1 5 1 6 0 0
         0 0 0 0 5 6 0 0 0
         0 0 0 0 5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0
         0 0 0 1
         0 0 0 1
@@ -35413,7 +35413,7 @@ problem_e3497940 = Problem("problem_e3497940", [
 ])
 
 problem_e40b9e2f = Problem("problem_e40b9e2f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -35424,7 +35424,7 @@ problem_e40b9e2f = Problem("problem_e40b9e2f", [
         0 0 0 0 0 0 4 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -35436,7 +35436,7 @@ problem_e40b9e2f = Problem("problem_e40b9e2f", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -35447,7 +35447,7 @@ problem_e40b9e2f = Problem("problem_e40b9e2f", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -35459,7 +35459,7 @@ problem_e40b9e2f = Problem("problem_e40b9e2f", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 9 0 0 0
@@ -35470,7 +35470,7 @@ problem_e40b9e2f = Problem("problem_e40b9e2f", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 9 0 0 0 9 0 0 0
@@ -35482,7 +35482,7 @@ problem_e40b9e2f = Problem("problem_e40b9e2f", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 0 0
@@ -35493,7 +35493,7 @@ problem_e40b9e2f = Problem("problem_e40b9e2f", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 3 0 0 0 0
         0 0 0 3 2 3 0 0 0 0
@@ -35508,7 +35508,7 @@ problem_e40b9e2f = Problem("problem_e40b9e2f", [
 ])
 
 problem_e48d4e1a = Problem("problem_e48d4e1a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 0 0 0 0 0 5
         0 0 0 2 0 0 0 0 0 5
         0 0 0 2 0 0 0 0 0 0
@@ -35519,7 +35519,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
         0 0 0 2 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 0 0 0 0
@@ -35531,7 +35531,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
         2 2 2 2 2 2 2 2 2 2
         0 2 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 4 0 0 0 0 0 5
         0 0 0 4 0 0 0 0 0 5
         0 0 0 4 0 0 0 0 0 5
@@ -35542,7 +35542,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
         0 0 0 4 0 0 0 0 0 0
         0 0 0 4 0 0 0 0 0 0
         0 0 0 4 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 0 0 0 0 0
@@ -35554,7 +35554,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
         4 0 0 0 0 0 0 0 0 0
         4 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 6 0 0 5
         0 0 0 0 0 0 6 0 0 5
         0 0 0 0 0 0 6 0 0 5
@@ -35565,7 +35565,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
         0 0 0 0 0 0 6 0 0 0
         0 0 0 0 0 0 6 0 0 0
         0 0 0 0 0 0 6 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 6 0 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0
@@ -35577,7 +35577,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
         0 0 0 6 0 0 0 0 0 0
         0 0 0 6 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 3 0 0 0 0 5
         0 0 0 0 3 0 0 0 0 0
         3 3 3 3 3 3 3 3 3 3
@@ -35588,7 +35588,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
         0 0 0 0 3 0 0 0 0 0
         0 0 0 0 3 0 0 0 0 0
         0 0 0 0 3 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 3 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0
@@ -35600,7 +35600,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
         0 0 0 3 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 8 0 0 0 5
         0 0 0 0 0 8 0 0 0 5
         0 0 0 0 0 8 0 0 0 0
@@ -35611,7 +35611,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
         0 0 0 0 0 8 0 0 0 0
         0 0 0 0 0 8 0 0 0 0
         0 0 0 0 0 8 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0
@@ -35626,7 +35626,7 @@ problem_e48d4e1a = Problem("problem_e48d4e1a", [
 ])
 
 problem_e5062a87 = Problem("problem_e5062a87", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 5 5 0 0 2 5 5 5
         0 5 0 0 0 2 5 2 0 5
         0 5 5 0 0 0 2 0 5 0
@@ -35637,7 +35637,7 @@ problem_e5062a87 = Problem("problem_e5062a87", [
         0 5 0 5 5 0 0 0 0 5
         5 0 0 5 0 0 5 0 5 5
         0 0 0 5 5 0 0 5 5 0
-    ]), Int[
+    ]), Integer[
         0 5 5 5 0 0 2 5 5 5
         0 5 0 0 0 2 5 2 2 5
         0 5 5 0 0 0 2 2 5 2
@@ -35649,7 +35649,7 @@ problem_e5062a87 = Problem("problem_e5062a87", [
         5 2 0 5 0 2 5 2 5 5
         0 0 0 5 5 0 2 5 5 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 5 5 5 0 0 5 0 5
         5 0 5 0 0 0 0 5 5 5
         5 5 5 5 5 0 5 0 0 5
@@ -35660,7 +35660,7 @@ problem_e5062a87 = Problem("problem_e5062a87", [
         0 0 5 5 5 0 0 5 5 0
         5 0 5 5 0 5 0 5 0 5
         5 5 0 5 0 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         0 5 5 5 5 0 0 5 0 5
         5 0 5 0 0 0 0 5 5 5
         5 5 5 5 5 0 5 0 0 5
@@ -35672,7 +35672,7 @@ problem_e5062a87 = Problem("problem_e5062a87", [
         5 0 5 5 0 5 0 5 0 5
         5 5 0 5 0 5 5 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 0 5 5 5 5 5
         5 5 5 5 0 5 5 5 0 5
         5 0 5 0 5 5 0 5 5 5
@@ -35683,7 +35683,7 @@ problem_e5062a87 = Problem("problem_e5062a87", [
         5 5 5 0 0 0 5 2 5 0
         0 5 5 5 5 0 5 2 5 0
         5 0 0 0 0 0 5 2 2 5
-    ]), Int[
+    ]), Integer[
         5 5 5 5 0 5 5 5 5 5
         5 5 5 5 0 5 5 5 0 5
         5 2 5 2 5 5 0 5 5 5
@@ -35695,7 +35695,7 @@ problem_e5062a87 = Problem("problem_e5062a87", [
         0 5 5 5 5 0 5 2 5 0
         5 0 0 0 0 0 5 2 2 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 5 5 0 5 5 5 5 0
         5 5 5 0 5 5 5 5 0 5
         0 0 5 5 5 5 0 5 0 0
@@ -35706,7 +35706,7 @@ problem_e5062a87 = Problem("problem_e5062a87", [
         0 5 5 5 5 5 5 0 0 0
         5 5 0 0 5 5 5 0 0 0
         5 0 5 0 5 0 0 5 0 0
-    ]), Int[
+    ]), Integer[
         0 5 5 5 0 5 5 5 5 0
         5 5 5 0 5 5 5 5 0 5
         2 2 5 5 5 5 0 5 0 0
@@ -35721,7 +35721,7 @@ problem_e5062a87 = Problem("problem_e5062a87", [
 ])
 
 problem_e509e548 = Problem("problem_e509e548", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 3 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0
@@ -35741,7 +35741,7 @@ problem_e509e548 = Problem("problem_e509e548", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 3 0 0 0
         0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 3 0 3 0 0 0
         0 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
@@ -35762,7 +35762,7 @@ problem_e509e548 = Problem("problem_e509e548", [
         0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 6 0 6 0 0 0
         0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 0 0 0 0 0 0 0 0
         0 0 3 0 0 0 3 3 3 3 0
         0 0 3 0 0 0 3 0 0 3 0
@@ -35773,7 +35773,7 @@ problem_e509e548 = Problem("problem_e509e548", [
         0 0 3 0 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0 0
         0 0 3 3 3 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 1 1 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 6 6 6 6 0
         0 0 1 0 0 0 6 0 0 6 0
@@ -35785,7 +35785,7 @@ problem_e509e548 = Problem("problem_e509e548", [
         0 0 2 0 0 0 0 0 0 0 0
         0 0 2 2 2 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 3 0 0 0 0 0 0 0 3 0 0
         0 3 0 0 0 0 0 0 0 3 3 3
@@ -35800,7 +35800,7 @@ problem_e509e548 = Problem("problem_e509e548", [
         3 3 3 0 0 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 3 0 3
         0 0 0 0 0 0 0 0 0 3 3 3
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 6 0 0 0 0 0 0 0 1 0 0
         0 6 0 0 0 0 0 0 0 1 1 1
@@ -35816,7 +35816,7 @@ problem_e509e548 = Problem("problem_e509e548", [
         0 0 1 0 0 0 0 0 0 6 0 6
         0 0 0 0 0 0 0 0 0 6 6 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 3 0 0 0 0 0 0 0 0 3 0 0 0
         0 3 0 3 0 0 0 0 0 0 0 0 3 0 0 0
         0 3 3 3 0 0 0 0 0 0 0 0 3 3 3 0
@@ -35831,7 +35831,7 @@ problem_e509e548 = Problem("problem_e509e548", [
         0 3 3 3 3 3 3 0 0 0 0 3 0 0 0 0
         0 0 0 0 0 0 3 0 0 0 0 3 3 3 0 0
         0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 6 0 6 0 0 0 0 0 0 0 0 2 0 0 0
         0 6 0 6 0 0 0 0 0 0 0 0 2 0 0 0
         0 6 6 6 0 0 0 0 0 0 0 0 2 2 2 0
@@ -35850,7 +35850,7 @@ problem_e509e548 = Problem("problem_e509e548", [
 ])
 
 problem_e50d258f = Problem("problem_e50d258f", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 8 8 8 8
         0 8 8 8 8 0 8 2 2 8
         0 8 1 8 8 0 8 8 8 8
@@ -35861,14 +35861,14 @@ problem_e50d258f = Problem("problem_e50d258f", [
         0 0 0 8 8 8 2 8 8 0
         0 0 0 8 2 8 1 8 8 0
         0 0 0 8 1 8 8 8 8 0
-    ]), Int[
+    ]), Integer[
         8 8 8 8
         8 2 2 8
         8 8 8 8
         8 2 1 8
         8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 8 0 0 0 0 0 0
         1 8 1 1 0 1 8 8 1 8
         8 2 8 1 0 8 1 8 2 8
@@ -35879,12 +35879,12 @@ problem_e50d258f = Problem("problem_e50d258f", [
         0 8 2 2 0 8 1 1 8 2
         0 2 2 1 0 0 0 0 0 0
         0 2 1 8 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 2 2
         2 2 1
         2 1 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 8 8 8 0 0 0 0 0 0
         8 8 1 8 0 0 0 0 0 0
         1 8 8 8 0 0 0 0 0 0
@@ -35895,7 +35895,7 @@ problem_e50d258f = Problem("problem_e50d258f", [
         0 0 0 0 0 0 1 8 8 8
         0 0 0 0 0 0 8 8 1 8
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 8 8 8
         8 8 1 8
         1 8 8 8
@@ -35903,7 +35903,7 @@ problem_e50d258f = Problem("problem_e50d258f", [
         8 2 8 1
         8 1 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 8 8 8 0 0 0 0 0 0
         8 8 1 8 0 0 2 8 1 0
         1 2 8 1 0 0 8 8 8 0
@@ -35914,7 +35914,7 @@ problem_e50d258f = Problem("problem_e50d258f", [
         0 8 8 1 8 0 0 0 0 0
         0 1 2 8 1 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 8 1
         8 8 8
         2 1 8
@@ -35925,7 +35925,7 @@ problem_e50d258f = Problem("problem_e50d258f", [
 ])
 
 problem_e6721834 = Problem("problem_e6721834", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -35956,7 +35956,7 @@ problem_e6721834 = Problem("problem_e6721834", [
         0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 1 1 1 2 1 1 1 0 0
         0 0 0 0 0 0 0 0 1 2 1 1 1 2 1 0 0
@@ -35973,7 +35973,7 @@ problem_e6721834 = Problem("problem_e6721834", [
         0 0 1 1 3 1 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 6 6 6 6 6 6 6 6 1 1 1 1 1 1 1 1 1 1
         6 6 6 6 6 6 6 6 6 6 1 1 1 1 1 8 1 8 1 1
         6 6 3 3 3 6 6 6 6 6 1 1 1 1 1 1 1 1 1 1
@@ -35985,7 +35985,7 @@ problem_e6721834 = Problem("problem_e6721834", [
         6 6 6 6 3 3 3 2 6 6 1 1 1 1 1 1 1 1 1 1
         6 6 6 6 3 2 3 3 6 6 1 1 1 1 1 1 1 1 1 1
         6 6 6 6 3 3 3 3 6 6 1 1 1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 3 3 3 1 1
         1 1 1 1 1 8 3 8 1 1
         1 1 1 1 1 3 3 3 1 1
@@ -35998,7 +35998,7 @@ problem_e6721834 = Problem("problem_e6721834", [
         1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 8 8 8 8 8 8 8 8
         4 4 4 4 4 4 4 4 8 1 1 1 8 8 8 8
         4 4 4 4 2 4 4 4 8 2 1 1 8 8 8 8
@@ -36009,7 +36009,7 @@ problem_e6721834 = Problem("problem_e6721834", [
         4 4 4 4 4 4 4 4 8 8 1 1 6 8 8 8
         4 4 6 4 4 4 4 4 8 8 1 1 1 8 8 8
         4 4 4 4 4 4 4 4 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 4 4
         4 4 4 4 1 1 1 4
         4 4 4 4 2 1 1 4
@@ -36021,7 +36021,7 @@ problem_e6721834 = Problem("problem_e6721834", [
         1 1 6 4 4 4 4 4
         1 1 1 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4
@@ -36046,7 +36046,7 @@ problem_e6721834 = Problem("problem_e6721834", [
         2 8 8 2 2 2 1 8 8 8 8 2
         2 8 8 2 2 2 8 8 1 8 8 2
         2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 8 8 8 8 8 4 4 4
@@ -36063,7 +36063,7 @@ problem_e6721834 = Problem("problem_e6721834", [
 ])
 
 problem_e73095fd = Problem("problem_e73095fd", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 5 5
         5 5 0 0 0 5 5 5 5 0 0 0 0 5 0 0 0 5 0
         0 5 5 5 5 5 0 0 5 5 5 5 5 5 5 5 5 5 0
@@ -36076,7 +36076,7 @@ problem_e73095fd = Problem("problem_e73095fd", [
         0 0 0 0 0 0 5 0 0 0 0 0 0 5 0 0 0 0 0
         0 0 0 0 0 0 5 0 0 0 0 0 0 5 0 0 0 0 0
         0 0 0 0 0 0 5 0 0 0 0 0 0 5 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 5 5
         5 5 0 0 0 5 5 5 5 0 0 0 0 5 0 0 0 5 4
         4 5 5 5 5 5 4 4 5 5 5 5 5 5 5 5 5 5 4
@@ -36090,7 +36090,7 @@ problem_e73095fd = Problem("problem_e73095fd", [
         0 0 0 0 0 0 5 0 0 0 0 0 0 5 0 0 0 0 0
         0 0 0 0 0 0 5 0 0 0 0 0 0 5 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 5 0 0 0 0 0 5 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 5 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 5 0 0 0 0
@@ -36104,7 +36104,7 @@ problem_e73095fd = Problem("problem_e73095fd", [
         0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
         5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 5 0 0 0 0 0 5 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 5 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 5 0 0 0 0
@@ -36119,7 +36119,7 @@ problem_e73095fd = Problem("problem_e73095fd", [
         5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 5 5 5 5 5 0
         5 5 5 5 5 5 5 5 5 5 5 5 0 0 0 5 0
@@ -36135,7 +36135,7 @@ problem_e73095fd = Problem("problem_e73095fd", [
         0 0 0 0 0 5 0 0 0 0 5 0 0 5 0 0 0
         0 0 0 0 0 5 0 0 0 0 5 5 5 5 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 0 5 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 5 5 5 5 5 0
         5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 5 0
@@ -36152,7 +36152,7 @@ problem_e73095fd = Problem("problem_e73095fd", [
         0 0 0 0 0 5 0 0 0 0 5 5 5 5 0 0 0
         0 0 0 0 0 5 0 0 0 0 0 0 5 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
         5 5 5 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
@@ -36169,7 +36169,7 @@ problem_e73095fd = Problem("problem_e73095fd", [
         5 5 5 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
         5 0 5 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
         5 5 5 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
         5 5 5 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0
@@ -36190,7 +36190,7 @@ problem_e73095fd = Problem("problem_e73095fd", [
 ])
 
 problem_e76a88a6 = Problem("problem_e76a88a6", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 2 0 0 0 0 0 0
         0 2 4 4 0 0 0 0 0 0
@@ -36201,7 +36201,7 @@ problem_e76a88a6 = Problem("problem_e76a88a6", [
         0 0 5 5 5 0 0 0 0 0
         0 0 5 5 5 0 0 0 0 0
         0 0 5 5 5 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 2 2 2 0 0 0 0 0 0
         0 2 4 4 0 0 0 0 0 0
@@ -36213,7 +36213,7 @@ problem_e76a88a6 = Problem("problem_e76a88a6", [
         0 0 2 4 4 0 0 0 0 0
         0 0 4 4 4 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 5 5 5 5
         0 6 6 6 6 0 5 5 5 5
         0 8 8 6 8 0 5 5 5 5
@@ -36224,7 +36224,7 @@ problem_e76a88a6 = Problem("problem_e76a88a6", [
         0 0 0 0 5 5 5 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 6 6 6 6
         0 6 6 6 6 0 8 8 6 8
         0 8 8 6 8 0 6 8 8 8
@@ -36236,7 +36236,7 @@ problem_e76a88a6 = Problem("problem_e76a88a6", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4 4 4 0 0 0 0 0 0
         0 1 4 4 0 0 5 5 5 0
         0 1 4 1 0 0 5 5 5 0
@@ -36247,7 +36247,7 @@ problem_e76a88a6 = Problem("problem_e76a88a6", [
         0 0 5 5 5 0 0 5 5 5
         0 0 5 5 5 0 0 5 5 5
         0 0 0 0 0 0 0 5 5 5
-    ]), Int[
+    ]), Integer[
         0 4 4 4 0 0 0 0 0 0
         0 1 4 4 0 0 4 4 4 0
         0 1 4 1 0 0 1 4 4 0
@@ -36262,7 +36262,7 @@ problem_e76a88a6 = Problem("problem_e76a88a6", [
 ])
 
 problem_e8593010 = Problem("problem_e8593010", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 0 5 5 5 0 5
         0 0 5 5 5 5 5 5 5 5
         0 5 5 5 5 5 0 0 5 0
@@ -36273,7 +36273,7 @@ problem_e8593010 = Problem("problem_e8593010", [
         5 5 5 5 5 5 5 5 5 5
         5 5 5 5 5 5 5 5 5 0
         0 5 5 5 5 5 5 0 5 0
-    ]), Int[
+    ]), Integer[
         5 5 5 5 3 5 5 5 3 5
         1 1 5 5 5 5 5 5 5 5
         1 5 5 5 5 5 1 1 5 2
@@ -36285,7 +36285,7 @@ problem_e8593010 = Problem("problem_e8593010", [
         5 5 5 5 5 5 5 5 5 2
         3 5 5 5 5 5 5 3 5 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 5 0 0 5 5 5
         0 0 5 0 5 5 5 5 5 0
         5 5 5 5 5 0 5 0 0 5
@@ -36296,7 +36296,7 @@ problem_e8593010 = Problem("problem_e8593010", [
         5 5 5 5 5 5 5 0 5 5
         0 5 5 5 5 5 0 5 5 0
         0 0 5 5 5 5 5 5 0 5
-    ]), Int[
+    ]), Integer[
         5 5 5 5 5 2 2 5 5 5
         2 2 5 3 5 5 5 5 5 3
         5 5 5 5 5 2 5 2 2 5
@@ -36308,7 +36308,7 @@ problem_e8593010 = Problem("problem_e8593010", [
         1 5 5 5 5 5 3 5 5 3
         1 1 5 5 5 5 5 5 3 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 5 5 0 5 5 5 0 5
         5 5 0 0 5 5 5 5 0 5
         5 0 5 0 5 0 5 5 0 5
@@ -36319,7 +36319,7 @@ problem_e8593010 = Problem("problem_e8593010", [
         5 5 5 0 5 5 5 5 5 5
         5 0 5 5 5 0 5 0 5 5
         5 5 0 5 5 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         2 2 5 5 3 5 5 5 1 5
         5 5 1 1 5 5 5 5 1 5
         5 2 5 1 5 3 5 5 1 5
@@ -36331,7 +36331,7 @@ problem_e8593010 = Problem("problem_e8593010", [
         5 3 5 5 5 3 5 3 5 5
         5 5 3 5 5 5 5 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 5 5 5 5 0 0 5 5
         5 5 5 0 5 5 0 5 0 5
         5 5 0 5 5 5 5 5 0 5
@@ -36342,7 +36342,7 @@ problem_e8593010 = Problem("problem_e8593010", [
         5 5 0 5 5 5 5 5 5 0
         0 0 5 5 5 5 0 5 5 5
         5 5 5 5 0 5 0 0 5 0
-    ]), Int[
+    ]), Integer[
         3 5 5 5 5 5 1 1 5 5
         5 5 5 3 5 5 1 5 2 5
         5 5 1 5 5 5 5 5 2 5
@@ -36357,7 +36357,7 @@ problem_e8593010 = Problem("problem_e8593010", [
 ])
 
 problem_e8dc4411 = Problem("problem_e8dc4411", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -36370,7 +36370,7 @@ problem_e8dc4411 = Problem("problem_e8dc4411", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8
@@ -36384,7 +36384,7 @@ problem_e8dc4411 = Problem("problem_e8dc4411", [
         8 8 8 8 8 8 8 8 8 2 8 2 8 8
         8 8 8 8 8 8 8 8 8 8 2 8 2 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -36398,7 +36398,7 @@ problem_e8dc4411 = Problem("problem_e8dc4411", [
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-    ]), Int[
+    ]), Integer[
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -36413,7 +36413,7 @@ problem_e8dc4411 = Problem("problem_e8dc4411", [
         3 1 3 1 1 1 1 1 1 1 1 1 1 1 1
         3 3 1 1 1 1 1 1 1 1 1 1 1 1 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -36426,7 +36426,7 @@ problem_e8dc4411 = Problem("problem_e8dc4411", [
         4 4 4 4 4 4 0 0 4 0 0 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 4 4 4 4 4 8 8 4 8 8
         4 4 4 4 4 4 4 4 4 4 4 8 8 4 8 8
         4 4 4 4 4 4 4 4 4 4 4 4 4 8 4 4
@@ -36440,7 +36440,7 @@ problem_e8dc4411 = Problem("problem_e8dc4411", [
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
         4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
@@ -36459,7 +36459,7 @@ problem_e8dc4411 = Problem("problem_e8dc4411", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         6 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         6 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
@@ -36482,7 +36482,7 @@ problem_e8dc4411 = Problem("problem_e8dc4411", [
 ])
 
 problem_e9614598 = Problem("problem_e9614598", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -36493,7 +36493,7 @@ problem_e9614598 = Problem("problem_e9614598", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -36505,7 +36505,7 @@ problem_e9614598 = Problem("problem_e9614598", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -36516,7 +36516,7 @@ problem_e9614598 = Problem("problem_e9614598", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -36528,7 +36528,7 @@ problem_e9614598 = Problem("problem_e9614598", [
         0 0 0 1 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -36541,7 +36541,7 @@ problem_e9614598 = Problem("problem_e9614598", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 3 0 0 0 0 0
@@ -36555,7 +36555,7 @@ problem_e9614598 = Problem("problem_e9614598", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
@@ -36566,7 +36566,7 @@ problem_e9614598 = Problem("problem_e9614598", [
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 1 0 0
         0 0 0 0 0 0
         0 0 0 3 0 0
@@ -36581,7 +36581,7 @@ problem_e9614598 = Problem("problem_e9614598", [
 ])
 
 problem_e98196ab = Problem("problem_e98196ab", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 8 0 0 0 8 0 0 0
@@ -36593,14 +36593,14 @@ problem_e98196ab = Problem("problem_e98196ab", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 1 0 0
         1 0 0 0 0 0 0 0 0 0 1
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 8 0 0 0 0 0
         0 0 0 0 1 0 1 0 0 0 0
         0 0 0 8 0 0 0 8 0 0 0
         0 0 1 0 0 0 0 0 1 0 0
         1 8 0 0 0 0 0 0 0 8 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 0 0 0 3 0 0 0 3 0
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 3 0 0
@@ -36612,14 +36612,14 @@ problem_e98196ab = Problem("problem_e98196ab", [
         0 0 7 0 7 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         7 0 0 0 0 0 7 0 0 0 7
-    ]), Int[
+    ]), Integer[
         0 3 0 0 0 3 0 0 0 3 7
         7 0 0 0 0 0 0 0 7 0 0
         0 0 7 3 7 0 0 0 3 0 0
         0 0 0 0 0 0 0 0 0 0 0
         7 3 0 0 0 0 7 0 0 0 7
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0
         0 1 0 1 1 0 1 0 0 1 0
         0 0 0 0 0 0 1 0 0 0 0
@@ -36631,14 +36631,14 @@ problem_e98196ab = Problem("problem_e98196ab", [
         0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0
         2 0 0 0 2 0 0 0 2 0 0
-    ]), Int[
+    ]), Integer[
         2 0 0 0 0 2 0 0 0 0 2
         0 1 0 1 1 0 1 0 0 1 0
         0 0 0 0 0 0 1 0 0 0 0
         0 0 1 0 1 0 0 1 0 0 0
         2 0 0 0 2 0 0 0 2 0 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 7
         0 0 7 7 0 0 0 0 7 0 0
         0 0 0 0 0 0 7 0 0 0 0
@@ -36650,7 +36650,7 @@ problem_e98196ab = Problem("problem_e98196ab", [
         6 0 0 0 6 0 0 0 0 0 6
         0 0 0 0 0 0 0 0 0 6 0
         6 0 0 6 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         6 0 0 0 6 0 6 0 0 0 7
         0 0 7 7 0 0 0 0 7 0 6
         6 0 0 0 6 0 7 0 0 0 6
@@ -36660,31 +36660,31 @@ problem_e98196ab = Problem("problem_e98196ab", [
 ])
 
 problem_e9afcf9a = Problem("problem_e9afcf9a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3
         9 9 9 9 9 9
-    ]), Int[
+    ]), Integer[
         3 9 3 9 3 9
         9 3 9 3 9 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4
         8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         4 8 4 8 4 8
         8 4 8 4 8 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 6 6 6 6
         2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         6 2 6 2 6 2
         2 6 2 6 2 6
     ])
 ])
 
 problem_ea32f347 = Problem("problem_ea32f347", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 5 0 0 0 0 0 0 0 0
         0 5 0 0 5 0 0 0 0 0
@@ -36695,7 +36695,7 @@ problem_ea32f347 = Problem("problem_ea32f347", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 1 0 0 0 0 0 0 0 0
         0 1 0 0 4 0 0 0 0 0
@@ -36707,7 +36707,7 @@ problem_ea32f347 = Problem("problem_ea32f347", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 5 0 0 0 0 0
         0 0 0 0 5 0 0 0 0 0
@@ -36718,7 +36718,7 @@ problem_ea32f347 = Problem("problem_ea32f347", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0
         0 0 0 0 1 0 0 0 0 0
@@ -36730,7 +36730,7 @@ problem_ea32f347 = Problem("problem_ea32f347", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         5 5 5 5 5 5 0 0 0 0
@@ -36741,7 +36741,7 @@ problem_ea32f347 = Problem("problem_ea32f347", [
         0 0 5 5 5 0 0 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         1 1 1 1 1 1 0 0 0 0
@@ -36753,7 +36753,7 @@ problem_ea32f347 = Problem("problem_ea32f347", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 5 0 0
         0 5 5 5 5 0 0 5 0 0
@@ -36764,7 +36764,7 @@ problem_ea32f347 = Problem("problem_ea32f347", [
         0 0 0 0 0 0 0 5 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 1 0 0
         0 2 2 2 2 0 0 1 0 0
@@ -36776,7 +36776,7 @@ problem_ea32f347 = Problem("problem_ea32f347", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 5 0 0 0 0 0 0
         0 0 0 5 0 0 0 0 0 0
@@ -36787,7 +36787,7 @@ problem_ea32f347 = Problem("problem_ea32f347", [
         0 0 0 0 0 0 0 0 0 0
         5 5 5 5 5 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0
@@ -36802,29 +36802,29 @@ problem_ea32f347 = Problem("problem_ea32f347", [
 ])
 
 problem_ea786f4a = Problem("problem_ea786f4a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         1 1 1
         1 0 1
         1 1 1
-    ]), Int[
+    ]), Integer[
         0 1 0
         1 0 1
         0 1 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2
         2 2 2 2 2
         2 2 0 2 2
         2 2 2 2 2
         2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         0 2 2 2 0
         2 0 2 0 2
         2 2 0 2 2
         2 0 2 0 2
         0 2 2 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3
         3 3 3 3 3 3 3
         3 3 3 3 3 3 3
@@ -36832,7 +36832,7 @@ problem_ea786f4a = Problem("problem_ea786f4a", [
         3 3 3 3 3 3 3
         3 3 3 3 3 3 3
         3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         0 3 3 3 3 3 0
         3 0 3 3 3 0 3
         3 3 0 3 0 3 3
@@ -36841,7 +36841,7 @@ problem_ea786f4a = Problem("problem_ea786f4a", [
         3 0 3 3 3 0 3
         0 3 3 3 3 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 6 6 6 6 6 6 6 6 6
         6 6 6 6 6 6 6 6 6 6 6
         6 6 6 6 6 6 6 6 6 6 6
@@ -36853,7 +36853,7 @@ problem_ea786f4a = Problem("problem_ea786f4a", [
         6 6 6 6 6 6 6 6 6 6 6
         6 6 6 6 6 6 6 6 6 6 6
         6 6 6 6 6 6 6 6 6 6 6
-    ]), Int[
+    ]), Integer[
         0 6 6 6 6 6 6 6 6 6 0
         6 0 6 6 6 6 6 6 6 0 6
         6 6 0 6 6 6 6 6 0 6 6
@@ -36869,11 +36869,11 @@ problem_ea786f4a = Problem("problem_ea786f4a", [
 ])
 
 problem_eb281b96 = Problem("problem_eb281b96", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0
         0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0
         8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8
-    ]), Int[
+    ]), Integer[
         0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0
         0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0
         8 0 0 0 8 0 0 0 8 0 0 0 8 0 0 0 8
@@ -36884,12 +36884,12 @@ problem_eb281b96 = Problem("problem_eb281b96", [
         0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0
         0 0 8 0 0 0 8 0 0 0 8 0 0 0 8 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0
         0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
         0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
         2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0 2
-    ]), Int[
+    ]), Integer[
         0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0
         0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
         0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
@@ -36904,13 +36904,13 @@ problem_eb281b96 = Problem("problem_eb281b96", [
         0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0
         0 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0
         0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0
         0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0
         0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0
         3 0 0 0 3 0 0 0 3 0 0 0 3 0 0 0 3
-    ]), Int[
+    ]), Integer[
         0 0 3 0 0 0 3 0 0 0 3 0 0 0 3 0 0
         0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0
         0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0
@@ -36932,7 +36932,7 @@ problem_eb281b96 = Problem("problem_eb281b96", [
 ])
 
 problem_eb5a1d5d = Problem("problem_eb5a1d5d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 8 8 8 8 8 8
@@ -36956,14 +36956,14 @@ problem_eb5a1d5d = Problem("problem_eb5a1d5d", [
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8
         8 3 3 3 8
         8 3 2 3 8
         8 3 3 3 8
         8 8 8 8 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
@@ -36986,12 +36986,12 @@ problem_eb5a1d5d = Problem("problem_eb5a1d5d", [
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
         5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-    ]), Int[
+    ]), Integer[
         5 5 5
         5 6 5
         5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
@@ -37013,7 +37013,7 @@ problem_eb5a1d5d = Problem("problem_eb5a1d5d", [
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
         3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3
         3 8 8 8 8 8 3
         3 8 2 2 2 8 3
@@ -37022,7 +37022,7 @@ problem_eb5a1d5d = Problem("problem_eb5a1d5d", [
         3 8 8 8 8 8 3
         3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
@@ -37049,7 +37049,7 @@ problem_eb5a1d5d = Problem("problem_eb5a1d5d", [
         2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2 2 2
         2 1 1 1 1 1 1 1 2
         2 1 3 3 3 3 3 1 2
@@ -37063,14 +37063,14 @@ problem_eb5a1d5d = Problem("problem_eb5a1d5d", [
 ])
 
 problem_ec883f72 = Problem("problem_ec883f72", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 0 9 0 0
         3 3 0 9 0 0
         0 0 0 9 0 0
         9 9 9 9 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 0 9 0 0
         3 3 0 9 0 0
         0 0 0 9 0 0
@@ -37078,7 +37078,7 @@ problem_ec883f72 = Problem("problem_ec883f72", [
         0 0 0 0 3 0
         0 0 0 0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 6 0 8 0
         0 0 8 0 0 0 8 0
         0 0 8 8 8 8 8 0
@@ -37087,7 +37087,7 @@ problem_ec883f72 = Problem("problem_ec883f72", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 0 6 0 8 0
         0 0 8 0 0 0 8 0
         0 0 8 8 8 8 8 0
@@ -37097,7 +37097,7 @@ problem_ec883f72 = Problem("problem_ec883f72", [
         0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -37107,7 +37107,7 @@ problem_ec883f72 = Problem("problem_ec883f72", [
         0 4 0 0 0 0 4 0 0
         0 4 0 2 2 0 4 0 0
         0 4 0 2 2 0 4 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -37118,7 +37118,7 @@ problem_ec883f72 = Problem("problem_ec883f72", [
         0 4 0 2 2 0 4 0 0
         0 4 0 2 2 0 4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -37131,7 +37131,7 @@ problem_ec883f72 = Problem("problem_ec883f72", [
         4 4 4 4 0 5 0 0 0 0 0 0
         4 4 4 4 0 5 0 0 0 0 0 0
         4 4 4 4 0 5 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 4 0
         0 0 0 0 0 0 0 0 0 4 0 0
         0 0 0 0 0 0 0 0 4 0 0 0
@@ -37145,7 +37145,7 @@ problem_ec883f72 = Problem("problem_ec883f72", [
         4 4 4 4 0 5 0 0 0 0 0 0
         4 4 4 4 0 5 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 3 0 4 4 0 3 0 0
         0 0 0 0 3 0 4 4 0 3 0 0
         0 0 0 0 3 0 4 4 0 3 0 0
@@ -37158,7 +37158,7 @@ problem_ec883f72 = Problem("problem_ec883f72", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 3 0 4 4 0 3 0 0
         0 0 0 0 3 0 4 4 0 3 0 0
         0 0 0 0 3 0 4 4 0 3 0 0
@@ -37175,7 +37175,7 @@ problem_ec883f72 = Problem("problem_ec883f72", [
 ])
 
 problem_ecdecbb3 = Problem("problem_ecdecbb3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0
@@ -37189,7 +37189,7 @@ problem_ecdecbb3 = Problem("problem_ecdecbb3", [
         0 0 0 0 0 0 0 0 2 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 2 0 0 0 0 0 0 0 0 0 0
@@ -37204,7 +37204,7 @@ problem_ecdecbb3 = Problem("problem_ecdecbb3", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
@@ -37218,7 +37218,7 @@ problem_ecdecbb3 = Problem("problem_ecdecbb3", [
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
@@ -37233,7 +37233,7 @@ problem_ecdecbb3 = Problem("problem_ecdecbb3", [
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
         0 0 0 8 0 0 0 0 0 0 0 0 0 0 8 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 2 0 0 0
@@ -37251,7 +37251,7 @@ problem_ecdecbb3 = Problem("problem_ecdecbb3", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 2 0 0 0
@@ -37270,7 +37270,7 @@ problem_ecdecbb3 = Problem("problem_ecdecbb3", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 8 0 0 0 0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0 0 8 0 0 2 0 0 0
         0 2 0 0 8 0 0 0 0 0 0 0 8 0 0 0 0 0 0
@@ -37288,7 +37288,7 @@ problem_ecdecbb3 = Problem("problem_ecdecbb3", [
         0 0 0 0 8 0 0 0 0 0 0 0 8 0 0 0 2 0 0
         0 0 0 0 8 0 0 0 0 0 0 0 8 0 0 0 0 0 0
         0 0 0 0 8 0 0 0 0 0 0 0 8 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 8 0 0 0 0 0 0 8 8 8 0 0 0 0 0
         0 0 0 8 8 8 0 0 0 0 0 8 2 8 2 2 0 0 0
         0 2 2 8 2 8 0 0 0 0 0 8 8 8 0 0 0 0 0
@@ -37310,47 +37310,47 @@ problem_ecdecbb3 = Problem("problem_ecdecbb3", [
 ])
 
 problem_ed36ccf7 = Problem("problem_ed36ccf7", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 0 0
         9 9 9
         9 9 9
-    ]), Int[
+    ]), Integer[
         0 9 9
         0 9 9
         9 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         6 6 6
         0 0 0
         6 6 0
-    ]), Int[
+    ]), Integer[
         6 0 0
         6 0 6
         6 0 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 9
         0 0 9
         9 9 9
-    ]), Int[
+    ]), Integer[
         9 9 9
         0 0 9
         0 0 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 2
         0 0 2
         0 2 2
-    ]), Int[
+    ]), Integer[
         2 2 2
         0 0 2
         2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         5 0 0
         0 5 5
-    ]), Int[
+    ]), Integer[
         0 0 5
         0 0 5
         0 5 0
@@ -37358,7 +37358,7 @@ problem_ed36ccf7 = Problem("problem_ed36ccf7", [
 ])
 
 problem_ef135b50 = Problem("problem_ef135b50", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         2 2 2 0 0 0 0 0 0 0
@@ -37369,7 +37369,7 @@ problem_ef135b50 = Problem("problem_ef135b50", [
         0 0 0 2 2 0 0 2 2 0
         0 0 0 2 2 0 0 0 0 0
         0 0 0 2 2 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         2 2 2 0 0 0 0 0 0 0
@@ -37381,7 +37381,7 @@ problem_ef135b50 = Problem("problem_ef135b50", [
         0 0 0 2 2 0 0 0 0 0
         0 0 0 2 2 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 0 0 0 0 0 0 0
         2 2 0 0 0 0 0 0 0 0
         2 2 0 0 0 0 0 2 2 2
@@ -37392,7 +37392,7 @@ problem_ef135b50 = Problem("problem_ef135b50", [
         0 0 0 2 2 0 0 0 0 0
         0 0 0 2 2 0 2 2 2 2
         0 0 0 0 0 0 2 2 2 2
-    ]), Int[
+    ]), Integer[
         2 2 0 0 0 0 0 0 0 0
         2 2 0 0 0 0 0 0 0 0
         2 2 9 9 9 9 9 2 2 2
@@ -37404,7 +37404,7 @@ problem_ef135b50 = Problem("problem_ef135b50", [
         0 0 0 2 2 9 2 2 2 2
         0 0 0 0 0 0 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 2 2 2 2
         2 2 2 2 0 0 2 2 2 2
         2 2 2 2 0 0 0 0 0 0
@@ -37415,7 +37415,7 @@ problem_ef135b50 = Problem("problem_ef135b50", [
         2 2 2 2 0 2 2 2 0 2
         2 2 2 2 0 2 2 2 0 2
         2 2 2 2 0 0 0 0 0 2
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 2 2 2 2
         2 2 2 2 9 9 2 2 2 2
         2 2 2 2 0 0 0 0 0 0
@@ -37427,7 +37427,7 @@ problem_ef135b50 = Problem("problem_ef135b50", [
         2 2 2 2 9 2 2 2 9 2
         2 2 2 2 0 0 0 0 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 2 0 0 0 0 0 0 0
         2 2 2 0 0 0 2 2 2 2
         0 0 0 0 0 0 2 2 2 2
@@ -37438,7 +37438,7 @@ problem_ef135b50 = Problem("problem_ef135b50", [
         0 2 2 2 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 0 0 0 0 0 0 0
         2 2 2 9 9 9 2 2 2 2
         0 0 0 0 0 0 2 2 2 2
@@ -37453,7 +37453,7 @@ problem_ef135b50 = Problem("problem_ef135b50", [
 ])
 
 problem_f15e1fac = Problem("problem_f15e1fac", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 8 0 0 0 8 0 8 0 8 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
@@ -37471,7 +37471,7 @@ problem_f15e1fac = Problem("problem_f15e1fac", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 8 0 0 0 8 0 8 0 8 0 0
         0 8 0 0 0 8 0 8 0 8 0 0
         0 8 0 0 0 8 0 8 0 8 0 0
@@ -37490,7 +37490,7 @@ problem_f15e1fac = Problem("problem_f15e1fac", [
         0 0 0 8 0 0 0 8 0 8 0 8
         0 0 0 8 0 0 0 8 0 8 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 8 0 0 0 8 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -37505,7 +37505,7 @@ problem_f15e1fac = Problem("problem_f15e1fac", [
         0 0 0 0 0 0 0 0 0 2
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 8 0 0 0 8 0 0 0
         0 0 8 0 0 0 8 0 0 0
         0 0 8 0 0 0 8 0 0 0
@@ -37521,7 +37521,7 @@ problem_f15e1fac = Problem("problem_f15e1fac", [
         0 0 0 8 0 0 0 0 0 0
         0 0 0 8 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         8 0 0 0 0 0 0 0 0 0 0 0
@@ -37534,7 +37534,7 @@ problem_f15e1fac = Problem("problem_f15e1fac", [
         8 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 2 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 8 8 8 8
         0 0 0 0 8 8 8 8 0 0 0 0
         8 8 8 8 0 0 0 0 0 0 0 0
@@ -37548,7 +37548,7 @@ problem_f15e1fac = Problem("problem_f15e1fac", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 2 0 0 0 2 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8
@@ -37561,7 +37561,7 @@ problem_f15e1fac = Problem("problem_f15e1fac", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8
         0 0 2 0 0 0 2 0 0 0 0 2 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 8 8 8 8 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0
         8 8 8 0 0 0 0 0 0 0 0 0 8 8 8 8 8
@@ -37578,7 +37578,7 @@ problem_f15e1fac = Problem("problem_f15e1fac", [
 ])
 
 problem_f1cefba8 = Problem("problem_f1cefba8", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 8 8 8 8 8 8 8 8 0
@@ -37598,7 +37598,7 @@ problem_f1cefba8 = Problem("problem_f1cefba8", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 2 0 0 2 0 0 0 0 0
         0 0 0 0 2 0 0 2 0 0 0 0 0
         0 8 8 8 8 8 8 8 8 8 8 8 0
@@ -37619,7 +37619,7 @@ problem_f1cefba8 = Problem("problem_f1cefba8", [
         0 0 0 0 2 0 0 2 0 0 0 0 0
         0 0 0 0 2 0 0 2 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -37635,7 +37635,7 @@ problem_f1cefba8 = Problem("problem_f1cefba8", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 4 0 4 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 4 0 4 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 4 0 4 0 0 0 0 0 0 0 0
@@ -37652,7 +37652,7 @@ problem_f1cefba8 = Problem("problem_f1cefba8", [
         0 0 0 0 0 0 4 0 4 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 4 0 4 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -37669,7 +37669,7 @@ problem_f1cefba8 = Problem("problem_f1cefba8", [
         0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 0 0
         0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0
@@ -37687,7 +37687,7 @@ problem_f1cefba8 = Problem("problem_f1cefba8", [
         0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 0 0
         0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -37707,7 +37707,7 @@ problem_f1cefba8 = Problem("problem_f1cefba8", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 8 0 0 0 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 8 0 0 0 8 0 0 0 0 0 0 0
         0 0 0 0 0 0 8 0 0 0 8 0 0 0 0 0 0 0
@@ -37731,7 +37731,7 @@ problem_f1cefba8 = Problem("problem_f1cefba8", [
 ])
 
 problem_f25fbde4 = Problem("problem_f25fbde4", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 4 4 0 0 0 0 0
@@ -37741,7 +37741,7 @@ problem_f25fbde4 = Problem("problem_f25fbde4", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 4 4 4 4 0 0
         0 0 4 4 4 4 0 0
         4 4 4 4 4 4 4 4
@@ -37749,7 +37749,7 @@ problem_f25fbde4 = Problem("problem_f25fbde4", [
         0 0 4 4 4 4 0 0
         0 0 4 4 4 4 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 4 0 0 0 0
         0 0 0 4 4 0 0 0 0
@@ -37759,7 +37759,7 @@ problem_f25fbde4 = Problem("problem_f25fbde4", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 4 4 0 0
         0 0 4 4 0 0
         4 4 4 4 0 0
@@ -37767,7 +37767,7 @@ problem_f25fbde4 = Problem("problem_f25fbde4", [
         0 0 0 0 4 4
         0 0 0 0 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
@@ -37777,7 +37777,7 @@ problem_f25fbde4 = Problem("problem_f25fbde4", [
         0 0 4 0 0 0 0 0 0
         0 0 4 4 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 4 4 0 0
         0 0 4 4 0 0
         4 4 4 4 0 0
@@ -37787,7 +37787,7 @@ problem_f25fbde4 = Problem("problem_f25fbde4", [
         0 0 4 4 4 4
         0 0 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0
         0 0 0 0 4 0 4 0 0
         0 0 0 4 0 4 0 4 0
@@ -37797,7 +37797,7 @@ problem_f25fbde4 = Problem("problem_f25fbde4", [
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 4 4 0 0 4 4 0 0
         0 0 4 4 0 0 4 4 0 0
         4 4 0 0 4 4 0 0 4 4
@@ -37808,7 +37808,7 @@ problem_f25fbde4 = Problem("problem_f25fbde4", [
 ])
 
 problem_f25ffba3 = Problem("problem_f25ffba3", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0
         0 0 0 0
         0 0 0 0
@@ -37819,7 +37819,7 @@ problem_f25ffba3 = Problem("problem_f25ffba3", [
         0 0 3 9
         2 0 3 9
         2 4 3 9
-    ]), Int[
+    ]), Integer[
         2 4 3 9
         2 0 3 9
         0 0 3 9
@@ -37831,7 +37831,7 @@ problem_f25ffba3 = Problem("problem_f25ffba3", [
         2 0 3 9
         2 4 3 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0
         0 0 0 0
         0 0 0 0
@@ -37842,7 +37842,7 @@ problem_f25ffba3 = Problem("problem_f25ffba3", [
         0 8 0 2
         0 3 8 2
         3 3 8 2
-    ]), Int[
+    ]), Integer[
         3 3 8 2
         0 3 8 2
         0 8 0 2
@@ -37854,7 +37854,7 @@ problem_f25ffba3 = Problem("problem_f25ffba3", [
         0 3 8 2
         3 3 8 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0
         0 0 0 0
         0 0 0 0
@@ -37865,7 +37865,7 @@ problem_f25ffba3 = Problem("problem_f25ffba3", [
         7 1 3 0
         7 1 3 3
         7 1 4 4
-    ]), Int[
+    ]), Integer[
         7 1 4 4
         7 1 3 3
         7 1 3 0
@@ -37880,67 +37880,67 @@ problem_f25ffba3 = Problem("problem_f25ffba3", [
 ])
 
 problem_f2829549 = Problem("problem_f2829549", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 0 1 5 0 0
         7 0 0 1 5 0 0
         0 0 0 1 5 0 5
         0 0 0 1 5 5 0
-    ]), Int[
+    ]), Integer[
         0 0 3
         0 3 3
         0 3 0
         0 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 7 0 1 5 0 0
         0 0 0 1 0 0 0
         7 7 0 1 5 0 0
         0 7 7 1 5 5 0
-    ]), Int[
+    ]), Integer[
         0 0 3
         3 3 3
         0 0 3
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 7 7 1 5 0 0
         0 0 7 1 0 5 5
         0 7 0 1 5 5 0
         0 0 7 1 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         3 0 0
         0 0 3
         3 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 0 7 1 5 5 0
         7 7 0 1 5 5 5
         0 7 0 1 0 0 0
         0 0 0 1 5 0 5
-    ]), Int[
+    ]), Integer[
         0 0 0
         0 0 0
         3 0 3
         0 3 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         7 0 0 1 0 5 0
         0 0 7 1 5 0 0
         0 0 0 1 5 5 5
         7 7 7 1 5 5 5
-    ]), Int[
+    ]), Integer[
         0 0 3
         0 3 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 1 0 5 0
         7 7 7 1 5 5 0
         0 0 0 1 5 0 0
         7 0 0 1 5 5 5
-    ]), Int[
+    ]), Integer[
         3 0 3
         0 0 0
         0 3 3
@@ -37949,7 +37949,7 @@ problem_f2829549 = Problem("problem_f2829549", [
 ])
 
 problem_f35d900a = Problem("problem_f35d900a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 0 0 0 0 3 0 0 0 0 0 0 0
@@ -37964,7 +37964,7 @@ problem_f35d900a = Problem("problem_f35d900a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         3 3 3 0 0 2 2 2 0 0 0 0 0 0
         3 2 3 5 5 2 3 2 0 0 0 0 0 0
@@ -37980,7 +37980,7 @@ problem_f35d900a = Problem("problem_f35d900a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -37998,7 +37998,7 @@ problem_f35d900a = Problem("problem_f35d900a", [
         0 0 8 0 0 0 0 0 0 0 1 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 8 0 0 0 0 0 1 1 1 0 0
@@ -38017,7 +38017,7 @@ problem_f35d900a = Problem("problem_f35d900a", [
         0 1 1 1 0 0 0 0 0 8 8 8 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38035,7 +38035,7 @@ problem_f35d900a = Problem("problem_f35d900a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 4 4 4 0 0 0 0 0 0 0 0 2 2 2 0
@@ -38054,7 +38054,7 @@ problem_f35d900a = Problem("problem_f35d900a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38072,7 +38072,7 @@ problem_f35d900a = Problem("problem_f35d900a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 8 8 8 0 0 0 0 0 3 3 3 0 0
@@ -38091,7 +38091,7 @@ problem_f35d900a = Problem("problem_f35d900a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38109,7 +38109,7 @@ problem_f35d900a = Problem("problem_f35d900a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 1 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38131,11 +38131,11 @@ problem_f35d900a = Problem("problem_f35d900a", [
 ])
 
 problem_f5b8619d = Problem("problem_f5b8619d", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 0 0
         0 0 0
         0 0 2
-    ]), Int[
+    ]), Integer[
         2 0 8 2 0 8
         8 0 8 8 0 8
         8 0 2 8 0 2
@@ -38143,14 +38143,14 @@ problem_f5b8619d = Problem("problem_f5b8619d", [
         8 0 8 8 0 8
         8 0 2 8 0 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 5 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         0 0 0 0 0 0
         5 0 0 0 0 5
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 5 0 0 0 8 8 5 0 0 0 8
         8 8 0 0 0 8 8 8 0 0 0 8
         8 8 0 0 0 8 8 8 0 0 0 8
@@ -38164,21 +38164,21 @@ problem_f5b8619d = Problem("problem_f5b8619d", [
         5 8 0 0 0 5 5 8 0 0 0 5
         8 8 0 0 0 8 8 8 0 0 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 4
         0 0
-    ]), Int[
+    ]), Integer[
         0 4 0 4
         0 8 0 8
         0 4 0 4
         0 8 0 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 3 0
         0 0 0 0
         0 0 0 3
         3 0 0 0
-    ]), Int[
+    ]), Integer[
         8 0 3 8 8 0 3 8
         8 0 8 8 8 0 8 8
         8 0 8 3 8 0 8 3
@@ -38191,48 +38191,48 @@ problem_f5b8619d = Problem("problem_f5b8619d", [
 ])
 
 problem_f76d97a5 = Problem("problem_f76d97a5", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 5 4
         5 5 5
         4 5 4
-    ]), Int[
+    ]), Integer[
         0 4 0
         4 4 4
         0 4 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         5 5 6 6 6
         6 5 5 6 6
         6 6 5 5 6
         6 6 6 5 5
         5 6 6 6 5
-    ]), Int[
+    ]), Integer[
         6 6 0 0 0
         0 6 6 0 0
         0 0 6 6 0
         0 0 0 6 6
         6 0 0 0 6
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 5 9 9 9
         9 9 5 5 9
         9 5 9 9 9
         9 9 5 9 9
         9 9 9 5 5
-    ]), Int[
+    ]), Integer[
         0 9 0 0 0
         0 0 9 9 0
         0 9 0 0 0
         0 0 9 0 0
         0 0 0 9 9
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         3 3 3 5 3
         3 5 3 3 3
         3 5 5 3 5
         3 3 3 5 3
         5 5 5 3 3
-    ]), Int[
+    ]), Integer[
         0 0 0 3 0
         0 3 0 0 0
         0 3 3 0 3
@@ -38242,7 +38242,7 @@ problem_f76d97a5 = Problem("problem_f76d97a5", [
 ])
 
 problem_f8a8fe49 = Problem("problem_f8a8fe49", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38258,7 +38258,7 @@ problem_f8a8fe49 = Problem("problem_f8a8fe49", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 5 0 5 0 0 0 0 0 0
         0 0 0 0 0 0 5 5 5 0 0 0 0 0 0
@@ -38275,7 +38275,7 @@ problem_f8a8fe49 = Problem("problem_f8a8fe49", [
         0 0 0 0 0 0 0 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38291,7 +38291,7 @@ problem_f8a8fe49 = Problem("problem_f8a8fe49", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38308,7 +38308,7 @@ problem_f8a8fe49 = Problem("problem_f8a8fe49", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38324,7 +38324,7 @@ problem_f8a8fe49 = Problem("problem_f8a8fe49", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38341,7 +38341,7 @@ problem_f8a8fe49 = Problem("problem_f8a8fe49", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38357,7 +38357,7 @@ problem_f8a8fe49 = Problem("problem_f8a8fe49", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 5 5 5 0 0 0 0 0 0 0
         0 0 0 0 0 0 5 5 5 5 0 0 0 0 0
@@ -38377,7 +38377,7 @@ problem_f8a8fe49 = Problem("problem_f8a8fe49", [
 ])
 
 problem_f8b3ba0a = Problem("problem_f8b3ba0a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 3 3 0 1 1 0 1 1 0 1 1 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38391,8 +38391,8 @@ problem_f8b3ba0a = Problem("problem_f8b3ba0a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 0 1 1 0 1 1 0 1 1 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[4, 2, 3], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[4, 2, 3], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 6 6 0 8 8 0 8 8 0 8 8 0 8 8 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38406,8 +38406,8 @@ problem_f8b3ba0a = Problem("problem_f8b3ba0a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 8 8 0 8 8 0 8 8 0 8 8 0 8 8 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[6, 1, 2], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[6, 1, 2], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 3 3 0 3 3 0 3 3 0
         0 0 0 0 0 0 0 0 0 0
@@ -38421,8 +38421,8 @@ problem_f8b3ba0a = Problem("problem_f8b3ba0a", [
         0 0 0 0 0 0 0 0 0 0
         0 2 2 0 3 3 0 3 3 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[2, 8, 1], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[2, 8, 1], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 0 1 1 0 8 8 0 1 1 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38436,8 +38436,8 @@ problem_f8b3ba0a = Problem("problem_f8b3ba0a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 1 1 0 8 8 0 1 1 0 1 1 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[8, 2, 4], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8, 2, 4], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 0 4 4 0 2 2 0 2 2 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -38453,11 +38453,11 @@ problem_f8b3ba0a = Problem("problem_f8b3ba0a", [
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 2 2 0 2 2 0 4 4 0 2 2 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[4, 1, 8], 3, 1)))
+    ]), Grid(reshape(Integer[4, 1, 8], 3, 1)))
 ])
 
 problem_f8c80d96 = Problem("problem_f8c80d96", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
@@ -38468,7 +38468,7 @@ problem_f8c80d96 = Problem("problem_f8c80d96", [
         0 0 0 8 0 8 0 0 0 0
         8 8 0 8 0 8 0 0 0 0
         0 8 0 8 0 8 0 0 0 0
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8 8 8
         5 5 5 5 5 5 5 5 5 8
         8 8 8 8 8 8 8 8 5 8
@@ -38480,7 +38480,7 @@ problem_f8c80d96 = Problem("problem_f8c80d96", [
         8 8 5 8 5 8 5 8 5 8
         5 8 5 8 5 8 5 8 5 8
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 1 0 0 1 0 0
         0 0 0 0 1 0 0 1 0 0
         0 0 0 0 1 0 0 1 1 1
@@ -38491,7 +38491,7 @@ problem_f8c80d96 = Problem("problem_f8c80d96", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 1 5 5 1 5 5 1 5 5
         5 1 5 5 1 5 5 1 5 5
         5 1 5 5 1 5 5 1 1 1
@@ -38503,7 +38503,7 @@ problem_f8c80d96 = Problem("problem_f8c80d96", [
         5 1 1 1 1 1 1 1 1 1
         5 5 5 5 5 5 5 5 5 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 2 0 2 0 2 0 2 0 0
         0 2 0 2 2 2 0 2 0 0
         0 2 0 0 0 0 0 2 0 0
@@ -38514,7 +38514,7 @@ problem_f8c80d96 = Problem("problem_f8c80d96", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         5 2 5 2 5 2 5 2 5 2
         5 2 5 2 2 2 5 2 5 2
         5 2 5 5 5 5 5 2 5 2
@@ -38526,7 +38526,7 @@ problem_f8c80d96 = Problem("problem_f8c80d96", [
         5 5 5 5 5 5 5 5 5 5
         2 2 2 2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 4 4 4 0 0 0 0
         0 0 0 0 0 4 0 0 0 0
         0 0 0 0 0 4 0 0 0 0
@@ -38537,7 +38537,7 @@ problem_f8c80d96 = Problem("problem_f8c80d96", [
         0 0 0 0 0 4 0 0 0 0
         0 0 0 0 0 4 0 0 0 0
         4 4 4 4 4 4 0 0 0 0
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 5 5 4 5
         5 5 5 5 5 4 5 5 4 5
         5 5 5 5 5 4 5 5 4 5
@@ -38552,7 +38552,7 @@ problem_f8c80d96 = Problem("problem_f8c80d96", [
 ])
 
 problem_f8ff0b80 = Problem("problem_f8ff0b80", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 3 0 0 0 0 0 0 0 0
         0 0 3 3 0 0 0 0 0 8 0 0
@@ -38565,8 +38565,8 @@ problem_f8ff0b80 = Problem("problem_f8ff0b80", [
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[3, 2, 8], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[3, 2, 8], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 1 1 0 1 0
         0 0 0 0 0 0 0 1 1 1 0 0
@@ -38579,8 +38579,8 @@ problem_f8ff0b80 = Problem("problem_f8ff0b80", [
         0 0 0 2 0 0 0 0 7 7 7 0
         0 0 0 0 0 0 0 0 0 7 7 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[1, 7, 2], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[1, 7, 2], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 2 0 0 0 0 0 0 0 0
         0 0 2 2 2 0 0 0 1 0 0 0
@@ -38593,8 +38593,8 @@ problem_f8ff0b80 = Problem("problem_f8ff0b80", [
         0 0 0 4 4 4 4 4 0 0 0 0
         0 0 0 0 4 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0
-    ]), Grid(reshape(Int[4, 2, 1], 3, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[4, 2, 1], 3, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0
         0 0 3 0 0 0 0 0 0 0 0 0
         0 3 3 0 0 0 0 0 0 0 0 0
@@ -38607,27 +38607,27 @@ problem_f8ff0b80 = Problem("problem_f8ff0b80", [
         0 0 0 0 0 0 6 6 0 0 0 0
         0 0 0 0 0 6 0 6 6 0 0 0
         0 0 0 0 0 0 0 6 0 0 0 0
-    ]), Grid(reshape(Int[6, 1, 3], 3, 1)))
+    ]), Grid(reshape(Integer[6, 1, 3], 3, 1)))
 ])
 
 problem_f9012d9b = Problem("problem_f9012d9b", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 1 2 1 2
         1 1 1 1 1
         2 1 2 1 2
         0 0 1 1 1
         0 0 2 1 2
-    ]), Int[
+    ]), Integer[
         1 1
         2 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 6 0 6
         6 8 6 8
         8 6 8 6
         6 8 6 8
-    ]), Grid(reshape(Int[8], 1, 1))),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    ]), Grid(reshape(Integer[8], 1, 1))),
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 5 2 2 5 2
         2 2 5 2 2 5 2
         5 5 5 5 5 5 5
@@ -38635,11 +38635,11 @@ problem_f9012d9b = Problem("problem_f9012d9b", [
         2 2 5 2 2 5 2
         5 5 5 5 5 0 0
         2 2 5 2 2 0 0
-    ]), Int[
+    ]), Integer[
         5 5
         5 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         8 1 8 8 0 0 0
         1 8 8 1 0 0 0
         8 8 1 8 0 0 0
@@ -38647,7 +38647,7 @@ problem_f9012d9b = Problem("problem_f9012d9b", [
         1 8 8 1 8 8 1
         8 8 1 8 8 1 8
         8 1 8 8 1 8 8
-    ]), Int[
+    ]), Integer[
         1 8 8
         8 8 1
         8 1 8
@@ -38655,74 +38655,74 @@ problem_f9012d9b = Problem("problem_f9012d9b", [
 ])
 
 problem_fafffa47 = Problem("problem_fafffa47", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 9 9
         0 9 9
         9 9 9
         0 1 0
         0 0 1
         1 1 1
-    ]), Int[
+    ]), Integer[
         2 0 0
         2 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 0 9
         0 9 9
         0 0 9
         1 0 1
         1 0 0
         1 0 0
-    ]), Int[
+    ]), Integer[
         0 2 0
         0 0 0
         0 2 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 9 0
         9 0 9
         9 0 0
         0 0 0
         0 0 1
         1 0 0
-    ]), Int[
+    ]), Integer[
         2 0 2
         0 2 0
         0 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 9
         9 9 9
         0 9 0
         1 0 0
         0 1 1
         0 0 1
-    ]), Int[
+    ]), Integer[
         0 2 0
         0 0 0
         2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 9 0
         0 9 9
         0 9 9
         0 0 0
         1 1 1
         1 0 1
-    ]), Int[
+    ]), Integer[
         2 0 2
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         9 0 9
         0 0 9
         9 0 9
         0 1 1
         0 1 0
         1 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0
         2 0 0
         0 2 0
@@ -38730,7 +38730,7 @@ problem_fafffa47 = Problem("problem_fafffa47", [
 ])
 
 problem_fcb5c309 = Problem("problem_fcb5c309", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 4 0 0 0 0 0 0 0 4
         0 0 0 0 0 0 0 0 0 0 0 0 0
         2 2 2 2 2 2 2 0 0 0 0 0 0
@@ -38744,7 +38744,7 @@ problem_fcb5c309 = Problem("problem_fcb5c309", [
         0 0 0 0 0 0 0 0 0 4 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 4 0 0 0 0 0 0 4 0
-    ]), Int[
+    ]), Integer[
         4 4 4 4 4 4 4
         4 0 0 0 0 0 4
         4 4 0 0 0 0 4
@@ -38753,7 +38753,7 @@ problem_fcb5c309 = Problem("problem_fcb5c309", [
         4 0 0 0 0 0 4
         4 4 4 4 4 4 4
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0
         0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 3 0 0 0 0 1 1 1 1 1 1 1 0
@@ -38767,7 +38767,7 @@ problem_fcb5c309 = Problem("problem_fcb5c309", [
         0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0
         3 1 1 1 1 1 1 0 0 0 0 3 0 0 0 0
         3 0 0 0 0 0 0 3 0 0 3 3 0 0 0 0
-    ]), Int[
+    ]), Integer[
         3 3 3 3 3 3 3
         3 0 0 3 0 0 3
         3 0 0 0 0 0 3
@@ -38775,7 +38775,7 @@ problem_fcb5c309 = Problem("problem_fcb5c309", [
         3 0 0 0 0 0 3
         3 3 3 3 3 3 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0
         0 3 3 3 3 3 3 3 0 0 2 0 0 0 0 0
         0 3 0 2 0 2 0 3 0 0 0 0 0 0 0 0
@@ -38791,7 +38791,7 @@ problem_fcb5c309 = Problem("problem_fcb5c309", [
         0 0 0 3 0 3 0 0 0 0 0 2 0 0 0 0
         0 0 2 3 3 3 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         2 2 2 2 2 2 2
         2 0 2 0 2 0 2
         2 0 0 0 0 0 2
@@ -38800,7 +38800,7 @@ problem_fcb5c309 = Problem("problem_fcb5c309", [
         2 0 0 0 0 2 2
         2 2 2 2 2 2 2
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0
         0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0
         1 1 1 0 1 0 8 0 8 0 0 1 8 0 0 0 0
@@ -38818,7 +38818,7 @@ problem_fcb5c309 = Problem("problem_fcb5c309", [
         0 0 0 8 8 0 0 8 0 0 1 0 0 0 0 1 0
         0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0
         0 0 0 0 0 0 0 0 8 8 0 0 0 0 0 0 8
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8 8 8 8
         8 0 8 0 8 0 0 8
         8 0 0 0 0 0 0 8
@@ -38831,7 +38831,7 @@ problem_fcb5c309 = Problem("problem_fcb5c309", [
 ])
 
 problem_fcc82909 = Problem("problem_fcc82909", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 9 9 0 0 0 0 0 0 0
@@ -38842,7 +38842,7 @@ problem_fcc82909 = Problem("problem_fcc82909", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 9 9 0 0 0 0 0 0 0
@@ -38854,7 +38854,7 @@ problem_fcc82909 = Problem("problem_fcc82909", [
         0 0 0 0 0 3 3 0 0 0
         0 0 0 0 0 3 3 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 4 8 0 0 0 0 0 0
         0 0 9 4 0 0 0 0 0 0
@@ -38865,7 +38865,7 @@ problem_fcc82909 = Problem("problem_fcc82909", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 4 8 0 0 0 0 0 0
         0 0 9 4 0 0 0 0 0 0
@@ -38877,7 +38877,7 @@ problem_fcc82909 = Problem("problem_fcc82909", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 2 4 0 0 9 8 0 0
         0 0 6 7 0 0 8 9 0 0
@@ -38888,7 +38888,7 @@ problem_fcc82909 = Problem("problem_fcc82909", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         0 0 2 4 0 0 9 8 0 0
         0 0 6 7 0 0 8 9 0 0
@@ -38900,7 +38900,7 @@ problem_fcc82909 = Problem("problem_fcc82909", [
         0 0 0 0 3 3 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0 0 0 0
         1 1 0 0 0 0 2 9 0 0
         2 1 0 0 0 0 1 6 0 0
@@ -38911,7 +38911,7 @@ problem_fcc82909 = Problem("problem_fcc82909", [
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         0 0 0 0 0 0 0 0 0 0
         1 1 0 0 0 0 2 9 0 0
         2 1 0 0 0 0 1 6 0 0
@@ -38926,7 +38926,7 @@ problem_fcc82909 = Problem("problem_fcc82909", [
 ])
 
 problem_feca6190 = Problem("problem_feca6190", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[1, 0, 7, 0, 0], 1, 5))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[1, 0, 7, 0, 0], 1, 5))), Integer[
         0 0 0 0 0 0 0 0 0 1
         0 0 0 0 0 0 0 0 1 0
         0 0 0 0 0 0 0 1 0 7
@@ -38938,14 +38938,14 @@ problem_feca6190 = Problem("problem_feca6190", [
         0 1 0 7 0 0 0 0 0 0
         1 0 7 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[0, 0, 2, 0, 0], 1, 5))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[0, 0, 2, 0, 0], 1, 5))), Integer[
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 2
         0 0 0 2 0
         0 0 2 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[4, 0, 6, 0, 8], 1, 5))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[4, 0, 6, 0, 8], 1, 5))), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
         0 0 0 0 0 0 0 0 0 0 0 0 0 4 0
         0 0 0 0 0 0 0 0 0 0 0 0 4 0 6
@@ -38962,7 +38962,7 @@ problem_feca6190 = Problem("problem_feca6190", [
         0 4 0 6 0 8 0 0 0 0 0 0 0 0 0
         4 0 6 0 8 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[0, 9, 0, 8, 4], 1, 5))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[0, 9, 0, 8, 4], 1, 5))), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 9
         0 0 0 0 0 0 0 0 0 0 0 0 0 9 0
@@ -38979,14 +38979,14 @@ problem_feca6190 = Problem("problem_feca6190", [
         0 0 9 0 8 4 0 0 0 0 0 0 0 0 0
         0 9 0 8 4 0 0 0 0 0 0 0 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[0, 4, 0, 0, 0], 1, 5))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[0, 4, 0, 0, 0], 1, 5))), Integer[
         0 0 0 0 0
         0 0 0 0 4
         0 0 0 4 0
         0 0 4 0 0
         0 4 0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Int[0, 6, 7, 8, 9], 1, 5))), Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Grid(reshape(Integer[0, 6, 7, 8, 9], 1, 5))), Integer[
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 7
@@ -39011,29 +39011,29 @@ problem_feca6190 = Problem("problem_feca6190", [
 ])
 
 problem_ff28f65a = Problem("problem_ff28f65a", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 0 0
         2 2 0 0 0
         0 0 0 0 0
         0 0 0 0 0
         0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0
         0 2 2 0 0
         0 2 2 0 0
         0 0 0 2 2
         0 0 0 2 2
-    ]), Int[
+    ]), Integer[
         1 0 1
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         0 2 2 0 0 0 0
         0 2 2 0 2 2 0
@@ -39041,33 +39041,33 @@ problem_ff28f65a = Problem("problem_ff28f65a", [
         0 0 2 2 0 0 0
         0 0 2 2 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1
         0 1 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0
         0 2 2 0 0 0
         0 2 2 0 0 0
         0 0 0 0 0 0
         0 0 2 2 0 0
         0 0 2 2 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0
         0 2 2
         0 2 2
-    ]), Int[
+    ]), Integer[
         1 0 0
         0 0 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 2 2 0
         0 0 0 0 2 2 0
         0 2 2 0 0 0 0
@@ -39075,12 +39075,12 @@ problem_ff28f65a = Problem("problem_ff28f65a", [
         0 0 0 0 2 2 0
         0 2 2 0 0 0 0
         0 2 2 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1
         0 1 0
         1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 2 2 0
         0 2 2 0 2 2 0
         0 2 2 0 0 0 0
@@ -39088,12 +39088,12 @@ problem_ff28f65a = Problem("problem_ff28f65a", [
         2 2 0 0 0 2 2
         2 2 0 2 2 0 0
         0 0 0 2 2 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1
         0 1 0
         1 0 1
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 2 2 0 2 2
         0 0 2 2 0 2 2
         2 2 0 0 0 0 0
@@ -39101,24 +39101,24 @@ problem_ff28f65a = Problem("problem_ff28f65a", [
         0 0 0 2 2 0 0
         0 0 0 0 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1
         0 1 0
         1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 2 2 0
         2 2 0 2 2 0
         2 2 0 0 0 0
         0 0 2 2 0 0
         0 0 2 2 0 0
         0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1
         0 1 0
         0 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 0 0 0 0 0 0
         2 2 0 2 2 0 0
         2 2 0 2 2 0 0
@@ -39126,12 +39126,12 @@ problem_ff28f65a = Problem("problem_ff28f65a", [
         0 0 2 2 0 2 2
         0 0 2 2 0 0 0
         0 0 0 0 0 0 0
-    ]), Int[
+    ]), Integer[
         1 0 1
         0 1 0
         1 0 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         2 2 0 2 2 0 0
         2 2 0 2 2 0 0
         0 0 0 0 0 2 2
@@ -39139,7 +39139,7 @@ problem_ff28f65a = Problem("problem_ff28f65a", [
         0 2 2 0 0 0 0
         0 0 0 0 2 2 0
         0 0 0 0 2 2 0
-    ]), Int[
+    ]), Integer[
         1 0 1
         0 1 0
         1 0 1
@@ -39147,7 +39147,7 @@ problem_ff28f65a = Problem("problem_ff28f65a", [
 ])
 
 problem_ff805c23 = Problem("problem_ff805c23", [
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 3 3 3 0 0 2 2 2 0 0 0 0 2 2 2 0 1 1 1 1 1 0
         3 3 3 3 3 0 2 2 0 2 2 0 0 2 2 0 2 2 1 1 1 1 1 3
         3 3 3 0 0 3 2 0 0 2 0 0 0 0 2 0 0 2 1 1 1 1 1 3
@@ -39172,14 +39172,14 @@ problem_ff805c23 = Problem("problem_ff805c23", [
         3 3 3 0 0 3 2 0 0 2 0 0 0 0 2 0 0 2 3 0 0 3 3 3
         3 3 3 3 3 0 2 2 0 2 2 0 0 2 2 0 2 2 0 3 3 3 3 3
         0 3 3 3 3 0 0 2 2 2 0 0 0 0 2 2 2 0 0 3 3 3 3 0
-    ]), Int[
+    ]), Integer[
         0 3 3 3 3
         0 3 3 3 3
         3 0 0 3 3
         3 3 3 0 3
         3 3 3 0 3
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 3 3 0 3 0 8 8 0 8 8 8 8 0 8 8 0 3 0 3 3 3 0
         3 0 3 0 3 0 8 0 8 0 0 0 0 0 0 8 0 8 0 3 0 3 0 3
         3 3 3 3 3 3 8 8 8 0 8 8 8 8 0 8 8 8 3 3 3 3 3 3
@@ -39204,14 +39204,14 @@ problem_ff805c23 = Problem("problem_ff805c23", [
         3 3 3 3 3 3 8 8 8 0 8 8 8 8 0 8 8 8 3 3 3 3 3 3
         3 0 3 0 3 0 8 0 8 0 0 0 0 0 0 8 0 8 0 3 0 3 0 3
         0 3 3 3 0 3 0 8 8 0 8 8 8 8 0 8 8 0 3 0 3 3 3 0
-    ]), Int[
+    ]), Integer[
         6 6 6 6 6
         6 6 6 6 6
         6 6 0 6 6
         6 6 6 6 6
         6 0 0 6 0
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         0 3 3 3 3 0 5 5 5 0 0 5 5 0 0 5 5 5 0 3 3 3 3 0
         3 3 3 3 3 3 5 5 0 0 0 0 0 0 0 0 5 5 3 3 3 3 3 3
         3 3 3 0 0 0 5 0 0 5 5 0 0 5 5 0 0 5 0 0 0 3 3 3
@@ -39236,14 +39236,14 @@ problem_ff805c23 = Problem("problem_ff805c23", [
         3 3 3 0 0 0 5 0 0 5 5 0 0 5 5 0 0 5 0 0 0 3 3 3
         3 3 3 3 3 3 5 5 0 0 0 0 0 0 0 0 5 5 3 3 3 3 3 3
         0 3 3 3 3 0 5 5 5 0 0 5 5 0 0 5 5 5 0 3 3 3 3 0
-    ]), Int[
+    ]), Integer[
         0 5 5 0 5
         0 5 5 0 0
         5 5 5 5 0
         0 0 0 0 5
         0 0 0 0 5
     ]),
-    IOExample(Dict{Symbol, Any}(:_arg_1 => Int[
+    IOExample(Dict{Symbol, Any}(:_arg_1 => Integer[
         4 4 4 0 4 0 0 3 3 3 0 0 0 0 3 3 3 0 0 4 0 4 4 4
         4 4 4 4 0 4 3 3 3 3 0 3 3 0 3 3 3 3 4 0 4 4 4 4
         4 4 0 4 0 0 3 3 0 0 3 3 3 3 0 0 3 3 0 0 4 0 4 4
@@ -39268,7 +39268,7 @@ problem_ff805c23 = Problem("problem_ff805c23", [
         4 4 0 4 0 0 3 3 0 0 3 3 3 3 0 0 3 3 0 0 4 0 4 4
         4 4 4 4 0 4 3 3 3 3 0 3 3 0 3 3 3 3 4 0 4 4 4 4
         4 4 4 0 4 0 0 3 3 3 0 0 0 0 3 3 3 0 0 4 0 4 4 4
-    ]), Int[
+    ]), Integer[
         8 8 8 8 8
         0 0 8 8 0
         0 8 0 0 8
