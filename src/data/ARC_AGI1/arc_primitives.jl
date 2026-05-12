@@ -495,7 +495,7 @@ function vperiod(object::Object)::Integer
 
 
     for p in 1:(h-1)
-        offsetted = shift(normalized, (-p, 0))
+        offsetted = shift(normalized, CartesianIndex(-p, 0))
         # Keep only cells with non-negative row indices
         pruned = Set((c, CartesianIndex(ind)) for (c, ind) in offsetted if ind[1] >= 0)
 
@@ -546,8 +546,8 @@ function shift(indices::Indices, directions::IntegerTuple)::Indices
 end
 
 """ Moves top left corner to origin"""
-normalize(patch::Object)::Object = isempty(patch) ? [] : shift(patch, (-uppermost(patch), -leftmost(patch)))
-normalize(patch::Indices)::Indices = isempty(patch) ? [] : shift(patch, (-uppermost(patch), -leftmost(patch)))
+normalize(patch::Object)::Object = isempty(patch) ? [] : shift(patch, CartesianIndex(-uppermost(patch), -leftmost(patch)))
+normalize(patch::Indices)::Indices = isempty(patch) ? [] : shift(patch, CartesianIndex(-uppermost(patch), -leftmost(patch)))
 
 """Indices of directly adjacent neighbours of a location. 4-connectivity"""
 function dneighbors(loc::IntegerTuple)::Indices
