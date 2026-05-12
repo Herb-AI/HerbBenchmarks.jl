@@ -29,7 +29,7 @@
     - Container: Grid | Object | Objects | Indices — Generic containers
 =#
 
-Integer = Int64
+Integer = Int8
 Grid = Matrix{Integer}
 GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
@@ -570,7 +570,7 @@ Finds connected objects in `grid`.
 """
 function objects(grid::Grid, univalued::Boolean=true, diagonal::Boolean=true, without_bg::Boolean=true)::Objects
     bg = without_bg ? mostcolor(grid) : nothing
-    objs = Set()
+    objs = []
     occupied = Set()
     indices = asindices(grid)
 
@@ -582,7 +582,7 @@ function objects(grid::Grid, univalued::Boolean=true, diagonal::Boolean=true, wi
         if without_bg && val == bg
             continue
         end
-        obj = Set()
+        obj = []
         cands = Set{CartesianIndex}()  # Changed: specify type
         push!(cands, loc)
         while !isempty(cands)
