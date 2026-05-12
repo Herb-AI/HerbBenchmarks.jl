@@ -476,7 +476,7 @@ function hperiod(object::Object)::Integer
     w = width(normalized)
 
     for p in 1:(w-1)
-        offsetted = shift(normalized, (0, -p))
+        offsetted = shift(normalized, CartesianIndex(0, -p))
         # Keep only cells with non-negative column indices
         pruned = Set((c, CartesianIndex(ind)) for (c, ind) in offsetted if ind[2] >= 0)
 
