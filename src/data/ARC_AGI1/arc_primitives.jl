@@ -1086,9 +1086,9 @@ remove(value::Object, container::Objects)::Objects = filter(!=(value), container
 remove(value::Integer, container::IntContainer)::IntContainer = filter(!=(value), container)
 
 """Returns other value in container, i.e., first element after removing given value"""
-other(value::IntegerTuple, container::Indices)::Indices = firstof(remove(value, container))
-other(value::Object, container::Objects)::Objects = firstof(remove(value, container))
-other(value::Integer, container::IntContainer)::IntContainer = firstof(remove(value, container))
+other(value::IntegerTuple, container::Indices)::Unsafe(IntegerTupl) = firstof(remove(value, container))
+other(value::Object, container::Objects)::Unsafe(Object) = firstof(remove(value, container))
+other(value::Integer, container::IntContainer)::Unsafe(Integer) = firstof(remove(value, container))
 
 """Returns range between start and stop with given step size"""
 interval(start::Integer, stop::Integer, step::Integer)::Unsafe(IntContainer) = step != 0 ? collect(range(start, stop, step=step)) : nothing
