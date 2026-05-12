@@ -269,8 +269,8 @@ mostcolor(object::Object)::Unsafe(Integer) = !isempty(object) ? findmax(countmap
     Returns the least common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-leastcolor(grid::Matrix)::Unsafe(Integer) = !isempty(grid) ? findmin(countmap(grid))[2] : nothing
-leastcolor(object::Grid)::Unsafe(Integer) = !isempty(object) ? findmin(countmap(x[1] for x in object))[2] : nothing
+leastcolor(grid::Grid)::Unsafe(Integer) = !isempty(grid) ? findmin(countmap(grid))[2] : nothing
+leastcolor(object::Object)::Unsafe(Integer) = !isempty(object) ? findmin(countmap(x[1] for x in object))[2] : nothing
 
 """Number of cells with given color value"""
 colorcount(grid::Grid, value::Integer)::Integer = count(==(value), grid)
