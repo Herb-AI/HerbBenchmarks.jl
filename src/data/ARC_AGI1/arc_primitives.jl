@@ -169,7 +169,7 @@ order(container::Objects)::Objects = sort(collect(container))
 order_by(container::Objects, compfunc)::Objects = sort(collect(container), by=compfunc)
 
 """Repeat item (Grid) to have item a total of num times"""
-repeat_item(item::Grid, num::Integer)::Grid = repeat(item, 1, num)
+repeat_item(item::Grid, num::Integer)::Unsafe(Grid) = num >= 0 ? repeat(item, 1, num) : nothing
 
 """Size of container"""
 size_of(container::Container)::Integer = length(container)
