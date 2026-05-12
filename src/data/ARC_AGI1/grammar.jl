@@ -3,6 +3,7 @@ grammar_hodel = @csgrammar begin
     Grid = _arg_1
 
     Integer = |(1:30) # covers color and grid size
+    Boolean = false | true
 
     Patch = Object | Indices
     Piece = Grid | Patch
