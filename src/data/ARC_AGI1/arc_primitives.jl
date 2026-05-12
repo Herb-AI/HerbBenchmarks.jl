@@ -1103,7 +1103,7 @@ pair(a::IntegerTuple, b::IntegerTuple)::Indices = collect(CartesianIndex.(zip(a.
 
 """if-else condition"""
 branch(condition::Boolean, a::Integer, b::Integer)::Integer = condition ? a : b
-branch(condition::Boolean, a::IntegerTuple, b::IntegIntegerTupleer)::IntegerTuple = condition ? a : b
+branch(condition::Boolean, a::IntegerTuple, b::IntegerTuple)::IntegerTuple = condition ? a : b
 branch(condition::Boolean, a::Object, b::Object)::Object = condition ? a : b
 branch(condition::Boolean, a::Objects, b::Objects)::Objects = condition ? a : b
 branch(condition::Boolean, a::Indices, b::Indices)::Indices = condition ? a : b
