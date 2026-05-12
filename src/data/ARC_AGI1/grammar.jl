@@ -81,8 +81,8 @@ grammar_hodel = @csgrammar begin
     
     Objects = apply(ObjectToObjectFunc, Objects)
     IntContainer = apply(ObjectToIntFunc, Objects)
-    Indices = mapply(IndexToIndicesFunc, Indices)
-    Indices = mapply(ObjectToIndicesFunc, Objects)
+    Indices = apply(IndexToIndicesFunc, Indices)
+    Indices = apply(ObjectToIndicesFunc, Objects)
 
     Object = argmax_by(Objects, ObjectToIntFunc)
     Object = argmin_by(Objects, ObjectToIntFunc)
