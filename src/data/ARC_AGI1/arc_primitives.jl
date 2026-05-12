@@ -29,7 +29,7 @@
     - Container: Grid | Object | Objects | Indices — Generic containers
 =#
 
-Integer = Int8
+Integer = Int64
 Grid = Matrix{Integer}
 GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
