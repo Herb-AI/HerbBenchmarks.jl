@@ -1119,14 +1119,13 @@ branch(condition::Boolean, a::Indices, b::Indices)::Indices = condition ? a : b
 branch(condition::Boolean, a::Grid, b::Grid)::Grid = condition ? a : b
 
 """Apply function to each element in container"""
-apply(func, container::Objects)::Union{Objects,IntContainer,Indices} = map(x -> func([x]), container)
-apply(func, container::Indices)::Vector{Indices} = map(func, container)
+apply(func, container::Objects)::Union{Objects,IntContainer} = map(func, container)
 
 """Apply each function in container to a value"""
 # rapply(container, value) = [f(value) for f in container] # not included in grammar since it can't construct container of functions
 
 """Apply and merge"""
-mapply(func, container::Union{Indices,Objects})::Indices = merge_containers(apply(func, container)) # not included in grammar
+mapply(func, container::Union{Indices,Objects})::Indices = merge_containers(map(func, container))
 
 """Apply function on two vectors a and b"""
 # papply(func, a, b) = func.(a, b) # not included in grammar - only works if a and be are the same length (hard to guarantee in search)
