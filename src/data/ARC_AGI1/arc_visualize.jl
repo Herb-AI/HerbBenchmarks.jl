@@ -41,7 +41,9 @@ function grid_lines(grid::Matrix; show_numbers::Bool=false, show_axes::Bool=fals
         for j in 1:size(grid, 2)
             val = grid[i, j]
             rgb = get(ARC_COLORS, val, (255, 255, 255))
-            if show_numbers
+            if val == -1
+                print(row_io, "  ", reset())
+            elseif show_numbers
                 print(row_io, bg(rgb), fg(text_color_for(rgb)), lpad(string(val), 2), reset())
             else
                 print(row_io, bg(rgb), "  ", reset())
@@ -55,6 +57,13 @@ function grid_lines(grid::Matrix; show_numbers::Bool=false, show_axes::Bool=fals
 end
 
 function visualize(grid::Matrix; show_numbers::Bool=false, show_axes::Bool=false)
+    for line in grid_lines(grid; show_numbers=show_numbers, show_axes=show_axes)
+        println(line)
+    end
+end
+
+function visualize(grids::Vector; show_numbers::Bool=false, show_axes::Bool=false)
+    grid = hstack_with_padding(grids)
     for line in grid_lines(grid; show_numbers=show_numbers, show_axes=show_axes)
         println(line)
     end
@@ -86,4 +95,26 @@ function visualize(problem::Problem; show_numbers::Bool=false, show_axes::Bool=f
         println(repeat("─", 40))
         println()
     end
+end
+
+function hstack_with_padding(mats::Vector{<:AbstractMatrix{Int}})
+    heights = [size(m, 1) for m in mats]
+    widths  = [size(m, 2) for m in mats]
+
+    total_height = maximum(heights)
+    total_width  = sum(widths) + (length(mats) - 1) # 1-column padding
+
+    # Fill everything with -1
+    result = fill(-1, total_height, total_width)
+
+    col = 1
+    for m in mats
+        h, w = size(m)
+
+        result[1:h, col:col+w-1] = m
+
+        col += w + 1
+    end
+
+    return result
 end
