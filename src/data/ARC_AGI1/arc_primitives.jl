@@ -537,7 +537,7 @@ Finds connected objects in `grid`.
 - `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
 - `without_bg`: If `true`, the most common value (background) is ignored.
 """
-function objects(grid, univalued, diagonal, without_bg)
+function objects(grid, univalued=true, diagonal=true, without_bg=true)
     bg = without_bg ? mostcolor(grid) : nothing
     objs = Set()
     occupied = Set()
