@@ -159,10 +159,10 @@ function valmin(container, compfunc)
 end
 
 """returns the container that maximizes the custom function"""
-argmax_by(containers, compfunc) = (!isempty(containers) && !any(isempty, containers)) ? containers[argmax(compfunc.(containers))] : nothing
+argmax_by(containers, compfunc) = !isempty(containers) ? containers[argmax(compfunc.(containers))] : nothing
 
 """returns the container that maximizes the custom function"""
-argmin_by(containers, compfunc) = (!isempty(containers) && !any(isempty, containers)) ? containers[argmin(compfunc.(containers))] : nothing
+argmin_by(containers, compfunc) = !isempty(containers) ? containers[argmin(compfunc.(containers))] : nothing
 
 """most common item in container"""
 mostcommon(container) = !isempty(container) ? mode(container) : nothing
@@ -191,11 +191,11 @@ leftmost(indices) = !isempty(indices) ? minimum(x[2] for x in indices) : nothing
 
 """ Height of grid or patch"""
 height(grid::Matrix) = size(grid)[1]
-height(patch) = isempty(patch) ? 0 : lowermost(patch) - uppermost(patch) + 1
+height(patch) = isempty(patch) ? 0 : lowermost(patch)[1] - uppermost(patch)[1] + 1
 
 """Width of grid or patch"""
 width(grid::Matrix) = size(grid)[2]
-width(patch) = isempty(patch) ? 0 : rightmost(patch) - leftmost(patch) + 1
+width(patch) = isempty(patch) ? 0 : rightmost(patch)[2] - leftmost(patch)[2] + 1
 
 """Dimensions (height and width) of grid or patch"""
 shape(piece) = CartesianIndex(height(piece), width(piece))
