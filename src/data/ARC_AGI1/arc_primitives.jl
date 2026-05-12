@@ -1125,7 +1125,7 @@ apply(func, container::Objects)::Union{Objects,IntContainer} = map(func, contain
 # rapply(container, value) = [f(value) for f in container] # not included in grammar since it can't construct container of functions
 
 """Apply and merge"""
-mapply(func, container::Union{Indices,Objects})::Indices = reduce(vcat, (map(func, container)))
+mapply(func, container::Union{Indices,Objects})::Indices = isempty(container) ? [] : reduce(vcat, (map(func, container)))
 
 """Apply function on two vectors a and b"""
 # papply(func, a, b) = func.(a, b) # not included in grammar - only works if a and be are the same length (hard to guarantee in search)
