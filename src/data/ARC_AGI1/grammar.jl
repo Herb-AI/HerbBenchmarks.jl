@@ -8,7 +8,7 @@ grammar_hodel = @csgrammar begin
 
     Patch = Object | Indices
     Piece = Grid | Patch
-    Element = Object | Grid
+    Element = Grid | Object
     Container = Grid | Object | Objects | Indices
 
     # Integer and IntegerTuple producers

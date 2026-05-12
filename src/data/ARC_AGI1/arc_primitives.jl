@@ -29,225 +29,263 @@
     - Container: Grid | Object | Objects | Indices — Generic containers
 =#
 
+Grid = Matrix{Int}
+GridContainer = Vector{Grid}
+Integer = Integer
+IntContainer = Vector{Integer}
+Boolean = Bool
+IntegerTuple = CartesianIndex{2}
+Indices = Vector{IntegerTuple}
+Object = Vector{Tuple{Integer, IntegerTuple}}
+Objects = Vector{Object}
+
+Unsafe = t -> Union{Nothing, t}
+
+Patch = Union{Object, Indices}
+Piece = Union{Grid, Patch}
+Element = Union{Grid, Object}
+Container = Union{Grid, Object, Objects, Indices}
+
 using MLStyle
 using StatsBase
 
 """Returns the sum of a and b"""
-add(a, b) = a + b
-add(a::CartesianIndex{N}, b::Integer) where N = a + CartesianIndex(ntuple(_ -> b, N))
-add(a::Integer, b::CartesianIndex{N}) where N = CartesianIndex(ntuple(_ -> a, N)) + b
+add(a::Integer, b::Integer)::Integer = a + b
+add(a::IntegerTuple, b::Integer)::IntegerTuple = a + CartesianIndex(b, b)
+add(a::Integer, b::IntegerTuple)::IntegerTuple = CartesianIndex(a, a) + b
 
 
 """Subtracts b from a"""
-subtract(a, b) = a - b
-subtract(a::CartesianIndex{N}, b::Integer) where N = a - CartesianIndex(ntuple(_ -> b, N))
-subtract(a::Integer, b::CartesianIndex{N}) where N = CartesianIndex(ntuple(_ -> a, N)) - b
+subtract(a::Integer, b::Integer)::Integer = a - b
+subtract(a::IntegerTuple, b::Integer)::IntegerTuple = a - CartesianIndex(b, b)
+subtract(a::Integer, b::IntegerTuple)::IntegerTuple = CartesianIndex(a, a) - b
 
 """Returns the product of  a and b"""
-multiply(a, b) = a * b
-multiply(a::CartesianIndex{N}, b::CartesianIndex{N}) where N =
-    CartesianIndex(ntuple(i -> a[i] * b[i], N))
+multiply(a::Integer, b::Integer)::Integer = a * b
+multiply(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = CartesianIndex(a[1] * b[1], a[2] * b[2])
 
 """ Returns the result of integer division of  a and b"""
-divide(a, b) = b != 0 ? a ÷ b : nothing
-divide(a::CartesianIndex{N}, b) where N = b != 0 ? CartesianIndex(ntuple(i -> a[i] ÷ b, N)) : nothing
-divide(a, b::CartesianIndex{N}) where N = !any(iszero, b.I) ? CartesianIndex(ntuple(i -> a ÷ b[i], N)) : nothing
-divide(a::CartesianIndex{N}, b::CartesianIndex{N}) where N =
-    !any(iszero, b.I) ? CartesianIndex(ntuple(i -> a[i] ÷ b[i], N)) : nothing
+divide(a::Integer, b::Integer)::Unsafe(Integer) = b != 0 ? a ÷ b : nothing
+divide(a::IntegerTuple, b)::Unsafe(CartesianIndex{2}) = b != 0 ? CartesianIndex(a[1] ÷ b, a[2] ÷ b) : nothing
+divide(a::Integer, b::IntegerTuple)::Unsafe(CartesianIndex{2}) = !any(iszero, b.I) ? CartesianIndex(a ÷ b[1], a ÷ b[2]) : nothing
+divide(a::IntegerTuple, b::IntegerTuple)::Unsafe(CartesianIndex{2}) = !any(iszero, b.I) ? CartesianIndex(a[1] ÷ b[1], a[2] ÷ b[2]) : nothing
 
 """Inverts the sign of a"""
-invert(a) = -1 * a
+invert(a::Integer)::Integer = -1 * a
+invert(a::IntegerTuple)::IntegerTuple = -1 * a
 
 
 """Scales a by two"""
-
-double(a) = a * 2
+double(a::Integer)::Integer = 2 * a
+double(a::IntegerTuple)::IntegerTuple = 2 * a
 
 """Floor division of a by two"""
-halve(a::Integer) = a ÷ 2
-halve(a::CartesianIndex) = divide(a, 2)
+halve(a::Integer)::Integer = a ÷ 2
+halve(a::IntegerTuple)::IntegerTuple = divide(a, 2)
 
 """Increment by one"""
-increment(a) = add(a, 1)
+increment(a::Integer)::Integer = add(a, 1)
+increment(a::IntegerTuple)::IntegerTuple = add(a, 1)
 
 """Decrement by one"""
-decrement(a) = subtract(a, 1)
+decrement(a::Integer)::Integer = subtract(a, 1)
+decrement(a::IntegerTuple)::IntegerTuple = subtract(a, 1)
 
 """Increments positive values, decrements negative. Zero unchanged"""
-crement(a) = a + (a > 0) - (a < 0)
-crement(a::CartesianIndex{N}) where N = CartesianIndex(ntuple(i -> crement(a[i]), N))
+crement(a::Integer)::Integer = a + (a > 0) - (a < 0)
+crement(a::IntegerTuple)::IntegerTuple = CartesianIndex(crement(a[1]), crement(a[2]))
 
 """Returns sign of (each element of) a, preserving the type of a"""
-signof(a) = sign(a)
-signof(a::CartesianIndex{N}) where N = CartesianIndex(ntuple(i -> sign(a[i]), N))
+signof(a::Integer)::Integer = sign(a)
+signof(a::IntegerTuple)::IntegerTuple = CartesianIndex(sign(a[1]), sign(a[2]))
 
 """Returns whether an a is even"""
-even(a) = a % 2 == 0
+even(a::Integer)::Boolean = a % 2 == 0
 
 """Returns wheter a is greater than b"""
-greater(a, b) = a > b
+greater(a::Integer, b::Integer)::Boolean = a > b
 
 """Returns whether a is greater than zero"""
-positive(a) = a > 0
+positive(a::Integer)::Boolean = a > 0
 
 """Returns vertically pointing vector"""
-toivec(i) = CartesianIndex(i, 0)
+toivec(i::Integer)::IntegerTuple = CartesianIndex(i, 0)
 
 """Returns horizontally pointing vector"""
-tojvec(j) = CartesianIndex(0, j)
+tojvec(j::Integer)::IntegerTuple = CartesianIndex(0, j)
 
 """Constructs CartesianIndex from a and b"""
-astuple(a, b) = CartesianIndex(a, b)
+astuple(a::Integer, b::Integer)::IntegerTuple = CartesianIndex(a, b)
 
 """Flip bool to opposite value"""
-flip(a) = !a
+flip(a::Boolean)::Boolean = !a
 
 """Boolean AND (short-circuiting)"""
-both(a, b) = a && b
+both(a::Boolean, b::Boolean)::Boolean = a && b
 
 """Boolean OR (short-circuiting)"""
-either(a, b) = a || b
+either(a::Boolean, b::Boolean)::Boolean = a || b
 
 """Wrapper around `==`"""
-equality(a, b) = a == b
-equality(a::Vector, b::Vector) = Set(a) == Set(b) # for Object where order doesn't matter
+equality(a::Integer, b::Integer)::Bool = a == b
+equality(a::IntegerTuple, b::IntegerTuple)::Bool = a == b
+equality(a::Grid, b::Grid)::Bool = a == b
+equality(a::Object, b::Object)::Bool = Set(a) == Set(b) # for Object where order doesn't matter
 
 """Whether value is an element of container"""
-contained(value, container) = value in container
+contained(value::Integer, container::IntContainer)::Bool = value in container
+contained(value::IntegerTuple, container::Indices)::Bool = value in container
+contained(value::Object, container::Objects)::Bool = value in container
 
 """Combine two vectors"""
-combine(a, b) = vcat(a, b)
+combine(a::Indices, b::Indices)::Indices = vcat(a, b)
+combine(a::Object, b::Object)::Object = vcat(a, b)
+combine(a::Objects, b::Objects)::Objects = vcat(a, b)
+combine(a::IntContainer, b::IntContainer)::IntContainer = vcat(a, b)
 
 """Intersection of two containers (vectors) a and b"""
-intersection(a, b) = intersect(a, b)
+intersection(a::Indices, b::Indices)::Indices = intersect(a, b)
+intersection(a::Objects, b::Objects)::Objects = intersect(a, b)
+intersection(a::Object, b::Object)::Object = intersect(a, b)
+intersection(a::IntContainer, b::IntContainer)::IntContainer = intersect(a, b)
 
 """difference between elements in two containers (vectors) a and b"""
-difference(a, b) = setdiff(a, b)
+difference(a::Indices, b::Indices)::Indices = setdiff(a, b)
+difference(a::Objects, b::Objects)::Objects = setdiff(a, b)
+difference(a::Object, b::Object)::Object = setdiff(a, b)
+difference(a::IntContainer, b::IntContainer)::IntContainer = setdiff(a, b)
 
 """Removes duplicate rows/elements from matrix/vector"""
-dedupe(grid::Matrix) = isempty(grid) ? [] : permutedims(stack(unique(eachrow(grid))))
-dedupe(a) = unique(a)
+dedupe(grid::Grid)::Grid = isempty(grid) ? [] : permutedims(stack(unique(eachrow(grid))))
+dedupe(a::Indices)::Indices = unique(a)
+dedupe(a::Object)::Object = unique(a)
+dedupe(a::Objects)::Objects = unique(a)
+dedupe(a::IntContainer)::IntContainer = unique(a)
 
 """Order container"""
-order(container) = sort(collect(container))
+order(container::Objects)::Objects = sort(collect(container))
 
 """Order container by custom key `compfunc`"""
-order_by(container, compfunc) = sort(collect(container), by=compfunc)
+order_by(container::Objects, compfunc)::Objects = sort(collect(container), by=compfunc)
 
 """Repeat item (Grid) to have item a total of num times"""
-repeat_item(item, num) = hcat([item for i in 1:num]...)
+repeat_item(item::Grid, num::Integer)::Grid = hcat([item for i in 1:num]...)
 
 """Size of container"""
-size_of(container) = length(container)
+size_of(container::Container)::Integer = length(container)
 
 """maximum"""
-maximum_of(container) = !isempty(container) ? maximum(container) : nothing
+maximum_of(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? maximum(container) : nothing
+maximum_of(container::Grid)::Unsafe(Integer) = !isempty(container) ? maximum(container) : nothing
 
 """maximum"""
-minimum_of(container) = !isempty(container) ? minimum(container) : nothing
+minimum_of(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? minimum(container) : nothing
+minimum_of(container::Grid)::Unsafe(Integer) = !isempty(container) ? minimum(container) : nothing
 
 """maximum by custom function"""
-function valmax(container, compfunc)
+function valmax(container::Objects, compfunc)::Unsafe(Integer)
     isempty(container) && return nothing
     return maximum(compfunc(x) for x in container)
 end
 
 """minimum by custom function"""
-function valmin(container, compfunc)
+function valmin(container::Objects, compfunc)::Unsafe(Integer)
     isempty(container) && return nothing
     return minimum(compfunc(x) for x in container)
 end
 
 """returns the container that maximizes the custom function"""
-argmax_by(containers, compfunc) = !isempty(containers) ? containers[argmax(compfunc.(containers))] : nothing
+argmax_by(containers::Objects, compfunc)::Unsafe(Object) = !isempty(containers) ? containers[argmax(compfunc.(containers))] : nothing
 
 """returns the container that maximizes the custom function"""
-argmin_by(containers, compfunc) = !isempty(containers) ? containers[argmin(compfunc.(containers))] : nothing
+argmin_by(containers::Objects, compfunc)::Unsafe(Object) = !isempty(containers) ? containers[argmin(compfunc.(containers))] : nothing
 
 """most common item in container"""
-mostcommon(container) = !isempty(container) ? mode(container) : nothing
+mostcommon(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? mode(container) : nothing
+mostcommon(container::Indices)::Unsafe(IntegerTuple) = !isempty(container) ? mode(container) : nothing
+mostcommon(container::Objects)::Unsafe(Object) = !isempty(container) ? mode(container) : nothing
 
 """least common item in container"""
-leastcommon(container) = !isempty(container) ? argmin(countmap(container)) : nothing
+leastcommon(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? argmin(countmap(container)) : nothing
+leastcommon(container::Indices)::Unsafe(IntegerTuple) = !isempty(container) ? argmin(countmap(container)) : nothing
+leastcommon(container::Objects)::Unsafe(Object) = !isempty(container) ? argmin(countmap(container)) : nothing
 
 """initialize vector"""
-init(value) = fill(value, 1, 1)
+init(value::Integer)::Grid = fill(value, 1, 1)
 
 """Row index of lowermost occupied cell"""
-lowermost(object::Vector{<:Tuple}) = !isempty(object) ? maximum(x[2][1] for x in object) : nothing
-lowermost(indices) = !isempty(indices) ? maximum(x[1] for x in indices) : nothing
+lowermost(object::Object)::Unsafe(Integer) = !isempty(object) ? maximum(x[2][1] for x in object) : nothing
+lowermost(indices::Indices)::Unsafe(Integer) = !isempty(indices) ? maximum(x[1] for x in indices) : nothing
 
 """Row index of uppermost occupied cell"""
-uppermost(object::Vector{<:Tuple}) = !isempty(object) ? minimum(x[2][1] for x in object) : nothing
-uppermost(indices) = !isempty(indices) ? minimum(x[1] for x in indices) : nothing
+uppermost(object::Object)::Unsafe(Integer) = !isempty(object) ? minimum(x[2][1] for x in object) : nothing
+uppermost(indices::Indices)::Unsafe(Integer) = !isempty(indices) ? minimum(x[1] for x in indices) : nothing
 
 """Row index of rightmost occupied cell"""
-rightmost(object::Vector{<:Tuple}) = !isempty(object) ? maximum(x[2][2] for x in object) : nothing
-rightmost(indices) = !isempty(indices) ? maximum(x[2] for x in indices) : nothing
+rightmost(object::Object)::Unsafe(Integer) = !isempty(object) ? maximum(x[2][2] for x in object) : nothing
+rightmost(indices::Indices)::Unsafe(Integer) = !isempty(indices) ? maximum(x[2] for x in indices) : nothing
 
 """Row index of leftmost occupied cell"""
-leftmost(object::Vector{<:Tuple}) = !isempty(object) ? minimum(x[2][2] for x in object) : nothing
-leftmost(indices) = !isempty(indices) ? minimum(x[2] for x in indices) : nothing
+leftmost(object::Object)::Unsafe(Integer) = !isempty(object) ? minimum(x[2][2] for x in object) : nothing
+leftmost(indices::Indices)::Unsafe(Integer) = !isempty(indices) ? minimum(x[2] for x in indices) : nothing
 
 """ Height of grid or patch"""
-height(grid::Matrix) = size(grid)[1]
-height(patch) = isempty(patch) ? 0 : lowermost(patch) - uppermost(patch) + 1
+height(grid::Grid)::Integer = size(grid)[1]
+height(patch::Patch)::Integer = isempty(patch) ? 0 : lowermost(patch) - uppermost(patch) + 1
 
 """Width of grid or patch"""
-width(grid::Matrix) = size(grid)[2]
-width(patch) = isempty(patch) ? 0 : rightmost(patch) - leftmost(patch) + 1
+width(grid::Grid)::Integer = size(grid)[2]
+width(patch::Patch)::Integer = isempty(patch) ? 0 : rightmost(patch) - leftmost(patch) + 1
 
 """Dimensions (height and width) of grid or patch"""
-shape(piece) = CartesianIndex(height(piece), width(piece))
+shape(piece::Piece)::IntegerTuple = CartesianIndex(height(piece), width(piece))
 
 """Whether height is greater than width"""
-portrait(piece) = height(piece) > width(piece)
+portrait(piece::Piece)::Boolean = height(piece) > width(piece)
 
 """Whether the piece forms a square"""
-square(grid::Matrix) = height(grid) == width(grid)
+square(grid::Grid)::Boolean = height(grid) == width(grid)
 
-function square(patch)
+function square(patch::Patch)::Boolean
     h = height(patch)
     w = width(patch)
     return h == w && h * w == length(patch)
 end
 
 """Whether the piece forms a vertical line"""
-vline(piece) = height(piece) == length(piece) && width(piece) == 1
+vline(piece::Piece)::Boolean = height(piece) == length(piece) && width(piece) == 1
 
 """Whether the piece forms a horizontal line. """
-hline(piece) = width(piece) == length(piece) && height(piece) == 1
+hline(piece::Piece)::Boolean = width(piece) == length(piece) && height(piece) == 1
 
 """
     Returns the most common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-mostcolor(grid::Matrix) = !isempty(grid) ? findmax(countmap(grid))[2] : nothing
-mostcolor(object) = !isempty(object) ? findmax(countmap(x[1] for x in object))[2] : nothing
+mostcolor(grid::Grid)::Unsafe(Integer) = !isempty(grid) ? findmax(countmap(grid))[2] : nothing
+mostcolor(object::Object)::Unsafe(Integer) = !isempty(object) ? findmax(countmap(x[1] for x in object))[2] : nothing
 
 """
     Returns the least common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-leastcolor(grid::Matrix) = !isempty(grid) ? findmin(countmap(grid))[2] : nothing
-leastcolor(object) = !isempty(object) ? findmin(countmap(x[1] for x in object))[2] : nothing
+leastcolor(grid::Matrix)::Unsafe(Integer) = !isempty(grid) ? findmin(countmap(grid))[2] : nothing
+leastcolor(object::Grid)::Unsafe(Integer) = !isempty(object) ? findmin(countmap(x[1] for x in object))[2] : nothing
 
 """Number of cells with given color value"""
-colorcount(grid::Matrix, value) = count(==(value), grid)
-colorcount(element, value) = count(==(value), x[1] for x in element)
+colorcount(grid::Grid, value::Integer)::Integer = count(==(value), grid)
+colorcount(object::Object, value::Integer)::Integer = count(==(value), x[1] for x in object)
 
 
 """Filters objects by color value. An object is included if its first element matches the color value."""
-colorfilter(objects, value) = [obj for obj in objects if first(obj[1]) == value]
+colorfilter(objects::Objects, value::Integer)::Objects = [obj for obj in objects if first(obj[1]) == value]
 # The Python implementation checks first element to `obj` only. Unclear if intended this way.
 
 """Return container with only elements of given size"""
-function sizefilter(container, size)
-    return [x for x in container if length(x) == size]
-end
+sizefilter(container::Objects, size::Integer)::Objects = [x for x in container if length(x) == size]
 
 """Returns index of upper left corner."""
-function ulcorner(indices)
+function ulcorner(indices::Indices)::IntegerTuple
     min_row = typemax(Int)
     min_col = typemax(Int)
     @inbounds for idx in indices
@@ -258,11 +296,10 @@ function ulcorner(indices)
     return CartesianIndex(min_row, min_col)
 end
 
-ulcorner(object::Vector{<:Tuple}) = ulcorner(toindices(object))
-ulcorner(object::Matrix{<:Tuple}) = ulcorner(toindices(object))
+ulcorner(object::Object)::IntegerTuple = ulcorner(toindices(object))
 
 """Returns index of upper right corner."""
-function urcorner(indices)
+function urcorner(indices::Indices)::IntegerTuple
     min_row = typemax(Int)
     max_col = typemin(Int)
     @inbounds for idx in indices
@@ -273,11 +310,10 @@ function urcorner(indices)
     return CartesianIndex(min_row, max_col)
 end
 
-urcorner(object::Vector{<:Tuple}) = urcorner(toindices(object))
-urcorner(object::Matrix{<:Tuple}) = urcorner(toindices(object))
+urcorner(object::Object)::IntegerTuple = urcorner(toindices(object))
 
 """Returns index of lower left corner"""
-function llcorner(indices)
+function llcorner(indices::Indices)::IntegerTuple
     max_row = typemin(Int)
     min_col = typemax(Int)
     @inbounds for idx in indices
@@ -288,11 +324,10 @@ function llcorner(indices)
     return CartesianIndex(max_row, min_col)
 end
 
-llcorner(object::Vector{<:Tuple}) = llcorner(toindices(object))
-llcorner(object::Matrix{<:Tuple}) = llcorner(toindices(object))
+llcorner(object::Object)::IntegerTuple = llcorner(toindices(object))
 
 """Returns index of lower right corner."""
-function lrcorner(indices)
+function lrcorner(indices::Indices)::IntegerTuple
     max_row = typemin(Int)
     max_col = typemin(Int)
     @inbounds for idx in indices
@@ -303,18 +338,16 @@ function lrcorner(indices)
     return CartesianIndex(max_row, max_col)
 end
 
-lrcorner(object::Vector{<:Tuple}) = lrcorner(toindices(object))
-lrcorner(object::Matrix{<:Tuple}) = lrcorner(toindices(object))
+lrcorner(object::Object)::IntegerTuple = lrcorner(toindices(object))
 
 """Returns indices"""
-toindices(object::Matrix{<:Tuple}) = toindices([object...])
-toindices(object::Vector{<:Tuple}) = Vector{CartesianIndex{2}}([i[2] for i in object])
-toindices(indices) = Vector{CartesianIndex{2}}(indices)
+toindices(object::Object)::Indices = [i[2] for i in object]
+toindices(indices::Indices)::Indices = indices
 
 """Mirrors along vertical"""
-vmirror(grid) = reverse(grid, dims=2)
+vmirror(grid::Grid)::Grid = reverse(grid, dims=2)
 
-function vmirror(indices::AbstractVector)
+function vmirror(indices::Indices)::Indices
     isempty(indices) && return []
 
     min_col, max_col = extrema(idx[2] for idx in indices)
@@ -322,7 +355,7 @@ function vmirror(indices::AbstractVector)
     return [CartesianIndex(idx[1], d - idx[2]) for idx in indices]
 end
 
-function vmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
+function vmirror(object::Object)::Object
     isempty(object) && return []
 
     min_col, max_col = extrema(idx[2] for (_, idx) in object)
@@ -331,9 +364,9 @@ function vmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
 end
 
 """ Mirrors along horizontal."""
-hmirror(grid) = reverse(grid, dims=1)
+hmirror(grid::Grid)::Grid = reverse(grid, dims=1)
 
-function hmirror(indices::AbstractVector)
+function hmirror(indices::Indices)::Indices
     isempty(indices) && return []
 
     min_row, max_row = extrema(idx[1] for idx in indices)
@@ -341,7 +374,7 @@ function hmirror(indices::AbstractVector)
     return [CartesianIndex(d - idx[1], idx[2]) for idx in indices]
 end
 
-function hmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
+function hmirror(object::Object)::Object
     isempty(object) && return []
 
     min_row, max_row = extrema(idx[1] for (_, idx) in object)
@@ -350,9 +383,9 @@ function hmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
 end
 
 """Mirrors along diagonal."""
-dmirror(grid) = permutedims(grid)
+dmirror(grid::Grid)::Grid = permutedims(grid)
 
-function dmirror(indices::AbstractVector)
+function dmirror(indices::Indices)::Indices
     isempty(indices) && return []
 
     corner = ulcorner(indices)
@@ -361,7 +394,7 @@ function dmirror(indices::AbstractVector)
     return [CartesianIndex(idx[2] - b + a, idx[1] - a + b) for idx in indices]
 end
 
-function dmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
+function dmirror(object::Object)::Object
     isempty(object) && return []
 
     corner = ulcorner(object)
@@ -371,12 +404,12 @@ function dmirror(object::Vector{<:Tuple{<:Integer,CartesianIndex}})
 end
 
 """Mirrors along the counter-diagonal"""
-cmirror(grid) = reverse(permutedims(reverse(grid, dims=1)), dims=1)
-
-cmirror(piece::AbstractVector) = vmirror(dmirror(vmirror(piece)))
+cmirror(grid::Grid)::Grid = reverse(permutedims(reverse(grid, dims=1)), dims=1)
+cmirror(piece::Object)::Object = vmirror(dmirror(vmirror(piece)))
+cmirror(piece::Indices)::Indices = vmirror(dmirror(vmirror(piece)))
 
 """ Upscales grid or object by given `factor`"""
-function upscale(grid::AbstractMatrix, factor)
+function upscale(grid::Grid, factor::Integer)::Unsafe(Grid)
     factor < 0 && return nothing
 
     rows, cols = size(grid)
@@ -394,7 +427,7 @@ function upscale(grid::AbstractMatrix, factor)
     return upscaled
 end
 
-function upscale(object, factor)
+function upscale(object::Object, factor::Integer)::Unsafe(Object)
     isempty(object) && return []
     factor < 0 && return nothing
 
@@ -412,7 +445,7 @@ function upscale(object, factor)
 end
 
 """Returns the index of the of the patch"""
-function center(patch)
+function center(patch::Patch)::Unsafe(IntegerTuple)
     isempty(patch) && return nothing
 
     height, width = shape(patch).I
@@ -420,7 +453,7 @@ function center(patch)
 end
 
 """Relative position between two patches a and b."""
-function rel_position(a, b)
+function rel_position(a::Patch, b::Patch)::Unsafe(IntegerTuple)
     (isempty(a) || isempty(b)) && return nothing
     # `position()` in Python implementation => renamed due to name clash
     ia, ja = center(a).I
@@ -429,10 +462,10 @@ function rel_position(a, b)
 end
 
 """Indices of corners of given patch."""
-corners(patch) = [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
+corners(patch::Patch)::Indices = [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
 
 """Horizontal periodicity, i.e. smallest horizontal distance at which pattern repeats. Returns full width if not pattern found."""
-function hperiod(object)
+function hperiod(object::Object)::Integer
     normalized = normalize(object)
     w = width(normalized)
 
@@ -450,7 +483,7 @@ function hperiod(object)
 end
 
 """Vertical periodicity, i.e. smallest vertical distance at which pattern repeats. Returns full width if not pattern found."""
-function vperiod(object)
+function vperiod(object::Object)::Integer
     normalized = normalize(object)
     h = height(normalized)
 
@@ -470,7 +503,7 @@ end
 
 
 """Crop grid from start point to given dims"""
-function crop(grid, start, dims)
+function crop(grid::Grid, start::IntegerTuple, dims::IntegerTuple)::Unsafe(Grid)
     row = start[1]
     col = start[2]
     nrows, ncols = Tuple(dims)
@@ -484,13 +517,13 @@ function crop(grid, start, dims)
 end
 
 """Recolor patch to given color value"""
-recolor(value, object::Vector{<:Tuple}) = [(value, ind) for ind in toindices(object)]
-recolor(value, indices) = [(value, ind) for ind in indices]
+recolor(value::Integer, object::Object)::Object = [(value, ind) for ind in toindices(object)]
+recolor(value::Integer, indices::Indices)::Object = [(value, ind) for ind in indices]
 
 """
 Shift patch in given directions (offset)
 """
-function shift(object::Vector{<:Tuple}, directions)
+function shift(object::Object, directions::IntegerTuple)::Object
     if isempty(object)
         return object
     end
@@ -499,7 +532,7 @@ function shift(object::Vector{<:Tuple}, directions)
     return [(val, CartesianIndex(ind[1] + dx, ind[2] + dy)) for (val, ind) in object]
 end
 
-function shift(indices, directions)
+function shift(indices::Indices, directions::IntegerTuple)::Indices
     isempty(indices) && indices
     dx = directions[1] # row
     dy = directions[2] # col
@@ -507,26 +540,24 @@ function shift(indices, directions)
 end
 
 """ Moves top left corner to origin"""
-function normalize(patch)
-    isempty(patch) && return patch
-    return shift(patch, (-uppermost(patch), -leftmost(patch)))
-end
+normalize(patch::Object)::Object = isempty(patch) ? [] : shift(patch, (-uppermost(patch), -leftmost(patch)))
+normalize(patch::Indices)::Indices = isempty(patch) ? [] : shift(patch, (-uppermost(patch), -leftmost(patch)))
 
 """Indices of directly adjacent neighbours of a location. 4-connectivity"""
-function dneighbors(loc)
+function dneighbors(loc::IntegerTuple)::Indices
     # out-of-bound/negative indices possible => intended?
     offsets = (CartesianIndex(-1, 0), CartesianIndex(1, 0), CartesianIndex(0, -1), CartesianIndex(0, 1))
     return [loc + off for off in offsets]
 end
 
 """Diagonally adjacent indices of a location."""
-function ineighbors(loc)
+function ineighbors(loc::IntegerTuple)::Indices
     offsets = (CartesianIndex(-1, -1), CartesianIndex(-1, 1), CartesianIndex(1, -1), CartesianIndex(1, 1))
     return [loc + off for off in offsets]
 end
 
 """All adjacent indices of a location. 8-connectivity."""
-neighbors(loc) = [dneighbors(loc); ineighbors(loc)]
+neighbors(loc::IntegerTuple)::Indices = [dneighbors(loc); ineighbors(loc)]
 
 """
 Finds connected objects in `grid`.
@@ -537,7 +568,7 @@ Finds connected objects in `grid`.
 - `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
 - `without_bg`: If `true`, the most common value (background) is ignored.
 """
-function objects(grid, univalued=true, diagonal=true, without_bg=true)
+function objects(grid::Grid, univalued::Boolean=true, diagonal::Boolean=true, without_bg::Boolean=true)::Objects
     bg = without_bg ? mostcolor(grid) : nothing
     objs = Set()
     occupied = Set()
@@ -572,18 +603,18 @@ function objects(grid, univalued=true, diagonal=true, without_bg=true)
             cands = setdiff(new_cands, occupied)
         end
         if !isempty(obj)
-            push!(objs, Vector{Tuple{Int64, CartesianIndex{2}}}(collect(obj)))
+            push!(objs, obj)
         end
     end
-    return Vector{Vector{Tuple{Int64, CartesianIndex{2}}}}(collect(objs))
+    return objs
 end
 
 """All color in object or grid"""
-palette(grid::Matrix) = unique(grid)
-palette(object) = unique([v[1] for v in object])
+palette(grid::Grid)::IntContainer = unique(grid)
+palette(object::Object)::IntContainer = unique([v[1] for v in object])
 
 """Splits the grid into objects where each object contains all cells of one color/value"""
-function partition(grid)
+function partition(grid::Grid)::Objects
     vals = palette(grid)
     return [
         [(v, idx) for idx in findall(==(v), grid)]
@@ -592,7 +623,7 @@ function partition(grid)
 end
 
 """Splits the grid into objects where each object contains all cells of one color/value excluding background"""
-function fgpartition(grid)
+function fgpartition(grid::Grid)::Unsafe(Objects)
     isempty(grid) && return nothing
 
     pal = palette(grid)
@@ -605,30 +636,28 @@ function fgpartition(grid)
 end
 
 """Returns true if patches a and b share any row index. """
-function hmatching(a, b)
+function hmatching(a::Patch, b::Patch)::Boolean
     indices_a = Set(i[1] for i in toindices(a))
     return any(i[1] in indices_a for i in toindices(b))
 end
 
 """Returns true if patches a and b share any column index. """
-function vmatching(a, b)
+function vmatching(a::Patch, b::Patch)::Boolean
     indices_a = Set(i[2] for i in toindices(a))
     return any(i[2] in indices_a for i in toindices(b))
 end
 
 """Min. manhattan distance between two patches a and b"""
-manhattan(a, b) = (!isempty(a) && !isempty(b)) ? minimum(abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]) for ai in toindices(a), bi in toindices(b)) : nothing
+manhattan(a::Patch, b::Patch)::Unsafe(Integer) = (!isempty(a) && !isempty(b)) ? minimum(abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]) for ai in toindices(a), bi in toindices(b)) : nothing
 
 """Whether two patches a and b are adjacent"""
-adjacent(a, b) = manhattan(a, b) == 1
+adjacent(a::Patch, b::Patch)::Unsafe(Boolean) = (!isempty(a) && !isempty(b)) ? manhattan(a, b) == 1 : nothing
 
 """Whether a patch is adjacent to a grid border"""
-function bordering(patch, grid)
-    return uppermost(patch) == 1 || leftmost(patch) == 0 || lowermost(patch) == height(grid) || rightmost(patch) == width(grid)
-end
+bordering(patch::Patch, grid::Grid)::Boolean = uppermost(patch) == 1 || leftmost(patch) == 0 || lowermost(patch) == height(grid) || rightmost(patch) == width(grid)
 
 """Returns the center of mass for a patch"""
-function centerofmass(patch)
+function centerofmass(patch::Patch)::Unsafe(IntegerTuple)
     isempty(patch) && return nothing
 
     n = length(patch)
@@ -642,20 +671,20 @@ function centerofmass(patch)
 end
 
 """Number of different colors in the element (object or grid)."""
-numcolors(element) = length(palette(element))
+numcolors(element::Element)::Integer = length(palette(element))
 
 """Returns color of an object."""
 # Assumes object is uniform in color. 
-color(object) = !isempty(object) ? first(object)[1] : nothing
+color(object::Object)::Unsafe(Integer) = !isempty(object) ? first(object)[1] : nothing
 
 """Returns an object made from indices provided by patch and corresponding values in grid"""
-toobject(patch, grid) = checkbounds(Bool, grid, toindices(patch)) ? [(grid[ind], ind) for ind in vec(toindices(patch))] : nothing
+toobject(patch::Patch, grid::Grid)::Unsafe(Object) = checkbounds(Bool, grid, toindices(patch)) ? [(grid[ind], ind) for ind in vec(toindices(patch))] : nothing
 
 """Converts grid into an object"""
-asobject(grid) = [(grid[idx], idx) for idx in vec(asindices(grid))]
+asobject(grid::Grid)::Object = [(grid[idx], idx) for idx in vec(asindices(grid))]
 
 """Fill value in grid at locations given by patch indices"""
-function fill_loc(grid, value, patch) # fill() in original. Renamed due to name clash.
+function fill_loc(grid::Grid, value::Integer, patch::Patch)::Unsafe(Grid) # fill() in original. Renamed due to name clash.
     grid_filled = copy(grid)
     indices = toindices(patch)
     !checkbounds(Bool, grid, indices) && return nothing
@@ -664,7 +693,7 @@ function fill_loc(grid, value, patch) # fill() in original. Renamed due to name 
 end
 
 """Paint object to grid."""
-function paint(grid, object)
+function paint(grid::Grid, object::Object)::Grid
     grid_painted = copy(grid)
     for (val, ind) in object
         if checkbounds(Bool, grid_painted, ind)
@@ -675,7 +704,7 @@ function paint(grid, object)
 end
 
 """Fills given value at patch indices to the grid if they are background"""
-function underfill(grid, value, patch)
+function underfill(grid::Grid, value::Integer, patch::Patch)::Grid
     bg = mostcolor(grid)
     grid_painted = copy(grid)
     indices = toindices(patch)
@@ -688,7 +717,7 @@ function underfill(grid, value, patch)
 end
 
 """Paints object to the grid where grid is background """
-function underpaint(grid, object)
+function underpaint(grid::Grid, object::Object)::Grid
     bg = mostcolor(grid)
     grid_painted = copy(grid)
     for (val, ind) in object
@@ -700,7 +729,7 @@ function underpaint(grid, object)
 end
 
 """Indices of bounding box of patch"""
-function backdrop(patch)
+function backdrop(patch::Patch)::Indices
     isempty(patch) && return []
     indices = toindices(patch)
     si, sj = ulcorner(indices).I
@@ -710,13 +739,13 @@ end
 
 
 """Indices inside the patch's bounding box without the patch itself"""
-function delta(patch)
+function delta(patch::Patch)::Indices
     isempty(patch) && return []
     return setdiff(backdrop(patch), toindices(patch))
 end
 
 """Direction in which to move until source patch is adjacent to destination."""
-function gravitate(source, destination)
+function gravitate(source::Patch, destination::Patch)::Unsafe(IntegerTuple)
     (isempty(source) || isempty(destination)) && return nothing
 
     si, sj = center(source).I
@@ -743,7 +772,7 @@ function gravitate(source, destination)
 end
 
 """Inbox for patch, i.e., inner rectangular border around patch"""
-function inbox(patch)
+function inbox(patch::Patch)::Unsafe(Indices)
     isempty(patch) && return nothing
 
     ai, aj = uppermost(patch) + 1, leftmost(patch) + 1
@@ -762,7 +791,7 @@ end
 
 
 """Outbox for patch, i.e., outer rectangular border around patch"""
-function outbox(patch)
+function outbox(patch::Patch)::Unsafe(Indices)
     isempty(patch) && return nothing
 
     ai, aj = uppermost(patch) - 1, leftmost(patch) - 1
@@ -780,7 +809,7 @@ function outbox(patch)
 end
 
 """Outline of patch"""
-function box(patch)
+function box(patch::Patch)::Indices
     isempty(patch) && return [] # not sure why inbox and outbox don't check for this
     ai, aj = ulcorner(patch).I
     bi, bj = lrcorner(patch).I
@@ -798,15 +827,15 @@ end
 
 
 """Returns a vertical frontier, i.e. all vertical indices (rows 1 to 30) of the column given by location"""
-vfrontier(location) = [CartesianIndex(i, location[2]) for i in 1:30]
+vfrontier(location::IntegerTuple)::IntegerTuple = [CartesianIndex(i, location[2]) for i in 1:30]
 # 30 is maximum grid size
 
 """Returns a horizontal frontier, i.e. all horizontal indices (cols 1 to 30) of the row given by location."""
-hfrontier(location) = [CartesianIndex(location[1], i) for i in 1:30]
+hfrontier(location::IntegerTuple)::IntegerTuple = [CartesianIndex(location[1], i) for i in 1:30]
 # 30 is maximum grid size
 
 """Returns all points (cells) on a line between two points (cells) if the line is horizontal, vertical or diagonal."""
-function connect(a, b)
+function connect(a::IntegerTuple, b::IntegerTuple)::Indices
     ai = a[1]
     aj = a[2]
     bi = b[1]
@@ -835,50 +864,50 @@ function connect(a, b)
 end
 
 """filter container for elements that satisfy predicate function (provided as function)"""
-sfilter(container, condition) = filter(condition, container)
+sfilter(container::IntContainer, condition)::IntContainer = filter(condition, container)
 
 """filter and merge"""
-mfilter(containers, condition) = merge_containers(sfilter(containers, condition))
+mfilter(containers::Objects, condition)::Objects = merge_containers(sfilter(containers, condition))
 
 """Line from starting point in given direction"""
-shoot(start, direction) = connect(start, (start[1] + 42 * direction[1], start[2] + 42 * direction[2]))
+shoot(start::IntegerTuple, direction::IntegerTuple)::Indices = connect(start, (start[1] + 42 * direction[1], start[2] + 42 * direction[2]))
 
 """Merge elements of nested container"""
-merge_containers(container) = !isempty(container) ? reduce(vcat, container) : nothing # also works with non-nested containers. We don't have `ContainerContainer` 
+merge_containers(container::Objects)::Object = isempty(container) ? [] : reduce(vcat, container) # also works with non-nested containers. We don't have `ContainerContainer` 
 
 """Returns all indices of a grid"""
-asindices(grid)::Vector{CartesianIndex{2}} = vcat(collect(CartesianIndices(grid))...)
+asindices(grid::Grid)::Indices = vcat(collect(CartesianIndices(grid))...)
 
 """Returns indices of all grid cells of given value (color)"""
-ofcolor(grid, value) = findall(x -> x == value, grid)
+ofcolor(grid::Grid, value::Integer)::Indices = findall(x -> x == value, grid)
 
 """Rotates grid by 90 degrees clockwise"""
-rot90deg(grid) = isempty(grid) ? [] : rotr90(grid, 1)
+rot90deg(grid::Grid)::Grid = rotr90(grid, 1)
 
 """Rotates grid by 180 degrees"""
-rot180deg(grid) = isempty(grid) ? [] : Base.rot180(grid)
+rot180deg(grid::Grid)::Grid = Base.rot180(grid)
 
 """Rotates grid by 270 degrees (left-rotate by 90 degrees)"""
-rot270deg(grid) = isempty(grid) ? [] : Base.rotl90(grid)
+rot270deg(grid::Grid)::Grid = Base.rotl90(grid)
 
 """Downscale grid by given factor."""
-downscale(grid, factor) = factor > 0 ? grid[1:factor:end, 1:factor:end] : nothing
+downscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? grid[1:factor:end, 1:factor:end] : nothing
 
 """Concatenate grid a and grid b horizontally."""
-hconcat(a, b) = size(a, 1) == size(b, 1) ? hcat(a, b) : nothing
+hconcat(a::Grid, b::Grid)::Unsafe(Grid) = size(a, 1) == size(b, 1) ? hcat(a, b) : nothing
 
 """Concatenate grid a and grid b vertically."""
-vconcat(a, b) = size(a, 2) == size(b, 2) ? vcat(a, b) : nothing
+vconcat(a::Grid, b::Grid)::Unsafe(Grid) = size(a, 2) == size(b, 2) ? vcat(a, b) : nothing
 
 """Upscale grid horizontally."""
-hupscale(grid, factor) = factor > 0 ? (isempty(grid) ? [] : reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])) : nothing
+hupscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? (isempty(grid) ? [] : reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])) : nothing
 
 """Upscale grid vertically."""
-vupscale(grid, factor) = factor > 0 ? (isempty(grid) ? [] : reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])) : nothing
+vupscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? (isempty(grid) ? [] : reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])) : nothing
 
 
 """Split grid along horizontal into n parts."""
-function hsplit(grid, n::Integer)
+function hsplit(grid::Grid, n::Integer)::Unsafe(GridContainer)
     isempty(grid) && return []
     n <= 0 && return nothing
 
@@ -891,7 +920,7 @@ function hsplit(grid, n::Integer)
 end
 
 """Split grid along vertical into n parts"""
-function vsplit(grid, n::Integer)
+function vsplit(grid::Grid, n::Integer)::Unsafe(GridContainer)
     isempty(grid) && return []
     n <= 0 && return nothing
 
@@ -904,47 +933,47 @@ function vsplit(grid, n::Integer)
 end
 
 """Cellwise matching of grids a and b. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`."""
-cellwise(a, b, fallback) = (width(a) <= width(b) && height(a) <= height(b)) ? [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)] : nothing
+cellwise(a::Grid, b::Grid, fallback::Integer)::Unsafe(Grid) = (width(a) <= width(b) && height(a) <= height(b)) ? [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)] : nothing
 
 
 """Substituion of color value replacee with new color replacer."""
-replace_color(grid, replacee, replacer) = [grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
+replace_color(grid::Grid, replacee::Integer, replacer::Integer)::Unsafe(Grid) = [grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
 # replace in original Python implementation => renamed due to name clash
 
 
 """Switches color for cells with value a and b. Other cells remain unchanged."""
-switch(grid, a, b) = [grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
+switch(grid::Grid, a::Integer, b::Integer)::Grid = [grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
 
 
 """Trims the borders of the grid, i.e., removes outermost rows and columns"""
-trim(grid) = grid[2:end-1, 2:end-1]
+trim(grid::Grid)::Grid = grid[2:end-1, 2:end-1]
 
 """Returns upper half of the grid. For odd number of rows, this excludes the middle row"""
-function tophalf(grid)
+function tophalf(grid::Grid)::Grid
     nrows = size(grid, 1)
     return grid[1:nrows÷2, :]
 end
 
 """Returns lower half of the grid. For odd number of rows, this excludes the middle row"""
-function bottomhalf(grid)
+function bottomhalf(grid::Grid)::Grid
     nrows = size(grid, 1)
     return grid[nrows-nrows÷2+1:end, :]
 end
 
 """Returns the left half of the grid. For odd number of colums, this excludes the middle column."""
-function lefthalf(grid)
+function lefthalf(grid::Grid)::Grid
     ncols = size(grid, 2)
     return grid[:, 1:ncols÷2]
 end
 
 """Returns the right half of the grid. For odd number of colums, this excludes the middle column."""
-function righthalf(grid)
+function righthalf(grid::Grid)::Grid
     ncols = size(grid, 2)
     return grid[:, ncols-ncols÷2+1:end]
 end
 
 """Removes frontiers from the grid, i.e., rows and columns where all cells have the same value"""
-function compress(grid)
+function compress(grid::Grid)::Grid
     keep_rows = .![all(x -> x == r[1], r) for r in eachrow(grid)]
     keep_cols = .![all(x -> x == c[1], c) for c in eachcol(grid)]
 
@@ -952,7 +981,7 @@ function compress(grid)
 end
 
 """Vector of frontiers, i.e., horizontal and vertical rows/columns where all values are the same"""
-function frontiers(grid)
+function frontiers(grid::Grid)::Objects
     h, w = shape(grid).I
 
     # Find rows and cols where all elements are the same
@@ -974,27 +1003,26 @@ function frontiers(grid)
 end
 
 """Constructs a grid of given dimensions and fills it with value"""
-canvas(value::Integer, dimensions::CartesianIndex) = (dimensions[1] >= 0 && dimensions[2] >= 0) ? fill(value, dimensions[1], dimensions[2]) : nothing
-
+canvas(value::Integer, dimensions::IntegerTuple)::Unsafe(Grid) = (dimensions[1] >= 0 && dimensions[2] >= 0) ? fill(value, dimensions[1], dimensions[2]) : nothing
 
 """Get color of grid at given location loc"""
-index(grid, loc) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
+index(grid::Grid, loc::IntegerTuple)::Unsafe(Integer) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
 
 """Returns smalles subgrid that contains the patch"""
-subgrid(patch, grid) = crop(grid, ulcorner(patch), shape(patch).I)
+subgrid(patch::Patch, grid::Grid)::Grid = crop(grid, ulcorner(patch), shape(patch).I)
 
 """Remove an object from grid by filling with locations with background color."""
-cover(grid, patch) = isempty(grid) ? grid : fill_loc(grid, mostcolor(grid), patch)
+cover(grid::Grid, patch::Patch)::Grid = fill_loc(grid, mostcolor(grid), patch)
 
 """Moves object on grid by given offset"""
-function move(grid, object, offset)
+function move(grid::Grid, object::Object, offset::IntegerTuple)::Unsafe(Grid)
     c = cover(grid, object)
     isnothing(c) && return nothing
     paint(c, shift(object, offset))
 end
 
 """Locations where object occurs in grid"""
-function occurrences(grid, object)
+function occurrences(grid::Grid, object::Object)::Indices
     isempty(object) && return []
 
     # Normalize and compute dimensions in one pass
@@ -1020,64 +1048,91 @@ function occurrences(grid, object)
 end
 
 """Return first element of container that fulfills given condition"""
-function extract(container, condition)
+function extract(container::IntContainer, condition)::Unsafe(Integer)
+    idx = findfirst(condition, container)
+    return idx === nothing ? nothing : container[idx]
+end
+
+function extract(container::Objects, condition)::Unsafe(Object)
+    idx = findfirst(condition, container)
+    return idx === nothing ? nothing : container[idx]
+end
+
+function extract(container::GridContainer, condition)::Unsafe(Grid)
     idx = findfirst(condition, container)
     return idx === nothing ? nothing : container[idx]
 end
 
 """Return first element of a container"""
-firstof(container) = !isempty(container) ? first(container) : nothing
+firstof(container::Indices)::Unsafe(IntegerTuple) = !isempty(container) ? first(container) : nothing
+firstof(container::Objects)::Unsafe(Object) = !isempty(container) ? first(container) : nothing
+firstof(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? first(container) : nothing
+firstof(container::GridContainer)::Unsafe(Grid) = !isempty(container) ? first(container) : nothing
 
 """Return last element of a container"""
-lastof(container) =  !isempty(container) ? last(container) : nothing
+lastof(container::Indices)::Unsafe(IntegerTuple) = !isempty(container) ? last(container) : nothing
+lastof(container::Objects)::Unsafe(Object) = !isempty(container) ? last(container) : nothing
+lastof(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? last(container) : nothing
+lastof(container::GridContainer)::Unsafe(Grid) = !isempty(container) ? last(container) : nothing
 
 """Insert element to container"""
-insert(value, container) = push!(copy(container), value)
+insert(value::IntegerTuple, container::Indices)::Indices = push!(copy(container), value)
+insert(value::Object, container::Objects)::Objects = push!(copy(container), value)
+insert(value::Integer, container::IntContainer)::IntContainer = push!(copy(container), value)
 
 """Remove value from container"""
-remove(value, container) = filter(!=(value), container)
+remove(value::IntegerTuple, container::Indices)::Indices = filter(!=(value), container)
+remove(value::Object, container::Objects)::Objects = filter(!=(value), container)
+remove(value::Integer, container::IntContainer)::IntContainer = filter(!=(value), container)
 
 """Returns other value in container, i.e., first element after removing given value"""
-other(value, container) = firstof(remove(value, container))
+other(value::IntegerTuple, container::Indices)::Indices = firstof(remove(value, container))
+other(value::Object, container::Objects)::Objects = firstof(remove(value, container))
+other(value::Integer, container::IntContainer)::IntContainer = firstof(remove(value, container))
 
 """Returns range between start and stop with given step size"""
-interval(start, stop, step) = step != 0 ? collect(range(start, stop, step=step)) : nothing
+interval(start::Integer, stop::Integer, step::Integer)::Unsafe(IntContainer) = step != 0 ? collect(range(start, stop, step=step)) : nothing
 
 """Cartesian product of two containers a and b"""
-cartesian_product(a, b) = vec(collect(CartesianIndex.(Iterators.product(a, b))))
+cartesian_product(a::IntContainer, b::IntContainer)::Indices = vec(collect(CartesianIndex.(Iterators.product(a, b))))
 
 """Zip up two CartesianIndex"""
-pair(a, b) = collect(CartesianIndex.(zip(a.I, b.I)))
+pair(a::IntegerTuple, b::IntegerTuple)::Indices = collect(CartesianIndex.(zip(a.I, b.I)))
 
 # note: some primitives below wouldn't be necessary in Herb
 
 """if-else condition"""
-branch(condition, a, b) = condition ? a : b
+branch(condition::Boolean, a::Integer, b::Integer)::Integer = condition ? a : b
+branch(condition::Boolean, a::IntegerTuple, b::IntegIntegerTupleer)::IntegerTuple = condition ? a : b
+branch(condition::Boolean, a::Object, b::Object)::Object = condition ? a : b
+branch(condition::Boolean, a::Objects, b::Objects)::Objects = condition ? a : b
+branch(condition::Boolean, a::Indices, b::Indices)::Indices = condition ? a : b
+branch(condition::Boolean, a::Grid, b::Grid)::Grid = condition ? a : b
 
 """Apply function to each element in container"""
-apply(func, container::Vector{Tuple{Int64, CartesianIndex{2}}}) = map(x -> func([x]), container)
-apply(func, container) = map(func, container)
+apply(func, container::Objects)::Union{Objects,IntContainer,Indices} = map(x -> func([x]), container)
+apply(func, container::Indices)::Indices = map(func, container)
 
 """Apply each function in container to a value"""
-rapply(container, value) = [f(value) for f in container] # not included in grammar since it can't construct container of functions
+# rapply(container, value) = [f(value) for f in container] # not included in grammar since it can't construct container of functions
 
 """Apply and merge"""
-mapply(func, container) = merge_containers(apply(func, container)) # not included in grammar
+mapply(func, container::Union{Indices,Objects})::Indices = merge_containers(apply(func, container)) # not included in grammar
 
 """Apply function on two vectors a and b"""
-papply(func, a, b) = func.(a, b) # not included in grammar - only works if a and be are the same length (hard to guarantee in search)
+# papply(func, a, b) = func.(a, b) # not included in grammar - only works if a and be are the same length (hard to guarantee in search)
 
 """""Apply function on two vectors and merge"""
-mpapply(func, a, b) = merge_containers(papply(func, a, b)) # not included (see papply())
+# mpapply(func, a, b) = merge_containers(papply(func, a, b)) # not included (see papply())
 
 """apply function on cartesian product"""
-prapply(func, a, b) = [func(i, j) for j in b for i in a] # not included in grammar
+# prapply(func, a, b) = [func(i, j) for j in b for i in a] # not included in grammar
 
 """Compose a function from inner and outer"""
-compose(outer, inner) = x -> outer(inner(x)) # not included in grammar
+# compose(outer, inner) = x -> outer(inner(x)) # not included in grammar
 
 """Compose from three functions by chaining: h(g(f(x)))"""
-chain(h, g, f) = x -> h(g(f(x))) # not included in grammar
+# chain(h, g, f) = x -> h(g(f(x))) # not included in grammar
 
 """Negates predicate function"""
 negate(f) = x -> !f(x)
@@ -1091,185 +1146,3 @@ conjunct(f, g) = x -> f(x) && g(x)
 Given predicates f and g, returns a predicate that is true when either f(x) or g(x) is true.
 """
 disjunct(f, g) = x -> f(x) || g(x)
-
-Grid(mat::Matrix{Int}) = mat
-
-#=
-    ARC-AGI-1 basic primitives
-    
-    A "naive" primitive implementation
-
-=#
-
-# Define a struct to represent the grid
-# struct Grid
-#     width::Int
-#     height::Int
-#     data::Matrix{Int}
-# end
-
-# Grid(mat::Matrix{Int}) = Grid(size(mat)..., mat)
-
-# """
-# Returns a new `Grid` initialized from a one-dimensional vector of integers (`raw_grid`).
-# """
-# function initState(raw_grid::Vector{Int})
-#     return Grid(array_to_matrix(raw_grid))
-# end
-
-# """
-# Helper function to transform the input vector to a matrix of square form. 
-    
-# If length is not a squared integer, then iteratively adjust the factors a,b such that a<b and `a*b = length(input_array)`
-# """
-# function array_to_matrix(arr::Vector{T}) where {T}
-#     n = length(arr)
-#     a = isqrt(n)  # Start with the integer square root of n
-#     b = a
-
-#     # Adjust a and b to meet the requirements
-#     while a * b < n || b < a
-#         if a * b < n
-#             b += 1
-#         elseif b < a
-#             a -= 1
-#         end
-#     end
-
-#     # Create the matrix and fill it
-#     mat = Matrix{T}(undef, a, b)
-#     fill!(mat, 0)
-
-#     for i in 1:n
-#         row = div(i - 1, b) + 1
-#         col = rem(i - 1, b) + 1
-#         mat[row, col] = arr[i]
-#     end
-
-#     return mat
-# end
-
-# """
-# Returns the `Grid` data as a one-dimensional vector.
-# """
-# function returnState(grid::Grid)
-#     return (grid.mat')[:] # transform and flatten matrix @TODO: grid struct has no field `mat`
-# end
-
-# """
-# Initializes a `Grid` of given width and height with zeros.
-# """
-# function init_grid(width::Int, height::Int)
-#     return Grid(width, height, zeros(Int, height, width))
-# end
-
-
-# """
-# Returns a new `Grid` cloned from the input `grid`.
-
-# """
-# function clone_grid(grid::Grid)
-#     return Grid(grid.width, grid.height, copy(grid.data))
-# end
-
-# """Return a new `Grid` based on the input `grid`, resized to the new width and height.
-
-# Data is copied to the new `Grid` from the top-left corner of the grid. 
-# If the new dimensions are smaller than the current dimensions, the grid is cropped.  
-# If the new dimensions are larger, the grid is padded with zeros.
-# """
-# function resize_grid(grid::Grid, new_width::Int, new_height::Int)
-#     new_grid = clone_grid(grid)
-#     new_data = zeros(Int, new_height, new_width)
-#     for i in 1:min(grid.height, new_height), j in 1:min(grid.width, new_width)
-#         new_data[i, j] = grid.data[i, j]
-#     end
-#     return Grid(new_data)
-# end
-
-# """
-# Wrapper around `clone_grid`. 
-# """
-# # @TODO: Why clone and copy_from_input?
-# function copy_from_input(source::Grid)
-#     return clone_grid(source)
-# end
-
-# """
-# Creates a new `Grid` instance with the same dimensions as the input `grid`, 
-# but sets all values within `Grid.data` to zero. 
-# """
-# function reset_grid(grid::Grid)
-#     new_grid = clone_grid(grid)
-#     fill!(new_grid.data, 0)
-#     return new_grid
-# end
-
-# """
-# Returns a copy of the input `grid` with the value at the cel at position `row` and `col` set to `color`.
-# """
-# function set_cell(grid::Grid, row::Int, col::Int, color::Int)
-#     new_grid = clone_grid(grid)
-#     new_grid.data[row, col] = color
-#     return new_grid
-# end
-
-# """
-# Returns a list of coordinates within a rectangle defined by the top-left and bottom-right corners. 
-# """
-# function select(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int) # redundant function
-#     selected_cells = []
-#     if start_row > end_row || start_col > end_col
-#         return selected_cells
-#     end
-
-#     for i in start_row:min(end_row, grid.height), j in start_col:min(end_col, grid.width)
-#         push!(selected_cells, (i, j))
-#     end
-#     return selected_cells
-# end
-
-# """
-# Selects a rectangular region from the input `grid` and pastes it at the specified position into the copy of a grid. 
-
-# The function is overloaded to work either on a single grid or between two grids.
-# """
-# function select_and_paste(grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, paste_row::Int, paste_col::Int)
-#     new_grid = clone_grid(grid) # Copy of the input grid to paste into.
-#     new_grid.data[paste_row:paste_row+end_row-start_row, paste_col:paste_col+end_col-start_col] = grid.data[start_row:end_row, start_col:end_col]
-#     return new_grid
-# end
-
-# function select_and_paste(input_grid::Grid, start_row::Int, start_col::Int, end_row::Int, end_col::Int, target_grid::Grid, paste_row::Int, paste_col::Int)
-#     new_grid = clone_grid(target_grid) # Copy of the target grid to paste into.
-#     new_grid.data[paste_row:paste_row+end_row-start_row, paste_col:paste_col+end_col-start_col] = input_grid.data[start_row:end_row, start_col:end_col]
-#     return new_grid
-
-# end
-
-# """
-# Applies the floodfill algorithm to a Grid. 
-
-# The algorithm starts with the cell at the given row and column and changes the color of all connected cells to the given color.
-# """
-# function floodfill(grid::Grid, row::Int, col::Int, color::Int)
-#     old_value = grid.data[row, col]
-#     if old_value == color # No need to floodfill if the color is the same
-#         return grid
-#     end
-
-#     new_grid = clone_grid(grid)
-#     function floodfill_recursive(r, c)
-#         if r < 1 || r > new_grid.height || c < 1 || c > new_grid.width || new_grid.data[r, c] != old_value
-#             return
-#         end
-#         new_grid.data[r, c] = color
-#         floodfill_recursive(r - 1, c)
-#         floodfill_recursive(r + 1, c)
-#         floodfill_recursive(r, c - 1)
-#         floodfill_recursive(r, c + 1)
-#     end
-
-#     floodfill_recursive(row, col)
-#     return new_grid
-# end
