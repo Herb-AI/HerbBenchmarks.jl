@@ -199,12 +199,12 @@ function valmin(container::Objects, compfunc)::Unsafe(Integer)
 end
 
 """returns the container that maximizes the custom function"""
-argmax_by(containers::Objects, compfunc)::Unsafe(Object) = !isempty(containers) ? containers[argmax(compfunc.(containers))] : nothing
-argmax_by(containers::GridContainer, compfunc)::Unsafe(Grid) = !isempty(containers) ? containers[argmax(compfunc.(containers))] : nothing
+argmax_by(containers::Objects, compfunc)::Unsafe(Object) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmax(res)] end
+argmax_by(containers::GridContainer, compfunc)::Unsafe(Grid) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmax(res)] end
 
 """returns the container that maximizes the custom function"""
-argmin_by(containers::Objects, compfunc)::Unsafe(Object) = !isempty(containers) ? containers[argmin(compfunc.(containers))] : nothing
-argmin_by(containers::GridContainer, compfunc)::Unsafe(Grid) = !isempty(containers) ? containers[argmin(compfunc.(containers))] : nothing
+argmin_by(containers::Objects, compfunc)::Unsafe(Object) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmin(res)] end
+argmin_by(containers::GridContainer, compfunc)::Unsafe(Grid) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmin(res)] end
 
 """most common item in container"""
 mostcommon(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? mode(container) : nothing
