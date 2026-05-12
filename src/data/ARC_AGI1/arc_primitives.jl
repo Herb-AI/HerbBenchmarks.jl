@@ -871,6 +871,8 @@ end
 
 """filter container for elements that satisfy predicate function (provided as function)"""
 sfilter(container::IntContainer, condition)::IntContainer = filter(condition, container)
+sfilter(container::Objects, condition)::Objects = filter(condition, container)
+sfilter(container::GridContainer, condition)::IntContainGridContainerer = filter(condition, container)
 
 """filter and merge"""
 mfilter(containers::Objects, condition)::Objects = merge_containers(sfilter(containers, condition))
