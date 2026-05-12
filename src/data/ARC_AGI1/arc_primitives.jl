@@ -248,7 +248,6 @@ end
 
 """Returns index of upper left corner."""
 function ulcorner(indices)
-    @show indices
     min_row = typemax(Int)
     min_col = typemax(Int)
     @inbounds for idx in indices
