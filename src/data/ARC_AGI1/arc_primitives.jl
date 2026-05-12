@@ -191,11 +191,11 @@ leftmost(indices) = !isempty(indices) ? minimum(x[2] for x in indices) : nothing
 
 """ Height of grid or patch"""
 height(grid::Matrix) = size(grid)[1]
-height(patch) = isempty(patch) ? 0 : lowermost(patch)[1] - uppermost(patch)[1] + 1
+height(patch) = isempty(patch) ? 0 : lowermost(patch) - uppermost(patch) + 1
 
 """Width of grid or patch"""
 width(grid::Matrix) = size(grid)[2]
-width(patch) = isempty(patch) ? 0 : rightmost(patch)[2] - leftmost(patch)[2] + 1
+width(patch) = isempty(patch) ? 0 : rightmost(patch) - leftmost(patch) + 1
 
 """Dimensions (height and width) of grid or patch"""
 shape(piece) = CartesianIndex(height(piece), width(piece))
@@ -572,10 +572,10 @@ function objects(grid, univalued, diagonal, without_bg)
             cands = setdiff(new_cands, occupied)
         end
         if !isempty(obj)
-            push!(objs, collect(obj))
+            push!(objs, Vector{Tuple{Int64, CartesianIndex{2}}}(collect(obj)))
         end
     end
-    return collect(objs)
+    return Vector{Vector{Tuple{Int64, CartesianIndex{2}}}}(collect(objs))
 end
 
 """All color in object or grid"""
