@@ -29,9 +29,9 @@
     - Container: Grid | Object | Objects | Indices — Generic containers
 =#
 
-Grid = Matrix{Int}
+Integer = Int64
+Grid = Matrix{Integer}
 GridContainer = Vector{Grid}
-Integer = Integer
 IntContainer = Vector{Integer}
 Boolean = Bool
 IntegerTuple = CartesianIndex{2}
