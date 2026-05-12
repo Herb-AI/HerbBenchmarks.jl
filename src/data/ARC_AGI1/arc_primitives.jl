@@ -875,7 +875,7 @@ sfilter(container::Objects, condition)::Objects = filter(condition, container)
 sfilter(container::GridContainer, condition)::IntContainGridContainerer = filter(condition, container)
 
 """filter and merge"""
-mfilter(containers::Objects, condition)::Objects = merge_containers(sfilter(containers, condition))
+mfilter(containers::Objects, condition)::Object = merge_containers(sfilter(containers, condition))
 
 """Line from starting point in given direction"""
 shoot(start::IntegerTuple, direction::IntegerTuple)::Indices = connect(start, (start[1] + 42 * direction[1], start[2] + 42 * direction[2]))
