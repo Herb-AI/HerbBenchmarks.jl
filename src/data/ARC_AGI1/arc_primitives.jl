@@ -285,16 +285,16 @@ leastcolor(grid::Grid)::Unsafe(Integer) = !isempty(grid) ? findmin(countmap(grid
 leastcolor(object::Object)::Unsafe(Integer) = !isempty(object) ? findmin(countmap(x[1] for x in object))[2] : nothing
 
 """Number of cells with given color value"""
-colorcount(grid::Grid, value::Integer)::Integer = count(==(value), grid)
-colorcount(object::Object, value::Integer)::Integer = count(==(value), x[1] for x in object)
+colorcount(grid::Grid, value::Integer)::Unsafe(Integer) = is_color(value) ? count(==(value), grid) : nothing
+colorcount(object::Object, value::Integer)::Unsafe(Integer) = is_color(value) ? count(==(value), x[1] for x in object) : nothing
 
 
 """Filters objects by color value. An object is included if its first element matches the color value."""
-colorfilter(objects::Objects, value::Integer)::Objects = [obj for obj in objects if first(obj[1]) == value]
+colorfilter(objects::Objects, value::Integer)::Unsafe(Objects) = is_color(value) ? [obj for obj in objects if first(obj[1]) == value] : nothing
 # The Python implementation checks first element to `obj` only. Unclear if intended this way.
 
 """Return container with only elements of given size"""
-sizefilter(container::Objects, size::Integer)::Objects = [x for x in container if length(x) == size]
+sizefilter(container::Objects, size::Integer)::Unsafe(Objects) = size < 0 ? nothing : [x for x in container if length(x) == size]
 
 """Returns index of upper left corner."""
 function ulcorner(indices::Indices)::IntegerTuple
@@ -529,8 +529,8 @@ function crop(grid::Grid, start::IntegerTuple, dims::IntegerTuple)::Unsafe(Grid)
 end
 
 """Recolor patch to given color value"""
-recolor(value::Integer, object::Object)::Object = [(value, ind) for ind in toindices(object)]
-recolor(value::Integer, indices::Indices)::Object = [(value, ind) for ind in indices]
+recolor(value::Integer, object::Object)::Unsafe(Object) = is_color(value) ? [(value, ind) for ind in toindices(object)] : nothing
+recolor(value::Integer, indices::Indices)::Unsafe(Object) = is_color(value) ? [(value, ind) for ind in indices] : nothing
 
 """
 Shift patch in given directions (offset)
@@ -717,7 +717,8 @@ function paint(grid::Grid, object::Object)::Grid
 end
 
 """Fills given value at patch indices to the grid if they are background"""
-function underfill(grid::Grid, value::Integer, patch::Patch)::Grid
+function underfill(grid::Grid, value::Integer, patch::Patch)::Unsafe(Grid)
+    !is_color(value) && return nothing
     bg = mostcolor(grid)
     grid_painted = copy(grid)
     indices = toindices(patch)
@@ -895,7 +896,7 @@ merge_containers(container::Vector{Indices})::Indices = isempty(container) ? [] 
 asindices(grid::Grid)::Indices = vcat(collect(CartesianIndices(grid))...)
 
 """Returns indices of all grid cells of given value (color)"""
-ofcolor(grid::Grid, value::Integer)::Indices = findall(x -> x == value, grid)
+ofcolor(grid::Grid, value::Integer)::Unsafe(Indices) = is_color(value) ? findall(x -> x == value, grid) : nothing
 
 """Rotates grid by 90 degrees clockwise"""
 rot90deg(grid::Grid)::Grid = rotr90(grid, 1)

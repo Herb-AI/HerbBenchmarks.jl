@@ -229,7 +229,7 @@ grammar_hodel = @csgrammar begin
 
     # Indices producers
     ## from Patch
-    Indices  = toindices(Patch)
+    Indices = toindices(Patch)
     Indices = inbox(Patch) 
     Indices = outbox(Patch) 
     Indices = box(Patch)
