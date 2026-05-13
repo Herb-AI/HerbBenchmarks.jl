@@ -1185,7 +1185,12 @@ apply_obj_to_int(func, container::Objects)::IntContainer = map(func, container)
 # rapply(container, value) = [f(value) for f in container] # not included in grammar since it can't construct container of functions
 
 """Apply and merge"""
-mapply(func, container::Union{Indices,Objects})::Indices = isempty(container) ? [] : reduce(vcat, (map(func, container)))
+function mapply(func, container::Union{Indices,Objects})::Unsafe(Indices)
+    isempty(container) && return []
+    res = map(func, container)
+    any(isnothing, res) && return nothing
+    return reduce(vcat, res)
+end
 
 """Apply function on two vectors a and b"""
 # papply(func, a, b) = func.(a, b) # not included in grammar - only works if a and be are the same length (hard to guarantee in search)

@@ -42,7 +42,7 @@ grammar_hodel = @csgrammar begin
     Integer = mostcolor(Element)
     Integer = leastcolor(Element)
     Integer = colorcount(Element, Integer)
-    Integer = manhattan(Patch, Patch) 
+    Integer = manhattan(Patch, Patch)
     Integer = color(Object) 
     Integer = hperiod(Object)
     Integer = vperiod(Object)
@@ -178,8 +178,6 @@ grammar_hodel = @csgrammar begin
     # Object/Objects
     ## Object(s) extraction from Grid
     Objects = objects(Grid, Boolean, Boolean, Boolean)
-    # Objects = sfilter_objects(Grid, Boolean, Boolean, Boolean, ObjectPredicate)
-    # Object = nth_object(Grid, Boolean, Boolean, Boolean, Integer)
     Objects = partition(Grid)
     Objects = fgpartition(Grid)
     Objects = frontiers(Grid)
