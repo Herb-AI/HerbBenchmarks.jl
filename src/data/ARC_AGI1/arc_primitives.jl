@@ -306,10 +306,12 @@ colorfilter(objects::Objects, value::Integer)::Unsafe(Objects) = is_color(value)
 # The Python implementation checks first element to `obj` only. Unclear if intended this way.
 
 """Return container with only elements of given size"""
-sizefilter(container::Objects, size::Integer)::Unsafe(Objects) = !is_index(size) ? nothing : [x for x in container if length(x) == size]
+sizefilter(container::Objects, size::Integer)::Unsafe(Objects) = is_index(size) ? [x for x in container if length(x) == size] : nothing
 
 """Returns index of upper left corner."""
-function ulcorner(indices::Indices)::IntegerTuple
+function ulcorner(indices::Indices)::Unsafe(IntegerTuple)
+    isempty(indices) && return nothing
+
     min_row = typemax(Int)
     min_col = typemax(Int)
     @inbounds for idx in indices
@@ -320,10 +322,12 @@ function ulcorner(indices::Indices)::IntegerTuple
     return CartesianIndex(min_row, min_col)
 end
 
-ulcorner(object::Object)::IntegerTuple = ulcorner(toindices(object))
+ulcorner(object::Object)::Unsafe(IntegerTuple) = ulcorner(toindices(object))
 
 """Returns index of upper right corner."""
-function urcorner(indices::Indices)::IntegerTuple
+function urcorner(indices::Indices)::Unsafe(IntegerTuple)
+    isempty(indices) && return nothing
+
     min_row = typemax(Int)
     max_col = typemin(Int)
     @inbounds for idx in indices
@@ -334,10 +338,12 @@ function urcorner(indices::Indices)::IntegerTuple
     return CartesianIndex(min_row, max_col)
 end
 
-urcorner(object::Object)::IntegerTuple = urcorner(toindices(object))
+urcorner(object::Object)::Unsafe(IntegerTuple) = urcorner(toindices(object))
 
 """Returns index of lower left corner"""
-function llcorner(indices::Indices)::IntegerTuple
+function llcorner(indices::Indices)::Unsafe(IntegerTuple)
+    isempty(indices) && return nothing
+
     max_row = typemin(Int)
     min_col = typemax(Int)
     @inbounds for idx in indices
@@ -348,10 +354,12 @@ function llcorner(indices::Indices)::IntegerTuple
     return CartesianIndex(max_row, min_col)
 end
 
-llcorner(object::Object)::IntegerTuple = llcorner(toindices(object))
+llcorner(object::Object)::Unsafe(IntegerTuple) = llcorner(toindices(object))
 
 """Returns index of lower right corner."""
-function lrcorner(indices::Indices)::IntegerTuple
+function lrcorner(indices::Indices)::Unsafe(IntegerTuple)
+    isempty(indices) && return nothing
+
     max_row = typemin(Int)
     max_col = typemin(Int)
     @inbounds for idx in indices
@@ -362,7 +370,7 @@ function lrcorner(indices::Indices)::IntegerTuple
     return CartesianIndex(max_row, max_col)
 end
 
-lrcorner(object::Object)::IntegerTuple = lrcorner(toindices(object))
+lrcorner(object::Object)::Unsafe(IntegerTuple) = lrcorner(toindices(object))
 
 """Returns indices"""
 toindices(object::Object)::Indices = [i[2] for i in object]
