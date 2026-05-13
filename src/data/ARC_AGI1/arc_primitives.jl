@@ -1056,7 +1056,7 @@ canvas(value::Integer, dimensions::IntegerTuple)::Unsafe(Grid) = (is_index(dimen
 index(grid::Grid, loc::IntegerTuple)::Unsafe(Integer) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
 
 """Returns smalles subgrid that contains the patch"""
-subgrid(patch::Patch, grid::Grid)::Unsafe(Grid) = crop(grid, ulcorner(patch), shape(patch))
+subgrid(patch::Patch, grid::Grid)::Unsafe(Grid) = isempty(patch) ? empty_grid : crop(grid, ulcorner(patch), shape(patch))
 
 """Remove an object from grid by filling with locations with background color."""
 cover(grid::Grid, patch::Patch)::Unsafe(Grid) = isempty(grid) ? grid : fill_loc(grid, mostcolor(grid), patch)
