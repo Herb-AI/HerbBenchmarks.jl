@@ -2,7 +2,7 @@ grammar_hodel = @csgrammar begin
     Start = Grid
     Grid = _arg_1
 
-    Grid = Matrix{Integer}(undef, 0, 0)
+    Grid = empty_grid
     GridContainer = []
     Object = []
     Objects = []

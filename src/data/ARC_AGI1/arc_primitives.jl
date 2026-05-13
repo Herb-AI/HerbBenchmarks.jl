@@ -55,6 +55,9 @@ is_color(a::Integer) = 0 <= a <= 9
 using MLStyle
 using StatsBase
 
+"""Returns an empty grid"""
+empty_grid = Matrix{Integer}(undef, 0, 0)
+
 """Returns the sum of a and b"""
 add(a::Integer, b::Integer)::Integer = a + b
 add(a::IntegerTuple, b::Integer)::IntegerTuple = a + CartesianIndex(b, b)
