@@ -188,7 +188,11 @@ order(container::Objects)::Objects = sort(collect(container))
 order_by(container::Objects, compfunc)::Objects = sort(collect(container), by=compfunc)
 
 """Repeat item (Grid) to have item a total of num times"""
-repeat_item(item::Grid, num::Integer)::Unsafe(Grid) = is_index(width(item) * num) ? repeat(item, 1, num) : nothing
+function repeat_item(item::Grid, num::Integer)::Unsafe(Grid)
+    isempty(grid) && return grid
+    !is_index(width(item) * num) && return nothing 
+    return repeat(item, 1, num)
+end
 
 """Convert an object to a Grid with background value"""
 asgrid(object::Object, color::Integer)::Unsafe(Grid) = is_color(color) ? underpaint(canvas(color, shape(object)), object) : nothing
