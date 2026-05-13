@@ -189,7 +189,7 @@ order_by(container::Objects, compfunc)::Objects = sort(collect(container), by=co
 
 """Repeat item (Grid) to have item a total of num times"""
 function repeat_item(item::Grid, num::Integer)::Unsafe(Grid)
-    isempty(grid) && return grid
+    isempty(item) && return item
     !is_index(width(item) * num) && return nothing 
     return repeat(item, 1, num)
 end
@@ -604,7 +604,7 @@ Finds connected objects in `grid`.
 - `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
 - `without_bg`: If `true`, the most common value (background) is ignored.
 """
-function objects(grid::Grid, univalued::Boolean=true, diagonal::Boolean=true, without_bg::Boolean=true)::Objects
+function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean)::Objects
     bg = without_bg ? mostcolor(grid) : nothing
     objs = []
     occupied = Set()
@@ -643,6 +643,23 @@ function objects(grid::Grid, univalued::Boolean=true, diagonal::Boolean=true, wi
         end
     end
     return objs
+end
+
+"""
+Finds the nth connected object in `grid`.
+
+# Arguments
+- `grid`: The input matrix.
+- `univalued`: If `true`, only cells of the same color are connected.
+- `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
+- `without_bg`: If `true`, the most common value (background) is ignored.
+- `index`: Index of object in grid
+"""
+function nth_object(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean, index::Integer)::Unsafe(Objects)
+    index <= 0 && return nothing
+    objs = objects(grid, univalued, diagonal, without_bg)
+    index > length(objs) && return nothing
+    return objs[index]
 end
 
 """All color in object or grid"""
