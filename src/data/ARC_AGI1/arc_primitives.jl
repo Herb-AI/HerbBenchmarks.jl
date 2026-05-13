@@ -35,10 +35,8 @@ GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
 Boolean = Bool
 IntegerTuple = CartesianIndex{2}
-# Indices = Vector{IntegerTuple}
-Indices = Set{IntegerTuple}
-# Object = Vector{Tuple{Integer, IntegerTuple}}
-Object = Set{Tuple{Integer, IntegerTuple}}
+Indices = Vector{IntegerTuple}
+Object = Vector{Tuple{Integer, IntegerTuple}}
 Objects = Vector{Object}
 
 Unsafe = t -> Union{Nothing, t}
@@ -47,6 +45,10 @@ Patch = Union{Object, Indices}
 Piece = Union{Grid, Patch}
 Element = Union{Grid, Object}
 Container = Union{Grid, Object, Objects, Indices}
+
+Base.:(==)(a::Indices, b::Indices) = Set(a) == Set(b)
+Base.:(==)(a::Object, b::Object) = Set(a) == Set(b)
+
 
 using MLStyle
 using StatsBase
