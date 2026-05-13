@@ -317,6 +317,10 @@ colorfilter(objects::Objects, value::Integer)::Unsafe(Objects) = is_color(value)
 """Return container with only elements of given size"""
 sizefilter(container::Objects, size::Integer)::Unsafe(Objects) = is_index(size) ? [x for x in container if length(x) == size] : nothing
 
+"""Orders an int container"""
+order_int_container(container::IntContainer)::IntContainer = sort(container)
+
+
 """Returns index of upper left corner."""
 function ulcorner(indices::Indices)::Unsafe(IntegerTuple)
     isempty(indices) && return nothing

@@ -210,6 +210,8 @@ grammar_hodel = @csgrammar begin
     Objects = sizefilter(Objects, Integer)
     Objects = colorfilter(Objects, Integer)
 
+    IntContainer = order_int_container(IntContainer)
+
     # Set/collection operations
     Indices = intersection(Indices, Indices)
     Objects = intersection(Objects, Objects)
