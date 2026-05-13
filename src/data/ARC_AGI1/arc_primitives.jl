@@ -160,7 +160,7 @@ difference(a::Object, b::Object)::Object = setdiff(a, b)
 difference(a::IntContainer, b::IntContainer)::IntContainer = setdiff(a, b)
 
 """Removes duplicate rows/elements from matrix/vector"""
-dedupe(grid::Grid)::Grid = isempty(grid) ? [] : permutedims(stack(unique(eachrow(grid))))
+dedupe(grid::Grid)::Grid = isempty(grid) ? grid : permutedims(stack(unique(eachrow(grid))))
 dedupe(a::Indices)::Indices = unique(a)
 dedupe(a::Object)::Object = unique(a)
 dedupe(a::Objects)::Objects = unique(a)
@@ -630,7 +630,7 @@ end
 
 """Splits the grid into objects where each object contains all cells of one color/value excluding background"""
 function fgpartition(grid::Grid)::Unsafe(Objects)
-    isempty(grid) && return nothing
+    isempty(grid) && return grid
 
     pal = palette(grid)
     bg = mostcolor(grid) # background color
@@ -909,10 +909,10 @@ hconcat(a::Grid, b::Grid)::Unsafe(Grid) = size(a, 1) == size(b, 1) ? hcat(a, b) 
 vconcat(a::Grid, b::Grid)::Unsafe(Grid) = size(a, 2) == size(b, 2) ? vcat(a, b) : nothing
 
 """Upscale grid horizontally."""
-hupscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? (isempty(grid) ? [] : reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])) : nothing
+hupscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? (isempty(grid) ? grid : reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])) : nothing
 
 """Upscale grid vertically."""
-vupscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? (isempty(grid) ? [] : reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])) : nothing
+vupscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? (isempty(grid) ? grid : reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])) : nothing
 
 
 """Split grid along horizontal into n parts."""
