@@ -1021,7 +1021,7 @@ index(grid::Grid, loc::IntegerTuple)::Unsafe(Integer) = checkbounds(Bool, grid, 
 subgrid(patch::Patch, grid::Grid)::Unsafe(Grid) = crop(grid, ulcorner(patch), shape(patch))
 
 """Remove an object from grid by filling with locations with background color."""
-cover(grid::Grid, patch::Patch)::Unsafe(Grid) = isempty(grid) ? [] : fill_loc(grid, mostcolor(grid), patch)
+cover(grid::Grid, patch::Patch)::Unsafe(Grid) = isempty(grid) ? grid : fill_loc(grid, mostcolor(grid), patch)
 
 """Moves object on grid by given offset"""
 function move(grid::Grid, object::Object, offset::IntegerTuple)::Unsafe(Grid)
