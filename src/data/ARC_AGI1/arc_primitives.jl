@@ -494,7 +494,7 @@ function rel_position(a::Patch, b::Patch)::Unsafe(IntegerTuple)
 end
 
 """Indices of corners of given patch."""
-corners(patch::Patch)::Indices = [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
+corners(patch::Patch)::Unsafe(Indices) = isempty(patch) ? nothing : [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
 
 """Horizontal periodicity, i.e. smallest horizontal distance at which pattern repeats. Returns full width if not pattern found."""
 function hperiod(object::Object)::Integer
