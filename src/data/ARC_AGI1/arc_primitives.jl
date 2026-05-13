@@ -872,7 +872,7 @@ end
 """filter container for elements that satisfy predicate function (provided as function)"""
 sfilter(container::IntContainer, condition)::IntContainer = filter(condition, container)
 sfilter(container::Objects, condition)::Objects = filter(condition, container)
-sfilter(container::GridContainer, condition)::IntContainGridContainerer = filter(condition, container)
+sfilter(container::GridContainer, condition)::GridContainer = filter(condition, container)
 
 """filter and merge"""
 mfilter(containers::Objects, condition)::Object = merge_containers(sfilter(containers, condition))
@@ -1095,7 +1095,7 @@ remove(value::Object, container::Objects)::Objects = filter(!=(value), container
 remove(value::Integer, container::IntContainer)::IntContainer = filter(!=(value), container)
 
 """Returns other value in container, i.e., first element after removing given value"""
-other(value::IntegerTuple, container::Indices)::Unsafe(IntegerTupl) = firstof(remove(value, container))
+other(value::IntegerTuple, container::Indices)::Unsafe(IntegerTuple) = firstof(remove(value, container))
 other(value::Object, container::Objects)::Unsafe(Object) = firstof(remove(value, container))
 other(value::Integer, container::IntContainer)::Unsafe(Integer) = firstof(remove(value, container))
 
@@ -1119,7 +1119,8 @@ branch(condition::Boolean, a::Indices, b::Indices)::Indices = condition ? a : b
 branch(condition::Boolean, a::Grid, b::Grid)::Grid = condition ? a : b
 
 """Apply function to each element in container"""
-apply(func, container::Objects)::Union{Objects,IntContainer} = map(func, container)
+apply_obj_to_obj(func, container::Objects)::Objects = map(func, container)
+apply_obj_to_int(func, container::Objects)::IntContainer = map(func, container)
 
 """Apply each function in container to a value"""
 # rapply(container, value) = [f(value) for f in container] # not included in grammar since it can't construct container of functions

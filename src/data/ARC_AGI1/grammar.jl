@@ -79,8 +79,8 @@ grammar_hodel = @csgrammar begin
     ObjectToIndicesFunc = toindices | corners | backdrop | delta | box | outbox | inbox
     GridToIntFunc = maximum_of | minimum_of | height | width | mostcolor | leastcolor | numcolors
     
-    Objects = apply(ObjectToObjectFunc, Objects)
-    IntContainer = apply(ObjectToIntFunc, Objects)
+    Objects = apply_obj_to_obj(ObjectToObjectFunc, Objects)
+    IntContainer = apply_obj_to_int(ObjectToIntFunc, Objects)
     Indices = mapply(IndexToIndicesFunc, Indices)
     Indices = mapply(ObjectToIndicesFunc, Objects)
 
