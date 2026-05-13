@@ -2,8 +2,14 @@ grammar_hodel = @csgrammar begin
     Start = Grid
     Grid = _arg_1
 
-    Integer = |(0:30) # covers color and grid size
+    Grid = Matrix{Integer}(undef, 0, 0)
+    GridContainer = []
+    Object = []
+    Objects = []
+    Indices = []
+    IntContainer = []
     Boolean = false | true
+    Integer = |(0:30) # covers color and grid size
 
     Patch = Object | Indices
     Piece = Grid | Patch
@@ -160,7 +166,7 @@ grammar_hodel = @csgrammar begin
     Grid = fill_loc(Grid, Integer, Patch) 
     Grid = paint(Grid, Object)
     Grid = underfill(Grid, Integer, Patch) 
-    Grid = underpaint(Grid, Object)  
+    Grid = underpaint(Grid, Object)
     Grid = init(Integer)
     Grid = repeat_item(Grid, Integer)
     
