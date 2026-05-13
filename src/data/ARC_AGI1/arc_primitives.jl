@@ -35,8 +35,10 @@ GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
 Boolean = Bool
 IntegerTuple = CartesianIndex{2}
-Indices = Vector{IntegerTuple}
-Object = Vector{Tuple{Integer, IntegerTuple}}
+# Indices = Vector{IntegerTuple}
+Indices = Set{IntegerTuple}
+# Object = Vector{Tuple{Integer, IntegerTuple}}
+Object = Set{Tuple{Integer, IntegerTuple}}
 Objects = Vector{Object}
 
 Unsafe = t -> Union{Nothing, t}
