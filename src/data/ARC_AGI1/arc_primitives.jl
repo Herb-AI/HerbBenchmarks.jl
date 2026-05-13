@@ -150,6 +150,7 @@ equality(a::Integer, b::Integer)::Bool = a == b
 equality(a::IntegerTuple, b::IntegerTuple)::Bool = a == b
 equality(a::Grid, b::Grid)::Bool = a == b
 equality(a::Object, b::Object)::Bool = Set(a) == Set(b) # for Object where order doesn't matter
+equality(a::IntContainer, b::IntContainer)::Bool = a == b
 
 """Whether value is an element of container"""
 contained(value::Integer, container::IntContainer)::Bool = value in container
