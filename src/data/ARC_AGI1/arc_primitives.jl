@@ -55,8 +55,13 @@ is_color(a::Integer) = 0 <= a <= 9
 using MLStyle
 using StatsBase
 
-"""Returns an empty grid"""
+"""Empty values for each type"""
 empty_grid = Matrix{Integer}(undef, 0, 0)
+empty_grid_container = GridContainer([])
+empty_object = Object([])
+empty_objects = Objects([])
+empty_indices = Indices([])
+empty_int_container = IntContainer([])
 
 """Returns the sum of a and b"""
 add(a::Integer, b::Integer)::Integer = a + b

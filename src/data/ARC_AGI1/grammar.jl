@@ -3,11 +3,11 @@ grammar_hodel = @csgrammar begin
     Grid = _arg_1
 
     Grid = empty_grid
-    GridContainer = []
-    Object = []
-    Objects = []
-    Indices = []
-    IntContainer = []
+    GridContainer = empty_grid_container
+    Object = empty_object
+    Objects = empty_objects
+    Indices = empty_indices
+    IntContainer = empty_int_container
     Boolean = false | true
     Integer = |(0:30) # covers color and grid size
 
