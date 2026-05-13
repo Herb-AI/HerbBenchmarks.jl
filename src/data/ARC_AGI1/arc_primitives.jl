@@ -50,6 +50,7 @@ Base.:(==)(a::Indices, b::Indices) = Set(a) == Set(b)
 Base.:(==)(a::Object, b::Object) = Set(a) == Set(b)
 
 is_color(a::Integer) = 0 <= a <= 9
+is_index(a::Integer) = 0 <= a <= 30
 
 
 using MLStyle
@@ -928,10 +929,20 @@ hconcat(a::Grid, b::Grid)::Unsafe(Grid) = size(a, 1) == size(b, 1) ? hcat(a, b) 
 vconcat(a::Grid, b::Grid)::Unsafe(Grid) = size(a, 2) == size(b, 2) ? vcat(a, b) : nothing
 
 """Upscale grid horizontally."""
-hupscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? (isempty(grid) ? grid : reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])) : nothing
+function hupscale(grid::Grid, factor::Integer)::Unsafe(Grid)
+    !is_index(width(grid) * factor) && return nothing
+    isempty(grid) && return grid
+    
+    return reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])
+end
 
 """Upscale grid vertically."""
-vupscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? (isempty(grid) ? grid : reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])) : nothing
+function vupscale(grid::Grid, factor::Integer)::Unsafe(Grid)
+    !is_index(height(grid) * factor) && return nothing
+    isempty(grid) && return grid
+    
+    return reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])
+end
 
 
 """Split grid along horizontal into n parts."""
@@ -1031,7 +1042,7 @@ function frontiers(grid::Grid)::Objects
 end
 
 """Constructs a grid of given dimensions and fills it with value"""
-canvas(value::Integer, dimensions::IntegerTuple)::Unsafe(Grid) = (dimensions[1] >= 0 && dimensions[2] >= 0 && is_color(value)) ? fill(value, dimensions[1], dimensions[2]) : nothing
+canvas(value::Integer, dimensions::IntegerTuple)::Unsafe(Grid) = (is_index(dimensions[1]) && is_index(dimensions[2]) && is_color(value)) ? fill(value, dimensions[1], dimensions[2]) : nothing
 
 """Get color of grid at given location loc"""
 index(grid::Grid, loc::IntegerTuple)::Unsafe(Integer) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
