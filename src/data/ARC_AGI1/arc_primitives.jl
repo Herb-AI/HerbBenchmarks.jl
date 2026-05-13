@@ -49,6 +49,8 @@ Container = Union{Grid, Object, Objects, Indices}
 Base.:(==)(a::Indices, b::Indices) = Set(a) == Set(b)
 Base.:(==)(a::Object, b::Object) = Set(a) == Set(b)
 
+is_color(a::Integer) = 0 <= a <= 9
+
 
 using MLStyle
 using StatsBase
@@ -221,7 +223,7 @@ leastcommon(container::Indices)::Unsafe(IntegerTuple) = !isempty(container) ? ar
 leastcommon(container::Objects)::Unsafe(Object) = !isempty(container) ? argmin(countmap(container)) : nothing
 
 """initialize vector"""
-init(value::Integer)::Grid = fill(value, 1, 1)
+init(value::Integer)::Unsafe(Grid) = is_color(value) ? fill(value, 1, 1) : nothing
 
 """Row index of lowermost occupied cell"""
 lowermost(object::Object)::Unsafe(Integer) = !isempty(object) ? maximum(x[2][1] for x in object) : nothing
@@ -695,6 +697,7 @@ asobject(grid::Grid)::Object = [(grid[idx], idx) for idx in vec(asindices(grid))
 
 """Fill value in grid at locations given by patch indices"""
 function fill_loc(grid::Grid, value::Integer, patch::Patch)::Unsafe(Grid) # fill() in original. Renamed due to name clash.
+    !is_color(value) && return nothing
     grid_filled = copy(grid)
     indices = toindices(patch)
     !checkbounds(Bool, grid, indices) && return nothing
@@ -946,16 +949,16 @@ function vsplit(grid::Grid, n::Integer)::Unsafe(GridContainer)
 end
 
 """Cellwise matching of grids a and b. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`."""
-cellwise(a::Grid, b::Grid, fallback::Integer)::Unsafe(Grid) = (width(a) <= width(b) && height(a) <= height(b)) ? [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)] : nothing
+cellwise(a::Grid, b::Grid, fallback::Integer)::Unsafe(Grid) = (width(a) <= width(b) && height(a) <= height(b) && is_color(fallback)) ? [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)] : nothing
 
 
 """Substituion of color value replacee with new color replacer."""
-replace_color(grid::Grid, replacee::Integer, replacer::Integer)::Unsafe(Grid) = [grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
+replace_color(grid::Grid, replacee::Integer, replacer::Integer)::Unsafe(Grid) = (is_color(replacee) && is_color(replacer)) ? [grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)] : nothing
 # replace in original Python implementation => renamed due to name clash
 
 
 """Switches color for cells with value a and b. Other cells remain unchanged."""
-switch(grid::Grid, a::Integer, b::Integer)::Grid = [grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)]
+switch(grid::Grid, a::Integer, b::Integer)::Unsafe(Grid) = (is_color(a) && is_color(b)) ? [grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)] : nothing
 
 
 """Trims the borders of the grid, i.e., removes outermost rows and columns"""
@@ -1016,7 +1019,7 @@ function frontiers(grid::Grid)::Objects
 end
 
 """Constructs a grid of given dimensions and fills it with value"""
-canvas(value::Integer, dimensions::IntegerTuple)::Unsafe(Grid) = (dimensions[1] >= 0 && dimensions[2] >= 0) ? fill(value, dimensions[1], dimensions[2]) : nothing
+canvas(value::Integer, dimensions::IntegerTuple)::Unsafe(Grid) = (dimensions[1] >= 0 && dimensions[2] >= 0 && is_color(value)) ? fill(value, dimensions[1], dimensions[2]) : nothing
 
 """Get color of grid at given location loc"""
 index(grid::Grid, loc::IntegerTuple)::Unsafe(Integer) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
