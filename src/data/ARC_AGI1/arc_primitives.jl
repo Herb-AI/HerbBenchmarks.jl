@@ -211,13 +211,17 @@ minimum_of(container::Grid)::Unsafe(Integer) = !isempty(container) ? minimum(con
 """maximum by custom function"""
 function valmax(container::Objects, compfunc)::Unsafe(Integer)
     isempty(container) && return nothing
-    return maximum(compfunc(x) for x in container)
+    res = map(compfunc, container)
+    any(isnothing, res) && return nothing
+    return maximum(res)
 end
 
 """minimum by custom function"""
 function valmin(container::Objects, compfunc)::Unsafe(Integer)
     isempty(container) && return nothing
-    return minimum(compfunc(x) for x in container)
+    res = map(compfunc, container)
+    any(isnothing, res) && return nothing
+    return minimum(res)
 end
 
 """returns the container that maximizes the custom function"""
