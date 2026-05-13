@@ -306,7 +306,7 @@ colorfilter(objects::Objects, value::Integer)::Unsafe(Objects) = is_color(value)
 # The Python implementation checks first element to `obj` only. Unclear if intended this way.
 
 """Return container with only elements of given size"""
-sizefilter(container::Objects, size::Integer)::Unsafe(Objects) = size < 0 ? nothing : [x for x in container if length(x) == size]
+sizefilter(container::Objects, size::Integer)::Unsafe(Objects) = !is_index(size) ? nothing : [x for x in container if length(x) == size]
 
 """Returns index of upper left corner."""
 function ulcorner(indices::Indices)::IntegerTuple
