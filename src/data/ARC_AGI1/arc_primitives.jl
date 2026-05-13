@@ -655,7 +655,7 @@ Finds the nth connected object in `grid`.
 - `without_bg`: If `true`, the most common value (background) is ignored.
 - `index`: Index of object in grid
 """
-function nth_object(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean, index::Integer)::Unsafe(Objects)
+function nth_object(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean, index::Integer)::Unsafe(Object)
     index <= 0 && return nothing
     objs = objects(grid, univalued, diagonal, without_bg)
     index > length(objs) && return nothing
