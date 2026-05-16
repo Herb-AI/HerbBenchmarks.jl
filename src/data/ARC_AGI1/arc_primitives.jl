@@ -986,27 +986,27 @@ end
 """Split grid along horizontal into n parts."""
 function hsplit(grid::Grid, n::Integer)::Unsafe(GridContainer)
     isempty(grid) && return []
-    n <= 0 && return nothing
+    n <= 1 && return nothing
 
     _, w_total = size(grid)
-    w = w_total ÷ n
-    offset = (w_total % n) / n
-    from = i -> w*i + 1 + Int(round(i*offset, RoundNearestTiesUp))
-    to = i -> from(i) + w - 1
-    return [grid[:, from(i):to(i)] for i in 0:n-1]
+    n > w_total && return nothing
+
+    w = w_total / n
+    from = i -> Int(round(w*i + 1, RoundNearestTiesUp))
+    return [grid[:, from(i):from(i+1)-1] for i in 0:n-1]
 end
 
 """Split grid along vertical into n parts"""
 function vsplit(grid::Grid, n::Integer)::Unsafe(GridContainer)
     isempty(grid) && return []
-    n <= 0 && return nothing
+    n <= 1 && return nothing
 
     h_total, _ = size(grid)
-    h = h_total ÷ n
-    offset = (h_total % n) / n
-    from = i -> h*i + 1 + Int(round(i*offset, RoundNearestTiesUp))
-    to = i -> from(i) + h - 1
-    return [grid[from(i):to(i), :] for i in 0:n-1]
+    n > h_total && return nothing
+
+    h = h_total / n
+    from = i -> Int(round(h*i + 1, RoundNearestTiesUp))
+    return [grid[from(i):from(i+1)-1, :] for i in 0:n-1]
 end
 
 """Cellwise matching of grids a and b. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`."""
