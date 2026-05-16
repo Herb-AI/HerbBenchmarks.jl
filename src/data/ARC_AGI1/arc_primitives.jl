@@ -187,9 +187,9 @@ order(container::Objects)::Objects = sort(collect(container))
 
 """Order container by custom key `compfunc`"""
 function order_by(container::Objects, compfunc)::Unsafe(Objects)
-    keys = map(container, compfunc)
-    any(isnothing, keys) && return nothing
-    return container[sortperm(keys)]
+    res = map(compfunc, container)
+    any(isnothing, res) && return nothing
+    return container[sortperm(res)]
 end
 
 """Repeat item (Grid) to have item a total of num times"""
