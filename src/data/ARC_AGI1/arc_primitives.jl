@@ -186,7 +186,11 @@ dedupe(a::IntContainer)::IntContainer = unique(a)
 order(container::Objects)::Objects = sort(collect(container))
 
 """Order container by custom key `compfunc`"""
-order_by(container::Objects, compfunc)::Objects = sort(collect(container), by=compfunc)
+function order_by(container::Objects, compfunc)::Unsafe(Objects)
+    keys = map(container, compfunc)
+    any(isnothing, keys) && return nothing
+    return container[sortperm(keys)]
+end
 
 """Repeat item (Grid) to have item a total of num times"""
 function repeat_item(item::Grid, num::Integer)::Unsafe(Grid)
