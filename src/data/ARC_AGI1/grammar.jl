@@ -9,7 +9,8 @@ grammar_hodel = @csgrammar begin
     Indices = empty_indices
     IntContainer = empty_int_container
     Boolean = false | true
-    Integer = |(0:30) # covers color and grid size
+    # Integer = |(0:30) # covers color and grid size
+    Integer = |(0:10)
 
     Patch = Object | Indices
     Piece = Grid | Patch

@@ -51,7 +51,7 @@ Base.:(==)(a::Object, b::Object) = Set(a) == Set(b)
 
 is_color(a::Integer) = 0 <= a <= 9
 is_index(a::Integer) = 0 <= a <= 30
-
+is_integer(a::Integer) = is_color(a) || is_index(a)
 
 using MLStyle
 using StatsBase
@@ -455,7 +455,7 @@ cmirror(piece::Indices)::Indices = vmirror(dmirror(vmirror(piece)))
 
 """ Upscales grid or object by given `factor`"""
 function upscale(grid::Grid, factor::Integer)::Unsafe(Grid)
-    factor < 0 && return nothing
+    !is_index(height(grid) * factor) && return nothing
 
     rows, cols = size(grid)
     upscaled = Matrix{eltype(grid)}(undef, rows * factor, cols * factor)
@@ -474,7 +474,7 @@ end
 
 function upscale(object::Object, factor::Integer)::Unsafe(Object)
     isempty(object) && return []
-    factor < 0 && return nothing
+    !is_index(height(object) * factor) && return nothing
 
     corner = ulcorner(object)
     di_inv, dj_inv = Tuple(corner)
