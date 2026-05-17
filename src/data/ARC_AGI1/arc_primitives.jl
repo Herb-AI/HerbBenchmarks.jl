@@ -323,7 +323,11 @@ colorcount(object::Object, value::Integer)::Unsafe(Integer) = is_color(value) ? 
 
 
 """Filters objects by color value. An object is included if its first element matches the color value."""
-colorfilter(objects::Objects, value::Integer)::Unsafe(Objects) = is_color(value) ? [obj for obj in objects if first(obj[1]) == value] : nothing
+function colorfilter(objects::Objects, value::Integer)::Unsafe(Objects) 
+    !is_color(value) && return nothing
+    [obj for obj in objects if !isempty(obj) && first(obj[1]) == value]
+end
+
 # The Python implementation checks first element to `obj` only. Unclear if intended this way.
 
 """Return container with only elements of given size"""
