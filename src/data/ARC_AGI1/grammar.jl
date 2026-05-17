@@ -2,15 +2,20 @@ grammar_hodel = @csgrammar begin
     Start = Grid
     Grid = _arg_1
 
-    Grid = empty_grid
-    GridContainer = empty_grid_container
-    Object = empty_object
-    Objects = empty_objects
-    Indices = empty_indices
-    IntContainer = empty_int_container
+
     Boolean = false | true
-    # Integer = |(0:30) # covers color and grid size
-    Integer = |(0:10)
+    Integer = |(-2:9)
+    IntegerTuple = (1, 0) | (0, 1) | (-1, 0) | (0, -1)
+    IntegerTuple = (0, 0) | (1, 1) | (-1, -1) | (1, -1) | (-1, 1)
+    IntegerTuple = (0, 2) | (2, 0) | (2, 2) | (3, 3)
+
+    # Grid = empty_grid
+    # GridContainer = empty_grid_container
+    # Object = empty_object
+    # Objects = empty_objects
+    # Indices = empty_indices
+    # IntContainer = empty_int_container
+
 
     Patch = Object | Indices
     Piece = Grid | Patch
