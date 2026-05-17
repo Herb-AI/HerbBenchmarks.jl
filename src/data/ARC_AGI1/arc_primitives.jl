@@ -1127,7 +1127,7 @@ function occurrences(grid::Grid, object::Object)::Indices
 
     occs = []
 
-    @inbounds for i0 in 1:h2, j0 in 1:w2
+    @inbounds for i0 in 0:(h2-1), j0 in 0:(w2-1)
         if all(grid[i0+d[1], j0+d[2]] == v for (v, d) in norm)
             push!(occs, CartesianIndex(i0, j0))
         end
