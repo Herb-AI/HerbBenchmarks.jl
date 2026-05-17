@@ -523,7 +523,7 @@ corners(patch::Patch)::Unsafe(Indices) = isempty(patch) ? nothing : [ulcorner(pa
 
 """Horizontal periodicity, i.e. smallest horizontal distance at which pattern repeats. Returns full width if not pattern found."""
 function hperiod(object::Object)::Integer
-    normalized = normalize(object)
+    normalized = normalize_zero_indexed(object)
     w = width(normalized)
 
     for p in 1:(w-1)
@@ -541,7 +541,7 @@ end
 
 """Vertical periodicity, i.e. smallest vertical distance at which pattern repeats. Returns full width if not pattern found."""
 function vperiod(object::Object)::Integer
-    normalized = normalize(object)
+    normalized = normalize_zero_indexed(object)
     h = height(normalized)
 
 
@@ -599,6 +599,10 @@ end
 """ Moves top left corner to origin"""
 normalize(patch::Object)::Object = isempty(patch) ? [] : shift(patch, CartesianIndex(1-uppermost(patch), 1-leftmost(patch)))
 normalize(patch::Indices)::Indices = isempty(patch) ? [] : shift(patch, CartesianIndex(1-uppermost(patch), 1-leftmost(patch)))
+
+normalize_zero_indexed(patch::Object)::Object = isempty(patch) ? [] : shift(patch, CartesianIndex(-uppermost(patch), -leftmost(patch)))
+normalize_zero_indexed(patch::Indices)::Indices = isempty(patch) ? [] : shift(patch, CartesianIndex(-uppermost(patch), -leftmost(patch)))
+
 
 """Indices of directly adjacent neighbours of a location. 4-connectivity"""
 function dneighbors(loc::IntegerTuple)::Indices
@@ -1115,7 +1119,7 @@ function occurrences(grid::Grid, object::Object)::Indices
     isempty(object) && return []
 
     # Normalize and compute dimensions in one pass
-    norm = normalize(object)
+    norm = normalize_zero_indexed(object)
     oh, ow = shape(object).I
 
     # Unified grid access using indexing
@@ -1123,11 +1127,11 @@ function occurrences(grid::Grid, object::Object)::Indices
 
     h2 = h - oh + 1
     w2 = w - ow + 1
-    (h2 < 1 || w2 < 1) && return []
+    (h2 < 0 || w2 < 0) && return []
 
     occs = []
 
-    @inbounds for i0 in 0:(h2-1), j0 in 0:(w2-1)
+    @inbounds for i0 in 1:h2, j0 in 1:w2
         if all(grid[i0+d[1], j0+d[2]] == v for (v, d) in norm)
             push!(occs, CartesianIndex(i0, j0))
         end
