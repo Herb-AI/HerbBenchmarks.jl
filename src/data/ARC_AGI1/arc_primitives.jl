@@ -56,6 +56,9 @@ is_integer(a::Integer) = is_color(a) || is_index(a)
 using MLStyle
 using StatsBase
 
+"""Constant creation"""
+integer_tuple(a::Integer, b::Integer)::IntegerTuple = IntegerTuple(a, b)
+
 """Empty values for each type"""
 empty_grid = Matrix{Integer}(undef, 0, 0)
 empty_grid_container = GridContainer([])

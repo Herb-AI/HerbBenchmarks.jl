@@ -5,9 +5,9 @@ grammar_hodel = @csgrammar begin
 
     Boolean = false | true
     Integer = |(-2:9)
-    IntegerTuple = IntegerTuple((1, 0)) | IntegerTuple((0, 1)) | IntegerTuple((-1, 0)) | IntegerTuple((0, -1))
-    IntegerTuple = IntegerTuple((0, 0)) | IntegerTuple((1, 1)) | IntegerTuple((-1, -1)) | IntegerTuple((1, -1)) | IntegerTuple((-1, 1))
-    IntegerTuple = IntegerTuple((0, 2)) | IntegerTuple((2, 0)) | IntegerTuple((2, 2)) | IntegerTuple((3, 3))
+    IntegerTuple = integer_tuple(1, 0) | integer_tuple(0, 1) | integer_tuple(-1, 0) | integer_tuple(0, -1)
+    IntegerTuple = integer_tuple(0, 0) | integer_tuple(1, 1) | integer_tuple(-1, -1) | integer_tuple(1, -1) | integer_tuple(-1, 1)
+    IntegerTuple = integer_tuple(0, 2) | integer_tuple(2, 0) | integer_tuple(2, 2) | integer_tuple(3, 3)
 
     # Grid = empty_grid
     # GridContainer = empty_grid_container
