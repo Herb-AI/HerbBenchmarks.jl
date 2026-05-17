@@ -207,6 +207,8 @@ function asgrid(object::Object, color::Integer)::Unsafe(Grid)
     !is_color(color) && return nothing
 
     obj = normalize(object)
+    size = shape(obj)
+    any(!is_index, size.I) && return nothing
     underpaint(canvas(color, shape(obj)), obj)
 end
 
