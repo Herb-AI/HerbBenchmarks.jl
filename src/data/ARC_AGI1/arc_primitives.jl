@@ -200,7 +200,15 @@ function repeat_item(item::Grid, num::Integer)::Unsafe(Grid)
 end
 
 """Convert an object to a Grid with background value"""
-asgrid(object::Object, color::Integer)::Unsafe(Grid) = is_color(color) ? underpaint(canvas(color, shape(object)), object) : nothing
+function asgrid(object::Object, color::Integer)::Unsafe(Grid)
+    !is_color(color) && return nothing
+
+    obj = normalize(object)
+    underpaint(canvas(color, shape(obj)), obj)
+end
+
+"""Convert objects to a Grid with background value"""
+asgrid(objects::Objects, color::Integer)::Unsafe(Grid) = asgrid(merge_containers(objects), color)
 
 """Size of container"""
 size_of(container::Container)::Integer = length(container)
@@ -589,8 +597,8 @@ function shift(indices::Indices, directions::IntegerTuple)::Indices
 end
 
 """ Moves top left corner to origin"""
-normalize(patch::Object)::Object = isempty(patch) ? [] : shift(patch, CartesianIndex(-uppermost(patch), -leftmost(patch)))
-normalize(patch::Indices)::Indices = isempty(patch) ? [] : shift(patch, CartesianIndex(-uppermost(patch), -leftmost(patch)))
+normalize(patch::Object)::Object = isempty(patch) ? [] : shift(patch, CartesianIndex(1-uppermost(patch), 1-leftmost(patch)))
+normalize(patch::Indices)::Indices = isempty(patch) ? [] : shift(patch, CartesianIndex(1-uppermost(patch), 1-leftmost(patch)))
 
 """Indices of directly adjacent neighbours of a location. 4-connectivity"""
 function dneighbors(loc::IntegerTuple)::Indices

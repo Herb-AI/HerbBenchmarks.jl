@@ -171,6 +171,7 @@ grammar_hodel = @csgrammar begin
     Grid = init(Integer)
     Grid = repeat_item(Grid, Integer)
     Grid = asgrid(Object, Integer)
+    Grid = asgrid(Objects, Integer)
     
  
     GridContainer = hsplit(Grid, Integer) # we need to be able to pick one (e.g., firstof(), extract, filter + merge, argmax/argmin + score)
