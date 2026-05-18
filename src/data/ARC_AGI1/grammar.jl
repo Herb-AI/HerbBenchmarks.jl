@@ -174,7 +174,7 @@ grammar_hodel = @csgrammar begin
     Grid = underfill(Grid, Integer, Patch) 
     Grid = underpaint(Grid, Object)
     Grid = init(Integer)
-    Grid = repeat_item(Grid, Integer)
+    Grid = repeat_item(Grid, IntegerTuple)
     Grid = asgrid(Object, Integer)
     Grid = asgrid(Objects, Integer)
     

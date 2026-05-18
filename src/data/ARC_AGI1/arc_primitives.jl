@@ -197,10 +197,11 @@ function order_by(container::Objects, compfunc)::Unsafe(Objects)
 end
 
 """Repeat item (Grid) to have item a total of num times"""
-function repeat_item(item::Grid, num::Integer)::Unsafe(Grid)
+function repeat_item(item::Grid, num::IntegerTuple)::Unsafe(Grid)
     isempty(item) && return item
-    !is_index(width(item) * num) && return nothing 
-    return repeat(item, 1, num)
+    !is_index(height(item) * num[1]) && return nothing 
+    !is_index(width(item) * num[2]) && return nothing 
+    return repeat(item, num[1], num[2])
 end
 
 """Convert an object to a Grid with background value"""
