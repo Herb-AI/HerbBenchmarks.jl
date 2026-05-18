@@ -59,7 +59,7 @@ using StatsBase
 
 """Constant creation"""
 integer(a::Int)::Integer = Integer(a)
-integer_tuple(a::Integer, b::Integer)::IntegerTuple = IntegerTuple(a, b)
+integer_tuple(a::Int, b::Int)::IntegerTuple = IntegerTuple(a, b)
 
 """Empty values for each type"""
 empty_grid = Matrix{Integer}(undef, 0, 0)
