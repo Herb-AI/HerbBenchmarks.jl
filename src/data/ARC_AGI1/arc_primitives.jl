@@ -30,13 +30,13 @@
 =#
 
 Integer = Int
-Grid = Matrix{Int8}
+Grid = Matrix{Integer}
 GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
 Boolean = Bool
 IntegerTuple = CartesianIndex{2}
 Indices = Vector{IntegerTuple}
-Object = Vector{Tuple{Int8, IntegerTuple}}
+Object = Vector{Tuple{Integer, IntegerTuple}}
 Objects = Vector{Object}
 
 Unsafe = t -> Union{Nothing, t}
