@@ -961,7 +961,7 @@ sfilter(container::GridContainer, condition)::GridContainer = filter(condition, 
 mfilter(containers::Objects, condition)::Object = merge_containers(sfilter(containers, condition))
 
 """Line from starting point in given direction"""
-shoot(start::IntegerTuple, direction::IntegerTuple)::Indices = connect(start, (start[1] + 42 * direction[1], start[2] + 42 * direction[2]))
+shoot(start::IntegerTuple, direction::IntegerTuple)::Indices = connect(start, IntegerTuple(start[1] + 42 * direction[1], start[2] + 42 * direction[2]))
 
 """Merge elements of nested container"""
 merge_containers(container::Objects)::Object = isempty(container) ? [] : reduce(vcat, container) # also works with non-nested containers. We don't have `ContainerContainer` 
