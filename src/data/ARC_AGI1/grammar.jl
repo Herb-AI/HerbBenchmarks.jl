@@ -4,7 +4,19 @@ grammar_hodel = @csgrammar begin
 
 
     Boolean = false | true
-    Integer = |(-2:9)
+    # Integer = |(-2:9)
+    Integer = integer(-2)
+    Integer = integer(-1)
+    Integer = integer(0)
+    Integer = integer(1)
+    Integer = integer(2)
+    Integer = integer(3)
+    Integer = integer(4)
+    Integer = integer(5)
+    Integer = integer(6)
+    Integer = integer(7)
+    Integer = integer(8)
+    Integer = integer(9)
     IntegerTuple = integer_tuple(1, 0) | integer_tuple(0, 1) | integer_tuple(-1, 0) | integer_tuple(0, -1)
     IntegerTuple = integer_tuple(0, 0) | integer_tuple(1, 1) | integer_tuple(-1, -1) | integer_tuple(1, -1) | integer_tuple(-1, 1)
     IntegerTuple = integer_tuple(0, 2) | integer_tuple(2, 0) | integer_tuple(2, 2) | integer_tuple(3, 3)

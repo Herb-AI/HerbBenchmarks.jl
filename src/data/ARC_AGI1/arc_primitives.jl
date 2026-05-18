@@ -29,7 +29,7 @@
     - Container: Grid | Object | Objects | Indices — Generic containers
 =#
 
-Integer = Int64
+Integer = Int8
 Grid = Matrix{Integer}
 GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
@@ -58,6 +58,7 @@ using MLStyle
 using StatsBase
 
 """Constant creation"""
+integer(a::Int)::Integer = Integer(a)
 integer_tuple(a::Integer, b::Integer)::IntegerTuple = IntegerTuple(a, b)
 
 """Empty values for each type"""
