@@ -30,7 +30,7 @@
 =#
 
 Integer = Int
-Grid = Matrix{Integer}
+Grid = Matrix{Int8}
 GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
 Boolean = Bool
