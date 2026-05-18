@@ -29,14 +29,14 @@
     - Container: Grid | Object | Objects | Indices — Generic containers
 =#
 
-Integer = Int16
-Grid = Matrix{Integer}
+Integer = Int
+Grid = Matrix{Int8}
 GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
 Boolean = Bool
 IntegerTuple = CartesianIndex{2}
 Indices = Vector{IntegerTuple}
-Object = Vector{Tuple{Integer, IntegerTuple}}
+Object = Vector{Tuple{Int8, IntegerTuple}}
 Objects = Vector{Object}
 
 Unsafe = t -> Union{Nothing, t}
