@@ -6,7 +6,7 @@ grammar_hodel = @csgrammar begin
     Boolean = false | true
     Integer = |(-2:9)
     IntegerTuple = down | right | up | left
-    IntegerTuple = origin | unity | new_unity | up_right | down_left
+    IntegerTuple = origin | unity | neg_unity | up_right | down_left
     IntegerTuple = zero_by_two | two_by_zero | two_by_two | three_by_three
 
     # Grid = empty_grid

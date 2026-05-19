@@ -57,7 +57,7 @@ is_integer_tuple(a::IntegerTuple) = all(is_index, a.I)
 using MLStyle
 using StatsBase
 
-"""Constant creation"""
+"""Constants"""
 down = IntegerTuple(1,0)
 right = IntegerTuple(0,1)
 up = IntegerTuple(-1,0)
