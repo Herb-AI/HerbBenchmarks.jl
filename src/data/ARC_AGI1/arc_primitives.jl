@@ -36,7 +36,7 @@ IntContainer = Vector{Integer}
 Boolean = Bool
 IntegerTuple = CartesianIndex{2}
 Indices = Vector{IntegerTuple}
-Object = Vector{Tuple{Color, IntegerTuple}}
+Object = Vector{Tuple{Integer, IntegerTuple}}
 Objects = Vector{Object}
 
 Unsafe = t -> Union{Nothing, t}
@@ -58,8 +58,19 @@ using MLStyle
 using StatsBase
 
 """Constant creation"""
-integer(a::Int)::Integer = Integer(a)
-integer_tuple(a, b)::IntegerTuple = IntegerTuple(a, b)
+down = IntegerTuple(1,0)
+right = IntegerTuple(0,1)
+up = IntegerTuple(-1,0)
+left = IntegerTuple(0,-1)
+# origin = IntegerTuple(0,0)
+unity = IntegerTuple(1,1)
+neg_unity = IntegerTuple(-1,-1)
+up_right = IntegerTuple(1,-1)
+down_left = IntegerTuple(-1,1)
+zero_by_two = IntegerTuple(0,2)
+two_by_zero = IntegerTuple(2,0)
+two_by_two = IntegerTuple(2,2)
+three_by_three = IntegerTuple(3,3)
 
 """Empty values for each type"""
 empty_grid = Matrix{Integer}(undef, 0, 0)
@@ -91,8 +102,8 @@ multiply(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = CartesianIndex(a[1] *
 """ Returns the result of integer division of  a and b"""
 divide(a::Integer, b::Integer)::Unsafe(Integer) = b != 0 ? a ÷ b : nothing
 divide(a::IntegerTuple, b)::Unsafe(CartesianIndex{2}) = b != 0 ? CartesianIndex(a[1] ÷ b, a[2] ÷ b) : nothing
-divide(a::Integer, b::IntegerTuple)::Unsafe(CartesianIndex{2}) = !any(iszero, b) ? CartesianIndex(a ÷ b[1], a ÷ b[2]) : nothing
-divide(a::IntegerTuple, b::IntegerTuple)::Unsafe(CartesianIndex{2}) = !any(iszero, b) ? CartesianIndex(a[1] ÷ b[1], a[2] ÷ b[2]) : nothing
+divide(a::Integer, b::IntegerTuple)::Unsafe(CartesianIndex{2}) = !any(iszero, b.I) ? CartesianIndex(a ÷ b[1], a ÷ b[2]) : nothing
+divide(a::IntegerTuple, b::IntegerTuple)::Unsafe(CartesianIndex{2}) = !any(iszero, b.I) ? CartesianIndex(a[1] ÷ b[1], a[2] ÷ b[2]) : nothing
 
 """Inverts the sign of a"""
 invert(a::Integer)::Integer = -1 * a
@@ -211,7 +222,7 @@ function asgrid(object::Object, color::Integer)::Unsafe(Grid)
 
     obj = normalize(object)
     size = shape(obj)
-    any(!is_index, size) && return nothing
+    any(!is_index, size.I) && return nothing
     underpaint(canvas(color, shape(obj)), obj)
 end
 
@@ -519,7 +530,7 @@ end
 function center(patch::Patch)::Unsafe(IntegerTuple)
     isempty(patch) && return nothing
 
-    height, width = shape(patch)
+    height, width = shape(patch).I
     return CartesianIndex(uppermost(patch) + (height ÷ 2), leftmost(patch) + (width ÷ 2))
 end
 
@@ -527,8 +538,8 @@ end
 function rel_position(a::Patch, b::Patch)::Unsafe(IntegerTuple)
     (isempty(a) || isempty(b)) && return nothing
     # `position()` in Python implementation => renamed due to name clash
-    ia, ja = center(a)
-    ib, jb = center(b)
+    ia, ja = center(a).I
+    ib, jb = center(b).I
     return CartesianIndex(sign(ib - ia), sign(jb - ja))
 end
 
@@ -826,8 +837,8 @@ end
 function backdrop(patch::Patch)::Indices
     isempty(patch) && return []
     indices = toindices(patch)
-    si, sj = ulcorner(indices)
-    ei, ej = lrcorner(indices)
+    si, sj = ulcorner(indices).I
+    ei, ej = lrcorner(indices).I
     return [CartesianIndex(i, j) for i in range(si, ei) for j in range(sj, ej)]
 end
 
@@ -842,8 +853,8 @@ end
 function gravitate(source::Patch, destination::Patch)::Unsafe(IntegerTuple)
     (isempty(source) || isempty(destination)) && return nothing
 
-    si, sj = center(source)
-    di, dj = center(destination)
+    si, sj = center(source).I
+    di, dj = center(destination).I
 
     # Initial direction
     i, j = if vmatching(source, destination)
@@ -905,8 +916,8 @@ end
 """Outline of patch"""
 function box(patch::Patch)::Indices
     isempty(patch) && return [] # not sure why inbox and outbox don't check for this
-    ai, aj = ulcorner(patch)
-    bi, bj = lrcorner(patch)
+    ai, aj = ulcorner(patch).I
+    bi, bj = lrcorner(patch).I
     si, sj = min(ai, bi), min(aj, bj)
     ei, ej = max(ai, bi), max(aj, bj)
 
@@ -1089,7 +1100,7 @@ end
 
 """Vector of frontiers, i.e., horizontal and vertical rows/columns where all values are the same"""
 function frontiers(grid::Grid)::Objects
-    h, w = shape(grid)
+    h, w = shape(grid).I
 
     # Find rows and cols where all elements are the same
     row_indices = [i for i in 1:h if length(unique(grid[i, :])) == 1]
@@ -1134,10 +1145,10 @@ function occurrences(grid::Grid, object::Object)::Indices
 
     # Normalize and compute dimensions in one pass
     norm = normalize_zero_indexed(object)
-    oh, ow = shape(object)
+    oh, ow = shape(object).I
 
     # Unified grid access using indexing
-    h, w = shape(grid)
+    h, w = shape(grid).I
 
     h2 = h - oh + 1
     w2 = w - ow + 1
@@ -1204,7 +1215,7 @@ interval(start::Integer, stop::Integer, step::Integer)::Unsafe(IntContainer) = s
 cartesian_product(a::IntContainer, b::IntContainer)::Indices = vec(collect(CartesianIndex.(Iterators.product(a, b))))
 
 """Zip up two CartesianIndex"""
-pair(a::IntegerTuple, b::IntegerTuple)::Indices = collect(CartesianIndex.(zip(a, b)))
+pair(a::IntegerTuple, b::IntegerTuple)::Indices = collect(CartesianIndex.(zip(a.I, b.I)))
 
 # note: some primitives below wouldn't be necessary in Herb
 
