@@ -50,7 +50,7 @@ Container = Union{Grid, Object, Objects, Indices}
 Base.:(==)(a::Indices, b::Indices) = Set(a) == Set(b)
 Base.:(==)(a::Object, b::Object) = Set(a) == Set(b)
 
-is_color(a::Color) = 0 <= a <= 9
+is_color(a::Integer) = 0 <= a <= 9
 is_index(a::Integer) = 1 <= a <= 30
 is_integer(a::Integer) = is_color(a) || is_index(a)
 is_integer_tuple(a::IntegerTuple) = all(is_index, a)
