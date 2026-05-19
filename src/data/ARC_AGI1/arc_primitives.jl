@@ -654,7 +654,10 @@ Finds connected objects in `grid`.
 - `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
 - `without_bg`: If `true`, the most common value (background) is ignored.
 """
-function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean)::Objects
+function old_objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean)::Objects
+    # If different colors may be connected and the most common value is an object too, the entire grid will become one object
+    !univalued && !without_bg && return [asobject(grid)]
+
     bg = without_bg ? mostcolor(grid) : nothing
     objs = []
     occupied = Set()
@@ -694,6 +697,68 @@ function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::
     end
     return objs
 end
+
+"""
+Finds connected objects in `grid`.
+
+# Arguments
+- `grid`: The input matrix.
+- `univalued`: If `true`, only cells of the same color are connected.
+- `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
+- `without_bg`: If `true`, the most common value (background) is ignored.
+"""
+function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean)::Objects
+    # If different colors may be connected and the most common value is an object too, the entire grid will become one object
+    !univalued && !without_bg && return [asobject(grid)]
+
+    directions = diagonal ? [(-1,-1), (-1,0), (-1,1), (0,-1), (0,1), (1,-1), (1,0), (1,1)] : [(-1,0), (0,-1), (0,1), (1,0)]
+    bg_color = without_bg ? mostcolor(grid) : nothing
+
+    height, width = shape(grid).I
+    identified = falses(height, width)
+
+    objects = Objects([])
+
+    for i in 1:height, j in 1:width
+        identified[i,j] && continue
+        color = grid[i,j]
+        grid[i,j] == bg_color && continue
+
+        identified[i, j] = true
+        traversal_stack_x = Int[i]
+        traversal_stack_y = Int[j]
+        object = Object([])
+
+        while !isempty(traversal_stack_x)
+            x = pop!(traversal_stack_x)
+            y = pop!(traversal_stack_y)
+            push!(object, (color, IntegerTuple(x, y)))
+
+            for (dx, dy) in directions
+                nx, ny = x + dx, y + dy
+
+                !(1 <= nx <= height && 1 <= ny <= width) && continue
+                identified[nx,ny] && continue
+
+                if grid[nx, ny] == bg_color
+                    identified[nx,ny] = true
+                    continue
+                end
+                
+                univalued && grid[nx, ny] != color && continue
+
+                identified[nx, ny] = true
+                push!(traversal_stack_x, nx)
+                push!(traversal_stack_y, ny)
+            end
+        end
+
+        push!(objects, object)
+    end
+
+    return objects
+end
+
 
 """
 Finds the nth connected object in `grid`.
