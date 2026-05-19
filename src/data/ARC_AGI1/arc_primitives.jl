@@ -30,7 +30,7 @@
 =#
 
 Color = Int8
-Integer = Union{Color, Int64}
+Integer = Int64
 Grid = Matrix{Color}
 GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
