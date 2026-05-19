@@ -62,7 +62,7 @@ using StatsBase
 
 """Constant creation"""
 integer(a::Int)::Integer = Integer(a)
-integer_tuple(a, b)::IntegerTuple = IntegerTuple(a, b)
+integer_tuple(a, b)::IntegerTuple = IntegerTuple((a, b))
 
 """Empty values for each type"""
 empty_grid = Matrix{Integer}(undef, 0, 0)
@@ -74,28 +74,28 @@ empty_int_container = IntContainer([])
 
 """Returns the sum of a and b"""
 add(a::Integer, b::Integer)::Integer = a + b
-add(a::IntegerTuple, b::Integer)::IntegerTuple = a + IntegerTuple(b, b)
-add(a::Integer, b::IntegerTuple)::IntegerTuple = IntegerTuple(a, a) + b
+add(a::IntegerTuple, b::Integer)::IntegerTuple = a + IntegerTuple((b, b))
+add(a::Integer, b::IntegerTuple)::IntegerTuple = IntegerTuple((a, a)) + b
 add(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = a + b
 
 
 """Subtracts b from a"""
 subtract(a::Integer, b::Integer)::Integer = a - b
-subtract(a::IntegerTuple, b::Integer)::IntegerTuple = a - IntegerTuple(b, b)
-subtract(a::Integer, b::IntegerTuple)::IntegerTuple = IntegerTuple(a, a) - b
+subtract(a::IntegerTuple, b::Integer)::IntegerTuple = a - IntegerTuple((b, b))
+subtract(a::Integer, b::IntegerTuple)::IntegerTuple = IntegerTuple((a, a)) - b
 subtract(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = a - b
 
 """Returns the product of  a and b"""
 multiply(a::Integer, b::Integer)::Integer = a * b
-multiply(a::IntegerTuple, b::Integer)::IntegerTuple = IntegerTuple(a[1] * b, a[2] * b)
-multiply(a::Integer, b::IntegerTuple)::IntegerTuple = IntegerTuple(a * b[1], a * b[2])
-multiply(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = IntegerTuple(a[1] * b[1], a[2] * b[2])
+multiply(a::IntegerTuple, b::Integer)::IntegerTuple = IntegerTuple((a[1] * b, a[2] * b))
+multiply(a::Integer, b::IntegerTuple)::IntegerTuple = IntegerTuple((a * b[1], a * b[2]))
+multiply(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = IntegerTuple((a[1] * b[1], a[2] * b[2]))
 
 """ Returns the result of integer division of  a and b"""
 divide(a::Integer, b::Integer)::Unsafe(Integer) = b != 0 ? a ÷ b : nothing
-divide(a::IntegerTuple, b)::Unsafe(IntegerTuple{2}) = b != 0 ? IntegerTuple(a[1] ÷ b, a[2] ÷ b) : nothing
-divide(a::Integer, b::IntegerTuple)::Unsafe(IntegerTuple{2}) = !any(iszero, b) ? IntegerTuple(a ÷ b[1], a ÷ b[2]) : nothing
-divide(a::IntegerTuple, b::IntegerTuple)::Unsafe(IntegerTuple{2}) = !any(iszero, b) ? IntegerTuple(a[1] ÷ b[1], a[2] ÷ b[2]) : nothing
+divide(a::IntegerTuple, b)::Unsafe(IntegerTuple{2}) = b != 0 ? IntegerTuple((a[1] ÷ b, a[2] ÷ b)) : nothing
+divide(a::Integer, b::IntegerTuple)::Unsafe(IntegerTuple{2}) = !any(iszero, b) ? IntegerTuple((a ÷ b[1], a ÷ b[2])) : nothing
+divide(a::IntegerTuple, b::IntegerTuple)::Unsafe(IntegerTuple{2}) = !any(iszero, b) ? IntegerTuple((a[1] ÷ b[1], a[2] ÷ b[2])) : nothing
 
 """Inverts the sign of a"""
 invert(a::Integer)::Integer = -1 * a
@@ -136,13 +136,13 @@ greater(a::Integer, b::Integer)::Boolean = a > b
 positive(a::Integer)::Boolean = a > 0
 
 """Returns vertically pointing vector"""
-toivec(i::Integer)::IntegerTuple = IntegerTuple(i, 0)
+toivec(i::Integer)::IntegerTuple = IntegerTuple((i, 0))
 
 """Returns horizontally pointing vector"""
-tojvec(j::Integer)::IntegerTuple = IntegerTuple(0, j)
+tojvec(j::Integer)::IntegerTuple = IntegerTuple((0, j))
 
 """Constructs IntegerTuple from a and b"""
-astuple(a::Integer, b::Integer)::IntegerTuple = IntegerTuple(a, b)
+astuple(a::Integer, b::Integer)::IntegerTuple = IntegerTuple((a, b))
 
 """Flip bool to opposite value"""
 flip(a::Boolean)::Boolean = !a
@@ -359,7 +359,7 @@ function ulcorner(indices::Indices)::Unsafe(IntegerTuple)
         min_row = min(min_row, row)
         min_col = min(min_col, col)
     end
-    return IntegerTuple(min_row, min_col)
+    return IntegerTuple((min_row, min_col))
 end
 
 ulcorner(object::Object)::Unsafe(IntegerTuple) = ulcorner(toindices(object))
@@ -375,7 +375,7 @@ function urcorner(indices::Indices)::Unsafe(IntegerTuple)
         min_row = min(min_row, row)
         max_col = max(max_col, col)
     end
-    return IntegerTuple(min_row, max_col)
+    return IntegerTuple((min_row, max_col))
 end
 
 urcorner(object::Object)::Unsafe(IntegerTuple) = urcorner(toindices(object))
@@ -391,7 +391,7 @@ function llcorner(indices::Indices)::Unsafe(IntegerTuple)
         max_row = max(max_row, row)
         min_col = min(min_col, col)
     end
-    return IntegerTuple(max_row, min_col)
+    return IntegerTuple((max_row, min_col))
 end
 
 llcorner(object::Object)::Unsafe(IntegerTuple) = llcorner(toindices(object))
@@ -407,7 +407,7 @@ function lrcorner(indices::Indices)::Unsafe(IntegerTuple)
         max_row = max(max_row, row)
         max_col = max(max_col, col)
     end
-    return IntegerTuple(max_row, max_col)
+    return IntegerTuple((max_row, max_col))
 end
 
 lrcorner(object::Object)::Unsafe(IntegerTuple) = lrcorner(toindices(object))
@@ -424,7 +424,7 @@ function vmirror(indices::Indices)::Indices
 
     min_col, max_col = extrema(idx[2] for idx in indices)
     d = min_col + max_col
-    return [IntegerTuple(idx[1], d - idx[2]) for idx in indices]
+    return [IntegerTuple((idx[1], d - idx[2])) for idx in indices]
 end
 
 function vmirror(object::Object)::Object
@@ -432,7 +432,7 @@ function vmirror(object::Object)::Object
 
     min_col, max_col = extrema(idx[2] for (_, idx) in object)
     d = min_col + max_col
-    return [(val, IntegerTuple(idx[1], d - idx[2])) for (val, idx) in object]
+    return [(val, IntegerTuple((idx[1], d - idx[2]))) for (val, idx) in object]
 end
 
 """ Mirrors along horizontal."""
@@ -443,7 +443,7 @@ function hmirror(indices::Indices)::Indices
 
     min_row, max_row = extrema(idx[1] for idx in indices)
     d = min_row + max_row
-    return [IntegerTuple(d - idx[1], idx[2]) for idx in indices]
+    return [IntegerTuple((d - idx[1], idx[2])) for idx in indices]
 end
 
 function hmirror(object::Object)::Object
@@ -451,7 +451,7 @@ function hmirror(object::Object)::Object
 
     min_row, max_row = extrema(idx[1] for (_, idx) in object)
     d = min_row + max_row
-    return [(val, IntegerTuple(d - idx[1], idx[2])) for (val, idx) in object]
+    return [(val, IntegerTuple((d - idx[1], idx[2]))) for (val, idx) in object]
 end
 
 """Mirrors along diagonal."""
@@ -463,7 +463,7 @@ function dmirror(indices::Indices)::Indices
     corner = ulcorner(indices)
     a = corner[1]
     b = corner[2]
-    return [IntegerTuple(idx[2] - b + a, idx[1] - a + b) for idx in indices]
+    return [IntegerTuple((idx[2] - b + a, idx[1] - a + b)) for idx in indices]
 end
 
 function dmirror(object::Object)::Object
@@ -472,7 +472,7 @@ function dmirror(object::Object)::Object
     corner = ulcorner(object)
     a = corner[1]
     b = corner[2]
-    return [(val, IntegerTuple(idx[2] - b + a, idx[1] - a + b)) for (val, idx) in object]
+    return [(val, IntegerTuple((idx[2] - b + a, idx[1] - a + b))) for (val, idx) in object]
 end
 
 """Mirrors along the counter-diagonal"""
@@ -507,15 +507,15 @@ function upscale(object::Object, factor::Integer)::Unsafe(Object)
 
     corner = ulcorner(object)
     di_inv, dj_inv = Tuple(corner)
-    normed_obj = shift(object, IntegerTuple(-di_inv, -dj_inv))
+    normed_obj = shift(object, IntegerTuple((-di_inv, -dj_inv)))
 
-    o = [(value, IntegerTuple(i * factor + io, j * factor + jo))
+    o = [(value, IntegerTuple((i * factor + io, j * factor + jo)))
          for (value, idx) in normed_obj
          for (i, j) in (Tuple(idx),)
          for io in 0:(factor-1)
          for jo in 0:(factor-1)]
 
-    return shift(o, IntegerTuple(di_inv, dj_inv))
+    return shift(o, IntegerTuple((di_inv, dj_inv)))
 end
 
 """Returns the index of the of the patch"""
@@ -544,9 +544,9 @@ function hperiod(object::Object)::Integer
     w = width(normalized)
 
     for p in 1:(w-1)
-        offsetted = shift(normalized, IntegerTuple(0, -p))
+        offsetted = shift(normalized, IntegerTuple((0, -p)))
         # Keep only cells with non-negative column indices
-        pruned = Set((c, IntegerTuple(ind)) for (c, ind) in offsetted if ind[2] >= 0)
+        pruned = Set((c, IntegerTuple((ind))) for (c, ind) in offsetted if ind[2] >= 0)
 
         if issubset(pruned, normalized)
             return p
@@ -563,9 +563,9 @@ function vperiod(object::Object)::Integer
 
 
     for p in 1:(h-1)
-        offsetted = shift(normalized, IntegerTuple(-p, 0))
+        offsetted = shift(normalized, IntegerTuple((-p, 0)))
         # Keep only cells with non-negative row indices
-        pruned = Set((c, IntegerTuple(ind)) for (c, ind) in offsetted if ind[1] >= 0)
+        pruned = Set((c, IntegerTuple((ind))) for (c, ind) in offsetted if ind[1] >= 0)
 
         if issubset(pruned, normalized)
             return p
@@ -603,14 +603,14 @@ function shift(object::Object, directions::IntegerTuple)::Object
     end
     dx = directions[1] # row
     dy = directions[2] # col
-    return [(val, IntegerTuple(ind[1] + dx, ind[2] + dy)) for (val, ind) in object]
+    return [(val, IntegerTuple((ind[1] + dx, ind[2] + dy))) for (val, ind) in object]
 end
 
 function shift(indices::Indices, directions::IntegerTuple)::Indices
     isempty(indices) && indices
     dx = directions[1] # row
     dy = directions[2] # col
-    return [IntegerTuple(ind[1] + dx, ind[2] + dy) for ind in indices]
+    return [IntegerTuple((ind[1] + dx, ind[2] + dy)) for ind in indices]
 end
 
 """ Moves top left corner to origin"""
@@ -624,13 +624,13 @@ normalize_zero_indexed(patch::Indices)::Indices = isempty(patch) ? [] : shift(pa
 """Indices of directly adjacent neighbours of a location. 4-connectivity"""
 function dneighbors(loc::IntegerTuple)::Indices
     # out-of-bound/negative indices possible => intended?
-    offsets = (IntegerTuple(-1, 0), IntegerTuple(1, 0), IntegerTuple(0, -1), IntegerTuple(0, 1))
+    offsets = (IntegerTuple((-1, 0)), IntegerTuple((1, 0)), IntegerTuple((0, -1)), IntegerTuple((0, 1)))
     return [loc + off for off in offsets]
 end
 
 """Diagonally adjacent indices of a location."""
 function ineighbors(loc::IntegerTuple)::Indices
-    offsets = (IntegerTuple(-1, -1), IntegerTuple(-1, 1), IntegerTuple(1, -1), IntegerTuple(1, 1))
+    offsets = (IntegerTuple((-1, -1)), IntegerTuple((-1, 1)), IntegerTuple((1, -1)), IntegerTuple((1, 1)))
     return [loc + off for off in offsets]
 end
 
@@ -762,7 +762,7 @@ function centerofmass(patch::Patch)::Unsafe(IntegerTuple)
         sum_rows += idx[1]
         sum_cols += idx[2]
     end
-    return IntegerTuple(sum_rows ÷ n, sum_cols ÷ n)
+    return IntegerTuple((sum_rows ÷ n, sum_cols ÷ n))
 end
 
 """Number of different colors in the element (object or grid)."""
@@ -831,7 +831,7 @@ function backdrop(patch::Patch)::Indices
     indices = toindices(patch)
     si, sj = ulcorner(indices)
     ei, ej = lrcorner(indices)
-    return [IntegerTuple(i, j) for i in range(si, ei) for j in range(sj, ej)]
+    return [IntegerTuple((i, j)) for i in range(si, ei) for j in range(sj, ej)]
 end
 
 
@@ -855,7 +855,7 @@ function gravitate(source::Patch, destination::Patch)::Unsafe(IntegerTuple)
         (0, sj < dj ? 1 : -1)
     end
 
-    direction = IntegerTuple(i, j)
+    direction = IntegerTuple((i, j))
     total_movement = direction
     c = 0
 
@@ -877,11 +877,11 @@ function inbox(patch::Patch)::Unsafe(Indices)
     si, sj = min(ai, bi), min(aj, bj)
     ei, ej = max(ai, bi), max(aj, bj)
 
-    vlines = vcat([IntegerTuple(i, sj) for i in si:ei],
-        [IntegerTuple(i, ej) for i in si:ei])
+    vlines = vcat([IntegerTuple((i, sj)) for i in si:ei],
+        [IntegerTuple((i, ej)) for i in si:ei])
 
-    hlines = vcat([IntegerTuple(si, j) for j in sj:ej],
-        [IntegerTuple(ei, j) for j in sj:ej])
+    hlines = vcat([IntegerTuple((si, j)) for j in sj:ej],
+        [IntegerTuple((ei, j)) for j in sj:ej])
 
     return unique(vcat(vlines, hlines))
 end
@@ -896,11 +896,11 @@ function outbox(patch::Patch)::Unsafe(Indices)
     si, sj = min(ai, bi), min(aj, bj)
     ei, ej = max(ai, bi), max(aj, bj)
 
-    vlines = vcat([IntegerTuple(i, sj) for i in si:ei],
-        [IntegerTuple(i, ej) for i in si:ei])
+    vlines = vcat([IntegerTuple((i, sj)) for i in si:ei],
+        [IntegerTuple((i, ej)) for i in si:ei])
 
-    hlines = vcat([IntegerTuple(si, j) for j in sj:ej],
-        [IntegerTuple(ei, j) for j in sj:ej])
+    hlines = vcat([IntegerTuple((si, j)) for j in sj:ej],
+        [IntegerTuple((ei, j)) for j in sj:ej])
 
     return unique(vcat(vlines, hlines))
 end
@@ -913,22 +913,22 @@ function box(patch::Patch)::Indices
     si, sj = min(ai, bi), min(aj, bj)
     ei, ej = max(ai, bi), max(aj, bj)
 
-    vlines = vcat([IntegerTuple(i, sj) for i in si:ei],
-        [IntegerTuple(i, ej) for i in si:ei])
+    vlines = vcat([IntegerTuple((i, sj)) for i in si:ei],
+        [IntegerTuple((i, ej)) for i in si:ei])
 
-    hlines = vcat([IntegerTuple(si, j) for j in sj:ej],
-        [IntegerTuple(ei, j) for j in sj:ej])
+    hlines = vcat([IntegerTuple((si, j)) for j in sj:ej],
+        [IntegerTuple((ei, j)) for j in sj:ej])
 
     return unique(vcat(vlines, hlines))
 end
 
 
 """Returns a vertical frontier, i.e. all vertical indices (rows 1 to 30) of the column given by location"""
-vfrontier(location::IntegerTuple)::Indices = [IntegerTuple(i, location[2]) for i in 1:30]
+vfrontier(location::IntegerTuple)::Indices = [IntegerTuple((i, location[2])) for i in 1:30]
 # 30 is maximum grid size
 
 """Returns a horizontal frontier, i.e. all horizontal indices (cols 1 to 30) of the row given by location."""
-hfrontier(location::IntegerTuple)::Indices = [IntegerTuple(location[1], i) for i in 1:30]
+hfrontier(location::IntegerTuple)::Indices = [IntegerTuple((location[1], i)) for i in 1:30]
 # 30 is maximum grid size
 
 """Returns all points (cells) on a line between two points (cells) if the line is horizontal, vertical or diagonal."""
@@ -945,16 +945,16 @@ function connect(a::IntegerTuple, b::IntegerTuple)::Indices
 
     if ai == bi
         # Horizontal line
-        return [IntegerTuple(ai, j) for j in sj:ej]
+        return [IntegerTuple((ai, j)) for j in sj:ej]
     elseif aj == bj
         # Vertical line
-        return [IntegerTuple(i, aj) for i in si:ei]
+        return [IntegerTuple((i, aj)) for i in si:ei]
     elseif bi - ai == bj - aj
         # Diagonal: down-right or up-left
-        return [IntegerTuple(i, j) for (i, j) in zip(si:ei, sj:ej)]
+        return [IntegerTuple((i, j)) for (i, j) in zip(si:ei, sj:ej)]
     elseif bi - ai == aj - bj
         # Diagonal: down-left or up-right
-        return [IntegerTuple(i, j) for (i, j) in zip(si:ei, ej:-1:sj)]
+        return [IntegerTuple((i, j)) for (i, j) in zip(si:ei, ej:-1:sj)]
     else
         return IntegerTuple{2}[]
     end
@@ -969,7 +969,7 @@ sfilter(container::GridContainer, condition)::GridContainer = filter(condition, 
 mfilter(containers::Objects, condition)::Object = merge_containers(sfilter(containers, condition))
 
 """Line from starting point in given direction"""
-shoot(start::IntegerTuple, direction::IntegerTuple)::Indices = connect(start, IntegerTuple(start[1] + 42 * direction[1], start[2] + 42 * direction[2]))
+shoot(start::IntegerTuple, direction::IntegerTuple)::Indices = connect(start, IntegerTuple((start[1] + 42 * direction[1], start[2] + 42 * direction[2])))
 
 """Merge elements of nested container"""
 merge_containers(container::Objects)::Object = isempty(container) ? [] : reduce(vcat, container) # also works with non-nested containers. We don't have `ContainerContainer` 
@@ -1100,13 +1100,13 @@ function frontiers(grid::Grid)::Objects
 
     # horizontal frontiers
     hfrontiers = [
-        [(grid[i, j], IntegerTuple(i, j)) for j in 1:w]
+        [(grid[i, j], IntegerTuple((i, j))) for j in 1:w]
         for i in row_indices
     ]
 
     # vertical frontiers
     vfrontiers = [
-        [(grid[i, j], IntegerTuple(i, j)) for i in 1:h]
+        [(grid[i, j], IntegerTuple((i, j))) for i in 1:h]
         for j in column_indices
     ]
     return vcat(hfrontiers, vfrontiers)
@@ -1150,7 +1150,7 @@ function occurrences(grid::Grid, object::Object)::Indices
 
     @inbounds for i0 in 1:h2, j0 in 1:w2
         if all(grid[i0+d[1], j0+d[2]] == v for (v, d) in norm)
-            push!(occs, IntegerTuple(i0, j0))
+            push!(occs, IntegerTuple((i0, j0)))
         end
     end
 
