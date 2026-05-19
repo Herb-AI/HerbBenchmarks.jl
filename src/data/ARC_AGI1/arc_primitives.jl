@@ -30,7 +30,7 @@
 =#
 
 Color = Int8
-Integer = Union{Int64,Color}
+Integer = Union{Color, Int64}
 Grid = Matrix{Color}
 GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
@@ -54,6 +54,8 @@ is_color(a::Integer) = 0 <= a <= 9
 is_index(a::Integer) = 1 <= a <= 30
 is_integer(a::Integer) = is_color(a) || is_index(a)
 is_integer_tuple(a::IntegerTuple) = all(is_index, a)
+
+Base.getindex(g::Grid, t::IntegerTuple) = g[t[1], t[2]]
 
 using MLStyle
 using StatsBase
