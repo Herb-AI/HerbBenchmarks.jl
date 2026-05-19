@@ -722,9 +722,9 @@ function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::
     for i in 1:height, j in 1:width
         identified[i,j] && continue
         color = grid[i,j]
-        grid[i,j] == bg_color && continue
-
         identified[i, j] = true
+        without_bg && grid[i,j] == bg_color && continue
+
         traversal_stack_x = Int[i]
         traversal_stack_y = Int[j]
         object = Object([])
@@ -740,11 +740,11 @@ function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::
                 !(1 <= nx <= height && 1 <= ny <= width) && continue
                 identified[nx,ny] && continue
 
-                if grid[nx, ny] == bg_color
+                if without_bg && grid[nx, ny] == bg_color
                     identified[nx,ny] = true
                     continue
                 end
-                
+
                 univalued && grid[nx, ny] != color && continue
 
                 identified[nx, ny] = true
@@ -758,7 +758,6 @@ function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::
 
     return objects
 end
-
 
 """
 Finds the nth connected object in `grid`.
