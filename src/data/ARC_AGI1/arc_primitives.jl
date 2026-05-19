@@ -718,7 +718,7 @@ Finds connected objects in `grid`.
 - `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
 - `bg_color`: Background is ignored.
 """
-function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, bg_color::Union{Integer, nothing})::Unsafe(Objects)
+function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, bg_color::Union{Integer, Nothing})::Unsafe(Objects)
     # If different colors may be connected and the most common value is an object too, the entire grid will become one object
     !isnothing(bg_color) && !is_color(bg_color) && return nothing
     !univalued && !without_bg && return [asobject(grid)]
