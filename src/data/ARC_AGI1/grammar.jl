@@ -156,8 +156,6 @@ grammar_hodel = @csgrammar begin
     Grid = hupscale(Grid, Integer) 
     Grid = vupscale(Grid, Integer)    
     Grid = cellwise(Grid, Grid, Integer) 
-    Grid = replace_color(Grid, Integer, Integer) 
-    Grid = switch(Grid, Integer, Integer)
     Grid = trim(Grid) 
     Grid = tophalf(Grid)
     Grid = bottomhalf(Grid)
@@ -175,6 +173,8 @@ grammar_hodel = @csgrammar begin
     Grid = underpaint(Grid, Object)
     Grid = init(Integer)
     Grid = repeat_item(Grid, IntegerTuple)
+    Grid = replace_color(Grid, Integer, Integer)
+    Grid = switch(Grid, Integer, Integer)
     Grid = asgrid(Object, Integer)
     Grid = asgrid(Objects, Integer)
     

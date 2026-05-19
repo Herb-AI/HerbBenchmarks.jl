@@ -721,7 +721,7 @@ Finds connected objects in `grid`.
 function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, bg_color::Union{Integer, Nothing})::Unsafe(Objects)
     # If different colors may be connected and the most common value is an object too, the entire grid will become one object
     !isnothing(bg_color) && !is_color(bg_color) && return nothing
-    without_bg = isnothing(bg_color)
+    without_bg = !isnothing(bg_color)
     !univalued && !without_bg && return [asobject(grid)]
 
     directions = diagonal ? [(-1,-1), (-1,0), (-1,1), (0,-1), (0,1), (1,-1), (1,0), (1,1)] : [(-1,0), (0,-1), (0,1), (1,0)]
