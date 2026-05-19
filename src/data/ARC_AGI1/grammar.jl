@@ -184,6 +184,7 @@ grammar_hodel = @csgrammar begin
 
     # Object/Objects
     ## Object(s) extraction from Grid
+    Objects = objects(Grid, Boolean, Boolean, Integer)
     Objects = objects(Grid, Boolean, Boolean, Boolean)
     Objects = partition(Grid)
     Objects = fgpartition(Grid)

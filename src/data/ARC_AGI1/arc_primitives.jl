@@ -707,13 +707,23 @@ Finds connected objects in `grid`.
 - `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
 - `without_bg`: If `true`, the most common value (background) is ignored.
 """
-function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean)::Objects
+objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean)::Objects = objects(grid, univalued, diagonal, without_bg ? mostcolor(grid) : nothing)
+
+"""
+Finds connected objects in `grid`.
+
+# Arguments
+- `grid`: The input matrix.
+- `univalued`: If `true`, only cells of the same color are connected.
+- `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
+- `bg_color`: Background is ignored.
+"""
+function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, bg_color::Union{Integer, nothing})::Unsafe(Objects)
     # If different colors may be connected and the most common value is an object too, the entire grid will become one object
+    !isnothing(bg_color) && !is_color(bg_color) && return nothing
     !univalued && !without_bg && return [asobject(grid)]
 
     directions = diagonal ? [(-1,-1), (-1,0), (-1,1), (0,-1), (0,1), (1,-1), (1,0), (1,1)] : [(-1,0), (0,-1), (0,1), (1,0)]
-    bg_color = without_bg ? mostcolor(grid) : nothing
-
     height, width = shape(grid).I
     identified = falses(height, width)
 
@@ -757,23 +767,6 @@ function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::
     end
 
     return objects
-end
-
-"""
-Finds the nth connected object in `grid`.
-
-# Arguments
-- `grid`: The input matrix.
-- `univalued`: If `true`, only cells of the same color are connected.
-- `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
-- `without_bg`: If `true`, the most common value (background) is ignored.
-- `index`: Index of object in grid
-"""
-function nth_object(grid::Grid, univalued::Boolean, diagonal::Boolean, without_bg::Boolean, index::Integer)::Unsafe(Object)
-    index <= 0 && return nothing
-    objs = objects(grid, univalued, diagonal, without_bg)
-    index > length(objs) && return nothing
-    return objs[index]
 end
 
 """All color in object or grid"""
