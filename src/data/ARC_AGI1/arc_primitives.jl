@@ -57,6 +57,7 @@ is_integer_tuple(a::IntegerTuple) = all(is_index, a)
 
 Base.getindex(g::Grid, t::IntegerTuple) = g[t[1], t[2]]
 Base.:+(a::Tuple, b::Tuple) = (a[1] + b[1], a[2] + b[2])
+Base.checkbounds(::Type{Bool}, grid, I::Tuple{Int,Int}) = checkbounds(Bool, grid, I[1], I[2])
 
 using MLStyle
 using StatsBase
