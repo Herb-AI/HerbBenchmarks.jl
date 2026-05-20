@@ -57,6 +57,18 @@ is_integer_tuple(a::IntegerTuple) = all(is_index, a.I)
 using MLStyle
 using StatsBase
 
+"""Applicator functions"""
+f_1_1(f, a1) = f(a1)
+f_1_2(f, a1) = a2 -> f(a1, a2)
+f_2_2(f, a2) = a1 -> f(a1, a2)
+f_1_3(f, a1) = (a2, a3) -> f(a1, a2, a3)
+f_2_3(f, a2) = (a1, a3) -> f(a1, a2, a3)
+f_3_3(f, a3) = (a1, a2) -> f(a1, a2, a3)
+f_1_4(f, a1) = (a2, a3, a4) -> f(a1, a2, a3, a4)
+f_2_4(f, a2) = (a1, a3, a4) -> f(a1, a2, a3, a4)
+f_3_4(f, a3) = (a1, a2, a4) -> f(a1, a2, a3, a4)
+f_4_4(f, a4) = (a1, a2, a3) -> f(a1, a2, a3, a4)
+
 """Constants"""
 down = IntegerTuple(1,0)
 right = IntegerTuple(0,1)
