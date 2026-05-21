@@ -727,7 +727,7 @@ Finds connected objects in `grid`.
 - `grid`: The input matrix.
 - `univalued`: If `true`, only cells of the same color are connected.
 - `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
-- `bg_color`: Background is ignored.
+- `bg_color`: Background is ignored or nothing when the background should be extracted as well.
 """
 function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, bg_color::Union{Integer, Nothing})::Safe(Objects)
     # If different colors may be connected and the most common value is an object too, the entire grid will become one object
@@ -754,7 +754,7 @@ function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, bg_color::Un
         while !isempty(traversal_stack_x)
             x = pop!(traversal_stack_x)
             y = pop!(traversal_stack_y)
-            push!(object, (color, IntegerTuple(x, y)))
+            push!(object, (grid[x,y], IntegerTuple(x, y)))
 
             for (dx, dy) in directions
                 nx, ny = x + dx, y + dy
