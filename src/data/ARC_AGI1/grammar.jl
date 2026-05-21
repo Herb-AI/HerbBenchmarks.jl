@@ -167,7 +167,7 @@ grammar_hodel = @csgrammar begin
     Grid = replace_color(Grid, Integer, Integer)
     Grid = switch(Grid, Integer, Integer)
     Grid = asgrid(Object, Integer)
-    Grid = asgrid(Objects, Integer)
+    # Grid = asgrid(Objects, Integer)
     
  
     GridContainer = hsplit(Grid, Integer) # we need to be able to pick one (e.g., firstof(), extract, filter + merge, argmax/argmin + score)
