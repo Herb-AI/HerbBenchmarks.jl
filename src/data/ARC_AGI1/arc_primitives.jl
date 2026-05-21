@@ -39,7 +39,7 @@ Indices = Vector{IntegerTuple}
 Object = Vector{Tuple{Integer, IntegerTuple}}
 Objects = Vector{Object}
 
-Unsafe = t -> Union{Nothing, t}
+Safe = t -> Union{Nothing, t}
 
 Patch = Union{Object, Indices}
 Piece = Union{Grid, Patch}
@@ -111,10 +111,10 @@ multiply(a::Integer, b::IntegerTuple)::IntegerTuple = CartesianIndex(a * b[1], a
 multiply(a::IntegerTuple, b::IntegerTuple)::IntegerTuple = CartesianIndex(a[1] * b[1], a[2] * b[2])
 
 """ Returns the result of integer division of  a and b"""
-divide(a::Integer, b::Integer)::Unsafe(Integer) = b != 0 ? a ÷ b : nothing
-divide(a::IntegerTuple, b)::Unsafe(CartesianIndex{2}) = b != 0 ? CartesianIndex(a[1] ÷ b, a[2] ÷ b) : nothing
-divide(a::Integer, b::IntegerTuple)::Unsafe(CartesianIndex{2}) = !any(iszero, b.I) ? CartesianIndex(a ÷ b[1], a ÷ b[2]) : nothing
-divide(a::IntegerTuple, b::IntegerTuple)::Unsafe(CartesianIndex{2}) = !any(iszero, b.I) ? CartesianIndex(a[1] ÷ b[1], a[2] ÷ b[2]) : nothing
+divide(a::Integer, b::Integer)::Safe(Integer) = b != 0 ? a ÷ b : nothing
+divide(a::IntegerTuple, b)::Safe(CartesianIndex{2}) = b != 0 ? CartesianIndex(a[1] ÷ b, a[2] ÷ b) : nothing
+divide(a::Integer, b::IntegerTuple)::Safe(CartesianIndex{2}) = !any(iszero, b.I) ? CartesianIndex(a ÷ b[1], a ÷ b[2]) : nothing
+divide(a::IntegerTuple, b::IntegerTuple)::Safe(CartesianIndex{2}) = !any(iszero, b.I) ? CartesianIndex(a[1] ÷ b[1], a[2] ÷ b[2]) : nothing
 
 """Inverts the sign of a"""
 invert(a::Integer)::Integer = -1 * a
@@ -213,14 +213,14 @@ dedupe(a::IntContainer)::IntContainer = unique(a)
 order(container::Objects)::Objects = sort(collect(container))
 
 """Order container by custom key `compfunc`"""
-function order_by(container::Objects, compfunc)::Unsafe(Objects)
+function order_by(container::Objects, compfunc)::Safe(Objects)
     res = map(compfunc, container)
     any(isnothing, res) && return nothing
     return container[sortperm(res)]
 end
 
 """Repeat item (Grid) to have item a total of num times"""
-function repeat_item(item::Grid, num::IntegerTuple)::Unsafe(Grid)
+function repeat_item(item::Grid, num::IntegerTuple)::Safe(Grid)
     isempty(item) && return item
     !is_index(height(item) * num[1]) && return nothing 
     !is_index(width(item) * num[2]) && return nothing 
@@ -228,7 +228,7 @@ function repeat_item(item::Grid, num::IntegerTuple)::Unsafe(Grid)
 end
 
 """Convert an object to a Grid with background value"""
-function asgrid(object::Object, color::Integer)::Unsafe(Grid)
+function asgrid(object::Object, color::Integer)::Safe(Grid)
     !is_color(color) && return nothing
 
     obj = normalize(object)
@@ -238,21 +238,21 @@ function asgrid(object::Object, color::Integer)::Unsafe(Grid)
 end
 
 """Convert objects to a Grid with background value"""
-asgrid(objects::Objects, color::Integer)::Unsafe(Grid) = asgrid(merge_containers(objects), color)
+asgrid(objects::Objects, color::Integer)::Safe(Grid) = asgrid(merge_containers(objects), color)
 
 """Size of container"""
 size_of(container::Container)::Integer = length(container)
 
 """maximum"""
-maximum_of(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? maximum(container) : nothing
-maximum_of(container::Grid)::Unsafe(Integer) = !isempty(container) ? maximum(container) : nothing
+maximum_of(container::IntContainer)::Safe(Integer) = !isempty(container) ? maximum(container) : nothing
+maximum_of(container::Grid)::Safe(Integer) = !isempty(container) ? maximum(container) : nothing
 
 """maximum"""
-minimum_of(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? minimum(container) : nothing
-minimum_of(container::Grid)::Unsafe(Integer) = !isempty(container) ? minimum(container) : nothing
+minimum_of(container::IntContainer)::Safe(Integer) = !isempty(container) ? minimum(container) : nothing
+minimum_of(container::Grid)::Safe(Integer) = !isempty(container) ? minimum(container) : nothing
 
 """maximum by custom function"""
-function valmax(container::Objects, compfunc)::Unsafe(Integer)
+function valmax(container::Objects, compfunc)::Safe(Integer)
     isempty(container) && return nothing
     res = map(compfunc, container)
     any(isnothing, res) && return nothing
@@ -260,7 +260,7 @@ function valmax(container::Objects, compfunc)::Unsafe(Integer)
 end
 
 """minimum by custom function"""
-function valmin(container::Objects, compfunc)::Unsafe(Integer)
+function valmin(container::Objects, compfunc)::Safe(Integer)
     isempty(container) && return nothing
     res = map(compfunc, container)
     any(isnothing, res) && return nothing
@@ -268,41 +268,41 @@ function valmin(container::Objects, compfunc)::Unsafe(Integer)
 end
 
 """returns the container that maximizes the custom function"""
-argmax_by(containers::Objects, compfunc)::Unsafe(Object) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmax(res)] end
-argmax_by(containers::GridContainer, compfunc)::Unsafe(Grid) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmax(res)] end
+argmax_by(containers::Objects, compfunc)::Safe(Object) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmax(res)] end
+argmax_by(containers::GridContainer, compfunc)::Safe(Grid) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmax(res)] end
 
 """returns the container that maximizes the custom function"""
-argmin_by(containers::Objects, compfunc)::Unsafe(Object) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmin(res)] end
-argmin_by(containers::GridContainer, compfunc)::Unsafe(Grid) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmin(res)] end
+argmin_by(containers::Objects, compfunc)::Safe(Object) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmin(res)] end
+argmin_by(containers::GridContainer, compfunc)::Safe(Grid) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmin(res)] end
 
 """most common item in container"""
-mostcommon(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? mode(container) : nothing
-mostcommon(container::Indices)::Unsafe(IntegerTuple) = !isempty(container) ? mode(container) : nothing
-mostcommon(container::Objects)::Unsafe(Object) = !isempty(container) ? mode(container) : nothing
+mostcommon(container::IntContainer)::Safe(Integer) = !isempty(container) ? mode(container) : nothing
+mostcommon(container::Indices)::Safe(IntegerTuple) = !isempty(container) ? mode(container) : nothing
+mostcommon(container::Objects)::Safe(Object) = !isempty(container) ? mode(container) : nothing
 
 """least common item in container"""
-leastcommon(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? argmin(countmap(container)) : nothing
-leastcommon(container::Indices)::Unsafe(IntegerTuple) = !isempty(container) ? argmin(countmap(container)) : nothing
-leastcommon(container::Objects)::Unsafe(Object) = !isempty(container) ? argmin(countmap(container)) : nothing
+leastcommon(container::IntContainer)::Safe(Integer) = !isempty(container) ? argmin(countmap(container)) : nothing
+leastcommon(container::Indices)::Safe(IntegerTuple) = !isempty(container) ? argmin(countmap(container)) : nothing
+leastcommon(container::Objects)::Safe(Object) = !isempty(container) ? argmin(countmap(container)) : nothing
 
 """initialize vector"""
-init(value::Integer)::Unsafe(Grid) = is_color(value) ? fill(value, 1, 1) : nothing
+init(value::Integer)::Safe(Grid) = is_color(value) ? fill(value, 1, 1) : nothing
 
 """Row index of lowermost occupied cell"""
-lowermost(object::Object)::Unsafe(Integer) = !isempty(object) ? maximum(x[2][1] for x in object) : nothing
-lowermost(indices::Indices)::Unsafe(Integer) = !isempty(indices) ? maximum(x[1] for x in indices) : nothing
+lowermost(object::Object)::Safe(Integer) = !isempty(object) ? maximum(x[2][1] for x in object) : nothing
+lowermost(indices::Indices)::Safe(Integer) = !isempty(indices) ? maximum(x[1] for x in indices) : nothing
 
 """Row index of uppermost occupied cell"""
-uppermost(object::Object)::Unsafe(Integer) = !isempty(object) ? minimum(x[2][1] for x in object) : nothing
-uppermost(indices::Indices)::Unsafe(Integer) = !isempty(indices) ? minimum(x[1] for x in indices) : nothing
+uppermost(object::Object)::Safe(Integer) = !isempty(object) ? minimum(x[2][1] for x in object) : nothing
+uppermost(indices::Indices)::Safe(Integer) = !isempty(indices) ? minimum(x[1] for x in indices) : nothing
 
 """Row index of rightmost occupied cell"""
-rightmost(object::Object)::Unsafe(Integer) = !isempty(object) ? maximum(x[2][2] for x in object) : nothing
-rightmost(indices::Indices)::Unsafe(Integer) = !isempty(indices) ? maximum(x[2] for x in indices) : nothing
+rightmost(object::Object)::Safe(Integer) = !isempty(object) ? maximum(x[2][2] for x in object) : nothing
+rightmost(indices::Indices)::Safe(Integer) = !isempty(indices) ? maximum(x[2] for x in indices) : nothing
 
 """Row index of leftmost occupied cell"""
-leftmost(object::Object)::Unsafe(Integer) = !isempty(object) ? minimum(x[2][2] for x in object) : nothing
-leftmost(indices::Indices)::Unsafe(Integer) = !isempty(indices) ? minimum(x[2] for x in indices) : nothing
+leftmost(object::Object)::Safe(Integer) = !isempty(object) ? minimum(x[2][2] for x in object) : nothing
+leftmost(indices::Indices)::Safe(Integer) = !isempty(indices) ? minimum(x[2] for x in indices) : nothing
 
 """ Height of grid or patch"""
 height(grid::Grid)::Integer = size(grid)[1]
@@ -337,23 +337,23 @@ hline(piece::Piece)::Boolean = width(piece) == length(piece) && height(piece) ==
     Returns the most common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-mostcolor(grid::Grid)::Unsafe(Integer) = !isempty(grid) ? findmax(countmap(grid))[2] : nothing
-mostcolor(object::Object)::Unsafe(Integer) = !isempty(object) ? findmax(countmap(x[1] for x in object))[2] : nothing
+mostcolor(grid::Grid)::Safe(Integer) = !isempty(grid) ? findmax(countmap(grid))[2] : nothing
+mostcolor(object::Object)::Safe(Integer) = !isempty(object) ? findmax(countmap(x[1] for x in object))[2] : nothing
 
 """
     Returns the least common colour. If there is a tie, the first value in the iteration order
     of the dictionary is returned. Note that the order is not guaranteed. 
 """
-leastcolor(grid::Grid)::Unsafe(Integer) = !isempty(grid) ? findmin(countmap(grid))[2] : nothing
-leastcolor(object::Object)::Unsafe(Integer) = !isempty(object) ? findmin(countmap(x[1] for x in object))[2] : nothing
+leastcolor(grid::Grid)::Safe(Integer) = !isempty(grid) ? findmin(countmap(grid))[2] : nothing
+leastcolor(object::Object)::Safe(Integer) = !isempty(object) ? findmin(countmap(x[1] for x in object))[2] : nothing
 
 """Number of cells with given color value"""
-colorcount(grid::Grid, value::Integer)::Unsafe(Integer) = is_color(value) ? count(==(value), grid) : nothing
-colorcount(object::Object, value::Integer)::Unsafe(Integer) = is_color(value) ? count(==(value), x[1] for x in object) : nothing
+colorcount(grid::Grid, value::Integer)::Safe(Integer) = is_color(value) ? count(==(value), grid) : nothing
+colorcount(object::Object, value::Integer)::Safe(Integer) = is_color(value) ? count(==(value), x[1] for x in object) : nothing
 
 
 """Filters objects by color value. An object is included if its first element matches the color value."""
-function colorfilter(objects::Objects, value::Integer)::Unsafe(Objects) 
+function colorfilter(objects::Objects, value::Integer)::Safe(Objects) 
     !is_color(value) && return nothing
     [obj for obj in objects if !isempty(obj) && first(obj[1]) == value]
 end
@@ -361,14 +361,14 @@ end
 # The Python implementation checks first element to `obj` only. Unclear if intended this way.
 
 """Return container with only elements of given size"""
-sizefilter(container::Objects, size::Integer)::Unsafe(Objects) = is_index(size) ? [x for x in container if length(x) == size] : nothing
+sizefilter(container::Objects, size::Integer)::Safe(Objects) = is_index(size) ? [x for x in container if length(x) == size] : nothing
 
 """Orders an int container"""
 order_int_container(container::IntContainer)::IntContainer = sort(container)
 
 
 """Returns index of upper left corner."""
-function ulcorner(indices::Indices)::Unsafe(IntegerTuple)
+function ulcorner(indices::Indices)::Safe(IntegerTuple)
     isempty(indices) && return nothing
 
     min_row = typemax(Int)
@@ -381,10 +381,10 @@ function ulcorner(indices::Indices)::Unsafe(IntegerTuple)
     return CartesianIndex(min_row, min_col)
 end
 
-ulcorner(object::Object)::Unsafe(IntegerTuple) = ulcorner(toindices(object))
+ulcorner(object::Object)::Safe(IntegerTuple) = ulcorner(toindices(object))
 
 """Returns index of upper right corner."""
-function urcorner(indices::Indices)::Unsafe(IntegerTuple)
+function urcorner(indices::Indices)::Safe(IntegerTuple)
     isempty(indices) && return nothing
 
     min_row = typemax(Int)
@@ -397,10 +397,10 @@ function urcorner(indices::Indices)::Unsafe(IntegerTuple)
     return CartesianIndex(min_row, max_col)
 end
 
-urcorner(object::Object)::Unsafe(IntegerTuple) = urcorner(toindices(object))
+urcorner(object::Object)::Safe(IntegerTuple) = urcorner(toindices(object))
 
 """Returns index of lower left corner"""
-function llcorner(indices::Indices)::Unsafe(IntegerTuple)
+function llcorner(indices::Indices)::Safe(IntegerTuple)
     isempty(indices) && return nothing
 
     max_row = typemin(Int)
@@ -413,10 +413,10 @@ function llcorner(indices::Indices)::Unsafe(IntegerTuple)
     return CartesianIndex(max_row, min_col)
 end
 
-llcorner(object::Object)::Unsafe(IntegerTuple) = llcorner(toindices(object))
+llcorner(object::Object)::Safe(IntegerTuple) = llcorner(toindices(object))
 
 """Returns index of lower right corner."""
-function lrcorner(indices::Indices)::Unsafe(IntegerTuple)
+function lrcorner(indices::Indices)::Safe(IntegerTuple)
     isempty(indices) && return nothing
 
     max_row = typemin(Int)
@@ -429,7 +429,7 @@ function lrcorner(indices::Indices)::Unsafe(IntegerTuple)
     return CartesianIndex(max_row, max_col)
 end
 
-lrcorner(object::Object)::Unsafe(IntegerTuple) = lrcorner(toindices(object))
+lrcorner(object::Object)::Safe(IntegerTuple) = lrcorner(toindices(object))
 
 """Returns indices"""
 toindices(object::Object)::Indices = [i[2] for i in object]
@@ -500,7 +500,7 @@ cmirror(piece::Object)::Object = vmirror(dmirror(vmirror(piece)))
 cmirror(piece::Indices)::Indices = vmirror(dmirror(vmirror(piece)))
 
 """ Upscales grid or object by given `factor`"""
-function upscale(grid::Grid, factor::Integer)::Unsafe(Grid)
+function upscale(grid::Grid, factor::Integer)::Safe(Grid)
     !is_index(height(grid) * factor) && return nothing
     !is_index(width(grid) * factor) && return nothing
 
@@ -520,7 +520,7 @@ function upscale(grid::Grid, factor::Integer)::Unsafe(Grid)
     return upscaled
 end
 
-function upscale(object::Object, factor::Integer)::Unsafe(Object)
+function upscale(object::Object, factor::Integer)::Safe(Object)
     isempty(object) && return []
     !is_index(height(object) * factor) && return nothing
 
@@ -538,7 +538,7 @@ function upscale(object::Object, factor::Integer)::Unsafe(Object)
 end
 
 """Returns the index of the of the patch"""
-function center(patch::Patch)::Unsafe(IntegerTuple)
+function center(patch::Patch)::Safe(IntegerTuple)
     isempty(patch) && return nothing
 
     height, width = shape(patch).I
@@ -546,7 +546,7 @@ function center(patch::Patch)::Unsafe(IntegerTuple)
 end
 
 """Relative position between two patches a and b."""
-function rel_position(a::Patch, b::Patch)::Unsafe(IntegerTuple)
+function rel_position(a::Patch, b::Patch)::Safe(IntegerTuple)
     (isempty(a) || isempty(b)) && return nothing
     # `position()` in Python implementation => renamed due to name clash
     ia, ja = center(a).I
@@ -555,7 +555,7 @@ function rel_position(a::Patch, b::Patch)::Unsafe(IntegerTuple)
 end
 
 """Indices of corners of given patch."""
-corners(patch::Patch)::Unsafe(Indices) = isempty(patch) ? nothing : [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
+corners(patch::Patch)::Safe(Indices) = isempty(patch) ? nothing : [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
 
 """Horizontal periodicity, i.e. smallest horizontal distance at which pattern repeats. Returns full width if not pattern found."""
 function hperiod(object::Object)::Integer
@@ -596,7 +596,7 @@ end
 
 
 """Crop grid from start point to given dims"""
-function crop(grid::Grid, start::IntegerTuple, dims::IntegerTuple)::Unsafe(Grid)
+function crop(grid::Grid, start::IntegerTuple, dims::IntegerTuple)::Safe(Grid)
     row = start[1]
     col = start[2]
     nrows, ncols = Tuple(dims)
@@ -610,8 +610,8 @@ function crop(grid::Grid, start::IntegerTuple, dims::IntegerTuple)::Unsafe(Grid)
 end
 
 """Recolor patch to given color value"""
-recolor(value::Integer, object::Object)::Unsafe(Object) = is_color(value) ? [(value, ind) for ind in toindices(object)] : nothing
-recolor(value::Integer, indices::Indices)::Unsafe(Object) = is_color(value) ? [(value, ind) for ind in indices] : nothing
+recolor(value::Integer, object::Object)::Safe(Object) = is_color(value) ? [(value, ind) for ind in toindices(object)] : nothing
+recolor(value::Integer, indices::Indices)::Safe(Object) = is_color(value) ? [(value, ind) for ind in indices] : nothing
 
 """
 Shift patch in given directions (offset)
@@ -729,7 +729,7 @@ Finds connected objects in `grid`.
 - `diagonal`: If `true`, uses 8-connectivity (diagonal neighbors included); otherwise, uses 4-connectivity.
 - `bg_color`: Background is ignored.
 """
-function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, bg_color::Union{Integer, Nothing})::Unsafe(Objects)
+function objects(grid::Grid, univalued::Boolean, diagonal::Boolean, bg_color::Union{Integer, Nothing})::Safe(Objects)
     # If different colors may be connected and the most common value is an object too, the entire grid will become one object
     !isnothing(bg_color) && !is_color(bg_color) && return nothing
     without_bg = !isnothing(bg_color)
@@ -795,7 +795,7 @@ function partition(grid::Grid)::Objects
 end
 
 """Splits the grid into objects where each object contains all cells of one color/value excluding background"""
-function fgpartition(grid::Grid)::Unsafe(Objects)
+function fgpartition(grid::Grid)::Safe(Objects)
     isempty(grid) && return []
 
     pal = palette(grid)
@@ -820,16 +820,16 @@ function vmatching(a::Patch, b::Patch)::Boolean
 end
 
 """Min. manhattan distance between two patches a and b"""
-manhattan(a::Patch, b::Patch)::Unsafe(Integer) = (!isempty(a) && !isempty(b)) ? minimum(abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]) for ai in toindices(a), bi in toindices(b)) : nothing
+manhattan(a::Patch, b::Patch)::Safe(Integer) = (!isempty(a) && !isempty(b)) ? minimum(abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]) for ai in toindices(a), bi in toindices(b)) : nothing
 
 """Whether two patches a and b are adjacent"""
-adjacent(a::Patch, b::Patch)::Unsafe(Boolean) = (!isempty(a) && !isempty(b)) ? manhattan(a, b) == 1 : nothing
+adjacent(a::Patch, b::Patch)::Safe(Boolean) = (!isempty(a) && !isempty(b)) ? manhattan(a, b) == 1 : nothing
 
 """Whether a patch is adjacent to a grid border"""
 bordering(patch::Patch, grid::Grid)::Boolean = uppermost(patch) == 1 || leftmost(patch) == 0 || lowermost(patch) == height(grid) || rightmost(patch) == width(grid)
 
 """Returns the center of mass for a patch"""
-function centerofmass(patch::Patch)::Unsafe(IntegerTuple)
+function centerofmass(patch::Patch)::Safe(IntegerTuple)
     isempty(patch) && return nothing
 
     n = length(patch)
@@ -847,16 +847,16 @@ numcolors(element::Element)::Integer = length(palette(element))
 
 """Returns color of an object."""
 # Assumes object is uniform in color. 
-color(object::Object)::Unsafe(Integer) = !isempty(object) ? first(object)[1] : nothing
+color(object::Object)::Safe(Integer) = !isempty(object) ? first(object)[1] : nothing
 
 """Returns an object made from indices provided by patch and corresponding values in grid"""
-toobject(patch::Patch, grid::Grid)::Unsafe(Object) = checkbounds(Bool, grid, toindices(patch)) ? [(grid[ind], ind) for ind in vec(toindices(patch))] : nothing
+toobject(patch::Patch, grid::Grid)::Safe(Object) = checkbounds(Bool, grid, toindices(patch)) ? [(grid[ind], ind) for ind in vec(toindices(patch))] : nothing
 
 """Converts grid into an object"""
 asobject(grid::Grid)::Object = [(grid[idx], idx) for idx in vec(asindices(grid))]
 
 """Fill value in grid at locations given by patch indices"""
-function fill_loc(grid::Grid, value::Integer, patch::Patch)::Unsafe(Grid) # fill() in original. Renamed due to name clash.
+function fill_loc(grid::Grid, value::Integer, patch::Patch)::Safe(Grid) # fill() in original. Renamed due to name clash.
     !is_color(value) && return nothing
     grid_filled = copy(grid)
     indices = toindices(patch)
@@ -877,7 +877,7 @@ function paint(grid::Grid, object::Object)::Grid
 end
 
 """Fills given value at patch indices to the grid if they are background"""
-function underfill(grid::Grid, value::Integer, patch::Patch)::Unsafe(Grid)
+function underfill(grid::Grid, value::Integer, patch::Patch)::Safe(Grid)
     !is_color(value) && return nothing
     bg = mostcolor(grid)
     grid_painted = copy(grid)
@@ -919,7 +919,7 @@ function delta(patch::Patch)::Indices
 end
 
 """Direction in which to move until source patch is adjacent to destination."""
-function gravitate(source::Patch, destination::Patch)::Unsafe(IntegerTuple)
+function gravitate(source::Patch, destination::Patch)::Safe(IntegerTuple)
     (isempty(source) || isempty(destination)) && return nothing
 
     si, sj = center(source).I
@@ -946,7 +946,7 @@ function gravitate(source::Patch, destination::Patch)::Unsafe(IntegerTuple)
 end
 
 """Inbox for patch, i.e., inner rectangular border around patch"""
-function inbox(patch::Patch)::Unsafe(Indices)
+function inbox(patch::Patch)::Safe(Indices)
     isempty(patch) && return nothing
 
     ai, aj = uppermost(patch) + 1, leftmost(patch) + 1
@@ -965,7 +965,7 @@ end
 
 
 """Outbox for patch, i.e., outer rectangular border around patch"""
-function outbox(patch::Patch)::Unsafe(Indices)
+function outbox(patch::Patch)::Safe(Indices)
     isempty(patch) && return nothing
 
     ai, aj = uppermost(patch) - 1, leftmost(patch) - 1
@@ -1056,7 +1056,7 @@ merge_containers(container::Vector{Indices})::Indices = isempty(container) ? [] 
 asindices(grid::Grid)::Indices = vcat(collect(CartesianIndices(grid))...)
 
 """Returns indices of all grid cells of given value (color)"""
-ofcolor(grid::Grid, value::Integer)::Unsafe(Indices) = is_color(value) ? findall(x -> x == value, grid) : nothing
+ofcolor(grid::Grid, value::Integer)::Safe(Indices) = is_color(value) ? findall(x -> x == value, grid) : nothing
 
 """Rotates grid by 90 degrees clockwise"""
 rot90deg(grid::Grid)::Grid = rotr90(grid, 1)
@@ -1068,16 +1068,16 @@ rot180deg(grid::Grid)::Grid = Base.rot180(grid)
 rot270deg(grid::Grid)::Grid = Base.rotl90(grid)
 
 """Downscale grid by given factor."""
-downscale(grid::Grid, factor::Integer)::Unsafe(Grid) = factor > 0 ? grid[1:factor:end, 1:factor:end] : nothing
+downscale(grid::Grid, factor::Integer)::Safe(Grid) = factor > 0 ? grid[1:factor:end, 1:factor:end] : nothing
 
 """Concatenate grid a and grid b horizontally."""
-hconcat(a::Grid, b::Grid)::Unsafe(Grid) = size(a, 1) == size(b, 1) ? hcat(a, b) : nothing
+hconcat(a::Grid, b::Grid)::Safe(Grid) = size(a, 1) == size(b, 1) ? hcat(a, b) : nothing
 
 """Concatenate grid a and grid b vertically."""
-vconcat(a::Grid, b::Grid)::Unsafe(Grid) = size(a, 2) == size(b, 2) ? vcat(a, b) : nothing
+vconcat(a::Grid, b::Grid)::Safe(Grid) = size(a, 2) == size(b, 2) ? vcat(a, b) : nothing
 
 """Upscale grid horizontally."""
-function hupscale(grid::Grid, factor::Integer)::Unsafe(Grid)
+function hupscale(grid::Grid, factor::Integer)::Safe(Grid)
     !is_index(width(grid) * factor) && return nothing
     isempty(grid) && return grid
     
@@ -1085,7 +1085,7 @@ function hupscale(grid::Grid, factor::Integer)::Unsafe(Grid)
 end
 
 """Upscale grid vertically."""
-function vupscale(grid::Grid, factor::Integer)::Unsafe(Grid)
+function vupscale(grid::Grid, factor::Integer)::Safe(Grid)
     !is_index(height(grid) * factor) && return nothing
     isempty(grid) && return grid
     
@@ -1094,7 +1094,7 @@ end
 
 
 """Split grid along horizontal into n parts."""
-function hsplit(grid::Grid, n::Integer)::Unsafe(GridContainer)
+function hsplit(grid::Grid, n::Integer)::Safe(GridContainer)
     isempty(grid) && return []
     n <= 1 && return nothing
 
@@ -1107,7 +1107,7 @@ function hsplit(grid::Grid, n::Integer)::Unsafe(GridContainer)
 end
 
 """Split grid along vertical into n parts"""
-function vsplit(grid::Grid, n::Integer)::Unsafe(GridContainer)
+function vsplit(grid::Grid, n::Integer)::Safe(GridContainer)
     isempty(grid) && return []
     n <= 1 && return nothing
 
@@ -1120,16 +1120,16 @@ function vsplit(grid::Grid, n::Integer)::Unsafe(GridContainer)
 end
 
 """Cellwise matching of grids a and b. Returns grid with original values where `a[i, j] == b[i,j]`, otherwise `fallback`."""
-cellwise(a::Grid, b::Grid, fallback::Integer)::Unsafe(Grid) = (width(a) <= width(b) && height(a) <= height(b) && is_color(fallback)) ? [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)] : nothing
+cellwise(a::Grid, b::Grid, fallback::Integer)::Safe(Grid) = (width(a) <= width(b) && height(a) <= height(b) && is_color(fallback)) ? [a[i, j] == b[i, j] ? a[i, j] : fallback for i in axes(a, 1), j in axes(a, 2)] : nothing
 
 
 """Substituion of color value replacee with new color replacer."""
-replace_color(grid::Grid, replacee::Integer, replacer::Integer)::Unsafe(Grid) = (is_color(replacee) && is_color(replacer)) ? [grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)] : nothing
+replace_color(grid::Grid, replacee::Integer, replacer::Integer)::Safe(Grid) = (is_color(replacee) && is_color(replacer)) ? [grid[i, j] == replacee ? replacer : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)] : nothing
 # replace in original Python implementation => renamed due to name clash
 
 
 """Switches color for cells with value a and b. Other cells remain unchanged."""
-switch(grid::Grid, a::Integer, b::Integer)::Unsafe(Grid) = (is_color(a) && is_color(b)) ? [grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)] : nothing
+switch(grid::Grid, a::Integer, b::Integer)::Safe(Grid) = (is_color(a) && is_color(b)) ? [grid[i, j] == a ? b : grid[i, j] == b ? a : grid[i, j] for i in axes(grid, 1), j in axes(grid, 2)] : nothing
 
 
 """Trims the borders of the grid, i.e., removes outermost rows and columns"""
@@ -1190,19 +1190,19 @@ function frontiers(grid::Grid)::Objects
 end
 
 """Constructs a grid of given dimensions and fills it with value"""
-canvas(value::Integer, dimensions::IntegerTuple)::Unsafe(Grid) = (is_index(dimensions[1]) && is_index(dimensions[2]) && is_color(value)) ? fill(value, dimensions[1], dimensions[2]) : nothing
+canvas(value::Integer, dimensions::IntegerTuple)::Safe(Grid) = (is_index(dimensions[1]) && is_index(dimensions[2]) && is_color(value)) ? fill(value, dimensions[1], dimensions[2]) : nothing
 
 """Get color of grid at given location loc"""
-index(grid::Grid, loc::IntegerTuple)::Unsafe(Integer) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
+index(grid::Grid, loc::IntegerTuple)::Safe(Integer) = checkbounds(Bool, grid, loc) ? grid[loc] : nothing
 
 """Returns smalles subgrid that contains the patch"""
-subgrid(patch::Patch, grid::Grid)::Unsafe(Grid) = isempty(patch) ? empty_grid : crop(grid, ulcorner(patch), shape(patch))
+subgrid(patch::Patch, grid::Grid)::Safe(Grid) = isempty(patch) ? empty_grid : crop(grid, ulcorner(patch), shape(patch))
 
 """Remove an object from grid by filling with locations with background color."""
-cover(grid::Grid, patch::Patch)::Unsafe(Grid) = isempty(grid) ? grid : fill_loc(grid, mostcolor(grid), patch)
+cover(grid::Grid, patch::Patch)::Safe(Grid) = isempty(grid) ? grid : fill_loc(grid, mostcolor(grid), patch)
 
 """Moves object on grid by given offset"""
-function move(grid::Grid, object::Object, offset::IntegerTuple)::Unsafe(Grid)
+function move(grid::Grid, object::Object, offset::IntegerTuple)::Safe(Grid)
     c = cover(grid, object)
     isnothing(c) && return nothing
     paint(c, shift(object, offset))
@@ -1235,32 +1235,32 @@ function occurrences(grid::Grid, object::Object)::Indices
 end
 
 """Return first element of container that fulfills given condition"""
-function extract(container::IntContainer, condition)::Unsafe(Integer)
+function extract(container::IntContainer, condition)::Safe(Integer)
     idx = findfirst(condition, container)
     return idx === nothing ? nothing : container[idx]
 end
 
-function extract(container::Objects, condition)::Unsafe(Object)
+function extract(container::Objects, condition)::Safe(Object)
     idx = findfirst(condition, container)
     return idx === nothing ? nothing : container[idx]
 end
 
-function extract(container::GridContainer, condition)::Unsafe(Grid)
+function extract(container::GridContainer, condition)::Safe(Grid)
     idx = findfirst(condition, container)
     return idx === nothing ? nothing : container[idx]
 end
 
 """Return first element of a container"""
-firstof(container::Indices)::Unsafe(IntegerTuple) = !isempty(container) ? first(container) : nothing
-firstof(container::Objects)::Unsafe(Object) = !isempty(container) ? first(container) : nothing
-firstof(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? first(container) : nothing
-firstof(container::GridContainer)::Unsafe(Grid) = !isempty(container) ? first(container) : nothing
+firstof(container::Indices)::Safe(IntegerTuple) = !isempty(container) ? first(container) : nothing
+firstof(container::Objects)::Safe(Object) = !isempty(container) ? first(container) : nothing
+firstof(container::IntContainer)::Safe(Integer) = !isempty(container) ? first(container) : nothing
+firstof(container::GridContainer)::Safe(Grid) = !isempty(container) ? first(container) : nothing
 
 """Return last element of a container"""
-lastof(container::Indices)::Unsafe(IntegerTuple) = !isempty(container) ? last(container) : nothing
-lastof(container::Objects)::Unsafe(Object) = !isempty(container) ? last(container) : nothing
-lastof(container::IntContainer)::Unsafe(Integer) = !isempty(container) ? last(container) : nothing
-lastof(container::GridContainer)::Unsafe(Grid) = !isempty(container) ? last(container) : nothing
+lastof(container::Indices)::Safe(IntegerTuple) = !isempty(container) ? last(container) : nothing
+lastof(container::Objects)::Safe(Object) = !isempty(container) ? last(container) : nothing
+lastof(container::IntContainer)::Safe(Integer) = !isempty(container) ? last(container) : nothing
+lastof(container::GridContainer)::Safe(Grid) = !isempty(container) ? last(container) : nothing
 
 """Insert element to container"""
 insert(value::IntegerTuple, container::Indices)::Indices = push!(copy(container), value)
@@ -1273,12 +1273,12 @@ remove(value::Object, container::Objects)::Objects = filter(!=(value), container
 remove(value::Integer, container::IntContainer)::IntContainer = filter(!=(value), container)
 
 """Returns other value in container, i.e., first element after removing given value"""
-other(value::IntegerTuple, container::Indices)::Unsafe(IntegerTuple) = firstof(remove(value, container))
-other(value::Object, container::Objects)::Unsafe(Object) = firstof(remove(value, container))
-other(value::Integer, container::IntContainer)::Unsafe(Integer) = firstof(remove(value, container))
+other(value::IntegerTuple, container::Indices)::Safe(IntegerTuple) = firstof(remove(value, container))
+other(value::Object, container::Objects)::Safe(Object) = firstof(remove(value, container))
+other(value::Integer, container::IntContainer)::Safe(Integer) = firstof(remove(value, container))
 
 """Returns range between start and stop with given step size"""
-interval(start::Integer, stop::Integer, step::Integer)::Unsafe(IntContainer) = step != 0 ? collect(range(start, stop, step=step)) : nothing
+interval(start::Integer, stop::Integer, step::Integer)::Safe(IntContainer) = step != 0 ? collect(range(start, stop, step=step)) : nothing
 
 """Cartesian product of two containers a and b"""
 cartesian_product(a::IntContainer, b::IntContainer)::Indices = vec(collect(CartesianIndex.(Iterators.product(a, b))))
@@ -1297,14 +1297,24 @@ branch(condition::Boolean, a::Indices, b::Indices)::Indices = condition ? a : b
 branch(condition::Boolean, a::Grid, b::Grid)::Grid = condition ? a : b
 
 """Apply function to each element in container"""
-apply_obj_to_obj(func, container::Objects)::Objects = map(func, container)
-apply_obj_to_int(func, container::Objects)::IntContainer = map(func, container)
+function apply_obj_to_obj(func, container::Objects)::Safe(Objects)
+    isempty(container) && return []
+    res = map(func, container)
+    any(isnothing, res) && return nothing
+    return res
+end
+function apply_obj_to_int(func, container::Objects)::Safe(IntContainer)
+    isempty(container) && return []
+    res = map(func, container)
+    any(isnothing, res) && return nothing
+    return res
+end
 
 """Apply each function in container to a value"""
 # rapply(container, value) = [f(value) for f in container] # not included in grammar since it can't construct container of functions
 
 """Apply and merge"""
-function mapply(func, container::Union{Indices,Objects})::Unsafe(Indices)
+function mapply(func, container::Union{Indices,Objects})::Safe(Indices)
     isempty(container) && return []
     res = map(func, container)
     any(isnothing, res) && return nothing
