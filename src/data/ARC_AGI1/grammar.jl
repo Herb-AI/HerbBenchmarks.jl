@@ -79,7 +79,7 @@ grammar_hodel = @csgrammar begin
     GridToIntFunc = maximum_of | minimum_of | height | width | mostcolor | leastcolor | numcolors | g -> colorcount(g, Integer)
     ObjectToIntFunc = lowermost | uppermost | rightmost | leftmost | color | hperiod | vperiod | size_of | height | width | numcolors | leastcolor | mostcolor | g -> colorcount(g, Integer)
     ObjectToObjectFunc = normalize | hmirror | vmirror | dmirror | cmirror | o -> recolor(Integer, o)
-    IndexToIndicesFunc = dneighbors | ineighbors | neighbors | vfrontier | hfrontier | t -> shoot(t, unity) | t -> shoot(t, neg_unity) | t -> shoot(t, up_right) | t -> shoot(t, down_left)
+    IndexToIndicesFunc = dneighbors | ineighbors | neighbors | vfrontier | hfrontier | t -> shoot(t, IntegerTuple)
     ObjectToIndicesFunc = toindices | corners | backdrop | delta | box | outbox | inbox
     
     Objects = apply_obj_to_obj(ObjectToObjectFunc, Objects)
