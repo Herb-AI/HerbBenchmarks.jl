@@ -2,20 +2,11 @@ grammar_hodel = @csgrammar begin
     Start = Grid
     Grid = _arg_1
 
-
     Boolean = false | true
     Integer = |(-2:9)
     IntegerTuple = down | right | up | left
-    IntegerTuple = origin | unity | neg_unity | up_right | down_left
+    IntegerTuple =  unity | neg_unity | up_right | down_left
     IntegerTuple = zero_by_two | two_by_zero | two_by_two | three_by_three
-
-    # Grid = empty_grid
-    # GridContainer = empty_grid_container
-    # Object = empty_object
-    # Objects = empty_objects
-    # Indices = empty_indices
-    # IntContainer = empty_int_container
-
 
     Patch = Object | Indices
     Piece = Grid | Patch
@@ -85,11 +76,11 @@ grammar_hodel = @csgrammar begin
     IntegerTuple = shape(Piece)
 
     # Higher-order funcs + usage
-    ObjectToObjectFunc = normalize | hmirror | vmirror | dmirror | cmirror 
-    ObjectToIntFunc = color | size_of | height | width | numcolors | leastcolor | mostcolor
-    IndexToIndicesFunc = dneighbors | ineighbors | neighbors | vfrontier | hfrontier
+    GridToIntFunc = maximum_of | minimum_of | height | width | mostcolor | leastcolor | numcolors | g -> colorcount(g, Integer)
+    ObjectToIntFunc = lowermost | uppermost | rightmost | leftmost | color | hperiod | vperiod | size_of | height | width | numcolors | leastcolor | mostcolor | g -> colorcount(g, Integer)
+    ObjectToObjectFunc = normalize | hmirror | vmirror | dmirror | cmirror | o -> recolor(Integer, o)
+    IndexToIndicesFunc = dneighbors | ineighbors | neighbors | vfrontier | hfrontier | t -> shoot(t, unity) | t -> shoot(t, neg_unity) | t -> shoot(t, up_right) | t -> shoot(t, down_left)
     ObjectToIndicesFunc = toindices | corners | backdrop | delta | box | outbox | inbox
-    GridToIntFunc = maximum_of | minimum_of | height | width | mostcolor | leastcolor | numcolors
     
     Objects = apply_obj_to_obj(ObjectToObjectFunc, Objects)
     IntContainer = apply_obj_to_int(ObjectToIntFunc, Objects)
@@ -218,7 +209,6 @@ grammar_hodel = @csgrammar begin
     Objects = sizefilter(Objects, Integer)
     Objects = colorfilter(Objects, Integer)
 
-    IntContainer = order_int_container(IntContainer)
 
     # Set/collection operations
     Indices = intersection(Indices, Indices)
