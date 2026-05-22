@@ -1,7 +1,9 @@
 using MLStyle
 """
-Represents the mutable the state of a pixel grid. It holds a matrix of boolean values
-and a cursor pointing to a specific pixel in the grid.
+Represents the mutable the state of a pixel grid. It holds a matrix of boolean
+values and a cursor pointing to a specific pixel in the grid.
+
+Position is relative to the top left corner starting at (1, 1).
 """
 mutable struct PixelState
     matrix::Matrix{Bool}
@@ -11,77 +13,66 @@ mutable struct PixelState
 end
 
 """
-    interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
+    atBottom(state::PixelState)
 
-Interprets a program (in form of an AbstractRuleNode) on a given grammar and `IOExample`. 
-Serves as an entry point that prepares the necessary grammar tags and initial state before 
-calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)`.
-
----
-    interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)
-
-Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
-The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
+Is the state at the bottom of the pixel matrix?
 """
-function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample,
-        new_rules_decoding::Dict{Int,AbstractRuleNode}=Dict{Int,AbstractRuleNode}())
-    interpret(prog, get_relevant_tags(grammar), only(values(example.in)), new_rules_decoding)
+function atBottom(state::PixelState)
+    (_, y_pos) = state.position
+    (_, height) = size(state.matrix)
+    return y_pos == height
 end
 
-function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Symbol}, state::PixelState,
-        new_rules_decoding::Dict{Int,AbstractRuleNode}=Dict{Int,AbstractRuleNode}())
-    rule_node = get_rule(prog)
-    if rule_node in keys(new_rules_decoding)
-        return interpret(new_rules_decoding[rule_node], grammartags, state, new_rules_decoding)
-    end
-
-    @match grammartags[rule_node] begin
-        :OpSeq => interpret(prog.children[2], grammartags,
-            interpret(prog.children[1], grammartags, state, new_rules_decoding),
-            new_rules_decoding) # (Operation ; Sequence)
-        :moveRight => moveright(state)
-        :moveDown => movedown(state)
-        :moveLeft => moveleft(state)
-        :moveUp => moveup(state)
-        :draw0 => draw_0(state)
-        :draw1 => draw_1(state)
-        :IF => interpret(prog.children[1], grammartags, state, new_rules_decoding) ?
-               interpret(prog.children[2], grammartags, state, new_rules_decoding) :
-               interpret(prog.children[3], grammartags, state, new_rules_decoding)
-        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state, new_rules_decoding, 2 * max(size(state.matrix)...))
-        :atTop => state.position[2] == 1
-        :atBottom => state.position[2] == size(state.matrix, 1)
-        :atRight => state.position[1] == size(state.matrix, 2)
-        :atLeft => state.position[1] == 1
-        :notAtTop => !(state.position[2] == 1)
-        :notAtBottom => !(state.position[2] == size(state.matrix, 1))
-        :notAtRight => !(state.position[1] == size(state.matrix, 2))
-        :notAtLeft => !(state.position[1] == 1)
-        _ => interpret(prog.children[1], grammartags, state, new_rules_decoding) # Start operation Transformation ControlStatement
-    end
+function notAtBottom(state::PixelState)
+    return !atBottom(state)
 end
 
-
 """
-Custom implementation of a while loop with a condition and a body. 
+    atTop(state::PixelState)
 
-Loop is terminated either when condition is false or when `max_steps` is reached.
+Is the state at the top of the pixel matrix?
 """
-function command_while(condition::AbstractRuleNode, body::AbstractRuleNode, grammartags::Dict{Int,Symbol},
-        state::PixelState, new_rules_decoding::Dict{Int,AbstractRuleNode}, max_steps::Int=1000)
-    counter = max_steps
-    while interpret(condition, grammartags, state, new_rules_decoding) && counter > 0
-        state = interpret(body, grammartags, state, new_rules_decoding)
-        counter -= 1
-    end
-    state
+function atTop(state::PixelState)
+    (_, y_pos) = state.position
+    return y_pos == 1
 end
 
+function notAtTop(state::PixelState)
+    return !atTop(state)
+end
+
+"""
+    atLeft(state::PixelState)
+
+Is the state at the left side of the pixel matrix?
+"""
+function atLeft(state::PixelState)
+    (x_pos, _) = state.position
+    return x_pos == 1
+end
+
+function notAtLeft(state::PixelState)
+    return !atLeft(state)
+end
+"""
+    atRight(state::PixelState)
+
+Is the state at the right of the pixel matrix?
+"""
+function atRight(state::PixelState)
+    (x_pos, _) = state.position
+    (width, _) = size(state.matrix)
+    return x_pos == width
+end
+
+function notAtRight(state::PixelState)
+    return !atRight(state)
+end
 
 """
 Moves the position of the curosor to the right by one pixel. Position remains unchanged if the cursor is on the boundaries.
 """
-function moveright(state::PixelState)
+function moveRight(state::PixelState)
     if !(state.position[1] == size(state.matrix, 2))
         state.position = (state.position[1] + 1, state.position[2])
     end
@@ -92,7 +83,7 @@ end
 """
 Moves the position of the curosor to the left by one pixel. Position remains unchanged if the cursor is on the boundaries.
 """
-function moveleft(state::PixelState)
+function moveLeft(state::PixelState)
     if !(state.position[1] == 1)
         state.position = (state.position[1] - 1, state.position[2])
     end
@@ -102,7 +93,7 @@ end
 """
 Moves the position of the curosor to down by one pixel. Position remains unchanged if the cursor is on the boundaries.
 """
-function movedown(state::PixelState)
+function moveDown(state::PixelState)
     if !(state.position[2] == size(state.matrix, 1))
         state.position = (state.position[1], state.position[2] + 1)
     end
@@ -113,7 +104,7 @@ end
 """
 Moves the position of the curosor up by one pixel. Position remains unchanged if the cursor is on the boundaries.
 """
-function moveup(state::PixelState)
+function moveUp(state::PixelState)
     if !(state.position[2] == 1)
         state.position = (state.position[1], state.position[2] - 1)
     end
@@ -123,7 +114,7 @@ end
 """
 Draws a 0 at the current position of the cursor by setting the value to `false`.
 """
-function draw_0(state::PixelState)
+function draw0(state::PixelState)
     state.matrix[state.position[2], state.position[1]] = false
     return state
 end
@@ -131,7 +122,7 @@ end
 """
 Draws a 1 at the current position of the cursor by setting the value to `true`.
 """
-function draw_1(state::PixelState)
+function draw1(state::PixelState)
     state.matrix[state.position[2], state.position[1]] = true
     return state
 end
