@@ -263,4 +263,4 @@ end
 """
 Deterministic hash modulo n (no Julia hash randomness).
 """
-hash_mod_n(s::AbstractString, n::Integer) = Int64(hash(s) % n)
+hash_mod_n(s, n::Integer) = Int64(hash(s) % n)
