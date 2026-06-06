@@ -314,12 +314,12 @@ based on string content + seed.
 function random_character(s::AbstractString, seed::Integer)
     chars = collect(s)
     n = length(chars)
-    n == 0 && return '\0'   # or error("empty string")
+    n == 0 && return ""   # or error("empty string")
 
     mixed = mix_seed(s, seed)
 
     idx = mod(mixed * 131 + 7, n) + 1
-    return chars[idx]
+    return join(chars[idx:idx])
 end
 
 
