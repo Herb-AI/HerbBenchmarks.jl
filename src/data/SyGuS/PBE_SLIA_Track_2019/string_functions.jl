@@ -200,7 +200,7 @@ end
 # ------------------------------------------------------------------
 
 function ascii_sum(s::AbstractString)
-    sum(Int(c) for c in s)
+    sum(Int(c) for c in s; init=0)
 end
 
 function first_char_code(s::AbstractString)
