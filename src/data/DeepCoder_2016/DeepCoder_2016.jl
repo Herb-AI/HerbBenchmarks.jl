@@ -1,8 +1,11 @@
 module DeepCoder_2016
-
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using HerbInterpret
+
+using RuntimeGeneratedFunctions
+RuntimeGeneratedFunctions.init(@__MODULE__)
 
 using JSON
 
@@ -12,22 +15,23 @@ include("grammars.jl")
 
 include("list_functions.jl")
 
-export 
-    parse_deepcoder_problem_and_grammar
-    base_grammar_deepcoder
+function make_deepcoder_interpreter(g)
+    return make_interpreter(g; target_module=DeepCoder_2016, cache_module=DeepCoder_2016)
+end
 
 """
     parse_deepcoder_problem(filename::AbstractString, base_grammar::AbstractGrammar)::Problem
-    Parses a DeepCoder problem from a file given a base grammar.
+
+Parses a DeepCoder problem from a file given a base grammar.
 """
 function parse_deepcoder_problem_and_grammar(filename::AbstractString,
-                                             base_grammar::AbstractGrammar)
+    base_grammar::AbstractGrammar)
     raw = JSON.parsefile(filename)
 
     examples = IOExample[]
     for ex in raw["examples"]
         args = split_inputs(ex["input"])
-        out  = normalize_value(ex["output"])
+        out = normalize_value(ex["output"])
         push!(examples, IOExample(args, out))
     end
 
@@ -51,9 +55,9 @@ function split_inputs(raw_in)::Dict{Symbol,Any}
     @assert raw_in isa Vector "DeepCoder 'input' must be an array"
     n = length(raw_in)
     @assert 1 <= n <= 2 "Expected 1 or 2 inputs, got $n"
-    
+
     tojl(v) = v isa Vector ? map(Int, v) : Int(v)
-    
+
     args = Dict{Symbol,Any}()
     args[:_arg_1] = tojl(raw_in[1])
     if n == 2
@@ -84,10 +88,10 @@ function add_extras!(g::AbstractGrammar, sig::Dict{Symbol,Symbol}, start_nt::Str
     g
 end
 
-infer_output_nt(out)::String =  out isa AbstractVector{<:Any} ? "ExprArr" :
-                                out isa Integer                     ? "ExprNum" :
-                                error("Unsupported output type: $(typeof(out)): $out")
-                                
+infer_output_nt(out)::String = out isa AbstractVector{<:Any} ? "ExprArr" :
+                               out isa Integer ? "ExprNum" :
+                               error("Unsupported output type: $(typeof(out)): $out")
+
 normalize_value(x) = x isa Vector ? map(v -> Int(v), x) : Int(x)
 
 make_sym_rule(lhs::Symbol, rhs::Symbol)::Expr = Expr(:(=), lhs, rhs)

@@ -600,7 +600,6 @@ function crop(grid::Grid, start::IntegerTuple, dims::IntegerTuple)::Safe(Grid)
     row = start[1]
     col = start[2]
     nrows, ncols = Tuple(dims)
-
     rows = row:row+nrows-1
     cols = col:col+ncols-1
 

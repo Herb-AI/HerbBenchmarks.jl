@@ -18,7 +18,6 @@ include("utils/SExpressionParser.jl")
 
 include("utils/benchmarks_io.jl")
 include("utils/problem_fetcher.jl")
-include("utils/interpret_generator.jl")
 
 include("utils/evaluate_synthesizer.jl")
 include("utils/plot_results.jl")

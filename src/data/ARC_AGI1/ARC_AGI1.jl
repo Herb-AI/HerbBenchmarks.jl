@@ -17,7 +17,7 @@ include("training_data.jl")
 include("evaluation_data.jl")
 include("grammar.jl")
 
-interpret = make_stateful_interpreter(grammar_hodel; target_module=ARC_AGI1, cache_module=ARC_AGI1)
+interpret = make_interpreter(grammar_hodel; target_module=ARC_AGI1, cache_module=ARC_AGI1)
 
 export
     parse_ARC_data_file

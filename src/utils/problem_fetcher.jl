@@ -1,6 +1,6 @@
 function get_all_benchmarks()::Vector{Benchmark}
     # Map all benchmark modules to the benchmark datastructure and return
-    modules = [ARC_AGI_1, ARC_AGI_2, Pixels_2020, Robots_2020, String_transformations_2020, PBE_BV_Track_2018, PBE_SLIA_Track_2019]
+    modules = [ARC_AGI1, ARC_AGI2, Pixels_2020, Robots_2020, String_transformations_2020, PBE_BV_Track_2018, PBE_SLIA_Track_2019, DeepCoder_2016]
     return [get_benchmark(m) for m in modules]
 end
 

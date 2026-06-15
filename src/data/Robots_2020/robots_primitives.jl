@@ -12,63 +12,34 @@ struct RobotState
     size::Int # square grid of dimensions size x size
 end
 
-"""
-    interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-
-Interprets a program (in form of an AbstractRuleNode) on a given grammar and `IOExample`. 
-Serves as an entry point that prepares the necessary grammar tags and initial state before 
-calling `interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)`.
-
----
-    interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::StringState)
-
-Interprets a program (`prog`) based on a set of grammar tags (`grammartags`) and the current state (`state`). 
-The functions handles the execution of a program by matching grammar tags to the corresponding functionality. 
-"""
-function interpret(prog::AbstractRuleNode, grammar::ContextSensitiveGrammar, example::IOExample)
-    interpret(prog, get_relevant_tags(grammar), example.in[:in])
-end
-
-function interpret(prog::AbstractRuleNode, grammartags::Dict{Int,Any}, state::RobotState)
-    rule_node = get_rule(prog)
-
-    @match grammartags[rule_node] begin
-        :OpSeq => interpret(prog.children[2], grammartags, interpret(prog.children[1], grammartags, state)) # (Operation ; Sequence)
-        :moveRight => moveright(state)
-        :moveDown => movedown(state)
-        :moveLeft => moveleft(state)
-        :moveUp => moveup(state)
-        :drop => state.holds_ball == 1 ? RobotState(0, state.robot_x, state.robot_y, state.robot_x, state.robot_y, state.size) : state
-        :grab => can_pickup(state) ? RobotState(1, state.robot_x, state.robot_y, state.ball_x, state.ball_y, state.size) : state
-        :IF => interpret(prog.children[1], grammartags, state) ? interpret(prog.children[2], grammartags, state) : interpret(prog.children[3], grammartags, state)
-        :WHILE => command_while(prog.children[1], prog.children[2], grammartags, state)              # while loop
-        :atTop => state.robot_y == 1
-        :atBottom => state.robot_y == state.size
-        :atLeft => state.robot_x == 1
-        :atRight => state.robot_x == state.size
-        :notAtTop => !(state.robot_y == 1)
-        :notAtBottom => !(state.robot_y == state.size)
-        :notAtLeft => !(state.robot_x == 1)
-        :notAtRight => !(state.robot_x == state.size)
-        _ => interpret(prog.children[1], grammartags, state) # Start operation Transformation ControlStatement
-    end
-end
-
 can_pickup(state::RobotState) = state.holds_ball == 0 && state.robot_x == state.ball_x && state.robot_y == state.ball_y
 
-"""
-Custom implementation of a while loop with a condition and a body. 
+atTop(state::RobotState) = state.robot_y == 1
+notAtTop(state::RobotState) = !atTop(state)
+atBottom(state::RobotState) = state.robot_y == state.size
+notAtBottom(state::RobotState) = !atBottom(state)
 
-Loop is terminated either when condition is false or when `max_steps` is reached.
+atLeft(state::RobotState) = state.robot_x == 1
+notAtLeft(state::RobotState) = !atLeft(state)
+atRight(state::RobotState) = state.robot_x == state.size
+notAtRight(state::RobotState) = !atRight(state)
+
 """
-function command_while(condition::RuleNode, body::RuleNode, grammartags::Dict{Int,Any}, state::RobotState, max_steps::Int=1000)
-    counter = max_steps
-    while interpret(condition, grammartags, state) && counter > 0
-        tag = grammartags[get_rule(body)]
-        state = interpret(body, grammartags, state)
-        counter -= 1
-    end
-    state
+    grab(state::RobotState)
+
+Grab the ball (holds_ball -> true) if possible (see `can_pickup`).
+"""
+function grab(state::RobotState)
+    return can_pickup(state) ? RobotState(1, state.robot_x, state.robot_y, state.ball_x, state.ball_y, state.size) : state
+end
+
+"""
+    drop(state::RobotState)
+
+Drop the ball (holds_ball -> false) if possible (holds_ball == true).
+"""
+function drop(state::RobotState)
+    return state.holds_ball == 1 ? RobotState(0, state.robot_x, state.robot_y, state.ball_x, state.ball_y, state.size) : state
 end
 
 """
@@ -97,7 +68,7 @@ end
 Moves the robots position to the right by one. If the robot is holding the ball, the ball's position is also moved by one.
 Positions remain unchanged if the robot is on the boundaries.
 """
-function moveright(state::RobotState)
+function moveRight(state::RobotState)
     if !(state.robot_x == state.size)
         if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x + 1, state.robot_y, state.ball_x + 1, state.ball_y, state.size)
@@ -113,7 +84,7 @@ end
 Moves the robots position to the left by one. If the robot is holding the ball, the ball's position is also moved by one.
 Positions remain unchanged if the robot is on the boundaries.
 """
-function moveleft(state::RobotState)
+function moveLeft(state::RobotState)
     if !(state.robot_x == 1)
         if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x - 1, state.robot_y, state.ball_x - 1, state.ball_y, state.size)
@@ -129,7 +100,7 @@ end
 Moves the robots position down by one. If the robot is holding the ball, the ball's position is also moved by one.
 Positions remain unchanged if the robot is on the boundaries.
 """
-function movedown(state::RobotState)
+function moveDown(state::RobotState)
     if !(state.robot_y == state.size)
         if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x, state.robot_y + 1, state.ball_x, state.ball_y + 1, state.size)
@@ -145,7 +116,7 @@ end
 Moves the robots position up by one. If the robot is holding the ball, the ball's position is also moved by one.
 Positions remain unchanged if the robot is on the boundaries.
 """
-function moveup(state::RobotState)
+function moveUp(state::RobotState)
     if !(state.robot_y == 1)
         if Bool(state.holds_ball)
             return RobotState(state.holds_ball, state.robot_x, state.robot_y - 1, state.ball_x, state.ball_y - 1, state.size)
