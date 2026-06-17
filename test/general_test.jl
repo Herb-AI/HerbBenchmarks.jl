@@ -3,7 +3,7 @@
     import HerbSpecification
     import HerbBenchmarks: Abstract_Reasoning_2019, DeepCoder_2016,
         Pixels_2020, Robots_2020, String_transformations_2020,
-        PBE_BV_Track_2018, PBE_SLIA_Track_2019
+        PBE_BV_Track_2018, PBE_SLIA_Track_2019, Morpheus_2017
 
     input_rules(grammar::AbstractGrammar) =
         findall(rule -> occursin("_arg_", string(rule)), grammar.rules)
@@ -14,7 +14,8 @@
         Robots_2020,
         String_transformations_2020,
         PBE_BV_Track_2018,
-        PBE_SLIA_Track_2019
+        PBE_SLIA_Track_2019,
+        Morpheus_2017
     ]
     @testset "Module $mod" for mod in modules
         begin
