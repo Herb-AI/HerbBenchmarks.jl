@@ -1,37 +1,80 @@
 #=
     ARGA / OBJECT-ARC primitives
 
-    Implements the object-centric DSL described in Qiu et al., "ARGA"
-    (https://github.com/khalil-research/ARGA-AAAI23), as reported in the
-    paper's grammar figure ("Rule -> if Filter then Transforms", etc).
-    Operator semantics (move, move_max, extend, rotate, mirror, flip,
-    add_border, fill_rectangle, hollow_rectangle) are cross-checked against
-    the reference Python implementation in ARCGraph.py's "nbccg" abstraction
-    -- the only one of ARGA's object-abstraction methods that supports every
-    transform in the paper's grammar.
+    Implements the object-centric DSL given by hysynth's `dsl/v0_3/dsl.lark`
+    (the grammar the paper, Qiu et al. "ARGA", https://github.com/khalil-research/ARGA-AAAI23,
+    actually specifies: `rule -> (vars (this other?)) (filter ...) (apply xform+)`,
+    with generic `*_of(VAR)` accessors and `*_equals(expr, expr)` filter
+    primitives rather than a fixed self-only atom per attribute). Operator
+    semantics (move, move_max, extend, rotate, mirror, flip, add_border,
+    fill_rectangle, hollow_rectangle, insert) are cross-checked against the
+    reference Python implementation in ARCGraph.py's "nbccg" abstraction.
 
-    Framework constraint that shapes this file's design: HerbInterpret's
-    `make_interpreter` evaluates a RuleNode's children *eagerly*, before the
-    parent rule's own body runs (see `build_match_cases` in
-    HerbInterpret/src/make_interpret.jl: `c = [self(self, child, input) for
-    child in get_children(prog)]` happens unconditionally before dispatching
-    on the rule). This means a nonterminal cannot be "recursed into" from
-    inside a `(x, y) -> ...` lambda's body and still see `x`/`y` -- the
-    recursive call happens *outside* the lambda, at eager-evaluation time,
-    where `x`/`y` are not yet bound. Concretely: `Filt = (obj, grid) ->
-    eq(Val, Val)` with a separate rule `Val = myattr(obj)` raises
-    `UndefVarError: obj not defined`, because `Val`'s rule is evaluated
-    before the lambda is even constructed.
+    Adaptations from the lark grammar/reference, documented here rather than
+    scattered:
 
-    The fix used throughout this file: `Filter`/`Transform`/`Atom` are never
-    represented as closures over `obj`/`grid`. They are plain first-order
-    data (the `ARGAAtom`/`ARGAFilterExpr`/`ARGATransform` types below),
-    built by ordinary eager constructor calls -- exactly the same pattern
-    Hodel's ARC grammar already uses for `Object`/`Indices`/etc. The actual
-    per-object evaluation (`eval_filter`, `apply_transforms`) is a plain
-    Julia function (`apply_rule`) invoked once per `Grid` production, with
-    full, ordinary access to the grid and its extracted objects -- no
-    grammar-level lambda scoping involved at all.
+    - `fcolor_expr`/`color_expr` are merged into one `ColorExpr` -- the lark
+      grammar gives them identical token sets (`FCOLOR`/`COLOR` are the same
+      10 letters) and only splits them for parser-technical reasons, so
+      merging is pure deduplication, not a semantic change.
+    - `Row`/`row_equals`/`row_of` are dropped entirely -- the lark grammar's
+      `filter_prim`/`*_expr` list (the one actually given) has no row
+      primitive at all, only `column_equals`/`column_of`.
+    - `decl`'s `(vars (this))` vs `(vars (this other))` distinction is
+      mirrored as `ARGADecl.use_other`, but -- like the lark grammar itself,
+      which never grammatically forbids `other` from appearing under a
+      `this`-only decl -- it isn't used to *restrict* which `Var`s a rule can
+      reference, only whether [`apply_rule`](@ref) bothers searching for an
+      `other` binding at all.
+    - `other`, when declared, is bound *existentially*: for a given `this`,
+      [`apply_rule`](@ref) tries every other object (in raster-scan order)
+      against the filter and keeps the first one that satisfies it as the
+      witness, then threads that same witness through the transform step.
+      This is what the reference's per-neighbor existential filters
+      (`Neighbor_Size`/`Neighbor_Degree`/...) reduce to once `neighbor_of`
+      and the generic `other`-binding are composed via `and`.
+    - `insert`'s `OBJECT_ID` indexes into *this rule's own* extracted-object
+      list (0-based, raster-scan order) instead of
+      `task.static_objects_for_insertion` -- a task-specific object library
+      built from training-pair bookkeeping this benchmark harness has no
+      access to. Out-of-range ids are a no-op.
+    - `img_pts_of(VAR)` (no reference definition exists for it -- the
+      reference's `Insert` only ever takes a literal `ImagePoints`) resolves
+      to whichever of the 8 named image points is nearest `VAR`'s centroid.
+    - `direction_of(VAR)` mirrors `ARCGraph.get_relative_pos`'s *intent*
+      (the direction from `this` towards `VAR`) via a straightforward
+      centroid-delta snap to the 8 directions, rather than its considerably
+      more case-laden (and in places inconsistent) pixel-extent logic.
+    - `mirror`'s axis is exactly `ARCGraph.get_mirror_axis`: reflect across
+      a horizontal line through `other`'s centroid if `this`/`other` are
+      "vertical" (unobstructed line-of-sight, stacked) neighbors, otherwise
+      across a vertical line through `other`'s centroid.
+    - Two bugs were found and fixed relative to the *previous* version of
+      this file (cross-checked again against ARCGraph.py while rewriting):
+      `rotate_pixels`'s 90/270 cases were swapped (its single-step formula
+      always matched `RotateNode`'s `mul=-1` case, i.e. its own "90" behaved
+      like the reference's "270" and vice versa -- "180" was unaffected
+      since two applications of either direction agree); and
+      `hollow_rectangle_pixels` compared the fill color against the
+      hardcoded constant `BLACK` instead of the grid's actual (dynamic)
+      background color.
+    - `flip`/`mirror` now revert to the pre-transform object (a no-op) if
+      the reflected pixels would collide with another object -- matching
+      `ARCGraph.Flip`/`Mirror`'s `if not check_collision(...): apply` guard,
+      which the previous version of this file omitted.
+    - The neighbor relation is now the reference's actual one: two objects
+      are neighbors iff they have an unobstructed line of sight along a
+      shared row or column (`ARCGraph`'s nbccg edge construction), not mere
+      Chebyshev (8-connected) adjacency -- needed now that `mirror` depends
+      on classifying that relation as "vertical" vs "horizontal".
+
+    Framework constraint that shapes this file's design (unchanged from
+    before): HerbInterpret's `make_interpreter` evaluates a RuleNode's
+    children *eagerly*, before the parent rule's own body runs, so
+    `Filter`/`Xform`/expr values are never closures over `this`/`other`/the
+    grid -- they're plain first-order data, interpreted once per
+    [`apply_rule`](@ref) call by ordinary Julia functions with full access
+    to the grid and its objects.
 =#
 
 using HerbGrammar: AbstractGrammar
@@ -53,7 +96,7 @@ end
 Base.:(==)(a::ARGAObject, b::ARGAObject) = a.color == b.color && Set(a.pixels) == Set(b.pixels)
 
 # ------------------------------------------------------------------
-# Color / direction / axis constants
+# Color / direction / axis / tag constants
 # ------------------------------------------------------------------
 
 # Standard ARC palette (0-9), matching ARCGraph.py's `colors` list.
@@ -84,6 +127,28 @@ const RIGHTDIAGONAL = :RIGHTDIAGONAL
 
 const ARGA_MIN = :min
 const ARGA_MAX = :max
+const ARGA_EVEN = :even
+const ARGA_ODD = :odd
+const ARGA_CENTER = :center
+
+const SQUARE = :square
+const ENCLOSED = :enclosed
+
+const THIS_VAR = :this
+const OTHER_VAR = :other
+
+const IMG_TOP = :top
+const IMG_BOTTOM = :bottom
+const IMG_LEFT = :left
+const IMG_RIGHT = :right
+const IMG_TOPLEFT = :topleft
+const IMG_TOPRIGHT = :topright
+const IMG_BOTTOMLEFT = :bottomleft
+const IMG_BOTTOMRIGHT = :bottomright
+
+const REL_SOURCE = :source
+const REL_TARGET = :target
+const REL_MIDDLE = :middle
 
 const DIRECTION_DELTA = Dict(
     UP => (-1, 0), DOWN => (1, 0), LEFT => (0, -1), RIGHT => (0, 1),
@@ -150,9 +215,9 @@ end
 
 Reconstruct a grid: start from a `bg`-filled canvas, then paint each
 object's pixels with its color, in list order (later objects in `objects`
-take precedence on overlap -- relevant since `add_border`/`fill_rectangle`
-append new objects after the ones already in the list). Pixels outside
-`[1,height] x [1,width]` are dropped.
+take precedence on overlap -- relevant since `add_border`/`fill_rectangle`/
+`insert` append new objects after the ones already in the list). Pixels
+outside `[1,height] x [1,width]` are dropped.
 """
 function render(height::Int, width::Int, bg::Int, objects::Vector{ARGAObject})::ARGAGrid
     grid = fill(bg, height, width)
@@ -170,24 +235,49 @@ inbounds(p::Tuple{Int,Int}, height::Int, width::Int) = 1 <= p[1] <= height && 1 
 
 occupied_set(others::Vector{ARGAObject}) = Set(p for o in others for p in o.pixels)
 
-chebyshev_adjacent(p::Tuple{Int,Int}, q::Tuple{Int,Int}) = max(abs(p[1] - q[1]), abs(p[2] - q[2])) == 1
+collides_with(obj::ARGAObject, others::Vector{ARGAObject})::Bool = any(p in occupied_set(others) for p in obj.pixels)
+
+"""
+    unobstructed_relation(obj, other, grid, bg)
+
+`:horizontal` if some pixel of `obj` shares a row with some pixel of
+`other` with only `bg`-colored cells strictly between them, `:vertical` for
+the same along a shared column, else `nothing` -- ARCGraph.py's nbccg
+neighbor-edge definition (`Image.get_non_black_components_graph`), examined
+against the *original* `grid` (so a third object sitting between `obj` and
+`other` blocks the line of sight, exactly as in the reference).
+"""
+function unobstructed_relation(obj::ARGAObject, other::ARGAObject, grid::ARGAGrid, bg::Int)
+    for p in obj.pixels, q in other.pixels
+        if p[1] == q[1]
+            lo, hi = minmax(p[2], q[2])
+            if all(grid[p[1], c] == bg for c in (lo + 1):(hi - 1))
+                return :horizontal
+            end
+        elseif p[2] == q[2]
+            lo, hi = minmax(p[1], q[1])
+            if all(grid[r, p[2]] == bg for r in (lo + 1):(hi - 1))
+                return :vertical
+            end
+        end
+    end
+    return nothing
+end
+
+are_neighbors(obj::ARGAObject, other::ARGAObject, ctx)::Bool =
+    unobstructed_relation(obj, other, ctx.grid, ctx.background) !== nothing
 
 """
     neighbors_of(obj, ctx)
 
-The other objects in `ctx.objects` that touch `obj` (including diagonally)
--- i.e. some pixel of `obj` is within Chebyshev distance 1 of some pixel of
-the other object. Simpler than ARCGraph.py's exact "unobstructed
-horizontal/vertical line of sight" edge definition, used here as a
-straightforward, documented stand-in.
+The other objects in `ctx.objects` that are [`unobstructed_relation`](@ref)
+neighbors of `obj`.
 """
 function neighbors_of(obj::ARGAObject, ctx)::Vector{ARGAObject}
     result = ARGAObject[]
     for o in ctx.objects
         o === obj && continue
-        if any(chebyshev_adjacent(p, q) for p in obj.pixels for q in o.pixels)
-            push!(result, o)
-        end
+        are_neighbors(obj, o, ctx) && push!(result, o)
     end
     return result
 end
@@ -199,9 +289,20 @@ end
 obj_size(obj::ARGAObject)::Int = length(obj.pixels)
 obj_width(obj::ARGAObject)::Int = maximum(c for (r, c) in obj.pixels) - minimum(c for (r, c) in obj.pixels) + 1
 obj_height(obj::ARGAObject)::Int = maximum(r for (r, c) in obj.pixels) - minimum(r for (r, c) in obj.pixels) + 1
-obj_row(obj::ARGAObject)::Int = minimum(r for (r, c) in obj.pixels)
 obj_column(obj::ARGAObject)::Int = minimum(c for (r, c) in obj.pixels)
 obj_degree(obj::ARGAObject, ctx)::Int = length(neighbors_of(obj, ctx))
+
+"""
+    obj_centroid(obj)
+
+`(row, col)`, each `(sum + n÷2) ÷ n` -- matches `ARCGraph.get_centroid`.
+"""
+function obj_centroid(obj::ARGAObject)::Tuple{Int,Int}
+    n = length(obj.pixels)
+    cy = (sum(r for (r, c) in obj.pixels) + n ÷ 2) ÷ n
+    cx = (sum(c for (r, c) in obj.pixels) + n ÷ 2) ÷ n
+    return (cy, cx)
+end
 
 """
     is_square(obj)
@@ -267,14 +368,13 @@ function is_enclosed(obj::ARGAObject, ctx)::Bool
 end
 
 # ------------------------------------------------------------------
-# Aggregates (MIN/MAX over the current grid's objects)
+# Aggregates (MIN/MAX/CENTER over the current grid)
 # ------------------------------------------------------------------
 
 function attr_value(kind::Symbol, obj::ARGAObject, ctx)::Int
     kind == :size && return obj_size(obj)
     kind == :width && return obj_width(obj)
     kind == :height && return obj_height(obj)
-    kind == :row && return obj_row(obj)
     kind == :column && return obj_column(obj)
     kind == :degree && return obj_degree(obj, ctx)
     error("ARGA: no scalar attribute $kind")
@@ -284,116 +384,228 @@ attr_min(kind::Symbol, ctx)::Int = isempty(ctx.objects) ? 0 : minimum(attr_value
 attr_max(kind::Symbol, ctx)::Int = isempty(ctx.objects) ? 0 : maximum(attr_value(kind, o, ctx) for o in ctx.objects)
 
 """
-    resolve_attr(kind, value, ctx)
+    center_columns(width)
 
-`value` itself if it's a literal `Int`, or the `:min`/`:max` aggregate of
-attribute `kind` over `ctx.objects` if `value` is [`ARGA_MIN`](@ref)/
-[`ARGA_MAX`](@ref).
+The 1 (odd `width`) or 2 (even `width`) middle column indices of a
+`width`-wide grid -- matches `ARCGraph.get_center("column")`.
 """
-function resolve_attr(kind::Symbol, value, ctx)::Int
-    value === ARGA_MIN && return attr_min(kind, ctx)
-    value === ARGA_MAX && return attr_max(kind, ctx)
-    return value
-end
+center_columns(width::Int)::Vector{Int} = isodd(width) ? [(width + 1) ÷ 2] : [width ÷ 2, width ÷ 2 + 1]
 
 # ------------------------------------------------------------------
-# Atom / Filter (plain data -- see file docstring for why)
+# Var binding (`this`/`other`) and generic `*_of(Var)` accessors
 # ------------------------------------------------------------------
 
 """
-    ARGAAtom
+    AttrOf
 
-One primitive test on the object currently being filtered ("self"):
-`kind` selects which property, `value` is what it's compared against
-(a literal, or [`ARGA_MIN`](@ref)/[`ARGA_MAX`](@ref) for the size-like
-attributes). `value` is unused (`nothing`) for the parameterless atoms
-(`:square`, `:enclosed`, `:any_neighbor`).
+`*_of(VAR)` from the lark grammar (`color_of`, `size_of`, `height_of`,
+`width_of`, `degree_of`, `shape_of`, `column_of`, `direction_of`,
+`img_pts_of`): `kind` selects the attribute, `var` is [`THIS_VAR`](@ref) or
+[`OTHER_VAR`](@ref).
 """
-struct ARGAAtom
+struct AttrOf
     kind::Symbol
-    value::Any
+    var::Symbol
 end
 
-atom_color(c::Int) = ARGAAtom(:color, c)
-atom_size(s) = ARGAAtom(:size, s)
-atom_degree(d) = ARGAAtom(:degree, d)
-atom_width(w) = ARGAAtom(:width, w)
-atom_height(h) = ARGAAtom(:height, h)
-atom_row(r) = ARGAAtom(:row, r)
-atom_column(c) = ARGAAtom(:column, c)
-atom_square() = ARGAAtom(:square, nothing)
-atom_enclosed() = ARGAAtom(:enclosed, nothing)
-atom_any_neighbor() = ARGAAtom(:any_neighbor, nothing)
-atom_neighbor_color(c::Int) = ARGAAtom(:neighbor_color, c)
-atom_neighbor_size(s) = ARGAAtom(:neighbor_size, s)
-atom_neighbor_degree(d) = ARGAAtom(:neighbor_degree, d)
+color_of(v::Symbol) = AttrOf(:color, v)
+size_of(v::Symbol) = AttrOf(:size, v)
+height_of(v::Symbol) = AttrOf(:height, v)
+width_of(v::Symbol) = AttrOf(:width, v)
+degree_of(v::Symbol) = AttrOf(:degree, v)
+shape_of(v::Symbol) = AttrOf(:shape, v)
+column_of(v::Symbol) = AttrOf(:column, v)
+direction_of(v::Symbol) = AttrOf(:direction, v)
+img_pts_of(v::Symbol) = AttrOf(:img_pts, v)
+
+resolve_var_obj(var::Symbol, this_obj, other) = var === THIS_VAR ? this_obj : other
 
 """
-    eval_atom(atom, obj, ctx)
+    resolve_numeric(kind, val, this, other, ctx)
 
-Evaluate a single [`ARGAAtom`](@ref) against `obj`. `ctx` is a
-`(objects, height, width, background)` NamedTuple built once per
-[`apply_rule`](@ref) call.
+`val`'s value as a plain `Int`, or one of [`ARGA_EVEN`](@ref)/
+[`ARGA_ODD`](@ref)/[`ARGA_CENTER`](@ref) passed through unresolved (handled
+by [`tagged_eq`](@ref)), or `nothing` if `val` is an [`AttrOf`](@ref) whose
+var isn't bound (no `other` available).
 """
-function eval_atom(a::ARGAAtom, obj::ARGAObject, ctx)::Bool
-    k = a.kind
-    k == :color && return obj.color == a.value
-    k == :size && return obj_size(obj) == resolve_attr(:size, a.value, ctx)
-    k == :degree && return obj_degree(obj, ctx) == resolve_attr(:degree, a.value, ctx)
-    k == :width && return obj_width(obj) == resolve_attr(:width, a.value, ctx)
-    k == :height && return obj_height(obj) == resolve_attr(:height, a.value, ctx)
-    k == :row && return obj_row(obj) == resolve_attr(:row, a.value, ctx)
-    k == :column && return obj_column(obj) == resolve_attr(:column, a.value, ctx)
-    k == :square && return is_square(obj)
-    k == :enclosed && return is_enclosed(obj, ctx)
-    k == :any_neighbor && return !isempty(neighbors_of(obj, ctx))
-    k == :neighbor_color && return any(o.color == a.value for o in neighbors_of(obj, ctx))
-    if k == :neighbor_size
-        target = resolve_attr(:size, a.value, ctx)
-        return any(obj_size(o) == target for o in neighbors_of(obj, ctx))
+function resolve_numeric(kind::Symbol, val, this_obj, other, ctx)
+    if val isa AttrOf
+        obj = resolve_var_obj(val.var, this_obj, other)
+        obj === nothing && return nothing
+        return attr_value(kind, obj, ctx)
+    elseif val === ARGA_MIN
+        return attr_min(kind, ctx)
+    elseif val === ARGA_MAX
+        return attr_max(kind, ctx)
+    else
+        return val
     end
-    if k == :neighbor_degree
-        target = resolve_attr(:degree, a.value, ctx)
-        return any(obj_degree(o, ctx) == target for o in neighbors_of(obj, ctx))
+end
+
+"""
+    tagged_eq(kind, ra, rb, ctx)
+
+Equality between two [`resolve_numeric`](@ref) results, where a bare
+[`ARGA_EVEN`](@ref)/[`ARGA_ODD`](@ref)/[`ARGA_CENTER`](@ref) tag acts as a
+predicate on the other (numeric) side rather than a literal value to
+compare against.
+"""
+function tagged_eq(kind::Symbol, ra, rb, ctx)::Bool
+    if ra isa Symbol || rb isa Symbol
+        tag, num = ra isa Symbol ? (ra, rb) : (rb, ra)
+        num isa Symbol && return ra === rb
+        tag === ARGA_EVEN && return iseven(num)
+        tag === ARGA_ODD && return isodd(num)
+        if tag === ARGA_CENTER
+            return kind === :column && num in center_columns(ctx.width)
+        end
+        return false
     end
-    error("ARGA: unknown atom kind $k")
+    return ra == rb
+end
+
+function attr_equals(kind::Symbol, a, b, this_obj, other, ctx)::Bool
+    ra = resolve_numeric(kind, a, this_obj, other, ctx)
+    rb = resolve_numeric(kind, b, this_obj, other, ctx)
+    (ra === nothing || rb === nothing) && return false
+    return tagged_eq(kind, ra, rb, ctx)
+end
+
+function resolve_color_value(e, this_obj, other)
+    e isa AttrOf || return e
+    obj = resolve_var_obj(e.var, this_obj, other)
+    return obj === nothing ? nothing : obj.color
+end
+
+function eval_color_equals(a, b, this_obj, other, ctx)::Bool
+    ra = resolve_color_value(a, this_obj, other)
+    rb = resolve_color_value(b, this_obj, other)
+    (ra === nothing || rb === nothing) && return false
+    return ra == rb
+end
+
+"""
+    eval_shape_equals(a, b, this, other, ctx)
+
+`shape_equals`: a literal [`SQUARE`](@ref)/[`ENCLOSED`](@ref) tag acts as a
+predicate on the other side if it's `shape_of(VAR)`; if both sides are
+`shape_of(VAR)`, compares whether the two bound objects' square-ness and
+enclosed-ness signatures match.
+"""
+function eval_shape_equals(a, b, this_obj, other, ctx)::Bool
+    pred(tag, obj) = tag === SQUARE ? is_square(obj) : is_enclosed(obj)
+    ra = a isa AttrOf ? resolve_var_obj(a.var, this_obj, other) : a
+    rb = b isa AttrOf ? resolve_var_obj(b.var, this_obj, other) : b
+    if ra isa Symbol && rb isa Symbol
+        return ra === rb
+    elseif ra isa Symbol
+        rb === nothing && return false
+        return pred(ra, rb)
+    elseif rb isa Symbol
+        ra === nothing && return false
+        return pred(rb, ra)
+    else
+        (ra === nothing || rb === nothing) && return false
+        return is_square(ra) == is_square(rb) && is_enclosed(ra) == is_enclosed(rb)
+    end
+end
+
+# ------------------------------------------------------------------
+# Filter primitives / expressions / decl (plain data)
+# ------------------------------------------------------------------
+
+"""
+    FilterPrim
+
+One `filter_prim` production: `kind` selects which primitive, `a`/`b` are
+its two operands (each a literal, an [`AttrOf`](@ref), or -- for
+`neighbor_of` -- a plain `Var` symbol).
+"""
+struct FilterPrim
+    kind::Symbol
+    a::Any
+    b::Any
+end
+
+color_equals(a, b) = FilterPrim(:color, a, b)
+size_equals(a, b) = FilterPrim(:size, a, b)
+height_equals(a, b) = FilterPrim(:height, a, b)
+width_equals(a, b) = FilterPrim(:width, a, b)
+degree_equals(a, b) = FilterPrim(:degree, a, b)
+shape_equals(a, b) = FilterPrim(:shape, a, b)
+column_equals(a, b) = FilterPrim(:column, a, b)
+neighbor_of(v1::Symbol, v2::Symbol) = FilterPrim(:neighbor, v1, v2)
+
+function eval_filter_prim(p::FilterPrim, this_obj, other, ctx)::Bool
+    k = p.kind
+    k === :color && return eval_color_equals(p.a, p.b, this_obj, other, ctx)
+    k === :shape && return eval_shape_equals(p.a, p.b, this_obj, other, ctx)
+    if k === :neighbor
+        o1 = resolve_var_obj(p.a, this_obj, other)
+        o2 = resolve_var_obj(p.b, this_obj, other)
+        (o1 === nothing || o2 === nothing || o1 === o2) && return false
+        return are_neighbors(o1, o2, ctx)
+    end
+    return attr_equals(k, p.a, p.b, this_obj, other, ctx)
 end
 
 """
     ARGAFilterExpr
 
-`Filter -> Atom | not Atom | Atom and Filter | Atom or Filter` (paper's
-Figure 16) as a small closed type hierarchy instead of closures, for the
-same reason as [`ARGAAtom`](@ref) (see file docstring).
+`filter_expr -> filter_prim | (and e e) | (or e e) | (not e)` -- a general
+binary tree (unlike the previous version's atom-on-the-left-only chains),
+matching the lark grammar exactly.
 """
 abstract type ARGAFilterExpr end
-struct FAtom <: ARGAFilterExpr
-    atom::ARGAAtom
-end
-struct FNot <: ARGAFilterExpr
-    atom::ARGAAtom
+struct FPrim <: ARGAFilterExpr
+    prim::FilterPrim
 end
 struct FAnd <: ARGAFilterExpr
-    atom::ARGAAtom
-    rest::ARGAFilterExpr
+    l::ARGAFilterExpr
+    r::ARGAFilterExpr
 end
 struct FOr <: ARGAFilterExpr
-    atom::ARGAAtom
-    rest::ARGAFilterExpr
+    l::ARGAFilterExpr
+    r::ARGAFilterExpr
+end
+struct FNot <: ARGAFilterExpr
+    e::ARGAFilterExpr
 end
 
-f_atom(a::ARGAAtom) = FAtom(a)
-f_not(a::ARGAAtom) = FNot(a)
-f_and(a::ARGAAtom, r::ARGAFilterExpr) = FAnd(a, r)
-f_or(a::ARGAAtom, r::ARGAFilterExpr) = FOr(a, r)
+f_prim(p::FilterPrim) = FPrim(p)
+f_and(l::ARGAFilterExpr, r::ARGAFilterExpr) = FAnd(l, r)
+f_or(l::ARGAFilterExpr, r::ARGAFilterExpr) = FOr(l, r)
+f_not(e::ARGAFilterExpr) = FNot(e)
 
-function eval_filter(f::ARGAFilterExpr, obj::ARGAObject, ctx)::Bool
-    f isa FAtom && return eval_atom(f.atom, obj, ctx)
-    f isa FNot && return !eval_atom(f.atom, obj, ctx)
-    f isa FAnd && return eval_atom(f.atom, obj, ctx) && eval_filter(f.rest, obj, ctx)
-    f isa FOr && return eval_atom(f.atom, obj, ctx) || eval_filter(f.rest, obj, ctx)
-    error("ARGA: unknown filter expr $f")
+eval_filter(f::FPrim, this_obj, other, ctx)::Bool = eval_filter_prim(f.prim, this_obj, other, ctx)
+eval_filter(f::FAnd, this_obj, other, ctx)::Bool = eval_filter(f.l, this_obj, other, ctx) && eval_filter(f.r, this_obj, other, ctx)
+eval_filter(f::FOr, this_obj, other, ctx)::Bool = eval_filter(f.l, this_obj, other, ctx) || eval_filter(f.r, this_obj, other, ctx)
+eval_filter(f::FNot, this_obj, other, ctx)::Bool = !eval_filter(f.e, this_obj, other, ctx)
+
+"""
+    ARGAFilter
+
+`filter -> "(" "filter" filter_expr? ")"`: `expr === nothing` selects every
+object.
+"""
+struct ARGAFilter
+    expr::Union{Nothing,ARGAFilterExpr}
 end
+no_filter() = ARGAFilter(nothing)
+has_filter(e::ARGAFilterExpr) = ARGAFilter(e)
+eval_filter(f::ARGAFilter, this_obj, other, ctx)::Bool = f.expr === nothing ? true : eval_filter(f.expr, this_obj, other, ctx)
+
+"""
+    ARGADecl
+
+`decl -> "(" "vars" "(" this other? ")" ")"`: whether [`apply_rule`](@ref)
+should search for an `other` binding at all (see file docstring).
+"""
+struct ARGADecl
+    use_other::Bool
+end
+decl_this() = ARGADecl(false)
+decl_this_other() = ARGADecl(true)
 
 # ------------------------------------------------------------------
 # Transform primitives (pixel-level), cross-checked against ARCGraph.py
@@ -403,7 +615,9 @@ end
     move_pixels(obj, dir)
 
 Shift every pixel of `obj` by one step in `dir`, unconditionally -- mirrors
-`ARCGraph.move_node` (no collision checking at all).
+`ARCGraph.move_node` (no collision checking at all; out-of-bounds results
+are dropped later by [`render`](@ref), same end result as the reference's
+own bounds handling).
 """
 function move_pixels(obj::ARGAObject, dir::Symbol)::ARGAObject
     dr, dc = DIRECTION_DELTA[dir]
@@ -456,22 +670,24 @@ end
 """
     rotate_pixels(obj, angle)
 
-Rotate `obj` clockwise by `angle` degrees (90/180/270), one 90-degree step
-at a time, recomputing the (integer/floor-divided) centroid from scratch
-before *each* step -- matches `ARCGraph.rotate_node` exactly, including
-its rounding behavior: recomputing per-step (rather than once upfront)
-can matter for 180/270 when the object's pixel count doesn't evenly
-divide its coordinate sum, since each step's floor-divided centroid can
-drift slightly from the previous one.
+Rotate `obj` clockwise by `angle` degrees (90/180/270), recomputing the
+(integer/floor-divided) centroid from scratch before *each* 90-degree step
+-- matches `ARCGraph.rotate_node` exactly: `90` is one step with `mul=+1`,
+`270` is one step with `mul=-1`, `180` is two steps with `mul=-1` (the
+choice of `mul` for `180` doesn't matter -- two applications of either
+single-step direction give the same result). Out-of-bounds pixels are not
+pruned between steps of a multi-step rotation, unlike the reference --
+a deliberate, low-impact simplification ([`render`](@ref) drops them from
+the final grid regardless).
 """
 function rotate_pixels(obj::ARGAObject, angle::Int)::ARGAObject
-    times = angle == 90 ? 1 : angle == 180 ? 2 : angle == 270 ? 3 : error("ARGA: invalid angle $angle")
+    mul, times = angle == 90 ? (1, 1) : angle == 270 ? (-1, 1) : angle == 180 ? (-1, 2) : error("ARGA: invalid angle $angle")
     pixels = obj.pixels
     for _ in 1:times
         n = length(pixels)
         cy = sum(r for (r, c) in pixels) ÷ n
         cx = sum(c for (r, c) in pixels) ÷ n
-        pixels = [(cy + (c - cx), cx - (r - cy)) for (r, c) in pixels]
+        pixels = [(cy - mul * (c - cx), cx + mul * (r - cy)) for (r, c) in pixels]
     end
     ARGAObject(pixels, obj.color)
 end
@@ -480,11 +696,9 @@ end
     reflect_pixels(pixels, axis, min_r, max_r, min_c, max_c)
 
 Reflect `pixels` about `axis`, relative to the box `[min_r,max_r] x
-[min_c,max_c]`. Used by both [`flip_pixels`](@ref) (box = `obj`'s own
-bounding box) and [`mirror_pixels`](@ref) (box = the whole grid) -- see
-those docstrings for why they use different boxes. Formulas match
-`ARCGraph.flip`'s VERTICAL/HORIZONTAL/DIAGONAL_LEFT/DIAGONAL_RIGHT cases
-exactly (cross-checked against the reference implementation).
+[min_c,max_c]`. Used by [`flip_pixels`](@ref) (box = `obj`'s own bounding
+box). Formulas match `ARCGraph.flip`'s VERTICAL/HORIZONTAL/
+DIAGONAL_LEFT/DIAGONAL_RIGHT cases exactly.
 """
 function reflect_pixels(pixels, axis::Symbol, min_r::Int, max_r::Int, min_c::Int, max_c::Int)
     axis == VERTICAL && return [(max_r - (r - min_r), c) for (r, c) in pixels]
@@ -498,7 +712,9 @@ end
     flip_pixels(obj, axis)
 
 Reflect `obj` about `axis`, within its own bounding box -- mirrors
-`ARCGraph.flip` exactly.
+`ARCGraph.flip`'s reflection formula (the collision-revert guard lives in
+[`apply_transform`](@ref), matching `ARCGraph.Flip`'s
+`if not check_collision(...): apply`).
 """
 function flip_pixels(obj::ARGAObject, axis::Symbol)::ARGAObject
     rows = first.(obj.pixels)
@@ -507,19 +723,36 @@ function flip_pixels(obj::ARGAObject, axis::Symbol)::ARGAObject
 end
 
 """
-    mirror_pixels(obj, axis, ctx)
+    mirror_axis(this, other, ctx)
 
-Reflect `obj` about `axis`, relative to the *whole grid* instead of its own
-bounding box. The lark grammar's `mirror` actually takes another object
-(reflects relative to that object's position) rather than a named axis,
-which doesn't fit the paper's `mirror(Axis)` signature -- this is a
-deliberate, documented adaptation: `mirror` = grid-relative reflection,
-[`flip_pixels`](@ref) = object-relative reflection, giving the two paper
-transforms genuinely different (and still well-defined, testable)
-behavior.
+The `(row, nothing)` or `(nothing, col)` axis to [`mirror_pixels`](@ref)
+`this` about, given `other` -- mirrors `ARCGraph.get_mirror_axis`: reflect
+across a horizontal line through `other`'s centroid row if `this`/`other`
+are "vertical" neighbors, otherwise across a vertical line through
+`other`'s centroid column (regardless of whether they're neighbors at all,
+matching the reference's unconditional `else` branch).
 """
-function mirror_pixels(obj::ARGAObject, axis::Symbol, ctx)::ARGAObject
-    ARGAObject(reflect_pixels(obj.pixels, axis, 1, ctx.height, 1, ctx.width), obj.color)
+function mirror_axis(this_obj::ARGAObject, other::ARGAObject, ctx)
+    rel = unobstructed_relation(this_obj, other, ctx.grid, ctx.background)
+    oc = obj_centroid(other)
+    return rel === :vertical ? (oc[1], nothing) : (nothing, oc[2])
+end
+
+"""
+    mirror_pixels(obj, axis)
+
+Reflect `obj` about an absolute grid axis (`axis` from [`mirror_axis`](@ref),
+or `nothing` if no `other` was available, in which case this is a no-op) --
+mirrors `ARCGraph.Mirror`'s reflection formula.
+"""
+function mirror_pixels(obj::ARGAObject, axis)::ARGAObject
+    axis === nothing && return obj
+    (ay, ax) = axis
+    if ay !== nothing
+        return ARGAObject([(2 * ay - r, c) for (r, c) in obj.pixels], obj.color)
+    else
+        return ARGAObject([(r, 2 * ax - c) for (r, c) in obj.pixels], obj.color)
+    end
 end
 
 """
@@ -569,14 +802,15 @@ function fill_rectangle_pixels(obj::ARGAObject, color::Int, overlap::Bool, other
 end
 
 """
-    hollow_rectangle_pixels(obj, color)
+    hollow_rectangle_pixels(obj, color, ctx)
 
 Shrink `obj` down to just its bounding-box border pixels; the removed
-interior becomes a new `color`-colored object (or is dropped if `color ==
-0`, the background) -- mirrors `ARCGraph.hollow_rectangle`. Returns
-`(border_obj, extras)`.
+interior becomes a new `color`-colored object, unless `color` is the
+grid's actual background color (`ctx.background`, not a hardcoded `0` --
+matches `ARCGraph.hollow_rectangle`'s `color != self.image.background_color`
+check), in which case it's dropped. Returns `(border_obj, extras)`.
 """
-function hollow_rectangle_pixels(obj::ARGAObject, color::Int)
+function hollow_rectangle_pixels(obj::ARGAObject, color::Int, ctx)
     rows = first.(obj.pixels)
     cols = last.(obj.pixels)
     min_r, max_r = extrema(rows)
@@ -591,8 +825,95 @@ function hollow_rectangle_pixels(obj::ARGAObject, color::Int)
         end
     end
     border_obj = ARGAObject(border, obj.color)
-    extras = color == BLACK || isempty(interior) ? ARGAObject[] : [ARGAObject(interior, color)]
+    extras = color == ctx.background || isempty(interior) ? ARGAObject[] : [ARGAObject(interior, color)]
     return (border_obj, extras)
+end
+
+"""
+    anchor_point(point, centroid, h, w)
+
+The `(row, col)` named by `point` (one of the 8 [`IMG_TOP`](@ref)-style
+symbols), relative to a `h`x`w` grid and (for the edge-midpoint points)
+`centroid` -- mirrors `ARCGraph.Insert`'s `ImagePoints` resolution.
+"""
+function anchor_point(point::Symbol, centroid::Tuple{Int,Int}, h::Int, w::Int)::Tuple{Int,Int}
+    point === IMG_TOP && return (1, centroid[2])
+    point === IMG_BOTTOM && return (h, centroid[2])
+    point === IMG_LEFT && return (centroid[1], 1)
+    point === IMG_RIGHT && return (centroid[1], w)
+    point === IMG_TOPLEFT && return (1, 1)
+    point === IMG_TOPRIGHT && return (1, w)
+    point === IMG_BOTTOMLEFT && return (h, 1)
+    point === IMG_BOTTOMRIGHT && return (h, w)
+    error("ARGA: unknown image point $point")
+end
+
+"""
+    nearest_image_point(obj, ctx)
+
+Whichever of the 8 [`anchor_point`](@ref)s is (Manhattan-)closest to
+`obj`'s centroid -- this file's documented stand-in for `img_pts_of`, which
+has no reference definition (see file docstring).
+"""
+function nearest_image_point(obj::ARGAObject, ctx)::Symbol
+    c = obj_centroid(obj)
+    points = (IMG_TOP, IMG_BOTTOM, IMG_LEFT, IMG_RIGHT, IMG_TOPLEFT, IMG_TOPRIGHT, IMG_BOTTOMLEFT, IMG_BOTTOMRIGHT)
+    dist(p) = (a = anchor_point(p, c, ctx.height, ctx.width); abs(a[1] - c[1]) + abs(a[2] - c[2]))
+    return points[argmin(map(dist, points))]
+end
+
+"""
+    point_from_relative_pos(rel, source, target)
+
+`source` (`this`'s centroid) for [`REL_SOURCE`](@ref), `target` (the
+resolved anchor point) for [`REL_TARGET`](@ref), or their midpoint for
+[`REL_MIDDLE`](@ref) -- mirrors `ARCGraph.get_point_from_relative_pos`.
+"""
+function point_from_relative_pos(rel::Symbol, source::Tuple{Int,Int}, target::Tuple{Int,Int})::Tuple{Int,Int}
+    rel === REL_SOURCE && return source
+    rel === REL_TARGET && return target
+    rel === REL_MIDDLE && return ((source[1] + target[1]) ÷ 2, (source[2] + target[2]) ÷ 2)
+    error("ARGA: unknown relative position $rel")
+end
+
+"""
+    insert_pixels(this, src, point, rel, ctx)
+
+A copy of `src`'s pixels (re-centered on the [`point_from_relative_pos`](@ref)
+target point, clipped to the grid), in `src`'s color -- mirrors
+`ARCGraph.Insert`.
+"""
+function insert_pixels(this_obj::ARGAObject, src_obj::ARGAObject, point::Symbol, rel::Symbol, ctx)::ARGAObject
+    this_centroid = obj_centroid(this_obj)
+    anchor = anchor_point(point, this_centroid, ctx.height, ctx.width)
+    target = point_from_relative_pos(rel, this_centroid, anchor)
+    src_centroid = obj_centroid(src_obj)
+    new_pixels = Tuple{Int,Int}[]
+    for (r, c) in src_obj.pixels
+        p = (target[1] + r - src_centroid[1], target[2] + c - src_centroid[2])
+        inbounds(p, ctx.height, ctx.width) && push!(new_pixels, p)
+    end
+    ARGAObject(new_pixels, src_obj.color)
+end
+
+"""
+    relative_direction(this, other)
+
+The one of the 8 [`UP`](@ref)-style directions pointing from `this`'s
+centroid towards `other`'s, snapping to a diagonal when the row/column
+deltas are equal -- this file's documented simplification of
+`ARCGraph.get_relative_pos` (see file docstring). `nothing` if the two
+centroids coincide.
+"""
+function relative_direction(this_obj::ARGAObject, other::ARGAObject)
+    (ty, tx) = obj_centroid(this_obj)
+    (oy, ox) = obj_centroid(other)
+    dy, dx = oy - ty, ox - tx
+    dy == 0 && dx == 0 && return nothing
+    dy == 0 && return dx > 0 ? RIGHT : LEFT
+    dx == 0 && return dy > 0 ? DOWN : UP
+    abs(dy) == abs(dx) && return dy > 0 ? (dx > 0 ? DOWNRIGHT : DOWNLEFT) : (dx > 0 ? UPRIGHT : UPLEFT)
+    return abs(dy) > abs(dx) ? (dy > 0 ? DOWN : UP) : (dx > 0 ? RIGHT : LEFT)
 end
 
 # ------------------------------------------------------------------
@@ -602,122 +923,187 @@ end
 """
     ARGATransform
 
-One `Transform` production from the paper's grammar, as plain data (see
-file docstring for why).
+One `xform` production from the lark grammar, as plain data.
 """
 struct ARGATransform
     kind::Symbol
     params::Tuple
 end
 
-t_update_color(c::Int) = ARGATransform(:update_color, (c,))
-t_move(d::Symbol) = ARGATransform(:move, (d,))
-t_move_max(d::Symbol) = ARGATransform(:move_max, (d,))
-t_extend(d::Symbol, overlap::Bool) = ARGATransform(:extend, (d, overlap))
+t_update_color(c) = ARGATransform(:update_color, (c,))
+t_move(d) = ARGATransform(:move, (d,))
+t_extend(d, overlap::Bool) = ARGATransform(:extend, (d, overlap))
+t_move_max(d) = ARGATransform(:move_max, (d,))
 t_rotate(a::Int) = ARGATransform(:rotate, (a,))
-t_fill_rectangle(c::Int, overlap::Bool) = ARGATransform(:fill_rectangle, (c, overlap))
-t_hollow_rectangle(c::Int) = ARGATransform(:hollow_rectangle, (c,))
-t_mirror(axis::Symbol) = ARGATransform(:mirror, (axis,))
-t_add_border(c::Int) = ARGATransform(:add_border, (c,))
+t_add_border(c) = ARGATransform(:add_border, (c,))
+t_fill_rectangle(c, overlap::Bool) = ARGATransform(:fill_rectangle, (c, overlap))
+t_hollow_rectangle(c) = ARGATransform(:hollow_rectangle, (c,))
+t_mirror(v::Symbol) = ARGATransform(:mirror, (v,))
 t_flip(axis::Symbol) = ARGATransform(:flip, (axis,))
+t_insert(obj_id::Int, point, rel::Symbol) = ARGATransform(:insert, (obj_id, point, rel))
 t_noop() = ARGATransform(:noop, ())
 
 mk_single(t::ARGATransform)::Vector{ARGATransform} = [t]
 mk_seq(t::ARGATransform, ts::Vector{ARGATransform})::Vector{ARGATransform} = vcat([t], ts)
 
-"""
-    apply_transform(t, obj, others, ctx)
+function resolve_color(e, this_obj::ARGAObject, other)
+    e isa AttrOf || return e
+    obj = resolve_var_obj(e.var, this_obj, other)
+    return obj === nothing ? this_obj.color : obj.color
+end
 
-Apply a single [`ARGATransform`](@ref) to `obj`. `others` is `ctx.objects`
-minus the *original* self for this whole `Transforms` sequence (see
-[`apply_transforms`](@ref) for why it's fixed per-sequence, not
-per-step). Returns `(continuing_self, extra_objects)`: for `add_border`/
-`fill_rectangle`, `obj` itself is unchanged and an extra sibling object is
-produced; for `hollow_rectangle`, `obj` itself shrinks and may also
-produce an extra (interior) object; every other transform just replaces
-`obj`.
+function resolve_direction(e, this_obj::ARGAObject, other)
+    e isa AttrOf || return e
+    obj = resolve_var_obj(e.var, this_obj, other)
+    obj === nothing && return nothing
+    return relative_direction(this_obj, obj)
+end
+
+function resolve_imgpt(e, this_obj::ARGAObject, other, ctx)
+    e isa AttrOf || return e
+    obj = resolve_var_obj(e.var, this_obj, other)
+    obj === nothing && return IMG_TOP
+    return nearest_image_point(obj, ctx)
+end
+
 """
-function apply_transform(t::ARGATransform, obj::ARGAObject, others::Vector{ARGAObject}, ctx)
+    apply_transform(t, this, other, others, ctx)
+
+Apply a single [`ARGATransform`](@ref) to `this`, with `other` the witness
+object bound by [`apply_rule`](@ref)'s filter step (or `nothing`).
+`others` is `ctx.objects` minus the *original* self for this whole
+`Transforms` sequence. Returns `(continuing_self, extra_objects)`.
+"""
+function apply_transform(t::ARGATransform, this_obj::ARGAObject, other, others::Vector{ARGAObject}, ctx)
     k = t.kind
-    k == :noop && return (obj, ARGAObject[])
-    k == :update_color && return (ARGAObject(obj.pixels, t.params[1]), ARGAObject[])
-    k == :move && return (move_pixels(obj, t.params[1]), ARGAObject[])
-    k == :move_max && return (move_max_pixels(obj, t.params[1], others, ctx), ARGAObject[])
-    k == :extend && return (extend_pixels(obj, t.params[1], t.params[2], others, ctx), ARGAObject[])
-    k == :rotate && return (rotate_pixels(obj, t.params[1]), ARGAObject[])
-    k == :flip && return (flip_pixels(obj, t.params[1]), ARGAObject[])
-    k == :mirror && return (mirror_pixels(obj, t.params[1], ctx), ARGAObject[])
-    if k == :add_border
-        return (obj, [add_border_pixels(obj, t.params[1], others)])
+    k === :noop && return (this_obj, ARGAObject[])
+    if k === :update_color
+        return (ARGAObject(this_obj.pixels, resolve_color(t.params[1], this_obj, other)), ARGAObject[])
     end
-    if k == :fill_rectangle
-        extra = fill_rectangle_pixels(obj, t.params[1], t.params[2], others)
-        return (obj, extra === nothing ? ARGAObject[] : [extra])
+    if k === :move
+        d = resolve_direction(t.params[1], this_obj, other)
+        d === nothing && return (this_obj, ARGAObject[])
+        return (move_pixels(this_obj, d), ARGAObject[])
     end
-    k == :hollow_rectangle && return hollow_rectangle_pixels(obj, t.params[1])
+    if k === :extend
+        d = resolve_direction(t.params[1], this_obj, other)
+        d === nothing && return (this_obj, ARGAObject[])
+        return (extend_pixels(this_obj, d, t.params[2], others, ctx), ARGAObject[])
+    end
+    if k === :move_max
+        d = resolve_direction(t.params[1], this_obj, other)
+        d === nothing && return (this_obj, ARGAObject[])
+        return (move_max_pixels(this_obj, d, others, ctx), ARGAObject[])
+    end
+    k === :rotate && return (rotate_pixels(this_obj, t.params[1]), ARGAObject[])
+    if k === :flip
+        new_obj = flip_pixels(this_obj, t.params[1])
+        return (collides_with(new_obj, others) ? this_obj : new_obj, ARGAObject[])
+    end
+    if k === :mirror
+        target = resolve_var_obj(t.params[1], this_obj, other)
+        axis = target === nothing ? nothing : mirror_axis(this_obj, target, ctx)
+        new_obj = mirror_pixels(this_obj, axis)
+        return (collides_with(new_obj, others) ? this_obj : new_obj, ARGAObject[])
+    end
+    if k === :add_border
+        c = resolve_color(t.params[1], this_obj, other)
+        return (this_obj, [add_border_pixels(this_obj, c, others)])
+    end
+    if k === :fill_rectangle
+        c = resolve_color(t.params[1], this_obj, other)
+        extra = fill_rectangle_pixels(this_obj, c, t.params[2], others)
+        return (this_obj, extra === nothing ? ARGAObject[] : [extra])
+    end
+    if k === :hollow_rectangle
+        c = resolve_color(t.params[1], this_obj, other)
+        return hollow_rectangle_pixels(this_obj, c, ctx)
+    end
+    if k === :insert
+        (obj_id, point_expr, rel) = t.params
+        (obj_id < 0 || obj_id >= length(ctx.objects)) && return (this_obj, ARGAObject[])
+        src = ctx.objects[obj_id+1]
+        point = resolve_imgpt(point_expr, this_obj, other, ctx)
+        extra = insert_pixels(this_obj, src, point, rel, ctx)
+        return (this_obj, isempty(extra.pixels) ? ARGAObject[] : [extra])
+    end
     error("ARGA: unknown transform kind $k")
 end
 
 """
-    apply_transforms(ts, obj, others, ctx)
+    apply_transforms(ts, obj, other, others, ctx)
 
 Apply the `Transform ; Transform ; ...` sequence `ts` to `obj`, threading
-the "continuing self" through each step while accumulating side objects
-(from `add_border`/`fill_rectangle`/`hollow_rectangle`) separately -- a
-side object created partway through the sequence is *not* itself subject
-to later transforms in the same sequence. `others` is fixed for the whole
-sequence (collision checks see the rest of the grid as it stood when this
-object's turn came up in [`apply_rule`](@ref)'s loop, not as it's further
-modified mid-sequence by `obj`'s own later steps).
+the "continuing self" through each step (with `other` fixed for the whole
+sequence, same as `others`) while accumulating side objects separately --
+a side object created partway through the sequence is *not* itself subject
+to later transforms in the same sequence.
 """
-function apply_transforms(ts::Vector{ARGATransform}, obj::ARGAObject, others::Vector{ARGAObject}, ctx)
+function apply_transforms(ts::Vector{ARGATransform}, obj::ARGAObject, other, others::Vector{ARGAObject}, ctx)
     extras = ARGAObject[]
     current = obj
     for t in ts
-        (current, e) = apply_transform(t, current, others, ctx)
+        (current, e) = apply_transform(t, current, other, others, ctx)
         append!(extras, e)
     end
     return (current, extras)
 end
 
 # ------------------------------------------------------------------
-# Rule = if Filter then Transforms
+# Rule = (vars ...) (filter ...) (apply ...)
 # ------------------------------------------------------------------
 
 """
-    apply_rule(grid, filt, transforms)
+    apply_rule(grid, decl, filt, transforms)
 
-Decompose `grid` into objects ([`extract_objects`](@ref)); for each
-(in [`extract_objects`](@ref)'s raster-scan order) that satisfies `filt`
-(`eval_filter`, evaluated against the *original*, pre-transform object set
--- so e.g. MIN/MAX aggregates reflect the untouched grid), apply
-`transforms`; then [`render`](@ref) the result back to a grid.
+Decompose `grid` into objects ([`extract_objects`](@ref)). For each `this`
+candidate (in raster-scan order): if `decl.use_other`, search every other
+object (also raster-scan order) for the first that satisfies `filt` when
+bound to `other` and keep it as the witness; otherwise (or if there are no
+other objects at all) evaluate `filt` once with `other = nothing`. If
+satisfied, [`apply_transforms`](@ref) using that same witness, then
+[`render`](@ref) the result back to a grid.
 
-Matched objects are transformed in sequence, each one's collision checks
-(`move_max`/`extend`/`add_border`/`fill_rectangle`) seeing every other
-object *as it currently stands* -- already-moved earlier objects free up
-the space they vacated for later ones in the same rule application, and
-not-yet-reached later objects still block at their original position.
-This mirrors `ARCGraph.py`'s shared-graph, sequential-mutation semantics,
-modulo exactly matching its node-iteration order (this implementation
-visits objects in raster-scan order; `ARCGraph.py` groups by color first).
+Both the filter and the `other` search see the *original*, pre-transform
+object set (so e.g. MIN/MAX/CENTER aggregates and neighbor relations
+reflect the untouched grid). Matched objects are transformed in sequence,
+each one's collision checks seeing every other object *as it currently
+stands* -- already-moved earlier objects free up the space they vacated
+for later ones in the same rule application, and not-yet-reached later
+objects still block at their original position -- mirroring `ARCGraph.py`'s
+shared-graph, sequential-mutation semantics (modulo node-iteration order:
+this implementation visits objects in raster-scan order; `ARCGraph.py`
+groups by color first).
 
-This is `Start`'s sole production -- the grammar currently supports
-exactly one `Rule`, not the lark grammar's `(do rule*)` sequences (a
-documented scope cut: every example solution in this benchmark's
-`solutions/correct/` uses a single rule).
+This is `Start`'s sole production -- the grammar supports exactly one
+`Rule`, not the lark grammar's `(do rule*)` sequences (every example
+solution in this benchmark's reference solutions uses a single rule).
 """
-function apply_rule(grid::ARGAGrid, filt::ARGAFilterExpr, transforms::Vector{ARGATransform})::ARGAGrid
+function apply_rule(grid::ARGAGrid, decl::ARGADecl, filt::ARGAFilter, transforms::Vector{ARGATransform})::ARGAGrid
     h, w = size(grid)
     bg = background_color(grid)
     objects = extract_objects(grid)
-    ctx = (objects = objects, height = h, width = w, background = bg)
+    ctx = (objects = objects, height = h, width = w, background = bg, grid = grid)
     world = copy(objects)
     extras_all = ARGAObject[]
     for (i, obj) in enumerate(objects)
-        if eval_filter(filt, obj, ctx)
+        candidates = decl.use_other ? [objects[j] for j in eachindex(objects) if j != i] : ARGAObject[]
+        matched = false
+        witness = nothing
+        if isempty(candidates)
+            matched = eval_filter(filt, obj, nothing, ctx)
+        else
+            for cand in candidates
+                if eval_filter(filt, obj, cand, ctx)
+                    matched = true
+                    witness = cand
+                    break
+                end
+            end
+        end
+        if matched
             others = [world[j] for j in eachindex(world) if j != i]
-            (final_self, extras) = apply_transforms(transforms, obj, others, ctx)
+            (final_self, extras) = apply_transforms(transforms, obj, witness, others, ctx)
             world[i] = final_self
             append!(extras_all, extras)
         end
