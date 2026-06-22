@@ -16,6 +16,7 @@ include("arc_visualize.jl")
 include("training_data.jl")
 include("evaluation_data.jl")
 include("grammar.jl")
+include("ARGA/ARGA.jl")
 
 interpret = make_interpreter(grammar_hodel; target_module=ARC_AGI1, cache_module=ARC_AGI1)
 
