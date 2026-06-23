@@ -323,14 +323,14 @@ end
     #   3  Decl = decl_this()
     #   6  Filter = has_filter(FilterExpr)        10  FilterExpr = f_not(FilterExpr)
     #   7  FilterExpr = f_prim(FilterPrim)        11  FilterPrim = color_equals(...)
-    #  43  ColorExpr = color_of(Var)              218 Var = THIS_VAR
+    #  43  ColorExpr = color_of(Var)              134 Var = THIS_VAR
     #  33  ColorExpr = BLACK
     #  19  Xforms = mk_single(Xform)              21  Xform = t_update_color(ColorExpr)
     #  34  ColorExpr = BLUE
     rn = RuleNode(1, [
         RuleNode(2, [
             RuleNode(3),
-            RuleNode(6, [RuleNode(10, [RuleNode(7, [RuleNode(11, [RuleNode(43, [RuleNode(218)]), RuleNode(33)])])])]),
+            RuleNode(6, [RuleNode(10, [RuleNode(7, [RuleNode(11, [RuleNode(43, [RuleNode(134)]), RuleNode(33)])])])]),
             RuleNode(19, [RuleNode(21, [RuleNode(34)])]),
         ]),
     ])
@@ -352,4 +352,8 @@ end
     @test length(problems) == 160
     @test length(unique(p.name for p in problems)) == 160
     @test all(p -> length(p.spec) >= 3, problems)  # at least 2 train + 1 test
+
+    by_category = [A.arga_problems(c) for c in (:augmentation, :movement, :recolor)]
+    @test sum(length, by_category) == 160
+    @test length(union((Set(p.name for p in ps) for ps in by_category)...)) == 160
 end
