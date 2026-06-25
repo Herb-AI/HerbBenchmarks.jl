@@ -3,6 +3,7 @@
     "Graphs, Constraints, and Search for the Abstraction and Reasoning
     Corpus", AAAI 2023):
 
+        program     -> apply_rules(grid, rule+)
         rule        -> (vars (this other?)) (filter filter_expr?) (apply xform+)
         filter_expr -> filter_prim | (and e e) | (or e e) | (not e)
         filter_prim -> color_equals(e,e) | size_equals(e,e) | height_equals(e,e)
@@ -13,6 +14,17 @@
                      | rotate_node | add_border | fill_rectangle
                      | hollow_rectangle | mirror | flip | insert | noop
 
+    The primary program form is `apply_rules` -- a cascade of
+    `(decl, filter, transforms)` rules (`if`/`elseif`/.../`else` over each
+    object, see [`apply_rules`](@ref) in primitives.jl). This is what
+    HySynth-ARC's divide-and-conquer search targets: one `Rule` per transform
+    group, combined into one `apply_rules` cascade.
+
+    `apply_rule` (single rule) is retained as a secondary alternative so that
+    LLM proposals in `apply_rule(...)` format (see data/proposals/ARGA/)
+    still parse for grammar-refinement and heuristic-weight extraction, even
+    though the search space is primarily `apply_rules`.
+
     See primitives.jl's file docstring for where this deviates from the
     reference DSL (merged fcolor/color tokens, dropped `Row`, the insert
     object-id scheme, `img_pts_of`/`direction_of`'s definitions).
@@ -20,7 +32,14 @@
 
 grammar_arga = HerbGrammar.@csgrammar begin
     Start = ARGAProgram
+    # Cascade of if/elseif/else rules -- the primary search target.
+    ARGAProgram = apply_rules(_arg_1, Rules)
+    # Single-rule fallback; also keeps LLM proposals (apply_rule format) parseable.
     ARGAProgram = apply_rule(_arg_1, Decl, Filter, Xforms)
+
+    Rules = mk_rule_single(Rule)
+    Rules = mk_rule_seq(Rule, Rules)
+    Rule = rule(Decl, Filter, Xforms)
 
     Decl = decl_this()
     Decl = decl_this_other()

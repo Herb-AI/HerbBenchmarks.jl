@@ -308,7 +308,7 @@ end
     end
 end
 
-@testitem "ARGA: grammar + make_interpreter matches apply_rule directly" begin
+@testitem "ARGA: grammar + make_interpreter matches apply_rules directly" begin
     import HerbCore: RuleNode
     import HerbBenchmarks.ARC_AGI1
     import HerbBenchmarks.ARC_AGI1.ARGA as A
@@ -316,31 +316,40 @@ end
     p = only(filter(p -> p.name == "problem_d2abd087", ARC_AGI1.ARC_AGI1_TRAINING))
     ex = first(ARC_AGI1.train_examples(p))
 
-    # rule 1 only: (vars (this)) (filter (not (color_equals (color_of this) O)))
-    #              (apply (update_color B))
+    # rule 1 only via apply_rules cascade: (vars (this)) (filter (not (color_equals (color_of this) O)))
+    #                                      (apply (update_color B))
     # indices derived from `grammar_arga.rules` (see grammar.jl):
-    #   2  ARGAProgram = apply_rule(_arg_1, Decl, Filter, Xforms)
-    #   3  Decl = decl_this()
-    #   6  Filter = has_filter(FilterExpr)        10  FilterExpr = f_not(FilterExpr)
-    #   7  FilterExpr = f_prim(FilterPrim)        11  FilterPrim = color_equals(...)
-    #  43  ColorExpr = color_of(Var)              134 Var = THIS_VAR
-    #  33  ColorExpr = BLACK
-    #  19  Xforms = mk_single(Xform)              21  Xform = t_update_color(ColorExpr)
-    #  34  ColorExpr = BLUE
+    #   1  Start = ARGAProgram
+    #   2  ARGAProgram = apply_rules(_arg_1, Rules)
+    #   4  Rules = mk_rule_single(Rule)
+    #   6  Rule = rule(Decl, Filter, Xforms)
+    #   7  Decl = decl_this()
+    #  10  Filter = has_filter(FilterExpr)        14  FilterExpr = f_not(FilterExpr)
+    #  11  FilterExpr = f_prim(FilterPrim)        15  FilterPrim = color_equals(...)
+    #  47  ColorExpr = color_of(Var)             138  Var = THIS_VAR
+    #  37  ColorExpr = BLACK
+    #  23  Xforms = mk_single(Xform)              25  Xform = t_update_color(ColorExpr)
+    #  38  ColorExpr = BLUE
     rn = RuleNode(1, [
         RuleNode(2, [
-            RuleNode(3),
-            RuleNode(6, [RuleNode(10, [RuleNode(7, [RuleNode(11, [RuleNode(43, [RuleNode(134)]), RuleNode(33)])])])]),
-            RuleNode(19, [RuleNode(21, [RuleNode(34)])]),
+            RuleNode(4, [
+                RuleNode(6, [
+                    RuleNode(7),
+                    RuleNode(10, [RuleNode(14, [RuleNode(11, [RuleNode(15, [RuleNode(47, [RuleNode(138)]), RuleNode(37)])])])]),
+                    RuleNode(23, [RuleNode(25, [RuleNode(38)])]),
+                ]),
+            ]),
         ]),
     ])
 
     via_interpret = A.interpret(rn, [ex])[1]
-    via_direct = A.apply_rule(
+    via_direct = A.apply_rules(
         ex.in[:_arg_1],
-        A.decl_this(),
-        A.has_filter(A.f_not(A.f_prim(A.color_equals(A.color_of(A.THIS_VAR), A.BLACK)))),
-        A.mk_single(A.t_update_color(A.BLUE)),
+        A.mk_rule_single(A.rule(
+            A.decl_this(),
+            A.has_filter(A.f_not(A.f_prim(A.color_equals(A.color_of(A.THIS_VAR), A.BLACK)))),
+            A.mk_single(A.t_update_color(A.BLUE)),
+        )),
     )
     @test via_interpret == via_direct
 end

@@ -1010,8 +1010,7 @@ one's collision checks seeing every other object as it currently stands --
 already-moved earlier objects free the space they vacated for later ones,
 while not-yet-reached objects still block at their original position.
 
-This is `Start`'s sole production: the grammar supports exactly one rule
-application per program, not a sequence of rules.
+[`apply_rules`](@ref) generalizes this to a cascade of several such rules.
 """
 function apply_rule(grid::ARGAGrid, decl::ARGADecl, filt::ARGAFilter, transforms::Vector{ARGATransform})::ARGAGrid
     h, w = size(grid)
@@ -1021,25 +1020,92 @@ function apply_rule(grid::ARGAGrid, decl::ARGADecl, filt::ARGAFilter, transforms
     world = copy(objects)
     extras_all = ARGAObject[]
     for (i, obj) in enumerate(objects)
-        candidates = decl.use_other ? [objects[j] for j in eachindex(objects) if j != i] : ARGAObject[]
-        matched = false
-        witness = nothing
-        if isempty(candidates)
-            matched = eval_filter(filt, obj, nothing, ctx)
-        else
-            for cand in candidates
-                if eval_filter(filt, obj, cand, ctx)
-                    matched = true
-                    witness = cand
-                    break
-                end
-            end
-        end
+        matched, witness = match_rule(decl, filt, obj, objects, i, ctx)
         if matched
             others = [world[j] for j in eachindex(world) if j != i]
             (final_self, extras) = apply_transforms(transforms, obj, witness, others, ctx)
             world[i] = final_self
             append!(extras_all, extras)
+        end
+    end
+    return render(h, w, bg, vcat(world, extras_all))
+end
+
+"""
+    match_rule(decl, filt, obj, objects, i, ctx)
+
+The `(decl, filt)` half of [`apply_rule`](@ref)/[`apply_rules`](@ref): for
+`obj` (the `i`-th of `objects`), search for an `other` witness (every other
+object, raster-scan order) if `decl.use_other`, else evaluate `filt` once
+with `other = nothing`. Returns `(matched::Bool, witness)`, `witness` being
+`nothing` when unmatched or when `decl` doesn't use `other`.
+"""
+function match_rule(decl::ARGADecl, filt::ARGAFilter, obj::ARGAObject, objects::Vector{ARGAObject}, i::Int, ctx)
+    if !decl.use_other
+        return (eval_filter(filt, obj, nothing, ctx), nothing)
+    end
+    for j in eachindex(objects)
+        j == i && continue
+        cand = objects[j]
+        if eval_filter(filt, obj, cand, ctx)
+            return (true, cand)
+        end
+    end
+    return (false, nothing)
+end
+
+"""
+    ARGARule
+
+One `(decl, filter, transforms)` triple, as plain data -- one branch of an
+[`apply_rules`](@ref) cascade.
+"""
+struct ARGARule
+    decl::ARGADecl
+    filt::ARGAFilter
+    transforms::Vector{ARGATransform}
+end
+
+rule(decl::ARGADecl, filt::ARGAFilter, transforms::Vector{ARGATransform}) = ARGARule(decl, filt, transforms)
+
+mk_rule_single(r::ARGARule)::Vector{ARGARule} = [r]
+mk_rule_seq(r::ARGARule, rs::Vector{ARGARule})::Vector{ARGARule} = vcat([r], rs)
+
+"""
+    apply_rules(grid, rules)
+
+A cascade of [`ARGARule`](@ref)s, i.e. an `if` / `elseif` / ... / (implicit)
+`else` over each object of `grid`: for every object, the *first* rule in
+`rules` whose `(decl, filt)` [`match_rule`](@ref)es is applied (its
+`transforms`, via [`apply_transforms`](@ref)); an object matching none of
+the rules is left unchanged, same as an unmatched [`apply_rule`](@ref).
+
+Every rule's filter (and `other` search) sees the same pre-transform
+`objects` extracted once up front -- matching is *not* threaded through
+intermediate grids rule-by-rule. This means an earlier rule's transform can
+never make an object spuriously match (or fail to match) a later rule's
+filter just because of evaluation order, which is what HySynth-ARC's
+divide-and-conquer search relies on: it first finds a set of transforms
+that collectively cover all objects, then a *separate* filter
+discriminating each transform's group from the others, with no ordering
+relationship between the rules implied or required.
+"""
+function apply_rules(grid::ARGAGrid, rules::Vector{ARGARule})::ARGAGrid
+    h, w = size(grid)
+    bg = background_color(grid)
+    objects = extract_objects(grid)
+    ctx = (objects = objects, height = h, width = w, background = bg, grid = grid)
+    world = copy(objects)
+    extras_all = ARGAObject[]
+    for (i, obj) in enumerate(objects)
+        for r in rules
+            matched, witness = match_rule(r.decl, r.filt, obj, objects, i, ctx)
+            matched || continue
+            others = [world[j] for j in eachindex(world) if j != i]
+            (final_self, extras) = apply_transforms(r.transforms, obj, witness, others, ctx)
+            world[i] = final_self
+            append!(extras_all, extras)
+            break
         end
     end
     return render(h, w, bg, vcat(world, extras_all))
