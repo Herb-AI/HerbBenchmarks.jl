@@ -187,15 +187,34 @@ grammar_hodel = @csgrammar begin
     Object = asobject(Grid)
     Object = merge_containers(Objects)
 
-    Patch = shift(Patch, IntegerTuple) 
-    Patch = normalize(Patch)
+    # Patch = shift(Patch, IntegerTuple)
+    Object = shift(Object, IntegerTuple) 
+    Indices = shift(Indices, IntegerTuple) 
 
-    Piece = vmirror(Piece)
-    Piece = hmirror(Piece)
-    Piece = dmirror(Piece)
-    Piece = cmirror(Piece)
+    # Patch = normalize(Patch)
+    Object = normalize(Object)
+    Indices = normalize(Indices)
 
-    Element = upscale(Element, Integer)
+    # Piece = vmirror(Piece)
+    # Piece = hmirror(Piece)
+    # Piece = dmirror(Piece)
+    # Piece = cmirror(Piece)
+    Grid = vmirror(Grid)
+    Grid = hmirror(Grid)
+    Grid = dmirror(Grid)
+    Grid = cmirror(Grid)
+    Object = vmirror(Object)
+    Object = hmirror(Object)
+    Object = dmirror(Object)
+    Object = cmirror(Object)
+    Indices = vmirror(Indices)
+    Indices = hmirror(Indices)
+    Indices = dmirror(Indices)
+    Indices = cmirror(Indices)
+
+    # Element = upscale(Element, Integer)
+    Grid = upscale(Grid, Integer)
+    Object = upscale(Object, Integer)
 
     # Predicates & filtering
     IntPredicate = IntToBoolFunc
