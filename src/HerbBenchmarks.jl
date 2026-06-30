@@ -8,6 +8,7 @@ using HerbSpecification
 using HerbGrammar
 using HerbInterpret
 using HerbConstraints
+using HerbSearch: ProgramIterator
 using DocStringExtensions
 using DataFrames, StatsPlots, Query, JLD2, Dates
 
