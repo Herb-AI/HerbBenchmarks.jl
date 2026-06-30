@@ -6,7 +6,6 @@ module HerbBenchmarks
 using HerbCore
 using HerbSpecification
 using HerbGrammar
-using HerbSearch
 using HerbInterpret
 using HerbConstraints
 using DocStringExtensions

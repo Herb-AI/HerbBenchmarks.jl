@@ -199,7 +199,7 @@ function default_synthesizer(;
     max_enumerations::Number = Inf,
 )
     # Get grammar and build interpreter
-    grammar = HerbSearch.get_grammar(iterator)
+    grammar = HerbConstraints.get_grammar(iterator)
     interpreter = HerbInterpret.make_interpreter(grammar)
 
     # Collect stats: program enumerated and solution
