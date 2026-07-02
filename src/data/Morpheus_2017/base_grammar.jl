@@ -69,14 +69,13 @@ base_grammar_morpheus = @csgrammar begin
         morpheus_row_count(y) == morpheus_row_count(x1),
         morpheus_column_count(y) == morpheus_column_count(x1) + 1,
     )
-    Table = inner_join(Table, Table)
 
     ColSet = cols(Col)
     ColSet = cols2(Col, Col)
-    ColSet = cols3(Col, Col, Col)
+    # ColSet = cols3(Col, Col, Col)
     ColSet = not_cols(Col)
     ColSet = not_cols2(Col, Col)
-    ColSet = not_cols3(Col, Col, Col)
+    # ColSet = not_cols3(Col, Col, Col)
     ColSet = union_cols(ColSet, ColSet)
 
     Agg = mean_agg(Col)

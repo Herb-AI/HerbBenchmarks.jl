@@ -1,16 +1,4 @@
-const morpheus_multi_input_counts = Dict{String,Int}(
-    "026" => 2,
-    "027" => 2,
-    "028" => 2,
-    "034" => 2,
-    "038" => 2,
-    "040" => 2,
-    "042" => 2,
-)
-
 const MORPHEUS_TEMPORARY_COLUMNS = Symbol[Symbol("tmp", i) for i in 1:4]
-
-morpheus_input_count(identifier::AbstractString) = get(morpheus_multi_input_counts, String(identifier), 1)
 
 function morpheus_identifiers()
     ids = [
@@ -39,13 +27,6 @@ function _spread_column_candidates(tables)
     return unique(cols)
 end
 
-function add_problem_inputs!(g::AbstractGrammar, identifier::AbstractString)
-    for i in 1:morpheus_input_count(identifier)
-        add_rule!(g, Expr(:(=), :Table, Symbol("_arg_", i)))
-    end
-    return g
-end
-
 function add_problem_terminals!(g::AbstractGrammar, identifier::AbstractString)
     problem = getfield(@__MODULE__, Symbol("problem_", identifier))
     example = only(problem.spec)
@@ -65,7 +46,7 @@ function add_problem_terminals!(g::AbstractGrammar, identifier::AbstractString)
         _add_terminal!(g, :NewCol, :newcol, c)
     end
     # Literals
-    literals = Any[0, 1]
+    literals = Any[]
     for table in vcat(input_tables, [example.out])
         for row in table.rows, value in row
             if value isa AbstractString || value isa Number
@@ -82,7 +63,7 @@ end
 function make_morpheus_grammar(identifier::AbstractString,
     base_grammar::AbstractGrammar=base_grammar_morpheus)
     g = deepcopy(base_grammar)
-    add_problem_inputs!(g, identifier)
+    add_rule!(g, Expr(:(=), :Table, :_arg_1))
     add_problem_terminals!(g, identifier)
     return g
 end

@@ -439,71 +439,6 @@ problem_025 = Problem("problem_025", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_026 = Problem("problem_026", [
-    IOExample(Dict{Symbol,Any}(
-            :_arg_1 => MorpheusTable(raw"""  frame X1 X2 X3
-    1     1  0  0  0
-    2     2 10 15  0
-    3     3 15 10  0
-    4     4 15 10  0"""),
-            :_arg_2 => MorpheusTable(raw"""  frame    X1    X2 X3
-    1     1  0.00  0.00  0
-    2     2 14.53 12.57  0
-    3     3 13.90 14.65  0
-    4     4 14.10 14.70  0""")
-        ), MorpheusTable(raw"""  frame pos carid speed
-    1     2  X1    10 14.53
-    2     3  X2    10 14.65
-    3     4  X2    10 14.70
-    4     2  X2    15 12.57
-    5     3  X1    15 13.90
-    6     4  X1    15 14.10
-    
-    --------------------------------------------------------------------------------"""))
-])
-
-problem_027 = Problem("problem_027", [
-    IOExample(Dict{Symbol,Any}(
-            :_arg_1 => MorpheusTable(raw"""  id prod clnt    order
-    1  1    8    5 6.912931
-    2  3    2    6 5.119676
-    3  4    7    1 7.472010
-    4  2    8    4 7.345583
-    5  5    8    5 9.412050"""),
-            :_arg_2 => MorpheusTable(raw"""  id prod clnt    order
-    1  3    2    6 5.119676
-    2  5    8    5 9.412050""")
-        ), MorpheusTable(raw"""  prod clnt mean.order
-    1    2    6   5.119676
-    2    8    5   8.162491
-    
-    --------------------------------------------------------------------------------"""))
-])
-
-problem_028 = Problem("problem_028", [
-    IOExample(Dict{Symbol,Any}(
-            :_arg_1 => MorpheusTable(raw"""  ID  Species Value
-    1  1 Callvulg  0.55
-    2  2 Callvulg  0.67
-    3  3 Callvulg  0.10
-    4  1 Empenigr 11.13
-    5  2 Empenigr  0.17
-    6  3 Empenigr  1.55
-    7  1 Rhodtome  0.17
-    8  2 Rhodtome  1.55
-    9  3 Rhodtome  3.00"""),
-            :_arg_2 => MorpheusTable(raw"""   Species Attribute
-    1 Callvulg        MI
-    2 Empenigr        MI
-    3 Rhodtome        PI""")
-        ), MorpheusTable(raw"""  ID Total
-    1  1 11.68
-    2  2  0.84
-    3  3  1.65
-    
-    --------------------------------------------------------------------------------"""))
-])
-
 problem_029 = Problem("problem_029", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  sym a1 a2 b1 b2
@@ -573,24 +508,6 @@ problem_032 = Problem("problem_032", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_034 = Problem("problem_034", [
-    IOExample(Dict{Symbol,Any}(
-            :_arg_1 => MorpheusTable(raw"""  size mult
-    1    1    K
-    2    2    M
-    3    3    G"""),
-            :_arg_2 => MorpheusTable(raw"""  value mult
-    1   230    K
-    2   128    M
-    3   420    G""")
-        ), MorpheusTable(raw"""  size mult total
-    1    1    K   230
-    2    2    M    64
-    3    3    G   140
-    
-    --------------------------------------------------------------------------------"""))
-])
-
 problem_035 = Problem("problem_035", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  name1 con1_1 con1_2 con2_1 con2_2
@@ -645,55 +562,6 @@ problem_037 = Problem("problem_037", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_038 = Problem("problem_038", [
-    IOExample(Dict{Symbol,Any}(
-            :_arg_1 => MorpheusTable(raw"""   x
-    1  a
-    2  b
-    3  c
-    4  d
-    5  e
-    6  f
-    7  g
-    8  h
-    9  i
-    10 j"""),
-            :_arg_2 => MorpheusTable(raw"""   x         z
-    1  a  93.73546
-    2  b 101.83643
-    3  c  91.64371
-    4  d 115.95281
-    5  e 103.29508
-    6  f  91.79532
-    7  g 104.87429
-    8  h 107.38325
-    9  i 105.75781
-    10 j  96.94612
-    11 a 115.11781
-    12 b 103.89843
-    13 c  93.78759
-    14 d  77.85300
-    15 e 111.24931
-    16 f  99.55066
-    17 g  99.83810
-    18 h 109.43836
-    19 i 108.21221
-    20 j 105.93901""")
-        ), MorpheusTable(raw"""   x        z
-    1  a 208.8533
-    2  b 205.7349
-    3  c 185.4313
-    4  d 193.8058
-    5  e 214.5444
-    6  f 191.3460
-    7  g 204.7124
-    8  h 216.8216
-    9  i 213.9700
-    10 j 202.8851
-    
-    --------------------------------------------------------------------------------"""))
-])
-
 problem_039 = Problem("problem_039", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  event_id income location
@@ -708,63 +576,6 @@ problem_039 = Problem("problem_039", [
     3        A 2.666667      4   PlaceX
     4        B 3.500000      2   PlaceY
     5        B 3.500000      5   PlaceY
-    
-    --------------------------------------------------------------------------------"""))
-])
-
-problem_040 = Problem("problem_040", [
-    IOExample(Dict{Symbol,Any}(
-            :_arg_1 => MorpheusTable(raw"""     ID          miRNA
-    1   ID1  hsa-miR-512-1
-    2   ID1  hsa-miR-512-2
-    3   ID1   hsa-miR-1323
-    4   ID1    hsa-miR-498
-    5   ID1   hsa-miR-520e
-    6   ID1  hsa-miR-515-1
-    7   ID1   hsa-miR-519e
-    8   ID1   hsa-miR-520f
-    9   ID2    hsa-miR-495
-    10  ID2   hsa-miR-376c
-    11  ID2 hsa-miR-376a-2
-    12  ID2    hsa-miR-654
-    13  ID2   hsa-miR-376b
-    14  ID2 hsa-miR-376a-1
-    15  ID2    hsa-miR-300
-    16  ID2 hsa-miR-1185-1
-    17  ID2 hsa-miR-1185-2
-    18 ID24   hsa-miR-1179
-    19 ID24    hsa-miR-7-2
-    20 ID24   hsa-miR-3677
-    21 ID25    hsa-miR-940
-    22 ID25   hsa-miR-4717"""),
-            :_arg_2 => MorpheusTable(raw"""            miRNA logFC
-    1   hsa-miR-512-1  13.0
-    2   hsa-miR-512-2 123.0
-    3    hsa-miR-1323  53.0
-    4     hsa-miR-498   4.2
-    5    hsa-miR-520e  12.0
-    6   hsa-miR-515-1   1.0
-    7    hsa-miR-519e  56.0
-    8    hsa-miR-520f 113.0
-    9     hsa-miR-495  11.0
-    10   hsa-miR-376c  11.0
-    11 hsa-miR-376a-2 113.0
-    12    hsa-miR-654  13.0
-    13   hsa-miR-376b 123.0
-    14 hsa-miR-376a-1 567.0
-    15    hsa-miR-300 757.0
-    16 hsa-miR-1185-1   6.0
-    17 hsa-miR-1185-2  35.0
-    18   hsa-miR-1179   2.0
-    19    hsa-miR-7-2   2.0
-    20   hsa-miR-3677   1.0
-    21    hsa-miR-940 134.0
-    22   hsa-miR-4717 566.0""")
-        ), MorpheusTable(raw"""    ID   AvgLogFC
-    1  ID1  46.900000
-    2  ID2 181.777778
-    3 ID24   1.666667
-    4 ID25 350.000000
     
     --------------------------------------------------------------------------------"""))
 ])
@@ -791,30 +602,6 @@ problem_041 = Problem("problem_041", [
     10   6 test2      3      4
     11  10 test1      3      1
     12  10 test2      1      3
-    
-    --------------------------------------------------------------------------------"""))
-])
-
-problem_042 = Problem("problem_042", [
-    IOExample(Dict{Symbol,Any}(
-            :_arg_1 => MorpheusTable(raw"""  Exposure Signal  Noise ill ADC
-    1     0.01  185.0 0.6744   1  12
-    2     0.03  210.2 0.7683   4  12
-    3     0.01  218.2 0.8356   1  10
-    4     0.03  249.5 0.8609   4  10
-    5     0.01  258.4 0.8988   1   9
-    6     0.03  292.7 0.8326   4   9"""),
-            :_arg_2 => MorpheusTable(raw"""  ill factor
-    1   1    1.0
-    2   4    3.0
-    3  10   11.5""")
-        ), MorpheusTable(raw"""  Signal  Noise ill ADC ExposureNew
-    1  185.0 0.6744   1  12        0.01
-    2  210.2 0.7683   4  12        0.01
-    3  218.2 0.8356   1  10        0.01
-    4  249.5 0.8609   4  10        0.01
-    5  258.4 0.8988   1   9        0.01
-    6  292.7 0.8326   4   9        0.01
     
     --------------------------------------------------------------------------------"""))
 ])
