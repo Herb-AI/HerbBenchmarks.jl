@@ -120,4 +120,12 @@ grammar_arga = HerbGrammar.@csgrammar begin
 
     # Indexes into this rule's own extracted-object list (0-based, raster-scan order).
     ObjectId = |(0:9)
+
+    # ---- "na" (no-abstraction) whole-grid transforms ----
+    # Added last so existing rule indices are preserved. `apply_na` treats the
+    # whole grid as one node (ARGA's `na` abstraction) and applies a single
+    # dihedral transform to it -- rotate (CW=90/CW2=180/CCW=270) or flip.
+    ARGAProgram = apply_na(_arg_1, NaXform)
+    NaXform = na_rotate(Angle)
+    NaXform = na_flip(Axis)
 end

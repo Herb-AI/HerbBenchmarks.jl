@@ -1110,3 +1110,38 @@ function apply_rules(grid::ARGAGrid, rules::Vector{ARGARule})::ARGAGrid
     end
     return render(h, w, bg, vcat(world, extras_all))
 end
+
+# ------------------------------------------------------------------
+# "na" (no-abstraction) whole-grid transforms.
+#
+# ARGA's `na` abstraction (`get_no_abstraction_graph`) collapses the entire
+# grid into a single multi-color node; rotating/flipping that node about its
+# (grid-)center is exactly a whole-grid dihedral transform. It is implemented
+# directly on the grid here, fully independent of the nbccg object machinery
+# (`extract_objects`/`apply_rule(s)`), so nbccg behaviour is unaffected.
+#
+# Rotation follows ARGA's `rotate_node` convention: CW=90, CW2=180, CCW=270.
+# Flip axes follow `flip`: HORIZONTAL mirrors left-right, VERTICAL up-down,
+# LEFTDIAGONAL is the main diagonal (transpose), RIGHTDIAGONAL the anti-diagonal.
+# ------------------------------------------------------------------
+na_rotate(angle::Int) = ARGATransform(:na_rotate, (angle,))
+na_flip(axis::Symbol) = ARGATransform(:na_flip, (axis,))
+
+function apply_na(grid::ARGAGrid, t::ARGATransform)::ARGAGrid
+    if t.kind === :na_rotate
+        a = t.params[1]
+        a == 90 && return rotr90(grid)
+        a == 180 && return rot180(grid)
+        a == 270 && return rotl90(grid)
+        error("na_rotate: unsupported angle $a")
+    elseif t.kind === :na_flip
+        ax = t.params[1]
+        ax === HORIZONTAL && return reverse(grid, dims=2)
+        ax === VERTICAL && return reverse(grid, dims=1)
+        ax === LEFTDIAGONAL && return Matrix(permutedims(grid))
+        ax === RIGHTDIAGONAL && return rot180(Matrix(permutedims(grid)))
+        error("na_flip: unsupported axis $ax")
+    else
+        error("apply_na: unsupported transform $(t.kind)")
+    end
+end
