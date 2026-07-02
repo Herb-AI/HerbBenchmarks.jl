@@ -9,6 +9,20 @@ function morpheus_identifiers()
     return sort(ids)
 end
 
+# Contextualize each example of each problem (add semantic data to input/output tables)
+for identifier in morpheus_identifiers()
+    problem_name = Symbol("problem_", identifier)
+    examples = IOExample[]
+    for example in getfield(@__MODULE__, problem_name).spec
+        input = only(values(example.in))::MorpheusTable
+        cont_in = _morpheus_with_input_origin(input, input; group_count=1)
+        cont_out = _morpheus_with_input_origin(example.out, input; group_count=nothing)
+        push!(examples, IOExample(Dict{Symbol,Any}(:_arg_1 => cont_in), cont_out))
+    end
+    contextualized = Problem(problem_name, examples)
+    @eval $problem_name = $contextualized
+end
+
 function _symcall(fn::Symbol, value)
     return Expr(:call, fn, value isa Symbol ? QuoteNode(value) : value)
 end

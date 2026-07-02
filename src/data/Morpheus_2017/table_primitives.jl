@@ -3,10 +3,16 @@
 
 Small table value used by the Morpheus benchmarks.
 
-`raw` preserves the original rendered artifact table. `columns` names the
-column-major `data` vectors used by the DSL operations. `groups` stores
-`group_by` state for later `summarise` calls.
+`df` stores the table data. `raw` preserves the original rendered artifact table.
+`groups` stores `group_by` state for later `summarise` calls. `semantics` carries
+the input universe and abstract group cardinality used by the Morpheus specifications.
 """
+struct MorpheusSemantics
+    input_columns::Set{String}
+    input_values::Set{Any}
+    group_count::Union{Int,Nothing}
+end
+
 struct MorpheusTable
     columns::Vector{Symbol}
     data::Vector{Vector{Any}}
@@ -77,6 +83,69 @@ end
 _row_equal(a, b) = length(a) == length(b) && all(_cell_equal(x, y) for (x, y) in zip(a, b))
 _cell_equal(a::Number, b::Number) = isapprox(float(a), float(b); atol=1e-6, rtol=1e-6)
 _cell_equal(a, b) = string(a) == string(b)
+
+morpheus_columns(df::DataFrame) = Symbol.(names(df))
+morpheus_columns(table::MorpheusTable) = morpheus_columns(table.df)
+
+function morpheus_data(df::DataFrame)
+    columns = morpheus_columns(df)
+    return [Any[df[row, column] for row in 1:nrow(df)] for column in columns]
+end
+morpheus_data(table::MorpheusTable) = morpheus_data(table.df)
+
+morpheus_colindex(table::MorpheusTable) =
+    Dict(c => i for (i, c) in pairs(morpheus_columns(table)))
+morpheus_groups(table::MorpheusTable) = table.groups
+morpheus_raw(table::MorpheusTable) = table.raw
+morpheus_semantics(table::MorpheusTable) = table.semantics
+
+_morpheus_semantic_atom(value::Symbol) = String(value)
+_morpheus_semantic_atom(value) = value
+
+_morpheus_column_set(columns::Vector{Symbol}) = Set(String.(columns))
+
+function _morpheus_value_set(columns::Vector{Symbol}, data::Vector{Vector{Any}})
+    values = Set{Any}(String.(columns))
+    for column in data, value in column
+        push!(values, _morpheus_semantic_atom(value))
+    end
+    return values
+end
+
+function _morpheus_with_semantics(table::MorpheusTable, semantics::MorpheusSemantics)
+    return MorpheusTable(table.df; groups=copy(morpheus_groups(table)),
+        raw=morpheus_raw(table), semantics=semantics)
+end
+
+function _morpheus_with_input_origin(table::MorpheusTable, input::MorpheusTable;
+    group_count::Union{Int,Nothing})
+    semantics = MorpheusSemantics(
+        _morpheus_column_set(morpheus_columns(input)),
+        _morpheus_value_set(morpheus_columns(input), morpheus_data(input)),
+        group_count,
+    )
+    return _morpheus_with_semantics(table, semantics)
+end
+
+morpheus_row_count(table::MorpheusTable)::Int = length(table)
+morpheus_column_count(table::MorpheusTable)::Int = length(morpheus_columns(table))
+
+function morpheus_group_count(table::MorpheusTable)::Int
+    count = table.semantics.group_count
+    isnothing(count) && throw(ArgumentError("Morpheus group cardinality is unknown"))
+    return count
+end
+
+function morpheus_new_column_count(table::MorpheusTable)::Int
+    semantics = table.semantics
+    return length(setdiff(_morpheus_column_set(morpheus_columns(table)), semantics.input_columns))
+end
+
+function morpheus_new_value_count(table::MorpheusTable)::Int
+    semantics = table.semantics
+    values = _morpheus_value_set(morpheus_columns(table), morpheus_data(table))
+    return length(setdiff(values, semantics.input_values))
+end
 
 function parse_morpheus_table(raw::AbstractString)
     lines = split(strip(replace(String(raw), "\r\n" => "\n")), '\n')
