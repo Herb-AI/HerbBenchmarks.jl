@@ -454,7 +454,7 @@ predicate on the other side if it's `shape_of(VAR)`; if both sides are
 enclosed-ness signatures match.
 """
 function eval_shape_equals(a, b, this_obj, other, ctx)::Bool
-    pred(tag, obj) = tag === SQUARE ? is_square(obj) : is_enclosed(obj)
+    pred(tag, obj) = tag === SQUARE ? is_square(obj) : is_enclosed(obj, ctx)
     ra = a isa AttrOf ? resolve_var_obj(a.var, this_obj, other) : a
     rb = b isa AttrOf ? resolve_var_obj(b.var, this_obj, other) : b
     if ra isa Symbol && rb isa Symbol
@@ -467,7 +467,7 @@ function eval_shape_equals(a, b, this_obj, other, ctx)::Bool
         return pred(rb, ra)
     else
         (ra === nothing || rb === nothing) && return false
-        return is_square(ra) == is_square(rb) && is_enclosed(ra) == is_enclosed(rb)
+        return is_square(ra) == is_square(rb) && is_enclosed(ra, ctx) == is_enclosed(rb, ctx)
     end
 end
 
