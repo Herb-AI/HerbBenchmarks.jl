@@ -1,12 +1,8 @@
 const MORPHEUS_TEMPORARY_COLUMNS = Symbol[Symbol("tmp", i) for i in 1:4]
+const MORPHEUS_PROBLEM_COUNT = 72
 
 function morpheus_identifiers()
-    ids = [
-        String(name)[9:end]
-        for name in names(@__MODULE__; all=true)
-        if startswith(String(name), "problem_")
-    ]
-    return sort(ids)
+    return [lpad(string(i), 3, '0') for i in 1:MORPHEUS_PROBLEM_COUNT]
 end
 
 # Contextualize each example of each problem (add semantic data to input/output tables)

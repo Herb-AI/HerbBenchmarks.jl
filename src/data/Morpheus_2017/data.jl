@@ -439,7 +439,7 @@ problem_025 = Problem("problem_025", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_029 = Problem("problem_029", [
+problem_026 = Problem("problem_026", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  sym a1 a2 b1 b2
     1   a  1  2  1  1
@@ -457,7 +457,7 @@ problem_029 = Problem("problem_029", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_030 = Problem("problem_030", [
+problem_027 = Problem("problem_027", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  Factor A.measure     A.SD B.measure     B.SD C.measure     C.SD
     1      K  52127803  9124563  63752981 34800000 103512032 23900000
@@ -477,7 +477,7 @@ problem_030 = Problem("problem_030", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_031 = Problem("problem_031", [
+problem_028 = Problem("problem_028", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""   id a b c
     1 101 1 2 3
@@ -491,7 +491,7 @@ problem_031 = Problem("problem_031", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_032 = Problem("problem_032", [
+problem_029 = Problem("problem_029", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  rowname   CA   DATE_1   TIME_1 ENTRIES_1   DATE_2   TIME_2 ENTRIES_2
     1       1 A002 07-27-13 00:00:00   4209603 07-27-13 08:00:00   4209663
@@ -508,7 +508,7 @@ problem_032 = Problem("problem_032", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_035 = Problem("problem_035", [
+problem_030 = Problem("problem_030", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  name1 con1_1 con1_2 con2_1 con2_2
     1     a     23     33     23     40
@@ -522,7 +522,7 @@ problem_035 = Problem("problem_035", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_036 = Problem("problem_036", [
+problem_031 = Problem("problem_031", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  gear am  n
     1    3  0 15
@@ -536,7 +536,7 @@ problem_036 = Problem("problem_036", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_037 = Problem("problem_037", [
+problem_032 = Problem("problem_032", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  id sex trt.1 response.1 trt.2 response.2
     1  1   M     A          1     B          1
@@ -562,7 +562,7 @@ problem_037 = Problem("problem_037", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_039 = Problem("problem_039", [
+problem_033 = Problem("problem_033", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  event_id income location
     1        A      1   PlaceX
@@ -580,7 +580,7 @@ problem_039 = Problem("problem_039", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_041 = Problem("problem_041", [
+problem_034 = Problem("problem_034", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  test1_rater1 test2_rater1 test1_rater2 test2_rater2 row
     1            1            1            2            1   1
@@ -606,7 +606,7 @@ problem_041 = Problem("problem_041", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_043 = Problem("problem_043", [
+problem_035 = Problem("problem_035", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""      Day HL.Average D.Average LL.Average noHKB.Average    HL.SD      D.SD
     1 0.00000       8760      8900      10000          8030 2337.844  924.2742
@@ -639,7 +639,7 @@ problem_043 = Problem("problem_043", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_044 = Problem("problem_044", [
+problem_036 = Problem("problem_036", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  sbj f1.avg f1.sd f2.avg f2.sd blabla
     1   A     10     6     50    10     bA
@@ -659,7 +659,7 @@ problem_044 = Problem("problem_044", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_045 = Problem("problem_045", [
+problem_037 = Problem("problem_037", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  V1 V2  V3  V4  V5
     1  a  b   a EMP EMP
@@ -674,7 +674,7 @@ problem_045 = Problem("problem_045", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_046 = Problem("problem_046", [
+problem_038 = Problem("problem_038", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  name group V1 V2
     1    A    g1 10  6
@@ -688,7 +688,7 @@ problem_046 = Problem("problem_046", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_047 = Problem("problem_047", [
+problem_039 = Problem("problem_039", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""     id age_1 age_2 favCol_1 favCol_2
     1 user1    20    21     blue      red
@@ -705,7 +705,7 @@ problem_047 = Problem("problem_047", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_048 = Problem("problem_048", [
+problem_040 = Problem("problem_040", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""   day site value.1 value.2
     1    1    a       1       5
@@ -731,7 +731,7 @@ problem_048 = Problem("problem_048", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_049 = Problem("problem_049", [
+problem_041 = Problem("problem_041", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  Scenario x_min x_mean x_max y_min y_mean y_max z_min z_mean z_max
     1     base  -3.0   0.00     2  -1.5      1   5.0     0   0.25     2
@@ -751,7 +751,7 @@ problem_049 = Problem("problem_049", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_050 = Problem("problem_050", [
+problem_042 = Problem("problem_042", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  MemberID years a b c d
     1      123    Y1 0 0 1 0
@@ -765,7 +765,7 @@ problem_050 = Problem("problem_050", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_051 = Problem("problem_051", [
+problem_043 = Problem("problem_043", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  Geotype   Strategy Year.1 Year.2
     1       A     Demand      1      5
@@ -783,7 +783,7 @@ problem_051 = Problem("problem_051", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_052 = Problem("problem_052", [
+problem_044 = Problem("problem_044", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  Geotype   Strategy Year.1 Year.2
     1       A     Demand      1      5
@@ -799,7 +799,7 @@ problem_052 = Problem("problem_052", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_053 = Problem("problem_053", [
+problem_045 = Problem("problem_045", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""   posture code  HR  EE a
     1  cycling  A03 102 100 3
@@ -820,7 +820,7 @@ problem_053 = Problem("problem_053", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_054 = Problem("problem_054", [
+problem_046 = Problem("problem_046", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  sample_ID   site   species TOT inf_status
     1    382870 site_1 Species_B   1   positive
@@ -842,7 +842,7 @@ problem_054 = Problem("problem_054", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_055 = Problem("problem_055", [
+problem_047 = Problem("problem_047", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  ID c_Al c_D c_Hy  occ
     1  C    0   0    1 2581
@@ -858,7 +858,7 @@ problem_055 = Problem("problem_055", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_056 = Problem("problem_056", [
+problem_048 = Problem("problem_048", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  sample  BMI var1_LRR var1_BAF var2_LRR var2_BAF var3_LRR var3_BAF var200_LRR
     1     AA 18.9     0.27     0.99     0.18     0.99     0.11        1       0.20
@@ -879,7 +879,7 @@ problem_056 = Problem("problem_056", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_057 = Problem("problem_057", [
+problem_049 = Problem("problem_049", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  Test temperature_sensor1 temperature_sensor2 pressure_sensor1
     1    1            22.51868            24.23571        11.346620
@@ -912,7 +912,7 @@ problem_057 = Problem("problem_057", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_058 = Problem("problem_058", [
+problem_050 = Problem("problem_050", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  ID p_2012 p_2010 p_2008 p_2006 c_2012 c_2010 c_2008 c_2006
     1  1    160    162    163    165   37.3   37.3   37.1   37.1
@@ -930,7 +930,7 @@ problem_058 = Problem("problem_058", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_059 = Problem("problem_059", [
+problem_051 = Problem("problem_051", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""       V2         V3 V4
     1  CCRG10 BranchDBMS  2
@@ -963,7 +963,7 @@ problem_059 = Problem("problem_059", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_060 = Problem("problem_060", [
+problem_052 = Problem("problem_052", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""    Market Variables median lower.limit upper.limit
     1 market_1     var_1   2.78        2.71        2.72
@@ -980,7 +980,7 @@ problem_060 = Problem("problem_060", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_061 = Problem("problem_061", [
+problem_053 = Problem("problem_053", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  year roleInDebate Clarity_1 Effort_1 Clarity_2 Effort_2 Clarity_3 Effort_3
     1 2006            x         3        5        10        4         5        7
@@ -1008,7 +1008,7 @@ problem_061 = Problem("problem_061", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_062 = Problem("problem_062", [
+problem_054 = Problem("problem_054", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""   score group category
     1     10    a1      big
@@ -1034,7 +1034,7 @@ problem_062 = Problem("problem_062", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_063 = Problem("problem_063", [
+problem_055 = Problem("problem_055", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  Category             qs Ans
     1     Cat1 Q1.a-Some-Text   1
@@ -1053,7 +1053,7 @@ problem_063 = Problem("problem_063", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_064 = Problem("problem_064", [
+problem_056 = Problem("problem_056", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  ST Rfips   zip Year  dist.km
     1 PA 42107 17972 2010  0.00000
@@ -1073,7 +1073,7 @@ problem_064 = Problem("problem_064", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_065 = Problem("problem_065", [
+problem_057 = Problem("problem_057", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  ID MGW.one MGW.two HEL.one HEL.two
     1  A   10.00      19      12   13.00
@@ -1087,7 +1087,7 @@ problem_065 = Problem("problem_065", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_066 = Problem("problem_066", [
+problem_058 = Problem("problem_058", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  V51     Hour Group
     1   1 02:00:00   SBT
@@ -1105,7 +1105,7 @@ problem_066 = Problem("problem_066", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_067 = Problem("problem_067", [
+problem_059 = Problem("problem_059", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  year sex   name    n
     1 1955   F  Kerry  615
@@ -1124,7 +1124,7 @@ problem_067 = Problem("problem_067", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_068 = Problem("problem_068", [
+problem_060 = Problem("problem_060", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""   mpg cyl vs am
     1 21.0   6  0  1
@@ -1144,7 +1144,7 @@ problem_068 = Problem("problem_068", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_069 = Problem("problem_069", [
+problem_061 = Problem("problem_061", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  Subject Var1 Var2
     1   A-pre   25   27
@@ -1158,7 +1158,7 @@ problem_069 = Problem("problem_069", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_070 = Problem("problem_070", [
+problem_062 = Problem("problem_062", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""                 Title Rating Action Sci.Fi
     1               Carrie      4      0      1
@@ -1174,7 +1174,7 @@ problem_070 = Problem("problem_070", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_071 = Problem("problem_071", [
+problem_063 = Problem("problem_063", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  id         p1         p2 p3
     1  1 -0.7833568  0.6383588  1
@@ -1190,7 +1190,7 @@ problem_071 = Problem("problem_071", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_072 = Problem("problem_072", [
+problem_064 = Problem("problem_064", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  a b   d
     1 1 1   0
@@ -1209,7 +1209,7 @@ problem_072 = Problem("problem_072", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_073 = Problem("problem_073", [
+problem_065 = Problem("problem_065", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  vial_id band non_spec      reads
     1       1    1        1 -1.7906249
@@ -1227,7 +1227,7 @@ problem_073 = Problem("problem_073", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_074 = Problem("problem_074", [
+problem_066 = Problem("problem_066", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""      Which Color Response Count
     1   Control   Red        2    10
@@ -1241,7 +1241,7 @@ problem_074 = Problem("problem_074", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_075 = Problem("problem_075", [
+problem_067 = Problem("problem_067", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  id       time      Q1.1        Q1.2       Q2.1       Q2.2
     1  1 2009-01-01 0.4874289 -0.01618826  1.5271807 -0.2917768
@@ -1255,7 +1255,7 @@ problem_075 = Problem("problem_075", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_076 = Problem("problem_076", [
+problem_068 = Problem("problem_068", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""     x y value.1 value.2
     1  red a       1      13
@@ -1276,7 +1276,7 @@ problem_076 = Problem("problem_076", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_077 = Problem("problem_077", [
+problem_069 = Problem("problem_069", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  obs year type
     1   1 2015    A
@@ -1298,7 +1298,7 @@ problem_077 = Problem("problem_077", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_078 = Problem("problem_078", [
+problem_070 = Problem("problem_070", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  x x2    y
     1 1  1 1.41
@@ -1322,7 +1322,7 @@ problem_078 = Problem("problem_078", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_079 = Problem("problem_079", [
+problem_071 = Problem("problem_071", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  id    dept employee salary
     1  1      CS   Yossi   21000
@@ -1335,7 +1335,7 @@ problem_079 = Problem("problem_079", [
     --------------------------------------------------------------------------------"""))
 ])
 
-problem_080 = Problem("problem_080", [
+problem_072 = Problem("problem_072", [
     IOExample(Dict{Symbol,Any}(
             :_arg_1 => MorpheusTable(raw"""  order_id Prod1 prod2 Prod3 Prod4 Prod5
     1        A     1     0     1     1     1
