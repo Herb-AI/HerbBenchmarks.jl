@@ -1,4 +1,5 @@
 module Morpheus_2017
+using DataFrames: DataFrame, nrow, stack
 using HerbCore
 using HerbSpecification
 using HerbGrammar

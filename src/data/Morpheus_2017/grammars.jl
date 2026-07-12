@@ -15,7 +15,7 @@ for identifier in morpheus_identifiers()
         cont_out = _morpheus_with_input_origin(example.out, input; group_count=nothing)
         push!(examples, IOExample(Dict{Symbol,Any}(:_arg_1 => cont_in), cont_out))
     end
-    contextualized = Problem(problem_name, examples)
+    contextualized = Problem(String(problem_name), examples)
     @eval $problem_name = $contextualized
 end
 
@@ -29,7 +29,7 @@ end
 
 function _spread_column_candidates(tables)
     cols = Symbol[]
-    for table in tables, row in table.rows, value in row
+    for table in tables, row in table_rows(table), value in row
         if value isa AbstractString && occursin(r"^[A-Za-z_][A-Za-z0-9_.]*$", value)
             push!(cols, Symbol(value))
         end
@@ -43,22 +43,23 @@ function add_problem_terminals!(g::AbstractGrammar, identifier::AbstractString)
     input_columns = Symbol[]
     input_tables = collect(values(example.in))
     for table in input_tables
-        append!(input_columns, table.columns)
+        append!(input_columns, morpheus_columns(table))
     end
     # Starting available columns
-    for c in unique(vcat(input_columns, example.out.columns,
+    output_columns = morpheus_columns(example.out)
+    for c in unique(vcat(input_columns, output_columns,
         _spread_column_candidates(vcat(input_tables, [example.out])),
         MORPHEUS_TEMPORARY_COLUMNS))
         _add_terminal!(g, :Col, :col, c)
     end
     # Newly created columns
-    for c in unique(vcat(example.out.columns, MORPHEUS_TEMPORARY_COLUMNS))
+    for c in unique(vcat(output_columns, MORPHEUS_TEMPORARY_COLUMNS))
         _add_terminal!(g, :NewCol, :newcol, c)
     end
     # Literals
     literals = Any[]
     for table in vcat(input_tables, [example.out])
-        for row in table.rows, value in row
+        for row in table_rows(table), value in row
             if value isa AbstractString || value isa Number
                 push!(literals, value)
             end

@@ -1,24 +1,21 @@
 @testitem "Morpheus 2017" begin
     import HerbBenchmarks.Morpheus_2017 as Morpheus
-    import HerbGrammar: AbstractGrammar
+    import HerbGrammar: AbstractGrammar, expr2rulenode
 
     input_rules(grammar::AbstractGrammar) =
         findall(rule -> occursin("_arg_", string(rule)), grammar.rules)
     grammar_rules(grammar::AbstractGrammar) = string.(grammar.rules)
 
     pairs = HerbBenchmarks.get_all_problem_grammar_pairs(Morpheus)
-    @test length(pairs) == 79
-    @test !("033" in Morpheus.morpheus_identifiers())
-    @test last(Morpheus.morpheus_identifiers()) == "080"
+    @test length(pairs) == 72
+    @test Morpheus.morpheus_identifiers() == [lpad(string(i), 3, '0') for i in 1:72]
 
     first_problem = HerbBenchmarks.get_problem(Morpheus, "001")
     first_example = only(first_problem.spec)
     @test occursin("round var1 var2 nam", first_example.in[:_arg_1].raw)
-    @test first_example.in[:_arg_1].columns == [:round, :var1, :var2, :nam, :val]
-    @test first_example.in[:_arg_1].data[1] == ["round1", "round2", "round1", "round2"]
-    @test first_example.in[:_arg_1].colindex[:round] == 1
-    @test Morpheus.morpheus_input_count("001") == 1
-    @test first(Morpheus.morpheus_identifiers()) == "001"
+    @test Morpheus.morpheus_columns(first_example.in[:_arg_1]) == [:round, :var1, :var2, :nam, :val]
+    @test Morpheus.morpheus_data(first_example.in[:_arg_1])[1] == ["round1", "round2", "round1", "round2"]
+    @test Morpheus.morpheus_colindex(first_example.in[:_arg_1])[:round] == 1
 
     first_grammar_rules = grammar_rules(HerbBenchmarks.get_grammar(Morpheus, "001"))
     @test all(c -> "col(:$c)" in first_grammar_rules, Morpheus.MORPHEUS_TEMPORARY_COLUMNS)
@@ -33,8 +30,8 @@
     @test !("newcol(:High)" in ratio_grammar_rules)
     spaced_problem = HerbBenchmarks.get_problem(Morpheus, "010")
     spaced_example = only(spaced_problem.spec)
-    @test spaced_example.in[:_arg_1].rows[2] == Any["2012-07-13", 6.0, "Stats Winter school", "R|regression"]
-    @test spaced_example.out.rows[2] == Any["2012-07-13", 6.0, "Stats Winter school", "R"]
+    @test Morpheus.table_rows(spaced_example.in[:_arg_1])[2] == Any["2012-07-13", 6.0, "Stats Winter school", "R|regression"]
+    @test Morpheus.table_rows(spaced_example.out)[2] == Any["2012-07-13", 6.0, "Stats Winter school", "R"]
 
     expected = first_example.out
     input = first_example.in[:_arg_1]
@@ -50,11 +47,38 @@
     )
     @test actual == expected
 
-    two_input_problem = HerbBenchmarks.get_problem(Morpheus, "026")
-    @test Morpheus.morpheus_input_count("026") == 2
-    @test sort(collect(keys(only(two_input_problem.spec).in))) == [:_arg_1, :_arg_2]
-    @test length(input_rules(HerbBenchmarks.get_grammar(Morpheus, "026"))) == 2
-    @test length(input_rules(HerbBenchmarks.get_grammar(Morpheus, "001"))) == 1
-    @test any(occursin("gather", string(rule)) for rule in HerbBenchmarks.get_grammar(Morpheus, "001").rules)
-    @test any(occursin("inner_join", string(rule)) for rule in HerbBenchmarks.get_grammar(Morpheus, "026").rules)
+    @test Morpheus.MorpheusTable([:x], Any[[missing]]) != Morpheus.MorpheusTable([:x], Any[["missing"]])
+    @test Morpheus.MorpheusTable([:x], Any[[1]]) != Morpheus.MorpheusTable([:x], Any[["1"]])
+    @test Morpheus.MorpheusTable([:x], Any[[:a]]) == Morpheus.MorpheusTable([:x], Any[["a"]])
+
+    simple = Morpheus.MorpheusTable([:id, :a], Any[[1, 10]])
+    @test_throws ArgumentError Morpheus.select(simple, Morpheus.cols(:missing_col))
+    @test_throws ArgumentError Morpheus.gather(simple, :key, :value, Morpheus.cols2(:a, :a))
+
+    duplicate_spread = Morpheus.MorpheusTable([:id, :key, :value], Any[[1, "a", 10], [1, "a", 20]])
+    @test_throws ArgumentError Morpheus.spread(duplicate_spread, :key, :value)
+
+    empty_grouped = Morpheus.group_by(Morpheus.MorpheusTable([:g, :x], Any[]), Morpheus.cols(:g))
+    empty_summary = Morpheus.summarise(empty_grouped, :sum_x, Morpheus.sum_agg(:x))
+    @test Morpheus.morpheus_columns(empty_summary) == [:g, :sum_x]
+    @test length(empty_summary) == 0
+
+    numeric = Morpheus.MorpheusTable([:x], Any[[2], [10], [1]])
+    @test Morpheus.morpheus_data(Morpheus.arrange(numeric, Morpheus.cols(:x)))[1] == [1, 2, 10]
+
+    interp = Morpheus.make_morpheus_interpreter(HerbBenchmarks.get_grammar(Morpheus, "001"))
+    rn = expr2rulenode(
+        :(spread(
+            unite(
+                gather(_arg_1, newcol(:tmp1), newcol(:tmp2), not_cols2(col(:round), col(:nam))),
+                newcol(:tmp3),
+                col(:tmp1),
+                col(:round),
+            ),
+            col(:tmp3),
+            col(:tmp2),
+        )),
+        HerbBenchmarks.get_grammar(Morpheus, "001"),
+    )
+    @test only(interp(rn, first_problem.spec)) == expected
 end

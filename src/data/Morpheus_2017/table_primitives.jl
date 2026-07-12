@@ -14,47 +14,21 @@ struct MorpheusSemantics
 end
 
 struct MorpheusTable
-    columns::Vector{Symbol}
-    data::Vector{Vector{Any}}
-    colindex::Dict{Symbol,Int}
+    df::DataFrame
     groups::Vector{Symbol}
     raw::String
+    semantics::MorpheusSemantics
 
-    function MorpheusTable(columns::Vector{Symbol}, data::Vector{Vector{Any}},
-        colindex::Dict{Symbol,Int}, groups::Vector{Symbol}, raw::String)
-        length(columns) == length(data) ||
-            throw(ArgumentError("Morpheus table has $(length(columns)) columns and $(length(data)) data vectors"))
-        return new(columns, data, colindex, groups, raw)
-    end
-end
+    MorpheusTable(df::DataFrame, groups::Vector{Symbol}, raw::String, semantics::MorpheusSemantics) =
+        new(df, groups, raw, semantics)
 
-MorpheusTable(columns::Vector{Symbol}, rows::Vector{Vector{Any}};
-    groups::Vector{Symbol}=Symbol[], raw::AbstractString="") =
-    _morpheus_table_from_rows(columns, rows, groups, String(raw))
+    MorpheusTable(columns::Vector{Symbol}, rows::AbstractVector; groups::Vector{Symbol}=Symbol[],
+        raw::AbstractString="", semantics::Union{MorpheusSemantics,Nothing}=nothing) =
+        _morpheus_table_from_rows(columns, rows, groups, String(raw); semantics=semantics)
 
-function _morpheus_table_from_columns(columns::Vector{Symbol}, data::Vector{Vector{Any}},
-    groups::Vector{Symbol}=Symbol[], raw::String="")
-    length(unique(columns)) == length(columns) ||
-        throw(ArgumentError("Duplicate Morpheus columns: $columns"))
-    nrows = isempty(data) ? 0 : length(first(data))
-    all(length(col) == nrows for col in data) ||
-        throw(ArgumentError("Morpheus column vectors have inconsistent lengths"))
-    return MorpheusTable(copy(columns), copy.(data),
-        Dict(c => i for (i, c) in pairs(columns)),
-        [c for c in groups if c in columns],
-        raw)
-end
-
-function _morpheus_table_from_rows(columns::Vector{Symbol}, rows::Vector{Vector{Any}},
-    groups::Vector{Symbol}, raw::String)
-    length(unique(columns)) == length(columns) ||
-        throw(ArgumentError("Duplicate Morpheus columns: $columns"))
-    for row in rows
-        length(row) == length(columns) ||
-            throw(ArgumentError("Morpheus row has $(length(row)) values for $(length(columns)) columns"))
-    end
-    data = [Any[row[i] for row in rows] for i in eachindex(columns)]
-    return _morpheus_table_from_columns(columns, data, groups, raw)
+    MorpheusTable(df::DataFrame; groups::Vector{Symbol}=Symbol[], raw::AbstractString="",
+        semantics::Union{MorpheusSemantics,Nothing}=nothing) =
+        _morpheus_table_from_df(df, groups, String(raw); semantics=semantics)
 end
 
 function MorpheusTable(raw::AbstractString)
@@ -62,39 +36,91 @@ function MorpheusTable(raw::AbstractString)
     return MorpheusTable(columns, rows; raw=raw)
 end
 
-function Base.getproperty(table::MorpheusTable, name::Symbol)
-    name == :rows && return table_rows(table)
-    return getfield(table, name)
+function _morpheus_dataframe(columns::Vector{Symbol}, data::Vector{Vector{Any}})
+    if isempty(columns)
+        return DataFrame()
+    end
+    return DataFrame([columns[i] => copy(data[i]) for i in eachindex(columns)])
 end
 
-Base.propertynames(table::MorpheusTable, private::Bool=false) =
-    private ? (:columns, :data, :colindex, :groups, :raw, :rows) :
-    (:columns, :data, :groups, :raw, :rows)
+function _morpheus_table_from_df(df::DataFrame, groups::Vector{Symbol}=Symbol[], raw::String="";
+    semantics::Union{MorpheusSemantics,Nothing}=nothing)
+
+    return _morpheus_table_from_df_nocopy(copy(df), groups, raw; semantics=semantics)
+end
+
+function _morpheus_table_from_df_nocopy(df::DataFrame, groups::Vector{Symbol}=Symbol[], raw::String="";
+    semantics::Union{MorpheusSemantics,Nothing}=nothing)
+    columns = morpheus_columns(df)
+    table_semantics = semantics
+    if isnothing(semantics)
+        table_semantics = MorpheusSemantics(_morpheus_column_set(columns),
+            _morpheus_value_set(columns, morpheus_data(df)), 1)
+    end
+    return MorpheusTable(df, [c for c in groups if c in columns], raw, table_semantics)
+end
+
+function _morpheus_table_from_columns(columns::Vector{Symbol}, data::Vector{Vector{Any}},
+    groups::Vector{Symbol}=Symbol[], raw::String=""; semantics::Union{MorpheusSemantics,Nothing}=nothing)
+
+    if length(unique(columns)) != length(columns)
+        throw(ArgumentError("Duplicate Morpheus columns: $columns"))
+    end
+    if length(columns) != length(data)
+        throw(ArgumentError("Morpheus table has $(length(columns)) columns and $(length(data)) data vectors"))
+    end
+    nrows = isempty(data) ? 0 : length(first(data))
+    if any(length(col) != nrows for col in data)
+        throw(ArgumentError("Morpheus column vectors have inconsistent lengths"))
+    end
+    return _morpheus_table_from_df_nocopy(_morpheus_dataframe(columns, data), groups, raw; semantics=semantics)
+end
+
+function _morpheus_table_from_rows(columns::Vector{Symbol}, rows::AbstractVector, groups::Vector{Symbol}, raw::String;
+    semantics::Union{MorpheusSemantics,Nothing}=nothing)
+
+    if length(unique(columns)) != length(columns)
+        throw(ArgumentError("Duplicate Morpheus columns: $columns"))
+    end
+    for row in rows
+        if !(row isa AbstractVector)
+            throw(ArgumentError("Morpheus row is not a vector: $row"))
+        end
+        if length(row) != length(columns)
+            throw(ArgumentError("Morpheus row has $(length(row)) values for $(length(columns)) columns"))
+        end
+    end
+    data = [Any[row[i] for row in rows] for i in eachindex(columns)]
+    return _morpheus_table_from_columns(columns, data, groups, raw; semantics=semantics)
+end
 
 Base.length(table::MorpheusTable) = morpheus_nrows(table)
-Base.show(io::IO, table::MorpheusTable) = print(io, isempty(table.raw) ? table_to_string(table) : table.raw)
+Base.show(io::IO, table::MorpheusTable) =
+    print(io, isempty(morpheus_raw(table)) ? table_to_string(table) : morpheus_raw(table))
 
 function Base.:(==)(a::MorpheusTable, b::MorpheusTable)
-    a.columns == b.columns || return false
-    length(a) == length(b) || return false
+    if morpheus_columns(a) != morpheus_columns(b) || length(a) != length(b)
+        return false
+    end
     return all(_row_equal(ar, br) for (ar, br) in zip(table_rows(a), table_rows(b)))
 end
 
 _row_equal(a, b) = length(a) == length(b) && all(_cell_equal(x, y) for (x, y) in zip(a, b))
 _cell_equal(a::Number, b::Number) = isapprox(float(a), float(b); atol=1e-6, rtol=1e-6)
-_cell_equal(a, b) = string(a) == string(b)
+_cell_equal(a::Symbol, b::AbstractString) = String(a) == b
+_cell_equal(a::AbstractString, b::Symbol) = a == String(b)
+_cell_equal(a, b) = isequal(a, b)
 
 morpheus_columns(df::DataFrame) = Symbol.(names(df))
 morpheus_columns(table::MorpheusTable) = morpheus_columns(table.df)
 
 function morpheus_data(df::DataFrame)
     columns = morpheus_columns(df)
-    return [Any[df[row, column] for row in 1:nrow(df)] for column in columns]
+    return [Any[value for value in df[!, column]] for column in columns]
 end
 morpheus_data(table::MorpheusTable) = morpheus_data(table.df)
 
-morpheus_colindex(table::MorpheusTable) =
-    Dict(c => i for (i, c) in pairs(morpheus_columns(table)))
+morpheus_colindex(table::MorpheusTable) = Dict(c => i for (i, c) in pairs(morpheus_columns(table)))
 morpheus_groups(table::MorpheusTable) = table.groups
 morpheus_raw(table::MorpheusTable) = table.raw
 morpheus_semantics(table::MorpheusTable) = table.semantics
@@ -112,19 +138,13 @@ function _morpheus_value_set(columns::Vector{Symbol}, data::Vector{Vector{Any}})
     return values
 end
 
-function _morpheus_with_semantics(table::MorpheusTable, semantics::MorpheusSemantics)
-    return MorpheusTable(table.df; groups=copy(morpheus_groups(table)),
-        raw=morpheus_raw(table), semantics=semantics)
-end
-
-function _morpheus_with_input_origin(table::MorpheusTable, input::MorpheusTable;
-    group_count::Union{Int,Nothing})
+function _morpheus_with_input_origin(table::MorpheusTable, input::MorpheusTable; group_count::Union{Int,Nothing})
     semantics = MorpheusSemantics(
         _morpheus_column_set(morpheus_columns(input)),
         _morpheus_value_set(morpheus_columns(input), morpheus_data(input)),
         group_count,
     )
-    return _morpheus_with_semantics(table, semantics)
+    return MorpheusTable(table.df; groups=copy(morpheus_groups(table)), raw=morpheus_raw(table), semantics=semantics)
 end
 
 morpheus_row_count(table::MorpheusTable)::Int = length(table)
@@ -137,14 +157,12 @@ function morpheus_group_count(table::MorpheusTable)::Int
 end
 
 function morpheus_new_column_count(table::MorpheusTable)::Int
-    semantics = table.semantics
-    return length(setdiff(_morpheus_column_set(morpheus_columns(table)), semantics.input_columns))
+    return length(setdiff(_morpheus_column_set(morpheus_columns(table)), table.semantics.input_columns))
 end
 
 function morpheus_new_value_count(table::MorpheusTable)::Int
-    semantics = table.semantics
     values = _morpheus_value_set(morpheus_columns(table), morpheus_data(table))
-    return length(setdiff(values, semantics.input_values))
+    return length(setdiff(values, table.semantics.input_values))
 end
 
 function parse_morpheus_table(raw::AbstractString)
@@ -157,8 +175,9 @@ function parse_morpheus_table(raw::AbstractString)
     filter!(line -> !startswith(strip(line), "# ..."), lines)
     filter!(line -> !startswith(strip(line), "<"), lines)
     filter!(line -> !occursin(r"^\s*(?:<[^>]+>\s*)+$", line), lines)
-    isempty(lines) && return Symbol[], Vector{Any}[]
-
+    if isempty(lines)
+        throw(ArgumentError("Morpheus table is empty"))
+    end
     columns = Symbol[]
     rows_by_index = Dict{Int,Vector{Any}}()
     row_order = Int[]
@@ -172,7 +191,6 @@ function parse_morpheus_table(raw::AbstractString)
         isempty(header_lines) && break
         chunk_columns = Symbol.(split(join(header_lines, " ")))
         append!(columns, chunk_columns)
-
         while i <= lastindex(lines) && _is_printed_row(lines[i])
             row_index, values = _parse_indexed_row(lines[i], chunk_columns)
             if !haskey(rows_by_index, row_index)
@@ -183,7 +201,9 @@ function parse_morpheus_table(raw::AbstractString)
             i += 1
         end
     end
-    isempty(columns) && return Symbol.(split(strip(first(lines)))), Vector{Any}[]
+    if isempty(columns)
+        throw(ArgumentError("Morpheus table has no columns"))
+    end
     return columns, [rows_by_index[idx] for idx in row_order]
 end
 
@@ -191,7 +211,9 @@ _is_printed_row(line::AbstractString) = occursin(r"^\s*\d+\s+", line)
 
 function _parse_indexed_row(line::AbstractString, columns::Vector{Symbol})
     m = match(r"^\s*(\d+)\s+(.*)$", line)
-    m === nothing && throw(ArgumentError("Expected a printed row, got $line"))
+    if m === nothing
+        throw(ArgumentError("Expected a printed row, got $line"))
+    end
     return parse(Int, m.captures[1]), _parse_row(m.captures[2], columns)
 end
 
@@ -204,11 +226,8 @@ function _parse_row(line::AbstractString, columns::Vector{Symbol})
             parts = first(sort(candidates; by=candidate -> -_row_parse_score(candidate, columns)))
         end
     end
-    if length(parts) != ncols
-        parts = split(strip(line))
-    end
     if length(parts) > ncols
-        parts = vcat(parts[1:ncols-1], [join(parts[ncols:end], " ")])
+        parts = vcat(parts[1:(ncols-1)], [join(parts[ncols:end], " ")])
     elseif length(parts) < ncols
         parts = vcat(parts, fill("", ncols - length(parts)))
     end
@@ -224,7 +243,9 @@ end
 function _expand_rows!(rows::Vector{Vector{String}}, acc::Vector{String},
     parts::Vector{String}, idx::Integer, remaining::Integer)
     if idx > lastindex(parts)
-        remaining == 0 && push!(rows, copy(acc))
+        if remaining == 0
+            push!(rows, copy(acc))
+        end
         return
     end
     min_after = length(parts) - idx
@@ -246,7 +267,7 @@ function _token_partitions(tokens::Vector{String}, n_groups::Integer)
     max_first = length(tokens) - n_groups + 1
     for cut in 1:max_first
         head = join(tokens[1:cut], " ")
-        for tail in _token_partitions(tokens[cut+1:end], n_groups - 1)
+        for tail in _token_partitions(tokens[(cut+1):end], n_groups - 1)
             push!(partitions, vcat([head], tail))
         end
     end
@@ -299,29 +320,40 @@ function _parse_cell(part::AbstractString)
 end
 
 function table_to_string(table::MorpheusTable)
-    lines = [join(string.(table.columns), '\t')]
+    lines = [join(string.(morpheus_columns(table)), '\t')]
     for row in table_rows(table)
         push!(lines, join(string.(row), '\t'))
     end
     return join(lines, '\n')
 end
 
-morpheus_nrows(table::MorpheusTable) =
-    isempty(getfield(table, :data)) ? 0 : length(first(getfield(table, :data)))
+morpheus_nrows(table::MorpheusTable) = nrow(table.df)
 
 function table_rows(table::MorpheusTable)
-    data = getfield(table, :data)
-    return [Any[col[i] for col in data] for i in 1:morpheus_nrows(table)]
+    columns = morpheus_columns(table)
+    return [Any[table.df[row, column] for column in columns] for row in 1:morpheus_nrows(table)]
 end
 
 function table_column(table::MorpheusTable, column::Symbol)
-    idx = get(getfield(table, :colindex), column, nothing)
-    idx === nothing && throw(ArgumentError("Unknown Morpheus column $column in $(table.columns)"))
-    return getfield(table, :data)[idx]
+    try
+        return table.df[!, column]
+    catch err
+        if err isa ArgumentError
+            throw(ArgumentError("Unknown Morpheus column $column in $(morpheus_columns(table))"))
+        end
+        rethrow()
+    end
 end
 
 function value_at(table::MorpheusTable, row::Integer, column::Symbol)
-    return table_column(table, column)[row]
+    try
+        return table.df[row, column]
+    catch err
+        if err isa ArgumentError
+            throw(ArgumentError("Unknown Morpheus column $column in $(morpheus_columns(table))"))
+        end
+        rethrow()
+    end
 end
 
 struct ColumnSelection
