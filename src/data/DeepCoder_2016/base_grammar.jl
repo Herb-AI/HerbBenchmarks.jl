@@ -5,7 +5,7 @@ base_grammar_deepcoder = @csgrammar begin
 
     ExprNum = maximum(ExprArr)              := (maximum(y) == maximum(x1), minimum(y) >= minimum(x1))
     ExprNum = minimum(ExprArr)              := (maximum(y) <= maximum(x1), minimum(y) == minimum(x1))
-    ExprNum = sum(ExprArr)
+    ExprNum = sum(ExprArr)                  := (maximum(y) <= length(x1) * maximum(x1), minimum(y) >= length(x1) * minimum(x1))
     ExprNum = first(ExprArr)                := (maximum(y) <= maximum(x1), minimum(y) >= minimum(x1), first(y) == first(x1), last(y) == first(x1))
     ExprNum = last(ExprArr)                 := (maximum(y) <= maximum(x1), minimum(y) >= minimum(x1), first(y) == last(x1), last(y) == last(x1))
     ExprNum = getindex(ExprArr, ExprNum)    := (maximum(y) <= maximum(x1), minimum(y) >= minimum(x1))
