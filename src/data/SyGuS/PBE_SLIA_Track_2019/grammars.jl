@@ -2017,7 +2017,7 @@ grammar_most_frequently_occurring_text = @cfgrammar begin
 	ntBool = suffixof_cvc(ntString, ntString)
 	ntBool = contains_cvc(ntString, ntString)
 end
-grammar_phone_5_short = @cfgrammar begin
+grammar_phone_5_short_euphony = @cfgrammar begin
 	Start = ntString
 	ntString = _arg_1
 	ntString = " "
@@ -2048,7 +2048,7 @@ grammar_phone_5_short = @cfgrammar begin
 	ntBool = suffixof_cvc(ntString, ntString)
 	ntBool = contains_cvc(ntString, ntString)
 end
-grammar_phone_6_short = @cfgrammar begin
+grammar_phone_6_short_euphony = @cfgrammar begin
 	Start = ntString
 	ntString = _arg_1
 	ntString = " "
@@ -2079,7 +2079,7 @@ grammar_phone_6_short = @cfgrammar begin
 	ntBool = suffixof_cvc(ntString, ntString)
 	ntBool = contains_cvc(ntString, ntString)
 end
-grammar_phone_7_short = @cfgrammar begin
+grammar_phone_7_short_euphony = @cfgrammar begin
 	Start = ntString
 	ntString = _arg_1
 	ntString = " "
@@ -2110,7 +2110,7 @@ grammar_phone_7_short = @cfgrammar begin
 	ntBool = suffixof_cvc(ntString, ntString)
 	ntBool = contains_cvc(ntString, ntString)
 end
-grammar_phone_9_short = @cfgrammar begin
+grammar_phone_9_short_euphony = @cfgrammar begin
 	Start = ntString
 	ntString = _arg_1
 	ntString = " "

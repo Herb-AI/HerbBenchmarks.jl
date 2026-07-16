@@ -4,18 +4,29 @@ using MLStyle
 ## String typed
 concat_cvc(str1::String, str2::String) = str1 * str2
 
-replace_cvc(mainstr::String, to_replace::String, replace_with::String) = replace(mainstr, to_replace => replace_with)
+function replace_cvc(mainstr::String, to_replace::String, replace_with::String)::String
+    isempty(to_replace) && return replace_with * mainstr
+    range = findfirst(to_replace, mainstr)
+    range === nothing && return mainstr
+    return mainstr[1:prevind(mainstr, first(range))] * replace_with * mainstr[nextind(mainstr, last(range)):end]
+end
 
-at_cvc(str::String, index::Int) = string(str[index])
+at_cvc(str::String, index::Int)::String = isvalid(str, index) ? string(str[index]) : ""
 
 int_to_str_cvc(n::Int) = "$n"
 
-substr_cvc(str::String, start_index::Int, end_index::Int) = str[start_index:end_index]
+function substr_cvc(str::String, start_index::Int, end_index::Int)::String
+    (end_index >= start_index && isvalid(str, start_index) && isvalid(str, end_index)) || return ""
+    return str[start_index:end_index]
+end
 
 # Int typed
 len_cvc(str::String) = length(str)
 
-str_to_int_cvc(str::String) = parse(Int64, str)
+function str_to_int_cvc(str::String)::Int
+    (isempty(str) || !all(c -> '0' <= c <= '9', str)) && return -1
+    return parse(Int, str)
+end
 
 indexof_cvc(str::String, substring::String, index::Int) = (n = findfirst(substring, str); n == nothing ? -1 : (n[1] >= index ? n[1] : -1))
 
