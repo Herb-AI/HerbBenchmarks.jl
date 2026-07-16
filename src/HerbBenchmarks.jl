@@ -1,25 +1,17 @@
+"""
+$(TESTABLEREADME)
+"""
 module HerbBenchmarks
 
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using DocStringExtensions
 
-include("export_module.jl")
+include("utils/docstrings.jl")
 
-# Iterate over directories in `/data/` and include all available files
-for (root, dirs, files) in walkdir(dirname(@__FILE__)*"/data/")
-    for f in files
-        # Check if module name starts with capital letter (formerly also <year>.jl)
-        # if occursin(r"^[A-Z].*\d{4}\.jl$", f)
-        if occursin(r"^[A-Z].*\.jl$", f)
-            include(joinpath(root, f))
-            @eval @make_public $(Symbol(f[1:(findfirst('.', f)-1)]))
-        end
-    end
-end
+include("utils/SExpressionParser.jl")
 
-# Include utils
-#include("utils/benchmark_generator.jl")
 include("utils/benchmarks_io.jl")
 include("utils/problem_fetcher.jl")
 
@@ -27,7 +19,15 @@ include("utils/problem_fetcher.jl")
 include("datatypes/problem_grammar_pair.jl")
 include("datatypes/benchmark.jl")
 
-export 
+include("data/Abstract_Reasoning_2019/Abstract_Reasoning_2019.jl")
+include("data/DeepCoder_2016/DeepCoder_2016.jl")
+include("data/Pixels_2020/Pixels_2020.jl")
+include("data/Robots_2020/Robots_2020.jl")
+include("data/String_transformations_2020/String_transformations_2020.jl")
+include("data/SyGuS/PBE_BV_Track_2018/PBE_BV_Track_2018.jl")
+include("data/SyGuS/PBE_SLIA_Track_2019/PBE_SLIA_Track_2019.jl")
+
+export
     # Data types
     ProblemGrammarPair,
     Benchmark,
@@ -38,7 +38,7 @@ export
     parse_to_julia,
     append_cfgrammar,
     enumerate_problem_files,
-    
+
     # Problem fetcher
     get_all_benchmarks,
     get_benchmark,
@@ -48,9 +48,5 @@ export
     get_problem_grammar_pair,
     get_problem,
     get_grammar,
-    get_default_grammar,
-
-    make_public,
-    make_public_rec,
-    get_submodules
+    get_default_grammar
 end # module HerbBenchmarks

@@ -1,6 +1,6 @@
 function get_all_benchmarks()::Vector{Benchmark}
     # Map all benchmark modules to the benchmark datastructure and return
-    modules = [Abstract_Reasoning_2019, Pixels_2020, Robots_2020, String_transformations_2020, PBE_BV_Track_2018, PBE_SLIA_Track_2019]
+    modules = [Abstract_Reasoning_2019, Pixels_2020, Robots_2020, String_transformations_2020, PBE_BV_Track_2018, PBE_SLIA_Track_2019, DeepCoder_2016]
     return [get_benchmark(m) for m in modules]
 end
 
@@ -123,7 +123,6 @@ It finds a name starting with '_grammar' within the benchmark 'Module'.
 If no such name exists, a 'KeyError' is thrown.
 """
 function get_default_grammar(module_name::Module)::AbstractGrammar
-    
     # Fetch all names in the module
     all_names = names(module_name; all=true)
 
@@ -138,3 +137,10 @@ function get_default_grammar(module_name::Module)::AbstractGrammar
         return module_name.eval(all_names[id])
     end
 end
+
+"""
+    input_rules(grammar::AbstractGrammar)
+
+Returns all rule indices of input rules, i.e., rules that contain "_arg_".
+"""
+input_rules(grammar::AbstractGrammar) = findall(rule -> occursin("_arg_", string(rule)), grammar.rules)

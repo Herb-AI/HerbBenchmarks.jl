@@ -3,8 +3,8 @@
 """
 function parse_file(filepath::String, line_parser::Function)::Problem
     file = open(filepath)
-    examples::AbstractVector{IOExample} = []
-    
+    examples::Vector{Example} = Vector{Example}()
+
     for line in eachline(file)
         line = strip(line)  # Remove leading/trailing whitespace
         if !isempty(line)
@@ -12,8 +12,9 @@ function parse_file(filepath::String, line_parser::Function)::Problem
             push!(examples, parsed_example)
         end
     end
-    
-    return Problem(examples)  
+
+    close(file)
+    return Problem(examples)
 end
 
 
@@ -22,12 +23,12 @@ end
 """
 function write_problem(filepath::String, problem::Problem, name::String="", mode::String="a")
     file = open(filepath, mode)
-    name = replace(name, 
-                   "-" => "_",
-                   "." => "_",
-                   "=" => "_",
-                   " " => "_",
-                  )
+    name = replace(name,
+        "-" => "_",
+        "." => "_",
+        "=" => "_",
+        " " => "_",
+    )
     write(file, replace("problem_$(name) = $(problem)\n", "IOExample" => "\n\tIOExample", "IOPExample" => "\n\tIOPExample"))
     close(file)
 end
@@ -38,9 +39,9 @@ end
 """
 function append_cfgrammar(filepath::String, name::String, grammar::AbstractGrammar)
     name = replace(name,
-                   "-" => "_",
-                   "." => "_"
-                  )
+        "-" => "_",
+        "." => "_"
+    )
     open(filepath, "a") do file
         if !isprobabilistic(grammar)
             println(file, "grammar_$name = @cfgrammar begin")
@@ -58,7 +59,7 @@ function append_cfgrammar(filepath::String, name::String, grammar::AbstractGramm
             end
         end
         println(file, "end")
-    end 
+    end
 end
 
 """
@@ -66,9 +67,9 @@ end
 
 Parses a single problem file given a line parser and writes the Herb'ed problem to the output_path.
 """
-function parse_to_julia(path::String, filename::String, line_parser::Function, prefix::String="")
-    problem = parse_file(joinpath(path, filename), line_parser)
-    write_problem(joinpath(path, "$(prefix)data.jl"), problem, prefix) 
+function parse_to_julia(path::String, filename::String, line_parser::Function, prefix::String="")::Problem
+    problem = parse_file(path * filename, line_parser)
+    write_problem(path * "$(prefix)data.jl", problem, prefix)
 end
 
 """
@@ -76,7 +77,8 @@ end
 
 Parses a directory for all files, parses each data file using `data_file_parser` and `grammar_parser`. Appends all data parsed to the `data.jl` in the output path by appending to that file. 
 
-Example usage for parsing SyGuS problems.
+# Example
+
 ```julia
 using HerbSpecification, HerbGrammar
 
@@ -89,7 +91,7 @@ module_path = "src/data/SyGuS/PBE_SLIA_Track_2019/"
 enumerate_problem_files(input_path, module_path, parse_sygus_problem, parse_sygus_grammar)
 ```
 """
-function enumerate_problem_files(input_path::String, output_path::String, data_file_parser::Function, grammar_parser::Function= s -> nothing)
+function enumerate_problem_files(input_path::String, output_path::String, data_file_parser::Function, grammar_parser::Function=s -> nothing)
     if !isdir(input_path)
         throw(ArgumentError("'$input_path' is not a directory."))
     end
@@ -103,10 +105,10 @@ function enumerate_problem_files(input_path::String, output_path::String, data_f
     for file in file_list
         println(file)
         name = string(split(file, '.')[1])
-        return_grammar = grammar_parser(input_path*file)
+        return_grammar = grammar_parser(input_path * file)
         if !isnothing(return_grammar)
-            append_cfgrammar(module_path*"grammars.jl", name, grammar_parser(input_path*file))
+            append_cfgrammar(module_path * "grammars.jl", name, grammar_parser(input_path * file))
         end
-        write_problem(output_path*"data.jl", data_file_parser(input_path*file), name, "a")
+        write_problem(output_path * "data.jl", data_file_parser(input_path * file), name, "a")
     end
 end

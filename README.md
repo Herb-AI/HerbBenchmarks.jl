@@ -23,32 +23,42 @@ In `data.jl`, a data set follows a specific structure:
 - A problem has a unique **identifier**, e.g., `"problem_100"`.
 - A problem contains a list of `IOExample`s. The input `in` is of type `Dict{Symbol, Any}`, with `Symbol`s following the naming convention `_arg_1_`, `_arg_2_`, etc.
 
-```julia
-# Example 
-problem_100 = Problem("problem_100", [
-	IOExample(Dict{Symbol, Any}(:_arg_1_ => StringState("369K 16 Oct 17:30 JCR-Menu.ppt", 1)), StringState("16 Oct", nothing)), 
-	IOExample(Dict{Symbol, Any}(:_arg_1_ => StringState("732K 11 Oct 17:59 guide.pdf", 1)), StringState("11 Oct", nothing)), 
-	IOExample(Dict{Symbol, Any}(:_arg_1_ => StringState("582K 18 Oct 12:13 make-01.pdf", 1)), StringState("18 Oct", nothing))
-])
+### Example Problem
+
+```julia,jldoctest; setup = :(using HerbSpecification)
+julia> import HerbBenchmarks.String_transformations_2020: StringState
+
+julia> problem_100 = Problem("problem_100", [
+           IOExample(Dict(:_arg_1_ => StringState("369K 16 Oct 17:30 JCR-Menu.ppt", 1)), StringState("16 Oct", nothing)), 
+           IOExample(Dict(:_arg_1_ => StringState("732K 11 Oct 17:59 guide.pdf", 1)), StringState("11 Oct", nothing)),
+           IOExample(Dict(:_arg_1_ => StringState("582K 18 Oct 12:13 make-01.pdf", 1)), StringState("18 Oct", nothing))
+       ]);
 
 ```
 
 ## How to use:
-HerbBenchmarks is still not yet complete and is lacking crucial benchmarking functionality. However, if you want to test on a single problem and grammar, you can do the following
+If you want to test on a single problem and grammar, you can do the following
 
 Select your favourite benchmark, we use the string transformation benchmark from the SyGuS challenge:
-```Julia
-using HerbSpecification, HerbGrammar
 
-using HerbBenchmarks.String_transformations_2020
+```julia,jldoctest
+julia> using HerbBenchmarks, HerbBenchmarks.String_transformations_2020
 
-# The id has to be matching
-grammar = String_transformations_2020.grammar_string
-problem = String_transformations_2020.problem_100
+julia> using HerbBenchmarks.String_transformations_2020: StringState
 
-# Print out the grammar and problem in readable format
-println("grammar:", grammar)
-println("problem:", problem.examples)
+julia> all_pairs = get_all_problem_grammar_pairs(String_transformations_2020);
+
+julia> length(all_pairs)
+326
+
+julia> example = all_pairs[1].problem.spec[1]; # get the first example
+
+julia> example.in
+Dict{Symbol, Any} with 1 entry:
+  :_arg_1 => StringState("@gill", 1)
+
+julia> example.out
+StringState("gill", nothing)
 ```
 
-Some benchmarks there is only a single grammar for all problems. 
+Note that for some benchmarks the grammar is the same for all problems. 
