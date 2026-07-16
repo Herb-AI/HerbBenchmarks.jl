@@ -3,10 +3,11 @@ grammar_hodel = @csgrammar begin
     Grid = _arg_1
 
     Boolean = false | true
-    Integer = |(-2:9)
+    Integer = |(-2:10)
     IntegerTuple = down | right | up | left
     IntegerTuple = unity | neg_unity | up_right | down_left
     IntegerTuple = zero_by_two | two_by_zero | two_by_two | three_by_three
+    IntegerTuple = origin
 
     Patch = Object | Indices
     Piece = Grid | Patch

@@ -70,6 +70,7 @@ f_3_4(f, a3) = (a1, a2, a4) -> f(a1, a2, a3, a4)
 f_4_4(f, a4) = (a1, a2, a3) -> f(a1, a2, a3, a4)
 
 """Constants"""
+origin = IntegerTuple(0,0)
 down = IntegerTuple(1,0)
 right = IntegerTuple(0,1)
 up = IntegerTuple(-1,0)
