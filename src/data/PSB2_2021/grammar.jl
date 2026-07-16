@@ -1,8 +1,8 @@
 using Random
-using HerbGrammar
 
 include("problem_grammars.jl")
 include("base_grammars.jl")
+include("psb2_primitives.jl")
 
 function get_grammar_basement(;minimal=true, seed=nothing)
     # Basement has a random integer and all integers are in range (-100, 100)

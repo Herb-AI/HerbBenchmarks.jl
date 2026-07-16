@@ -1,5 +1,4 @@
 using PythonCall, CondaPkg
-using HerbSpecification
 
 psb2 = pyimport("psb2")
 
@@ -17,11 +16,12 @@ function write_psb2_problems_to_file(problems::Vector{String}=String["fizz-buzz"
             # Reset the file if it exists, so we can append the data all at once
             julia_name = replace(name, "-" => "_")
             dir = joinpath(dirname(@__FILE__), "datasets", name)
-            if isfile(joinpath(dir, julia_name * "data.jl"))
-                rm(joinpath(dir, julia_name * "data.jl"))
+            println(dir, julia_name)
+            if isfile(joinpath(dir, julia_name, "data_test.jl"))
+                rm(joinpath(dir, julia_name, "data_test.jl"))
             end
-            # Write contents to file
-            HerbBenchmarks.parse_to_julia(dir, "$(name)-$(edge_or_random).json", parse_line_json, julia_name * "_")
+            # # Write contents to file
+            # HerbBenchmarks.parse_to_julia(dir, "$(name)-$(edge_or_random).json", parse_line_json, julia_name * "_")
         end
     end
 end

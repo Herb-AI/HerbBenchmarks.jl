@@ -1,5 +1,3 @@
-include("psb2_primitives.jl")
-
 grammar_integer = @csgrammar begin
     IntRule = IntRule + IntRule
     IntRule = IntRule - IntRule

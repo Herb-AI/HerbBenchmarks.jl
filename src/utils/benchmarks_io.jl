@@ -1,9 +1,9 @@
 """
 
 """
-function parse_file(filepath::String, line_parser::Function)::Problem
+function parse_file(filepath::String, line_parser::Function, problem_name::String="")::Problem
     file = open(filepath)
-    examples::Vector{Example} = Vector{Example}()
+    examples::Vector{IOExample} = Vector{IOExample}()
 
     for line in eachline(file)
         line = strip(line)  # Remove leading/trailing whitespace
@@ -14,7 +14,7 @@ function parse_file(filepath::String, line_parser::Function)::Problem
     end
 
     close(file)
-    return Problem(examples)
+    return Problem(problem_name, examples)
 end
 
 
@@ -29,7 +29,7 @@ function write_problem(filepath::String, problem::Problem, name::String="", mode
         "=" => "_",
         " " => "_",
     )
-    write(file, replace("problem_$(name) = $(problem)\n", "IOExample" => "\n\tIOExample", "IOPExample" => "\n\tIOPExample"))
+    write(file, replace("problem_$(name) = $(problem)\n", "IOExample{" => "\n\tIOExample{"))
     close(file)
 end
 
@@ -67,9 +67,9 @@ end
 
 Parses a single problem file given a line parser and writes the Herb'ed problem to the output_path.
 """
-function parse_to_julia(path::String, filename::String, line_parser::Function, prefix::String="")::Problem
-    problem = parse_file(path * filename, line_parser)
-    write_problem(path * "$(prefix)data.jl", problem, prefix)
+function parse_to_julia(path::String, filename::String, line_parser::Function, problem_name::String="")::Problem
+    problem = parse_file(joinpath(path, filename), line_parser, problem_name)
+    write_problem("data.jl", problem, problem_name)
 end
 
 """

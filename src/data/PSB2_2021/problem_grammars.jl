@@ -1,15 +1,13 @@
-include("psb2_primitives.jl")
-
 ## Basement problem
 input_basement = @csgrammar begin
     IntRule = -1 | 0 | 1
     List = []
-    Sym = :i
-    Return = Dict(:output1 => IntRule)
+    Sym = _arg_1
+    Return = IntRule
 end
 
 minimal_grammar_basement = @csgrammar begin
-    Return = Dict(:output1 => IntRule)
+    Return = IntRule
     List = input1
     IntRule = 0 | 1
     IntRule = IntRule + IntRule
@@ -18,7 +16,7 @@ minimal_grammar_basement = @csgrammar begin
     IntRule = length(List)
     IntRule = sum(List)
     List = getindex(List, IntRule:IntRule)
-    Sym = :i
+    Sym = _arg_1
     State = Dict(Sym => IntRule)
     IntRule = get(state, Sym, "Key not found")
     State = push!(state, Sym => IntRule)
@@ -46,18 +44,18 @@ end
 
 ## FizzBuzz problem
 input_fizz_buzz = @csgrammar begin
-    IntRule = input1
+    IntRule = _arg_1
     IntRule = 0 | 3 | 5
     String = "Fizz" | "Buzz" | "FizzBuzz"
-    Return = Dict(:output1 => String)
+    Return = String
 end
 
 minimal_grammar_fizz_buzz = @csgrammar begin
-    IntRule = input1
+    IntRule = _arg_1
     IntRule = 0 | 3 | 5
     String = "Fizz" | "Buzz" | "FizzBuzz"
     String = string(IntRule)
-    Return = Dict(:output1 => String)
+    Return = String
     IntRule = IntRule % IntRule
     Boolean = IntRule == IntRule
     IntRule = Boolean ? IntRule : IntRule

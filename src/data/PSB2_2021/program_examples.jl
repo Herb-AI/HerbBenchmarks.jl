@@ -1,45 +1,40 @@
-function program_basement(input1) 
+function program_basement(_arg_1) 
     # Takes list of integers and returns 1 integer
-    Dict(:output1 => 
-        if getindex(input1, 1) < 0
-            0
-        else
-            let state = Dict(:i => 0)
-                while get(state, :i, "key not found") < length(input1) && sum(getindex(input1, 1:get(state, :i, "key not found"))) < 0
-                    push!(state, :i => get(state, :i, "key not found"))
-                end
-                get(state, :i, "key not found")
+    if getindex(_arg_1, 1) < 0
+        0
+    else
+        let state = Dict(:i => 0)
+            while get(state, :i, "key not found") < length(_arg_1) && sum(getindex(_arg_1, 1:get(state, :i, "key not found"))) < 0
+                push!(state, :i => get(state, :i, "key not found"))
             end
+            get(state, :i, "key not found")
         end
-    )
+    end
 end
 
 function program_coin_sums(input1)
     # Takes one integer and returns 4 integers
-    Dict(
-        :output4 => floor(input1 / 25), 
-        :output3 => floor(input1 % 25 / 10), 
-        :output2 => floor(input1 % 25 % 10 / 5), 
-        :output1 => floor(input1 % 25 % 10 % 5))
+    (pennies=floor(input1 % 25 % 10 % 5),
+    nickles=floor(input1 % 25 % 10 / 5), 
+    dimes=floor(input1 % 25 / 10), 
+    quarters=floor(input1 / 25))
 end
 
 function program_fizzbuzz(x)
     # Takes an integer and returns a string
-    Dict(:output1 => 
-        if x % 5 == 0 && x % 3 == 0
-            "FizzBuzz"
+    if x % 5 == 0 && x % 3 == 0
+        "FizzBuzz"
+    else
+        if x % 3 == 0
+            "Fizz"
         else
-            if x % 3 == 0
-                "Fizz"
+            if x % 5 == 0
+                "Buzz"
             else
-                if x % 5 == 0
-                    "Buzz"
-                else
-                    string(x)
-                end
+                string(x)
             end
         end
-    )
+    end
 end
 
 function program_fuel_cost(input1)

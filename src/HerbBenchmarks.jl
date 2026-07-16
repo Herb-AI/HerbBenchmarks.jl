@@ -26,6 +26,7 @@ include("data/Robots_2020/Robots_2020.jl")
 include("data/String_transformations_2020/String_transformations_2020.jl")
 include("data/SyGuS/PBE_BV_Track_2018/PBE_BV_Track_2018.jl")
 include("data/SyGuS/PBE_SLIA_Track_2019/PBE_SLIA_Track_2019.jl")
+include("data/PSB2_2021/PSB2_2021.jl")
 
 export
     # Data types
