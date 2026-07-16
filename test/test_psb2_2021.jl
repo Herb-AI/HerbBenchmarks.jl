@@ -1,5 +1,6 @@
 using HerbBenchmarks.PSB2_2021
 using HerbGrammar
+include("../src/data/PSB2_2021/psb2_primitives.jl")
 
 @testset verbose = true "PSB2_2021" begin
     @testset verbose = true "General tests" begin
@@ -68,8 +69,12 @@ using HerbGrammar
             end
 
             @testset verbose = true "command_while" begin
+                result = let state = Dict(:x => 39, :y => 78)
+                    command_while(state[:y] > 0, merge!(state, Dict(:x => state[:y], :y => state[:x] % state[:y])))
+                    get(state, :x, "key not found")
+                end
+                @test result == 13
                 # TODO Idea use the SymbolTable
-                @warn  "TODO test the command_while function using the correct scope"
             end
         end
         @testset verbose = true "Grammar boolean" begin
