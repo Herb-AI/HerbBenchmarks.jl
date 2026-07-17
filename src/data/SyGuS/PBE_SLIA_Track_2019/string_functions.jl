@@ -17,7 +17,8 @@ len_cvc(str::String) = length(str)
 
 str_to_int_cvc(str::String) = parse(Int64, str)
 
-indexof_cvc(str::String, substring::String, index::Int) = (n = findfirst(substring, str); n == nothing ? -1 : (n[1] >= index ? n[1] : -1))
+indexof_cvc(str::String, substring::String, index::Int) =
+        (n=findfirst(substring, str); n == nothing ? -1 : (n[1] >= index ? n[1] : -1))
 
 # Bool typed
 prefixof_cvc(prefix::String, str::String) = startswith(str, prefix)
@@ -25,6 +26,27 @@ prefixof_cvc(prefix::String, str::String) = startswith(str, prefix)
 suffixof_cvc(suffix::String, str::String) = endswith(str, suffix)
 
 contains_cvc(str::String, contained::String) = contains(str, contained)
+
+function count_cvc(str::String, contained::String)
+        isempty(contained) && return length(str) + 1
+        n = 0
+        i = firstindex(str)
+        while i <= lastindex(str)
+                range = findnext(contained, str, i)
+                range === nothing && break
+                n += 1
+                i = nextind(str, first(range))
+        end
+        return n
+end
+
+has_alpha(str::String) = any(isletter, str)
+
+has_space(str::String) = any(isspace, str)
+
+has_digits(str::String) = any(isdigit, str)
+
+has_special(str::String) = any(c -> !(isletter(c) || isdigit(c) || isspace(c)), str)
 
 lt_cvc(str1::String, str2::String) = cmp(str1, str2) < 0
 
@@ -52,28 +74,29 @@ function get_relevant_tags(grammar::ContextSensitiveGrammar)
 end
 
 function interpret_sygus(prog::AbstractRuleNode, grammar_tags::Dict{Int,Any})
-    r = get_rule(prog)
-    c = get_children(prog)
+        r = get_rule(prog)
+        c = get_children(prog)
 
-    MLStyle.@match grammar_tags[r] begin
-        :concat_cvc => concat_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
-        :replace_cvc => replace_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags), interpret_sygus(c[3], grammar_tags))
-        :at_cvc => at_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
-        :int_to_str_cvc => int_to_str_cvc(interpret_sygus(c[1], grammar_tags))
-        :substr_cvc => substr_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags), interpret_sygus(c[3], grammar_tags))
-        :len_cvc => len_cvc(interpret_sygus(c[1], grammar_tags))
-        :str_to_int_cvc => str_to_int_cvc(interpret_sygus(c[1], grammar_tags))
-        :indexof_cvc => indexof_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags), interpret_sygus(c[3], grammar_tags))
-        :prefixof_cvc => prefixof_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
-        :suffixof_cvc => suffixof_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
-        :contains_cvc => contains_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
+        MLStyle.@match grammar_tags[r] begin
+                :concat_cvc => concat_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
+                :replace_cvc => replace_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags), interpret_sygus(c[3], grammar_tags))
+                :at_cvc => at_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
+                :int_to_str_cvc => int_to_str_cvc(interpret_sygus(c[1], grammar_tags))
+                :substr_cvc => substr_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags), interpret_sygus(c[3], grammar_tags))
+                :len_cvc => len_cvc(interpret_sygus(c[1], grammar_tags))
+                :str_to_int_cvc => str_to_int_cvc(interpret_sygus(c[1], grammar_tags))
+                :indexof_cvc => indexof_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags), interpret_sygus(c[3], grammar_tags))
+                :prefixof_cvc => prefixof_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
+                :suffixof_cvc => suffixof_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
+                :contains_cvc => contains_cvc(interpret_sygus(c[1], grammar_tags), interpret_sygus(c[2], grammar_tags))
 
-        :+ => interpret_sygus(c[1], grammar_tags) + interpret_sygus(c[2], grammar_tags)
-        :- => interpret_sygus(c[1], grammar_tags) - interpret_sygus(c[2], grammar_tags)
-        :(==) => interpret_sygus(c[1], grammar_tags) == interpret_sygus(c[2], grammar_tags)
+                :+ => interpret_sygus(c[1], grammar_tags) + interpret_sygus(c[2], grammar_tags)
+                :- => interpret_sygus(c[1], grammar_tags) - interpret_sygus(c[2], grammar_tags)
+                :(==) => interpret_sygus(c[1], grammar_tags) == interpret_sygus(c[2], grammar_tags)
 
-        :IF => interpret_sygus(c[1], grammar_tags) ? interpret_sygus(c[2], grammar_tags) : interpret_sygus(c[3], grammar_tags)
+                :IF => interpret_sygus(c[1], grammar_tags) ? interpret_sygus(c[2], grammar_tags) : interpret_sygus(c[3], grammar_tags)
 
-        _ => grammar_tags[r]
-    end
+                _ => grammar_tags[r]
+        end
 end
+
