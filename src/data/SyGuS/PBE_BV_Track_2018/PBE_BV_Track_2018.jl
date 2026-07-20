@@ -49,7 +49,7 @@ function format_bit_operations_grammars(filename::AbstractString)
                         "ehad" => "ehad_cvc",
                         "arba" => "arba_cvc",
                         "shesh" => "shesh_cvc",
-                        "smol" => "bvnor_cvc",
+                        "smol" => "smol_cvc",
                         "im" => "im_cvc",
                     )
 

@@ -19,16 +19,30 @@ end
 
 
 """
+    sanitize_name(name::AbstractString)::String
 
+Turns a raw benchmark name (typically a source filename without its extension) into a valid Julia
+identifier suffix.
+
+Every writer that emits a `problem_`/`grammar_` binding must go through this function. Problems and
+grammars are paired by exact string equality on this suffix in [`get_grammar`](@ref), so any
+divergence between the two call sites silently unpairs them.
 """
-function write_problem(filepath::String, problem::Problem, name::String="", mode::String="a")
-    file = open(filepath, mode)
-    name = replace(name,
+function sanitize_name(name::AbstractString)::String
+    return replace(String(name),
         "-" => "_",
         "." => "_",
         "=" => "_",
         " " => "_",
     )
+end
+
+"""
+
+"""
+function write_problem(filepath::String, problem::Problem, name::String="", mode::String="a")
+    file = open(filepath, mode)
+    name = sanitize_name(name)
     write(file, replace("problem_$(name) = $(problem)\n", "IOExample" => "\n\tIOExample", "IOPExample" => "\n\tIOPExample"))
     close(file)
 end
@@ -38,10 +52,7 @@ end
 
 """
 function append_cfgrammar(filepath::String, name::String, grammar::AbstractGrammar)
-    name = replace(name,
-        "-" => "_",
-        "." => "_"
-    )
+    name = sanitize_name(name)
     open(filepath, "a") do file
         if !isprobabilistic(grammar)
             println(file, "grammar_$name = @cfgrammar begin")
@@ -104,10 +115,12 @@ function enumerate_problem_files(input_path::String, output_path::String, data_f
 
     for file in file_list
         println(file)
-        name = string(split(file, '.')[1])
+        # Strip only the extension: `PRE_icfp_gen_1.15.sl` must become `PRE_icfp_gen_1_15`, not
+        # `PRE_icfp_gen_1`. Splitting on the first '.' collapses 20 distinct problems onto one name.
+        name = sanitize_name(first(splitext(file)))
         return_grammar = grammar_parser(input_path * file)
         if !isnothing(return_grammar)
-            append_cfgrammar(module_path * "grammars.jl", name, grammar_parser(input_path * file))
+            append_cfgrammar(output_path * "grammars.jl", name, return_grammar)
         end
         write_problem(output_path * "data.jl", data_file_parser(input_path * file), name, "a")
     end
