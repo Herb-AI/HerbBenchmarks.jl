@@ -1,0 +1,10 @@
+; Formal spec: abs_diff(x,y) = |x - y|. Two vars, subtraction.
+(set-logic LIA)
+(synth-fun adiff ((x Int) (y Int)) Int)
+(declare-var x Int)
+(declare-var y Int)
+(constraint (>= (adiff x y) 0))
+(constraint (>= (adiff x y) (- x y)))
+(constraint (>= (adiff x y) (- y x)))
+(constraint (or (= (adiff x y) (- x y)) (= (adiff x y) (- y x))))
+(check-synth)

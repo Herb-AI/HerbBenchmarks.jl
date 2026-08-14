@@ -1,0 +1,11 @@
+; Formal spec: minimum of three integers (parallels max3, exercises recombination).
+(set-logic LIA)
+(synth-fun min3 ((x Int) (y Int) (z Int)) Int)
+(declare-var x Int)
+(declare-var y Int)
+(declare-var z Int)
+(constraint (<= (min3 x y z) x))
+(constraint (<= (min3 x y z) y))
+(constraint (<= (min3 x y z) z))
+(constraint (or (= x (min3 x y z)) (or (= y (min3 x y z)) (= z (min3 x y z)))))
+(check-synth)
