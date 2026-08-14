@@ -78,7 +78,7 @@ end
 
 @inline binopPlus(x::Integer, y::Integer) = x + y
 @inline binopMinus(x::Integer, y::Integer) = x - y
-@inline binopMult(x::Integer, y::Integer) = x * y
+@inline binopMult(x::Integer, y::Integer) = Base.checked_mul(x, y)
 @inline binopMax(x::Integer, y::Integer) = max(x, y)
 @inline binopMin(x::Integer, y::Integer) = min(x, y)
 @inline binopDiv(x::Integer, y::Integer) = div(x, y)
