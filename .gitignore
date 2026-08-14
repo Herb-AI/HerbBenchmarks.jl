@@ -25,3 +25,4 @@ Manifest.toml
 
 # Ignore large data files
 *_large.jl
+__pycache__/

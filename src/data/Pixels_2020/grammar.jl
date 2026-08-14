@@ -1,15 +1,14 @@
 grammar_pixels = @cfgrammar begin
-    Start = (state = Init; Sequence; Return)
-    Init = initState(_arg_1)
-    Return = getMatrix(state)
+    Start = Sequence
 
-    Sequence = Operation 
-    Sequence = Operation; Sequence
-    Operation = Transformation 
+    Sequence = Operation
+    Sequence = (Operation; Sequence)
+    Operation = Transformation
     Operation = ControlStatement
 
-    Transformation = moveRight(state) | moveLeft(state) | moveUp(state) | moveDown(state) | draw(state)
-    ControlStatement = (Condition ? Sequence : Sequence) | (while Condition; Sequence; end)
+    Transformation = moveRight() | moveLeft() | moveUp() | moveDown() | draw0() | draw1() # 6
+    ControlStatement = IF(Condition, Sequence, Sequence) # 12
+    ControlStatement = WHILE(Condition, Sequence)
 
-    Condition = atTop(state) | atBottom(state) | atLeft(state) | atRight(state) | notAtTop(state) | notAtBottom(state) | notAtLeft(state) | notAtRight(state)
+    Condition = atTop() | atBottom() | atLeft() | atRight() | notAtTop() | notAtBottom() | notAtLeft() | notAtRight()
 end

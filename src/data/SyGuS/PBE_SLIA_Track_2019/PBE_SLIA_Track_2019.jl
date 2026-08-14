@@ -1,19 +1,27 @@
 module PBE_SLIA_Track_2019
-
 using HerbCore
-using HerbData
+using HerbSpecification
 using HerbGrammar
+using HerbInterpret
+
+using RuntimeGeneratedFunctions
+RuntimeGeneratedFunctions.init(@__MODULE__)
 
 include("data.jl")
 include("grammars.jl")
 
 include("string_functions.jl")
 
-export 
-    format_string_grammars,
-    all_problems
+function make_SLIA_interpreter(g)
+    return make_interpreter(
+        g;
+        target_module=PBE_SLIA_Track_2019,
+        cache_module=PBE_SLIA_Track_2019
+    )
+end
 
-all_problems = [PBE_SLIA_Track_2019.eval(var) for var in filter(v -> startswith(string(v), "problem_"), names(PBE_SLIA_Track_2019; all=true))]
+export 
+    format_string_grammars
 
 function format_string_grammars(filename::AbstractString)
     lines::Vector{String} = []

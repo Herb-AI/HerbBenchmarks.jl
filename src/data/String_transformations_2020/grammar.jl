@@ -1,15 +1,14 @@
 grammar_string = @cfgrammar begin
-    Start = (state = Init; Sequence; Return)
-    Init = initState(_arg_1)
-    Return = getString(state)
+    Start = Sequence        #1
 
-    Sequence = Operation 
-    Sequence = Operation; Sequence
-    Operation = Transformation 
-    Operation = ControlStatement
+    Sequence = Operation        #2
+    Sequence = (Operation; Sequence)  #3
+    Operation = Transformation      #4
+    Operation = ControlStatement    #5
 
-    Transformation = moveRight(state) | moveLeft(state) | makeUppercase(state) | makeLowercase(state) | drop(state)
-    ControlStatement = (Condition ? Sequence : Sequence) | (while Condition; Sequence; end)
+    Transformation = moveRight() | moveLeft() | makeUppercase() | makeLowercase() | drop()      #6
+    ControlStatement = IF(Condition, Sequence, Sequence)    #11
+    ControlStatement = WHILE(Condition, Sequence)       #12
 
-    Condition = atEnd(state) | notAtEnd(state) | atStart(state) | notAtStart(state) | isLetter(state) | isNotLetter(state) | isUppercase(state) | isNotUppercase(state) | isLowercase(state) | isNotLowercase(state) | isNumber(state) | isNotNumber(state) | isSpace(state) | isNotSpace(state)
+    Condition = atEnd() | notAtEnd() | atStart() | notAtStart() | isLetter() | isNotLetter() | isUppercase() | isNotUppercase() | isLowercase() | isNotLowercase() | isNumber() | isNotNumber() | isSpace() | isNotSpace()
 end

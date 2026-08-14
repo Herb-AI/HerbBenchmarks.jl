@@ -1,6 +1,7 @@
-grammar = @cfgrammar begin
-    Start = Grid
-    InputGrid = _arg_1
+grammar_arc = @cfgrammar begin
+    Start = (state = Grid; returnState(state))
+    InputGrid = initState(_arg_1)
+    Return = returnState(state)
 
     Color = |(0:9)
     Pos = |(1:30)

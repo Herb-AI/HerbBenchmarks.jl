@@ -1,18 +1,20 @@
 module String_transformations_2020
-
 using HerbCore
-using HerbData
+using HerbSpecification
 using HerbGrammar
+using HerbInterpret
 
+using RuntimeGeneratedFunctions
+RuntimeGeneratedFunctions.init(@__MODULE__)
+
+include("string_primitives.jl")
 include("data.jl")
 include("grammar.jl")
-include("string_primitives.jl")
 
-export 
-    parseline_string_transformations,
-    all_problems
+interpret = make_stateful_interpreter(grammar_string; target_module=String_transformations_2020, cache_module=String_transformations_2020)
 
-all_problems = [String_transformations_2020.eval(var) for var in filter(v -> startswith(string(v), "problem_"), names(String_transformations_2020; all=true))]
+export
+    parseline_string_transformations
 
 """
     parseline_strings(line::AbstractString)::IOExample

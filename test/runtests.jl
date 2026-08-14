@@ -1,7 +1,5 @@
-using HerbCore
-using HerbData
-using Test
+using ReTestItems
+using HerbBenchmarks
 
-@testset "HerbBenchmarks.jl" verbose=true begin
-    include("test_datasets.jl")
-end
+runtests(HerbBenchmarks; failfast=true)
+

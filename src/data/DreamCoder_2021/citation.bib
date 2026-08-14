@@ -1,13 +1,42 @@
-@article{ellis2023dreamcoder,
-  title={DreamCoder: growing generalizable, interpretable knowledge with wake--sleep Bayesian program learning},
-  author={Ellis, Kevin and Wong, Lionel and Nye, Maxwell and Sable-Meyer, Mathias and Cary, Luc and Anaya Pozo, Lore and Hewitt, Luke and Solar-Lezama, Armando and Tenenbaum, Joshua B},
-  journal={Philosophical Transactions of the Royal Society A},
-  volume={381},
-  number={2251},
-  pages={20220050},
-  year={2023},
-  publisher={The Royal Society},
-  howpublished = {\url{https://github.com/ellisk42/ec}},
-  commit = {cb0e63f5c33cd2de360b791038b0f5272750270e}
+% DreamCoder appeared first as an arXiv preprint and later, revised, in
+% Philosophical Transactions of the Royal Society A. This port follows the
+% 2020 preprint -- its domain descriptions and task counts are the ones the
+% sub-benchmarks here reproduce -- but the journal version is the one to cite
+% for the work itself. The author lists differ slightly between the two.
+
+@article{ellis2020dreamcoder,
+  title     = {DreamCoder: Growing generalizable, interpretable knowledge with
+               wake-sleep {B}ayesian program learning},
+  author    = {Ellis, Kevin and Wong, Catherine and Nye, Maxwell and
+               Sabl{\'e}-Meyer, Mathias and Cary, Luc and Morales, Lucas and
+               Hewitt, Luke and Solar-Lezama, Armando and Tenenbaum, Joshua B.},
+  journal   = {arXiv preprint arXiv:2006.08381},
+  year      = {2020},
+  doi       = {10.48550/arXiv.2006.08381},
+  url       = {https://arxiv.org/abs/2006.08381}
 }
 
+@article{ellis2023dreamcoder,
+  title     = {DreamCoder: growing generalizable, interpretable knowledge with
+               wake--sleep {B}ayesian program learning},
+  author    = {Ellis, Kevin and Wong, Lionel and Nye, Maxwell and
+               Sable-Meyer, Mathias and Cary, Luc and Anaya Pozo, Lore and
+               Hewitt, Luke and Solar-Lezama, Armando and Tenenbaum, Joshua B.},
+  journal   = {Philosophical Transactions of the Royal Society A},
+  volume    = {381},
+  number    = {2251},
+  pages     = {20220050},
+  year      = {2023},
+  publisher = {The Royal Society},
+  doi       = {10.1098/rsta.2022.0050}
+}
+
+% The reference implementation the tasks, primitives and rendering semantics
+% were ported from.
+@misc{ellis2021ec,
+  title        = {ec: the {DreamCoder} reference implementation},
+  author       = {Ellis, Kevin and others},
+  howpublished = {\url{https://github.com/ellisk42/ec}},
+  note         = {Commit cb0e63f5c33cd2de360b791038b0f5272750270e},
+  year         = {2021}
+}
