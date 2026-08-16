@@ -1,14 +1,14 @@
 @testitem "General tests on all submodules" begin
     import HerbCore: AbstractGrammar
     import HerbSpecification
-    import HerbBenchmarks: Abstract_Reasoning_2019, DeepCoder_2016,
+    import HerbBenchmarks: ARC_AGI1, DeepCoder_2016,
         Pixels_2020, Robots_2020, String_transformations_2020,
         PBE_BV_Track_2018, PBE_SLIA_Track_2019
 
     input_rules(grammar::AbstractGrammar) =
         findall(rule -> occursin("_arg_", string(rule)), grammar.rules)
     modules = [
-        Abstract_Reasoning_2019,
+        ARC_AGI1,
         DeepCoder_2016,
         Pixels_2020,
         Robots_2020,
