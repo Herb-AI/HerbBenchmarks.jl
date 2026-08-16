@@ -4,9 +4,6 @@ using HerbSpecification
 using HerbGrammar
 using HerbInterpret
 
-using RuntimeGeneratedFunctions
-RuntimeGeneratedFunctions.init(@__MODULE__)
-
 include("data.jl")
 include("grammars.jl")
 
