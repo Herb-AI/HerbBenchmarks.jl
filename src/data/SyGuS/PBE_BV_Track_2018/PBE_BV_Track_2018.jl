@@ -12,6 +12,8 @@ include("grammars.jl")
 
 include("bit_functions.jl")
 
+include("Hackers_Delight/Hackers_Delight.jl")
+
 function make_bv_interpreter(g)
     return make_interpreter(g; target_module=PBE_BV_Track_2018, cache_module=PBE_BV_Track_2018)
 end

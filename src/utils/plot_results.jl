@@ -1,0 +1,110 @@
+function problems_solved_over_time(datas::Vector{DataFrame}; label=r->r.iterator, kwargs...)
+    problems_solved_over_time(vcat(datas...); label=label, kwargs...)
+end
+
+function problems_solved_over_time(data::DataFrame; label=r->r.iterator, kwargs...)
+    # Ensure that dataframe has column "results"
+    @assert "results" in names(data)
+
+    # Find the longest execution time for any solved problem to scale the graph
+    longest_execution_time = maximum(
+        maximum(df.execution_time_sec[df.solved])
+        for df in data.results
+        if any(df.solved)
+    )
+
+    xlims = get!(Dict(kwargs), :xlims, (1e-5, longest_execution_time * 1.1))
+
+    # Init empty plot
+    p = plot(;
+        xlabel = "Execution time (s)",
+        ylabel = "Problems solved",
+        xlims = xlims,
+        kwargs...,
+    )
+
+    for row in eachrow(data)
+        # Assert that each results dataframe has columns "solved" and "execution_time_sec"
+        @assert "solved" in names(row.results)
+        @assert "execution_time_sec" in names(row.results)
+
+        # Data process pipeline:
+        row.results |>
+            # Sort on execution time
+            @orderby(_.execution_time_sec) |>
+
+            # Take the cummulative sum 
+            DataFrame |>
+                (df -> DataFrame(
+                    cumulative_solved = [0; cumsum(df.solved)...; maximum(cumsum(df.solved))],
+                    execution_time_sec = [xlims[1]; df.execution_time_sec...; xlims[2]]
+                )) |>
+
+            # Add to plot
+            @df plot!(p,
+                :execution_time_sec, 
+                :cumulative_solved, 
+                seriestype = :steppost,
+                label=label(row),
+            )
+    end
+
+    # Return plot
+    return p
+end
+
+
+function problems_solved_over_enumerations(datas::Vector{DataFrame}; label=r->r.iterator, kwargs...)
+    problems_solved_over_enumerations(vcat(datas...); label=label, kwargs...)
+end
+
+function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator, kwargs...)
+    # Ensure that dataframe has column "results"
+    @assert "results" in names(data)
+
+    # Find the maximum amount of enumerations for any solved problem to scale the graph
+    maximum_enumerations = maximum(
+        maximum(df.programs_enumerated[df.solved])
+        for df in data.results
+        if any(df.solved)
+    )
+
+    xlims = get!(Dict(kwargs), :xlims, (1e-5, maximum_enumerations * 1.1))
+
+    # Init empty plot
+    p = plot(;
+        xlabel = "Programs enumerated",
+        ylabel = "Problems solved",
+        xlims = xlims,
+        kwargs...
+    )
+
+    for row in eachrow(data)
+        # Assert that each results dataframe has columns "solved" and "execution_time_sec"
+        @assert "solved" in names(row.results)
+        @assert "programs_enumerated" in names(row.results)
+
+        # Data process pipeline:
+        row.results |>
+            # Sort on execution time
+            @orderby(_.programs_enumerated) |>
+
+            # Take the cummulative sum 
+            DataFrame |>
+                (df -> DataFrame(
+                    cumulative_solved = [0; cumsum(df.solved)...; maximum(cumsum(df.solved))],
+                    programs_enumerated = [xlims[1]; df.programs_enumerated...; xlims[2]]
+                )) |>
+
+            # Add to plot
+            @df plot!(p,
+                :programs_enumerated, 
+                :cumulative_solved, 
+                seriestype = :steppost,
+                label=label(row),
+            )
+    end
+
+    # Return plot
+    return p
+end
