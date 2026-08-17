@@ -4,6 +4,7 @@
     import HerbBenchmarks: ARC_AGI1, DeepCoder_2016,
         Pixels_2020, Robots_2020, String_transformations_2020,
         PBE_BV_Track_2018, PBE_SLIA_Track_2019
+    import HerbBenchmarks.PBE_BV_Track_2018: Hackers_Delight
 
     input_rules(grammar::AbstractGrammar) =
         findall(rule -> occursin("_arg_", string(rule)), grammar.rules)
@@ -14,6 +15,7 @@
         Robots_2020,
         String_transformations_2020,
         PBE_BV_Track_2018,
+        Hackers_Delight,
         PBE_SLIA_Track_2019
     ]
     @testset "Module $mod" for mod in modules
