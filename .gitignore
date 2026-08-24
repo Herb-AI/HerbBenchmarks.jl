@@ -25,3 +25,6 @@ Manifest.toml
 
 # Ignore large data files
 *_large.jl
+
+# Cached downloads for the benchmark data generators
+src/data/*/scripts/cache/

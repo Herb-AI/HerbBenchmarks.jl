@@ -12,6 +12,8 @@ include("utils/docstrings.jl")
 
 include("utils/SExpressionParser.jl")
 
+include("utils/voxel_render.jl")
+
 include("utils/benchmarks_io.jl")
 include("utils/problem_fetcher.jl")
 
@@ -21,6 +23,8 @@ include("datatypes/benchmark.jl")
 
 include("data/Abstract_Reasoning_2019/Abstract_Reasoning_2019.jl")
 include("data/DeepCoder_2016/DeepCoder_2016.jl")
+include("data/MineRL_2019/MineRL_2019.jl")
+include("data/Minecraft_Houses_2019/Minecraft_Houses_2019.jl")
 include("data/Pixels_2020/Pixels_2020.jl")
 include("data/Robots_2020/Robots_2020.jl")
 include("data/String_transformations_2020/String_transformations_2020.jl")
@@ -28,6 +32,9 @@ include("data/SyGuS/PBE_BV_Track_2018/PBE_BV_Track_2018.jl")
 include("data/SyGuS/PBE_SLIA_Track_2019/PBE_SLIA_Track_2019.jl")
 
 export
+    # Rendering
+    VoxelRender,
+
     # Data types
     ProblemGrammarPair,
     Benchmark,

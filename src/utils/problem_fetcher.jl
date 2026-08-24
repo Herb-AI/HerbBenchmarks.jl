@@ -1,6 +1,8 @@
 function get_all_benchmarks()::Vector{Benchmark}
     # Map all benchmark modules to the benchmark datastructure and return
-    modules = [Abstract_Reasoning_2019, Pixels_2020, Robots_2020, String_transformations_2020, PBE_BV_Track_2018, PBE_SLIA_Track_2019, DeepCoder_2016]
+    modules = [Abstract_Reasoning_2019, Pixels_2020, Robots_2020, String_transformations_2020,
+        PBE_BV_Track_2018, PBE_SLIA_Track_2019, DeepCoder_2016,
+        MineRL_2019, Minecraft_Houses_2019]
     return [get_benchmark(m) for m in modules]
 end
 

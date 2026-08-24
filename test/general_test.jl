@@ -2,6 +2,7 @@
     import HerbCore: AbstractGrammar
     import HerbSpecification
     import HerbBenchmarks: Abstract_Reasoning_2019, DeepCoder_2016,
+        MineRL_2019, Minecraft_Houses_2019,
         Pixels_2020, Robots_2020, String_transformations_2020,
         PBE_BV_Track_2018, PBE_SLIA_Track_2019
 
@@ -10,6 +11,8 @@
     modules = [
         Abstract_Reasoning_2019,
         DeepCoder_2016,
+        MineRL_2019,
+        Minecraft_Houses_2019,
         Pixels_2020,
         Robots_2020,
         String_transformations_2020,
