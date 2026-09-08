@@ -2,7 +2,7 @@ using MLStyle
 
 @inline function drop(xs::AbstractArray, n::Int)
     if n >= length(xs)
-        return []
+        return Int[]
     else
         return xs[n+1:end]
     end
