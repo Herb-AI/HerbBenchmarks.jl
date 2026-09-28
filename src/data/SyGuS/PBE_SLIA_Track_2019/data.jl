@@ -308,7 +308,7 @@ problem_most_frequently_occurring_text = Problem("problem_most_frequently_occurr
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "blue", :_arg_3 => "red", :_arg_2 => "red"), "red"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "firm", :_arg_3 => "soft", :_arg_2 => "firm"), "firm"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "soft", :_arg_3 => "soft", :_arg_2 => "soft"), "soft")])
-problem_phone_5_short = Problem("problem_phone_5_short", [
+problem_phone_5_short_euphony = Problem("problem_phone_5_short_euphony", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+106 769-858-438"), "106"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+83 973-757-831"), "83"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+62 647-787-775"), "62"), 
@@ -316,7 +316,7 @@ problem_phone_5_short = Problem("problem_phone_5_short", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+72 001-050-856"), "72"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+95 310-537-401"), "95"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+6 775-969-238"), "6")])
-problem_phone_6_short = Problem("problem_phone_6_short", [
+problem_phone_6_short_euphony = Problem("problem_phone_6_short_euphony", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+106 769-858-438"), "769"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+83 973-757-831"), "973"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+62 647-787-775"), "647"), 
@@ -324,7 +324,7 @@ problem_phone_6_short = Problem("problem_phone_6_short", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+72 001-050-856"), "001"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+95 310-537-401"), "310"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+6 775-969-238"), "775")])
-problem_phone_7_short = Problem("problem_phone_7_short", [
+problem_phone_7_short_euphony = Problem("problem_phone_7_short_euphony", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+106 769-858-438"), "858"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+83 973-757-831"), "757"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+62 647-787-775"), "787"), 
@@ -332,7 +332,7 @@ problem_phone_7_short = Problem("problem_phone_7_short", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+72 001-050-856"), "050"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+95 310-537-401"), "537"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+6 775-969-238"), "969")])
-problem_phone_9_short = Problem("problem_phone_9_short", [
+problem_phone_9_short_euphony = Problem("problem_phone_9_short_euphony", [
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+106 769-858-438"), "106.769.858.438"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+83 973-757-831"), "83.973.757.831"), 
 	IOExample(Dict{Symbol, Any}(:_arg_1 => "+62 647-787-775"), "62.647.787.775"), 
