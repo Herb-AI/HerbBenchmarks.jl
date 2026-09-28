@@ -51,7 +51,9 @@ end
 function isNotUppercase(state)
     !isUppercase(state)
 end
-isLowercase(state) = state.pointer <= length(state.str) && islowercase(state.str[state.pointer])
+function isLowercase(state) 
+    state.pointer <= length(state.str) && islowercase(state.str[state.pointer])
+end
 function isNotLowercase(state)
     !isLowercase(state)
 end
