@@ -150,16 +150,16 @@ record the result (Apple M5, julia 1.12.6). Summary first, diagnosis and fixes b
 
 | benchmark | before (progs/s @ d5 / d15) | after | speed-up @ d5 / d15 |
 |---|---|---|---|
-| DeepCoder_2016 | 164650 / 41090 | 609911 / 202621 | 3.7x / 4.9x |
-| PBE_BV_Track_2018 | 268374 / 68808 | 1319696 / 422074 | 4.9x / 6.1x |
-| PBE_SLIA_Track_2019 | 186696 / 114406 | 662191 / 476537 | 3.6x / 4.2x |
-| Robots_2020 | 244083 / 409 | 1573356 / 5809 | 6.5x / 14.2x |
-| Pixels_2020 | 227465 / 422 | 1366380 / 9116 | 6.0x / 21.6x |
-| String_transformations_2020 | 203100 / 637 | 992255 / 5797 | 4.9x / 9.1x |
+| DeepCoder_2016 | 164650 / 41090 | 648368 / 200348 | 3.9x / 4.9x |
+| PBE_BV_Track_2018 | 268374 / 68808 | 1304233 / 374343 | 4.9x / 5.4x |
+| PBE_SLIA_Track_2019 | 186696 / 114406 | 665115 / 482998 | 3.6x / 4.2x |
+| Robots_2020 | 244083 / 409 | 1769025 / 5995 | 7.3x / 14.7x |
+| Pixels_2020 | 227465 / 422 | 1848030 / 9304 | 8.1x / 22.0x |
+| String_transformations_2020 | 203100 / 637 | 1088514 / 5808 | 5.4x / 9.1x |
 
 All six also now **beat** the `HerbInterpret.interpret` comparison baseline at
 every depth (previously they lost to it almost everywhere) — e.g. PBE_BV runs
-6.0x faster than `interpret` at depth 5, up from 0.9x of it before.
+5.3x faster than `interpret` at depth 5, up from parity (1.0x) before.
 
 ### Diagnosis
 
@@ -227,6 +227,28 @@ grammars before touching `HerbInterpret.jl`:
    example set per depth cell), so the three expression-benchmark targets now
    build their `prepared_inputs` once; the comparison baselines still receive
    raw `IOExample`s, since they have no equivalent fast path.
+5. **Fuse the top-level nonterminal lookup with the call it leads to.** After
+   (1)-(4), `@allocated` on a single top-level `interp(prog, input)` call still
+   showed 128-272 bytes (scaling with the grammar's nonterminal count, zero
+   only for the single-nonterminal benchmarks), despite every *node* being
+   allocation-free. The cause: picking which of `selves`'s members handles
+   `prog` is a `Symbol`-keyed lookup on a `NamedTuple` whose members are
+   distinct concrete callable types; `getfield(selves, nt::Symbol)` with a
+   runtime `nt` does not union-split that result (even though every possible
+   field name and type is known statically), so the selected function gets
+   boxed -- and, measured directly, *calling* a selected-but-still-union-typed
+   function allocates the same whether it was just selected or is an
+   already-selected local reused across several calls, which rules out the
+   obvious fix of hoisting the selection out of a per-example loop. What does
+   work: never let "some nonterminal's function" exist as a value at all --
+   `_dispatch` is one `@generated` function whose every branch both selects
+   *and calls* its own nonterminal's function directly
+   (`selves.Start(selves, prog, input)`, `selves.Sequence(...)`, ...), so every
+   actual function call in the generated code is to one statically-known
+   concrete callable. Measured 1.8-3x fewer bytes per top-level call than
+   selecting once and reusing across 5 example calls, the pattern every call
+   operator now uses (`_dispatch`'s docstring in `HerbInterpret.jl` has the
+   full chain of measurements).
 
 Each step was checked against `@code_warntype` (until `Body::<concrete type>`
 in place of `Body::ANY`), then `HerbInterpret.jl`'s own test suite, then
@@ -254,6 +276,24 @@ allows, and the tree's extra per-level comparison and worse control flow never
 paid back what it saved. Reverted; see `build_dispatch`'s docstring in
 `HerbInterpret.jl` for the specifics, so this doesn't get re-tried blind.
 
+### A note on measuring sub-microsecond changes
+
+Fix (5) above (`_dispatch`) is a few hundred bytes per call on programs that,
+by then, already ran in under a microsecond -- small enough that this
+benchmark's own wall-clock numbers became unreliable evidence for it: one
+`run.jl` pass showed a clear *regression* on the expression benchmarks, with
+`rep±` as high as 377%, far past the ~10% this README already says to distrust.
+Re-running did not resolve it (still up to 243% on a quieter machine moment).
+The fix was confirmed instead with `@allocated` (machine-noise-immune, and the
+basis for the docstring's numbers) and with a same-process `BenchmarkTools`
+comparison -- the old and new dispatch built side by side and run on the
+identical sampled programs in one process, minimum-of-many-samples reported,
+which is what finally showed fix (5) winning or tying on every benchmark
+tested, matching the allocation evidence. The lesson for next time: once a
+change's expected effect is on the order of a few dozen nanoseconds per call,
+`run.jl`'s per-depth wall-clock numbers are the wrong tool to confirm it with;
+`@allocated` and an in-process `BenchmarkTools` comparison are.
+
 ### What's left
 
 **The stateful benchmarks' loop bound, not dispatch, is now their dominant
@@ -271,6 +311,17 @@ fixed, DeepCoder still lose a meaningful fraction of throughput to programs that
 raise (`OverflowError`, `DomainError`, `BoundsError`, ...) when those are
 included rather than filtered out of the measurement. Nothing in this pass
 changed those remaining error sources; see `err%` in each benchmark's table.
+
+**Per-node dispatch cost looks to be near its floor.** PBE_BV_Track_2018 and
+Robots_2020 -- the two benchmarks whose primitives allocate nothing at all
+(bitwise ops on `UInt64`; immutable structs of `Int`s) -- both land at ~16-20
+`ns/node` regardless of depth, with `KiB/prog` near zero (0.12 / ~0.6). The
+other benchmarks' higher `ns/node` tracks their primitives' own allocation
+(new arrays for DeepCoder's filter/map/sort/zipwith, new strings for
+String_transformations' slicing/concatenation, both inherent to what those
+programs actually compute), not interpreter overhead -- changing that would
+mean rewriting the benchmarks' domain primitives, a different task from
+optimizing the interpreter that evaluates them.
 
 ## Not covered
 
