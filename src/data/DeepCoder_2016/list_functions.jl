@@ -1,11 +1,14 @@
 using MLStyle
 
+# `n+1:end` is already empty (and still `eltype(xs)`-typed) once `n >= length(xs)`,
+# so the special case doesn't need its own branch -- and specifically must not
+# return a bare `[]` (`Vector{Any}`), which would make `drop`'s return type
+# `Union{Vector{Any}, typeof(xs[n+1:end])}` and poison every caller's inferred
+# type with it, well beyond this one function (see HerbInterpret.make_interpreter:
+# one generated function per nonterminal only stays concretely typed as long as
+# every primitive it calls is).
 @inline function drop(xs::AbstractArray, n::Int)
-    if n >= length(xs)
-        return []
-    else
-        return xs[n+1:end]
-    end
+    return xs[n+1:end]
 end
 
 @inline function take(xs::AbstractArray, n::Int)

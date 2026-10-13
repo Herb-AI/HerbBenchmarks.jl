@@ -1,6 +1,16 @@
 @testitem "Robots 2020" begin
-    import HerbCore: @rulenode, RuleNode
+    import HerbCore: RuleNode
     import HerbBenchmarks.Robots_2020: RobotState, grammar_robots, interpret
+
+    # The generated interpreter dispatches per nonterminal (see
+    # HerbInterpret.make_stateful_interpreter) and therefore requires children to
+    # actually be of the nonterminal the grammar declares at that position, not
+    # just "some rule that happens to behave the same". A bare Transformation
+    # rule has to be wrapped through the grammar's own alias chain
+    # (Sequence = Operation = Transformation) before it can stand where a
+    # Sequence or Operation is expected.
+    op(rule::Int) = RuleNode(4, [RuleNode(rule)])   # Operation = Transformation
+    seq(rule::Int) = RuleNode(2, [op(rule)])        # Sequence = Operation
 
     test_state_1 = RobotState(0, 1, 1, 1, 1, 5)
     test_state_2 = RobotState(1, 5, 5, 5, 5, 5)
@@ -20,8 +30,8 @@
     prim_notAtBottom = RuleNode(19)
     prim_notAtLeft = RuleNode(20)
     prim_notAtRight = RuleNode(21)
-    prim_if = @rulenode 12{18,9,7} # IF(notAtTop, moveUp, moveDown)
-    prim_while = @rulenode 13{14,6} # WHILE(atTop, moveRight)
+    prim_if = RuleNode(12, [RuleNode(18), seq(9), seq(7)]) # IF(notAtTop, moveUp, moveDown)
+    prim_while = RuleNode(13, [RuleNode(14), seq(6)]) # WHILE(atTop, moveRight)
 
     @testset "Robots_2020" begin
         @testset "Testing robot transformations" begin
@@ -86,7 +96,7 @@
             @test interpret(prim_if, test_state_2) == RobotState(1, 5, 4, 5, 4, 5)
             # Nested program: while not at bottom move down and left
             condition = RuleNode(19)
-            body = RuleNode(3, [RuleNode(7), RuleNode(8)]) # (moveDown; moveLeft)
+            body = RuleNode(3, [op(7), seq(8)]) # (moveDown; moveLeft)
             prog = RuleNode(13, [condition, body])
             @test interpret(prog, test_state_3) == RobotState(0, 1, 5, 1, 1, 5)
             @test interpret(prim_if, test_state_1) == RobotState(0, 1, 2, 1, 1, 5)

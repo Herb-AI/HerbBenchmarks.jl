@@ -1,7 +1,17 @@
 @testitem "String Transformations 2020" begin
     import HerbBenchmarks.String_transformations_2020
     import .String_transformations_2020: StringState, grammar_string
-    import HerbCore: @rulenode, RuleNode
+    import HerbCore: RuleNode
+
+    # The generated interpreter dispatches per nonterminal (see
+    # HerbInterpret.make_stateful_interpreter) and therefore requires children to
+    # actually be of the nonterminal the grammar declares at that position, not
+    # just "some rule that happens to behave the same". A bare Transformation
+    # rule has to be wrapped through the grammar's own alias chain
+    # (Sequence = Operation = Transformation) before it can stand where a
+    # Sequence or Operation is expected.
+    op(rule::Int) = RuleNode(4, [RuleNode(rule)])   # Operation = Transformation
+    seq(rule::Int) = RuleNode(2, [op(rule)])        # Sequence = Operation
 
     test_state_1 = StringState("abc", 1)
     test_state_2 = StringState("abc", 3)
@@ -176,13 +186,14 @@
 
         @testset "Testing WHILE, IF, and nested programs" begin
             # Test while loop terminates correctly (even when condition is always true)
-            prog = RuleNode(12, [RuleNode(14), RuleNode(8)]) # WHILE(notAtEnd, makeUppercase)
+            prog = RuleNode(12, [RuleNode(14), seq(8)]) # WHILE(notAtEnd, makeUppercase)
             @test String_transformations_2020.interpret(prog, test_state_1) ==
                   StringState("Abc", 1)
 
             # Test nested program (IF inside WHILE)
             condition = RuleNode(14) # notAtEnd
-            body = RuleNode(11, [RuleNode(17), RuleNode(3, [RuleNode(8), RuleNode(6)]), RuleNode(10)]) # IF(isLetter, makeUppercase; moveRight, drop)
+            if_node = RuleNode(11, [RuleNode(17), RuleNode(3, [op(8), seq(6)]), seq(10)]) # IF(isLetter, makeUppercase; moveRight, drop)
+            body = RuleNode(2, [RuleNode(5, [if_node])])  # Sequence = Operation = ControlStatement
             prog = RuleNode(12, [condition, body])   # WHILE(notAtEnd, IF(isLetter, makeUppercase; moveRight, drop))
             @test String_transformations_2020.interpret(prog, test_state_10) ==
                   StringState("AODPWDCEB!", 10)

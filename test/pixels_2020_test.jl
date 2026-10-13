@@ -1,6 +1,19 @@
 @testitem "Pixels" begin
     import HerbBenchmarks: Pixels_2020
-    import HerbCore: @rulenode, RuleNode
+    import HerbCore: RuleNode
+
+    # The generated interpreter dispatches per nonterminal (see
+    # HerbInterpret.make_stateful_interpreter) and therefore requires children to
+    # actually be of the nonterminal the grammar declares at that position, not
+    # just "some rule that happens to behave the same". A bare Transformation
+    # rule has to be wrapped through the grammar's own alias chain
+    # (Sequence = Operation = Transformation) before it can stand where a
+    # Sequence or Operation is expected.
+    op(rule::Int) = RuleNode(4, [RuleNode(rule)])   # Operation = Transformation
+    seq(rule::Int) = RuleNode(2, [op(rule)])        # Sequence = Operation
+    # A Sequence executing each of `ops` in turn.
+    sequence(ops::Vector{Int}) = length(ops) == 1 ? seq(ops[1]) :
+        RuleNode(3, [op(ops[1]), sequence(ops[2:end])])
 
     prim_moveRight = RuleNode(6)
     prim_moveLeft = RuleNode(7)
@@ -108,7 +121,7 @@
         @testset "Testing IF, WHILE and nested programs" begin
             # Test IF
             test_state = matrix_filledtop()
-            prog = RuleNode(12, [RuleNode(18), RuleNode(11), RuleNode(10)]) # IF(notAtTop, draw1, draw0)
+            prog = RuleNode(12, [RuleNode(18), seq(11), seq(10)]) # IF(notAtTop, draw1, draw0)
             Pixels_2020.interpret(prog, test_state)
             @test test_state.matrix == Bool[0 1 1; 0 0 0; 0 0 0]
             Pixels_2020.interpret(prim_moveDown, test_state)
@@ -117,15 +130,15 @@
             # Test WHILE
             # Test that while loop terminates correctly (even when condition is always true)
             test_state = emptymatrix()
-            prog = RuleNode(13, [RuleNode(14), RuleNode(11)]) # WHILE(atTop, draw1)
+            prog = RuleNode(13, [RuleNode(14), seq(11)]) # WHILE(atTop, draw1)
             Pixels_2020.interpret(prog, test_state)
             @test test_state.matrix == Bool[1 0 0; 0 0 0; 0 0 0]
-            prog = RuleNode(13, [RuleNode(19), RuleNode(9)]) # WHILE(notAtBottom, moveDown)
+            prog = RuleNode(13, [RuleNode(19), seq(9)]) # WHILE(notAtBottom, moveDown)
             Pixels_2020.interpret(prog, test_state)
             @test test_state.position == (1, 3)
             # Test nested program: turn matrix of all zeros into identity matrix
             test_state = emptymatrix()
-            prog = @rulenode 3{11,3{9,3{6,3{11,3{9,3{6,11}}}}}}
+            prog = sequence([11, 9, 6, 11, 9, 6, 11]) # draw1; moveDown; moveRight (x2); draw1
             Pixels_2020.interpret(prog, test_state)
             @test test_state.matrix == Bool[1 0 0; 0 1 0; 0 0 1]
             @test test_state.position == (3, 3)
