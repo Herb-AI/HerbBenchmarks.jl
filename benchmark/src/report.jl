@@ -220,7 +220,7 @@ function print_target(io::IO, r::TargetResult)
         println(io, "- custom = this benchmark's generated interpreter, same programs")
         println(io, "- v1 = \"custom v1\", the generated interpreter as it stood before the optimization pass this benchmark was built to drive (see README's \"custom v1\" section), same programs")
         println(io)
-        println(io, "| depth | progs | eval us | v1 us | custom us | eval speed-up | v1 speed-up | interpret progs | interpret us | custom us | interpret speed-up |")
+        println(io, "| depth | progs | eval us | v1 us | custom us | interpret progs | interpret us | custom us | eval speed-up | v1 speed-up | interpret speed-up |")
         println(io, "|---|---|---|---|---|---|---|---|---|---|---|")
         for d in r.depths
             c = comparison_stats(d, r.n_examples)
@@ -236,9 +236,10 @@ function print_target(io::IO, r::TargetResult)
             custom_supported_cell = c.custom_us_supported === nothing ? "-" : @sprintf("%.2f", c.custom_us_supported)
             interpret_speedup = (c.interpret_us === nothing || c.custom_us_supported === nothing) ? "-" :
                 @sprintf("%.1fx", c.interpret_us / c.custom_us_supported)
-            println(io, @sprintf("| %d | %d | %s | %s | %s | %s | %s | %d | %s | %s | %s |",
-                d.depth, c.n, eval_cell, v1_cell, custom_cell, eval_speedup, v1_speedup,
-                c.interpret_n, interpret_cell, custom_supported_cell, interpret_speedup))
+            println(io, @sprintf("| %d | %d | %s | %s | %s | %d | %s | %s | %s | %s | %s |",
+                d.depth, c.n, eval_cell, v1_cell, custom_cell,
+                c.interpret_n, interpret_cell, custom_supported_cell,
+                eval_speedup, v1_speedup, interpret_speedup))
         end
         if r.name in STATEFUL_NAMES
             println(io)

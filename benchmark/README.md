@@ -153,16 +153,16 @@ record the result (Apple M5, julia 1.12.6). Summary first, diagnosis and fixes b
 
 | benchmark | before (progs/s @ d5 / d15) | after | speed-up @ d5 / d15 |
 |---|---|---|---|
-| DeepCoder_2016 | 164650 / 41090 | 696872 / 215781 | 4.2x / 5.3x |
-| PBE_BV_Track_2018 | 268374 / 68808 | 1294080 / 444487 | 4.8x / 6.5x |
-| PBE_SLIA_Track_2019 | 186696 / 114406 | 785464 / 505314 | 4.2x / 4.4x |
-| Robots_2020 | 244083 / 409 | 2181421 / 6186 | 8.9x / 15.1x |
-| Pixels_2020 | 227465 / 422 | 2024496 / 9101 | 8.9x / 21.5x |
-| String_transformations_2020 | 203100 / 637 | 1147710 / 5931 | 5.7x / 9.3x |
+| DeepCoder_2016 | 164650 / 41090 | 715564 / 220594 | 4.3x / 5.4x |
+| PBE_BV_Track_2018 | 268374 / 68808 | 1344869 / 433319 | 5.0x / 6.3x |
+| PBE_SLIA_Track_2019 | 186696 / 114406 | 763398 / 501706 | 4.1x / 4.4x |
+| Robots_2020 | 244083 / 409 | 1887207 / 6092 | 7.7x / 14.9x |
+| Pixels_2020 | 227465 / 422 | 2012004 / 9361 | 8.8x / 22.2x |
+| String_transformations_2020 | 203100 / 637 | 1105828 / 5913 | 5.4x / 9.3x |
 
 All six also now **beat** the `HerbInterpret.interpret` comparison baseline at
 every depth (previously they lost to it almost everywhere) — e.g. PBE_BV runs
-5.0x faster than `interpret` at depth 5, up from parity (1.0x) before.
+5.5x faster than `interpret` at depth 5, up from parity (1.0x) before.
 
 (These numbers moved slightly from the previous recording of this table, from
 re-running `run.jl` to add the "custom v1" column below — same code both times,
@@ -365,12 +365,12 @@ Speed-up over v1 at depth 5 / depth 15, from `results/after-optimization.md`:
 
 | benchmark | v1 speed-up @ d5 / d15 |
 |---|---|
-| DeepCoder_2016 | 4.1x / 5.3x |
-| PBE_BV_Track_2018 | 5.0x / 6.6x |
-| PBE_SLIA_Track_2019 | 3.6x / 3.4x |
-| Robots_2020 | 8.5x / 5.9x |
-| Pixels_2020 | 6.6x / 5.8x |
-| String_transformations_2020 | 4.5x / 4.0x |
+| DeepCoder_2016 | 4.3x / 5.6x |
+| PBE_BV_Track_2018 | 5.5x / 6.7x |
+| PBE_SLIA_Track_2019 | 3.7x / 3.5x |
+| Robots_2020 | 7.6x / 5.5x |
+| Pixels_2020 | 6.7x / 5.9x |
+| String_transformations_2020 | 4.2x / 4.0x |
 
 These track the "after vs. before" numbers in the summary table above (same
 code on both sides of the comparison), with one difference worth noting:
