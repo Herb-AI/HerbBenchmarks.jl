@@ -212,9 +212,18 @@ GeneratedBatchedInterpreter(selves::Selves, fallback::Fallback, types::AbstractV
 # See `HerbInterpret._dispatch`'s docstring for why selection and call are
 # fused into one `@generated` function rather than selecting into a local
 # first: the same union-typed-call allocation applies here.
+#
+# `where {Selves,Fallback,Names,N}` names *every* type parameter of
+# `GeneratedBatchedInterpreter`, not just `Selves` (which is all the generator
+# body itself needs): measured, leaving `Fallback`/`Names`/`N` unconstrained
+# (as `HerbInterpret._dispatch`'s analogous method can, since its
+# `GeneratedStatefulInterpreter{Selves}` has no *other* parameters to leave
+# unconstrained) made this function's return type infer as `Any` instead of
+# the small `Union{...}` of each branch's own concrete type -- which is boxed,
+# not free, exactly the allocation this fused-dispatch trick exists to avoid.
 @generated function _dispatch_batched(
-    gi::GeneratedBatchedInterpreter{Selves}, prog::HerbCore.AbstractRuleNode, batched_input,
-) where {Selves}
+    gi::GeneratedBatchedInterpreter{Selves,Fallback,Names,N}, prog::HerbCore.AbstractRuleNode, batched_input,
+) where {Selves,Fallback,Names,N}
     chain = :(error("No matching nonterminal for rule ", HerbCore.get_rule(prog)))
     for name in fieldnames(Selves)
         chain = :(nt === $(QuoteNode(name)) ?
@@ -226,6 +235,9 @@ GeneratedBatchedInterpreter(selves::Selves, fallback::Fallback, types::AbstractV
     end
 end
 
+_one_input(ex::HerbSpecification.IOExample, x::Symbol) = ex.in[x]
+_one_input(ex::AbstractDict{Symbol}, x::Symbol) = ex[x]
+
 """
     _as_batched_namedtuple(examples, ::Val{names}, ::Val{N}) where {names,N}
 
@@ -233,16 +245,33 @@ Converts a `Vector` of `N` examples (each an `IOExample` or
 `AbstractDict{Symbol}`) to the struct-of-arrays `NamedTuple`
 [`build_match_cases_batched`](@ref)'s generated code reads: field `x`'s `k`-th
 entry is example `k`'s value of `x`. Run once per top-level call, exactly like
-`HerbInterpret._as_namedtuple` -- not part of the per-node hot path, so the
-`ntuple`/closure cost this module avoids everywhere else is irrelevant here.
+`HerbInterpret._as_namedtuple`.
+
+`@generated` and fully unrolled (one `_one_input` call per `(name, position)`
+pair written directly into the generated code), rather than the more obvious
+`ntuple(j -> ntuple(k -> ..., N), length(names))`: measured, that nested
+`ntuple`-of-closures allocated a fixed ~100-200 bytes *every top-level call*
+regardless of program size, even with both lengths passed as `Val`s -- for a
+shallow program (a few thousand bytes total), that is a substantial, pure-
+overhead fraction of the whole call's cost. Unrolling at generation time (this
+runs once per distinct `(names, N)`, not once per call) removes the closures
+entirely, the same fix used for every per-node `ntuple` in this module.
+
+(A further idea -- precomputing, once here, the `N` ordinary per-position
+`NamedTuple`s a delegated/ternary node needs, instead of reconstructing them
+at every delegate site reached -- was tried and measured *worse*: most
+sampled programs hit zero or one such node, so paying the precompute
+unconditionally on every call lost to paying reconstruction lazily, only when
+a delegate site is actually reached. Reconstruction stays lazy, in
+[`build_match_cases_batched`](@ref)'s `pending` loop.)
 """
-function _as_batched_namedtuple(examples::AbstractVector, ::Val{names}, ::Val{N}) where {names,N}
-    length(examples) == N ||
-        error("this batched interpreter was built for $N examples, got $(length(examples))")
-    _one(ex::HerbSpecification.IOExample, x) = ex.in[x]
-    _one(ex::AbstractDict{Symbol}, x) = ex[x]
-    cols = ntuple(j -> ntuple(k -> _one(examples[k], names[j]), N), length(names))
-    return NamedTuple{names}(cols)
+@generated function _as_batched_namedtuple(examples::AbstractVector, ::Val{names}, ::Val{N}) where {names,N}
+    cols = [Expr(:tuple, (:(_one_input(examples[$k], $(QuoteNode(nm)))) for k in 1:N)...) for nm in names]
+    return quote
+        length(examples) == $N ||
+            error("this batched interpreter was built for $N examples, got $(length(examples))")
+        NamedTuple{$(QuoteNode(names))}(($(cols...),))
+    end
 end
 
 function (gi::GeneratedBatchedInterpreter{Selves,Fallback,Names,N})(
@@ -328,11 +357,25 @@ a short-circuit correctness problem). Any `ControlStatement` rule (`IF` or
 itself -- `fallback`'s call convention already looks up which nonterminal
 `prog` belongs to, so no special per-rule handling is needed beyond detecting
 that this rule *is* one.
+
+`state_type` is asserted (`fallback(...)::state_type`) on every delegated
+call: `fallback`'s own call signature handles *any* nonterminal generically,
+so without this its inferred return type is the union of everything it could
+possibly return (here, `Union{Bool,state_type}`, since `Condition` rules
+return `Bool`) -- even though a `ControlStatement` rule in particular always
+returns `state_type`. Measured directly, that undeclared union was enough to
+make the *whole* dispatch cascade's return type infer as `Any` rather than
+the small, union-split-friendly `Union{NTuple{N,Bool},NTuple{N,state_type}}`
+it should be, which cost a real, measurable allocation at every single node,
+not just at `ControlStatement` ones -- the same class of problem `HerbCore`'s
+`AbstractRuleNode` children already need a `::RuleNode` assertion for (see
+`_child`'s docstring), just one level further out.
 """
 function build_match_cases_stateful_batched(
     grammar::AbstractGrammar,
     N::Int;
     target_module::Module = @__MODULE__,
+    state_type::Type = Any,
 )
     by_type = Dict{Symbol,Vector{Pair{Int,Any}}}()
 
@@ -349,7 +392,7 @@ function build_match_cases_stateful_batched(
         rhs_code = nothing
 
         if is_control(rhs_rule)
-            rhs_code = Expr(:tuple, [:( fallback(prog, batched_state[$k]) ) for k in 1:N]...)
+            rhs_code = Expr(:tuple, [:( fallback(prog, batched_state[$k])::$(state_type) ) for k in 1:N]...)
 
         elseif rhs_rule isa Expr && rhs_rule.head == :block
             a, b = rhs_rule.args[1], rhs_rule.args[2]
@@ -414,9 +457,12 @@ struct GeneratedBatchedStatefulInterpreter{Selves,Fallback,N}
     types::Vector{Union{Nothing,Symbol}}
 end
 
+# See the expression-grammar `_dispatch_batched`'s comment just above its own
+# definition for why every type parameter of `GeneratedBatchedStatefulInterpreter`
+# is named here, not just `Selves`.
 @generated function _dispatch_batched(
-    gi::GeneratedBatchedStatefulInterpreter{Selves}, prog::HerbCore.AbstractRuleNode, batched_state,
-) where {Selves}
+    gi::GeneratedBatchedStatefulInterpreter{Selves,Fallback,N}, prog::HerbCore.AbstractRuleNode, batched_state,
+) where {Selves,Fallback,N}
     chain = :(error("No matching nonterminal for rule ", HerbCore.get_rule(prog)))
     for name in fieldnames(Selves)
         chain = :(nt === $(QuoteNode(name)) ?
@@ -428,12 +474,19 @@ end
     end
 end
 
+@generated function _as_batched_states(states::AbstractVector, ::Val{N}) where {N}
+    elems = [:( states[$k] ) for k in 1:N]
+    return quote
+        length(states) == $N ||
+            error("this batched interpreter was built for $N states, got $(length(states))")
+        ($(elems...),)
+    end
+end
+
 function (gi::GeneratedBatchedStatefulInterpreter{Selves,Fallback,N})(
     prog::HerbCore.AbstractRuleNode, states::AbstractVector,
 ) where {Selves,Fallback,N}
-    length(states) == N ||
-        error("this batched interpreter was built for $N states, got $(length(states))")
-    batched_state = ntuple(k -> states[k], N)
+    batched_state = _as_batched_states(states, Val(N))
     return collect(_dispatch_batched(gi, prog, batched_state))
 end
 
@@ -444,15 +497,23 @@ The state-threading analogue of [`make_batched_interpreter`](@ref); see that
 function and [`build_match_cases_stateful_batched`](@ref). `fallback` must be
 an already-built `HerbInterpret.GeneratedStatefulInterpreter` for this same
 grammar, used once per example for any `IF`/`WHILE` rule.
+
+`state_type`, if given, is the concrete state type (e.g. `RobotState`) --
+see [`build_match_cases_stateful_batched`](@ref)'s docstring for why passing
+it matters, not just documents intent. There is no way to recover it from
+`grammar` or `fallback` (neither carries it as a type parameter), so the
+caller -- which already has a concrete state value in hand -- must supply it.
 """
 function make_batched_stateful_interpreter(grammar::AbstractGrammar, fallback;
     n_examples::Int,
     target_module::Module = @__MODULE__,
     cache_module::Module = @__MODULE__,
+    state_type::Type = Any,
 )
     RuntimeGeneratedFunctions.init(cache_module)
 
-    by_type = build_match_cases_stateful_batched(grammar, n_examples; target_module = target_module)
+    by_type = build_match_cases_stateful_batched(grammar, n_examples;
+        target_module = target_module, state_type = state_type)
     nonterminals = Tuple(sort!(collect(keys(by_type))))
 
     cores = map(nonterminals) do nt

@@ -396,6 +396,7 @@ end
 
 function target_robots(; n_examples::Int = 5)
     g = Robots_2020.grammar_robots
+    states = collect_states(Robots_2020, :_arg_1_, n_examples)
     return BenchTarget(
         "Robots_2020",
         Robots_2020,
@@ -405,9 +406,9 @@ function target_robots(; n_examples::Int = 5)
         Robots_2020.interpret,
         HerbInterpretV1.make_stateful_interpreter(g; target_module=Robots_2020),
         HerbInterpretBatched.make_batched_stateful_interpreter(g, Robots_2020.interpret;
-            n_examples=n_examples, target_module=Robots_2020),
+            n_examples=n_examples, target_module=Robots_2020, state_type=eltype(states)),
         nothing,  # one interpreter is generated at module load for all problems
-        collect_states(Robots_2020, :_arg_1_, n_examples),
+        states,
         nothing,  # no Dict/IOExample conversion for stateful interpreters
         false,
         loop_rules(g),
@@ -419,6 +420,7 @@ end
 
 function target_pixels(; n_examples::Int = 5)
     g = Pixels_2020.grammar_pixels
+    states = collect_states(Pixels_2020, :_arg_1, n_examples)
     return BenchTarget(
         "Pixels_2020",
         Pixels_2020,
@@ -428,9 +430,9 @@ function target_pixels(; n_examples::Int = 5)
         Pixels_2020.interpret,
         HerbInterpretV1.make_stateful_interpreter(g; target_module=Pixels_2020),
         HerbInterpretBatched.make_batched_stateful_interpreter(g, Pixels_2020.interpret;
-            n_examples=n_examples, target_module=Pixels_2020),
+            n_examples=n_examples, target_module=Pixels_2020, state_type=eltype(states)),
         nothing,  # one interpreter is generated at module load for all problems
-        collect_states(Pixels_2020, :_arg_1, n_examples),
+        states,
         nothing,  # no Dict/IOExample conversion for stateful interpreters
         true,  # PixelState is mutable and the primitives mutate it in place
         loop_rules(g),
@@ -442,6 +444,7 @@ end
 
 function target_strings(; n_examples::Int = 5)
     g = String_transformations_2020.grammar_string
+    states = collect_states(String_transformations_2020, :_arg_1, n_examples)
     return BenchTarget(
         "String_transformations_2020",
         String_transformations_2020,
@@ -451,9 +454,9 @@ function target_strings(; n_examples::Int = 5)
         String_transformations_2020.interpret,
         HerbInterpretV1.make_stateful_interpreter(g; target_module=String_transformations_2020),
         HerbInterpretBatched.make_batched_stateful_interpreter(g, String_transformations_2020.interpret;
-            n_examples=n_examples, target_module=String_transformations_2020),
+            n_examples=n_examples, target_module=String_transformations_2020, state_type=eltype(states)),
         nothing,  # one interpreter is generated at module load for all problems
-        collect_states(String_transformations_2020, :_arg_1, n_examples),
+        states,
         nothing,  # no Dict/IOExample conversion for stateful interpreters
         false,
         loop_rules(g),

@@ -155,21 +155,24 @@ record the result (Apple M5, julia 1.12.6). Summary first, diagnosis and fixes b
 
 | benchmark | before (progs/s @ d5 / d15) | after | speed-up @ d5 / d15 |
 |---|---|---|---|
-| DeepCoder_2016 | 164650 / 41090 | 721622 / 216000 | 4.4x / 5.3x |
-| PBE_BV_Track_2018 | 268374 / 68808 | 1373532 / 434436 | 5.1x / 6.3x |
-| PBE_SLIA_Track_2019 | 186696 / 114406 | 750657 / 492777 | 4.0x / 4.3x |
-| Robots_2020 | 244083 / 409 | 2044500 / 6094 | 8.4x / 14.9x |
-| Pixels_2020 | 227465 / 422 | 1982030 / 9292 | 8.7x / 22.0x |
-| String_transformations_2020 | 203100 / 637 | 1144057 / 5773 | 5.6x / 9.1x |
+| DeepCoder_2016 | 164650 / 41090 | 554477 / 204479 | 3.4x / 5.0x |
+| PBE_BV_Track_2018 | 268374 / 68808 | 1309158 / 399659 | 4.9x / 5.8x |
+| PBE_SLIA_Track_2019 | 186696 / 114406 | 759465 / 482234 | 4.1x / 4.2x |
+| Robots_2020 | 244083 / 409 | 2039914 / 6120 | 8.4x / 15.0x |
+| Pixels_2020 | 227465 / 422 | 1956881 / 9416 | 8.6x / 22.3x |
+| String_transformations_2020 | 203100 / 637 | 1150064 / 5899 | 5.7x / 9.3x |
 
 All six also now **beat** the `HerbInterpret.interpret` comparison baseline at
 every depth (previously they lost to it almost everywhere) — e.g. PBE_BV runs
-5.4x faster than `interpret` at depth 5, up from parity (1.0x) before.
+5.5x faster than `interpret` at depth 5, up from parity (1.0x) before.
 
-(These numbers moved slightly from the previous recording of this table, from
-re-running `run.jl` to add the "custom v1"/"custom v2" columns below — same
-code both times, run-to-run noise only; `rep±` in `results/after-optimization.md`
-stays under the ~10%-is-noisy threshold almost everywhere.)
+(These numbers moved more than usual from the previous recording of this
+table, from re-running `run.jl` to add the "custom v2 (batched)" fixes below —
+same `interpret`/`v1_interpret` code both times, so this is run-to-run noise,
+not a regression; DeepCoder_2016's `rep±` was 25.4% on this run, well past the
+~10%-is-noisy threshold this README already names, confirming it. See the
+"custom v2 (batched)" section's own table for same-process `BenchmarkTools`
+numbers, which do not have this problem.)
 
 ### Diagnosis
 
@@ -367,12 +370,12 @@ Speed-up over v1 at depth 5 / depth 15, from `results/after-optimization.md`:
 
 | benchmark | v1 speed-up @ d5 / d15 |
 |---|---|
-| DeepCoder_2016 | 4.7x / 5.6x |
-| PBE_BV_Track_2018 | 5.4x / 6.3x |
+| DeepCoder_2016 | 3.5x / 5.1x |
+| PBE_BV_Track_2018 | 5.2x / 5.9x |
 | PBE_SLIA_Track_2019 | 3.5x / 3.3x |
-| Robots_2020 | 7.7x / 5.9x |
-| Pixels_2020 | 6.6x / 6.0x |
-| String_transformations_2020 | 4.4x / 4.0x |
+| Robots_2020 | 7.7x / 5.4x |
+| Pixels_2020 | 6.0x / 5.9x |
+| String_transformations_2020 | 4.4x / 3.8x |
 
 These track the "after vs. before" numbers in the summary table above (same
 code on both sides of the comparison), with one difference worth noting:
@@ -459,16 +462,75 @@ checks "custom v2 (batched)" agrees with the current interpreter on every
 sampled program across all six benchmarks, including through this fallback
 path, with no unsupported case.
 
-### Results: a real win for cheap, dispatch-bound primitives; not for the rest
+### Two more allocations found after the first measurement, both fixed
+
+The first working version of this design still allocated noticeably more than
+the scalar interpreter on every call, for two separate reasons -- worth
+recording since both are instances of patterns already seen (and fixed) in
+`HerbInterpret.jl` itself, not new ones:
+
+1. **Converting raw examples/states to the batched representation used
+   `ntuple(k -> ..., N)`, the same closure-allocates-when-not-fully-inlined
+   trap documented above**, just one level up (once per top-level call,
+   building `batched_input`/`batched_state` itself, rather than once per
+   node). Measured, this cost a fixed ~100-800 bytes on *every* call
+   regardless of program size -- for a shallow, cheap program (a few thousand
+   bytes total), a large fraction of the whole cost. Fixed the same way:
+   `@generated` functions ([`_as_batched_namedtuple`](@ref),
+   [`_as_batched_states`](@ref)) that write out `N` (and, for the
+   struct-of-arrays case, `N * length(names)`) literal element accesses
+   instead of calling `ntuple` with a closure.
+2. **The fused-dispatch `@generated` function
+   ([`_dispatch_batched`](@ref)) was parameterized on only part of its own
+   struct's type** (`GeneratedBatchedInterpreter{Selves}` /
+   `GeneratedBatchedStatefulInterpreter{Selves}`, leaving `Fallback`/`Names`/`N`
+   unconstrained) -- valid Julia, and exactly what `HerbInterpret._dispatch`
+   can get away with, since *its* struct has only one type parameter to begin
+   with. For this module's structs, which have more, leaving the rest
+   unconstrained was enough to make the whole dispatch infer as `Any` instead
+   of the small, union-split-friendly `Union{NTuple{N,T1}, NTuple{N,T2}}` it
+   should be -- confirmed with `@code_warntype`, where every individual
+   branch's own call already inferred perfectly concretely, but the
+   surrounding `@generated` function's own `Body` showed `ANY`. Naming every
+   type parameter in `where` fixed it immediately.
+3. **(Stateful grammars only.)** Even after (2), a `ControlStatement` rule's
+   delegated call (`fallback(prog, state)`) still infers as
+   `Union{Bool, StateT}` on its own -- `fallback`'s call signature handles
+   *any* nonterminal generically, so without more information Julia can't
+   know that *this* call, to a node that is always a `ControlStatement`,
+   always returns `StateT` specifically (never the `Bool` a `Condition` node
+   would). Asserting `::state_type` on the delegated call fixed this --
+   exactly the same kind of fix as `HerbCore.get_children`'s `::RuleNode`
+   assertion on child nodes (see `_child`'s docstring), just one layer
+   further out. `state_type` has no way to be recovered from the grammar or
+   from `fallback` (neither carries it as a type parameter), so
+   `make_batched_stateful_interpreter` takes it as an explicit keyword,
+   supplied by the one caller that already has a concrete state value in
+   hand (`targets.jl`, as `eltype(states)`).
+
+   The equivalent fix for the *expression* grammars' delegated (ternary)
+   calls -- asserting the result to that nonterminal's own concrete type --
+   was attempted via reflection (`Base.return_types` on the fallback's own
+   per-nonterminal function) rather than a caller-supplied type, since
+   expression grammars can have several nonterminals with genuinely
+   different types (no single `state_type` to ask for). It did not work:
+   PBE_SLIA's `IOExample`s are `Any`-typed internally (`IOExample{Any,
+   String}`), so the fallback's own per-nonterminal functions are
+   legitimately uninferrable from argument types alone -- not a narrowing
+   failure to fix, but a real consequence of the underlying data's own
+   typing. This is why PBE_SLIA alone, among the three expression
+   benchmarks, still does not benefit from batching (see below).
+
+### Results: a real win for cheap, dispatch-bound primitives; a smaller one, or none, for the rest
 
 | benchmark | v2/custom @ shallow / deep (BenchmarkTools, n=30 programs) |
 |---|---|
-| DeepCoder_2016 | 1.15x / 1.04x (slower) |
-| PBE_BV_Track_2018 | 1.11x / 0.87x (mixed) |
-| PBE_SLIA_Track_2019 | 1.21x / 1.20x (slower) |
-| Robots_2020 | 0.45x / 0.86x (2.2x / 1.2x faster) |
-| Pixels_2020 | 0.57x / 0.85x (1.8x / 1.2x faster) |
-| String_transformations_2020 | 0.61x / 0.83x (1.6x / 1.2x faster) |
+| DeepCoder_2016 | 1.13x / 1.01x (slower / parity) |
+| PBE_BV_Track_2018 | 0.76x / 0.69x (1.3x / 1.5x faster) |
+| PBE_SLIA_Track_2019 | 1.21x / 1.24x (slower) |
+| Robots_2020 | 0.27x / 0.69x (3.7x / 1.5x faster) |
+| Pixels_2020 | 0.43x / 0.73x (2.3x / 1.4x faster) |
+| String_transformations_2020 | 0.50x / 0.70x (2.0x / 1.4x faster) |
 
 (`v2/custom` ratios here, not the main tables' `v2 speed-up` convention, and
 measured with same-process `BenchmarkTools` minimum-of-many-samples on
@@ -479,17 +541,23 @@ effects are on the order of the interpreter's own per-node cost, too small for
 
 The pattern is consistent with the design's actual mechanism: batching only
 removes *dispatch* cost, not the cost of the primitive work itself, so it helps
-exactly where dispatch was already the dominant cost. The three stateful
-benchmarks' primitives are cheap (immutable-struct field reads/writes, no
-allocation -- see "Per-node dispatch cost looks to be near its floor" above),
-so amortizing dispatch across 5 examples is a direct, large win, biggest at
-shallow/loop-free depths where there is no `WHILE` fallback diluting it. The
-three expression benchmarks either do real allocating work per primitive
-(DeepCoder's array operations, PBE_SLIA's string operations) that dispatch
-amortization does not touch, or -- PBE_SLIA specifically -- pay the fallback
-path's overhead (reconstructing a per-example `NamedTuple` from the
-struct-of-arrays one) on every `ntBool ? ... : ...` rule without getting
-dispatch amortization in return, netting out to a small loss.
+exactly where dispatch was already the dominant cost, and exactly as much as
+the fixes above let it (allocation-free dispatch amortization, not allocation
+*hiding* it). The three stateful benchmarks' primitives are cheap
+(immutable-struct field reads/writes, no allocation -- see "Per-node dispatch
+cost looks to be near its floor" above), so amortizing dispatch across 5
+examples is now a direct, large win, biggest at shallow/loop-free depths where
+there is no `WHILE` fallback diluting it (3.7x on Robots at depth 6) and still
+meaningful once loops dominate (1.4-1.5x at depth 10). PBE_BV's primitives are
+equally cheap (bitwise ops on `UInt64`, no allocation, no conditionals to
+delegate at all) and show the same pattern. DeepCoder does real allocating
+work per primitive (array operations: filter/map/sort/zipwith) that dispatch
+amortization does not touch, landing at a small loss shrinking to parity as
+depth (and so node count, over which the fixed per-call conversion cost
+amortizes) grows. PBE_SLIA pays its ternary rules' fallback overhead
+(reconstructing a per-example `NamedTuple` from the struct-of-arrays one, see
+above) without the type-assertion fix that made the stateful delegate path
+free, netting out to the one real, understood loss across all six.
 
 **Conclusion:** batching is a genuine architectural improvement for this
 family of interpreters, but a conditional one, not a universal upgrade over
