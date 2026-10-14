@@ -36,6 +36,10 @@ Derived statistics for one (benchmark, depth) cell:
   split by whether the program contains a bounded loop. This is where the gap
   between `median_us` and `mean_us` comes from: most loops exit immediately, a
   few run their 1000-iteration bound and cost four orders of magnitude more.
+- `v1_median_us`: "custom v1" (the pre-optimization interpreter, see
+  `BenchTarget.v1_interpret`) median per-program time, over the exact same
+  `programs` as `median_us` -- so `v1_speedup = v1_median_us / median_us` is a
+  direct, same-subset comparison, unlike the three-way table below.
 """
 function cell_stats(d::DepthResult, n_examples::Int)
     times = all_times_ns(d)
@@ -44,8 +48,10 @@ function cell_stats(d::DepthResult, n_examples::Int)
     reps = length(d.passes)
     nodes = sum(d.node_counts)
     rep_totals = [Float64(p.total_ns) for p in d.passes]
+    v1_median_us = _pass_median_us(d.v1_passes)
+    median_us = median(times) / 1e3
     return (
-        median_us = median(times) / 1e3,
+        median_us = median_us,
         mean_us = mean(times) / 1e3,
         p95_us = quantile(Float64.(times), 0.95) / 1e3,
         max_us = maximum(times) / 1e3,
@@ -61,6 +67,8 @@ function cell_stats(d::DepthResult, n_examples::Int)
         loop_rate = isempty(d.has_loop) ? 0.0 : count(d.has_loop) / length(d.has_loop),
         loopfree = _subset_stats(d, .!d.has_loop, total),
         loop = _subset_stats(d, d.has_loop, total),
+        v1_median_us = v1_median_us,
+        v1_speedup = v1_median_us === nothing ? nothing : v1_median_us / median_us,
     )
 end
 
@@ -132,7 +140,8 @@ function comparison_stats(d::DepthResult, n_examples::Int)
 end
 
 const HEADER = ("depth", "progs", "nodes", "median us", "mean us", "p95 us",
-    "progs/s", "evals/s", "ns/node", "KiB/prog", "GC%", "rep±", "err%", "loop%")
+    "progs/s", "evals/s", "ns/node", "KiB/prog", "GC%", "rep±", "err%", "loop%",
+    "v1 us", "v1 speed-up")
 
 function print_target(io::IO, r::TargetResult)
     println(io)
@@ -169,12 +178,14 @@ function print_target(io::IO, r::TargetResult)
             println(io, "| ", d.depth, " | _no usable program_ |", repeat(" |", length(HEADER) - 2))
             continue
         end
+        v1_us_cell = s.v1_median_us === nothing ? "-" : @sprintf("%.2f", s.v1_median_us)
+        v1_speedup_cell = s.v1_speedup === nothing ? "-" : @sprintf("%.1fx", s.v1_speedup)
         println(io, @sprintf(
-            "| %d | %d | %.0f | %.2f | %.2f | %.2f | %.0f | %.0f | %.1f | %.2f | %.1f | %.1f%% | %.0f%% | %.0f%% |",
+            "| %d | %d | %.0f | %.2f | %.2f | %.2f | %.0f | %.0f | %.1f | %.2f | %.1f | %.1f%% | %.0f%% | %.0f%% | %s | %s |",
             d.depth, d.n_programs, s.nodes_mean, s.median_us, s.mean_us, s.p95_us,
             s.programs_per_s, s.evals_per_s, s.ns_per_node, s.kib_per_program,
             100 * s.gc_fraction, 100 * s.rep_spread, 100 * s.error_rate,
-            100 * s.loop_rate))
+            100 * s.loop_rate, v1_us_cell, v1_speedup_cell))
     end
 
     if any(d.reachable && any(d.has_loop) for d in r.depths)
@@ -284,6 +295,11 @@ function print_report(io::IO, results::Vector{TargetResult}, cfg::BenchConfig)
     - `loop%` is the share of timed programs containing a `WHILE`. Those dominate
       the mean and `p95`, which is why `median` and `mean` diverge so far on the
       stateful benchmarks.
+    - `v1 us` / `v1 speed-up` is "custom v1" -- the pre-optimization interpreter
+      (see `BenchTarget.v1_interpret`), run on the exact same programs as the
+      main `median us` column, so `v1 speed-up` is a direct same-subset ratio
+      (current custom interpreter's speed relative to v1), not informational
+      like the three-way comparison below.
     - The three-way comparison is informational, not a second verdict on the
       custom interpreter: `eval` pays full compiler latency every call because
       each sampled program is a structurally distinct `Expr` with no method
@@ -324,6 +340,7 @@ function depth_to_dict(d::DepthResult, n_examples::Int)
         "node_counts" => d.node_counts,
         "has_loop" => d.has_loop,
         "passes" => pass_to_dict.(d.passes),
+        "v1_passes" => pass_to_dict.(d.v1_passes),
         "cmp_n_programs" => d.cmp_n_programs,
         "eval_passes" => pass_to_dict.(d.eval_passes),
         "cmp_custom_times_ns" => Int.(d.cmp_custom_times_ns),

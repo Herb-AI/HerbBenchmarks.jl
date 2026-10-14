@@ -49,6 +49,12 @@ Everything needed to measure one benchmark's custom interpreter, plus its two
 - `grammar_id`: which problem's grammar is used, for the record.
 - `grammar`, `start_symbol`: what programs are sampled from.
 - `interpret`: the custom interpreter, called as `interpret(program, inputs)`.
+- `v1_interpret`: the *same* grammar run through `HerbInterpretV1` (a frozen
+  copy of the custom interpreter as it stood before the optimization pass this
+  benchmark was built to drive, see `v1/HerbInterpretV1.jl`), reported as
+  "custom v1". Always present (unlike the other comparison points, it has no
+  not-yet-supported case): it's the same kind of interpreter as `interpret`,
+  just built with older code, so it runs every program `interpret` does.
 - `cold`: how to measure the one-off cost of an interpreter for a fresh grammar,
   or `nothing` for the benchmarks that build a single interpreter at module load
   time and reuse it for every problem.
@@ -89,6 +95,7 @@ struct BenchTarget
     grammar::AbstractGrammar
     start_symbol::Symbol
     interpret::Any
+    v1_interpret::Any
     cold::Union{Nothing,ColdProbe}
     inputs::Any
     prepared_inputs::Any
@@ -268,6 +275,7 @@ function target_deepcoder(; problem_id::String = "000", n_examples::Int = 5,
     pair = get_problem_grammar_pair(DeepCoder_2016, problem_id)
     g = pair.grammar
     interp = DeepCoder_2016.make_deepcoder_interpreter(g)
+    v1_interp = HerbInterpretV1.make_interpreter(g; target_module=DeepCoder_2016)
     examples = take_examples(pair.problem, n_examples)
     cold = ColdProbe(
         other_ids(DeepCoder_2016, problem_id, n_cold),
@@ -284,6 +292,7 @@ function target_deepcoder(; problem_id::String = "000", n_examples::Int = 5,
         g,
         :Start,
         interp,
+        v1_interp,
         cold,
         examples,
         HerbInterpret.prepare_input(interp, examples),
@@ -300,6 +309,7 @@ function target_bv(; problem_id::String = "PRE_100_10", n_examples::Int = 5,
     pair = get_problem_grammar_pair(PBE_BV_Track_2018, problem_id)
     g = pair.grammar
     interp = PBE_BV_Track_2018.make_bv_interpreter(g)
+    v1_interp = HerbInterpretV1.make_interpreter(g; target_module=PBE_BV_Track_2018)
     examples = take_examples(pair.problem, n_examples)
     cold = ColdProbe(
         other_ids(PBE_BV_Track_2018, problem_id, n_cold),
@@ -316,6 +326,7 @@ function target_bv(; problem_id::String = "PRE_100_10", n_examples::Int = 5,
         g,
         :Start,
         interp,
+        v1_interp,
         cold,
         examples,
         HerbInterpret.prepare_input(interp, examples),
@@ -332,6 +343,7 @@ function target_slia(; problem_id::String = "11440431", n_examples::Int = 5,
     pair = get_problem_grammar_pair(PBE_SLIA_Track_2019, problem_id)
     g = pair.grammar
     interp = PBE_SLIA_Track_2019.make_SLIA_interpreter(g)
+    v1_interp = HerbInterpretV1.make_interpreter(g; target_module=PBE_SLIA_Track_2019)
     examples = take_examples(pair.problem, n_examples)
     cold = ColdProbe(
         other_ids(PBE_SLIA_Track_2019, problem_id, n_cold),
@@ -348,6 +360,7 @@ function target_slia(; problem_id::String = "11440431", n_examples::Int = 5,
         g,
         :Start,
         interp,
+        v1_interp,
         cold,
         examples,
         HerbInterpret.prepare_input(interp, examples),
@@ -372,6 +385,7 @@ function target_robots(; n_examples::Int = 5)
         g,
         :Start,
         Robots_2020.interpret,
+        HerbInterpretV1.make_stateful_interpreter(g; target_module=Robots_2020),
         nothing,  # one interpreter is generated at module load for all problems
         collect_states(Robots_2020, :_arg_1_, n_examples),
         nothing,  # no Dict/IOExample conversion for stateful interpreters
@@ -392,6 +406,7 @@ function target_pixels(; n_examples::Int = 5)
         g,
         :Start,
         Pixels_2020.interpret,
+        HerbInterpretV1.make_stateful_interpreter(g; target_module=Pixels_2020),
         nothing,  # one interpreter is generated at module load for all problems
         collect_states(Pixels_2020, :_arg_1, n_examples),
         nothing,  # no Dict/IOExample conversion for stateful interpreters
@@ -412,6 +427,7 @@ function target_strings(; n_examples::Int = 5)
         g,
         :Start,
         String_transformations_2020.interpret,
+        HerbInterpretV1.make_stateful_interpreter(g; target_module=String_transformations_2020),
         nothing,  # one interpreter is generated at module load for all problems
         collect_states(String_transformations_2020, :_arg_1, n_examples),
         nothing,  # no Dict/IOExample conversion for stateful interpreters

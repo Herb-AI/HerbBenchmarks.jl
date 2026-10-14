@@ -12,7 +12,20 @@ interpreters are, on randomly sampled programs of depth 5-15.
 Entry point: [`run_suite`](@ref), driven by [`BenchConfig`](@ref) and reported by
 [`print_report`](@ref). See `benchmark/run.jl` for the command-line interface and
 `benchmark/README.md` for the methodology.
+
+Each target also reports "custom v1": the same grammar run through a frozen
+copy of the custom interpreter as it stood before the optimization pass this
+benchmark was built to drive (see `v1/HerbInterpretV1.jl`), so the overall
+improvement is visible as one more column rather than only in `before-`/
+`after-optimization.json`.
 """
+# Included here, one level above `module InterpreterBenchmarks`, rather than
+# from inside it: RuntimeGeneratedFunctions' generated-function cache lookup
+# fails at call time (UndefVarError on `#_RuntimeGeneratedFunctions_cache`) when
+# `HerbInterpretV1` is nested two modules deep (`InterpreterBenchmarks.HerbInterpretV1`)
+# instead of one (`HerbInterpretV1`, a sibling of `InterpreterBenchmarks`).
+include(joinpath(@__DIR__, "v1", "HerbInterpretV1.jl"))
+
 module InterpreterBenchmarks
 
 using Dates
@@ -34,6 +47,8 @@ import HerbBenchmarks:
     Pixels_2020,
     Robots_2020,
     String_transformations_2020
+
+import ..HerbInterpretV1
 
 include("program_sampler.jl")
 include("stateful_expr.jl")

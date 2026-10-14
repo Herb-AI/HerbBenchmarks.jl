@@ -34,9 +34,10 @@ julia --project=benchmark benchmark/selftest.jl
 ```
 
 checks the harness itself: that sampled programs have exactly the requested
-depth, that the loop-nesting cap holds, that every target's interpreter runs, and
-that the custom interpreter and the baseline agree on every program both can
-evaluate. Run it after changing an interpreter or the sampler.
+depth, that the loop-nesting cap holds, that every target's interpreter runs,
+that the custom interpreter and the baselines (including "custom v1") agree on
+every program both can evaluate. Run it after changing an interpreter or the
+sampler.
 
 Options: `--depths`, `--programs`, `--examples`, `--reps`, `--seed`,
 `--side-slack`, `--max-nodes`, `--nesting-limit`, `--error-policy`, `--targets`,
@@ -59,6 +60,8 @@ Per benchmark and per depth in 5-15:
 | `rep±` | spread between repetitions; above ~10%, treat the cell as noisy |
 | `err%` | share of *sampled* programs that raised an exception |
 | `loop%` | share of timed programs containing a `WHILE` |
+| `v1 us` | "custom v1" — the same programs run through the pre-optimization interpreter (`v1/HerbInterpretV1.jl`), a frozen copy of `make_interpreter`/`make_stateful_interpreter` as they stood before the optimization pass below |
+| `v1 speed-up` | `v1 us / median us` — how much faster the current custom interpreter is than v1, on the same programs |
 
 Plus, per benchmark, the *cold* cost of an interpreter: generating one for a
 grammar the process has not seen yet and running its first program through it.
@@ -150,16 +153,21 @@ record the result (Apple M5, julia 1.12.6). Summary first, diagnosis and fixes b
 
 | benchmark | before (progs/s @ d5 / d15) | after | speed-up @ d5 / d15 |
 |---|---|---|---|
-| DeepCoder_2016 | 164650 / 41090 | 648368 / 200348 | 3.9x / 4.9x |
-| PBE_BV_Track_2018 | 268374 / 68808 | 1304233 / 374343 | 4.9x / 5.4x |
-| PBE_SLIA_Track_2019 | 186696 / 114406 | 665115 / 482998 | 3.6x / 4.2x |
-| Robots_2020 | 244083 / 409 | 1769025 / 5995 | 7.3x / 14.7x |
-| Pixels_2020 | 227465 / 422 | 1848030 / 9304 | 8.1x / 22.0x |
-| String_transformations_2020 | 203100 / 637 | 1088514 / 5808 | 5.4x / 9.1x |
+| DeepCoder_2016 | 164650 / 41090 | 708935 / 224220 | 4.3x / 5.5x |
+| PBE_BV_Track_2018 | 268374 / 68808 | 1380961 / 443305 | 5.1x / 6.4x |
+| PBE_SLIA_Track_2019 | 186696 / 114406 | 768029 / 494356 | 4.1x / 4.3x |
+| Robots_2020 | 244083 / 409 | 2279549 / 6116 | 9.3x / 14.9x |
+| Pixels_2020 | 227465 / 422 | 2046384 / 9419 | 9.0x / 22.3x |
+| String_transformations_2020 | 203100 / 637 | 1170458 / 6042 | 5.8x / 9.5x |
 
 All six also now **beat** the `HerbInterpret.interpret` comparison baseline at
 every depth (previously they lost to it almost everywhere) — e.g. PBE_BV runs
-5.3x faster than `interpret` at depth 5, up from parity (1.0x) before.
+5.6x faster than `interpret` at depth 5, up from parity (1.0x) before.
+
+(These numbers moved slightly from the previous recording of this table, from
+re-running `run.jl` to add the "custom v1" column below — same code both times,
+run-to-run noise only; `rep±` in `results/after-optimization.md` stays under
+the ~10%-is-noisy threshold almost everywhere.)
 
 ### Diagnosis
 
@@ -322,6 +330,49 @@ String_transformations' slicing/concatenation, both inherent to what those
 programs actually compute), not interpreter overhead -- changing that would
 mean rewriting the benchmarks' domain primitives, a different task from
 optimizing the interpreter that evaluates them.
+
+## "custom v1": benchmarking the pre-optimization interpreter
+
+Every target above also reports "custom v1": the exact same grammar and
+programs run through `v1/HerbInterpretV1.jl`, a frozen copy of
+`make_interpreter`/`make_stateful_interpreter` as they stood before the
+optimization pass this README documents (commit `b5a6c5c`, the tip of
+`HerbInterpret.jl`'s `master` when that branch started). It is not a dependency
+of anything else and can be deleted along with the `v1 us`/`v1 speed-up`
+columns once the comparison is no longer wanted; `benchmark/selftest.jl` checks
+that it agrees with the current custom interpreter on every sampled program
+(it has no unsupported case, unlike the `interpret`/`eval` baselines).
+
+**Gotcha: `RuntimeGeneratedFunctions` breaks two modules deep.** `HerbInterpretV1`
+is included from `InterpreterBenchmarks.jl`, but *not* from inside
+`module InterpreterBenchmarks` — it is included one level above, so that it
+lands as `Main.HerbInterpretV1` (a sibling of `Main.InterpreterBenchmarks`)
+rather than `Main.InterpreterBenchmarks.HerbInterpretV1`. Nested the second way,
+every call into it raised `UndefVarError: #_RuntimeGeneratedFunctions_cache not
+defined`, even though `RuntimeGeneratedFunctions.init(@__MODULE__)` runs at the
+top of `make_interpret_v1.jl` and the same pattern works one level shallower.
+The real `HerbInterpret.jl` never hits this because it is loaded as a genuine
+package (`using HerbInterpret`), with its own precompilation, not as a plain
+`module` block nested inside another module via `include`.
+
+Speed-up over v1 at depth 5 / depth 15, from `results/after-optimization.md`:
+
+| benchmark | v1 speed-up @ d5 / d15 |
+|---|---|
+| DeepCoder_2016 | 4.3x / 5.4x |
+| PBE_BV_Track_2018 | 5.5x / 6.6x |
+| PBE_SLIA_Track_2019 | 3.6x / 3.4x |
+| Robots_2020 | 9.2x / 5.8x |
+| Pixels_2020 | 6.8x / 6.3x |
+| String_transformations_2020 | 4.3x / 4.1x |
+
+These track the "after vs. before" numbers in the summary table above (same
+code on both sides of the comparison), with one difference worth noting:
+`v1 speed-up` compares same-subset, per-program medians directly (`v1 us /
+median us` on the exact same sampled programs), while the summary table above
+compares `progs/s` across two separate `run.jl` invocations (`before-` and
+`after-optimization.json`), which also differ in error policy's effect on which
+programs survive sampling. Both describe the same underlying change.
 
 ## Not covered
 

@@ -11,7 +11,10 @@
 #      `HerbInterpret.interpret`) agree on every program both can evaluate --
 #      without this, the comparison columns of the report would be comparing
 #      different work,
-#   5. interpreters that mutate their input get a fresh one per evaluation.
+#   5. interpreters that mutate their input get a fresh one per evaluation,
+#   6. "custom v1" (the pre-optimization interpreter) agrees with the current
+#      custom interpreter on every program -- it has no unsupported case, so
+#      this must hold for all of them, not just a subset.
 #
 #     julia --project=benchmark benchmark/selftest.jl
 
@@ -134,6 +137,33 @@ end
                     name, agreements, length(supported), length(supported), length(programs))
             end
 
+            # "custom v1" has no unsupported case (see `BenchTarget.v1_interpret`),
+            # so it must agree with the current custom interpreter on every program,
+            # not just a subset.
+            begin
+                agreements = 0
+                for program in programs
+                    custom = try
+                        (true, target.interpret(program, target.inputs))
+                    catch
+                        (false, nothing)
+                    end
+                    v1 = try
+                        (true, target.v1_interpret(program, target.inputs))
+                    catch
+                        (false, nothing)
+                    end
+                    @test custom[1] == v1[1]
+                    if custom[1] && v1[1]
+                        @test custom[2] == v1[2]
+                        agreements += 1
+                    end
+                end
+                @test agreements > 0
+                @printf("  %s: custom v1 agrees with custom on %d/%d evaluable programs\n",
+                    name, agreements, length(programs))
+            end
+
             if target.needs_copy
                 # Two bundles must be independent objects, or one program would
                 # inherit the state another one left behind.
@@ -185,6 +215,8 @@ end
                 @test stats.median_us > 0
                 @test stats.programs_per_s > 0
                 @test stats.ns_per_node > 0
+                @test stats.v1_median_us > 0
+                @test stats.v1_speedup > 0
 
                 cmp = comparison_stats(depth, result.n_examples)
                 @test cmp !== nothing

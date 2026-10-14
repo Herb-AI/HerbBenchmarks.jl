@@ -111,6 +111,12 @@ struct DepthResult
     has_loop::Vector{Bool}
     passes::Vector{PassStats}
 
+    # "custom v1": the exact same `programs` as `passes`, run through the
+    # pre-optimization interpreter (see `BenchTarget.v1_interpret`). Unlike the
+    # eval/interpret comparison points below, this needs no supported-subset
+    # restriction, so it is measured on the full set regardless of `cfg.baselines`.
+    v1_passes::Vector{PassStats}
+
     # Three-way comparison (eval / HerbInterpret.interpret / custom), computed
     # over a smaller subset: eval in particular pays full compiler latency on
     # every call, so timing all `n_programs` would make the suite far slower.
@@ -290,7 +296,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
         if sampled === nothing
             verbose && @info "  depth $depth: unreachable for $(t.name)"
             push!(results, DepthResult(
-                depth, false, 0, 0, 0, 0, 0, Int[], Bool[], PassStats[],
+                depth, false, 0, 0, 0, 0, 0, Int[], Bool[], PassStats[], PassStats[],
                 0, PassStats[], UInt64[], 0, PassStats[], UInt64[],
             ))
             continue
@@ -302,7 +308,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
             push!(results, DepthResult(
                 depth, true, sampled.n_candidates, sampled.n_errored,
                 sampled.n_oversized, sampled.n_slow, 0, Int[], Bool[],
-                PassStats[], 0, PassStats[], UInt64[], 0, PassStats[], UInt64[],
+                PassStats[], PassStats[], 0, PassStats[], UInt64[], 0, PassStats[], UInt64[],
             ))
             continue
         end
@@ -315,6 +321,12 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
         for _ in 1:cfg.reps
             inputs = prepare_inputs(t, length(programs))
             push!(passes, timed_pass!(t.interpret, programs, inputs, times))
+        end
+
+        v1_passes = PassStats[]
+        for _ in 1:cfg.reps
+            inputs = prepare_raw_inputs(t, length(programs))
+            push!(v1_passes, timed_pass!(t.v1_interpret, programs, inputs, times))
         end
 
         cmp_n = 0
@@ -368,7 +380,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
         push!(results, DepthResult(
             depth, true, sampled.n_candidates, sampled.n_errored,
             sampled.n_oversized, sampled.n_slow, length(programs), node_counts,
-            has_loop, passes,
+            has_loop, passes, v1_passes,
             cmp_n, eval_passes, cmp_custom_times,
             interpret_n_supported, interpret_passes, cmp_custom_supported_times,
         ))
