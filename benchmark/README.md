@@ -155,21 +155,21 @@ record the result (Apple M5, julia 1.12.6). Summary first, diagnosis and fixes b
 
 | benchmark | before (progs/s @ d5 / d15) | after | speed-up @ d5 / d15 |
 |---|---|---|---|
-| DeepCoder_2016 | 164650 / 41090 | 715564 / 220594 | 4.3x / 5.4x |
-| PBE_BV_Track_2018 | 268374 / 68808 | 1344869 / 433319 | 5.0x / 6.3x |
-| PBE_SLIA_Track_2019 | 186696 / 114406 | 763398 / 501706 | 4.1x / 4.4x |
-| Robots_2020 | 244083 / 409 | 1887207 / 6092 | 7.7x / 14.9x |
-| Pixels_2020 | 227465 / 422 | 2012004 / 9361 | 8.8x / 22.2x |
-| String_transformations_2020 | 203100 / 637 | 1105828 / 5913 | 5.4x / 9.3x |
+| DeepCoder_2016 | 164650 / 41090 | 721622 / 216000 | 4.4x / 5.3x |
+| PBE_BV_Track_2018 | 268374 / 68808 | 1373532 / 434436 | 5.1x / 6.3x |
+| PBE_SLIA_Track_2019 | 186696 / 114406 | 750657 / 492777 | 4.0x / 4.3x |
+| Robots_2020 | 244083 / 409 | 2044500 / 6094 | 8.4x / 14.9x |
+| Pixels_2020 | 227465 / 422 | 1982030 / 9292 | 8.7x / 22.0x |
+| String_transformations_2020 | 203100 / 637 | 1144057 / 5773 | 5.6x / 9.1x |
 
 All six also now **beat** the `HerbInterpret.interpret` comparison baseline at
 every depth (previously they lost to it almost everywhere) — e.g. PBE_BV runs
-5.5x faster than `interpret` at depth 5, up from parity (1.0x) before.
+5.4x faster than `interpret` at depth 5, up from parity (1.0x) before.
 
 (These numbers moved slightly from the previous recording of this table, from
-re-running `run.jl` to add the "custom v1" column below — same code both times,
-run-to-run noise only; `rep±` in `results/after-optimization.md` stays under
-the ~10%-is-noisy threshold almost everywhere.)
+re-running `run.jl` to add the "custom v1"/"custom v2" columns below — same
+code both times, run-to-run noise only; `rep±` in `results/after-optimization.md`
+stays under the ~10%-is-noisy threshold almost everywhere.)
 
 ### Diagnosis
 
@@ -367,12 +367,12 @@ Speed-up over v1 at depth 5 / depth 15, from `results/after-optimization.md`:
 
 | benchmark | v1 speed-up @ d5 / d15 |
 |---|---|
-| DeepCoder_2016 | 4.3x / 5.6x |
-| PBE_BV_Track_2018 | 5.5x / 6.7x |
-| PBE_SLIA_Track_2019 | 3.7x / 3.5x |
-| Robots_2020 | 7.6x / 5.5x |
-| Pixels_2020 | 6.7x / 5.9x |
-| String_transformations_2020 | 4.2x / 4.0x |
+| DeepCoder_2016 | 4.7x / 5.6x |
+| PBE_BV_Track_2018 | 5.4x / 6.3x |
+| PBE_SLIA_Track_2019 | 3.5x / 3.3x |
+| Robots_2020 | 7.7x / 5.9x |
+| Pixels_2020 | 6.6x / 6.0x |
+| String_transformations_2020 | 4.4x / 4.0x |
 
 These track the "after vs. before" numbers in the summary table above (same
 code on both sides of the comparison), with one difference worth noting:
