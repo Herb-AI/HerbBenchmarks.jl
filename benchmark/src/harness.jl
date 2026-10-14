@@ -117,6 +117,10 @@ struct DepthResult
     # restriction, so it is measured on the full set regardless of `cfg.baselines`.
     v1_passes::Vector{PassStats}
 
+    # "custom v2 (batched)": same deal, over the same `programs`, through
+    # `BenchTarget.v2_interpret` (see its docstring).
+    v2_passes::Vector{PassStats}
+
     # Three-way comparison (eval / HerbInterpret.interpret / custom), computed
     # over a smaller subset: eval in particular pays full compiler latency on
     # every call, so timing all `n_programs` would make the suite far slower.
@@ -124,6 +128,7 @@ struct DepthResult
     eval_passes::Vector{PassStats}
     cmp_custom_times_ns::Vector{UInt64}         # custom interpreter, same subset (sliced out of `passes`, not re-measured)
     cmp_v1_times_ns::Vector{UInt64}             # custom v1, same subset (sliced out of `v1_passes`, not re-measured)
+    cmp_v2_times_ns::Vector{UInt64}             # custom v2, same subset (sliced out of `v2_passes`, not re-measured)
     interpret_n_supported::Int                  # of cmp_n_programs, how many HerbInterpret.interpret can even attempt
     interpret_passes::Vector{PassStats}          # over just the supported ones
     cmp_custom_supported_times_ns::Vector{UInt64}  # custom interpreter, supported-only subset
@@ -297,8 +302,8 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
         if sampled === nothing
             verbose && @info "  depth $depth: unreachable for $(t.name)"
             push!(results, DepthResult(
-                depth, false, 0, 0, 0, 0, 0, Int[], Bool[], PassStats[], PassStats[],
-                0, PassStats[], UInt64[], UInt64[], 0, PassStats[], UInt64[],
+                depth, false, 0, 0, 0, 0, 0, Int[], Bool[], PassStats[], PassStats[], PassStats[],
+                0, PassStats[], UInt64[], UInt64[], UInt64[], 0, PassStats[], UInt64[],
             ))
             continue
         end
@@ -309,7 +314,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
             push!(results, DepthResult(
                 depth, true, sampled.n_candidates, sampled.n_errored,
                 sampled.n_oversized, sampled.n_slow, 0, Int[], Bool[],
-                PassStats[], PassStats[], 0, PassStats[], UInt64[], UInt64[], 0, PassStats[], UInt64[],
+                PassStats[], PassStats[], PassStats[], 0, PassStats[], UInt64[], UInt64[], UInt64[], 0, PassStats[], UInt64[],
             ))
             continue
         end
@@ -330,12 +335,19 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
             push!(v1_passes, timed_pass!(t.v1_interpret, programs, inputs, times))
         end
 
+        v2_passes = PassStats[]
+        for _ in 1:cfg.reps
+            inputs = prepare_raw_inputs(t, length(programs))
+            push!(v2_passes, timed_pass!(t.v2_interpret, programs, inputs, times))
+        end
+
         cmp_n = 0
         eval_passes = PassStats[]
         interpret_passes = PassStats[]
         interpret_n_supported = 0
         cmp_custom_times = UInt64[]
         cmp_v1_times = UInt64[]
+        cmp_v2_times = UInt64[]
         cmp_custom_supported_times = UInt64[]
 
         if cfg.baselines
@@ -346,6 +358,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
             # the sweep already run above, not re-measured.
             cmp_custom_times = reduce(vcat, (p.times_ns[1:cmp_n] for p in passes))
             cmp_v1_times = reduce(vcat, (p.times_ns[1:cmp_n] for p in v1_passes))
+            cmp_v2_times = reduce(vcat, (p.times_ns[1:cmp_n] for p in v2_passes))
 
             if t.eval_baseline !== nothing
                 eval_times = Vector{UInt64}(undef, cmp_n)
@@ -383,8 +396,8 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
         push!(results, DepthResult(
             depth, true, sampled.n_candidates, sampled.n_errored,
             sampled.n_oversized, sampled.n_slow, length(programs), node_counts,
-            has_loop, passes, v1_passes,
-            cmp_n, eval_passes, cmp_custom_times, cmp_v1_times,
+            has_loop, passes, v1_passes, v2_passes,
+            cmp_n, eval_passes, cmp_custom_times, cmp_v1_times, cmp_v2_times,
             interpret_n_supported, interpret_passes, cmp_custom_supported_times,
         ))
 

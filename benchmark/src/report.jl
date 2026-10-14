@@ -40,6 +40,8 @@ Derived statistics for one (benchmark, depth) cell:
   `BenchTarget.v1_interpret`) median per-program time, over the exact same
   `programs` as `median_us` -- so `v1_speedup = v1_median_us / median_us` is a
   direct, same-subset comparison, unlike the three-way table below.
+- `v2_median_us` / `v2_speedup`: likewise, for "custom v2 (batched)" (see
+  `BenchTarget.v2_interpret`).
 """
 function cell_stats(d::DepthResult, n_examples::Int)
     times = all_times_ns(d)
@@ -49,6 +51,7 @@ function cell_stats(d::DepthResult, n_examples::Int)
     nodes = sum(d.node_counts)
     rep_totals = [Float64(p.total_ns) for p in d.passes]
     v1_median_us = _pass_median_us(d.v1_passes)
+    v2_median_us = _pass_median_us(d.v2_passes)
     median_us = median(times) / 1e3
     return (
         median_us = median_us,
@@ -69,6 +72,8 @@ function cell_stats(d::DepthResult, n_examples::Int)
         loop = _subset_stats(d, d.has_loop, total),
         v1_median_us = v1_median_us,
         v1_speedup = v1_median_us === nothing ? nothing : v1_median_us / median_us,
+        v2_median_us = v2_median_us,
+        v2_speedup = v2_median_us === nothing ? nothing : v2_median_us / median_us,
     )
 end
 
@@ -130,6 +135,7 @@ same `cmp_n_programs`-sized subset (see [`DepthResult`](@ref)):
   `BenchTarget.v1_interpret`), sliced the same way as `custom_us` -- over the
   full `cmp_n_programs` subset, so it is directly comparable to `eval_us` and
   `custom_us`. Unlike `interpret_us` it has no supported-subset restriction.
+- `v2_us`: likewise, for "custom v2 (batched)" (see `BenchTarget.v2_interpret`).
 """
 function comparison_stats(d::DepthResult, n_examples::Int)
     d.cmp_n_programs == 0 && return nothing
@@ -137,6 +143,7 @@ function comparison_stats(d::DepthResult, n_examples::Int)
         n = d.cmp_n_programs,
         eval_us = _pass_median_us(d.eval_passes),
         v1_us = _times_median_us(d.cmp_v1_times_ns),
+        v2_us = _times_median_us(d.cmp_v2_times_ns),
         custom_us = _times_median_us(d.cmp_custom_times_ns),
         interpret_n = d.interpret_n_supported,
         interpret_us = _pass_median_us(d.interpret_passes),
@@ -146,7 +153,7 @@ end
 
 const HEADER = ("depth", "progs", "nodes", "median us", "mean us", "p95 us",
     "progs/s", "evals/s", "ns/node", "KiB/prog", "GC%", "rep±", "err%", "loop%",
-    "v1 us", "v1 speed-up")
+    "v1 us", "v1 speed-up", "v2 us", "v2 speed-up")
 
 function print_target(io::IO, r::TargetResult)
     println(io)
@@ -185,12 +192,14 @@ function print_target(io::IO, r::TargetResult)
         end
         v1_us_cell = s.v1_median_us === nothing ? "-" : @sprintf("%.2f", s.v1_median_us)
         v1_speedup_cell = s.v1_speedup === nothing ? "-" : @sprintf("%.1fx", s.v1_speedup)
+        v2_us_cell = s.v2_median_us === nothing ? "-" : @sprintf("%.2f", s.v2_median_us)
+        v2_speedup_cell = s.v2_speedup === nothing ? "-" : @sprintf("%.1fx", s.v2_speedup)
         println(io, @sprintf(
-            "| %d | %d | %.0f | %.2f | %.2f | %.2f | %.0f | %.0f | %.1f | %.2f | %.1f | %.1f%% | %.0f%% | %.0f%% | %s | %s |",
+            "| %d | %d | %.0f | %.2f | %.2f | %.2f | %.0f | %.0f | %.1f | %.2f | %.1f | %.1f%% | %.0f%% | %.0f%% | %s | %s | %s | %s |",
             d.depth, d.n_programs, s.nodes_mean, s.median_us, s.mean_us, s.p95_us,
             s.programs_per_s, s.evals_per_s, s.ns_per_node, s.kib_per_program,
             100 * s.gc_fraction, 100 * s.rep_spread, 100 * s.error_rate,
-            100 * s.loop_rate, v1_us_cell, v1_speedup_cell))
+            100 * s.loop_rate, v1_us_cell, v1_speedup_cell, v2_us_cell, v2_speedup_cell))
     end
 
     if any(d.reachable && any(d.has_loop) for d in r.depths)
@@ -219,9 +228,10 @@ function print_target(io::IO, r::TargetResult)
         println(io, "- interpret = the same expression + `HerbInterpret.interpret` (the generic, non-generated evaluator)")
         println(io, "- custom = this benchmark's generated interpreter, same programs")
         println(io, "- v1 = \"custom v1\", the generated interpreter as it stood before the optimization pass this benchmark was built to drive (see README's \"custom v1\" section), same programs")
+        println(io, "- v2 = \"custom v2 (batched)\", the from-scratch batched interpreter design (see README's \"custom v2 (batched)\" section), same programs")
         println(io)
-        println(io, "| depth | progs | eval us | v1 us | custom us | interpret progs | interpret us | custom us | eval speed-up | v1 speed-up | interpret speed-up |")
-        println(io, "|---|---|---|---|---|---|---|---|---|---|---|")
+        println(io, "| depth | progs | eval us | v1 us | v2 us | custom us | interpret progs | interpret us | custom us | eval speed-up | v1 speed-up | v2 speed-up | interpret speed-up |")
+        println(io, "|---|---|---|---|---|---|---|---|---|---|---|---|---|")
         for d in r.depths
             c = comparison_stats(d, r.n_examples)
             c === nothing && continue
@@ -231,15 +241,18 @@ function print_target(io::IO, r::TargetResult)
             v1_cell = c.v1_us === nothing ? "-" : @sprintf("%.2f", c.v1_us)
             v1_speedup = (c.v1_us === nothing || c.custom_us === nothing) ? "-" :
                 @sprintf("%.1fx", c.v1_us / c.custom_us)
+            v2_cell = c.v2_us === nothing ? "-" : @sprintf("%.2f", c.v2_us)
+            v2_speedup = (c.v2_us === nothing || c.custom_us === nothing) ? "-" :
+                @sprintf("%.1fx", c.v2_us / c.custom_us)
             custom_cell = c.custom_us === nothing ? "-" : @sprintf("%.2f", c.custom_us)
             interpret_cell = c.interpret_us === nothing ? "-" : @sprintf("%.2f", c.interpret_us)
             custom_supported_cell = c.custom_us_supported === nothing ? "-" : @sprintf("%.2f", c.custom_us_supported)
             interpret_speedup = (c.interpret_us === nothing || c.custom_us_supported === nothing) ? "-" :
                 @sprintf("%.1fx", c.interpret_us / c.custom_us_supported)
-            println(io, @sprintf("| %d | %d | %s | %s | %s | %d | %s | %s | %s | %s | %s |",
-                d.depth, c.n, eval_cell, v1_cell, custom_cell,
+            println(io, @sprintf("| %d | %d | %s | %s | %s | %s | %d | %s | %s | %s | %s | %s | %s |",
+                d.depth, c.n, eval_cell, v1_cell, v2_cell, custom_cell,
                 c.interpret_n, interpret_cell, custom_supported_cell,
-                eval_speedup, v1_speedup, interpret_speedup))
+                eval_speedup, v1_speedup, v2_speedup, interpret_speedup))
         end
         if r.name in STATEFUL_NAMES
             println(io)
@@ -310,6 +323,8 @@ function print_report(io::IO, results::Vector{TargetResult}, cfg::BenchConfig)
       main `median us` column, so `v1 speed-up` is a direct same-subset ratio
       (current custom interpreter's speed relative to v1), not informational
       like the three-way comparison below.
+    - `v2 us` / `v2 speed-up` is "custom v2 (batched)" (see
+      `BenchTarget.v2_interpret`), the same kind of direct same-subset ratio.
     - The three-way comparison is informational, not a second verdict on the
       custom interpreter: `eval` pays full compiler latency every call because
       each sampled program is a structurally distinct `Expr` with no method
@@ -351,10 +366,12 @@ function depth_to_dict(d::DepthResult, n_examples::Int)
         "has_loop" => d.has_loop,
         "passes" => pass_to_dict.(d.passes),
         "v1_passes" => pass_to_dict.(d.v1_passes),
+        "v2_passes" => pass_to_dict.(d.v2_passes),
         "cmp_n_programs" => d.cmp_n_programs,
         "eval_passes" => pass_to_dict.(d.eval_passes),
         "cmp_custom_times_ns" => Int.(d.cmp_custom_times_ns),
         "cmp_v1_times_ns" => Int.(d.cmp_v1_times_ns),
+        "cmp_v2_times_ns" => Int.(d.cmp_v2_times_ns),
         "interpret_n_supported" => d.interpret_n_supported,
         "interpret_passes" => pass_to_dict.(d.interpret_passes),
         "cmp_custom_supported_times_ns" => Int.(d.cmp_custom_supported_times_ns),

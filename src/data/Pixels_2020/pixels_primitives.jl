@@ -12,6 +12,12 @@ mutable struct PixelState
     PixelState(matrix::Matrix{Bool}, position::Tuple{Int64,Int64}) = new(matrix, position)
 end
 
+# `mutable struct` has no default field-wise `==` (it falls back to object
+# identity), which silently turns any comparison of two separately-produced
+# `PixelState`s -- e.g. in tests checking two interpreters agree -- into a
+# same-object check rather than a same-value one.
+Base.:(==)(a::PixelState, b::PixelState) = a.matrix == b.matrix && a.position == b.position
+
 """
     atBottom(state::PixelState)
 

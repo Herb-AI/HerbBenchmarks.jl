@@ -18,13 +18,22 @@ copy of the custom interpreter as it stood before the optimization pass this
 benchmark was built to drive (see `v1/HerbInterpretV1.jl`), so the overall
 improvement is visible as one more column rather than only in `before-`/
 `after-optimization.json`.
+
+And "custom v2 (batched)": a from-scratch interpreter design that evaluates a
+program against all of its examples in one tree-walk instead of one per
+example (see `v2/HerbInterpretBatched.jl`), falling back to the ordinary
+(per-example) interpreter for any rule that short-circuits (`ite`/ternary,
+`IF`, `WHILE`), since those cannot be evaluated once-for-all-examples without
+changing behaviour.
 """
 # Included here, one level above `module InterpreterBenchmarks`, rather than
 # from inside it: RuntimeGeneratedFunctions' generated-function cache lookup
 # fails at call time (UndefVarError on `#_RuntimeGeneratedFunctions_cache`) when
-# `HerbInterpretV1` is nested two modules deep (`InterpreterBenchmarks.HerbInterpretV1`)
-# instead of one (`HerbInterpretV1`, a sibling of `InterpreterBenchmarks`).
+# a module using it is nested two modules deep
+# (`InterpreterBenchmarks.HerbInterpretV1`) instead of one (`HerbInterpretV1`,
+# a sibling of `InterpreterBenchmarks`) -- same reason both v1 and v2 live here.
 include(joinpath(@__DIR__, "v1", "HerbInterpretV1.jl"))
+include(joinpath(@__DIR__, "v2", "HerbInterpretBatched.jl"))
 
 module InterpreterBenchmarks
 
@@ -49,6 +58,7 @@ import HerbBenchmarks:
     String_transformations_2020
 
 import ..HerbInterpretV1
+import ..HerbInterpretBatched
 
 include("program_sampler.jl")
 include("stateful_expr.jl")

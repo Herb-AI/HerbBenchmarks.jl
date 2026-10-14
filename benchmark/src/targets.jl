@@ -55,6 +55,14 @@ Everything needed to measure one benchmark's custom interpreter, plus its two
   "custom v1". Always present (unlike the other comparison points, it has no
   not-yet-supported case): it's the same kind of interpreter as `interpret`,
   just built with older code, so it runs every program `interpret` does.
+- `v2_interpret`: the *same* grammar/programs run through `HerbInterpretBatched`
+  (a from-scratch interpreter design, see `v2/HerbInterpretBatched.jl`),
+  reported as "custom v2 (batched)". Evaluates a program against all of its
+  examples in one tree-walk instead of one per example, falling back to
+  `interpret` itself (once per example) for any rule that short-circuits.
+  Always present, for the same reason `v1_interpret` is. Built for exactly
+  `n_examples` examples (baked into its generated code at build time, unlike
+  every other interpreter here) -- call it only with bundles of that length.
 - `cold`: how to measure the one-off cost of an interpreter for a fresh grammar,
   or `nothing` for the benchmarks that build a single interpreter at module load
   time and reuse it for every problem.
@@ -96,6 +104,7 @@ struct BenchTarget
     start_symbol::Symbol
     interpret::Any
     v1_interpret::Any
+    v2_interpret::Any
     cold::Union{Nothing,ColdProbe}
     inputs::Any
     prepared_inputs::Any
@@ -277,6 +286,8 @@ function target_deepcoder(; problem_id::String = "000", n_examples::Int = 5,
     interp = DeepCoder_2016.make_deepcoder_interpreter(g)
     v1_interp = HerbInterpretV1.make_interpreter(g; target_module=DeepCoder_2016)
     examples = take_examples(pair.problem, n_examples)
+    v2_interp = HerbInterpretBatched.make_batched_interpreter(g, interp;
+        n_examples=n_examples, target_module=DeepCoder_2016)
     cold = ColdProbe(
         other_ids(DeepCoder_2016, problem_id, n_cold),
         function (id)
@@ -293,6 +304,7 @@ function target_deepcoder(; problem_id::String = "000", n_examples::Int = 5,
         :Start,
         interp,
         v1_interp,
+        v2_interp,
         cold,
         examples,
         HerbInterpret.prepare_input(interp, examples),
@@ -311,6 +323,8 @@ function target_bv(; problem_id::String = "PRE_100_10", n_examples::Int = 5,
     interp = PBE_BV_Track_2018.make_bv_interpreter(g)
     v1_interp = HerbInterpretV1.make_interpreter(g; target_module=PBE_BV_Track_2018)
     examples = take_examples(pair.problem, n_examples)
+    v2_interp = HerbInterpretBatched.make_batched_interpreter(g, interp;
+        n_examples=n_examples, target_module=PBE_BV_Track_2018)
     cold = ColdProbe(
         other_ids(PBE_BV_Track_2018, problem_id, n_cold),
         function (id)
@@ -327,6 +341,7 @@ function target_bv(; problem_id::String = "PRE_100_10", n_examples::Int = 5,
         :Start,
         interp,
         v1_interp,
+        v2_interp,
         cold,
         examples,
         HerbInterpret.prepare_input(interp, examples),
@@ -345,6 +360,8 @@ function target_slia(; problem_id::String = "11440431", n_examples::Int = 5,
     interp = PBE_SLIA_Track_2019.make_SLIA_interpreter(g)
     v1_interp = HerbInterpretV1.make_interpreter(g; target_module=PBE_SLIA_Track_2019)
     examples = take_examples(pair.problem, n_examples)
+    v2_interp = HerbInterpretBatched.make_batched_interpreter(g, interp;
+        n_examples=n_examples, target_module=PBE_SLIA_Track_2019)
     cold = ColdProbe(
         other_ids(PBE_SLIA_Track_2019, problem_id, n_cold),
         function (id)
@@ -361,6 +378,7 @@ function target_slia(; problem_id::String = "11440431", n_examples::Int = 5,
         :Start,
         interp,
         v1_interp,
+        v2_interp,
         cold,
         examples,
         HerbInterpret.prepare_input(interp, examples),
@@ -386,6 +404,8 @@ function target_robots(; n_examples::Int = 5)
         :Start,
         Robots_2020.interpret,
         HerbInterpretV1.make_stateful_interpreter(g; target_module=Robots_2020),
+        HerbInterpretBatched.make_batched_stateful_interpreter(g, Robots_2020.interpret;
+            n_examples=n_examples, target_module=Robots_2020),
         nothing,  # one interpreter is generated at module load for all problems
         collect_states(Robots_2020, :_arg_1_, n_examples),
         nothing,  # no Dict/IOExample conversion for stateful interpreters
@@ -407,6 +427,8 @@ function target_pixels(; n_examples::Int = 5)
         :Start,
         Pixels_2020.interpret,
         HerbInterpretV1.make_stateful_interpreter(g; target_module=Pixels_2020),
+        HerbInterpretBatched.make_batched_stateful_interpreter(g, Pixels_2020.interpret;
+            n_examples=n_examples, target_module=Pixels_2020),
         nothing,  # one interpreter is generated at module load for all problems
         collect_states(Pixels_2020, :_arg_1, n_examples),
         nothing,  # no Dict/IOExample conversion for stateful interpreters
@@ -428,6 +450,8 @@ function target_strings(; n_examples::Int = 5)
         :Start,
         String_transformations_2020.interpret,
         HerbInterpretV1.make_stateful_interpreter(g; target_module=String_transformations_2020),
+        HerbInterpretBatched.make_batched_stateful_interpreter(g, String_transformations_2020.interpret;
+            n_examples=n_examples, target_module=String_transformations_2020),
         nothing,  # one interpreter is generated at module load for all problems
         collect_states(String_transformations_2020, :_arg_1, n_examples),
         nothing,  # no Dict/IOExample conversion for stateful interpreters

@@ -15,6 +15,8 @@
 #   6. "custom v1" (the pre-optimization interpreter) agrees with the current
 #      custom interpreter on every program -- it has no unsupported case, so
 #      this must hold for all of them, not just a subset.
+#   7. "custom v2 (batched)" (the from-scratch batched interpreter) likewise
+#      agrees with the current custom interpreter on every program.
 #
 #     julia --project=benchmark benchmark/selftest.jl
 
@@ -87,13 +89,20 @@ end
             if target.eval_baseline !== nothing
                 agreements = 0
                 for program in programs
+                    # Two independent bundles, not a shared `target.inputs`: a
+                    # `needs_copy` interpreter (Pixels) mutates its input in
+                    # place, so reusing one object across both calls (or across
+                    # iterations of this loop) would make `custom` and `base`
+                    # alias the same mutated state and "agree" by sharing an
+                    # object rather than by computing the same thing.
+                    custom_input, base_input = prepare_raw_inputs(target, 2)
                     custom = try
-                        (true, target.interpret(program, target.inputs))
+                        (true, target.interpret(program, custom_input))
                     catch
                         (false, nothing)
                     end
                     base = try
-                        (true, target.eval_baseline(program, target.inputs))
+                        (true, target.eval_baseline(program, base_input))
                     catch
                         (false, nothing)
                     end
@@ -116,13 +125,14 @@ end
                 @test !isempty(supported)
                 agreements = 0
                 for program in supported
+                    custom_input, base_input = prepare_raw_inputs(target, 2)
                     custom = try
-                        (true, target.interpret(program, target.inputs))
+                        (true, target.interpret(program, custom_input))
                     catch
                         (false, nothing)
                     end
                     base = try
-                        (true, target.interpret_baseline(program, target.inputs))
+                        (true, target.interpret_baseline(program, base_input))
                     catch
                         (false, nothing)
                     end
@@ -143,13 +153,14 @@ end
             begin
                 agreements = 0
                 for program in programs
+                    custom_input, v1_input = prepare_raw_inputs(target, 2)
                     custom = try
-                        (true, target.interpret(program, target.inputs))
+                        (true, target.interpret(program, custom_input))
                     catch
                         (false, nothing)
                     end
                     v1 = try
-                        (true, target.v1_interpret(program, target.inputs))
+                        (true, target.v1_interpret(program, v1_input))
                     catch
                         (false, nothing)
                     end
@@ -161,6 +172,36 @@ end
                 end
                 @test agreements > 0
                 @printf("  %s: custom v1 agrees with custom on %d/%d evaluable programs\n",
+                    name, agreements, length(programs))
+            end
+
+            # "custom v2 (batched)" likewise has no unsupported case (see
+            # `BenchTarget.v2_interpret`) -- any rule it cannot batch safely
+            # (anything short-circuiting: ternaries, `IF`, `WHILE`) falls back
+            # to the current interpreter itself, so it must agree on every
+            # program, not just a subset.
+            begin
+                agreements = 0
+                for program in programs
+                    custom_input, v2_input = prepare_raw_inputs(target, 2)
+                    custom = try
+                        (true, target.interpret(program, custom_input))
+                    catch
+                        (false, nothing)
+                    end
+                    v2 = try
+                        (true, target.v2_interpret(program, v2_input))
+                    catch
+                        (false, nothing)
+                    end
+                    @test custom[1] == v2[1]
+                    if custom[1] && v2[1]
+                        @test custom[2] == v2[2]
+                        agreements += 1
+                    end
+                end
+                @test agreements > 0
+                @printf("  %s: custom v2 (batched) agrees with custom on %d/%d evaluable programs\n",
                     name, agreements, length(programs))
             end
 
@@ -217,11 +258,14 @@ end
                 @test stats.ns_per_node > 0
                 @test stats.v1_median_us > 0
                 @test stats.v1_speedup > 0
+                @test stats.v2_median_us > 0
+                @test stats.v2_speedup > 0
 
                 cmp = comparison_stats(depth, result.n_examples)
                 @test cmp !== nothing
                 @test cmp.eval_us === nothing || cmp.eval_us > 0
                 @test cmp.v1_us === nothing || cmp.v1_us > 0
+                @test cmp.v2_us === nothing || cmp.v2_us > 0
                 @test cmp.custom_us === nothing || cmp.custom_us > 0
             end
         end

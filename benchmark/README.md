@@ -62,6 +62,8 @@ Per benchmark and per depth in 5-15:
 | `loop%` | share of timed programs containing a `WHILE` |
 | `v1 us` | "custom v1" — the same programs run through the pre-optimization interpreter (`v1/HerbInterpretV1.jl`), a frozen copy of `make_interpreter`/`make_stateful_interpreter` as they stood before the optimization pass below |
 | `v1 speed-up` | `v1 us / median us` — how much faster the current custom interpreter is than v1, on the same programs |
+| `v2 us` | "custom v2 (batched)" — the same programs run through a from-scratch interpreter design (`v2/HerbInterpretBatched.jl`) that evaluates all examples in one tree-walk instead of one per example |
+| `v2 speed-up` | `v2 us / median us` — how much faster the current custom interpreter is than v2 (below 1x where v2 is actually faster — see the "custom v2 (batched)" section) |
 
 Plus, per benchmark, the *cold* cost of an interpreter: generating one for a
 grammar the process has not seen yet and running its first program through it.
@@ -379,6 +381,121 @@ median us` on the exact same sampled programs), while the summary table above
 compares `progs/s` across two separate `run.jl` invocations (`before-` and
 `after-optimization.json`), which also differ in error policy's effect on which
 programs survive sampling. Both describe the same underlying change.
+
+## "custom v2 (batched)": a from-scratch interpreter design
+
+Every target above also reports "custom v2 (batched)": a different interpreter
+architecture entirely (`v2/HerbInterpretBatched.jl`), not a further tweak of
+`HerbInterpret.jl`'s design. The idea: every program here is evaluated against
+several examples at once (`n_examples`, 5 by default), and the existing
+interpreter re-walks the whole tree once per example -- paying the
+branch-dispatch decision at each node (which of a nonterminal's rules this node
+uses) `n_examples` times instead of once. A batched interpreter walks the tree
+once, threading an `NTuple{n_examples}` through the recursion instead of a
+single value, so dispatch is paid once per node and only the actual primitive
+work scales with the example count.
+
+### Two dead ends, ruled out before writing any of this
+
+**Compile each program to a tree of closures, once, then call it once per
+example.** The obvious way to "pay dispatch once": build a closure per node
+(capturing its already-built children), then invoke the top closure
+`n_examples` times. Measured directly (not in this codebase, a standalone
+prototype), this was *slower*, not faster: constructing a closure per node
+allocates, and -- the important part -- invoking a closure whose concrete type
+varies per program (as it must, since every distinct tree shape produces a
+distinct nested closure type) either costs a real per-call dispatch/allocation
+of its own (plain `Function`-typed storage) or, with `FunctionWrappers.jl`'s
+type-erased calling convention specifically built to avoid that, costs *more*
+per call than the dispatch it replaces (~440ns/node against the existing
+interpreter's ~15-20ns/node floor), because the call can never be inlined once
+the wrapper erases the closure's real type. A seemingly-promising
+`BenchmarkTools`-measured "8ns" result for this approach turned out to be an
+artifact of benchmark-macro interpolation baking one specific program's exact
+closure type into the benchmark function as a compile-time constant -- which
+is only possible by letting Julia JIT-compile a bespoke specialization for
+*that one program*, the same per-distinct-program compilation cost `eval`
+already pays and loses badly to (300-1000x slower than `interpret`, see above).
+Forcing a genuinely generic call (the same code path handling many distinct
+programs, as any real use requires) made the allocation and slowdown show up
+directly: 73MB and ~24ns/call across 50 distinct programs, called through a
+`Base.Any`-typed boundary.
+
+**Batch with `ntuple(k -> ..., N)` instead of writing out `N` literal copies.**
+The natural-looking way to combine `N` per-position values. Measured directly,
+this was *55x slower* and allocated per node (267KB / 9598 allocations for 50
+trees that take 0 bytes in the scalar version) -- `ntuple`'s compile-time
+unrolling optimization needs the surrounding call to be fully inlined and
+monomorphic to kick in, which it is not here: nonterminal functions are
+runtime-branching, generically handling any tree shape via `prog`'s rule index,
+exactly like `HerbInterpret.jl`'s. The `k -> ...` closure gets boxed instead.
+Writing out `N` literal copies of the combining expression (`N` is fixed per
+interpreter, known at code-generation time) avoids this entirely: no closure
+ever exists in the generated code, so there is nothing to box.
+
+### The short-circuit problem, and the fallback
+
+Hoisting a rule's children once and reusing them across all `N` positions is
+only safe for rules that always evaluate every child -- which plain function
+calls always do (Julia evaluates every argument before a call, no matter what
+the function does with them; PBE_BV's `im_cvc(Start, Start, Start)`, a plain
+3-argument function despite reading as "if", is exactly this case and batches
+with no special handling at all). A genuine Julia `if`/ternary
+(`Expr(:if, ...)`, e.g. PBE_SLIA's `ntBool ? ntString : ntString`) and the
+stateful `IF`/`WHILE` forms do not: only the taken branch runs in the scalar
+interpreter, and `WHILE` in particular runs a *different* number of iterations
+per example (most sampled loops exit almost immediately, a minority run the
+full 1000-iteration bound -- see above). Hoisting-and-reusing these would
+evaluate every branch for every example regardless of which one each example
+actually takes, which can raise an exception the scalar interpreter would
+never have hit for that example, or force every example to iterate up to
+whichever one happens to be slowest.
+
+Rules containing one of these are not batched at all: they delegate to the
+*scalar* interpreter (`BenchTarget.interpret` itself), once per example,
+exactly reproducing today's short-circuit behaviour by reusing the code that
+already implements it, rather than re-deriving it. `benchmark/selftest.jl`
+checks "custom v2 (batched)" agrees with the current interpreter on every
+sampled program across all six benchmarks, including through this fallback
+path, with no unsupported case.
+
+### Results: a real win for cheap, dispatch-bound primitives; not for the rest
+
+| benchmark | v2/custom @ shallow / deep (BenchmarkTools, n=30 programs) |
+|---|---|
+| DeepCoder_2016 | 1.15x / 1.04x (slower) |
+| PBE_BV_Track_2018 | 1.11x / 0.87x (mixed) |
+| PBE_SLIA_Track_2019 | 1.21x / 1.20x (slower) |
+| Robots_2020 | 0.45x / 0.86x (2.2x / 1.2x faster) |
+| Pixels_2020 | 0.57x / 0.85x (1.8x / 1.2x faster) |
+| String_transformations_2020 | 0.61x / 0.83x (1.6x / 1.2x faster) |
+
+(`v2/custom` ratios here, not the main tables' `v2 speed-up` convention, and
+measured with same-process `BenchmarkTools` minimum-of-many-samples on
+individual programs -- not `run.jl`'s own wall-clock sweep -- for the same
+reason given in "A note on measuring sub-microsecond changes" above: these
+effects are on the order of the interpreter's own per-node cost, too small for
+`run.jl`'s numbers alone to be trusted.)
+
+The pattern is consistent with the design's actual mechanism: batching only
+removes *dispatch* cost, not the cost of the primitive work itself, so it helps
+exactly where dispatch was already the dominant cost. The three stateful
+benchmarks' primitives are cheap (immutable-struct field reads/writes, no
+allocation -- see "Per-node dispatch cost looks to be near its floor" above),
+so amortizing dispatch across 5 examples is a direct, large win, biggest at
+shallow/loop-free depths where there is no `WHILE` fallback diluting it. The
+three expression benchmarks either do real allocating work per primitive
+(DeepCoder's array operations, PBE_SLIA's string operations) that dispatch
+amortization does not touch, or -- PBE_SLIA specifically -- pay the fallback
+path's overhead (reconstructing a per-example `NamedTuple` from the
+struct-of-arrays one) on every `ntBool ? ... : ...` rule without getting
+dispatch amortization in return, netting out to a small loss.
+
+**Conclusion:** batching is a genuine architectural improvement for this
+family of interpreters, but a conditional one, not a universal upgrade over
+`HerbInterpret.jl`'s current design -- which is why it is reported as its own
+column here (`v2/HerbInterpretBatched.jl`) rather than proposed as a
+replacement.
 
 ## Not covered
 
