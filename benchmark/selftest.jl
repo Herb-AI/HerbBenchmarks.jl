@@ -221,6 +221,7 @@ end
                 cmp = comparison_stats(depth, result.n_examples)
                 @test cmp !== nothing
                 @test cmp.eval_us === nothing || cmp.eval_us > 0
+                @test cmp.v1_us === nothing || cmp.v1_us > 0
                 @test cmp.custom_us === nothing || cmp.custom_us > 0
             end
         end

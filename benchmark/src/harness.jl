@@ -123,6 +123,7 @@ struct DepthResult
     cmp_n_programs::Int                        # size of the eval-baseline subset
     eval_passes::Vector{PassStats}
     cmp_custom_times_ns::Vector{UInt64}         # custom interpreter, same subset (sliced out of `passes`, not re-measured)
+    cmp_v1_times_ns::Vector{UInt64}             # custom v1, same subset (sliced out of `v1_passes`, not re-measured)
     interpret_n_supported::Int                  # of cmp_n_programs, how many HerbInterpret.interpret can even attempt
     interpret_passes::Vector{PassStats}          # over just the supported ones
     cmp_custom_supported_times_ns::Vector{UInt64}  # custom interpreter, supported-only subset
@@ -297,7 +298,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
             verbose && @info "  depth $depth: unreachable for $(t.name)"
             push!(results, DepthResult(
                 depth, false, 0, 0, 0, 0, 0, Int[], Bool[], PassStats[], PassStats[],
-                0, PassStats[], UInt64[], 0, PassStats[], UInt64[],
+                0, PassStats[], UInt64[], UInt64[], 0, PassStats[], UInt64[],
             ))
             continue
         end
@@ -308,7 +309,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
             push!(results, DepthResult(
                 depth, true, sampled.n_candidates, sampled.n_errored,
                 sampled.n_oversized, sampled.n_slow, 0, Int[], Bool[],
-                PassStats[], PassStats[], 0, PassStats[], UInt64[], 0, PassStats[], UInt64[],
+                PassStats[], PassStats[], 0, PassStats[], UInt64[], UInt64[], 0, PassStats[], UInt64[],
             ))
             continue
         end
@@ -334,6 +335,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
         interpret_passes = PassStats[]
         interpret_n_supported = 0
         cmp_custom_times = UInt64[]
+        cmp_v1_times = UInt64[]
         cmp_custom_supported_times = UInt64[]
 
         if cfg.baselines
@@ -343,6 +345,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
             # The custom interpreter's times on this exact subset: sliced out of
             # the sweep already run above, not re-measured.
             cmp_custom_times = reduce(vcat, (p.times_ns[1:cmp_n] for p in passes))
+            cmp_v1_times = reduce(vcat, (p.times_ns[1:cmp_n] for p in v1_passes))
 
             if t.eval_baseline !== nothing
                 eval_times = Vector{UInt64}(undef, cmp_n)
@@ -381,7 +384,7 @@ function measure(t::BenchTarget, cfg::BenchConfig; verbose::Bool = true)
             depth, true, sampled.n_candidates, sampled.n_errored,
             sampled.n_oversized, sampled.n_slow, length(programs), node_counts,
             has_loop, passes, v1_passes,
-            cmp_n, eval_passes, cmp_custom_times,
+            cmp_n, eval_passes, cmp_custom_times, cmp_v1_times,
             interpret_n_supported, interpret_passes, cmp_custom_supported_times,
         ))
 

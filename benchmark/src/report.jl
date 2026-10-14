@@ -126,12 +126,17 @@ same `cmp_n_programs`-sized subset (see [`DepthResult`](@ref)):
   sliced from the *same* run as the main sweep (not re-measured) -- over the
   full `cmp_n_programs` subset, and over just the `interpret`-supported subset,
   respectively, so each baseline is compared against a matching denominator.
+- `v1_us`: "custom v1" (the pre-optimization interpreter, see
+  `BenchTarget.v1_interpret`), sliced the same way as `custom_us` -- over the
+  full `cmp_n_programs` subset, so it is directly comparable to `eval_us` and
+  `custom_us`. Unlike `interpret_us` it has no supported-subset restriction.
 """
 function comparison_stats(d::DepthResult, n_examples::Int)
     d.cmp_n_programs == 0 && return nothing
     return (
         n = d.cmp_n_programs,
         eval_us = _pass_median_us(d.eval_passes),
+        v1_us = _times_median_us(d.cmp_v1_times_ns),
         custom_us = _times_median_us(d.cmp_custom_times_ns),
         interpret_n = d.interpret_n_supported,
         interpret_us = _pass_median_us(d.interpret_passes),
@@ -213,22 +218,26 @@ function print_target(io::IO, r::TargetResult)
             " + literal `Core.eval` (fresh compile every call)")
         println(io, "- interpret = the same expression + `HerbInterpret.interpret` (the generic, non-generated evaluator)")
         println(io, "- custom = this benchmark's generated interpreter, same programs")
+        println(io, "- v1 = \"custom v1\", the generated interpreter as it stood before the optimization pass this benchmark was built to drive (see README's \"custom v1\" section), same programs")
         println(io)
-        println(io, "| depth | progs | eval us | custom us | eval speed-up | interpret progs | interpret us | custom us | interpret speed-up |")
-        println(io, "|---|---|---|---|---|---|---|---|---|")
+        println(io, "| depth | progs | eval us | v1 us | custom us | eval speed-up | v1 speed-up | interpret progs | interpret us | custom us | interpret speed-up |")
+        println(io, "|---|---|---|---|---|---|---|---|---|---|---|")
         for d in r.depths
             c = comparison_stats(d, r.n_examples)
             c === nothing && continue
             eval_cell = c.eval_us === nothing ? "-" : @sprintf("%.2f", c.eval_us)
             eval_speedup = (c.eval_us === nothing || c.custom_us === nothing) ? "-" :
                 @sprintf("%.0fx", c.eval_us / c.custom_us)
+            v1_cell = c.v1_us === nothing ? "-" : @sprintf("%.2f", c.v1_us)
+            v1_speedup = (c.v1_us === nothing || c.custom_us === nothing) ? "-" :
+                @sprintf("%.1fx", c.v1_us / c.custom_us)
             custom_cell = c.custom_us === nothing ? "-" : @sprintf("%.2f", c.custom_us)
             interpret_cell = c.interpret_us === nothing ? "-" : @sprintf("%.2f", c.interpret_us)
             custom_supported_cell = c.custom_us_supported === nothing ? "-" : @sprintf("%.2f", c.custom_us_supported)
             interpret_speedup = (c.interpret_us === nothing || c.custom_us_supported === nothing) ? "-" :
                 @sprintf("%.1fx", c.interpret_us / c.custom_us_supported)
-            println(io, @sprintf("| %d | %d | %s | %s | %s | %d | %s | %s | %s |",
-                d.depth, c.n, eval_cell, custom_cell, eval_speedup,
+            println(io, @sprintf("| %d | %d | %s | %s | %s | %s | %s | %d | %s | %s | %s |",
+                d.depth, c.n, eval_cell, v1_cell, custom_cell, eval_speedup, v1_speedup,
                 c.interpret_n, interpret_cell, custom_supported_cell, interpret_speedup))
         end
         if r.name in STATEFUL_NAMES
@@ -344,6 +353,7 @@ function depth_to_dict(d::DepthResult, n_examples::Int)
         "cmp_n_programs" => d.cmp_n_programs,
         "eval_passes" => pass_to_dict.(d.eval_passes),
         "cmp_custom_times_ns" => Int.(d.cmp_custom_times_ns),
+        "cmp_v1_times_ns" => Int.(d.cmp_v1_times_ns),
         "interpret_n_supported" => d.interpret_n_supported,
         "interpret_passes" => pass_to_dict.(d.interpret_passes),
         "cmp_custom_supported_times_ns" => Int.(d.cmp_custom_supported_times_ns),
