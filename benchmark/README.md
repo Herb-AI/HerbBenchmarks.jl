@@ -170,9 +170,7 @@ every depth (previously they lost to it almost everywhere) — e.g. PBE_BV runs
 table, from re-running `run.jl` to add the "custom v2 (batched)" fixes below —
 same `interpret`/`v1_interpret` code both times, so this is run-to-run noise,
 not a regression; DeepCoder_2016's `rep±` was 25.4% on this run, well past the
-~10%-is-noisy threshold this README already names, confirming it. See the
-"custom v2 (batched)" section's own table for same-process `BenchmarkTools`
-numbers, which do not have this problem.)
+~10%-is-noisy threshold this README already names, confirming it.)
 
 ### Diagnosis
 
@@ -521,49 +519,66 @@ recording since both are instances of patterns already seen (and fixed) in
    typing. This is why PBE_SLIA alone, among the three expression
    benchmarks, still does not benefit from batching (see below).
 
-### Results: a real win for cheap, dispatch-bound primitives; a smaller one, or none, for the rest
+### Results: a modest win on five benchmarks, a modest loss on one
 
-| benchmark | v2/custom @ shallow / deep (BenchmarkTools, n=30 programs) |
+| benchmark | v2 speed-up range across d5-d15 (`results/after-optimization.md`) |
 |---|---|
-| DeepCoder_2016 | 1.13x / 1.01x (slower / parity) |
-| PBE_BV_Track_2018 | 0.76x / 0.69x (1.3x / 1.5x faster) |
-| PBE_SLIA_Track_2019 | 1.21x / 1.24x (slower) |
-| Robots_2020 | 0.27x / 0.69x (3.7x / 1.5x faster) |
-| Pixels_2020 | 0.43x / 0.73x (2.3x / 1.4x faster) |
-| String_transformations_2020 | 0.50x / 0.70x (2.0x / 1.4x faster) |
+| DeepCoder_2016 | 0.85x-1.02x (roughly parity; noisy, `rep±` up to 25% at some depths) |
+| PBE_BV_Track_2018 | 0.71x-0.88x (1.1x-1.4x faster, consistent across every depth) |
+| PBE_SLIA_Track_2019 | 1.00x-1.12x (**slower**, low noise -- `rep±` under 10% almost everywhere, so this is real) |
+| Robots_2020 | 0.59x-0.91x (1.1x-1.7x faster, best at shallow/loop-free depths) |
+| Pixels_2020 | 0.73x-0.97x (1.03x-1.4x faster) |
+| String_transformations_2020 | 0.62x-0.90x (1.1x-1.6x faster) |
 
-(`v2/custom` ratios here, not the main tables' `v2 speed-up` convention, and
-measured with same-process `BenchmarkTools` minimum-of-many-samples on
-individual programs -- not `run.jl`'s own wall-clock sweep -- for the same
-reason given in "A note on measuring sub-microsecond changes" above: these
-effects are on the order of the interpreter's own per-node cost, too small for
-`run.jl`'s numbers alone to be trusted.)
+These are `v2 speed-up` straight from the main per-depth tables (`v2 us /
+median us`; below 1 means v2 is faster), i.e. `run.jl`'s own sweep over 500
+different sampled programs per depth, not a separate measurement -- see
+`results/after-optimization.md` for the full per-depth breakdown and `rep±`
+column.
 
-The pattern is consistent with the design's actual mechanism: batching only
-removes *dispatch* cost, not the cost of the primitive work itself, so it helps
-exactly where dispatch was already the dominant cost, and exactly as much as
-the fixes above let it (allocation-free dispatch amortization, not allocation
-*hiding* it). The three stateful benchmarks' primitives are cheap
-(immutable-struct field reads/writes, no allocation -- see "Per-node dispatch
-cost looks to be near its floor" above), so amortizing dispatch across 5
-examples is now a direct, large win, biggest at shallow/loop-free depths where
-there is no `WHILE` fallback diluting it (3.7x on Robots at depth 6) and still
-meaningful once loops dominate (1.4-1.5x at depth 10). PBE_BV's primitives are
+**An earlier version of this section reported much larger wins -- up to
+3.7x on Robots -- and that was wrong.** Those numbers came from a separate,
+ad hoc same-process `BenchmarkTools` script that benchmarked *the same single
+program*, repeated many times, and took the minimum across repetitions. That
+is not a measurement error in the `@benchmark` sense (the numbers it reported
+were real), it is the wrong *workload*: repeatedly calling the interpreter on
+one unchanging program lets the branch predictor and caches warm up to that
+one program's specific control flow, a condition a real search never has,
+since it evaluates a stream of structurally *different* candidate programs.
+Reproducing the script with the harness's actual protocol (`collect_programs`
++ `timed_pass!`, 500 different programs, no single one repeated) reproduced
+`after-optimization.md`'s numbers almost exactly and *not* the original
+script's, confirming the original script's workload, not its precision, was
+the problem. The lesson this adds to "A note on measuring sub-microsecond
+changes" above: a same-process `BenchmarkTools` comparison is the right tool
+when `run.jl`'s own numbers are too *noisy* to trust (that note's own case),
+but it must still exercise the real workload (many different programs) --
+benchmarking one fixed program repeatedly, however precisely, answers a
+different question and can be badly misleading, in either direction.
+
+The corrected pattern is still consistent with the design's actual mechanism,
+just smaller than first reported: batching only removes *dispatch* cost, not
+the cost of the primitive work itself, so it helps in proportion to how much
+of a node's cost was dispatch to begin with. The stateful benchmarks'
+primitives are cheap (immutable-struct field reads/writes, no allocation --
+see "Per-node dispatch cost looks to be near its floor" above) and show the
+clearest, most consistent wins, shrinking as `WHILE` loops (handled by the
+unbatched fallback) come to dominate depth-for-depth. PBE_BV's primitives are
 equally cheap (bitwise ops on `UInt64`, no allocation, no conditionals to
-delegate at all) and show the same pattern. DeepCoder does real allocating
-work per primitive (array operations: filter/map/sort/zipwith) that dispatch
-amortization does not touch, landing at a small loss shrinking to parity as
-depth (and so node count, over which the fixed per-call conversion cost
-amortizes) grows. PBE_SLIA pays its ternary rules' fallback overhead
+delegate at all) and show the same pattern, consistently, at every depth.
+DeepCoder does real allocating work per primitive (array operations:
+filter/map/sort/zipwith) that dispatch amortization does not touch, landing
+at close to parity. PBE_SLIA pays its ternary rules' fallback overhead
 (reconstructing a per-example `NamedTuple` from the struct-of-arrays one, see
 above) without the type-assertion fix that made the stateful delegate path
-free, netting out to the one real, understood loss across all six.
+free, and is the one benchmark where that overhead is not won back --
+genuinely, consistently slower, not a measurement artifact.
 
-**Conclusion:** batching is a genuine architectural improvement for this
-family of interpreters, but a conditional one, not a universal upgrade over
-`HerbInterpret.jl`'s current design -- which is why it is reported as its own
-column here (`v2/HerbInterpretBatched.jl`) rather than proposed as a
-replacement.
+**Conclusion:** batching is a real but modest win on five of the six
+benchmarks and a modest loss on the sixth (PBE_SLIA) -- worth having as a
+comparison point, not a clearly-better replacement for
+`HerbInterpret.jl`'s current design, which is why it is reported as its own
+column here (`v2/HerbInterpretBatched.jl`) rather than proposed as one.
 
 ## Not covered
 
