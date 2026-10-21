@@ -1,0 +1,702 @@
+[
+ {
+  "problem": "001",
+  "status": "ok",
+  "size": 10,
+  "expr": "last(mapMult(reverse(mapPlus(zipwithMax(_arg_1, _arg_1), -2)), 2))",
+  "detail": ""
+ },
+ {
+  "problem": "002",
+  "status": "overflow",
+  "size": 8,
+  "expr": "first(zipwithMin(scanl1Minus(scanl1Mult(_arg_1)), reverse(_arg_1)))",
+  "detail": "example 1: checked_mul(-3649423965911262000, 72) overflows Int64"
+ },
+ {
+  "problem": "003",
+  "status": "ok",
+  "size": 11,
+  "expr": "take(sort(mapMult(zipwithMin(filterNeq(_arg_1, 3), _arg_1), -2)), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "004",
+  "status": "ok",
+  "size": 8,
+  "expr": "last(sort(zipwithMax(_arg_1, scanl1Plus(reverse(_arg_1)))))",
+  "detail": ""
+ },
+ {
+  "problem": "005",
+  "status": "ok",
+  "size": 8,
+  "expr": "last(filterGt(scanl1Min(scanl1Minus(scanl1Plus(_arg_1))), 1))",
+  "detail": ""
+ },
+ {
+  "problem": "006",
+  "status": "overflow",
+  "size": 11,
+  "expr": "countNmod(scanl1Mult(mapPlus(filterNeq(mapPlus(_arg_1, -3), -3), 2)), 2)",
+  "detail": "example 1: checked_mul(-1362552646564872000, 95) overflows Int64"
+ },
+ {
+  "problem": "007",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(scanl1Minus(mapDiv(sort(reverse(_arg_1)), 3)), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "008",
+  "status": "ok",
+  "size": 10,
+  "expr": "drop(filterSt(_arg_1, 0), maximum(mapDiv(scanl1Max(_arg_1), -3)))",
+  "detail": ""
+ },
+ {
+  "problem": "009",
+  "status": "ok",
+  "size": 11,
+  "expr": "sort(mapDiv(take(drop(_arg_1, countEq(_arg_1, -3)), _arg_2), 1))",
+  "detail": ""
+ },
+ {
+  "problem": "010",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(mapPlus(scanl1Max(sort(_arg_1)), 2), sum(_arg_1))",
+  "detail": ""
+ },
+ {
+  "problem": "011",
+  "status": "ok",
+  "size": 9,
+  "expr": "take(scanl1Plus(_arg_1), sum(sort(mapDiv(_arg_1, -2))))",
+  "detail": ""
+ },
+ {
+  "problem": "012",
+  "status": "ok",
+  "size": 10,
+  "expr": "first(filterSt(take(mapDiv(_arg_1, 2), last(_arg_1)), 1))",
+  "detail": ""
+ },
+ {
+  "problem": "013",
+  "status": "ok",
+  "size": 10,
+  "expr": "mapPlus(filterGt(scanl1Plus(zipwithMinus(_arg_1, reverse(_arg_1))), 1), 0)",
+  "detail": ""
+ },
+ {
+  "problem": "014",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(mapPlus(scanl1Minus(_arg_1), -2), first(scanl1Max(_arg_1)))",
+  "detail": ""
+ },
+ {
+  "problem": "015",
+  "status": "ok",
+  "size": 10,
+  "expr": "take(mapDiv(mapPlus(scanl1Plus(scanl1Plus(_arg_1)), -3), 2), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "016",
+  "status": "ok",
+  "size": 8,
+  "expr": "access(scanl1Max(scanl1Plus(scanl1Plus(_arg_1))), last(_arg_1))",
+  "detail": ""
+ },
+ {
+  "problem": "017",
+  "status": "ok",
+  "size": 9,
+  "expr": "minimum(scanl1Minus(mapDiv(scanl1Plus(zipwithMin(_arg_1, _arg_1)), -3)))",
+  "detail": ""
+ },
+ {
+  "problem": "018",
+  "status": "ok",
+  "size": 9,
+  "expr": "last(reverse(zipwithMin(mapDiv(_arg_1, 2), scanl1Max(_arg_1))))",
+  "detail": ""
+ },
+ {
+  "problem": "019",
+  "status": "overflow",
+  "size": 9,
+  "expr": "access(_arg_1, first(scanl1Mult(scanl1Plus(mapMult(_arg_1, 3)))))",
+  "detail": "example 1: checked_mul(421601322010611600, -372) overflows Int64"
+ },
+ {
+  "problem": "020",
+  "status": "ok",
+  "size": 9,
+  "expr": "take(scanl1Max(mapPlus(_arg_1, 2)), first(scanl1Minus(_arg_1)))",
+  "detail": ""
+ },
+ {
+  "problem": "021",
+  "status": "ok",
+  "size": 10,
+  "expr": "take(scanl1Max(mapDiv(filterNeq(scanl1Plus(_arg_1), 3), 2)), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "022",
+  "status": "ok",
+  "size": 10,
+  "expr": "scanl1Max(mapDiv(filterSt(take(scanl1Plus(_arg_1), _arg_2), 2), 2))",
+  "detail": ""
+ },
+ {
+  "problem": "023",
+  "status": "ok",
+  "size": 10,
+  "expr": "mapDiv(scanl1Max(take(reverse(zipwithMax(_arg_1, _arg_1)), _arg_2)), 2)",
+  "detail": ""
+ },
+ {
+  "problem": "024",
+  "status": "ok",
+  "size": 9,
+  "expr": "take(scanl1Max(sort(_arg_1)), last(mapDiv(_arg_1, 1)))",
+  "detail": ""
+ },
+ {
+  "problem": "025",
+  "status": "overflow+power",
+  "size": 9,
+  "expr": "first(mapPlus(scanl1Mult(mapPow(scanl1Min(_arg_1), 3)), -1))",
+  "detail": "example 1: checked_mul(50501192908347, -1367631) overflows Int64"
+ },
+ {
+  "problem": "026",
+  "status": "power",
+  "size": 10,
+  "expr": "access(scanl1Plus(_arg_1), countMod(scanl1Minus(mapPow(_arg_1, 2)), 3))",
+  "detail": "example 1: got -149, Neo expects -243"
+ },
+ {
+  "problem": "027",
+  "status": "ok",
+  "size": 10,
+  "expr": "access(scanl1Min(scanl1Max(mapMult(mapPlus(_arg_1, 2), -2))), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "028",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(mapDiv(reverse(scanl1Plus(_arg_1)), 1), first(_arg_1))",
+  "detail": ""
+ },
+ {
+  "problem": "029",
+  "status": "ok",
+  "size": 9,
+  "expr": "take(scanl1Max(mapPlus(sort(_arg_1), 3)), last(_arg_1))",
+  "detail": ""
+ },
+ {
+  "problem": "030",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(sort(scanl1Max(_arg_1)), countGt(scanl1Minus(_arg_1), -2))",
+  "detail": ""
+ },
+ {
+  "problem": "031",
+  "status": "ok",
+  "size": 9,
+  "expr": "minimum(reverse(mapPlus(scanl1Plus(mapMult(_arg_1, 1)), 2)))",
+  "detail": ""
+ },
+ {
+  "problem": "032",
+  "status": "ok",
+  "size": 10,
+  "expr": "first(mapMult(scanl1Max(zipwithPlus(mapPlus(_arg_1, -3), _arg_1)), 1))",
+  "detail": ""
+ },
+ {
+  "problem": "033",
+  "status": "ok",
+  "size": 10,
+  "expr": "sort(mapDiv(filterNmod(drop(scanl1Plus(_arg_1), _arg_2), 2), 3))",
+  "detail": ""
+ },
+ {
+  "problem": "034",
+  "status": "ok",
+  "size": 11,
+  "expr": "take(mapPlus(mapDiv(scanl1Min(zipwithMin(_arg_1, _arg_1)), -1), 0), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "035",
+  "status": "ok",
+  "size": 10,
+  "expr": "scanl1Min(scanl1Plus(drop(zipwithMinus(mapPlus(_arg_1, -2), _arg_1), _arg_2)))",
+  "detail": ""
+ },
+ {
+  "problem": "036",
+  "status": "ok",
+  "size": 9,
+  "expr": "first(scanl1Minus(zipwithMinus(_arg_1, reverse(mapMult(_arg_1, 3)))))",
+  "detail": ""
+ },
+ {
+  "problem": "037",
+  "status": "ok",
+  "size": 9,
+  "expr": "last(scanl1Plus(scanl1Plus(mapPlus(mapPlus(_arg_1, -1), 2))))",
+  "detail": ""
+ },
+ {
+  "problem": "038",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(reverse(scanl1Max(_arg_1)), countMod(scanl1Plus(_arg_1), 2))",
+  "detail": ""
+ },
+ {
+  "problem": "039",
+  "status": "ok",
+  "size": 8,
+  "expr": "last(scanl1Min(mapPlus(scanl1Plus(scanl1Plus(_arg_1)), 1)))",
+  "detail": ""
+ },
+ {
+  "problem": "040",
+  "status": "ok",
+  "size": 10,
+  "expr": "access(_arg_1, first(scanl1Min(filterNeq(mapPlus(_arg_1, 2), -3))))",
+  "detail": ""
+ },
+ {
+  "problem": "041",
+  "status": "ok",
+  "size": 9,
+  "expr": "take(scanl1Plus(scanl1Minus(_arg_1)), countMod(scanl1Plus(_arg_1), -2))",
+  "detail": ""
+ },
+ {
+  "problem": "042",
+  "status": "ok",
+  "size": 9,
+  "expr": "take(sort(mapMult(scanl1Min(scanl1Minus(_arg_1)), -1)), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "043",
+  "status": "ok",
+  "size": 10,
+  "expr": "sum(drop(_arg_1, countSt(scanl1Plus(mapMult(_arg_1, -3)), 3)))",
+  "detail": ""
+ },
+ {
+  "problem": "044",
+  "status": "overflow",
+  "size": 9,
+  "expr": "drop(mapMult(_arg_1, -2), first(scanl1Mult(scanl1Minus(_arg_1))))",
+  "detail": "example 1: checked_mul(-1730462765850000000, -115) overflows Int64"
+ },
+ {
+  "problem": "045",
+  "status": "ok",
+  "size": 8,
+  "expr": "sum(reverse(sort(zipwithMinus(scanl1Minus(_arg_1), _arg_1))))",
+  "detail": ""
+ },
+ {
+  "problem": "046",
+  "status": "ok",
+  "size": 10,
+  "expr": "mapPlus(reverse(filterMod(zipwithMin(scanl1Min(_arg_1), _arg_1), -2)), -3)",
+  "detail": ""
+ },
+ {
+  "problem": "047",
+  "status": "ok",
+  "size": 10,
+  "expr": "drop(mapMult(filterSt(_arg_1, -3), -2), minimum(scanl1Max(_arg_1)))",
+  "detail": ""
+ },
+ {
+  "problem": "048",
+  "status": "power",
+  "size": 9,
+  "expr": "take(reverse(scanl1Max(_arg_1)), minimum(mapPow(_arg_1, 3)))",
+  "detail": "example 1: take with n = -1367631"
+ },
+ {
+  "problem": "049",
+  "status": "ok",
+  "size": 10,
+  "expr": "filterGt(mapDiv(mapDiv(scanl1Min(scanl1Minus(_arg_1)), -2), 3), -2)",
+  "detail": ""
+ },
+ {
+  "problem": "050",
+  "status": "power",
+  "size": 10,
+  "expr": "access(scanl1Min(_arg_1), countSt(mapPow(scanl1Minus(_arg_1), 2), 2))",
+  "detail": "example 1: access at 20 in a list of length 20"
+ },
+ {
+  "problem": "051",
+  "status": "ok",
+  "size": 8,
+  "expr": "minimum(sort(mapMult(reverse(scanl1Plus(_arg_1)), 3)))",
+  "detail": ""
+ },
+ {
+  "problem": "052",
+  "status": "ok",
+  "size": 8,
+  "expr": "last(scanl1Min(mapMult(scanl1Min(scanl1Plus(_arg_1)), 3)))",
+  "detail": ""
+ },
+ {
+  "problem": "053",
+  "status": "ok",
+  "size": 9,
+  "expr": "last(mapPlus(mapMult(reverse(scanl1Minus(_arg_1)), -2), 3))",
+  "detail": ""
+ },
+ {
+  "problem": "054",
+  "status": "ok",
+  "size": 8,
+  "expr": "first(zipwithMin(_arg_1, scanl1Min(scanl1Minus(reverse(_arg_1)))))",
+  "detail": ""
+ },
+ {
+  "problem": "055",
+  "status": "ok",
+  "size": 11,
+  "expr": "mapMult(filterMod(sort(take(mapPlus(_arg_1, 2), _arg_2)), -3), 1)",
+  "detail": ""
+ },
+ {
+  "problem": "056",
+  "status": "ok",
+  "size": 10,
+  "expr": "access(mapDiv(_arg_1, -1), minimum(mapDiv(scanl1Minus(_arg_1), 3)))",
+  "detail": ""
+ },
+ {
+  "problem": "057",
+  "status": "ok",
+  "size": 9,
+  "expr": "first(scanl1Plus(mapPlus(scanl1Max(zipwithMult(_arg_1, _arg_1)), 3)))",
+  "detail": ""
+ },
+ {
+  "problem": "058",
+  "status": "ok",
+  "size": 9,
+  "expr": "take(scanl1Min(scanl1Minus(scanl1Minus(zipwithMax(_arg_1, _arg_1)))), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "059",
+  "status": "ok",
+  "size": 8,
+  "expr": "sum(scanl1Min(sort(zipwithMax(_arg_1, scanl1Plus(_arg_1)))))",
+  "detail": ""
+ },
+ {
+  "problem": "060",
+  "status": "ok",
+  "size": 10,
+  "expr": "take(mapDiv(scanl1Minus(scanl1Max(zipwithMax(_arg_1, _arg_1))), 2), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "061",
+  "status": "ok",
+  "size": 11,
+  "expr": "drop(mapDiv(mapMult(_arg_1, -2), 1), last(filterSt(_arg_1, 1)))",
+  "detail": ""
+ },
+ {
+  "problem": "062",
+  "status": "ok",
+  "size": 10,
+  "expr": "take(mapPlus(scanl1Min(filterNeq(scanl1Minus(_arg_1), 3)), 1), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "063",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(mapDiv(scanl1Min(scanl1Plus(_arg_1)), -3), last(_arg_1))",
+  "detail": ""
+ },
+ {
+  "problem": "064",
+  "status": "ok",
+  "size": 10,
+  "expr": "access(sort(_arg_1), countNmod(scanl1Plus(mapMult(_arg_1, 3)), 2))",
+  "detail": ""
+ },
+ {
+  "problem": "065",
+  "status": "ok",
+  "size": 12,
+  "expr": "drop(mapDiv(mapDiv(filterNmod(zipwithPlus(_arg_1, _arg_1), 3), 2), 3), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "066",
+  "status": "ok",
+  "size": 11,
+  "expr": "drop(mapMult(_arg_1, -3), countSt(mapPlus(scanl1Plus(_arg_1), 3), -3))",
+  "detail": ""
+ },
+ {
+  "problem": "067",
+  "status": "ok",
+  "size": 10,
+  "expr": "last(mapDiv(take(_arg_1, first(mapPlus(_arg_1, 1))), -2))",
+  "detail": ""
+ },
+ {
+  "problem": "068",
+  "status": "ok",
+  "size": 11,
+  "expr": "access(filterGt(_arg_1, 2), first(mapPlus(mapPlus(_arg_1, 1), -3)))",
+  "detail": ""
+ },
+ {
+  "problem": "069",
+  "status": "ok",
+  "size": 9,
+  "expr": "maximum(scanl1Plus(mapPlus(zipwithMin(scanl1Plus(_arg_1), _arg_1), -2)))",
+  "detail": ""
+ },
+ {
+  "problem": "070",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(scanl1Minus(scanl1Max(_arg_1)), countMod(sort(_arg_1), -3))",
+  "detail": ""
+ },
+ {
+  "problem": "071",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(sort(_arg_1), minimum(filterMod(scanl1Plus(_arg_1), 2)))",
+  "detail": ""
+ },
+ {
+  "problem": "072",
+  "status": "power",
+  "size": 9,
+  "expr": "access(_arg_1, first(mapPow(scanl1Minus(scanl1Minus(_arg_1)), 3)))",
+  "detail": "example 1: got -22, Neo expects 115"
+ },
+ {
+  "problem": "073",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(_arg_1, first(mapDiv(scanl1Max(scanl1Min(_arg_1)), 2)))",
+  "detail": ""
+ },
+ {
+  "problem": "074",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(sort(filterNeq(_arg_1, -1)), first(scanl1Plus(_arg_1)))",
+  "detail": ""
+ },
+ {
+  "problem": "075",
+  "status": "overflow",
+  "size": 9,
+  "expr": "countSt(reverse(scanl1Mult(zipwithMinus(_arg_1, sort(_arg_1)))), 1)",
+  "detail": "example 1: checked_mul(-2182393359803059200, -166) overflows Int64"
+ },
+ {
+  "problem": "076",
+  "status": "overflow",
+  "size": 10,
+  "expr": "last(zipwithMinus(scanl1Mult(mapDiv(_arg_1, 1)), mapPlus(_arg_1, 1)))",
+  "detail": "example 1: checked_mul(3884785734064435200, -65) overflows Int64"
+ },
+ {
+  "problem": "077",
+  "status": "ok",
+  "size": 10,
+  "expr": "access(scanl1Min(sort(filterNeq(mapMult(_arg_1, 1), 1))), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "078",
+  "status": "ok",
+  "size": 10,
+  "expr": "access(scanl1Plus(_arg_1), countEq(mapDiv(scanl1Min(_arg_1), 1), -1))",
+  "detail": ""
+ },
+ {
+  "problem": "079",
+  "status": "ok",
+  "size": 10,
+  "expr": "minimum(mapMult(scanl1Max(filterMod(zipwithPlus(_arg_1, _arg_1), -1)), 2))",
+  "detail": ""
+ },
+ {
+  "problem": "080",
+  "status": "ok",
+  "size": 9,
+  "expr": "first(scanl1Min(zipwithMin(scanl1Max(_arg_1), mapMult(_arg_1, 3))))",
+  "detail": ""
+ },
+ {
+  "problem": "081",
+  "status": "ok",
+  "size": 9,
+  "expr": "last(zipwithPlus(mapPlus(scanl1Minus(_arg_1), 3), sort(_arg_1)))",
+  "detail": ""
+ },
+ {
+  "problem": "082",
+  "status": "ok",
+  "size": 8,
+  "expr": "minimum(scanl1Min(reverse(drop(_arg_1, first(_arg_1)))))",
+  "detail": ""
+ },
+ {
+  "problem": "083",
+  "status": "ok",
+  "size": 9,
+  "expr": "minimum(scanl1Minus(scanl1Plus(mapPlus(filterMod(_arg_1, -1), -3))))",
+  "detail": ""
+ },
+ {
+  "problem": "084",
+  "status": "ok",
+  "size": 9,
+  "expr": "first(mapPlus(scanl1Min(scanl1Max(zipwithPlus(_arg_1, _arg_1))), 3))",
+  "detail": ""
+ },
+ {
+  "problem": "085",
+  "status": "overflow",
+  "size": 8,
+  "expr": "sort(scanl1Max(take(_arg_1, first(scanl1Mult(_arg_1)))))",
+  "detail": "example 1: checked_mul(435186294543000000, -41) overflows Int64"
+ },
+ {
+  "problem": "086",
+  "status": "ok",
+  "size": 7,
+  "expr": "first(sort(scanl1Minus(scanl1Plus(scanl1Plus(_arg_1)))))",
+  "detail": ""
+ },
+ {
+  "problem": "087",
+  "status": "overflow",
+  "size": 10,
+  "expr": "first(scanl1Mult(mapMult(drop(mapPlus(_arg_1, 3), _arg_2), 2)))",
+  "detail": "example 1: checked_mul(150016222347264000, 224) overflows Int64"
+ },
+ {
+  "problem": "088",
+  "status": "ok",
+  "size": 8,
+  "expr": "maximum(zipwithMax(scanl1Plus(sort(_arg_1)), scanl1Minus(_arg_1)))",
+  "detail": ""
+ },
+ {
+  "problem": "089",
+  "status": "ok",
+  "size": 9,
+  "expr": "access(scanl1Minus(_arg_1), maximum(filterMod(scanl1Plus(_arg_1), -1)))",
+  "detail": ""
+ },
+ {
+  "problem": "090",
+  "status": "ok",
+  "size": 10,
+  "expr": "access(scanl1Minus(scanl1Plus(mapPlus(_arg_1, 0))), countEq(_arg_1, -2))",
+  "detail": ""
+ },
+ {
+  "problem": "091",
+  "status": "ok",
+  "size": 9,
+  "expr": "maximum(take(reverse(mapDiv(sort(_arg_1), 1)), _arg_2))",
+  "detail": ""
+ },
+ {
+  "problem": "092",
+  "status": "ok",
+  "size": 9,
+  "expr": "scanl1Plus(reverse(take(scanl1Min(zipwithMin(_arg_1, _arg_1)), _arg_2)))",
+  "detail": ""
+ },
+ {
+  "problem": "093",
+  "status": "overflow+power",
+  "size": 9,
+  "expr": "first(mapMult(scanl1Max(scanl1Mult(mapPow(_arg_1, 3))), 2))",
+  "detail": "example 1: checked_mul(-731101536184172544, -2197) overflows Int64"
+ },
+ {
+  "problem": "094",
+  "status": "ok",
+  "size": 9,
+  "expr": "filterSt(sort(mapMult(reverse(scanl1Plus(_arg_1)), 2)), 3)",
+  "detail": ""
+ },
+ {
+  "problem": "095",
+  "status": "ok",
+  "size": 11,
+  "expr": "access(filterSt(zipwithMin(mapPlus(_arg_1, 1), scanl1Plus(_arg_1)), 3), _arg_2)",
+  "detail": ""
+ },
+ {
+  "problem": "096",
+  "status": "ok",
+  "size": 9,
+  "expr": "scanl1Plus(scanl1Max(reverse(filterMod(zipwithMin(_arg_1, _arg_1), 3))))",
+  "detail": ""
+ },
+ {
+  "problem": "097",
+  "status": "ok",
+  "size": 9,
+  "expr": "first(scanl1Min(scanl1Minus(mapMult(filterMod(_arg_1, 3), -1))))",
+  "detail": ""
+ },
+ {
+  "problem": "048",
+  "status": "ok",
+  "size": 11,
+  "expr": "take(mapPlus(drop(reverse(_arg_1), _arg_2), -3), countNmod(_arg_1, -2))",
+  "detail": ""
+ },
+ {
+  "problem": "099",
+  "status": "ok",
+  "size": 8,
+  "expr": "minimum(scanl1Min(sort(zipwithMax(_arg_1, scanl1Plus(_arg_1)))))",
+  "detail": ""
+ },
+ {
+  "problem": "100",
+  "status": "ok",
+  "size": 9,
+  "expr": "minimum(scanl1Min(mapDiv(scanl1Min(mapPlus(_arg_1, 2)), 3)))",
+  "detail": ""
+ }
+]
