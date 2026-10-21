@@ -97,6 +97,7 @@ end
 
 # map with arithmetic ops
 @inline mapPlus(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopPlus, arr, k)
+@inline mapMinus(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopMinus, arr, k)
 @inline mapMult(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopMult, arr, k)
 @inline mapDiv(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopDiv, arr, k)
 @inline mapPow(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopPow, arr, k)
