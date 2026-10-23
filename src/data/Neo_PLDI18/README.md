@@ -19,7 +19,9 @@ with the program that generated it: five components, 7–12 nodes in this gramma
   examples with this benchmark's semantics (mirrored from `list_functions.jl`).
 - `verify.jl`: re-checks the generated solutions in Julia (RuleNode round trip,
   size, and outputs computed with this module's functions).
-- `data.jl`: `problem_NNN`, Neo's examples (`NNN` = Neo's `progNNN`).
+- `data.jl`: `problem_NNN`, Neo's examples (`NNN` = the number in Neo's file name
+  `progNNN.json`; the files' `name` field is not used, since `prog98.json` is also
+  named `prog48`).
 - `grammars.jl`: `grammar_NNN`, the DeepCoder grammar of this repository with
   `access` instead of `getindex`, plus `Start` and the problem's arguments
   (`ExprArr` for lists, `ExprNum` for integers).

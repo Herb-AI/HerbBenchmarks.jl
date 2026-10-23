@@ -302,10 +302,15 @@ def main():
     files = sorted(glob.glob(os.path.join(src, "prog*.json")), key=lambda f: int(re.findall(r"\d+", os.path.basename(f))[0]))
     assert len(files) == 100, len(files)
     data, grams, sols, status = [], [], [], []
+    names = set()
     for f in files:
         d = json.load(open(f))
-        num = int(re.findall(r"\d+", d["name"])[0])
+        # number from the file name (progN.json), not from the `name` field: in Neo's
+        # files, prog98.json is also named "prog48"
+        num = int(re.findall(r"\d+", os.path.basename(f))[0])
         pname = f"{num:03d}"
+        assert pname not in names, f"duplicate problem {pname}"
+        names.add(pname)
         ex0 = d["examples"][0]
         arg_types = ["ExprArr" if isinstance(x, list) else "ExprNum" for x in ex0["input"]]
         out_type = "ExprArr" if isinstance(ex0["output"], list) else "ExprNum"

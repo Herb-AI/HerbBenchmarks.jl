@@ -699,7 +699,7 @@ solution_097 = (
     neo_program = "(root [id=1](HEAD [id=2](SCANL1-MIN [id=245](SCANL1-MINUS [id=326](MAP-MUL [id=353](FILTER [id=362]input0 [id=363]l(a,b).(%= a b) [id=364]3) [id=354]-1)))))",
 )
 
-solution_048 = (
+solution_098 = (
     expr = :(take(mapPlus(drop(reverse(_arg_1), _arg_2), -3), countNmod(_arg_1, -2))),
     rulenode = RuleNode(45, AbstractRuleNode[RuleNode(21, AbstractRuleNode[RuleNode(30, AbstractRuleNode[RuleNode(20, AbstractRuleNode[RuleNode(23, AbstractRuleNode[RuleNode(46)]), RuleNode(47)]), RuleNode(1)]), RuleNode(19, AbstractRuleNode[RuleNode(46), RuleNode(2)])])]),
     size = 11,
