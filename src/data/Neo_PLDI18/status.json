@@ -169,17 +169,17 @@
  },
  {
   "problem": "025",
-  "status": "overflow+power",
+  "status": "overflow",
   "size": 9,
   "expr": "first(mapPlus(scanl1Mult(mapPow(scanl1Min(_arg_1), 3)), -1))",
-  "detail": "example 1: checked_mul(50501192908347, -1367631) overflows Int64"
+  "detail": "example 1: checked_mul(1866675593471230161, 151807041) overflows Int64"
  },
  {
   "problem": "026",
-  "status": "power",
+  "status": "ok",
   "size": 10,
   "expr": "access(scanl1Plus(_arg_1), countMod(scanl1Minus(mapPow(_arg_1, 2)), 3))",
-  "detail": "example 1: got -149, Neo expects -243"
+  "detail": ""
  },
  {
   "problem": "027",
@@ -330,10 +330,10 @@
  },
  {
   "problem": "048",
-  "status": "power",
+  "status": "ok",
   "size": 9,
   "expr": "take(reverse(scanl1Max(_arg_1)), minimum(mapPow(_arg_1, 3)))",
-  "detail": "example 1: take with n = -1367631"
+  "detail": ""
  },
  {
   "problem": "049",
@@ -344,10 +344,10 @@
  },
  {
   "problem": "050",
-  "status": "power",
+  "status": "ok",
   "size": 10,
   "expr": "access(scanl1Min(_arg_1), countSt(mapPow(scanl1Minus(_arg_1), 2), 2))",
-  "detail": "example 1: access at 20 in a list of length 20"
+  "detail": ""
  },
  {
   "problem": "051",
@@ -498,10 +498,10 @@
  },
  {
   "problem": "072",
-  "status": "power",
+  "status": "ok",
   "size": 9,
   "expr": "access(_arg_1, first(mapPow(scanl1Minus(scanl1Minus(_arg_1)), 3)))",
-  "detail": "example 1: got -22, Neo expects 115"
+  "detail": ""
  },
  {
   "problem": "073",
@@ -645,10 +645,10 @@
  },
  {
   "problem": "093",
-  "status": "overflow+power",
+  "status": "overflow",
   "size": 9,
   "expr": "first(mapMult(scanl1Max(scanl1Mult(mapPow(_arg_1, 3))), 2))",
-  "detail": "example 1: checked_mul(-731101536184172544, -2197) overflows Int64"
+  "detail": "example 1: checked_mul(492857375909216256, 1336336) overflows Int64"
  },
  {
   "problem": "094",

@@ -177,7 +177,7 @@ solution_024 = (
     neo_program = "(root [id=1](TAKE [id=2](SCANL1-MAX [id=245](SORT [id=326]input0)) [id=3](LAST [id=125](MAP-DIV [id=206]input0 [id=207]1))))",
 )
 
-# BENCHED (overflow: Neo's Java ints wrap at 32 bits; Herb's checked multiplication throws; power: Neo's ^ computes x^(k+1) (loop bug in PrimitiveBinop.java); Herb's mapPow computes x^k; example 1: checked_mul(50501192908347, -1367631) overflows Int64)
+# BENCHED (overflow: Neo's Java ints wrap at 32 bits; Herb's checked multiplication throws; example 1: checked_mul(1866675593471230161, 151807041) overflows Int64)
 # solution_025 = (
 #     expr = :(first(mapPlus(scanl1Mult(mapPow(scanl1Min(_arg_1), 3)), -1))),
 #     rulenode = RuleNode(45, AbstractRuleNode[RuleNode(11, AbstractRuleNode[RuleNode(30, AbstractRuleNode[RuleNode(44, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(41, AbstractRuleNode[RuleNode(46)]), RuleNode(7)])]), RuleNode(3)])])]),
@@ -185,13 +185,12 @@ solution_024 = (
 #     neo_program = "(root [id=1](HEAD [id=2](MAP-PLUS [id=245](SCANL1-MUL [id=326](MAP-POW [id=353](SCANL1-MIN [id=362]input0) [id=354]3)) [id=246]-1)))",
 # )
 
-# BENCHED (power: Neo's ^ computes x^(k+1) (loop bug in PrimitiveBinop.java); Herb's mapPow computes x^k; example 1: got -149, Neo expects -243)
-# solution_026 = (
-#     expr = :(access(scanl1Plus(_arg_1), countMod(scanl1Minus(mapPow(_arg_1, 2)), 3))),
-#     rulenode = RuleNode(45, AbstractRuleNode[RuleNode(13, AbstractRuleNode[RuleNode(42, AbstractRuleNode[RuleNode(46)]), RuleNode(18, AbstractRuleNode[RuleNode(43, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(46), RuleNode(6)])]), RuleNode(7)])])]),
-#     size = 10,
-#     neo_program = "(root [id=1](ACCESS [id=2](SCANL1-PLUS [id=245]input0) [id=3](COUNT [id=125](SCANL1-MINUS [id=206](MAP-POW [id=233]input0 [id=234]2)) [id=126]l(a,b).(%= a b) [id=127]3)))",
-# )
+solution_026 = (
+    expr = :(access(scanl1Plus(_arg_1), countMod(scanl1Minus(mapPow(_arg_1, 2)), 3))),
+    rulenode = RuleNode(45, AbstractRuleNode[RuleNode(13, AbstractRuleNode[RuleNode(42, AbstractRuleNode[RuleNode(46)]), RuleNode(18, AbstractRuleNode[RuleNode(43, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(46), RuleNode(6)])]), RuleNode(7)])])]),
+    size = 10,
+    neo_program = "(root [id=1](ACCESS [id=2](SCANL1-PLUS [id=245]input0) [id=3](COUNT [id=125](SCANL1-MINUS [id=206](MAP-POW [id=233]input0 [id=234]2)) [id=126]l(a,b).(%= a b) [id=127]3)))",
+)
 
 solution_027 = (
     expr = :(access(scanl1Min(scanl1Max(mapMult(mapPlus(_arg_1, 2), -2))), _arg_2)),
@@ -341,13 +340,12 @@ solution_047 = (
     neo_program = "(root [id=1](DROP [id=2](MAP-MUL [id=245](FILTER [id=326]input0 [id=327]l(a,b).(> a b) [id=328]-3) [id=246]-2) [id=3](MINIMUM [id=125](SCANL1-MAX [id=206]input0))))",
 )
 
-# BENCHED (power: Neo's ^ computes x^(k+1) (loop bug in PrimitiveBinop.java); Herb's mapPow computes x^k; example 1: take with n = -1367631)
-# solution_048 = (
-#     expr = :(take(reverse(scanl1Max(_arg_1)), minimum(mapPow(_arg_1, 3)))),
-#     rulenode = RuleNode(45, AbstractRuleNode[RuleNode(21, AbstractRuleNode[RuleNode(23, AbstractRuleNode[RuleNode(40, AbstractRuleNode[RuleNode(46)])]), RuleNode(9, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(46), RuleNode(7)])])])]),
-#     size = 9,
-#     neo_program = "(root [id=1](TAKE [id=2](REVERSE [id=245](SCANL1-MAX [id=326]input0)) [id=3](MINIMUM [id=125](MAP-POW [id=206]input0 [id=207]3))))",
-# )
+solution_048 = (
+    expr = :(take(reverse(scanl1Max(_arg_1)), minimum(mapPow(_arg_1, 3)))),
+    rulenode = RuleNode(45, AbstractRuleNode[RuleNode(21, AbstractRuleNode[RuleNode(23, AbstractRuleNode[RuleNode(40, AbstractRuleNode[RuleNode(46)])]), RuleNode(9, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(46), RuleNode(7)])])])]),
+    size = 9,
+    neo_program = "(root [id=1](TAKE [id=2](REVERSE [id=245](SCANL1-MAX [id=326]input0)) [id=3](MINIMUM [id=125](MAP-POW [id=206]input0 [id=207]3))))",
+)
 
 solution_049 = (
     expr = :(filterGt(mapDiv(mapDiv(scanl1Min(scanl1Minus(_arg_1)), -2), 3), -2)),
@@ -356,13 +354,12 @@ solution_049 = (
     neo_program = "(root [id=1](FILTER [id=2](MAP-DIV [id=245](MAP-DIV [id=326](SCANL1-MIN [id=353](SCANL1-MINUS [id=362]input0)) [id=327]-2) [id=246]3) [id=3]l(a,b).(< a b) [id=4]-2))",
 )
 
-# BENCHED (power: Neo's ^ computes x^(k+1) (loop bug in PrimitiveBinop.java); Herb's mapPow computes x^k; example 1: access at 20 in a list of length 20)
-# solution_050 = (
-#     expr = :(access(scanl1Min(_arg_1), countSt(mapPow(scanl1Minus(_arg_1), 2), 2))),
-#     rulenode = RuleNode(45, AbstractRuleNode[RuleNode(13, AbstractRuleNode[RuleNode(41, AbstractRuleNode[RuleNode(46)]), RuleNode(14, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(43, AbstractRuleNode[RuleNode(46)]), RuleNode(6)]), RuleNode(6)])])]),
-#     size = 10,
-#     neo_program = "(root [id=1](ACCESS [id=2](SCANL1-MIN [id=245]input0) [id=3](COUNT [id=125](MAP-POW [id=206](SCANL1-MINUS [id=233]input0) [id=207]2) [id=126]l(a,b).(> a b) [id=127]2)))",
-# )
+solution_050 = (
+    expr = :(access(scanl1Min(_arg_1), countSt(mapPow(scanl1Minus(_arg_1), 2), 2))),
+    rulenode = RuleNode(45, AbstractRuleNode[RuleNode(13, AbstractRuleNode[RuleNode(41, AbstractRuleNode[RuleNode(46)]), RuleNode(14, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(43, AbstractRuleNode[RuleNode(46)]), RuleNode(6)]), RuleNode(6)])])]),
+    size = 10,
+    neo_program = "(root [id=1](ACCESS [id=2](SCANL1-MIN [id=245]input0) [id=3](COUNT [id=125](MAP-POW [id=206](SCANL1-MINUS [id=233]input0) [id=207]2) [id=126]l(a,b).(> a b) [id=127]2)))",
+)
 
 solution_051 = (
     expr = :(minimum(sort(mapMult(reverse(scanl1Plus(_arg_1)), 3)))),
@@ -511,13 +508,12 @@ solution_071 = (
     neo_program = "(root [id=1](ACCESS [id=2](SORT [id=245]input0) [id=3](MINIMUM [id=125](FILTER [id=206](SCANL1-PLUS [id=233]input0) [id=207]l(a,b).(%= a b) [id=208]2))))",
 )
 
-# BENCHED (power: Neo's ^ computes x^(k+1) (loop bug in PrimitiveBinop.java); Herb's mapPow computes x^k; example 1: got -22, Neo expects 115)
-# solution_072 = (
-#     expr = :(access(_arg_1, first(mapPow(scanl1Minus(scanl1Minus(_arg_1)), 3)))),
-#     rulenode = RuleNode(45, AbstractRuleNode[RuleNode(13, AbstractRuleNode[RuleNode(46), RuleNode(11, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(43, AbstractRuleNode[RuleNode(43, AbstractRuleNode[RuleNode(46)])]), RuleNode(7)])])])]),
-#     size = 9,
-#     neo_program = "(root [id=1](ACCESS [id=2]input0 [id=3](HEAD [id=125](MAP-POW [id=206](SCANL1-MINUS [id=233](SCANL1-MINUS [id=242]input0)) [id=207]3))))",
-# )
+solution_072 = (
+    expr = :(access(_arg_1, first(mapPow(scanl1Minus(scanl1Minus(_arg_1)), 3)))),
+    rulenode = RuleNode(45, AbstractRuleNode[RuleNode(13, AbstractRuleNode[RuleNode(46), RuleNode(11, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(43, AbstractRuleNode[RuleNode(43, AbstractRuleNode[RuleNode(46)])]), RuleNode(7)])])])]),
+    size = 9,
+    neo_program = "(root [id=1](ACCESS [id=2]input0 [id=3](HEAD [id=125](MAP-POW [id=206](SCANL1-MINUS [id=233](SCANL1-MINUS [id=242]input0)) [id=207]3))))",
+)
 
 solution_073 = (
     expr = :(access(_arg_1, first(mapDiv(scanl1Max(scanl1Min(_arg_1)), 2)))),
@@ -663,7 +659,7 @@ solution_092 = (
     neo_program = "(root [id=1](SCANL1-PLUS [id=2](REVERSE [id=245](TAKE [id=326](SCANL1-MIN [id=353](ZIPWITH-MIN [id=362]input0 [id=363]input0)) [id=327]input1))))",
 )
 
-# BENCHED (overflow: Neo's Java ints wrap at 32 bits; Herb's checked multiplication throws; power: Neo's ^ computes x^(k+1) (loop bug in PrimitiveBinop.java); Herb's mapPow computes x^k; example 1: checked_mul(-731101536184172544, -2197) overflows Int64)
+# BENCHED (overflow: Neo's Java ints wrap at 32 bits; Herb's checked multiplication throws; example 1: checked_mul(492857375909216256, 1336336) overflows Int64)
 # solution_093 = (
 #     expr = :(first(mapMult(scanl1Max(scanl1Mult(mapPow(_arg_1, 3))), 2))),
 #     rulenode = RuleNode(45, AbstractRuleNode[RuleNode(11, AbstractRuleNode[RuleNode(32, AbstractRuleNode[RuleNode(40, AbstractRuleNode[RuleNode(44, AbstractRuleNode[RuleNode(34, AbstractRuleNode[RuleNode(46), RuleNode(7)])])]), RuleNode(6)])])]),

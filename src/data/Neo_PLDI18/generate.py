@@ -148,8 +148,9 @@ def to_rulenode(e, rules, nt, arg_types):
 # Semantics, mirrored from list_functions.jl (and Base for the rest)
 # ---------------------------------------------------------------------------
 # Switches to Neo's semantics, used only to diagnose why a solution fails (never to
-# generate outputs): Java 32-bit wrap-around, Neo's x^(k+1), and 256 for out-of-range access.
-NEO = {"wrap32": False, "pow": False, "access256": False}
+# generate outputs): Java 32-bit wrap-around, and 256 for out-of-range access.
+# (Neo's power, x^(k+1), is this benchmark's semantics: see jpow.)
+NEO = {"wrap32": False, "access256": False}
 
 
 class EvalError(Exception):
@@ -178,15 +179,14 @@ def jdiv(a, b):
 
 
 def jpow(a, b):
-    if NEO["pow"]:  # Neo: res = a; for i in 1..b: res *= a
-        r = a
-        for _ in range(1, b + 1): r = ((r * a + 2**31) % 2**32) - 2**31
-        return r
-    if b < 0:
-        if a == 1: return 1
-        if a == -1: return -1 if b % 2 else 1
-        raise EvalError("other", f"{a}^{b}: negative exponent")
-    return wrap(a ** b)
+    # Neo's ^ (PrimitiveBinop.java), as in list_functions.jl: res = a, then
+    # multiply by a another b times, so a^(b+1), and a for b <= 0
+    if b <= 0: return a
+    if abs(a) <= 1: return 1 if (a == -1 and b % 2) else a  # never overflows; b can be huge
+    r = a
+    for _ in range(1, b + 1):
+        r = checked_mul(r, a)
+    return r
 
 
 def jrem(a, b):
@@ -259,8 +259,8 @@ def reproduces(e, examples):
 def diagnose(e, examples):
     """Smallest set of Neo-semantics switches under which the solution reproduces Neo's outputs."""
     import itertools
-    keys = ["wrap32", "pow", "access256"]
-    for n in range(1, 4):
+    keys = ["wrap32", "access256"]
+    for n in range(1, len(keys) + 1):
         for combo in itertools.combinations(keys, n):
             for k in keys: NEO[k] = k in combo
             ok = reproduces(e, examples)
@@ -290,7 +290,6 @@ def comment(block, reason):
 
 REASONS = {
     "overflow": "Neo's Java ints wrap at 32 bits; Herb's checked multiplication throws",
-    "power": "Neo's ^ computes x^(k+1) (loop bug in PrimitiveBinop.java); Herb's mapPow computes x^k",
     "index": "Neo returns 256 as a 'no value' placeholder out of range; access throws",
     "other": "solution does not reproduce Neo's outputs",
 }
@@ -331,12 +330,12 @@ def main():
             except EvalError as err:
                 kind, detail = err.kind, f"example {i+1}: {err}"; break
             if got != ex["output"]:
-                kind = "power" if uses(e, "mapPow") else "other"
+                kind = "other"
                 detail = f"example {i+1}: got {jl(got)}, Neo expects {jl(ex['output'])}"; break
         if kind != "ok":
             combo = diagnose(e, d["examples"])
             if combo:
-                kind = "+".join({"wrap32": "overflow", "pow": "power", "access256": "index"}[c] for c in combo)
+                kind = "+".join({"wrap32": "overflow", "access256": "index"}[c] for c in combo)
             else:
                 kind = "other"
         status.append((pname, kind, size, show(e), detail))

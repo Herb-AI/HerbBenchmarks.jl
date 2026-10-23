@@ -27,40 +27,39 @@ with the program that generated it: five components, 7–12 nodes in this gramma
   (`ExprArr` for lists, `ExprNum` for integers).
 - `solutions.jl`: `solution_NNN = (expr, rulenode, size, neo_program)`.
   `rulenode` uses `grammar_NNN`'s rule indices, including the `Start` rule.
-- `list_functions.jl`: copied from `DeepCoder_2016`, plus `access`.
+- `list_functions.jl`: copied from `DeepCoder_2016`, plus `access`, and with Neo's
+  power (see Semantics).
 
 ## Semantics
 
 Neo's `ACCESS` is 0-based. This benchmark uses `access(xs, n) = xs[n + 1]`,
 which throws out of range (Neo returns 256 as a "no value" placeholder).
-Everything else follows `DeepCoder_2016`'s `list_functions.jl`.
+Powers follow Neo: Neo's `^` (`PrimitiveBinop.java`) starts from `res = a` and
+multiplies by `a` another `b` times, so `MAP-POW(x, k)` computes x^(k+1), and x
+for k ≤ 0. `binopPow` does the same, with checked multiplication (so it throws
+on overflow, like `binopMult`). Everything else follows `DeepCoder_2016`'s `list_functions.jl`.
 
 ## Benched problems
 
-86 of the 100 solutions reproduce Neo's outputs under these semantics.
-The other 14 are commented out in all three files (marked `BENCHED`,
+90 of the 100 solutions reproduce Neo's outputs under these semantics.
+The other 10 are commented out in all three files (marked `BENCHED`,
 with the reason). `generate.py` diagnoses each one by switching on Neo's
 semantics until the outputs match:
 
 - **overflow**: Neo's interpreter is Java with 32-bit `int`s, which wrap around on overflow; Herb multiplies with `Base.checked_mul`, which throws. Following wrap-around is not a semantics we want.
-- **power**: Neo's `^` (`PrimitiveBinop.java`) starts from `res = a` and multiplies by `a` another `b` times, so `MAP-POW(x, k)` computes x^(k+1) (and x for k ≤ 0). Herb's `mapPow` computes x^k.
 
 | Problem | Reason | Solution |
 |---|---|---|
 | 002 | overflow | `first(zipwithMin(scanl1Minus(scanl1Mult(_arg_1)), reverse(_arg_1)))` |
 | 006 | overflow | `countNmod(scanl1Mult(mapPlus(filterNeq(mapPlus(_arg_1, -3), -3), 2)), 2)` |
 | 019 | overflow | `access(_arg_1, first(scanl1Mult(scanl1Plus(mapMult(_arg_1, 3)))))` |
-| 025 | overflow+power | `first(mapPlus(scanl1Mult(mapPow(scanl1Min(_arg_1), 3)), -1))` |
-| 026 | power | `access(scanl1Plus(_arg_1), countMod(scanl1Minus(mapPow(_arg_1, 2)), 3))` |
+| 025 | overflow | `first(mapPlus(scanl1Mult(mapPow(scanl1Min(_arg_1), 3)), -1))` |
 | 044 | overflow | `drop(mapMult(_arg_1, -2), first(scanl1Mult(scanl1Minus(_arg_1))))` |
-| 048 | power | `take(reverse(scanl1Max(_arg_1)), minimum(mapPow(_arg_1, 3)))` |
-| 050 | power | `access(scanl1Min(_arg_1), countSt(mapPow(scanl1Minus(_arg_1), 2), 2))` |
-| 072 | power | `access(_arg_1, first(mapPow(scanl1Minus(scanl1Minus(_arg_1)), 3)))` |
 | 075 | overflow | `countSt(reverse(scanl1Mult(zipwithMinus(_arg_1, sort(_arg_1)))), 1)` |
 | 076 | overflow | `last(zipwithMinus(scanl1Mult(mapDiv(_arg_1, 1)), mapPlus(_arg_1, 1)))` |
 | 085 | overflow | `sort(scanl1Max(take(_arg_1, first(scanl1Mult(_arg_1)))))` |
 | 087 | overflow | `first(scanl1Mult(mapMult(drop(mapPlus(_arg_1, 3), _arg_2), 2)))` |
-| 093 | overflow+power | `first(mapMult(scanl1Max(scanl1Mult(mapPow(_arg_1, 3))), 2))` |
+| 093 | overflow | `first(mapMult(scanl1Max(scanl1Mult(mapPow(_arg_1, 3))), 2))` |
 
-Solution sizes of the 86 active problems (nodes, including `Start`):
-7: 1, 8: 12, 9: 37, 10: 26, 11: 9, 12: 1; mean 9.38.
+Solution sizes of the 90 active problems (nodes, including `Start`):
+7: 1, 8: 12, 9: 39, 10: 28, 11: 9, 12: 1; mean 9.39.

@@ -82,7 +82,19 @@ end
 @inline binopMax(x::Integer, y::Integer) = max(x, y)
 @inline binopMin(x::Integer, y::Integer) = min(x, y)
 @inline binopDiv(x::Integer, y::Integer) = div(x, y)
-@inline binopPow(x::Integer, y::Integer) = x^y
+# Neo's ^ (PrimitiveBinop.java): res = x, then multiply by x another y times, so
+# x^(y+1), and x for y <= 0. Multiplication is checked, as in binopMult.
+# x in (-1, 0, 1) never overflows, so it gets a closed form (y can be huge);
+# any other x overflows within 63 multiplications.
+@inline function binopPow(x::Integer, y::Integer)
+    y <= 0 && return x
+    abs(x) <= 1 && return (x == -1 && isodd(y)) ? one(x) : x
+    res = x
+    for _ in 1:y
+        res = Base.checked_mul(res, x)
+    end
+    return res
+end
 
 @inline binopBoolSt(x::Integer, y::Integer) = x > y
 @inline binopBoolGt(x::Integer, y::Integer) = x < y
