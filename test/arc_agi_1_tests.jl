@@ -1343,3 +1343,102 @@ end
         ARC.canvas(ARC.numcolors(g), ARC.shape(g)) for g in args1
     ]
 end
+@testitem "ARC-AGI-1: allocation-reduced primitives" begin
+    import HerbBenchmarks.ARC_AGI1 as ARC
+    using Random
+
+    @testset "Grid conversion preserves column-major order and concrete types" begin
+        grid = [1 2 3; 4 5 6]
+        indices = CartesianIndex.([(1, 1), (2, 1), (1, 2), (2, 2), (1, 3), (2, 3)])
+        # Compare elements explicitly: ARC's vector == deliberately ignores order.
+        @test all(isequal.(ARC.asindices(grid), indices))
+        @test all(isequal.(ARC.asobject(grid), collect(zip([1, 4, 2, 5, 3, 6], indices))))
+        for dims in ((0, 0), (0, 3), (3, 0))
+            empty = Matrix{Int}(undef, dims...)
+            @test ARC.asindices(empty) isa ARC.Indices
+            @test isempty(ARC.asindices(empty))
+            @test ARC.asobject(empty) isa ARC.Object
+            @test isempty(ARC.asobject(empty))
+        end
+    end
+
+    @testset "Scaling preserves guards, empty shapes and input ownership" begin
+        grid = [1 2 3; 4 5 6]
+        @test ARC.hupscale(grid, 2) == [1 1 2 2 3 3; 4 4 5 5 6 6]
+        @test ARC.vupscale(grid, 2) == [1 2 3; 1 2 3; 4 5 6; 4 5 6]
+        for scale in (ARC.hupscale, ARC.vupscale)
+            for factor in (-1, 0, 31)
+                @test scale(grid, factor) === nothing
+            end
+            result = scale(grid, 1)
+            result[1, 1] = 9
+            @test grid[1, 1] == 1
+            @test scale(zeros(Int, 0, 0), 2) === nothing
+        end
+        horizontal_empty = zeros(Int, 0, 3)
+        vertical_empty = zeros(Int, 3, 0)
+        @test ARC.hupscale(horizontal_empty, 2) === horizontal_empty
+        @test ARC.vupscale(vertical_empty, 2) === vertical_empty
+        @test size(ARC.hupscale(ones(Int, 1, 15), 2)) == (1, 30)
+        @test ARC.hupscale(ones(Int, 1, 16), 2) === nothing
+        @test size(ARC.vupscale(ones(Int, 15, 1), 2)) == (30, 1)
+        @test ARC.vupscale(ones(Int, 16, 1), 2) === nothing
+    end
+
+    @testset "Manhattan distance for all patch combinations" begin
+        rng = Xoshiro(42)
+        for _ in 1:30
+            a = [CartesianIndex(rand(rng, -30:30), rand(rng, -30:30)) for _ in 1:rand(rng, 1:15)]
+            b = [CartesianIndex(rand(rng, -30:30), rand(rng, -30:30)) for _ in 1:rand(rng, 1:15)]
+            expected = minimum(abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]) for ai in a, bi in b)
+            for apatch in (a, [(3, i) for i in a]), bpatch in (b, [(5, i) for i in b])
+                @test ARC.manhattan(apatch, bpatch) == expected
+            end
+        end
+        for empty in (ARC.Indices(), ARC.Object()), patch in ([CartesianIndex(1, 2)], [(4, CartesianIndex(1, 2))])
+            @test ARC.manhattan(empty, patch) === nothing
+            @test ARC.manhattan(patch, empty) === nothing
+        end
+    end
+end
+
+@testitem "ARC-AGI-1: periodicity regression" begin
+    import HerbBenchmarks.ARC_AGI1 as ARC
+    using Random
+
+    # Independent reference: original shift, prune and subset semantics.
+    function reference_period(object, axis)
+        normalized = ARC.normalize_zero_indexed(object)
+        extent = axis == 1 ? ARC.height(normalized) : ARC.width(normalized)
+        for p in 1:extent-1
+            offset = axis == 1 ? CartesianIndex(-p, 0) : CartesianIndex(0, -p)
+            shifted = ARC.shift(normalized, offset)
+            pruned = Set((color, index) for (color, index) in shifted if index[axis] >= 0)
+            issubset(pruned, normalized) && return p
+        end
+        return extent
+    end
+
+    @test ARC.hperiod(ARC.Object()) == 0
+    @test ARC.vperiod(ARC.Object()) == 0
+    singleton = [(3, CartesianIndex(-4, 7))]
+    @test ARC.hperiod(singleton) == 1
+    @test ARC.vperiod(singleton) == 1
+    @test ARC.hperiod(ARC.asobject([1 2 1 2 1])) == 2 # Partial final repetition.
+    @test ARC.vperiod(ARC.asobject(reshape([1, 2, 1, 2, 1], 5, 1))) == 2
+    @test ARC.hperiod([(1, CartesianIndex(1, 1)), (2, CartesianIndex(1, 4))]) == 4
+    @test ARC.hperiod([(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 4))]) == 3
+    rng = Xoshiro(42)
+    for _ in 1:200
+        object = [(rand(rng, 0:9), CartesianIndex(rand(rng, -8:8), rand(rng, -8:8)))
+            for _ in 1:rand(rng, 0:80)]
+        # Include identical duplicates and conflicting colors at a position.
+        isempty(object) || append!(object, [first(object), (mod(first(object)[1] + 1, 10), first(object)[2])])
+        before = copy(object)
+        @test ARC.hperiod(object) == reference_period(object, 2)
+        @test ARC.vperiod(object) == reference_period(object, 1)
+        @test isequal(object, before)
+        @test ARC.hperiod(ARC.shift(object, CartesianIndex(30, -40))) == ARC.hperiod(object)
+        @test ARC.vperiod(ARC.shift(object, CartesianIndex(30, -40))) == ARC.vperiod(object)
+    end
+end

@@ -557,42 +557,32 @@ end
 """Indices of corners of given patch."""
 corners(patch::Patch)::Safe(Indices) = isempty(patch) ? nothing : [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
 
-"""Horizontal periodicity, i.e. smallest horizontal distance at which pattern repeats. Returns full width if not pattern found."""
-function hperiod(object::Object)::Integer
-    normalized = normalize_zero_indexed(object)
-    w = width(normalized)
-
-    for p in 1:(w-1)
-        offsetted = shift(normalized, CartesianIndex(0, -p))
-        # Keep only cells with non-negative column indices
-        pruned = Set((c, CartesianIndex(ind)) for (c, ind) in offsetted if ind[2] >= 0)
-
-        if issubset(pruned, normalized)
-            return p
+# Work on a concrete normalized Object so the inner membership loop stays inferred.
+function _object_period(normalized::Object, ::Val{axis}) where axis
+    extent = isempty(normalized) ? 0 : maximum(cell[2][axis] for cell in normalized) + 1
+    extent <= 1 && return extent
+    occupied = Set(normalized)
+    for period in 1:extent-1
+        offset = axis == 1 ? CartesianIndex(period, 0) : CartesianIndex(0, period)
+        matches = true
+        for (color, index) in normalized
+            # Cells shifted outside the normalized bounds are excluded, just as
+            # in the original pruned-set subset check. Duplicates do not matter.
+            if index[axis] >= period && !((color, index - offset) in occupied)
+                matches = false
+                break
+            end
         end
+        matches && return period
     end
-
-    return w
+    return extent
 end
 
-"""Vertical periodicity, i.e. smallest vertical distance at which pattern repeats. Returns full width if not pattern found."""
-function vperiod(object::Object)::Integer
-    normalized = normalize_zero_indexed(object)
-    h = height(normalized)
+"""Horizontal periodicity, i.e. smallest horizontal distance at which pattern repeats. Returns full width if no pattern found."""
+hperiod(object::Object)::Integer = _object_period(normalize_zero_indexed(object), Val(2))
 
-
-    for p in 1:(h-1)
-        offsetted = shift(normalized, CartesianIndex(-p, 0))
-        # Keep only cells with non-negative row indices
-        pruned = Set((c, CartesianIndex(ind)) for (c, ind) in offsetted if ind[1] >= 0)
-
-        if issubset(pruned, normalized)
-            return p
-        end
-    end
-
-    return h
-end
+"""Vertical periodicity, i.e. smallest vertical distance at which pattern repeats. Returns full height if no pattern found."""
+vperiod(object::Object)::Integer = _object_period(normalize_zero_indexed(object), Val(1))
 
 
 """Crop grid from start point to given dims"""
@@ -818,8 +808,20 @@ function vmatching(a::Patch, b::Patch)::Boolean
     return any(i[2] in indices_a for i in toindices(b))
 end
 
+_patch_index(index::IntegerTuple) = index
+_patch_index(cell::Tuple{Integer, IntegerTuple}) = cell[2]
+
 """Min. manhattan distance between two patches a and b"""
-manhattan(a::Patch, b::Patch)::Safe(Integer) = (!isempty(a) && !isempty(b)) ? minimum(abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]) for ai in toindices(a), bi in toindices(b)) : nothing
+function manhattan(a::A, b::B)::Safe(Integer) where {A<:Patch, B<:Patch}
+    (isempty(a) || isempty(b)) && return nothing
+    distance = typemax(Int)
+    # Read positions directly so Object inputs do not need temporary Indices.
+    for acell in a, bcell in b
+        ai, bi = _patch_index(acell), _patch_index(bcell)
+        distance = min(distance, abs(ai[1] - bi[1]) + abs(ai[2] - bi[2]))
+    end
+    return distance
+end
 
 """Whether two patches a and b are adjacent"""
 adjacent(a::Patch, b::Patch)::Safe(Boolean) = (!isempty(a) && !isempty(b)) ? manhattan(a, b) == 1 : nothing
@@ -852,7 +854,7 @@ color(object::Object)::Safe(Integer) = !isempty(object) ? first(object)[1] : not
 toobject(patch::Patch, grid::Grid)::Safe(Object) = checkbounds(Bool, grid, toindices(patch)) ? [(grid[ind], ind) for ind in vec(toindices(patch))] : nothing
 
 """Converts grid into an object"""
-asobject(grid::Grid)::Object = [(grid[idx], idx) for idx in vec(asindices(grid))]
+asobject(grid::Grid)::Object = [(grid[idx], idx) for idx in vec(CartesianIndices(grid))]
 
 """Fill value in grid at locations given by patch indices"""
 function fill_loc(grid::Grid, value::Integer, patch::Patch)::Safe(Grid) # fill() in original. Renamed due to name clash.
@@ -1052,7 +1054,7 @@ merge_containers(container::Objects)::Object = isempty(container) ? [] : reduce(
 merge_containers(container::Vector{Indices})::Indices = isempty(container) ? [] : reduce(vcat, container)
 
 """Returns all indices of a grid"""
-asindices(grid::Grid)::Indices = vcat(collect(CartesianIndices(grid))...)
+asindices(grid::Grid)::Indices = vec(collect(CartesianIndices(grid)))
 
 """Returns indices of all grid cells of given value (color)"""
 ofcolor(grid::Grid, value::Integer)::Safe(Indices) = is_color(value) ? findall(x -> x == value, grid) : nothing
@@ -1080,7 +1082,7 @@ function hupscale(grid::Grid, factor::Integer)::Safe(Grid)
     !is_index(width(grid) * factor) && return nothing
     isempty(grid) && return grid
     
-    return reduce(vcat, [permutedims(repeat(row, inner=(factor,))) for row in eachrow(grid)])
+    return repeat(grid; inner=(1, factor))
 end
 
 """Upscale grid vertically."""
@@ -1088,7 +1090,7 @@ function vupscale(grid::Grid, factor::Integer)::Safe(Grid)
     !is_index(height(grid) * factor) && return nothing
     isempty(grid) && return grid
     
-    return reduce(hcat, [repeat(col, inner=(factor,)) for col in eachcol(grid)])
+    return repeat(grid; inner=(factor, 1))
 end
 
 
