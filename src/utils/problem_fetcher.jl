@@ -49,7 +49,8 @@ Identifierss are the suffix of problem names. For example, the identifier of 'pr
 function get_all_identifiers(module_name::Module)::Vector{String}
 
     # Fetch all identifiers
-    return [String(var)[9:end] for var in filter(v -> startswith(string(v), "problem_"), names(module_name; all=true))]
+    return [String(var)[9:end] for var in names(module_name; all=true)
+            if startswith(string(var), "problem_") && getfield(module_name, var) isa Problem]
 end
 
 """

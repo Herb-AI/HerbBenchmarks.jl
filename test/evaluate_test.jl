@@ -38,7 +38,8 @@
 
     # Benchmark
     d2 = @benchmark [BFSIterator, DFSIterator] params=(max_enumerations=100, max_depth=5) benchmark=b
-    problems_solved_over_time(d2)
+    @test problems_solved_over_time(d2) !== nothing
+    @test problems_solved_over_enumerations(d2) !== nothing
 
     # Custom labels
     d3 = @benchmark [DFSIterator, DFSIterator] specific_params=[(max_depth=5,), (max_depth=2,)] params=(max_enumerations=100,) benchmark=b

@@ -13,7 +13,7 @@ function problems_solved_over_time(data::DataFrame; label=r->r.iterator, kwargs.
         if any(df.solved)
     )
 
-    xlims = get!(Dict(kwargs), :xlims, (1e-5, longest_execution_time * 1.1))
+    xlims = get(kwargs, :xlims, (1e-5, longest_execution_time * 1.1))
 
     # Init empty plot
     p = plot(;
@@ -69,7 +69,7 @@ function problems_solved_over_enumerations(data::DataFrame; label=r->r.iterator,
         if any(df.solved)
     )
 
-    xlims = get!(Dict(kwargs), :xlims, (1e-5, maximum_enumerations * 1.1))
+    xlims = get(kwargs, :xlims, (1e-5, maximum_enumerations * 1.1))
 
     # Init empty plot
     p = plot(;
