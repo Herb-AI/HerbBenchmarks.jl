@@ -6,7 +6,11 @@ module HerbBenchmarks
 using HerbCore
 using HerbSpecification
 using HerbGrammar
+using HerbInterpret
+using HerbConstraints
+using HerbSearch: ProgramIterator
 using DocStringExtensions
+using DataFrames, StatsPlots, Query, JLD2, Dates
 
 include("utils/docstrings.jl")
 
@@ -15,11 +19,15 @@ include("utils/SExpressionParser.jl")
 include("utils/benchmarks_io.jl")
 include("utils/problem_fetcher.jl")
 
+include("utils/evaluate_synthesizer.jl")
+include("utils/plot_results.jl")
+
 # Include data types
 include("datatypes/problem_grammar_pair.jl")
 include("datatypes/benchmark.jl")
 
-include("data/Abstract_Reasoning_2019/Abstract_Reasoning_2019.jl")
+include("data/ARC_AGI1/ARC_AGI1.jl")
+include("data/ARC_AGI2/ARC_AGI2.jl")
 include("data/DeepCoder_2016/DeepCoder_2016.jl")
 include("data/Pixels_2020/Pixels_2020.jl")
 include("data/Robots_2020/Robots_2020.jl")
@@ -38,6 +46,15 @@ export
     parse_to_julia,
     append_cfgrammar,
     enumerate_problem_files,
+
+    # evaluator
+    @benchmark, _benchmark,
+    problems_solved_over_time,
+    problems_solved_over_enumerations,
+
+    # grammar_tag generators
+    make_interpreter,
+    get_relevant_tags,
 
     # Problem fetcher
     get_all_benchmarks,
