@@ -115,6 +115,7 @@ end
     @test SLIA.indexof_cvc("é🙂é🙂", "é🙂", 0) == 0
     @test SLIA.indexof_cvc("é🙂", "", 2) == 2
     @test SLIA.indexof_cvc("", "", 0) == 0
+    @test SLIA.indexof_cvc("", "a", 0) == -1
     @test SLIA.indexof_cvc("é🙂", "é", 2) == -1
     @test SLIA.indexof_cvc("é🙂", "", -1) == SLIA.indexof_cvc("é🙂", "", 3) == -1
     @test SLIA.int_to_str_cvc(-1) == ""

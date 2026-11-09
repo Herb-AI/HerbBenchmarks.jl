@@ -42,8 +42,10 @@ end
 # Find the first match at or after start and return its zero-based code point position.
 # An empty pattern matches at any valid start, including the end. A miss yields -1.
 function indexof_cvc(str::String, substring::String, start::Integer)
-    0 <= start <= length(str) || return -1
+    len = length(str)
+    0 <= start <= len || return -1
     isempty(substring) && return Int(start)
+    start == len && return -1
     first_byte = nextind(str, firstindex(str), Int(start))
     match = findnext(substring, str, first_byte)
     return match === nothing ? -1 : length(str, firstindex(str), first(match)) - 1
