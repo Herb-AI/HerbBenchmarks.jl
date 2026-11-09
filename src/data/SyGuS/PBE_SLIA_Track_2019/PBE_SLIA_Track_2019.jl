@@ -24,6 +24,26 @@ export
     format_string_grammars
 
 function format_string_grammars(filename::AbstractString)
+    # Accept current SMT-LIB names and the spellings in the 2019 files.
+    operators = Dict(
+        "str.++" => "concat_cvc",
+        "str.replace" => "replace_cvc",
+        "str.at" => "at_cvc",
+        "int.to.str" => "int_to_str_cvc",
+        "str.from_int" => "int_to_str_cvc",
+        "str.substr" => "substr_cvc",
+        "str.len" => "len_cvc",
+        "str.to.int" => "str_to_int_cvc",
+        "str.to_int" => "str_to_int_cvc",
+        "str.indexof" => "indexof_cvc",
+        "str.prefixof" => "prefixof_cvc",
+        "str.suffixof" => "suffixof_cvc",
+        "str.contains" => "contains_cvc",
+        "str.<" => "lt_cvc",
+        "str.<=" => "leq_cvc",
+        "str.isdigit" => "isdigit_cvc",
+        "str.is_digit" => "isdigit_cvc",
+    )
     lines::Vector{String} = []
     file = open(filename, "r")
 
@@ -45,22 +65,7 @@ function format_string_grammars(filename::AbstractString)
                 end
                 if startswith(split_line[2], '(') 
                     symbol_list = split(split_line[2][2:end-1], ' ')
-                    func = replace(symbol_list[1],
-                         "str.++" => "concat_cvc",
-                         "str.replace" => "replace_cvc",
-                         "str.at" => "at_cvc",
-                         "int.to.str" => "int_to_str_cvc",
-                         "str.substr" => "substr_cvc",
-                         "str.len" => "len_cvc",
-                         "str.to.int" => "str_to_int_cvc",
-                         "str.indexof" => "indexof_cvc",
-                         "str.prefixof" => "prefixof_cvc",
-                         "str.suffixof" => "suffixof_cvc",
-                         "str.contains" => "contains_cvc",
-                         "str.<" => "lt_cvc",
-                         "str.<=" => "leq_cvc",
-                         "str.isdigit" => "isdigit_cvc",
-                         )
+                    func = get(operators, symbol_list[1], symbol_list[1])
                     if func ∈ ["=", "+", "-"]
                         func = func == "=" ? "==" : func
                         expr = symbol_list[2] * " $(func) " * symbol_list[3]  
