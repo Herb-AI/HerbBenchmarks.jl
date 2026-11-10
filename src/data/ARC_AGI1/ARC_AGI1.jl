@@ -12,6 +12,9 @@ RuntimeGeneratedFunctions.init(@__MODULE__)
 using JSON
 
 include("arc_primitives.jl")
+if isdefined(HerbInterpret, :_output_batch_evaluator)
+    HerbInterpret._output_batch_evaluator(::typeof(order_by)) = _order_by_batch
+end
 include("arc_visualize.jl")
 include("training_data.jl")
 include("evaluation_data.jl")

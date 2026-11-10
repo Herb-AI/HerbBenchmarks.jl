@@ -213,10 +213,40 @@ dedupe(a::IntContainer)::IntContainer = unique(a)
 order(container::Objects)::Objects = sort(collect(container))
 
 """Order container by custom key `compfunc`"""
-function order_by(container::Objects, compfunc)::Safe(Objects)
-    res = map(compfunc, container)
-    any(isnothing, res) && return nothing
-    return container[sortperm(res)]
+order_by(container::Objects, compfunc::F) where F =
+    _order_by(container, compfunc, Int[], Int[])
+
+function _order_by(container::Vector{T}, score::F, scores::Vector{Int}, permutation::Vector{Int}) where {T,F}
+    if !(Base.promote_op(score, T) <: Union{Int,Nothing})
+        values = map(score, container)
+        any(isnothing, values) && return nothing
+        return container[sortperm(values)]
+    end
+
+    resize!(scores, length(container))
+    valid = true
+    for i in eachindex(container)
+        value = score(container[i])
+        if value === nothing
+            valid = false
+        else
+            scores[i] = value
+        end
+    end
+    valid || return nothing
+
+    resize!(permutation, length(container))
+    sortperm!(permutation, scores)
+    return container[permutation]
+end
+
+function _order_by_batch(inputs, containers, scorers)
+    scores, permutation = Int[], Int[]
+    return map(enumerate(inputs)) do (i, _)
+        container, score = containers[i], scorers[i]
+        (container === nothing || score === nothing) && return nothing
+        return _order_by(container, score, scores, permutation)
+    end
 end
 
 """Repeat item (Grid) to have item a total of num times"""
@@ -352,19 +382,55 @@ vline(piece::Piece)::Boolean = height(piece) == length(piece) && width(piece) ==
 """Whether the piece forms a horizontal line. """
 hline(piece::Piece)::Boolean = width(piece) == length(piece) && height(piece) == 1
 
-"""
-    Returns the most common colour. If there is a tie, the first value in the iteration order
-    of the dictionary is returned. Note that the order is not guaranteed. 
-"""
-mostcolor(grid::Grid)::Safe(Integer) = !isempty(grid) ? findmax(countmap(grid))[2] : nothing
-mostcolor(object::Object)::Safe(Integer) = !isempty(object) ? findmax(countmap(x[1] for x in object))[2] : nothing
+_color_values(grid::Grid) = grid
+_color_values(object::Object) = (cell[1] for cell in object)
 
-"""
-    Returns the least common colour. If there is a tie, the first value in the iteration order
-    of the dictionary is returned. Note that the order is not guaranteed. 
-"""
-leastcolor(grid::Grid)::Safe(Integer) = !isempty(grid) ? findmin(countmap(grid))[2] : nothing
-leastcolor(object::Object)::Safe(Integer) = !isempty(object) ? findmin(countmap(x[1] for x in object))[2] : nothing
+function _countmap_color(values, better::F) where F
+    best_color = 0
+    best_count = 0
+    for (color, count) in countmap(values)
+        if best_count == 0 || better(count, best_count) || (count == best_count && color < best_color)
+            best_color = color
+            best_count = count
+        end
+    end
+    return best_color
+end
+
+function _frequency_color(values, better::F) where F
+    isempty(values) && return nothing
+    # Pack ten 12-bit counters into a scalar. An ARC grid has at most 900
+    # cells. The length check also covers larger objects with duplicates.
+    length(values) <= 4095 || return _countmap_color(values, better)
+    counts = UInt128(0)
+    for color in values
+        is_color(color) || return _countmap_color(values, better)
+        counts += UInt128(1) << (12 * color)
+    end
+
+    first_color = trailing_zeros(counts) ÷ 12
+    counts >>= 12 * first_color
+    best_color = first_color
+    best_count = counts & 0x0fff
+    # Visit colors in ascending order, keeping the first on equal counts.
+    for color in (first_color + 1):9
+        counts >>= 12
+        iszero(counts) && break
+        count = counts & 0x0fff
+        iszero(count) && continue
+        if better(count, best_count)
+            best_color = color
+            best_count = count
+        end
+    end
+    return best_color
+end
+
+"""Return the most common colour, breaking ties by lowest colour index."""
+mostcolor(element::Element)::Safe(Integer) = _frequency_color(_color_values(element), >)
+
+"""Return the least common colour, breaking ties by lowest colour index."""
+leastcolor(element::Element)::Safe(Integer) = _frequency_color(_color_values(element), <)
 
 """Number of cells with given color value"""
 colorcount(grid::Grid, value::Integer)::Safe(Integer) = is_color(value) ? count(==(value), grid) : nothing
@@ -576,10 +642,51 @@ end
 """Indices of corners of given patch."""
 corners(patch::Patch)::Safe(Indices) = isempty(patch) ? nothing : [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
 
-function _object_period(object::Object, ::Val{axis}) where axis
+function _masked_object_period(object::Object, ::Val{axis}, origin::Int, extent::Int) where axis
+    line_axis = 3 - axis
+    first_color, first_index = first(object)
+    last_color = first_color
+    first_line = last_line = first_index[line_axis]
+    for (color, index) in object
+        line = index[line_axis]
+        first_line = min(first_line, line)
+        last_line = max(last_line, line)
+        first_color = min(first_color, color)
+        last_color = max(last_color, color)
+    end
+    line_span = last_line - first_line
+    0 <= line_span < 30 && 0 <= first_color <= last_color <= 9 || return nothing
+
+    colors = last_color - first_color + 1
+    masks = zeros(UInt32, (line_span + 1) * colors)
+    @inbounds for (color, index) in object
+        slot = (index[line_axis] - first_line) * colors + color - first_color + 1
+        masks[slot] |= UInt32(1) << (index[axis] - origin)
+    end
+
+    # Pack occupied lines into the front of the buffer before trying periods.
+    active = 0
+    @inbounds for mask in masks
+        iszero(mask) && continue
+        active += 1
+        masks[active] = mask
+    end
+    for period in 1:extent-1
+        # Shifting drops cells before the origin. Every surviving bit must
+        # already be present on the same line and in the same color.
+        all(i -> iszero((masks[i] >> period) & ~masks[i]), 1:active) && return period
+    end
+    return extent
+end
+
+function _object_period(object::Object, direction::Val{axis}) where axis
     isempty(object) && return 0
     origin, upper = extrema(cell[2][axis] for cell in object)
     span = upper - origin
+    if 0 < span < 30
+        period = _masked_object_period(object, direction, origin, span + 1)
+        period === nothing || return period
+    end
     # Preserve the normalized extent even if subtracting extreme Int coordinates wraps.
     span < 0 && (span = maximum(cell[2][axis] - origin for cell in object))
     extent = span + 1
@@ -866,7 +973,14 @@ function centerofmass(patch::Patch)::Safe(IntegerTuple)
 end
 
 """Number of different colors in the element (object or grid)."""
-numcolors(element::Element)::Integer = length(palette(element))
+function numcolors(element::Element)::Integer
+    mask = UInt16(0)
+    for color in _color_values(element)
+        is_color(color) || return length(palette(element))
+        mask |= UInt16(1) << color
+    end
+    return count_ones(mask)
+end
 
 """Returns color of an object."""
 # Assumes object is uniform in color. 
@@ -968,59 +1082,37 @@ function gravitate(source::Patch, destination::Patch)::Safe(IntegerTuple)
     return total_movement - direction
 end
 
-"""Inbox for patch, i.e., inner rectangular border around patch"""
-function inbox(patch::Patch)::Safe(Indices)
-    isempty(patch) && return nothing
+function _rectangular_border(patch::Patch, inset::Int)
+    si, ei = minmax(uppermost(patch) + inset, lowermost(patch) - inset)
+    sj, ej = minmax(leftmost(patch) + inset, rightmost(patch) - inset)
+    rows = si:ei
+    sj == ej && return [CartesianIndex(row, sj) for row in rows]
 
-    ai, aj = uppermost(patch) + 1, leftmost(patch) + 1
-    bi, bj = lowermost(patch) - 1, rightmost(patch) - 1
-    si, sj = min(ai, bi), min(aj, bj)
-    ei, ej = max(ai, bi), max(aj, bj)
-
-    vlines = vcat([CartesianIndex(i, sj) for i in si:ei],
-        [CartesianIndex(i, ej) for i in si:ei])
-
-    hlines = vcat([CartesianIndex(si, j) for j in sj:ej],
-        [CartesianIndex(ei, j) for j in sj:ej])
-
-    return unique(vcat(vlines, hlines))
+    # Match the original order: left edge, right edge, then the horizontal
+    # interiors. Corners are already present in the vertical edges.
+    interior = (sj + 1):(ej - 1)
+    edge_rows = si == ei ? (si,) : (si, ei)
+    border = Vector{CartesianIndex{2}}(undef, 2 * length(rows) + length(edge_rows) * length(interior))
+    index = 1
+    for col in (sj, ej), row in rows
+        border[index] = CartesianIndex(row, col)
+        index += 1
+    end
+    for row in edge_rows, col in interior
+        border[index] = CartesianIndex(row, col)
+        index += 1
+    end
+    return border
 end
 
+"""Inbox for patch, i.e., inner rectangular border around patch"""
+inbox(patch::Patch) = isempty(patch) ? nothing : _rectangular_border(patch, 1)
 
 """Outbox for patch, i.e., outer rectangular border around patch"""
-function outbox(patch::Patch)::Safe(Indices)
-    isempty(patch) && return nothing
-
-    ai, aj = uppermost(patch) - 1, leftmost(patch) - 1
-    bi, bj = lowermost(patch) + 1, rightmost(patch) + 1
-    si, sj = min(ai, bi), min(aj, bj)
-    ei, ej = max(ai, bi), max(aj, bj)
-
-    vlines = vcat([CartesianIndex(i, sj) for i in si:ei],
-        [CartesianIndex(i, ej) for i in si:ei])
-
-    hlines = vcat([CartesianIndex(si, j) for j in sj:ej],
-        [CartesianIndex(ei, j) for j in sj:ej])
-
-    return unique(vcat(vlines, hlines))
-end
+outbox(patch::Patch) = isempty(patch) ? nothing : _rectangular_border(patch, -1)
 
 """Outline of patch"""
-function box(patch::Patch)::Indices
-    isempty(patch) && return [] # not sure why inbox and outbox don't check for this
-    ai, aj = ulcorner(patch).I
-    bi, bj = lrcorner(patch).I
-    si, sj = min(ai, bi), min(aj, bj)
-    ei, ej = max(ai, bi), max(aj, bj)
-
-    vlines = vcat([CartesianIndex(i, sj) for i in si:ei],
-        [CartesianIndex(i, ej) for i in si:ei])
-
-    hlines = vcat([CartesianIndex(si, j) for j in sj:ej],
-        [CartesianIndex(ei, j) for j in sj:ej])
-
-    return unique(vcat(vlines, hlines))
-end
+box(patch::Patch) = isempty(patch) ? CartesianIndex{2}[] : _rectangular_border(patch, 0)
 
 
 """Returns a vertical frontier, i.e. all vertical indices (rows 1 to 30) of the column given by location"""
@@ -1342,6 +1434,16 @@ function mapply(func, container::Union{Indices,Objects})::Safe(Indices)
     res = map(func, container)
     any(isnothing, res) && return nothing
     return reduce(vcat, res)
+end
+
+function mapply(::typeof(toindices), container::Objects)
+    indices = Vector{CartesianIndex{2}}(undef, sum(length, container; init=0))
+    i = 1
+    for object in container, (_, index) in object
+        indices[i] = index
+        i += 1
+    end
+    return indices
 end
 
 """Apply function on two vectors a and b"""

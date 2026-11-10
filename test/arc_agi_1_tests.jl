@@ -187,6 +187,17 @@
             small = [(1, CartesianIndex(1, 1))]
             large = [(1, CartesianIndex(1, 1)), (2, CartesianIndex(1, 2))]
             @test ARC.order_by([large, small], ARC.size_of) == [small, large]
+            other_small = [(3, CartesianIndex(1, 1))]
+            input = [large, other_small, small]
+            ordered = ARC.order_by(input, ARC.size_of)
+            @test all(ordered[i] === obj for (i, obj) in enumerate((other_small, small, large)))
+            @test isempty(ARC.order_by(ARC.Objects(), ARC.size_of))
+            visited = ARC.Object[]
+            score = obj -> (push!(visited, obj); ARC.color(obj))
+            @test isnothing(ARC.order_by([ARC.Object(), small], score))
+            @test length(visited) == 2 && visited[2] === small
+            float_score = obj -> obj === large ? NaN : -Float64(length(obj))
+            @test all(ARC.order_by(input, float_score) .=== input[sortperm(map(float_score, input))])
 
             @test ARC.repeat_item(C, CartesianIndex(1, 3)) == [3 4 3 4 3 4; 5 5 5 5 5 5]
         end
@@ -317,6 +328,22 @@
 
             @test ARC.leastcolor(B) == 0
             @test ARC.leastcolor(object_1) == 1
+
+            # Check ties, palette boundaries, and the fallback for large inputs.
+            for colors in (Int[], [9], [0, 9, 0, 9], [8, 8, 0, 9], [0, 8, 8, 9, 9],
+                    [9, 0, 2, 2, 0], [-1, 10, -1, 10], fill(9, 4095),
+                    repeat([9, 8], 2048))
+                grid = reshape(colors, 1, length(colors))
+                object = ARC.asobject(grid)
+                for (element, values) in ((grid, grid), (object, (cell[1] for cell in object)))
+                    counts = ARC.countmap(values)
+                    expected(extreme) = isempty(counts) ? nothing :
+                        minimum(color for (color, count) in counts if count == extreme(Base.values(counts)))
+                    @test ARC.mostcolor(element) == expected(maximum)
+                    @test ARC.leastcolor(element) == expected(minimum)
+                    @test ARC.numcolors(element) == length(counts)
+                end
+            end
 
             @test ARC.colorcount(A, 1) == 3
             @test ARC.colorcount(C, 5) == 2
@@ -732,6 +759,32 @@
             ])
         end
 
+        @testset "Rectangular border coordinate order" begin
+            for patch in (ARC.Indices(), ARC.Object())
+                @test isnothing(ARC.inbox(patch))
+                @test isnothing(ARC.outbox(patch))
+                @test isempty(ARC.box(patch))
+            end
+
+            for height in 1:5, width in 1:5
+                indices = [CartesianIndex(-2, -3), CartesianIndex(height - 3, width - 4),
+                    CartesianIndex(-2, -3)]
+                object = [(4, index) for index in indices]
+                for (border, inset) in ((ARC.inbox, 1), (ARC.outbox, -1), (ARC.box, 0))
+                    top, bottom = minmax(-2 + inset, height - 3 - inset)
+                    left, right = minmax(-3 + inset, width - 4 - inset)
+                    expected = unique(vcat(
+                        [CartesianIndex(row, left) for row in top:bottom],
+                        [CartesianIndex(row, right) for row in top:bottom],
+                        [CartesianIndex(top, col) for col in left:right],
+                        [CartesianIndex(bottom, col) for col in left:right],
+                    ))
+                    @test Tuple(border(indices)) == Tuple(expected)
+                    @test Tuple(border(object)) == Tuple(expected)
+                end
+            end
+        end
+
         @testset "ARC.sfilter, ARC.mfilter" begin
             @test ARC.sfilter([1, 2, 3], x -> x > 1) == [2, 3]
             @test ARC.sfilter([2, 3, 4], x -> x % 2 == 0) == [2, 4]
@@ -1127,6 +1180,16 @@
             @test ARC.apply_obj_to_obj(ARC.normalize, objects) == [
                 [(1, CartesianIndex(1, 1))], [(2, CartesianIndex(1, 1)), (2, CartesianIndex(1, 2))]]
             @test ARC.mapply(ARC.toindices, objects) == [CartesianIndex(1, 1), CartesianIndex(2, 1), CartesianIndex(2, 2)]
+
+            a, b, c = CartesianIndex(1, 3), CartesianIndex(2, 1), CartesianIndex(-1, 2)
+            empty = ARC.Object()
+            first_object = [(1, c), (2, a), (2, c)]
+            second_object = [(3, b), (1, a)]
+            @test Tuple(ARC.mapply(ARC.toindices, [empty, first_object, second_object, empty])) ==
+                (c, a, c, b, a)
+            @test Tuple(ARC.mapply(ARC.toindices, [first_object])) == (c, a, c)
+            @test isempty(ARC.mapply(ARC.toindices, [empty, empty]))
+            @test isempty(ARC.mapply(ARC.toindices, ARC.Objects()))
         end
     end
 
@@ -1136,6 +1199,7 @@ end
     import HerbBenchmarks.ARC_AGI1 as ARC
     import HerbGrammar: expr2rulenode
     import HerbCore: RuleNode
+    import HerbInterpret
 
     g = ARC.grammar_hodel
     spec = ARC.problem_007bbfb7.spec
@@ -1304,6 +1368,25 @@ end
         for g in args1
     ]
 
+    @testset "Batched order_by" begin
+        interpreter = HerbInterpret.make_output_interpreter(g; target_module=ARC, cache_module=ARC)
+        rule = findfirst(==(:(order_by(Objects, ObjectToIntFunc))), g.rules)
+        small = [(1, CartesianIndex(1, 1))]
+        tied = [(2, CartesianIndex(1, 1))]
+        large = [(3, CartesianIndex(1, 1)), (3, CartesianIndex(1, 2))]
+        full = [large, tied, small]
+        containers = [full, nothing, [small], full, full, [ARC.Object(), small]]
+        scores = [ARC.size_of, ARC.size_of, ARC.size_of, nothing, ARC.size_of, ARC.color]
+        inputs = [Dict{Symbol,Any}() for _ in containers]
+        outputs = interpreter(rule, [containers, scores], inputs)
+        for i in (1, 5)
+            @test all(outputs[i][j] === obj for (j, obj) in enumerate((tied, small, large)))
+        end
+        @test outputs[1] !== outputs[5]
+        @test outputs[3][1] === small
+        @test all(i -> isnothing(outputs[i]), (2, 4, 6))
+    end
+
     # -------------------------------------------------------------------------
     # Predicates and ARC.branch
     # -------------------------------------------------------------------------
@@ -1425,6 +1508,19 @@ end
     @test ARC.hperiod([(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 4))]) == 3
     wrapped = [(1, CartesianIndex(1, x)) for x in (typemin(Int), typemin(Int) + 1, typemax(Int))]
     @test ARC.hperiod(wrapped) == reference_period(wrapped, 2)
+
+    for (height, width) in ((30, 30), (30, 31), (31, 30))
+        object = [(mod(row + col, 10), CartesianIndex(row - 40, col - 60))
+            for row in 1:height for col in 1:width]
+        @test ARC.hperiod(object) == reference_period(object, 2)
+        @test ARC.vperiod(object) == reference_period(object, 1)
+    end
+    for color in (-1, 10)
+        object = [(color, CartesianIndex(i, i)) for i in 1:4]
+        @test ARC.hperiod(object) == reference_period(object, 2)
+        @test ARC.vperiod(object) == reference_period(object, 1)
+    end
+
     rng = Xoshiro(42)
     for _ in 1:200
         object = [(rand(rng, 0:9), CartesianIndex(rand(rng, -8:8), rand(rng, -8:8)))
