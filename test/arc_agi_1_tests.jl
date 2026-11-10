@@ -157,6 +157,18 @@
             obj1 = [(4, CartesianIndex(3, 3)), (2, CartesianIndex(3, 4))]
             obj2 = [(2, CartesianIndex(3, 4)), (4, CartesianIndex(3, 3))]
             @test ARC.equality(obj1, obj2) == true
+            @test obj1 == [obj2; obj2[1:1]]
+            @test obj1 != [(3, CartesianIndex(3, 4)), obj1[1]]
+            @test ARC.Object() != obj1
+
+            indices = [CartesianIndex(i, -i) for i in 1:24]
+            for patch in (indices, [(i, index) for (i, index) in enumerate(indices)])
+                @test patch == reverse(patch)
+                @test [patch; patch[1:2]] == reverse(patch)
+                @test patch != patch[2:end]
+                @test patch != [patch[1:end-1]; patch[1:1]]
+            end
+            @test indices[1:2] == indices[[2, 1, 1]]
         end
 
         @testset "ARC.contained, ARC.combine, ARC.intersection, ARC.difference" begin
@@ -1190,6 +1202,26 @@
             @test Tuple(ARC.mapply(ARC.toindices, [first_object])) == (c, a, c)
             @test isempty(ARC.mapply(ARC.toindices, [empty, empty]))
             @test isempty(ARC.mapply(ARC.toindices, ARC.Objects()))
+
+            for geometry in (ARC.backdrop, ARC.delta, ARC.corners)
+                expected = vcat(geometry(first_object), geometry(second_object))
+                @test isequal(ARC.mapply(geometry, [first_object, second_object]), expected)
+                @test isempty(ARC.mapply(geometry, ARC.Objects()))
+            end
+            @test isnothing(ARC.mapply(ARC.corners, [first_object, empty, second_object]))
+            @test isequal(ARC.mapply(ARC.delta, [empty, first_object]), ARC.delta(first_object))
+            @test isequal(ARC.mapply(ARC.backdrop, [first_object, empty]), ARC.backdrop(first_object))
+
+            # Check row-major order and duplicate handling in both occupancy paths.
+            for last_col in (5, 32_768)
+                coords = [CartesianIndex(0, last_col), CartesianIndex(-2, 0), CartesianIndex(0, last_col)]
+                patch = [(color, coord) for (color, coord) in enumerate(coords)]
+                box = [CartesianIndex(row, col) for row in -2:0 for col in 0:last_col]
+                @test isequal(ARC.backdrop(patch), box)
+                @test isequal(ARC.delta(patch), filter(index -> index ∉ coords, box))
+                @test isequal(ARC.corners(patch), [first(box), CartesianIndex(-2, last_col), CartesianIndex(0, 0), last(box)])
+                @test ARC.centerofmass(patch) == CartesianIndex(0, (2 * last_col) ÷ 3)
+            end
         end
     end
 

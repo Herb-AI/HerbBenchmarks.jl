@@ -46,8 +46,38 @@ Piece = Union{Grid, Patch}
 Element = Union{Grid, Object}
 Container = Union{Grid, Object, Objects, Indices}
 
-Base.:(==)(a::Indices, b::Indices) = Set(a) == Set(b)
-Base.:(==)(a::Object, b::Object) = Set(a) == Set(b)
+function _same_elements(a::Vector{T}, b::Vector{T}) where {T}
+    a === b && return true
+    (isempty(a) || isempty(b)) && return isempty(a) && isempty(b)
+    length(a) == length(b) && all(i -> a[i] == b[i], eachindex(a)) && return true
+
+    # Linear membership checks avoid allocating a hash table for small patches.
+    if max(length(a), length(b)) <= 16
+        return all(in(b), a) && all(in(a), b)
+    end
+
+    # Index the shorter side and mark each distinct element as it is matched.
+    # Multiple copies of an element still count as one match.
+    shorter, longer = length(a) <= length(b) ? (a, b) : (b, a)
+    matched = Dict{T,Bool}()
+    sizehint!(matched, length(shorter))
+    for item in shorter
+        matched[item] = false
+    end
+    remaining = length(matched)
+    for item in longer
+        seen = get(matched, item, nothing)
+        seen === nothing && return false
+        if !seen
+            matched[item] = true
+            remaining -= 1
+        end
+    end
+    return remaining == 0
+end
+
+Base.:(==)(a::Indices, b::Indices) = _same_elements(a, b)
+Base.:(==)(a::Object, b::Object) = _same_elements(a, b)
 
 is_color(a::Integer) = 0 <= a <= 9
 is_index(a::Integer) = 1 <= a <= 30
@@ -176,7 +206,7 @@ either(a::Boolean, b::Boolean)::Boolean = a || b
 equality(a::Integer, b::Integer)::Bool = a == b
 equality(a::IntegerTuple, b::IntegerTuple)::Bool = a == b
 equality(a::Grid, b::Grid)::Bool = a == b
-equality(a::Object, b::Object)::Bool = Set(a) == Set(b) # for Object where order doesn't matter
+equality(a::Object, b::Object)::Bool = a == b
 equality(a::IntContainer, b::IntContainer)::Bool = a == b
 
 """Whether value is an element of container"""
@@ -452,69 +482,45 @@ sizefilter(container::Objects, size::Integer)::Safe(Objects) = is_index(size) ? 
 order_int_container(container::IntContainer)::IntContainer = sort(container)
 
 
-"""Returns index of upper left corner."""
-function ulcorner(indices::Indices)::Safe(IntegerTuple)
-    isempty(indices) && return nothing
+@inline _patch_index(index::IntegerTuple) = index
+@inline _patch_index(pixel::Tuple{Integer,IntegerTuple}) = pixel[2]
 
-    min_row = typemax(Int)
-    min_col = typemax(Int)
-    @inbounds for idx in indices
-        row, col = idx[1], idx[2]
-        min_row = min(min_row, row)
-        min_col = min(min_col, col)
+function _patch_corner(patch::Patch, row_op::R, col_op::C) where {R,C}
+    isempty(patch) && return nothing
+    row, col = _patch_index(first(patch)).I
+    for pixel in patch
+        index = _patch_index(pixel)
+        row = row_op(row, index[1])
+        col = col_op(col, index[2])
     end
-    return CartesianIndex(min_row, min_col)
+    return CartesianIndex(row, col)
 end
 
-ulcorner(object::Object)::Safe(IntegerTuple) = ulcorner(toindices(object))
+"""Returns index of upper left corner."""
+ulcorner(patch::Patch)::Safe(IntegerTuple) = _patch_corner(patch, min, min)
 
 """Returns index of upper right corner."""
-function urcorner(indices::Indices)::Safe(IntegerTuple)
-    isempty(indices) && return nothing
+urcorner(patch::Patch)::Safe(IntegerTuple) = _patch_corner(patch, min, max)
 
-    min_row = typemax(Int)
-    max_col = typemin(Int)
-    @inbounds for idx in indices
-        row, col = idx[1], idx[2]
-        min_row = min(min_row, row)
-        max_col = max(max_col, col)
-    end
-    return CartesianIndex(min_row, max_col)
-end
-
-urcorner(object::Object)::Safe(IntegerTuple) = urcorner(toindices(object))
-
-"""Returns index of lower left corner"""
-function llcorner(indices::Indices)::Safe(IntegerTuple)
-    isempty(indices) && return nothing
-
-    max_row = typemin(Int)
-    min_col = typemax(Int)
-    @inbounds for idx in indices
-        row, col = idx[1], idx[2]
-        max_row = max(max_row, row)
-        min_col = min(min_col, col)
-    end
-    return CartesianIndex(max_row, min_col)
-end
-
-llcorner(object::Object)::Safe(IntegerTuple) = llcorner(toindices(object))
+"""Returns index of lower left corner."""
+llcorner(patch::Patch)::Safe(IntegerTuple) = _patch_corner(patch, max, min)
 
 """Returns index of lower right corner."""
-function lrcorner(indices::Indices)::Safe(IntegerTuple)
-    isempty(indices) && return nothing
+lrcorner(patch::Patch)::Safe(IntegerTuple) = _patch_corner(patch, max, max)
 
-    max_row = typemin(Int)
-    max_col = typemin(Int)
-    @inbounds for idx in indices
-        row, col = idx[1], idx[2]
+# The callers check for an empty patch before asking for bounds.
+function _patch_bounds(patch::Patch)
+    min_row, min_col = _patch_index(first(patch)).I
+    max_row, max_col = min_row, min_col
+    for pixel in patch
+        row, col = _patch_index(pixel).I
+        min_row = min(min_row, row)
+        min_col = min(min_col, col)
         max_row = max(max_row, row)
         max_col = max(max_col, col)
     end
-    return CartesianIndex(max_row, max_col)
+    return min_row:max_row, min_col:max_col
 end
-
-lrcorner(object::Object)::Safe(IntegerTuple) = lrcorner(toindices(object))
 
 """Returns indices"""
 toindices(object::Object)::Indices = [i[2] for i in object]
@@ -640,7 +646,15 @@ function rel_position(a::Patch, b::Patch)::Safe(IntegerTuple)
 end
 
 """Indices of corners of given patch."""
-corners(patch::Patch)::Safe(Indices) = isempty(patch) ? nothing : [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
+corners(patch::Patch)::Safe(Indices) = _append_geometry!(Indices(), corners, patch)
+
+function _append_geometry!(indices::Indices, ::typeof(corners), patch::Patch)
+    isempty(patch) && return nothing
+    rows, cols = _patch_bounds(patch)
+    return push!(indices,
+        CartesianIndex(first(rows), first(cols)), CartesianIndex(first(rows), last(cols)),
+        CartesianIndex(last(rows), first(cols)), CartesianIndex(last(rows), last(cols)))
+end
 
 function _masked_object_period(object::Object, ::Val{axis}, origin::Int, extent::Int) where axis
     line_axis = 3 - axis
@@ -965,7 +979,8 @@ function centerofmass(patch::Patch)::Safe(IntegerTuple)
     n = length(patch)
     sum_rows = 0
     sum_cols = 0
-    for idx in toindices(patch)
+    for pixel in patch
+        idx = _patch_index(pixel)
         sum_rows += idx[1]
         sum_cols += idx[2]
     end
@@ -1040,19 +1055,45 @@ function underpaint(grid::Grid, object::Object)::Grid
 end
 
 """Indices of bounding box of patch"""
-function backdrop(patch::Patch)::Indices
-    isempty(patch) && return []
-    indices = toindices(patch)
-    si, sj = ulcorner(indices).I
-    ei, ej = lrcorner(indices).I
-    return [CartesianIndex(i, j) for i in range(si, ei) for j in range(sj, ej)]
+backdrop(patch::Patch)::Indices = _append_geometry!(Indices(), backdrop, patch)
+
+function _append_geometry!(indices::Indices, ::typeof(backdrop), patch::Patch)
+    isempty(patch) && return indices
+    rows, cols = _patch_bounds(patch)
+    isempty(indices) && sizehint!(indices, Base.checked_mul(length(rows), length(cols)))
+    for row in rows, col in cols
+        push!(indices, CartesianIndex(row, col))
+    end
+    return indices
 end
 
 
 """Indices inside the patch's bounding box without the patch itself"""
-function delta(patch::Patch)::Indices
-    isempty(patch) && return []
-    return setdiff(backdrop(patch), toindices(patch))
+delta(patch::Patch)::Indices = _append_geometry!(Indices(), delta, patch)
+
+function _append_geometry!(indices::Indices, ::typeof(delta), patch::Patch)
+    isempty(patch) && return indices
+    rows, cols = _patch_bounds(patch)
+
+    # Cap bitmap storage at 8 KiB for boxes outside the usual ARC sizes.
+    if length(rows) <= 65_536 ÷ length(cols)
+        occupied = falses(length(cols), length(rows))
+        for pixel in patch
+            row, col = _patch_index(pixel).I
+            occupied[col - first(cols) + 1, row - first(rows) + 1] = true
+        end
+        isempty(indices) && sizehint!(indices, length(occupied) - count(occupied))
+        for (r, row) in enumerate(rows), (c, col) in enumerate(cols)
+            @inbounds occupied[c, r] || push!(indices, CartesianIndex(row, col))
+        end
+    else
+        occupied = Set{IntegerTuple}(_patch_index(pixel) for pixel in patch)
+        for row in rows, col in cols
+            index = CartesianIndex(row, col)
+            index in occupied || push!(indices, index)
+        end
+    end
+    return indices
 end
 
 """Direction in which to move until source patch is adjacent to destination."""
@@ -1442,6 +1483,14 @@ function mapply(::typeof(toindices), container::Objects)
     for object in container, (_, index) in object
         indices[i] = index
         i += 1
+    end
+    return indices
+end
+
+function mapply(func::Union{typeof(backdrop),typeof(delta),typeof(corners)}, container::Objects)
+    indices = Indices()
+    for object in container
+        _append_geometry!(indices, func, object) === nothing && return nothing
     end
     return indices
 end
