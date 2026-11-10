@@ -213,6 +213,27 @@
 
             @test ARC.argmax_by([small, large], ARC.size_of) == large
             @test ARC.argmin_by([small, large], ARC.size_of) == small
+            @test ARC.argmax_by([small, large], _ -> -1) === small
+            @test ARC.argmin_by([small, large], _ -> -1) === small
+
+            empty = ARC.Object()
+            for reduce in (ARC.valmax, ARC.valmin, ARC.argmax_by, ARC.argmin_by)
+                @test isnothing(reduce(ARC.Objects(), ARC.color))
+                @test isnothing(reduce([empty, small], ARC.color))
+                @test isnothing(reduce([small, empty], ARC.color))
+            end
+
+            seen = ARC.Object[]
+            score = obj -> (push!(seen, obj); ARC.color(obj))
+            @test isnothing(ARC.valmax([empty, large], score))
+            @test length(seen) == 2 && seen[1] === empty && seen[2] === large
+
+            grids = [[1 2], [3 4]]
+            @test ARC.argmax_by(grids, ARC.width) === grids[1]
+            @test ARC.argmin_by(grids, ARC.width) === grids[1]
+            float_score = grid -> grid === grids[1] ? 1.0 : NaN
+            @test ARC.argmax_by(grids, float_score) === grids[argmax(float_score.(grids))]
+            @test ARC.argmin_by(grids, float_score) === grids[argmin(float_score.(grids))]
 
             @test ARC.mostcommon([1, 2, 2, 3, 3, 3]) == 3
             @test ARC.leastcommon([1, 2, 3, 4, 2, 3, 4]) == 1
@@ -1402,6 +1423,8 @@ end
     @test ARC.vperiod(ARC.asobject(reshape([1, 2, 1, 2, 1], 5, 1))) == 2
     @test ARC.hperiod([(1, CartesianIndex(1, 1)), (2, CartesianIndex(1, 4))]) == 4
     @test ARC.hperiod([(1, CartesianIndex(1, 1)), (1, CartesianIndex(1, 4))]) == 3
+    wrapped = [(1, CartesianIndex(1, x)) for x in (typemin(Int), typemin(Int) + 1, typemax(Int))]
+    @test ARC.hperiod(wrapped) == reference_period(wrapped, 2)
     rng = Xoshiro(42)
     for _ in 1:200
         object = [(rand(rng, 0:9), CartesianIndex(rand(rng, -8:8), rand(rng, -8:8)))

@@ -29,7 +29,7 @@
     - Container: Grid | Object | Objects | Indices — Generic containers
 =#
 
-Integer = Int
+const Integer = Int
 Grid = Matrix{Integer}
 GridContainer = Vector{Grid}
 IntContainer = Vector{Integer}
@@ -39,7 +39,7 @@ Indices = Vector{IntegerTuple}
 Object = Vector{Tuple{Integer, IntegerTuple}}
 Objects = Vector{Object}
 
-Safe = t -> Union{Nothing, t}
+const Safe = t -> Union{Nothing, t}
 
 Patch = Union{Object, Indices}
 Piece = Union{Grid, Patch}
@@ -251,29 +251,48 @@ maximum_of(container::Grid)::Safe(Integer) = !isempty(container) ? maximum(conta
 minimum_of(container::IntContainer)::Safe(Integer) = !isempty(container) ? minimum(container) : nothing
 minimum_of(container::Grid)::Safe(Integer) = !isempty(container) ? minimum(container) : nothing
 
-"""maximum by custom function"""
-function valmax(container::Objects, compfunc)::Safe(Integer)
+function _scored_extreme(container::Vector{T}, score::F, reduce_scores::R) where {T,F,R}
     isempty(container) && return nothing
-    res = map(compfunc, container)
-    any(isnothing, res) && return nothing
-    return maximum(res)
+    select_item = reduce_scores === argmax || reduce_scores === argmin
+    # Retain Julia's reduction semantics for scorers outside the ARC integer DSL.
+    if !(Base.promote_op(score, T) <: Union{Int,Nothing})
+        scores = select_item ? score.(container) : map(score, container)
+        any(isnothing, scores) && return nothing
+        result = reduce_scores(scores)
+        return select_item ? container[result] : result
+    end
+
+    better = reduce_scores === argmax || reduce_scores === maximum ? (>) : (<)
+    best_index = firstindex(container)
+    first_score = score(container[best_index])
+    valid = !isnothing(first_score)
+    best_score = something(first_score, 0)
+    for i in (best_index + 1):lastindex(container)
+        value = score(container[i])
+        if isnothing(value)
+            valid = false
+        elseif better(value, best_score)
+            best_index = i
+            best_score = value
+        end
+    end
+    valid || return nothing
+    return select_item ? container[best_index] : best_score
 end
+
+"""maximum by custom function"""
+valmax(container::Objects, compfunc)::Safe(Integer) = _scored_extreme(container, compfunc, maximum)
 
 """minimum by custom function"""
-function valmin(container::Objects, compfunc)::Safe(Integer)
-    isempty(container) && return nothing
-    res = map(compfunc, container)
-    any(isnothing, res) && return nothing
-    return minimum(res)
-end
+valmin(container::Objects, compfunc)::Safe(Integer) = _scored_extreme(container, compfunc, minimum)
 
 """returns the container that maximizes the custom function"""
-argmax_by(containers::Objects, compfunc)::Safe(Object) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmax(res)] end
-argmax_by(containers::GridContainer, compfunc)::Safe(Grid) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmax(res)] end
+argmax_by(containers::Objects, compfunc)::Safe(Object) = _scored_extreme(containers, compfunc, argmax)
+argmax_by(containers::GridContainer, compfunc)::Safe(Grid) = _scored_extreme(containers, compfunc, argmax)
 
-"""returns the container that maximizes the custom function"""
-argmin_by(containers::Objects, compfunc)::Safe(Object) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmin(res)] end
-argmin_by(containers::GridContainer, compfunc)::Safe(Grid) = let res = compfunc.(containers); (isempty(res) || any(isnothing, res)) ? nothing : containers[argmin(res)] end
+"""returns the container that minimizes the custom function"""
+argmin_by(containers::Objects, compfunc)::Safe(Object) = _scored_extreme(containers, compfunc, argmin)
+argmin_by(containers::GridContainer, compfunc)::Safe(Grid) = _scored_extreme(containers, compfunc, argmin)
 
 """most common item in container"""
 mostcommon(container::IntContainer)::Safe(Integer) = !isempty(container) ? mode(container) : nothing
@@ -557,18 +576,21 @@ end
 """Indices of corners of given patch."""
 corners(patch::Patch)::Safe(Indices) = isempty(patch) ? nothing : [ulcorner(patch), urcorner(patch), llcorner(patch), lrcorner(patch)]
 
-# Work on a concrete normalized Object so the inner membership loop stays inferred.
-function _object_period(normalized::Object, ::Val{axis}) where axis
-    extent = isempty(normalized) ? 0 : maximum(cell[2][axis] for cell in normalized) + 1
+function _object_period(object::Object, ::Val{axis}) where axis
+    isempty(object) && return 0
+    origin, upper = extrema(cell[2][axis] for cell in object)
+    span = upper - origin
+    # Preserve the normalized extent even if subtracting extreme Int coordinates wraps.
+    span < 0 && (span = maximum(cell[2][axis] - origin for cell in object))
+    extent = span + 1
     extent <= 1 && return extent
-    occupied = Set(normalized)
+    occupied = Set(object)
     for period in 1:extent-1
         offset = axis == 1 ? CartesianIndex(period, 0) : CartesianIndex(0, period)
         matches = true
-        for (color, index) in normalized
-            # Cells shifted outside the normalized bounds are excluded, just as
-            # in the original pruned-set subset check. Duplicates do not matter.
-            if index[axis] >= period && !((color, index - offset) in occupied)
+        for (color, index) in object
+            # Test the normalized coordinate while looking up cells in the original frame.
+            if index[axis] - origin >= period && !((color, index - offset) in occupied)
                 matches = false
                 break
             end
@@ -579,10 +601,10 @@ function _object_period(normalized::Object, ::Val{axis}) where axis
 end
 
 """Horizontal periodicity, i.e. smallest horizontal distance at which pattern repeats. Returns full width if no pattern found."""
-hperiod(object::Object)::Integer = _object_period(normalize_zero_indexed(object), Val(2))
+hperiod(object::Object)::Integer = _object_period(object, Val(2))
 
 """Vertical periodicity, i.e. smallest vertical distance at which pattern repeats. Returns full height if no pattern found."""
-vperiod(object::Object)::Integer = _object_period(normalize_zero_indexed(object), Val(1))
+vperiod(object::Object)::Integer = _object_period(object, Val(1))
 
 
 """Crop grid from start point to given dims"""
