@@ -1203,12 +1203,15 @@
             @test isempty(ARC.mapply(ARC.toindices, [empty, empty]))
             @test isempty(ARC.mapply(ARC.toindices, ARC.Objects()))
 
-            for geometry in (ARC.backdrop, ARC.delta, ARC.corners)
+            for geometry in (ARC.backdrop, ARC.delta, ARC.corners, ARC.box, ARC.inbox, ARC.outbox)
                 expected = vcat(geometry(first_object), geometry(second_object))
                 @test isequal(ARC.mapply(geometry, [first_object, second_object]), expected)
                 @test isempty(ARC.mapply(geometry, ARC.Objects()))
             end
             @test isnothing(ARC.mapply(ARC.corners, [first_object, empty, second_object]))
+            @test isnothing(ARC.mapply(ARC.inbox, [first_object, empty, second_object]))
+            @test isnothing(ARC.mapply(ARC.outbox, [first_object, empty, second_object]))
+            @test isequal(ARC.mapply(ARC.box, [empty, first_object]), ARC.box(first_object))
             @test isequal(ARC.mapply(ARC.delta, [empty, first_object]), ARC.delta(first_object))
             @test isequal(ARC.mapply(ARC.backdrop, [first_object, empty]), ARC.backdrop(first_object))
 
@@ -1510,6 +1513,35 @@ end
             @test ARC.manhattan(patch, empty) === nothing
         end
     end
+end
+
+@testitem "ARC-AGI-1: occurrences regression" begin
+    import HerbBenchmarks.ARC_AGI1 as ARC
+    using Random
+
+    function reference_occurrences(grid, object)
+        isempty(object) && return ARC.Indices()
+        normalized = ARC.normalize_zero_indexed(object)
+        height, width = ARC.shape(object).I
+        return [CartesianIndex(row, col)
+            for row in 1:(size(grid, 1) - height + 1)
+            for col in 1:(size(grid, 2) - width + 1)
+            if all(grid[row + index[1], col + index[2]] == color for (color, index) in normalized)]
+    end
+
+    @test Tuple(ARC.occurrences(ones(Int, 2, 3), [(1, CartesianIndex(-7, 20))])) ==
+        (CartesianIndex(1, 1), CartesianIndex(1, 2), CartesianIndex(1, 3),
+         CartesianIndex(2, 1), CartesianIndex(2, 2), CartesianIndex(2, 3))
+    rng = Xoshiro(39)
+    for _ in 1:300
+        grid = rand(rng, 0:2, rand(rng, 0:6), rand(rng, 0:6))
+        object = [(rand(rng, 0:2), CartesianIndex(rand(rng, -4:4), rand(rng, -4:4)))
+            for _ in 1:rand(rng, 0:10)]
+        @test isequal(ARC.occurrences(grid, object), reference_occurrences(grid, object))
+    end
+    cell = CartesianIndex(1, 1)
+    @test isempty(ARC.occurrences(ones(Int, 2, 2), [(1, cell), (2, cell)]))
+    @test Tuple(ARC.occurrences(ones(Int, 1, 1), [(1, cell), (1, cell)])) == (cell,)
 end
 
 @testitem "ARC-AGI-1: periodicity regression" begin

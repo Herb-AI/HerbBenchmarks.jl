@@ -1123,26 +1123,40 @@ function gravitate(source::Patch, destination::Patch)::Safe(IntegerTuple)
     return total_movement - direction
 end
 
-function _rectangular_border(patch::Patch, inset::Int)
-    si, ei = minmax(uppermost(patch) + inset, lowermost(patch) - inset)
-    sj, ej = minmax(leftmost(patch) + inset, rightmost(patch) - inset)
-    rows = si:ei
-    sj == ej && return [CartesianIndex(row, sj) for row in rows]
+function _rectangular_border_ranges(patch::Patch, inset::Int)
+    patch_rows, patch_cols = _patch_bounds(patch)
+    si, ei = minmax(first(patch_rows) + inset, last(patch_rows) - inset)
+    sj, ej = minmax(first(patch_cols) + inset, last(patch_cols) - inset)
+    return si:ei, sj:ej
+end
 
+function _rectangular_border_length(rows, cols)
+    length(cols) == 1 && return length(rows)
+    return 2 * length(rows) + min(2, length(rows)) * (length(cols) - 2)
+end
+
+function _write_rectangular_border!(border::Indices, index::Int, rows, cols)
     # Match the original order: left edge, right edge, then the horizontal
     # interiors. Corners are already present in the vertical edges.
-    interior = (sj + 1):(ej - 1)
-    edge_rows = si == ei ? (si,) : (si, ei)
-    border = Vector{CartesianIndex{2}}(undef, 2 * length(rows) + length(edge_rows) * length(interior))
-    index = 1
-    for col in (sj, ej), row in rows
+    edge_cols = length(cols) == 1 ? (first(cols),) : (first(cols), last(cols))
+    for col in edge_cols, row in rows
         border[index] = CartesianIndex(row, col)
         index += 1
     end
+    length(cols) == 1 && return index
+    interior = (first(cols) + 1):(last(cols) - 1)
+    edge_rows = length(rows) == 1 ? (first(rows),) : (first(rows), last(rows))
     for row in edge_rows, col in interior
         border[index] = CartesianIndex(row, col)
         index += 1
     end
+    return index
+end
+
+function _rectangular_border(patch::Patch, inset::Int)
+    rows, cols = _rectangular_border_ranges(patch, inset)
+    border = Indices(undef, _rectangular_border_length(rows, cols))
+    _write_rectangular_border!(border, 1, rows, cols)
     return border
 end
 
@@ -1153,7 +1167,7 @@ inbox(patch::Patch) = isempty(patch) ? nothing : _rectangular_border(patch, 1)
 outbox(patch::Patch) = isempty(patch) ? nothing : _rectangular_border(patch, -1)
 
 """Outline of patch"""
-box(patch::Patch) = isempty(patch) ? CartesianIndex{2}[] : _rectangular_border(patch, 0)
+box(patch::Patch) = isempty(patch) ? Indices() : _rectangular_border(patch, 0)
 
 
 """Returns a vertical frontier, i.e. all vertical indices (rows 1 to 30) of the column given by location"""
@@ -1366,28 +1380,28 @@ end
 
 """Locations where object occurs in grid"""
 function occurrences(grid::Grid, object::Object)::Indices
-    isempty(object) && return []
+    matches = Indices()
+    isempty(object) && return matches
 
-    # Normalize and compute dimensions in one pass
-    norm = normalize_zero_indexed(object)
-    oh, ow = shape(object).I
+    rows, cols = _patch_bounds(object)
+    last_row = size(grid, 1) - length(rows) + 1
+    last_col = size(grid, 2) - length(cols) + 1
 
-    # Unified grid access using indexing
-    h, w = shape(grid).I
-
-    h2 = h - oh + 1
-    w2 = w - ow + 1
-    (h2 < 0 || w2 < 0) && return []
-
-    occs = []
-
-    @inbounds for i0 in 1:h2, j0 in 1:w2
-        if all(grid[i0+d[1], j0+d[2]] == v for (v, d) in norm)
-            push!(occs, CartesianIndex(i0, j0))
+    # Read offsets directly from the object without copying it to normalize.
+    # Visit candidate origins in the same row-major order as before.
+    @inbounds for row in 1:last_row, col in 1:last_col
+        matched = true
+        for (color, index) in object
+            if grid[row + (index[1] - first(rows)), col + (index[2] - first(cols))] != color
+                matched = false
+                break
+            end
+        end
+        if matched
+            push!(matches, CartesianIndex(row, col))
         end
     end
-
-    return occs
+    return matches
 end
 
 """Return first element of container that fulfills given condition"""
@@ -1491,6 +1505,29 @@ function mapply(func::Union{typeof(backdrop),typeof(delta),typeof(corners)}, con
     indices = Indices()
     for object in container
         _append_geometry!(indices, func, object) === nothing && return nothing
+    end
+    return indices
+end
+
+function mapply(func::Union{typeof(box),typeof(inbox),typeof(outbox)}, container::Objects)
+    inset = func === box ? 0 : func === inbox ? 1 : -1
+    ranges = Tuple{UnitRange{Int},UnitRange{Int}}[]
+    sizehint!(ranges, length(container))
+    count = 0
+    for object in container
+        if isempty(object)
+            func === box || return nothing
+            continue
+        end
+        rows, cols = _rectangular_border_ranges(object, inset)
+        push!(ranges, (rows, cols))
+        count = Base.checked_add(count, _rectangular_border_length(rows, cols))
+    end
+
+    indices = Indices(undef, count)
+    index = 1
+    for (rows, cols) in ranges
+        index = _write_rectangular_border!(indices, index, rows, cols)
     end
     return indices
 end
