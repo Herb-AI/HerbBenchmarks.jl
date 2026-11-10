@@ -4,11 +4,9 @@ using HerbSpecification
 using HerbGrammar
 using HerbInterpret
 
-using RuntimeGeneratedFunctions
-RuntimeGeneratedFunctions.init(@__MODULE__)
-
 include("data.jl")
 include("grammars.jl")
+include("splits.jl")
 
 include("string_functions.jl")
 
@@ -20,8 +18,9 @@ function make_SLIA_interpreter(g)
     )
 end
 
-export 
-    format_string_grammars
+export
+    format_string_grammars,
+    SLIAOperatorError
 
 function format_string_grammars(filename::AbstractString)
     lines::Vector{String} = []
