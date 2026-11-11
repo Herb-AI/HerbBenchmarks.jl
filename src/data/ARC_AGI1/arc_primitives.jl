@@ -951,9 +951,6 @@ function vmatching(a::Patch, b::Patch)::Boolean
     return any(i[2] in indices_a for i in toindices(b))
 end
 
-_patch_index(index::IntegerTuple) = index
-_patch_index(cell::Tuple{Integer, IntegerTuple}) = cell[2]
-
 """Min. manhattan distance between two patches a and b"""
 function manhattan(a::A, b::B)::Safe(Integer) where {A<:Patch, B<:Patch}
     (isempty(a) || isempty(b)) && return nothing
