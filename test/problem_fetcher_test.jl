@@ -2,6 +2,9 @@
     module Test_benchmark_default_grammar
     using HerbGrammar, HerbSpecification
 
+    problem_key(x) = string(x)
+    problem_metadata = "not a benchmark problem"
+
     problem_1 = Problem([IOExample(Dict(:x => x), x) for x in 1:2])
     problem_2 = Problem([IOExample(Dict(:x => x), -x) for x in 1:5])
 
