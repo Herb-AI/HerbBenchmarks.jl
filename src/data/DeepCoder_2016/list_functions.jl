@@ -78,7 +78,7 @@ end
 
 @inline binopPlus(x::Integer, y::Integer) = x + y
 @inline binopMinus(x::Integer, y::Integer) = x - y
-@inline binopMult(x::Integer, y::Integer) = x * y
+@inline binopMult(x::Integer, y::Integer) = Base.checked_mul(x, y)
 @inline binopMax(x::Integer, y::Integer) = max(x, y)
 @inline binopMin(x::Integer, y::Integer) = min(x, y)
 @inline binopDiv(x::Integer, y::Integer) = div(x, y)
@@ -97,6 +97,7 @@ end
 
 # map with arithmetic ops
 @inline mapPlus(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopPlus, arr, k)
+@inline mapMinus(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopMinus, arr, k)
 @inline mapMult(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopMult, arr, k)
 @inline mapDiv(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopDiv, arr, k)
 @inline mapPow(arr::AbstractVector{<:Integer}, k::Integer) = map2(binopPow, arr, k)
