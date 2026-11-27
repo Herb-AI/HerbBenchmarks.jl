@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Neo_PLDI18 benchmark (problems, grammars and solutions) from Neo's
+"""Generate the DeepCoder_Neo_PLDI18 benchmark (problems, grammars and solutions) from Neo's
 DeepCoder PLDI'18 problem files.
 
 Source: https://github.com/utopia-group/neo, folder problem/DeepCoder-pldi18
