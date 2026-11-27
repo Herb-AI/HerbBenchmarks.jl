@@ -1,4 +1,4 @@
-module Neo_PLDI18
+module DeepCoder_Neo_PLDI18
 using HerbCore
 using HerbSpecification
 using HerbGrammar
@@ -20,7 +20,7 @@ function set_base_grammar!(grammar_with_spec::AbstractGrammar)
 end
 
 function make_neo_interpreter(g)
-    return make_interpreter(g; target_module=Neo_PLDI18, cache_module=Neo_PLDI18)
+    return make_interpreter(g; target_module=DeepCoder_Neo_PLDI18, cache_module=DeepCoder_Neo_PLDI18)
 end
 
-end # module Neo_PLDI18
+end # module DeepCoder_Neo_PLDI18
