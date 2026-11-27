@@ -73,7 +73,7 @@ def julia_value(v):
 
 
 def grammar_for(n_inputs, consts):
-    rules = list(TEMPLATE) + [("Start", "Table")]
+    rules = list(TEMPLATE) + [("Start", "contents(Table)")]
     rules += [("Table", f"_arg_{i + 1}") for i in range(n_inputs)]
     rules += [("Const", julia_value(c)) for c in consts]
     return rules
@@ -394,6 +394,19 @@ def strictly_same(a, b):
     return match(0, frozenset(), [])
 
 
+def cell_key(v):
+    """As `_cell_key` in table_functions.jl."""
+    if isinstance(v, str) and not NUMBER.fullmatch(v):
+        return (1, 0.0, v)
+    r = round(float(v), 5)
+    return (0, 0.0 if r == 0 else r, "")
+
+
+def contents(t):
+    """As `contents` in table_functions.jl: the sorted rows, each the sorted keys of its cells."""
+    return sorted(sorted(cell_key(v) for v in row) for row in rows_of(t))
+
+
 def same_table(a, b):
     if len(a[0]) != len(b[0]) or nrow(a) != nrow(b):
         return False
@@ -445,9 +458,9 @@ def components(node):
 
 
 def search(inputs, target, sketch, consts, budget=5_000_000):
-    """Return (node, table, strict) for the first program found, or None. A program whose
-    output also matches strictly (`strictly_same`) is preferred; otherwise the first one
-    that only matches as Neo checks it.
+    """Return (node, table, strict) for the first program found, or None. The program's
+    output must have the same `contents` as the target; one that also matches strictly
+    (`strictly_same`) is preferred.
 
     Each component takes the previous component's table. As in Neo's sketches, a
     component may instead start again from an input when an inner_join comes later, and
@@ -467,10 +480,10 @@ def search(inputs, target, sketch, consts, budget=5_000_000):
     def rec(i, cur, earlier):
         if i == len(sketch):
             table, node = cur
-            if components(node) == len(sketch) and same_table(table, target):
+            if components(node) == len(sketch) and contents(table) == target_contents:
                 if strictly_same(table, target):
                     return node, table
-                if loose[0] is None:
+                if loose[0] is None:  # same contents, but not strictly the same table
                     loose[0] = (node, table)
             return None
         comp = sketch[i]
@@ -516,6 +529,7 @@ def search(inputs, target, sketch, consts, budget=5_000_000):
         return rec(i + 1, (nxt, node), earlier + [(nxt, node)])
 
     loose = [None]
+    target_contents = contents(target)
     found = rec(0, None, list(roots))
     if found:
         return found + (True,)
@@ -590,7 +604,7 @@ def generate(neo, out):
                    key=lambda f: int(re.findall(r"\d+", os.path.basename(f))[0]))
     data, grammars, solutions, status = [HEADER], [HEADER], [HEADER + (
         "\n# solution_N = (expr, rulenode, size, neo_sketch): a program for problem N whose output has\n"
-        "# the same contents as Neo's (see `same_table`), with the components of Neo's sketch.\n"
+        "# the expected contents (see `contents`), with the components of Neo's sketch.\n"
         "# `rulenode` uses grammar_N's rule indices (including Start), and `size` is its number of nodes.\n")], []
     for f in files:
         num = int(re.findall(r"\d+", os.path.basename(f))[0])
@@ -611,18 +625,18 @@ def generate(neo, out):
 
         ins = ",\n".join(f"        :_arg_{k + 1} => {df_julia(t, 8)}" for k, t in enumerate(inputs))
         p = (f'problem_{pid} = Problem("problem_{pid}", [\n'
-             f"    IOExample(Dict{{Symbol, Any}}(\n{ins}\n    ), {df_julia(target, 4)})\n])")
+             f"    IOExample(Dict{{Symbol, Any}}(\n{ins}\n    ), contents({df_julia(target, 4)}))\n])")
         g = "\n".join([f"grammar_{pid} = @csgrammar begin"]
                       + [f"    {lhs} = {rhs}" for lhs, rhs in rules] + ["end"])
         entry = {"problem": pid, "neo_name": prob["name"], "sketch": " ".join(sketch),
                  "inputs": len(inputs), "constants": len(consts), "rules": len(rules)}
         if found:
             node, _, strict = found
-            root = ("Start", "Table", [node])
-            s = (f"solution_{pid} = (\n    expr = :({render(node)}),\n"
+            root = ("Start", "contents(Table)", [node])
+            s = (f"solution_{pid} = (\n    expr = :({render(root)}),\n"
                  f"    rulenode = {rulenode(root, rules)},\n    size = {size(root)},\n"
                  f'    neo_sketch = "{" ".join(sketch)}",\n)')
-            entry.update(status="ok", size=size(root), expr=render(node), strict=strict)
+            entry.update(status="ok", size=size(root), expr=render(root), strict=strict)
         else:
             s = f'solution_{pid} = nothing  # BENCHED ({reason}); Neo\'s sketch: {" ".join(sketch)}'
             entry.update(status="benched", reason=reason)

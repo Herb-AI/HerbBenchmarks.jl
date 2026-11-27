@@ -7,8 +7,9 @@
 # Tables are `DataFrame`s. `group_by` returns a `GroupedDataFrame`, which `summarise`
 # aggregates per group; every other component works on the ungrouped table. Columns are
 # 1-based indices (Neo: 0-based); column lists are vectors of indices or `Not(...)` of one.
-# New columns get generated names (see `_fresh`); outputs are compared with `same_table`,
-# which ignores column names, as Neo does. generate.py mirrors this file.
+# New columns get generated names (see `_fresh`), so a program's output is its table's
+# `contents` (the grammar's Start rule), which ignores column names, as Neo does, and can be
+# compared with `==`. generate.py mirrors this file.
 
 const AnyTable = Union{AbstractDataFrame,GroupedDataFrame}
 
@@ -212,7 +213,27 @@ function mutate(t::AnyTable, op, col1::Int, col2::Int)
     return out
 end
 
-const NUMBER = r"^-?\d+(\.\d+)?$"
+const NUMBER = r"^-?\d+(\.\d+)?$"  # what Neo's check treats as a number
+
+"""
+    contents(table) -> Vector{Vector{Tuple{Int,Float64,String}}}
+
+A canonical form of a table without column names or order: its rows, each the sorted
+list of its cells, sorted. Numbers, and strings that look like numbers (as in Neo's check),
+are rounded to 5 decimals, so `"2007"` and `2007` are the same cell. The grammar's Start
+rule applies it, so programs output it and the expected outputs are stored as it: compare
+outputs with `==`, and equal outputs hash equally.
+
+This is slightly stricter than Neo's check (`same_table`): repeated cells in a row and
+repeated rows count, and numbers are rounded rather than compared within 1e-5. Neo's check
+is not an equivalence, so no canonical form matches it exactly.
+"""
+contents(t::AnyTable) = sort!([sort!([_cell_key(x) for x in row]) for row in eachrow(_ungroup(t))])
+
+_cell_key(x::Real) = (0, _round(x), "")
+_cell_key(x::AbstractString) = occursin(NUMBER, x) ? _cell_key(parse(Float64, x)) : (1, 0.0, String(x))
+_cell_key(x) = (1, 0.0, string(x))
+_round(x) = (r = round(Float64(x); digits=5); iszero(r) ? 0.0 : r)  # no -0.0
 
 """
     same_table(a, b) -> Bool
@@ -222,7 +243,7 @@ Neo's fork of krangl, src/main/kotlin/krangl/Reshape.kt): the tables have the sa
 of each, taken as a set of strings, is covered by some row of the other. Strings that look
 like numbers are equal if they differ by less than 1e-5. Column names, column order and
 row order are ignored (a row is a set, so this is looser than equality up to them).
-Programs name new columns themselves, so compare outputs with this, not `==`.
+The benchmark compares `contents` instead; this is Neo's exact check, for comparison.
 """
 function same_table(a::AnyTable, b::AnyTable)
     a, b = _ungroup(a), _ungroup(b)

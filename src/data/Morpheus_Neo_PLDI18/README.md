@@ -22,26 +22,28 @@ comparisons and aggregators). Tables are plain `DataFrame`s.
 
 - `generate.py`: generates `data.jl`, `grammars.jl`, `solutions.jl` (and
   `status.json`) from Neo's files: `python3 generate.py <neo>`. For every problem it
-  searches the arguments of Neo's sketch for a program whose output matches Neo's,
+  searches the arguments of Neo's sketch for a program whose output has Neo's expected
+  `contents`,
   evaluating programs with this benchmark's semantics (mirrored from
   `table_functions.jl`).
 - `verify.jl`: re-checks the generated solutions in Julia (RuleNode round trip, size,
   and outputs computed with this module's functions and with its interpreter).
 - `data.jl`: `problem_NNN`, Neo's example (`NNN` = the number in Neo's file name
-  `rNNN.json`). Inputs are `:_arg_1` (and `:_arg_2`); input and output are `DataFrame`s,
-  with column types as Neo builds them (a column with any non-integral number is
-  `Float64`).
+  `rNNN.json`). Inputs are `:_arg_1` (and `:_arg_2`), `DataFrame`s with column types as
+  Neo builds them (a column with any non-integral number is `Float64`). The output is
+  stored as `contents(DataFrame(...))` (see Output, below).
 - `grammars.jl`: `grammar_NNN`, Neo's grammar (below), plus `Start`, the problem's
   inputs and its constants.
 - `solutions.jl`: `solution_NNN = (expr, rulenode, size, neo_sketch)`. `rulenode` uses
   `grammar_NNN`'s rule indices, including the `Start` rule.
-- `table_functions.jl`: the components on DataFrames, and `same_table`.
+- `table_functions.jl`: the components on DataFrames, `contents`, and `same_table`.
 
 ## Grammar
 
-As in Neo, with 1-based column indices:
+As in Neo, with 1-based column indices, plus `contents` on the start rule:
 
 ```
+Start = contents(Table)
 Table = select(Table, ColList)      Table = group_by(Table, ColList)
 Table = inner_join(Table, Table)    Table = gather(Table, ColList)
 Table = spread(Table, Col, Col)     Table = unite(Table, Col, Col)
@@ -55,16 +57,31 @@ ColList = [i] | [i, j] | Not([i]) | Not([i, j])   (i < j ≤ 6; Neo: lists of 1 
 Const = every value in the input tables
 ```
 
-New columns are not named by the grammar: each component names the columns it creates.
-So the output of a solution is compared with `same_table`, not `==`.
+## Output
+
+New columns are not named by the grammar: each component names the columns it creates
+(Neo compares tables ignoring column names). So a program's output is not its final
+table but that table's `contents` (the `Start` rule), a canonical form without column
+names or order: the rows, each the sorted list of its cells, sorted. Numbers, and strings
+that look like numbers (as in Neo's check), are rounded to 5 decimals, so `"2007"` and
+`2007` are the same cell. The expected outputs are stored as `contents` too.
+
+**Compare outputs with `==`** (HerbSearch's `evaluate` does), and equal outputs hash
+equally (caching, observational equivalence). Intermediate values (`Table`) are still
+`DataFrame`s.
+
+This is slightly stricter than Neo's own check, `hasSameContents`, kept here as
+`same_table`: Neo takes each row as a *set* of strings and accepts two tables if every row
+of each is covered by a row of the other, with numbers within 1e-5. So in Neo repeated
+cells in a row and repeated rows do not count; with `contents` they do. Neo's check is
+not an equivalence (the tolerance and the covering), so no canonical form can match it
+exactly. All 50 solutions pass both.
 
 ## Semantics
 
 Everything follows Neo, except where noted:
 
-- **Output check.** `same_table` is Neo's `hasSameContents`: same number of rows and
-  columns, and every row of each table, taken as a set of strings, is covered by a row of
-  the other (numbers within 1e-5). Column names, column order and row order are ignored.
+- **Output check.** `contents` and `==` instead of Neo's `hasSameContents` (see Output).
 - **New column names.** Neo takes them from a global counter (`MORPHEUS1`, ...). Here a
   name is derived from the operation, its arguments and its input table, so evaluation is
   deterministic. Two columns share a name only if the same computation made them, which
@@ -83,10 +100,11 @@ Everything follows Neo, except where noted:
 ## Solutions
 
 All 50 problems have a solution with the components of Neo's sketch. For each,
-`generate.py` prefers a program whose output also matches strictly (the same rows as a
-multiset, once the columns are matched in some order), and all 50 do; Neo's own check
-is looser (see `same_table`), and accepted a spurious cross join for problem 029.
+`generate.py` prefers a program whose table also matches strictly (the same rows as a
+multiset, once the columns are matched in some order; `contents` ignores which column a
+cell is in), and all 50 do. Neo's own check is looser still: it accepted a spurious
+cross join for problem 029.
 
-Solution sizes (nodes, including `Start`):
+Solution sizes (nodes, including the `Start` rule):
 8: 1; 9: 3; 10: 2; 11: 10; 12: 4; 13: 9; 14: 12; 15: 3; 16: 5; 17: 1; mean 12.80.
 Grammars have 73–120 rules (4–51 constants). Problem 042 has two input tables.

@@ -1,7 +1,7 @@
 # Checks the generated files in Julia: for every (non-benched) problem, the solution's
 # RuleNode round-trips to its expression in the problem's grammar, its size is right, and
 # its output, computed with this module's functions (by evaluating the expression and with
-# the generated interpreter), has the same contents as the expected table (`same_table`).
+# the generated interpreter), equals the expected output (both are `contents`).
 #
 #   julia --project=<HerbBenchmarks> src/data/Morpheus_Neo_PLDI18/verify.jl
 using HerbBenchmarks, HerbCore, HerbGrammar
@@ -28,7 +28,7 @@ function check()
                 catch err
                     err
                 end
-                M.same_table(got, ex.out) || push!(failures, "$id: example $i, $how gives\n$got\nexpected\n$(ex.out)")
+                got == ex.out || push!(failures, "$id: example $i, $how gives\n$got\nexpected\n$(ex.out)")
             end
         end
     end

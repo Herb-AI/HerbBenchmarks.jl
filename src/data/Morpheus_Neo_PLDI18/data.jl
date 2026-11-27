@@ -11,12 +11,12 @@ problem_005 = Problem("problem_005", [
             "P.2" => [5.5, 5.7],
             "Q.1" => [4.5, 3.2],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "ID" => [1, 2, 1, 2, 1, 2],
         "Channel" => ["1", "1", "2", "2", "1", "1"],
         "T" => [24.3, 23.4, 24.3, 23.4, 24.3, 23.4],
         "P" => [10.2, 10.4, 5.5, 5.7, 4.5, 3.2],
-    ))
+    )))
 ])
 
 problem_006 = Problem("problem_006", [
@@ -28,11 +28,11 @@ problem_006 = Problem("problem_006", [
             "D.8" => [8957.7, 2471.0, 831.5],
             "T.8" => [4092.4, 1784.1, 814.1],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "GeneID" => [1266.6, 1266.6, 2120.8, 2120.8, 8876.5, 8876.5],
         "type" => ["D", "T", "D", "T", "D", "T"],
         "sum" => [1045.3, 1337.9, 2951.3, 1694.6, 9468.2, 4318.3],
-    ))
+    )))
 ])
 
 problem_007 = Problem("problem_007", [
@@ -45,13 +45,13 @@ problem_007 = Problem("problem_007", [
             "T.2" => [6, 8],
             "D.8" => ["A1", "C1"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "GeneID" => ["A2M", "A2M", "ABL1", "ABL1"],
         "pt.num" => ["1", "2", "1", "2"],
         "D" => [18, 2, 20, 4],
         "T" => [50, 6, 48, 8],
         "Ratio" => [0.36, 0.333333333333333, 0.416666666666667, 0.5],
-    ))
+    )))
 ])
 
 problem_008 = Problem("problem_008", [
@@ -62,11 +62,11 @@ problem_008 = Problem("problem_008", [
             "Rate1" => [12, 18, 53, 22, 22, 67],
             "Rate2" => [23, 73, 19, 87, 87, 43],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Name" => ["Aira", "Ben", "Cat"],
         "avg1" => [15.0, 37.5, 44.5],
         "avg2" => [48, 53, 65],
-    ))
+    )))
 ])
 
 problem_009 = Problem("problem_009", [
@@ -77,11 +77,11 @@ problem_009 = Problem("problem_009", [
             "V3" => ["High", "High", "High", "High", "Low", "Low", "Low", "Low", "High", "High", "High", "High", "Low", "Low", "Low", "Low"],
             "V4" => [-0.62645381, 0.18364332, -0.83562861, 1.5952808, 0.32950777, -0.82046838, 0.48742905, 0.73832471, 0.57578135, -0.30538839, 1.51178117, 0.38984324, -0.62124058, -2.21469989, 1.12493092, -0.04493361],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "V1" => ["a", "a", "a", "a", "b", "b", "b", "b"],
         "V2" => [1, 2, 3, 4, 1, 2, 3, 4],
         "Ratio" => [-1.90118069142952, -0.223827419162698, -1.71435947447121, 2.16067643191842, -0.92682507958511, 0.137891545206154, 1.3438880051408, -8.67598307814574],
-    ))
+    )))
 ])
 
 problem_014 = Problem("problem_014", [
@@ -93,10 +93,10 @@ problem_014 = Problem("problem_014", [
             "Diagnosis_3" => [0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
             "Diagnosis_4" => [0, 0, 0, 0, 1, 0, 1, 0, 0, 0],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "ID" => ["A", "A", "A", "B", "C", "E", "E", "E", "C", "D"],
         "value" => ["1", "1", "1", "2", "2", "2", "3", "3", "4", "4"],
-    ))
+    )))
 ])
 
 problem_017 = Problem("problem_017", [
@@ -107,11 +107,11 @@ problem_017 = Problem("problem_017", [
             "Var1" => ["good", "good", "bad", "good", "good", "bad"],
             "Var2" => [10, 6, 9, 3, 3, 8],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Group" => ["A"],
         "bad" => [9],
         "good" => [16],
-    ))
+    )))
 ])
 
 problem_018 = Problem("problem_018", [
@@ -121,11 +121,11 @@ problem_018 = Problem("problem_018", [
             "sender" => ["A", "A", "A", "B", "C", "D"],
             "recipient" => ["A", "C", "B", "C", "D", "B"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "address" => ["A", "B", "C", "D"],
         "recipient" => [1, 2, 2, 1],
         "sender" => [3, 1, 1, 1],
-    ))
+    )))
 ])
 
 problem_023 = Problem("problem_023", [
@@ -136,10 +136,10 @@ problem_023 = Problem("problem_023", [
             "X2" => [49.75, 49.75, 9.95],
             "X3" => [146.7, 39.8, 44.95],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "custno" => [100],
         "totalspent" => [493.45],
-    ))
+    )))
 ])
 
 problem_024 = Problem("problem_024", [
@@ -152,11 +152,11 @@ problem_024 = Problem("problem_024", [
             "yr4" => [4012, 4026, 4038, 4001],
             "var" => ["yr3", "yr2", "yr1", "yr4"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "id" => [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4],
         "var" => ["yr3", "yr3", "yr3", "yr2", "yr2", "yr2", "yr1", "yr1", "yr1", "yr4", "yr4", "yr4"],
         "value" => [2066, 3050, 4012, 2062, 3071, 4026, 2006, 3098, 4038, 2020, 3037, 4001],
-    ))
+    )))
 ])
 
 problem_025 = Problem("problem_025", [
@@ -165,10 +165,10 @@ problem_025 = Problem("problem_025", [
             "a" => [1, 1, 4, 4, 1, 1],
             "b" => [1, 2, 3, 3, 2, 2],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "key_ab" => ["1_2", "4_3"],
         "e" => [3, 2],
-    ))
+    )))
 ])
 
 problem_029 = Problem("problem_029", [
@@ -180,13 +180,13 @@ problem_029 = Problem("problem_029", [
             "b1" => [1, 2, 3, 4, 5, 6],
             "b2" => [1, 2, 3, 4, 5, 6],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "sym" => ["a", "a", "b", "b"],
         "a1" => [1, 2, 1, 2],
         "b1.mean" => [2, 2, 5, 5],
         "a2" => [2, 2, 1, 1],
         "b2.mean" => [2, 2, 5, 5],
-    ))
+    )))
 ])
 
 problem_031 = Problem("problem_031", [
@@ -197,13 +197,13 @@ problem_031 = Problem("problem_031", [
             "b" => [2, 2, 2],
             "c" => [3, 3, 3],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "id" => [101, 102, 103],
         "mean" => [2.0, 2.33333333333333, 2.66666666666667],
         "a" => [1, 2, 3],
         "b" => [2, 2, 2],
         "c" => [3, 3, 3],
-    ))
+    )))
 ])
 
 problem_032 = Problem("problem_032", [
@@ -218,12 +218,12 @@ problem_032 = Problem("problem_032", [
             "TIME_2" => ["08:00:00", "16:00:00", "00:00:00"],
             "ENTRIES_2" => [4209663, 4210775, 4212845],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "CA" => ["A002", "A002", "A002", "A002", "A002", "A002"],
         "DATE" => ["07-27-13", "07-27-13", "07-28-13", "07-28-13", "07-29-13", "07-30-13"],
         "ENTRIES" => [4209603, 4209663, 4210490, 4210775, 4211586, 4212845],
         "TIME" => ["00:00:00", "08:00:00", "08:00:00", "16:00:00", "16:00:00", "00:00:00"],
-    ))
+    )))
 ])
 
 problem_035 = Problem("problem_035", [
@@ -235,11 +235,11 @@ problem_035 = Problem("problem_035", [
             "con2_1" => [23, 22, 30],
             "con2_2" => [40, 50, 60],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "name1" => ["a", "b", "c"],
         "con1" => [28.0, 29.5, 28.5],
         "con2" => [31.5, 36.0, 45.0],
-    ))
+    )))
 ])
 
 problem_037 = Problem("problem_037", [
@@ -252,13 +252,13 @@ problem_037 = Problem("problem_037", [
             "trt.2" => ["B", "B", "B", "B", "B", "B"],
             "response.2" => [1, 1, 1, 1, 1, 1],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "id" => [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6],
         "sex" => ["M", "M", "M", "M", "F", "F", "M", "M", "F", "F", "M", "M"],
         "number" => [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2],
         "response" => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         "trt" => ["A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B"],
-    ))
+    )))
 ])
 
 problem_042 = Problem("problem_042", [
@@ -274,13 +274,13 @@ problem_042 = Problem("problem_042", [
             "ill" => [1, 4, 10],
             "factor" => [1.0, 3.0, 11.5],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Signal" => [185.0, 210.2, 218.2, 249.5, 258.4, 292.7],
         "Noise" => [0.6744, 0.7683, 0.8356, 0.8609, 0.8988, 0.8326],
         "ill" => [1, 4, 1, 4, 1, 4],
         "ADC" => [12, 12, 10, 10, 9, 9],
         "ExposureNew" => [0.01, 0.01, 0.01, 0.01, 0.01, 0.01],
-    ))
+    )))
 ])
 
 problem_044 = Problem("problem_044", [
@@ -293,13 +293,13 @@ problem_044 = Problem("problem_044", [
             "f2.sd" => [10, 11, 8, 9],
             "blabla" => ["bA", "bB", "bC", "bD"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "sbj" => ["A", "A", "B", "B", "C", "C", "D", "D"],
         "blabla" => ["bA", "bA", "bB", "bB", "bC", "bC", "bD", "bD"],
         "var" => ["f1", "f2", "f1", "f2", "f1", "f2", "f1", "f2"],
         "avg" => [10, 50, 12, 70, 20, 20, 22, 22],
         "sd" => [6, 10, 5, 11, 7, 8, 8, 9],
-    ))
+    )))
 ])
 
 problem_045 = Problem("problem_045", [
@@ -311,13 +311,13 @@ problem_045 = Problem("problem_045", [
             "V4" => ["EMP", "c", "EMP", "EMP", "k"],
             "V5" => ["EMP", "EMP", "d", "EMP", "e"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "V1" => ["a", "x"],
         "V2" => ["b", "y"],
         "V3" => ["a", "h"],
         "V4" => ["c", "k"],
         "V5" => ["d", "e"],
-    ))
+    )))
 ])
 
 problem_051 = Problem("problem_051", [
@@ -328,11 +328,11 @@ problem_051 = Problem("problem_051", [
             "Year.1" => [1, 2, 3, 8, 9, 10],
             "Year.2" => [5, 6, 7, 8, 9, 10],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Geotype" => ["A", "A", "B", "B"],
         "key" => ["Year.1", "Year.2", "Year.1", "Year.2"],
         "sumVal" => [5, 13, 19, 19],
-    ))
+    )))
 ])
 
 problem_052 = Problem("problem_052", [
@@ -343,11 +343,11 @@ problem_052 = Problem("problem_052", [
             "Year.1" => [1, 2, 3, 8, 9, 10],
             "Year.2" => [5, 6, 7, 8, 9, 10],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Geotype" => ["A", "B"],
         "Year.1" => [5, 19],
         "Year.2" => [13, 19],
-    ))
+    )))
 ])
 
 problem_054 = Problem("problem_054", [
@@ -359,13 +359,13 @@ problem_054 = Problem("problem_054", [
             "TOT" => [1, 1, 1, 1, 1, 1, 10, 1, 20],
             "inf_status" => ["positive", "positive", "positive", "positive", "positive", "positive", "positive", "positive", "positive"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "site" => ["site_1", "site_2"],
         "Species_A_positive" => [1, 2],
         "Species_B_positive" => [1, 1],
         "Species_C_positive" => [1, 10],
         "Species_D_positive" => [1, 20],
-    ))
+    )))
 ])
 
 problem_055 = Problem("problem_055", [
@@ -377,11 +377,11 @@ problem_055 = Problem("problem_055", [
             "c_Hy" => [1, 1, 1, 0, 0],
             "occ" => [2581, 1917, 2708, 2751, 1522],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Var" => ["c_Al", "c_D", "c_Hy"],
         "0" => [2680.0, 2402.0, 2136.5],
         "1" => [1719.5, 2136.5, 2402.0],
-    ))
+    )))
 ])
 
 problem_065 = Problem("problem_065", [
@@ -393,11 +393,11 @@ problem_065 = Problem("problem_065", [
             "HEL.one" => [12, 12, 15],
             "HEL.two" => [13.0, -0.12, 4.0],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "ID" => ["A", "B", "C"],
         "HEL" => [12.5, 5.94, 9.5],
         "MGW" => [14.5, -0.145, 1.525],
-    ))
+    )))
 ])
 
 problem_067 = Problem("problem_067", [
@@ -408,11 +408,11 @@ problem_067 = Problem("problem_067", [
             "name" => ["Kerry", "Kerry", "Kerry", "Kerry", "Kerry", "Kerry", "Sherry", "Sherry"],
             "n" => [615, 1600, 1000, 432, 598, 421, 234, 1200],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "year" => [1955, 1980, 1988],
         "F" => [615, 1000, 598],
         "M" => [1600, 432, 421],
-    ))
+    )))
 ])
 
 problem_069 = Problem("problem_069", [
@@ -422,13 +422,13 @@ problem_069 = Problem("problem_069", [
             "Var1" => [25, 25, 30, 30],
             "Var2" => [27, 26, 28, 28],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "SubjectNew" => ["A", "B"],
         "Var1_post" => [25, 30],
         "Var1_pre" => [25, 30],
         "Var2_post" => [26, 28],
         "Var2_pre" => [27, 28],
-    ))
+    )))
 ])
 
 problem_070 = Problem("problem_070", [
@@ -439,10 +439,10 @@ problem_070 = Problem("problem_070", [
             "Action" => [0, 0, 1, 0, 0, 1],
             "Sci.Fi" => [1, 0, 0, 0, 1, 0],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "genre" => ["Action", "Sci.Fi"],
         "average" => [4.5, 3.0],
-    ))
+    )))
 ])
 
 problem_075 = Problem("problem_075", [
@@ -455,12 +455,12 @@ problem_075 = Problem("problem_075", [
             "Q2.1" => [1.52718069, -0.40380049],
             "Q2.2" => [-0.29177677, -1.19813815],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "id" => [1, 1, 2, 2],
         "time" => ["2009-01-01", "2009-01-01", "2009-01-02", "2009-01-02"],
         "Q1" => [0.48742885, -0.01618826, 0.73832471, 0.94383621],
         "Q2" => [1.52718069, -0.29177677, -0.40380049, -1.19813815],
-    ))
+    )))
 ])
 
 problem_077 = Problem("problem_077", [
@@ -470,12 +470,12 @@ problem_077 = Problem("problem_077", [
             "year" => [2015, 2015, 2015, 2014, 2014, 2014, 2015],
             "type" => ["A", "A", "B", "A", "B", "A", "A"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "obs" => [1, 2, 3, 4, 5, 6, 7],
         "year" => [2015, 2015, 2015, 2014, 2014, 2014, 2015],
         "type" => ["A", "A", "B", "A", "B", "A", "A"],
         "freq" => [3, 3, 1, 3, 1, 3, 3],
-    ))
+    )))
 ])
 
 problem_078 = Problem("problem_078", [
@@ -485,13 +485,13 @@ problem_078 = Problem("problem_078", [
             "x2" => [1, 1, 2, 2, 1, 1, 2, 2],
             "y" => [1.41, 1.39, 1.9, 2.1, 0.9, 1.1, 1.9, 2.1],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "x" => [1, 1, 1, 1, 2, 2, 2, 2],
         "x2" => [1, 1, 2, 2, 1, 1, 2, 2],
         "y" => [1.41, 1.39, 1.9, 2.1, 0.9, 1.1, 1.9, 2.1],
         "a" => [1.4, 1.4, 1.4, 1.4, 1.0, 1.0, 1.0, 1.0],
         "z" => [1.00714285714286, 0.992857142857143, 1.35714285714286, 1.5, 0.9, 1.1, 1.9, 2.1],
-    ))
+    )))
 ])
 
 problem_081 = Problem("problem_081", [
@@ -503,10 +503,10 @@ problem_081 = Problem("problem_081", [
             "d" => [-11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0],
             "O" => ["Nn", "Nn", "Nn", "Nn", "Nn", "Nn", "Hy", "Hy", "Hy", "Hy", "Hy", "Hy"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "O" => ["Nn"],
         "value" => [1.388889],
-    ))
+    )))
 ])
 
 problem_082 = Problem("problem_082", [
@@ -519,11 +519,11 @@ problem_082 = Problem("problem_082", [
             "W3" => [4, 7, 8, 10, 13, 14, 16, 16, 14, 4],
             "W4" => [5, 8, 9, 11, 14, 15, 17, 17, 15, 5],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Color" => ["blue", "blue", "blue", "blue", "green", "red", "red", "red", "red", "yellow", "yellow", "yellow", "yellow"],
         "Week" => ["W1", "W2", "W3", "W4", "W4", "W1", "W2", "W3", "W4", "W1", "W2", "W3", "W4"],
         "Count" => [2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 1, 1, 1],
-    ))
+    )))
 ])
 
 problem_083 = Problem("problem_083", [
@@ -535,13 +535,13 @@ problem_083 = Problem("problem_083", [
             "Group2" => [60, 90, 120, 150],
             "Error2_Group1" => [14, 16, 13, 25],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Group1" => [60, 66, 88, 90],
         "Group2" => [60, 90, 120, 150],
         "Error1" => [4, 6, 8, 2],
         "mGroup" => ["Group1", "Group1", "Group1", "Group1"],
         "Error2" => [14, 16, 13, 25],
-    ))
+    )))
 ])
 
 problem_084 = Problem("problem_084", [
@@ -565,12 +565,12 @@ problem_084 = Problem("problem_084", [
             "D_8" => [8957.7, 2471.0, 831.5],
             "T_8" => [4092.4, 1784.1, 814.1],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "col1" => ["D", "T"],
         "A2M" => [67044.55, 46310.3],
         "ABL1" => [18435.7, 14603.9],
         "ACP1" => [8992.75, 9013.95],
-    ))
+    )))
 ])
 
 problem_085 = Problem("problem_085", [
@@ -580,11 +580,11 @@ problem_085 = Problem("problem_085", [
             "metric" => ["height", "height", "height", "weight", "weight", "weight", "weight", "grade", "grade", "weight", "weight", "grade", "grade", "grade", "height", "height", "weight", "weight", "grade", "height"],
             "values" => [6, 5, 4, 120, 118, 100, 180, 2, 2, 10, 80, 9, 8, 4, 11, 33, 99, 90, 5, 109],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "name" => ["Bob", "Eric", "Jim", "Kara", "Tom"],
         "grade" => [1, 1, 1, 1, 1],
         "height" => [1, 1, 1, 1, 1],
-    ))
+    )))
 ])
 
 problem_086 = Problem("problem_086", [
@@ -596,10 +596,10 @@ problem_086 = Problem("problem_086", [
             "B" => [5, 6, 7, 8],
             "C" => [9, 10, 11, 12],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "ID" => ["ID1", "ID2", "ID3", "ID4"],
         "flag" => [14, 16, 18, 20],
-    ))
+    )))
 ])
 
 problem_087 = Problem("problem_087", [
@@ -610,12 +610,12 @@ problem_087 = Problem("problem_087", [
             "ext" => [100, 200, 300, 400, 500, 600, 700, 800],
             "misc" => ["A", "B", "C", "D", "E", "F", "G", "H"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "col2" => ["1d4", "1d5"],
         "base" => [30, 60],
         "dplyr" => [3, 10],
         "ratio" => [10, 6],
-    ))
+    )))
 ])
 
 problem_088 = Problem("problem_088", [
@@ -626,11 +626,11 @@ problem_088 = Problem("problem_088", [
             "Var1" => ["good", "good", "bad", "bad", "good", "bad", "good", "good", "bad", "good", "bad", "bad"],
             "Var2" => [10, 2, 3, 2, 10, 9, 2, 8, 7, 5, 7, 9],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Group" => ["B"],
         "bad" => [9],
         "good" => [20],
-    ))
+    )))
 ])
 
 problem_089 = Problem("problem_089", [
@@ -648,14 +648,14 @@ problem_089 = Problem("problem_089", [
             "TIME_3" => ["18:00:00", "06:00:00", "10:00:00"],
             "ENTRIES_3" => [1209663, 1210775, 1212845],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "rowname" => [2, 2, 2, 3, 3, 3],
         "CA" => ["A002", "A002", "A002", "A002", "A002", "A002"],
         "col2" => ["1", "2", "3", "1", "2", "3"],
         "DATE" => ["07-28-13", "07-28-13", "07-28-17", "07-29-13", "07-30-13", "07-30-17"],
         "ENTRIES" => ["4210490", "4210775", "1210775", "4211586", "4212845", "1212845"],
         "TIME" => ["08:20:00", "16:40:00", "06:00:00", "16:20:00", "00:00:00", "10:00:00"],
-    ))
+    )))
 ])
 
 problem_090 = Problem("problem_090", [
@@ -669,11 +669,11 @@ problem_090 = Problem("problem_090", [
             "con2_2" => [40, 50, 60],
             "con2_3" => [40, 40, 40],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "name1" => ["a", "b", "c"],
         "con1" => [26.0, 27.0, 26.3333333333333],
         "con2" => [34.3333333333333, 37.3333333333333, 43.3333333333333],
-    ))
+    )))
 ])
 
 problem_091 = Problem("problem_091", [
@@ -685,12 +685,12 @@ problem_091 = Problem("problem_091", [
             "Year.2" => [5, 6, 7, 8, 9, 10],
             "Year.3" => [5, 6, 7, 8, 9, 10],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Geotype" => ["A", "B"],
         "Year.1" => [5, 19],
         "Year.2" => [13, 19],
         "Year.3" => [13, 19],
-    ))
+    )))
 ])
 
 problem_092 = Problem("problem_092", [
@@ -701,11 +701,11 @@ problem_092 = Problem("problem_092", [
             "Year.1" => [1, 2, 3, 8, 9, 10, 8, 9, 10],
             "Year.2" => [5, 6, 7, 8, 9, 10, 8, 9, 10],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Geotype" => ["A", "B", "C"],
         "Year.1" => [5, 19, 19],
         "Year.2" => [13, 19, 19],
-    ))
+    )))
 ])
 
 problem_093 = Problem("problem_093", [
@@ -717,13 +717,13 @@ problem_093 = Problem("problem_093", [
             "TOT" => [5, 1, 4, 1, 1, 1, 1, 5, 1, 9, 13, 1, 1, 1],
             "inf_status" => ["negative", "negative", "positive", "positive", "positive", "positive", "positive", "negative", "negative", "negative", "negative", "negative", "negative", "negative"],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "site" => ["site_1", "site_2", "site_3"],
         "Species_A_negative" => [1, 5, 13],
         "Species_A_positive" => [1, 1, 6],
         "Species_B_negative" => [1, 1, 1],
         "Species_C_negative" => [1, 9, 5],
-    ))
+    )))
 ])
 
 problem_094 = Problem("problem_094", [
@@ -735,10 +735,10 @@ problem_094 = Problem("problem_094", [
             "c_Hy" => [1, 1, 1, 0, 0, 0, 1, 1],
             "occ" => [2581, 1917, 2708, 2751, 1522, 657, 469, 2629],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "0" => [1965.833333, 2402.0, 1643.333333],
         "1" => [1719.5, 1605.6, 2060.8],
-    ))
+    )))
 ])
 
 problem_095 = Problem("problem_095", [
@@ -751,11 +751,11 @@ problem_095 = Problem("problem_095", [
             "HEL.one" => [12, 12, 15],
             "HEL.two" => [13.0, -0.12, 4.0],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "ID" => ["A", "B", "C"],
         "HEL" => [12.5, 5.94, 9.5],
         "MGW" => [14.5, -0.145, 1.525],
-    ))
+    )))
 ])
 
 problem_096 = Problem("problem_096", [
@@ -766,14 +766,14 @@ problem_096 = Problem("problem_096", [
             "Var2" => [8, 9, 10, 11],
             "Var3" => [20, 21, 27, 26],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "Col1" => ["A", "B"],
         "Var1_pre" => [1, 3],
         "Var2_post" => [9, 11],
         "Var2_pre" => [8, 10],
         "Var3_post" => [21, 26],
         "Var3_pre" => [20, 27],
-    ))
+    )))
 ])
 
 problem_097 = Problem("problem_097", [
@@ -786,10 +786,10 @@ problem_097 = Problem("problem_097", [
             "Animation" => [1, 0, 1, 0, 1, 0, 1, 0],
             "Crime" => [1, 0, 1, 1, 0, 0, 0, 1],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "genre" => ["Action", "Animation", "Crime", "Sci.Fi"],
         "average" => [4.6666667, 4.0, 3.75, 3.0],
-    ))
+    )))
 ])
 
 problem_098 = Problem("problem_098", [
@@ -801,10 +801,10 @@ problem_098 = Problem("problem_098", [
             "Action" => [10, 11, 12, 13, 14, 15],
             "Sci.Fi" => [20, 21, 22, 23, 24, 25],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "key" => ["Action", "Sci.Fi"],
         "newCol" => [4, 3],
-    ))
+    )))
 ])
 
 problem_099 = Problem("problem_099", [
@@ -821,14 +821,14 @@ problem_099 = Problem("problem_099", [
             "Q4.1" => [1.52718069, -0.40380049],
             "Q4.2" => [-0.29177677, -1.19813815],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "id" => [1, 1, 2, 2],
         "time" => ["2009-01-01", "2009-01-01", "2009-01-02", "2009-01-02"],
         "Q1" => [0.48742885, -0.01618826, 0.73832471, 0.94383621],
         "Q2" => [1.52718069, -0.29177677, -0.40380049, -1.19813815],
         "Q3" => [0.48742885, -0.01618826, 0.73832471, 0.94383621],
         "Q4" => [1.52718069, -0.29177677, -0.40380049, -1.19813815],
-    ))
+    )))
 ])
 
 problem_100 = Problem("problem_100", [
@@ -843,11 +843,11 @@ problem_100 = Problem("problem_100", [
             "Q3.1" => [0.48742885, 0.73832471],
             "Q3.2" => [-0.01618826, 0.94383621],
         )
-    ), DataFrame(
+    ), contents(DataFrame(
         "id" => [1, 1, 2, 2],
         "time" => ["2009-01-01", "2009-01-01", "2009-01-02", "2009-01-02"],
         "Q1" => [0.48742885, -0.01618826, 0.73832471, 0.94383621],
         "Q2" => [1.52718069, -0.29177677, -0.40380049, -1.19813815],
         "Q3" => [0.48742885, -0.01618826, 0.73832471, 0.94383621],
-    ))
+    )))
 ])
