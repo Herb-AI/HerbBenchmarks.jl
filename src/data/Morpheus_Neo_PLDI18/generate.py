@@ -12,7 +12,7 @@ Usage:
 
 The output folder defaults to the folder of this script. The script writes data.jl,
 grammars.jl, solutions.jl and status.json. For every problem it builds Neo's grammar
-(MorpheusGrammar.java), then searches the arguments of Neo's sketch for a program whose
+(src/org/genesys/language/MorpheusGrammar.java), then searches the arguments of Neo's sketch for a program whose
 output has the same contents as Neo's expected output (Neo's `hasSameContents`). The
 programs are evaluated with this benchmark's semantics, mirrored below from
 table_functions.jl; if that file changes, update this mirror and rerun. `verify.jl`
@@ -352,7 +352,7 @@ OPS = {"select": op_select, "group_by": op_group_by, "inner_join": op_inner_join
        "mutate": op_mutate}
 
 # ---------------------------------------------------------------------------
-# Neo's comparison (krangl's hasSameContents in Neo's fork): same number of rows and
+# Neo's comparison (hasSameContents in Neo's fork of krangl, src/main/kotlin/krangl/Reshape.kt): same number of rows and
 # columns, and every row of each table, as a set of strings, is approximately a subset
 # of some row of the other. Strings that look like numbers are compared with tolerance
 # 1e-5. Column names, column order and row order are ignored.

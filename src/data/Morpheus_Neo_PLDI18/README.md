@@ -9,9 +9,14 @@ taken from Neo's repository, https://github.com/utopia-group/neo (commit `1d3572
 the problems from `problem/Morpheus-PLDI` (one input-output example each, from
 StackOverflow posts, originally collected for Morpheus, PLDI 2017) and Neo's sketch of
 each solution from `sketches/morpheus_pldi` (the sequence of components, without
-arguments). The grammar and semantics follow Neo's `MorpheusGrammar.java` and
-`interpreter/morpheus/*.java`, which run on Neo's fork of krangl
-(https://github.com/fredfeng/krangl). Tables are plain `DataFrame`s.
+arguments). The grammar follows Neo's
+`src/org/genesys/language/MorpheusGrammar.java` (terminals in the constructor, components
+in `getProductions()`). The semantics follow Neo's interpreter,
+`src/org/genesys/interpreter/MorpheusInterpreter.java` and
+`src/org/genesys/interpreter/morpheus/*.java`, which runs on Neo's fork of krangl
+(https://github.com/fredfeng/krangl, `src/main/kotlin/krangl/Reshape.kt` for the
+reshaping components and `hasSameContents`, `src/main/kotlin/krangl/Columns.kt` for
+comparisons and aggregators). Tables are plain `DataFrame`s.
 
 ## Files
 

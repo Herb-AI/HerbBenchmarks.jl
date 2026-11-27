@@ -1,5 +1,8 @@
-# The components of Neo's Morpheus DSL (Neo's MorpheusGrammar.java and
-# interpreter/morpheus/*.java, on Neo's fork of krangl), on DataFrames.
+# The components of Neo's Morpheus DSL, on DataFrames. Neo (https://github.com/utopia-group/neo):
+# src/org/genesys/language/MorpheusGrammar.java (grammar),
+# src/org/genesys/interpreter/MorpheusInterpreter.java and
+# src/org/genesys/interpreter/morpheus/*.java (semantics), on Neo's fork of krangl
+# (https://github.com/fredfeng/krangl, src/main/kotlin/krangl/Reshape.kt and Columns.kt).
 #
 # Tables are `DataFrame`s. `group_by` returns a `GroupedDataFrame`, which `summarise`
 # aggregates per group; every other component works on the ungrouped table. Columns are
@@ -124,7 +127,7 @@ function unite(t::AnyTable, col1::Int, col2::Int)
     return out
 end
 
-const SEPARATOR = r"\.|-|_|\|"  # Neo's Separate.java
+const SEPARATOR = r"\.|-|_|\|"  # Neo's src/org/genesys/interpreter/morpheus/Separate.java
 
 """
     separate(table, col)
@@ -215,7 +218,7 @@ const NUMBER = r"^-?\d+(\.\d+)?$"
     same_table(a, b) -> Bool
 
 Neo's check that a program's output matches the expected table (`hasSameContents` in
-Neo's fork of krangl): the tables have the same number of rows and columns, and every row
+Neo's fork of krangl, src/main/kotlin/krangl/Reshape.kt): the tables have the same number of rows and columns, and every row
 of each, taken as a set of strings, is covered by some row of the other. Strings that look
 like numbers are equal if they differ by less than 1e-5. Column names, column order and
 row order are ignored (a row is a set, so this is looser than equality up to them).
